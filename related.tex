@@ -1,0 +1,45 @@
+% !TeX root = main.tex
+
+\section{Related Work}
+\label{sec:related}
+
+Stability results indicate that, under mild sampling conditions, the persistent homology of a sequence of spaces formed from the $\alpha$-offsets of a point cloud correspond with the homology of the underlying space~\cite{cohensteiner07stability}.
+The persistent homology of this sequence can computed efficiently using the persistence algorithm, first proposed in~\cite{edelsbrunner02simplification} for simplicial complexes in $\R^3$, and extended to discrete functions over arbitrary finite simplicial complexes in~\cite{zomorodian05computing}.
+In~\cite{zomorodian05computing} it is also shown that the persistent homology of a sequence of spaces can be encoded in a finite set of intervals known as the \emph{persistent barcode} or \emph{diagram}.
+
+% In the functional setting one considers the change in the homology of the level-sets of a function.
+% This gives a stable signature for the function.
+% On the other hand, when one considers the level-sets of the distance to a set this signature corresponds to what we recognize as the shape of the set.
+% The resulting signature can be used to compare functions, or spaces, over some range.
+% Given a simplicial complex which discretizes a space the persistesnt homology of a function defined on its simplices may be computed simply by ordering the simplices by their function values.
+% The resulting structure is known as a filtration - a nested sequence of simplicial complexes which represents the evolution of the topology of the function over a range of scales.
+% % When one considers the distance to a set these complexes may be computed as the nerve of a cover of a space at that scale.
+
+Persistent homology was first applied to sensor networks by de Silva \& Ghrist over a series of papers~\cite{ghrist05coverage,desilva06coordinate,desilva07homological,desilva07coverage}.
+This work introduces a computable, sufficient condition for coverage of a domain with a smooth boundary by a coordinate-free sensor network network~\cite{desilva07coverage}.
+The theory of so-called homological sensor networks has since been extended to consider robustness of coverage by probabilistic models and $k$-coverage~\cite{munch12failure,cavanna2017when}, distributed computation~\cite{dlotko12distributed}, and coverage in dynamic settings~\cite{gamble12applied,gamble14coordinate}.
+Developments of this theory outside of coverage is limited to work by Adams and Carlsson which considered ways to evade a collection of moving sensors~\cite{adams13evasion}.
+
+The Topological Coverage Criterion (TCC) applies persistent homology to sensor networks in a limited sense through what may be considered a short filtration, which are generally used as a tool for de-noising data.
+These short filtrations, which arise from the inclusion of a complex into another at a larger scale, are required in order to eliminate any spurious components that could lead to false positives.
+
+% Another setting in which short filtrations appear is in the analysis of scalar fields~\cite{chazal09analysis}.
+% Unlike homological sensor networks this applies short filtrations not as the sole application of persistence, but as a de-noising step applied throughout the persistence computation in order to recover the homology of the nerve by a closely related complex know as the (Vietoris-)Rips complex.
+% The result is an algorithm which faithfully approximates the persistent homology of a function defined only over a sample of a metric space.
+% Chazal et al. consider approximating a scalar field from only its values on a finite sample and the pairwise distances between sample points~\cite{chazal09analysis}.
+% Structural properties of unions of balls are extended naturally to a nested pair of Rips complexes, which is shown to capture the homology of the underlying space~\cite{chazal08towards}.
+% Their use of stability, taken from~\cite{chazal09proximity} differs from the classical notion~\cite{cohensteiner07stability}.
+
+In~\cite{chazal08towards} these short filtrations are shown to capture the homology of the underlying space, and applied to the analysis of scalar fields in~\cite{chazal09analysis}.
+This work considers a setting similar to that of homological sensor networks in which the persistent homology of a function is approximated from its values on a finite sample and the pairwise distances between these points.
+
+In the intersection of coverage in homological sensor networks and the analysis of scalar fields our goal is to compare a collection of unknown domains by the signature of a common function with values given only at a finite sample of points in the domain.
+We consider a specific class of functions which evolve over time, which arise naturally in the setting of sensor networks.
+Moreover, we consider classes of known functions in which this same procedure may be used to extract structural information about the domain itself.
+
+% We consider a setting in the intersection of coverage in homological sensor networks and the analysis of scalar fields in which one would like to recover the structure of an unknown domain given only the pairwise distances between points in a sample and the values of a function at these points.
+
+%
+% One could imagine a domain changing over time that is covered at any point in time by some unknown sensor network.
+% The coordinates of the sensors are not known and may change from one time step to the next.
+% Assuming that the domain is stable for the lifetime of a given function which is consistently measured by a potentially changing network changes in the domain at a larger scale can be identified by a signature that may be used for comparison.

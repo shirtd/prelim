@@ -1,0 +1,125 @@
+% !TeX root = main.tex
+
+\subsection{Assumptions}\label{ssec:assumptions}
+
+We first generalize the notion of the topological boundary in the preceding example to the notion of a set which surrounds our domain.
+
+Let $X\subset \R^d$ and $A\subset X$.
+We say that $A$ \textbf{separates} $X$ if there exists a pair $(\I, \O)$ such that
+\begin{itemize}
+    \item $\I, A, \O$ are disjoint,
+    \item $\I \cup \O = X\setminus A$,
+    \item there is no path from $\I$ to $\O$ that does not cross $A$.
+\end{itemize}
+
+\begin{lemma}
+    If $A$ separates $X$ with the pair $(\I, \O)$ then for all $k\geq 0$
+    \[ \hom_k(\I)\cong\hom_k(\overline{A}, \O). \]
+\end{lemma}
+% \begin{proof}
+%     If $A$ separates $X$ with the pair $(\I, \O)$ then $\I$ and $\O$ are not path connected and $\overline{A} = \I\cup\O$.
+%
+%     For all $k > 0$ suppose $[x]\in \hom_k(\overline{A}, \O)$ is non-trivial.
+%     Because $\I$ and $\O$ are not path connected $\partial x \in C_{k-1}(\O)$ implies that $x\in C_k(\O)$ and therefore that $[x]$ is trivial in $\hom_k(\overline{A}, \O)$.
+%     So $[x]$ is not a relative cycle and therefore $[x]\in \hom_k(\overline{A})$, $[x]\notin\hom_k(\O)$.
+%     Because $\I$ and $\O$ are not path connected $[x]\notin\hom_k(\O)$ implies $[x]\in \hom_k(\overline{A}\setminus\O) = \hom_k(\I)$.
+%
+%     On the other hand, if $[x]\in \hom_k(\I)$ then $[x]\in \hom_k(\overline{A}, \I)$ as $\I\subset\overline{A}$ and, because $\I$ and $\O$ are not path connected, $[x]$ is trivial in $\hom_k(\overline{A}, \O)$ if and only if $[x]$ is trivial in $\hom_k(\I)$.
+% \end{proof}
+
+\begin{lemma}\label{lem:surrounds}
+    If $A$ separates $X$ with the pair $(\I, \O)$ then for all $k\geq 0$, $\e > 0$
+    \[\hom_k(\I\setminus A^\e)\cong \hom_k(\overline{A^\e}, \overline{\I^\e}).\]
+\end{lemma}
+
+We say that a subset $A$ \textbf{surrounds} $X$ if $A$ separates $\R^d$ with the pair $(X\setminus A, \overline{X})$.
+
+\begin{lemma}\label{lem:surrounds}
+    If $A$ surrounds $X$ then for all $\e > 0$
+    \[\hom_0((\D\setminus\B^\e,\emptyset)\hookrightarrow (\overline{\B^\e}, \overline{\D^\e}))\]
+    is an isomorphism.
+\end{lemma}
+
+\subsection{The Topological Coverage Criterion}
+
+Let $\omega,\delta,\gamma \in \R$ such that $U_{\omega-2c\delta}$ is closed and surrounds $\D$, and $\gamma \geq 3\delta$ is such that we have the following sequence of inclusions
+\[\D_{\omega - 2c\delta}\subset \D_{\omega - 2c\delta}^{2\delta} \subset \D_{\omega - 2c\delta}^{\delta + \gamma} \subset \D_{\omega + 2c\delta}.\]
+In the following let $\B = \D_{\omega - 2c\delta}$.
+
+Let $P$ be a finite subset of $\D$ and $Q = P\cap U_{\omega - c\delta}$.
+We have the following commutative diagrams of inclusions between the pairs $(P,Q)$ and $(\D, \B)$ and their complements with increasing scale.
+
+\[ \begin{tikzcd}
+(P^\delta, Q^\delta) \arrow[hookrightarrow]{r}\arrow[hookrightarrow]{d}& (P^\gamma, Q^\gamma) \arrow[hookrightarrow]{d} \\%
+(\D^{2\delta}, \B^{2\delta}) \arrow[hookrightarrow]{r} & (\D^{\delta+\gamma}, \B^{\delta+\gamma}),
+\end{tikzcd}
+\begin{tikzcd}
+(\overline{\B^{\delta+\gamma}}, \overline{\D^{\delta+\gamma}})\arrow[hookrightarrow]{r}{j}\arrow[hookrightarrow]{d}& (\overline{\B^{2\delta}}, \overline{\D^{2\delta}}) \arrow[hookrightarrow]{d} \\%
+(\overline{Q^\gamma}, \overline{P^\gamma}) \arrow[hookrightarrow]{r}{i} & (\overline{Q^\delta}, \overline{P^\delta}).
+\end{tikzcd}\]
+
+The following diagram is formed by applying the homology functor.
+\[ \begin{tikzcd}\label{dgm:1}
+\hom_0(\overline{\B^{\delta+\gamma}}, \overline{\D^{\delta+\gamma}})\arrow{r}{j_*}\arrow{d}& \hom_0(\overline{\B^{2\delta}}, \overline{\D^{2\delta}}) \arrow{d} \\%
+\hom_0(\overline{Q^\gamma}, \overline{P^\gamma}) \arrow{r}{i_*} & \hom_0(\overline{Q^\delta}, \overline{P^\delta}).
+\end{tikzcd}\]
+Let $p_* : \im~j_*\to\im~i_*$.
+
+\begin{theorem}[Geometric TCC]\label{thm:tcc}
+    If $\im~\hom_k(\D_{\omega-2c\delta}\hookrightarrow \D_{\omega+{2c\delta}})\cong \hom_k(\D_{\omega - 2c\delta}^{2\delta})$ and $p_*$ is injective then $\D\setminus\D_{\omega-2c\delta}^{2\delta}\subseteq P^\delta$ and $Q^\delta$ separates $\D$.
+\end{theorem}
+
+\begin{corollary}
+    If $\im~\hom_k(\D_{\omega-2c\delta}\hookrightarrow \D_{\omega+{2c\delta}})\cong \hom_k(\D_{\omega - 2c\delta}^{2\delta})$ and $p_*$ is injective then for all $k\geq 0$
+    \[ \im~i_* \cong \hom_k(\D^{2\delta}, \B^{2\delta}).\]
+\end{corollary}
+
+% \begin{lemma}\label{lem:separate}
+%     If $j_*$ is surjective and $p_*$ is injective then $Q^\delta$ separates $\D$.
+% \end{lemma}
+% \begin{proof}
+%     Suppose, for the sake of contradiction, that $Q^\delta$ does not separate $\D$.
+%     Then for all $(\I, \O)$ such that $\I \cup \O = \D\setminus Q^\delta$ there must exist some path from $\I$ to $\O$ that does not cross $Q^\delta$.
+%     Formally, there exists a path $\pi : [0,1]\to\overline{Q^\delta}$ with $\pi(0)\in \I$ and $\pi(1)\in\O$.
+%     Noting that $\overline{\B^{2\delta}}\subseteq \overline{Q^\delta}$ and, because $\overline{\B^{2\delta}} = \overline{\D^{2\delta}}\cup (\D\setminus\B^{2\delta})$ surrounds $\D^{2\delta}$ we can choose $(\I, \O)$ such that $\D\setminus \B^{2\delta}\subset \I$ and $\overline{\D^{2\delta}}\subset \O$.
+%
+%     Choose $x\in\D\setminus \B^{2\delta}$ and $y\in \overline{\D^{2\delta}}$ such that there exist paths $\pi_x : [0,1]\to \I$ with $\pi_x(0) = x$, $\pi_x(1) = \pi(0)$ and $\pi_y : [0,1]\to \O$ with $\pi_y(0) = y$, $\pi_y(1) = \pi(1)$.
+%     $\pi_x, \pi_y$ and $\pi$ all generate chains in $C_1(\overline{Q^\delta}, \overline{P^\delta})$ and $\pi_x + \pi + \pi_y = \pi^*\in C_1(\overline{Q^\delta}, \overline{P^\delta})$ with $\partial\pi^* = x + y$.
+%     Moreover, $y$ generates a chain in $C_0(\overline{P^\delta})$ as $\overline{\D^{2\delta}}\subseteq\overline{P^\delta}$.
+%     So $x = \partial\pi^* + y$ is a relative boundary in $C_0(\overline{Q^\delta}, \overline{P^\delta})$ thus $[x] = 0 = [y]$ in $\hom_0(\overline{Q^\delta}, \overline{P^\delta})$ and therefore $[x] = [y]$ in $\im~i_*$.
+%     However, because $\B^{2\delta}$ separates $\D$ with the pair $(\overline{\D^{2\delta}}, \D\setminus\B^{2\delta})$ we know that $[x]\neq [y]$ in $\hom_0(\overline{\B^{2\delta}}, \overline{\D^{2\delta}})\cong \im~j_*$, contradicting our assumption that $p_*$ is injective.
+% \end{proof}
+%
+% In the following we will assume that $j_*$ is surjective and $p_*$ is injective.
+% By Lemma~\ref{lem:separate} $Q^\delta$ separates $\D$ with a pair $(\I, \O)$.
+% Let $\hat{Q}^\delta = Q^\delta \cup \O$, $\hat{P}^\delta = P^\delta \cup \O$ and $\hat{Q}^\gamma = Q^\gamma \cup \O$.
+%
+% \begin{lemma}
+%     $\hom_*(\hat{P}^\delta, \hat{Q}^\delta)\cong \hom_*(P^\delta, Q^\delta)$ and $\hom_*(P^\delta\cup\hat{Q}^\gamma, \hat{Q}^\gamma)\cong \hom_*(P^\delta\cup Q^\gamma, Q^\gamma)$.
+% \end{lemma}
+% \begin{proof}
+%     By the definition of $\hat{Q}^\delta$, $\hat{Q}^\gamma$ and $\O$ we have that $\hat{Q}^\delta\setminus\O = Q^\delta$ and $\hat{Q}^\gamma\setminus\O = Q^\gamma$ and $\cl~\O \subset \intr~\hat{Q}^\delta, \intr~\hat{Q}^\gamma$.
+%     The desired results follow by Excision.
+% \end{proof}
+%
+% \begin{lemma}
+%     If $p_*$ is injective then $\B^{2\delta}\subseteq \hat{Q}^\gamma$.
+% \end{lemma}
+% \begin{proof}
+%     Suppose $p_*$ is injective and there exists some $x\in \B^{2\delta}$ such that $x\notin \hat{Q}^\gamma$.
+%     So there exists some $y\in U_{\omega - 2c\delta}$ such that $\dist(x, y) < 2\delta$.
+%     Because $Q^\delta$ separates $\D = \O \cup Q^\delta \cup \I$ both $x$ and $y$ are either in $Q^\delta, \O$ or $\I$.
+%     Moreover, $\overline{\I} = Q^\delta \cup \O = \hat{Q}^\delta$ so $\B^{2\delta}\cap\I = \B^{2\delta}\setminus \hat{Q}^\delta$ and $\B\cap\I = \B\setminus \overline{\I} = \B\setminus \hat{Q}^\delta = \emptyset$ as $\B\subset \hat{Q}^\delta$.
+%     So $y\notin \I$ and, because $Q^\delta \subset Q^\gamma$ and $\O\subset \hat{Q}^\delta\subset\hat{Q}^\gamma$, we can assume w.l.o.g. that $x\in \B^{2\delta}\cap\I$.
+%
+%     If $y\in Q^\delta$ then there exists some $q\in Q$ such that $\dist(q, y) < \delta$ so
+%     \[ \dist(q, x)\leq \dist(q, y) + \dist(x, y) < 3\delta\leq\gamma \]
+%     which implies $x \in Q^\gamma$.
+%
+%     So we may assume that $y\in U_{\omega - 2c\delta}\cap\O$.
+%     Because $Q^\delta$ separates $\D$ with $(\I, \O)$ there is no path from $x\in \I$ to $y\in\O$ that does not cross $Q^\delta$, so there must be some point $z\in Q^\delta$ in the shortest path from $x$ to $y$.
+%     That is, there exists some $q\in Q$ such that $\dist(q, z) < \delta$ and $\dist(z, x) < \dist(x, y) < 2\delta$ so
+%     \[ \dist(q, x)\leq \dist(q, z) + \dist(z, x) < \delta + 2\delta \leq \gamma. \]
+%     So $y\in\O$ implies $x\in\hat{Q}^\gamma$.
+%
+% \end{proof}

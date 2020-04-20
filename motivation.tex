@@ -1,0 +1,50 @@
+% !TeX root = main.tex
+
+The primary tool used in the TCC that we will apply to the analysis of scalar fields is relative persistent homology.
+Relative homology provides a powerful representation of a bounded domain that is particularly suited to verifying coverage of a sensor network.
+Let $\D$ be a bounded domain with boundary $\B\subset\D$.
+For illustrative purposes assume $\D$ is a connected, compact subset of the euclidean plane $\R^2$ so that certain properties of the relative homology of the pair $(\D, \B)$ are known.
+Namely, there is exactly one equivalence class in $H_2(\D, \B)$, as illustrated in Fig.~\ref{fig:balloons1}.
+We can think of the quotient as an identification of points in the boundary, illustrated by wrapping the planar domain around a single point in $\R^3$.
+As the domain is compact this creates a single void corresponding to the one generator in $H_2(\D, \B)$.
+
+\figblock{%
+\begin{figure}[htbp]
+\centering
+    \includegraphics[scale=0.5]{figures/balloons2.png}
+    \caption{If there is a gap in the domain that is not a part of the boundary then $\beta_2 = \rank~ H_2(\D, \B) = 0$ as there is no void.}
+    \label{fig:balloons2}
+\end{figure}}
+
+Now suppose our network $P$ covers the domain at some scale $\delta > 0$ such that there are no gaps (1-cycles) in $\rips_\delta(P)$.
+The subset $Q = \{p\in P\mid \ball_\delta(p)\cap\B\neq\emptyset\}$ of points within distance $\delta$ of $\B$ induces a subcomplex $\rips_\delta(Q)$ of $\rips_\delta(P)$.
+Given such a pair $(P, Q)$ let $\rips_\delta(P, Q)$ denote the pair of complexes $(\rips_\delta(P), \rips_\delta(Q))$ throughout.
+Under our assumptions, the relative homology $H_2(\rips_\delta(P, Q))$ should reflect that of the domain.
+A gap in coverage can be thought of as ``popping the balloon'' in the sense that, if we wrap the simplices of $\rips_\delta(P)$ around those in $\rips_\delta(Q)$ we would have no void---the gap provides a hole through which the ``air'' can escape, as illustrated in Fig.~\ref{fig:balloons2}.
+
+That is, a collection of sensors can be verified as covering a domain if
+\begin{enumerate}
+    \item[a.] the boundary of the domain is adequately covered,
+    \item[b.] the balloon has not been ``punctured.''
+\end{enumerate}
+Condition (b) relies on condition (a) in order to provide a topological condition that is necessary but not sufficient.
+Given (a) we can confirm coverage by checking if the balloon has been punctured simply by checking the dimension of the top-dimensional relative homology of the sample.
+Adequate coverage of the boundary can be broken into two parts.
+First, we require that the sampled boundary is in some sense simple in order to ensure our condition cannot produce false positives.
+This is achieved by using what we refer to as \emph{short-filtrations}: applying one step of persistence in order to de-noise the data.
+By testing our network at two scales we can ensure no spurious features are present in the boundary which may contribute to false positives.
+We also note that these short-filtrations are employed in the analysis of scalar fields as well.
+
+Secondly, we require that the so-called ``sampled boundary'' surrounds the interior of the domain.
+Otherwise, we may cover the domain but see what looks like a punctured ball as the ball when in fact the ball was never formed.
+In the TCC this situation is not handled explicitly.
+Instead it is stated as a condition for coverage that is necessary but not sufficient.
+That is, it can verify \emph{coverage} without false positives but may produce false negatives.
+In fact, the TCC tests a more specific problem: whether we have a reliable representation of the boundary \emph{and} a reliable representation of the interior.
+
+Given this observation we considered how best two use \emph{all} the information given by the TCC in a way that re-uses the machinery used to compute it.
+We therefore consider consider the relative persistent homology of a domain modulo a sublevel-set.
+That is, we re-cast the TCC for a domain defined as a domain surrounded by sub-level set of a function on that domain in order to ensure that a given sample can adequately approximate the relative homology of the domain modulo a sub-level set.
+We then modify the analysis of scalar fields in order to give an approximation of the \emph{relative} persistent homology of a sample.
+Finally, we consider classes of functions which satisfy the assumptions made.
+Namely, we consider functions with multiple sub-level sets which may serve as a boundary for this procedure and show how they can be integrated to give a more robust signature for the function.

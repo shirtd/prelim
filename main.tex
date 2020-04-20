@@ -1,0 +1,68 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsthm,xspace}
+\usepackage{tikz-cd,xspace,graphicx,wrapfig,algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage[margin=1in]{geometry}
+% \input{environment}
+\input{macros}
+
+% \usepackage{graphicx, algorithm, enumerate, xspace, mathtools}
+% \usepackage{amsthm, amssymb, amsmath, thmtools, thm-restate}
+% \usepackage[all]{xy}
+% \usepackage{wrapfig}
+% \usepackage{url}
+%
+% \input{etc/environments}
+% \input{etc/macros}
+
+\newcommand{\kcoverage}[1]{}
+\newcommand{\nokcoverage}[1]{#1}
+\newcommand{\noeuclidean}[1]{}
+\newcommand{\euclidean}[1]{#1}
+
+\title{From Coverage Testing to the Relative Persistence of Scalar Fields}
+% \author{Kirk Gardner}
+
+\newcommand{\figblock}[1]{}
+% \newcommand{\figblock}[1]{#1}
+
+\begin{document}
+
+  \maketitle
+
+  % \input{abstract}
+  \input{introduction}
+  \input{related}
+  \clearpage
+
+  \section{Background}
+  \input{coverage}
+  \input{simplicial}
+  \input{homology}
+  \input{persistence}
+  % \input{background}
+  % \input{interleaving}
+  \clearpage
+
+  \section{From Coverage Testing to the Analysis of Scalar Fields}
+  \input{motivation}
+  \input{assumptions}
+  % \input{tcc}
+  % % \input{excision}
+  % \input{stability}
+  % \input{sampling}
+  % % \input{extension}
+  % \clearpage
+  %
+  % \section{Experiments}\label{sec:experiments}
+  % \input{software}
+  % \input{experiments}
+  % \clearpage
+  %
+  % \section{Conclusions}
+  % \input{trajectories}
+  % \input{future}
+
+  \bibliographystyle{unsrt}
+  \bibliography{bibliography}
+\end{document}
