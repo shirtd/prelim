@@ -27,10 +27,12 @@ That is, for all $k$
 As a result the image of $\partial_{k+1}$, denoted $\im\partial_{k+1} = \{\partial_{k+1}c\mid c\in C_{k+1}(K)$ is a subspace of the kernel, $\ker\partial_k = \{c\in C_k(K)\mid \partial_k c = 0\}$, of $\partial_k$.
 A \textbf{$k$-cycle} of $\C$ is a $k$-chain with empty boundary---an element of $\ker\partial_k$.
 Two cycles in $\ker\partial_k$ are said to be \textbf{homologous} if they differ by an element of $\im\partial_{k+1}$.
-This leads us to the definition of the \textbf{homology groups} of $K$ as quotient vector spaces $H_k(K)$ over $\F$, defined for $k\in\N$ as
-\[
-  \hom_k(K) = \ker\partial_k/\im~\partial_{k+1}.
-\]
+This leads us to the definition of the homology groups of $K$ as quotient vector spaces $H_k(K)$ over $\F$.
+
+\begin{definition}
+    For $k\in\N$ the \textbf{$k$th homology group} of a simplicial complex $K$ is the quotient group
+    \[ \hom_k(K) = \ker\partial_k/\im~\partial_{k+1}. \]
+\end{definition}
 
 The rank of a homology group is of particular importance and is known as the \textbf{Betti number} $\beta_k = \rank~ \hom_k(K)$.
 These topological invariants can be thought of as counting the number of $k$-dimensional ``holes'' in a topological space, where $0$-dimensional holes are connected components, $1$-dimensional holes are loops, $2$-dimensional holes are voids, and so on.
