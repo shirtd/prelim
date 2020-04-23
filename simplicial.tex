@@ -80,9 +80,7 @@ It follows that the \v Cech complex $\cech_\e(P)$ of $P$ at scale $\e$ is a suit
 We will assume that the coverage radius of our sensor network is equal to the radius of communication.
 In order to construct the \v Cech complex our sensors must be able to measure not only the proximity of neighboring nodes, but the precise distance between them.
 Fortunately, the \v Cech and Rips complexes of a finite metric space are closely related by a result that follows from Jung's Theorem~\cite{jung01uber} relating the diameter of a point set $P$ and the radius of the minimum enclosing ball:
-\begin{equation}\label{eq:jung_inclusion}
-  \cech_{\e/\jungd}(P)\subseteq\rips_\e(P)\subseteq\cech_\e(P)\subseteq\rips_{\jungd\e}(P),
-\end{equation}
+\[\cech_{\e/\jungd}(P)\subseteq\rips_\e(P)\subseteq\cech_\e(P)\subseteq\rips_{\jungd\e}(P),\]
 where the constant $\jungd = \sqrt{\frac{2d}{d+1}}$ (see~\cite{buchet15efficient}).
 
 Equipped with this interleaving we are now ready to define all conditions necessary for verifying coverage in a coordinate-free sensor network.
