@@ -36,11 +36,11 @@ Let $\hat{Q}^\delta = Q^\delta \cup \O$, $\hat{P}^\delta = P^\delta \cup \O$ and
 
 \end{proof}
 
-\section{The rest is broken.}
+\section{The rest is (maybe not) broken.}
 
 The following lemma is a well-established result that we provide without proof.
 
-\begin{lemma}[Lemma 3.2 from~\cite{chazal08towards}]\label{lem:sandwitch}
+\begin{lemma}[Lemma 3.2 from~\cite{chazal08towards}]\label{lem:sandwich}
     Given a sequence $A\to B\to C\to D\to E\to F$ of homomorphisms between finite-dimensional vector spaces, if $\rk(A\to F) = \rk(C\to D)$ then this quantity also equals the rank of $B\to E$.
     Similarly, if $A\to B\to C\to E\to F$ is a sequence of homomorphisms such that $\rk(A\to F) = \dim~C$ then $\rk(B\to E) = \dim~C$.
 \end{lemma}
@@ -57,34 +57,26 @@ The following lemma is a well-established result that we provide without proof.
 % %     \[ \D\setminus U_\omega \subseteq P^\delta \subseteq P^\delta \cup U_{\omega - 2c\delta}^{2\delta}\subseteq P^\delta\cup \hat{Q}^\gamma \subseteq \D \]
 % %     which induces the following sequence of homomorphisms
 % %     \[ \hom_*(\D\setminus U_\omega)\to\hom_*(P^\delta\setminus\B)\to\hom_*((P^\delta \cup \B^{2\delta})\setminus \B)\to\hom_*((P^\delta\cup\hat{Q}^\gamma)\setminus\B)\to\hom_*(\D\setminus\B).\]
-% %     As $\D\setminus\B^{2\delta}\subseteq P^\delta$ implies $P^\delta\cup\B^{2\delta} = \D$ and $\hom_*(\D\setminus U_\omega)\cong \hom_*(\D\setminus \B)$ we have that $\im~\hom_*(\D\setminus U_\omega\to \D\setminus \B)\cong \hom_*(\D\setminus\B)$ and therefore $\im~\hom_*(P^\delta\to(P^\delta\cup\hat{Q}^\gamma)\setminus\B)\cong\hom_*(\D\setminus \B)$ by Lemma~\ref{lem:sandwitch}.
+% %     As $\D\setminus\B^{2\delta}\subseteq P^\delta$ implies $P^\delta\cup\B^{2\delta} = \D$ and $\hom_*(\D\setminus U_\omega)\cong \hom_*(\D\setminus \B)$ we have that $\im~\hom_*(\D\setminus U_\omega\to \D\setminus \B)\cong \hom_*(\D\setminus\B)$ and therefore $\im~\hom_*(P^\delta\to(P^\delta\cup\hat{Q}^\gamma)\setminus\B)\cong\hom_*(\D\setminus \B)$ by Lemma~\ref{lem:sandwich}.
 % % \end{proof}
 
 \begin{lemma}
     Given assumption 2, if $p_*$ is injective then $\im~\hom_*(\hat{Q}^\delta \to \hat{Q}^{\gamma})\cong \hom_*(\B^{2\delta}).$
 \end{lemma}
 \begin{proof}
-    \textbf{TODO requires
-        \[ \hom_*(U_{\omega - 2c\delta})\to \hom_*(U_{\omega - c\delta}^\delta)\to \hom_*(U_{\omega - 2c\delta}^{2\delta})\to\hom_*(U_{\omega - 2c\delta}^\gamma)\to\hom_*(U_{\omega + 2c\delta}),\]
-        % \[ \hom_*(U_{\omega - c\delta})\to \hom_*(U_{\omega - c\delta}^\delta)\to \hom_*(U_\omega)\to\hom_*(\B)\to\hom_*(\B^\gamma)\to\hom_*(U_{\omega + c\delta})\]
-        $\im~\hom_*(U_{\omega - 2c\delta}\hookrightarrow U_{\omega + 2c\delta})\cong\hom_*(U_{\omega - 2c\delta}^{2\delta})$,
-        \[ \hom_*(U_{\omega - 2c\delta})\to\hom_*(\hat{Q}^\delta)\to\hom_*(U_{\omega - c\delta}^\delta)\to\hom_*(U_{\omega - 2c\delta} ^\gamma)\to\hom_*(\hat{Q}^\gamma)\to\hom_*(U_{\omega+2c\delta})\]
-        and \[\im~\hom_*(U_{\omega - 2c\delta}\hookrightarrow U_{\omega + 2c\delta})\cong \hom_*(U_{\omega - 2c\delta}^{2\delta})\cong \im~\hom_*(U_{\omega - c\delta}^\delta\to U_{\omega - 2c\delta}^\gamma).\]
-        But we do not know $U_{\omega - c\delta}^\delta\subseteq U_{\omega - 2c\delta}^{2\delta}$.}
+    If $p_*$ is injective we have the following sequence of homomorphisms induced by inclusions
+    \[ \hom_*(U_{\omega - 2c\delta})\to \hom_*(\hat{Q^\delta})\to \hom_*(U_{\omega - 2c\delta}^{2\delta})\to\hom_*(\hat{Q^\gamma})\to\hom_*(U_{\omega + 2c\delta}).\]
+    By assumption 2 $\im~\hom_*(U_{\omega - 2c\delta}\hookrightarrow U_{\omega+2c\delta})\cong\hom_*(U_{\omega-2c\delta}^{2\delta})$ so $\hom_*(\hat{Q^\delta}\hookrightarrow\hat{Q^\gamma})\cong\hom_*(U_{\omega-2c\delta}^{2\delta})$ by Lemma~\ref{lem:sandwich}.
 \end{proof}
-% \begin{proof}
-%     We have the following sequence of homomorphisms induced by inclusion.
-%     \[ \hom_*(U_{\omega - 2c\delta})\to \hom_*(U_{\omega - c\delta}^\delta)\to \hom_*(U_{\omega - 2c\delta}^{2\delta})\to\hom_*(U_{\omega - 2c\delta}^\gamma)\to\hom_*(U_{\omega + 2c\delta}).\]
-%     % \[ \hom_*(U_{\omega - c\delta})\to \hom_*(U_{\omega - c\delta}^\delta)\to \hom_*(U_\omega)\to\hom_*(\B)\to\hom_*(\B^\gamma)\to\hom_*(U_{\omega + c\delta})\]
-%     Given assumption 2 $\im~\hom_*(U_{\omega - 2c\delta}\hookrightarrow U_{\omega + 2c\delta})\cong\hom_*(U_{\omega - 2c\delta}^{2\delta})$ so, by Lemma~\ref{lem:sandwich} we have that $\im~\hom_*(U_{\omega - c\delta}^\delta\to U_{\omega - 2c\delta}^\gamma)\cong\hom_*(U_{\omega - 2c\delta}^{2\delta})$.
-%
-%     Noting that $U_{\omega - 2c\delta} \subset \hat{Q}^\delta\subset U_{\omega - c\delta}^\delta$ and $U_{\omega - 2c\delta}^\gamma\subset \hat{Q}^\gamma\subset U_{\omega+2c\delta}$ we now have the following sequence of homomorphisms
-%     \[ \hom_*(U_{\omega - 2c\delta})\to\hom_*(\hat{Q}^\delta)\to\hom_*(U_{\omega - c\delta}^\delta)\to\hom_*(U_{\omega - 2c\delta} ^\gamma)\to\hom_*(\hat{Q}^\gamma)\to\hom_*(U_{\omega+2c\delta})\]
-%     where \[\im~\hom_*(U_{\omega - 2c\delta}\hookrightarrow U_{\omega + 2c\delta})\cong \hom_*(U_{\omega - 2c\delta}^{2\delta})\cong \im~\hom_*(U_{\omega - c\delta}^\delta\to U_{\omega - 2c\delta}^\gamma)\]
-%     implies that $\im~\hom_*(\hom_*(\hat{Q}^\delta)\to \hom_*(\hat{Q}^\gamma))\cong\hom_*(U_{\omega - 2c\delta}^{2\delta})$ as desired.
-%     % where $\im~\hom_*(\B\to U_{\omega+2c\delta})\cong \hom_*(\B)\cong \im~\hom_*(U_{\omega - c\delta}^\delta \to \B^\gamma)$ implies $\im~\hom_*(\hat{Q}^\delta\to\hat{Q}^\gamma)\cong \hom_*(\B)$ as desired.
-% \end{proof}
-%
+
+\begin{lemma}
+    Given assumption 2, if $p_*$ is injective then $\im~\hom_*(P^\delta\setminus Q^\gamma \to P^\delta\setminus Q^\delta)\cong \hom_*(\D\setminus\B^{2\delta}).$
+\end{lemma}
+\begin{proof}
+    If $p_*$ is injective we have the following sequence of homomorphisms induced by inclusion
+    \[\hom_*(\D\setminus\D_{\omega+2c\delta})\to\hom_*(P^\delta\setminus Q^\gamma)\to\hom_*(\D\setminus\B^{2\delta})\to\hom_*(P^\delta\setminus Q^\delta)\to\hom_*(\D\setminus\D_{\omega-2c\delta}).\]
+    By assumption 2 $\hom_*(\D\setminus\D_{\omega+2c\delta}\hookrightarrow \D\setminus\D_{\omega-2c\delta})\cong\hom_*(\D\setminus\B^{2\delta})$ so $\im~\hom_*(P^\delta\setminus Q^\gamma \to P^\delta\setminus Q^\delta)\cong \hom_*(\D\setminus\B^{2\delta})$ by Lemma~\ref{lem:sandwich}.
+\end{proof}
 
 % \begin{lemma}
 %     If $\im~\hom_*(\hat{Q}^\delta\to\hat{Q}^\gamma)\cong\hom_*(\B^{2\delta})$ and $\im~\hom_*(P^\delta\setminus\B\to (P^\delta\cup \hat{Q}^\gamma)\setminus\B)\cong \hom_*(\D\setminus\B^{2\delta})$ then
@@ -92,7 +84,7 @@ The following lemma is a well-established result that we provide without proof.
 % \end{lemma}
 
 \begin{lemma}
-    If $\im~\hom_*(\hat{Q}^\delta\to\hat{Q}^\gamma)\cong\hom_*(\B^{2\delta})$ and $\D\setminus\B^{2\delta}$ then
+    If $\im~\hom_*(\hat{Q}^\delta\to\hat{Q}^\gamma)\cong\hom_*(\B^{2\delta})$ and $\im~\hom_*(P^\delta\setminus Q^\gamma \to P^\delta\setminus Q^\delta)\cong \hom_*(\D\setminus\B^{2\delta})$ then
     \[\im~\hom_*((P^\delta, Q^\delta)\to (P^\delta\cup Q^\gamma, Q^\gamma))\cong \hom_*(\D^{2\delta}, \B^{2\delta}). \]
 \end{lemma}
 
