@@ -2,57 +2,58 @@
 
 \subsection{Proof of the TCC}
 
+\begin{lemma}\label{lem:complement}
+    Given assumption 2 \[\im~\hom_k(\D\setminus\D_{\omega+2c\delta}\hookrightarrow \D\setminus\B)\cong\hom_k(\D\setminus\B^{2\delta}).\]
+\end{lemma}
+
 \begin{lemma}\label{lem:jsurj}
-    Given assumptions 1-3 the map $j_*$ is surjective.
+    Given assumptions 1-3 the map $j_k:\hom_k(\D\setminus\B^{\delta+\gamma})\to\hom_k(\D\setminus\B^{2\delta})$ is surjective for all $k\in\N$.
 \end{lemma}
 \begin{proof}
-    \textbf{TODO this true?
-    What other conditions do we need for it to be true?
-    Do we have to assume this as well?}
+    Let $s_k : \hom_k(\D\setminus\D_{\omega+2c\delta})\to\hom_k(\D\setminus\B)$ and $t_k : \im~s_k\to\hom_k(\D\setminus\B^{2\delta})$.
+    Given assumption 2 we have that $t_k$ is an isomorphism by Lemma~\ref{lem:complement} so $\im~t_k = \hom_k(\D\setminus\B^{2\delta})\cong\im~s_k$.
+    Therefore, $t_k\circ s_k : \hom_k(\D\setminus\D_{\omega+2c\delta})\to\hom_k(\D\setminus\B^{2\delta})$ is surjective as $\im(t_k\circ s_k) = \im~t_k = \hom_k(\D\setminus\B^{2\delta})$.
+    Because $f$ is $c$-Lipschitz and given assumption 3 we know that $\gamma$ is such that $\D_{\omega-2c\delta}^{\delta+\gamma}\subseteq \D_{\omega+2c\delta}$.
+    So $\D\setminus\D_{\omega+2c\delta}\subseteq\D_{\omega-2c\delta}^{\delta+\gamma}$ induces the map $f_k : \hom_k(\D\setminus\D_{\omega+2c\delta})\to\hom_k(\D_{\omega-2c\delta}^{\delta+\gamma})$ and $t_k\circ s_k = j_k\circ f_k$ is surjective, so $j_k$ is surjective as desired.
 \end{proof}
 
 \begin{lemma}\label{lem:psurj}
     Given assumptions 1-3, the map $p_*$ is surjective.
 \end{lemma}
 \begin{proof}
-    \textbf{TODO Do we even need this?
-    If $\im~i_*$ is finite-dimensional and $\rk~i_* \geq \rk~j_*$ is $p_*$ injective?
-    We can also just state the theorem as ``if $p_*$ is injective.''}
+    By Lemma~\ref{lem:jsurj} $j_*$ is surjective.
+    Choose a basis for $\im~i_*$ such that each basis element is represented by a point in $P^\delta\setminus Q^\gamma$.
+    Let $x\in P^\delta\setminus Q^\gamma$ be such that $[x]$ is non-trivial in $\im~i_*$.
+    Suppose $x\in\B^{2\delta}$ and let $y\in\B$ such that $\dist(x, y)< 2\delta$.
+
+    First, suppose $y\in P^\delta$.
+    So there exists some $p\in P$ such that $\dist(p, y) < \delta$.
+    But $y\in \B = \D_{\omega-2c\delta}$ so $f(y)\leq \omega-2c\delta$.
+    Therefore, because $f$ is $c$-Lipschitz
+    \[ f(p) \leq c\dist(p, y) + f(y) < \omega - 2c\delta + c\delta = \omega - c\delta\]
+    so $p\in Q$, thus $y\in Q^\delta$.
+    So $y\in P^\delta$ implies $y\in Q^\delta$ and therefore, by contrapositive, $y\in\overline{Q^\delta}$ implies $y\in\overline{P^\delta}$.
+
+    Now, because $x\in\overline{Q^\gamma}$ by hypothesis $\dist(x, q) \geq \gamma$ for all $q\in Q$.
+    For any $z$ in the shortest path between $x$ and $y$ we have $\dist(x, z)\leq \dist(x, y) < 2\delta$, so the following inequality holds for all $q\in Q$
+    \begin{align*}
+        \dist(x, q) &\geq \dist(x, q) - \dist(x, z)\\
+        &> \gamma - 2\delta\\
+        &\geq \delta.
+    \end{align*}
+    So $z\in \overline{Q^\delta}$ for all $z$ in the shortest path from $x$ to $y$.
+    In particular, $x,y\in\overline{Q^\delta}$ therefore $y\in\overline{P^\delta}$.
+
+    Because $x,y\in\overline{Q^\delta}$ we have corresponding chain $x,y\in C_0(\overline{Q^\delta})$ and $y\in\overline{P^\delta}$ generates a chain $y\in C_0(P^\delta)$.
+    As we have shown that $x\in \B^{2\delta}$ implies that the shortest path from $x$ to $y$ is contained in $\overline{Q^\delta}$ there exists a path $h: [0,1]\to \overline{Q^\delta}$ with $h(0) = x$ and $h(1) = y$ that generates a chain $h\in C_1(\overline{Q^\delta})$.
+    So for $h\in C_1(\overline{Q^\delta}, \overline{P^\delta})$ with $\partial h = x + y$ we have that $x = \partial h + y$.
+    Thus $[x]$ is a relative boundary and is therefore trivial in $\hom_0(\overline{P^\delta}, \overline{Q^\delta})$, a contradiction, as we have assumed $[x]$ is non-trivial in $\im~i_*$.
+    So we may conclude that $x\notin \B^{2\delta}$.
+
+    So $x\in\overline{\B^{2\delta}}$ and $x\in \D\setminus\B^{2\delta}$.
+    So $[x]$ is non-trivial in $\hom_0(\overline{\B^{2\delta}},\overline{\D^{2\delta}})$ and, because $j_*$ is surjective, $\im~j_* = \hom_0(\overline{\B^{2\delta}},\overline{\D^{2\delta}})$.
+    So $p_*$ is surjective as $p_*[x] = [x]\in\im~p_*$ for all non-trivial $[x]\in\im~i_*$.
 \end{proof}
-% \begin{proof}
-%     By Lemma~\ref{lem:jsurj} $j_*$ is surjective.
-%     Choose a basis for $\im~i_*$ such that each basis element is represented by a point in $P^\delta\setminus Q^\gamma$.
-%     Let $x\in P^\delta\setminus Q^\gamma$ be such that $[x]$ is non-trivial in $\im~i_*$.
-%     Suppose $x\in\B^{2\delta}$ and let $y\in\B$ such that $\dist(x, y)< 2\delta$.
-%
-%     First, suppose $y\in P^\delta$.
-%     So there exists some $p\in P$ such that $\dist(p, y) < \delta$.
-%     But $y\in \B = \D_{\omega-2c\delta}$ so $f(y)\leq \omega-2c\delta$.
-%     Therefore, because $f$ is $c$-Lipschitz
-%     \[ f(p) \leq c\dist(p, y) + f(y) < \omega - 2c\delta + c\delta = \omega - c\delta\]
-%     so $p\in Q$, thus $y\in Q^\delta$.
-%     So $y\in P^\delta$ implies $y\in Q^\delta$ and therefore, by contrapositive, $y\in\overline{Q^\delta}$ implies $y\in\overline{P^\delta}$.
-%
-%     Now, because $x\in\overline{Q^\gamma}$ by hypothesis $\dist(x, q) \geq \gamma$ for all $q\in Q$.
-%     For any $z$ in the shortest path between $x$ and $y$ we have $\dist(x, z)\leq \dist(x, y) < 2\delta$, so the following inequality holds for all $q\in Q$
-%     \begin{align*}
-%         \dist(x, q) &\geq \dist(x, q) - \dist(x, z)\\
-%         &> \gamma - 2\delta\\
-%         &\geq \delta.
-%     \end{align*}
-%     So $z\in \overline{Q^\delta}$ for all $z$ in the shortest path from $x$ to $y$.
-%     In particular, $x,y\in\overline{Q^\delta}$ therefore $y\in\overline{P^\delta}$.
-%
-%     Because $x,y\in\overline{Q^\delta}$ we have corresponding chain $x,y\in C_0(\overline{Q^\delta})$ and $y\in\overline{P^\delta}$ generates a chain $y\in C_0(P^\delta)$.
-%     As we have shown that $x\in \B^{2\delta}$ implies that the shortest path from $x$ to $y$ is contained in $\overline{Q^\delta}$ there exists a path $h: [0,1]\to \overline{Q^\delta}$ with $h(0) = x$ and $h(1) = y$ that generates a chain $h\in C_1(\overline{Q^\delta})$.
-%     So for $h\in C_1(\overline{Q^\delta}, \overline{P^\delta})$ with $\partial h = x + y$ we have that $x = \partial h + y$.
-%     Thus $[x]$ is a relative boundary and is therefore trivial in $\hom_0(\overline{P^\delta}, \overline{Q^\delta})$, a contradiction, as we have assumed $[x]$ is non-trivial in $\im~i_*$.
-%     So we may conclude that $x\notin \B^{2\delta}$.
-%
-%     So $x\in\overline{\B^{2\delta}}$ and $x\in \D\setminus\B^{2\delta}$.
-%     So $[x]$ is non-trivial in $\hom_0(\overline{\B^{2\delta}},\overline{\D^{2\delta}})$ and, because $j_*$ is surjective, $\im~j_* = \hom_0(\overline{\B^{2\delta}},\overline{\D^{2\delta}})$.
-%     So $p_*$ is surjective as $p_*[x] = [x]\in\im~p_*$ for all non-trivial $[x]\in\im~i_*$.
-% \end{proof}
 
 \begin{lemma}\label{lem:coverage}
     Given assumptions 1-3, if $p_*$ is injective then $\D\setminus\B^{2\delta}\subseteq P^\delta$.
