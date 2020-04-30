@@ -24,19 +24,19 @@ These issues make it difficult to distinguish network anomalies from meaningful 
 However, even reliable sensor data must be properly integrated in order to reflect global behaviors over time.
 Often these global behaviors represent an event observed by the network through sensor measurements which give us a sample of some unknown function on an unknown domain.
 The measurements sample the function values and the neighborhood information gives hints about the domain.
-With this kind of data, we'd like to build a model of ``normal'' behavior of the network that is robust to:
-\begin{enumerate}
-    \item changes in the function,
-    \item changes in the network.
-\end{enumerate}
+With this kind of data, we'd like to build a model of ``normal'' behavior of the network that is robust to both changes in the function as well as changes in the network.
+% \begin{enumerate}
+%     \item changes in the function,
+%     \item changes in the network.
+% \end{enumerate}
 
-Persistent homology is particularly well suited to this setting as it provides a reliable summary of global behavior from local information alone.
+Persistent homology is well-suited to this setting as it provides a reliable summary of global behavior from local information alone.
 This summary is robust to missing data and stable under reasonable changes to the network.
 Moreover, persistent homology has been shown to be useful for coverage verification in \emph{coordinate-free sensor networks} in which sensor locations are not known.
 The \emph{Topological Coverage Criterion (TCC)} of de Silva and Ghrist~\cite{desilva07coverage} uses persistent homology to verify coverage of an unknown domain by a coordinate-free sensor network, and was extended to weighted $k$-coverage in a more general setting in~\cite{cavanna2017when}.
 
-In~\cite{chazal09analysis} Chazal et. al. introduced a method for approximating the persistent homology of a function, or scalar field, from a finite point sample.
-This method is particularly well suited to the setting of coordinate-free sensor networks as the coordinates of the sensors are not required.
+Chazal et. al. introduced a method for approximating the persistent homology of a function, or scalar field, from a finite point sample~\cite{chazal09analysis} .
+This method is well-suited to the setting of coordinate-free sensor networks as the coordinates of the sensors are not required.
 The authors make some necessary assumptions about the geometry of the domain, as in the TCC, with their primary assumption being that the network covers the domain.
 We therefore consider a setting in the intersection of coverage and the analysis of scalar fields by coordinate-free sensor networks in which a collection of sensors capable of verifying coverage of a domain is augmented with the ability to measure a scalar value on that domain.
 Moreover, by focusing on the geometry of the level-sets of a function we provide a novel way to re-cast the geometric assumptions made in both the TCC and the analysis of scalar fields as topological properties of the function itself.

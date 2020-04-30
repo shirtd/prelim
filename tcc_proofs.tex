@@ -2,9 +2,29 @@
 
 \subsection{Proof of the TCC}
 
-\begin{lemma}\label{lem:complement}
-    Given assumption 2 \[\im~\hom_k(\D\setminus\D_{\omega+2c\delta}\hookrightarrow \D\setminus\B)\cong\hom_k(\D\setminus\B^{2\delta}).\]
-\end{lemma}
+We have the following commutative diagrams of inclusions between the pairs $(P,Q)$ and $(\D, \B)$ and their complements with increasing scale.
+
+\[ \begin{tikzcd}
+(P^\delta, Q^\delta) \arrow[hookrightarrow]{r}\arrow[hookrightarrow]{d}& (P^\gamma, Q^\gamma) \arrow[hookrightarrow]{d} \\%
+(\D^{2\delta}, \B^{2\delta}) \arrow[hookrightarrow]{r} & (\D^{\delta+\gamma}, \B^{\delta+\gamma}),
+\end{tikzcd}
+\begin{tikzcd}
+(\overline{\B^{\delta+\gamma}}, \overline{\D^{\delta+\gamma}})\arrow[hookrightarrow]{r}{j}\arrow[hookrightarrow]{d}& (\overline{\B^{2\delta}}, \overline{\D^{2\delta}}) \arrow[hookrightarrow]{d} \\%
+(\overline{Q^\gamma}, \overline{P^\gamma}) \arrow[hookrightarrow]{r}{i} & (\overline{Q^\delta}, \overline{P^\delta}).
+\end{tikzcd}\]
+
+The following diagram is formed by applying the homology functor.
+\begin{equation}\label{dgm:1}
+    \begin{tikzcd}
+    \hom_0(\overline{\B^{\delta+\gamma}}, \overline{\D^{\delta+\gamma}})\arrow{r}{j_*}\arrow{d}& \hom_0(\overline{\B^{2\delta}}, \overline{\D^{2\delta}}) \arrow{d} \\%
+    \hom_0(\overline{Q^\gamma}, \overline{P^\gamma}) \arrow{r}{i_*} & \hom_0(\overline{Q^\delta}, \overline{P^\delta}).
+    \end{tikzcd}
+\end{equation}
+Let $p_* : \im~j_*\to\im~i_*$.
+
+% \begin{lemma}\label{lem:complement}
+%     Given assumption 2 \[\im~\hom_k(\D\setminus\D_{\omega+2c\delta}\hookrightarrow \D\setminus\B)\cong\hom_k(\D\setminus\B^{2\delta}).\]
+% \end{lemma}
 
 \begin{lemma}\label{lem:jsurj}
     Given assumptions 1-3 the map $j_k:\hom_k(\D\setminus\B^{\delta+\gamma})\to\hom_k(\D\setminus\B^{2\delta})$ is surjective for all $k\in\N$.
