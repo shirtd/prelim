@@ -1,0 +1,135 @@
+% !TeX root = main.tex
+
+\begin{equation}\begin{tikzcd}
+    \hom_k(B_0)\arrow{r}{i^k_0}\arrow{d}{\phi^k_0} &
+    \hom_k(D_0)\arrow{r}{j^k_0} & %\arrow{d}{\eta^k_0} &
+    \hom_k(D_0, B_0)\arrow{r}{\partial^k_0}\arrow{d}{\mu^k_0} &
+    \hom_{k-1}(B_0)\arrow{r}{i^{k-1}_0}\arrow{d}{\phi^{k-1}_0} &
+    \hom_{k-1}(D_0) \\% \arrow{d}{\eta^{k-1}_0}\\
+    %
+    \hom_k(Q^\delta)\arrow{r}{p^k_\delta} \arrow{d}{\psi^k_\delta} &
+    \hom_k(P^\delta)\arrow{r}{q^k_\delta} \arrow{d}{\rho^k_\delta} &
+    \hom_k(P^\delta, Q^\delta)\arrow{r}{\partial^k_\delta} \arrow{d}{\nu^k_\delta} &
+    \hom_{k-1}(Q^\delta)\arrow{r}{p^{k-1}_\delta} \arrow{d}{\psi^{k-1}_\delta} &
+    \hom_{k-1}(P^\delta)\arrow{d}{\rho^{k-1}_\delta}\\
+    %
+    \hom_k(B_0^{2\delta})\arrow{r}{i^k}\arrow{d}{\phi^k} &
+    \hom_k(D_0^{2\delta})\arrow{r}{j^k}\arrow{d}{\eta^k} &
+    \hom_k(D_0^{2\delta}, B_0^{2\delta})\arrow{r}{\partial^k}\arrow{d}{\mu^k} &
+    \hom_{k-1}(B_0^{2\delta})\arrow{r}{i^{k-1}}\arrow{d}{\phi^{k-1}} &
+    \hom_{k-1}(D_0^{2\delta})\arrow{d}{\eta^{k-1}}\\
+    %
+    \hom_k(Q^\gamma)\arrow{r}{p^k_\gamma} \arrow{d}{\psi^k_\gamma} &
+    \hom_k(P^\gamma)\arrow{r}{q^k_\gamma} \arrow{d}{\rho^k_\gamma} &
+    \hom_k(P^\gamma, Q^\gamma)\arrow{r}{\partial^k_\gamma} \arrow{d}{\nu^k_\gamma} &
+    \hom_{k-1}(Q^\gamma)\arrow{r}{p^{k-1}_\gamma} \arrow{d}{\psi^{k-1}_\gamma} &
+    \hom_{k-1}(P^\gamma)\arrow{d}{\rho^{k-1}_\gamma}\\
+    %
+    \hom_k(B_1)\arrow{r}{i^k_1} &
+    \hom_k(D_1)\arrow{r}{j^k_1} &
+    \hom_k(D_1, B_1)\arrow{r}{\partial^k_1} &
+    \hom_{k-1}(B_1)\arrow{r}{i^{k-1}_1} &
+    \hom_{k-1}(D_1)
+\end{tikzcd}\end{equation}
+
+\begin{equation}\begin{tikzcd}
+    \hom_k(P^\delta \cap B_0^{2\delta})\arrow[r] &
+    \hom_k(P^\delta)\oplus\hom_k(B_0^{2\delta})\arrow[r]
+        \arrow[d, phantom, ""{coordinate, name=Z}] &
+    \hom_k(D_0^{2\delta})\arrow[dll, "", rounded corners,
+              to path={ -- ([xshift=2ex]\tikztostart.east)
+                        |- (Z) [near end]\tikztonodes
+                        -| ([xshift=-2ex]\tikztotarget.west)
+                        -- (\tikztotarget)}] \\
+    \hom_{k-1}(P^\delta \cap B_0^{2\delta})\arrow[r] &
+    \hom_{k-1}(P^\delta)\oplus\hom_{k-1}(B_0^{2\delta})\arrow[r] &
+    \hom_k(D_0^{2\delta})
+\end{tikzcd}\end{equation}
+
+\begin{equation}\begin{tikzcd}
+    % \hom_k(B_1\setminus B_0^{2\delta})\arrow{r}{\hat{i}^k_1} & %\arrow{d}{\hat{\phi}^k_1} &
+    \hom_k(D_1\setminus B_0^{2\delta})\arrow{r}{\hat{j}^k_1}\arrow{d}{\hat{\eta}^k_1} &
+    \hom_k(D_1\setminus B_0^{2\delta}, B_1\setminus B_0^{2\delta})\arrow{r}{\hat{\partial}^k_1}\arrow{d}{\hat{\mu}^k_1} &
+    \hom_{k-1}(B_1\setminus B_0^{2\delta})\\ %\arrow{r}{\hat{i}^{k-1}_1} & %\arrow{d}{\hat{\phi}^{k-1}_1} &
+    % \hom_{k-1}(D_1\setminus B_0^{2\delta}) \arrow{d}{\hat{\eta}^{k-1}_1}\\
+    %
+    % \hom_k(Q^\delta)\arrow{r}{p^k_\delta} \arrow{d}{\psi^k_\delta} &
+    \hom_k(P^\delta)\arrow{r}{q^k_\delta} \arrow{d}{\rho^k_\delta} &
+    \hom_k(P^\delta, Q^\delta)\arrow{r}{\partial^k_\delta} \arrow{d}{\nu^k_\delta} &
+    \hom_{k-1}(Q^\delta)\\%\arrow{r}{p^{k-1}_\delta} \\ % \arrow{d}{\psi^{k-1}_\delta} &
+    % \hom_{k-1}(P^\delta)\arrow{d}{\rho^{k-1}_\delta}\\
+    %
+    % \hom_k(B_0^{2\delta})\arrow{r}{i^k} & %\arrow{d}{\phi^k} &
+    \hom_k(D_0^{2\delta})\arrow{r}{j^k} & %\arrow{d}{\eta^k} &
+    \hom_k(D_0^{2\delta}, B_0^{2\delta})\arrow{r}{\partial^k} & %\arrow{d}{\mu^k} &
+    \hom_{k-1}(B_0^{2\delta}) \\ % \arrow{r}{i^{k-1}}  & %\arrow{d}{\phi^{k-1}} &
+    % \hom_{k-1}(D_0^{2\delta})% \arrow{d}{\eta^{k-1}}\\
+\end{tikzcd}\end{equation}
+
+\begin{equation}\begin{tikzcd}
+    \hom_k(B_1\setminus B_0^{2\delta})\arrow[r] &
+    \hom_k(D_1\setminus B_0^{2\delta})\oplus\hom_k(B_1)\arrow[r]
+        \arrow[d, phantom, ""{coordinate, name=Z}] &
+    \hom_k(D_1)\arrow[dll, "", rounded corners,
+              to path={ -- ([xshift=2ex]\tikztostart.east)
+                        |- (Z) [near end]\tikztonodes
+                        -| ([xshift=-2ex]\tikztotarget.west)
+                        -- (\tikztotarget)}] \\
+    \hom_{k-1}(B_1\setminus B_0^{2\delta})\arrow[r] &
+    \hom_{k-1}(D_1\setminus B_0^{2\delta})\oplus\hom_{k-1}(B_1)\arrow[r] &
+    \hom_k(D_1)
+\end{tikzcd}\end{equation}
+
+\begin{equation}
+\begin{scriptsize}
+\begin{tikzcd}
+    \hom_k(P^\delta\cap B_0^{2\delta})\arrow{r}{\hat{i}^k}\arrow{d}{\hat{\phi}^k} &
+    \hom_k(P^\delta)\arrow{r}{\hat{j}^k}\arrow{d}{\hat{\eta}^k} &
+    \hom_k(P^\delta\cap B_0^{2\delta}, P^\delta\cap B_0^{2\delta})\arrow{r}{\hat{\partial}^k}\arrow{d}{\hat{\mu}^k} &
+    \hom_{k-1}(P^\delta)\arrow{r}{\hat{i}^{k-1}}\arrow{d}{\hat{\phi}^{k-1}} &
+    \hom_{k-1}(P^\delta\cap B_0^{2\delta})\arrow{d}{\hat{\eta}^{k-1}}\\
+    %
+    \hom_k(Q^\gamma)\arrow{r}{p^k_\gamma} \arrow{d}{\psi^k_\gamma} &
+    \hom_k(P^\gamma)\arrow{r}{q^k_\gamma} \arrow{d}{\rho^k_\gamma} &
+    \hom_k(P^\gamma, Q^\gamma)\arrow{r}{\partial^k_\gamma} \arrow{d}{\nu^k_\gamma} &
+    \hom_{k-1}(Q^\gamma)\arrow{r}{p^{k-1}_\gamma} \arrow{d}{\psi^{k-1}_\gamma} &
+    \hom_{k-1}(P^\gamma)\arrow{d}{\rho^{k-1}_\gamma}\\
+    %
+    \hom_k(B_1)\arrow{r}{i^k_1} &
+    \hom_k(D_1)\arrow{r}{j^k_1} &
+    \hom_k(D_1, B_1)\arrow{r}{\partial^k_1} &
+    \hom_{k-1}(B_1)\arrow{r}{i^{k-1}_1} &
+    \hom_{k-1}(D_1)
+\end{tikzcd}
+\end{scriptsize}
+\end{equation}
+
+% \begin{equation}\begin{small}\begin{tikzcd}
+%     \hom_k(B_1\setminus B_0^{2\delta})\arrow{r}{\hat{i}^k_1} & %\arrow{d}{\hat{\phi}^k_1} &
+%     \hom_k(D_1\setminus B_0^{2\delta})\arrow{r}{\hat{j}^k_1}\arrow{d}{\hat{\eta}^k_1} &
+%     \hom_k(D_1\setminus B_0^{2\delta}, B_1\setminus B_0^{2\delta})\arrow{r}{\hat{\partial}^k_1}\arrow{d}{\hat{\mu}^k_1} &
+%     \hom_{k-1}(B_1\setminus B_0^{2\delta})\arrow{r}{\hat{i}^{k-1}_1} & %\arrow{d}{\hat{\phi}^{k-1}_1} &
+%     \hom_{k-1}(D_1\setminus B_0^{2\delta}) \arrow{d}{\hat{\eta}^{k-1}_1}\\
+%     %
+%     \hom_k(Q^\delta)\arrow{r}{p^k_\delta} \arrow{d}{\psi^k_\delta} &
+%     \hom_k(P^\delta)\arrow{r}{q^k_\delta} \arrow{d}{\rho^k_\delta} &
+%     \hom_k(P^\delta, Q^\delta)\arrow{r}{\partial^k_\delta} \arrow{d}{\nu^k_\delta} &
+%     \hom_{k-1}(Q^\delta)\arrow{r}{p^{k-1}_\delta} \arrow{d}{\psi^{k-1}_\delta} &
+%     \hom_{k-1}(P^\delta)\arrow{d}{\rho^{k-1}_\delta}\\
+%     %
+%     \hom_k(B_0^{2\delta})\arrow{r}{i^k} & %\arrow{d}{\phi^k} &
+%     \hom_k(D_0^{2\delta})\arrow{r}{j^k} & %\arrow{d}{\eta^k} &
+%     \hom_k(D_0^{2\delta}, B_0^{2\delta})\arrow{r}{\partial^k} & %\arrow{d}{\mu^k} &
+%     \hom_{k-1}(B_0^{2\delta})\arrow{r}{i^{k-1}}  & %\arrow{d}{\phi^{k-1}} &
+%     \hom_{k-1}(D_0^{2\delta})% \arrow{d}{\eta^{k-1}}\\
+% \end{tikzcd}\end{small}\end{equation}
+
+% \[\begin{tikzcd}
+%     (\overline{\B^{\delta+\gamma}}, \overline{\D^{\delta+\gamma}})
+%         \arrow[hookrightarrow]{r}{j}\arrow[hookrightarrow]{d} &
+%     (\overline{\B^{2\delta}}, \overline{\D^{2\delta}})
+%         \arrow[hookrightarrow]{d} \\%
+%     (\overline{Q^\gamma}, \overline{P^\gamma})
+%         \arrow[hookrightarrow]{r}{i} &
+%     (\overline{Q^\delta}, \overline{P^\delta}).
+% \end{tikzcd}\]
