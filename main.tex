@@ -3,8 +3,11 @@
 \usepackage{tikz-cd,xspace,graphicx,wrapfig,algorithm}
 \usepackage[noend]{algpseudocode}
 \usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
 % \input{environment}
 \input{macros}
+
+\usepackage{xcolor}
 
 % \usepackage{graphicx, algorithm, enumerate, xspace, mathtools}
 % \usepackage{amsthm, amssymb, amsmath, thmtools, thm-restate}
@@ -46,16 +49,43 @@
   \input{persistence}
   % \input{background}
   % \input{interleaving}
-  \clearpage
+  % \clearpage
 
-  \section{From Coverage Testing to the Analysis of Scalar Fields}
-  \input{motivation}
+  \section{Some Useful Theorems}
+  \input{new/0-lemmas}
+  % \clearpage
 
-  \section{The Topological Coverage Criterion}
-  \input{assumptions}
-  \input{tcc_proofs}
-  \input{scalar_proofs}
-  \input{diagrams}
+  \section{Separation}
+  \input{new/1-separate}
+  % \clearpage
+
+  \section{Separating Covers}
+  \input{new/2-sensors}
+  % \clearpage
+
+  \section{Chasing}
+  \input{new/3-chasing}
+  % \clearpage
+
+
+  \section{Connection with the TCC}
+
+  \subsection{Assumptions}\label{ssec:assumptions}
+  \input{new/4-tcc}
+  % \clearpage
+
+  \subsection{Proof of the TCC}
+  \input{new/5-tcc_proof}
+  % \clearpage
+
+  % \section{From Coverage Testing to the Analysis of Scalar Fields}
+  % \input{motivation}
+  %
+  % \section{The Topological Coverage Criterion}
+  % \input{assumptions}
+  % \input{tcc_proofs}
+  % \input{scalar_proofs}
+  % \input{diagrams}
   % \input{tcc}
   % % \input{excision}
   % \input{stability}

@@ -5,3 +5,6 @@ main.log
 main.pdf
 main.synctex.gz
 *.log
+.stash
+*log
+code
