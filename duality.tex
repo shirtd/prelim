@@ -1,0 +1,26 @@
+% !TeX root = main.tex
+
+\begin{align*}
+    \xi^k &: \hom_k(L_\omega, \partial L_\omega)\to \hom_k(D, U_\omega)\\
+    \overline{\xi}^{d-k} &: \hom^{d-k}(U_\omega, \partial U_\omega)\to \hom^{d-k}(D, L_\omega)\\
+    \ell^k &: \hom_k(L_\omega, \partial L_\omega)\to \hom^{d-k}(L_\omega)\\
+    \overline{\ell}^{d-k} &: \hom^{d-k}(U_\omega, \partial U_\omega)\to \hom_k(U_\omega)
+\end{align*}
+
+\begin{equation}\begin{tikzcd}
+    \hom_k(U_\omega)\arrow{r}\arrow{d}{\cong} &
+    \hom_k(D)\arrow{r}\arrow{dd}{\cong} & %\arrow{d}{\eta^k_0} &
+    \hom_k(D, U_\omega)\arrow{r}\arrow{d}{\cong} &
+    \hom_{k-1}(U_\omega)\arrow{r}\arrow{d}{\cong} &
+    \hom_{k-1}(D)\arrow{dd}{\cong} \\% \arrow{d}{\eta^{k-1}_0}\\
+    %
+    \hom^{d-k}(U_\omega, \partial U_\omega)\arrow{d}{\cong} &
+    & \hom_k(L_\omega, \partial L_\omega)\arrow{d}{\cong} &
+    \hom^{d-k+1}(U_\omega, \partial U_\omega)\arrow{d}{\cong} & \\
+    %
+    \hom^{d-k}(D, L_\omega)\arrow{r} &
+    \hom^{d-k}(D)\arrow{r} &
+    \hom^{d-k}(L_\omega)\arrow{r} &
+    \hom^{d-k+1}(D, L_\omega)\arrow{r} &
+    \hom^{d-k+1}(D)
+\end{tikzcd}\end{equation}

@@ -1,0 +1,116 @@
+% !TeX root = new.tex
+
+\begin{definition}[Separation]
+  We say that a subset $B$ \textbf{separates} a topological space $X$ with the pair $(U, V)$ if $B, U, V$ partitions $X$ and $U, V$ are not path connected.
+\end{definition}
+
+\begin{lemma}\label{lem:separate_splits}
+  If $B$ separates $X$ with the pair $(U, V)$ then for all $k$ the short exact sequence
+  \[ 0\to \hom_k(V)\xrightarrow{i_*} \hom_k(X\setminus B)\xrightarrow{j_*} \hom_k(U)\to 0\]
+  splits.
+\end{lemma}
+\begin{proof}
+  Because $X\setminus B$ is the disjoint union of $U$ and $V$ we know that $i_* : \hom_k(V)\to \hom_k(X\setminus B)$ is the map induced by inclusion and $p_* : \hom_k(X\setminus B)\to \hom_k(V)$ is induced by the restriction of the identity on $X\setminus B$ to $V$.
+  Thus $p_*\circ i_* = \mathbf{Id}_{\hom_k(V)}$ and therefore, by Lemma~\ref{lem:splitting} the sequence splits.%we have a natural isomorphism $\hom_k(X\setminus )
+\end{proof}
+
+\begin{corollary}\label{cor:oplus_separates}
+    If $B$ separates $X$ with the pair $(U, V)$ then for all $k$
+    \[ \hom_k(X\setminus B) \cong H_k(U)\oplus \hom_k(V). \]
+\end{corollary}
+
+\begin{lemma}\label{lem:iso_separates}
+  If $B$ separates $X$ with the pair $(U, V)$ then for all $k$
+  \[ \hom_k(U)\cong \hom_k(X\setminus B, V).\]
+\end{lemma}
+\begin{proof}
+  First note that the short exact sequence
+  \[ 0\to \hom_k(V)\to \hom_k(U)\oplus\hom_k(V)\to \hom_k(U)\to 0\]
+  extends to a long exact sequence with the zero map $\partial_*^k : \hom_k(U)\to \hom_k(V)$ as $\im~j^k_* = \hom_k(U) = \ker~\partial_*^k$ and $\im~\partial_*^k = \ker~ i^{k-1}_* = \mathbf{0}_{\hom_{k-1}(V)}$.
+  Consider the following commutative diagram where the bottom row is the long exact sequence of the pair $(X\setminus B, V)$
+  \begin{small}
+  \[\begin{tikzcd}[column sep=small]
+    \ldots\ar[r]  & \hom_k(V)\ar[r, "i_*^k"]\ar[d, "f_*^k"]
+                  & \hom_k(U)\oplus\hom_k(V)\ar[r, "j_*^k"]\ar[d, "g_*^k"]
+                  & \hom_k(U)\ar[r, "\partial_*^k"]\ar[d, "h_*^k"]
+                  & \hom_{k-1}(V)\ar[r, "i_*^{k-1}"]\ar[d, "f_*^{k-1}"]
+                  & \hom_{k-1}(U)\oplus\hom_{k-1}(V)\ar[r]\ar[d, "g_*^{k-1}"]
+                  & \ldots\\
+    \ldots\ar[r]  & \hom_k(V)\ar[r, "\widehat{i_*^k}"]
+                  & \hom_k(X\setminus B)\ar[r, "\widehat{j_*^k}"]
+                  & \hom_k(U)\ar[r, "\widehat{\partial_*^k}"]
+                  & \hom_{k-1}(V)\ar[r, "\widehat{i_*^{k-1}}"]
+                  & \hom_{k-1}(X\setminus B)\ar[r]
+                  & \ldots\\
+  \end{tikzcd}\]
+  \end{small}
+  As $f_*^k$ is the identity map and, by Corollary~\ref{cor:oplus_separates}, $g^k_*$ is an isomorphism for all $k$ it follows that $h_*^k$ is an isomorphism for all $k$ by Lemma~\ref{lem:five}.
+\end{proof}
+
+\begin{definition}[Surrounding]
+  We say that $B\subset D$ \textbf{surrounds} $D\subset X$ in $X$ if $B$ separates $X$ with the pair $(D\setminus B, X\setminus D)$.
+  We will refer to such a pair $(D, B)$ as a \textbf{surrounding pair} in $X$.
+\end{definition}
+
+The following is a corollary of Theorem~\ref{thm:alexander} (Alexander Duality).
+
+\begin{corollary}\label{cor:alexander_surrounds}
+  If $(D,B)$ is a surrounding pair of locally contractible, nonempty, proper subspaces in $S^d$ then for all $k$
+  \[ \tilde{\hom}_k(D, B) \cong \tilde{\hom}^{d-k}(D\setminus B). \]
+\end{corollary}
+
+In the following we will assume that $(D,B)$ is a surrounding pair of locally contractible, nonempty, proper subspaces in $S^d$.
+Let $(\overline{B}, \overline{D}) = (S^d\setminus B, S^d\setminus D)$ denote the complement of the pair $(D, B)$ in $S^d$.
+
+\begin{lemma}\label{lem:alexander_comm}
+  If $(D,B)$ is a surrounding pair of locally contractible, nonempty, proper subspaces of $S^d$ then
+  \[i_*^{k} : \tilde{\hom}_{k+1}(D, B)\to \tilde{\hom}_k(B)\]
+  is injective and
+  \[j_*^{k} : \tilde{\hom}_{k}(B)\to \tilde{\hom}_k(D)\]
+  is surjective for all $k$.
+\end{lemma}
+\begin{proof}
+  We have the following commutative diagram of long exact sequences of the pairs $(D, B)$ and $(\overline{B}, \overline{D})$.
+
+  \begin{equation}\begin{tikzcd}\label{dgm:alexander}
+    \tilde{\hom}_{k+1}(D, B)\arrow{r}{\partial_*^{k+1}}\arrow{d}{\Gamma^{k+1}_{(D, B)}} &
+    \tilde{\hom}_{k}(B)\arrow{r}{i_*^{k}}\arrow{d}{\Gamma^{k}_B} &
+    \tilde{\hom}_{k}(D)\arrow{d}{\Gamma^{k}_D} \\ % \arrow{r}{j_*^{k}} &
+    % \tilde{\hom}_{k}(D, B)\arrow{d}{\Gamma^{k}_{(D, B)}}\\
+    %
+    \tilde{\hom}^{d-k-1}(\overline{B}, \overline{D})\arrow{r}{\overline{j_*^{d-k-1}}} &
+    \tilde{\hom}^{d-k-1}(\overline{B})\arrow{r}{\overline{i_*^{d-k-1}}} &
+    \tilde{\hom}^{d-k-1}(\overline{D}) \\ %\arrow{r}{\overline{\partial_*^{d-k}}} &
+    % \tilde{\hom}^{d-k}(\overline{B}, \overline{D})
+  \end{tikzcd}\end{equation}
+
+  Because $B$ surrounds $D$ we have that
+  \[\tilde{\hom}_{d-k-1}(\overline{B}) \cong \tilde{\hom}_{d-k-1}(D\setminus B)\oplus \hom_k(\overline{D})\]
+  by Lemma~\ref{lem:oplus_separates}, where $\tilde{\hom}_{d-k-1}(D\setminus B) \cong \tilde{\hom}_{d-k-1}(\overline{B}, \overline{D})$ by Lemma~\ref{lem:iso_separates}.
+  It follows that $\overline{j_*^{d-k-1}}$ is injective and $\overline{i_*^{d-k-1}}$ is surjective.
+
+  By commutativity of Diagram~\ref{dgm:alexander} and because $\Gamma_{(D,B)}^{k+1}, \Gamma_B^k$ and $\Gamma_D^k$ are isomorphisms we have that
+  \[\partial_*^{k+1} = (\Gamma_B^{k})^{-1} \circ\overline{j_*^{d-k-1}}\circ \Gamma_{(D,B)}^{k+1}\]
+  is injective and
+  \[i_*^{k} = (\Gamma_D^{k})^{-1} \circ\overline{i_*^{d-k-1}}\circ \Gamma_B^{k+1}\]
+  is surjective.
+\end{proof}
+
+We note that this implies the following for non-reduced homology\footnote{\textbf{TODO
+  reasoning:\begin{itemize}
+    \item consider $\hom_1(D, B)\to \hom_0(B)$.
+    \item $\tilde{\hom}_0(B)\to \tilde{\hom}_0(D)$ surjective implies $\hom_0(B)\to \hom_0(D)$ surjective (right?).
+  \end{itemize}}}
+for subsets of $\R^d$.\footnote{\textbf{TODO
+  reasoning:\begin{itemize}
+    \item $S^d\cong \R^d\cup\{\infty\}$.
+    \item Only requires spaces \emph{and} complements remain compact?
+  \end{itemize}}}
+
+\begin{corollary}\label{cor:alexander_comm}
+  If $(D,B)$ is a surrounding pair of locally contractible, nonempty, proper subspaces of $\R^d$ then
+  \[i_*^{k} : \hom_{k+1}(D, B)\to \hom_k(B)\]
+  is injective and
+  \[j_*^{k} : \hom_{k}(B)\to \hom_k(D)\]
+  is surjective for all $k$.
+\end{corollary}

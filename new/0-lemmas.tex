@@ -1,0 +1,51 @@
+% !TeX root = new.tex
+
+\begin{lemma}[Splitting Lemma (Hatcher p. 147)]\label{lem:splitting}
+  For a short exact sequence \[0\to A\xrightarrow{i} B\xrightarrow{j} C\to 0\] of abelian groups the following statements are equivalent
+  \begin{enumerate}
+    \item There is a homomorphism $p: B\to A$ such that $p\circ i = \mathbf{Id}_A$.
+    \item There is a homomorphism $s: C\to B$ such that $j\circ s = \mathbf{Id}_C$.
+    \item There is an isomorphism $B\cong A\oplus C$ making the commutative diagram below, where the maps in the lower row are the obvious ones $a\mapsto (a, 0)$ and $(a,c)\mapsto c$.
+
+    \[\begin{tikzcd}[column sep=small, row sep=small]
+              &                       & B\ar[dd, "\cong"]\ar[dr,"j"]  &         & \\
+      0\ar[r] & A\ar[ur, "i"]\ar[dr]  &                               & C\ar[r] & 0\\
+              &                       & A\oplus C\ar[ur]              &         &
+    \end{tikzcd}\]
+  \end{enumerate}
+\end{lemma}
+
+\begin{lemma}[The Five-Lemma (Hatcher p. 129)]\label{lem:five}
+  In a commutative diagram of abelian groups as below, if the two rows are exact and $\alpha,\beta,\delta$, and $\e$ are isomorphisms then $\gamma$ is an isomorphism.
+  \[\begin{tikzcd}
+      A\ar[r, "i"]\ar[d, "\alpha"]
+    & B\ar[r, "j"]\ar[d, "\beta"]
+    & C\ar[r, "k"]\ar[d, "\gamma"]
+    & D\ar[r, "\ell"]\ar[d, "\delta"]
+    & E\ar[d, "\e"]\\
+    %
+      A'\ar[r, "i'"]
+    & B'\ar[r, "j'"]
+    & C'\ar[r, "k'"]
+    & D'\ar[r, "\ell'"]
+    & E'\\
+  \end{tikzcd}\]
+\end{lemma}
+
+\begin{theorem}[Alexander Duality]\label{thm:alexander}
+  If $D$ is a compact, locally contractible, nonempty, proper subspace of $S^d$ then for all $k$ there is an isomorphism
+  \[ \Gamma_D^k : \tilde{\hom}_k(D)\to \tilde{\hom}^{d-k-1}(S^d\setminus D). \]
+
+  If $(D, B)$ is a pair of such subspaces of $S^d$ then for all $k$ there is an isomorphism
+  \[ \Gamma_{(D,B)}^k : \tilde{\hom}_k(D, B)\to \tilde{\hom}^{d-k}(S^d\setminus B, S^d\setminus D). \]
+\end{theorem}
+
+\begin{lemma}[Lemma 3.2 from~\cite{chazal08towards}]\label{lem:sandwich}
+    Given a sequence $A\to B\to C\to D\to E\to F$ of homomorphisms between finite-dimensional vector spaces, if $\rk(A\to F) = \rk(C\to D)$ then this quantity also equals the rank of $B\to E$.
+    Similarly, if $A\to B\to C\to E\to F$ is a sequence of homomorphisms such that $\rk(A\to F) = \dim~C$ then $\rk(B\to E) = \dim~C$.
+\end{lemma}
+
+\textbf{TODO
+\begin{itemize}
+  \item Excision
+\end{itemize}}

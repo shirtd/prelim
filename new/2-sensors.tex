@@ -1,0 +1,63 @@
+% !TeX root = new.tex
+
+In the following let $\dist(x, y) = \|x - y\|$ denote the euclidean distance between points $x,y\in \R^d$.
+For $A\subset\R^d$ and $x\in \R^d$ let
+\[\dist_A(x) = \min_{a\in A}\dist(x, a)\]
+denote the distance from $x$ to the set $A$.
+In the following, we will use open metric balls
+\[\ball_\e(x) = \{y\in\R^d\mid \dist(x, y) < \e\}\]
+and offsets
+\[A^\e = \dist_A^{-1}[0, \e) = \{x\in \R^d\mid \dist_A(x) < \e\}.\]% = \bigcup_{a\in A}\ball_\e(a) .\]
+
+Let $(D, B)$ be a surrounding pair in $\R^d$.
+For subsets $Y\subset X$ of $D$ suppose $D\setminus B \subseteq X$ and $Y$ separates $D$ with a pair $(U, V)$ such that $D\setminus B \subseteq U$.
+Let $(\hat{X},\hat{Y}) = (X\cup V, Y\cup V)$ denote the \emph{extension} of the pair $(X, Y)$ in $(D, B)$.
+
+\begin{definition}[Separating Cover]
+  For $\delta > 0$, $\gamma > \delta$, and finite subsets $P\subset D$, $Q\subset P\cap B$ we say that $(P, Q)$ is an \textbf{(open) separating $(\delta,\gamma)$-cover} of $(D, B)$ if
+  \begin{enumerate}[label=(\alph*)]
+    \item $D\setminus B \subseteq P^\delta$,
+    \item $Q^\delta$ separates $D$ with the pair $(U, V)$ such that $D\setminus B\subseteq U$, and
+    \item $(\hat{P^\delta}, \hat{Q^\delta})\subseteq (D, B)\subseteq (\hat{P^\gamma}, \hat{Q^\gamma})$.
+  \end{enumerate}
+\end{definition}
+
+{\color{red}
+
+\begin{lemma}
+  If $(P, Q)$ is an (open) separating $(\delta,\gamma)$-cover of a surrounding pair $(D, B)$ then
+  \[ \hom_k(P^\delta, Q^\delta)\cong \hom_k(\hat{P^\delta}, \hat{Q^\delta}). \]
+\end{lemma}
+\begin{proof}
+  Clearly $\hat{P^\delta}\setminus V = P^\delta$ and $\hat{Q^\delta}\setminus V = Q^\delta$.
+  Because $Q^\delta$ is an open set $V$ is closed\footnote{\textbf{TODO
+  $V = D\setminus (Q^\delta\cup U)$ for \emph{open} $D$. clopen? $D$ must be open for next excision.
+  options:\begin{itemize}
+    \item Define separating pair as separating $\R^d$ with $D\setminus B\subset U$ and $\overline{D}\subset V$
+    \item tricky bzns where $D$ is taken as a metric subspace (side effects?)
+  \end{itemize}}}, so $\cl(V) = V\subset \intr(\hat{Q^\delta})$.
+  The isomorphism follows by excision.
+\end{proof}
+
+For any separating $(\delta,\gamma)$-cover $(P, Q)$ of a surrounding pair $(D, B)$ clearly $Q^\gamma$ separates $D$ and $D\setminus B\subseteq P^\gamma$.
+Therefore, let $(\hat{P^\gamma}, \hat{Q^\gamma})$ denote the extension of $(P^\gamma, Q^\gamma)$ in $D$ and note that $\hom_k(P^\gamma, Q^\gamma)\cong \hom_k(\hat{P^\gamma}, \hat{Q^\gamma})$.
+
+\begin{lemma}\label{lem:excision1}
+  If $(D, B)$ is an open surrounding pair in $\R^d$ and $(P, Q)$ is an (open) separating $(\delta,\gamma)$-cover of $(D, B)$ then there is an isomorphism
+  \[ \hom_k(P^\delta, P^\delta\cap B)\to \hom_k(D, B) \]
+  induced by inclusion for all $k$.
+\end{lemma}
+\begin{proof}
+  Because $(D, B)$ is an open pair of subsets and $(P, Q)$ is a separating $(\delta,\gamma)$-cover of $(D, B)$ we know that $B\subset D$, $P^\delta \subseteq D$, and $D\setminus B \subseteq P^\delta$.
+  Moreover, because $B$ and $P^\delta$ are open sets $\intr(P^\delta) = P^\delta$ and $\intr(B) = B$.
+  So $P^\delta \cup B = \intr(P^\delta)\cup \intr(B)\subseteq D$ and
+  \[ D = (D\setminus B)\cup B \subseteq P^\delta \cup B \]
+  thus $\intr(P^\delta)\cup \intr(B) = D$ which implies the inclusion $(P^\delta, P^\delta\cap B)\hookrightarrow (D, B)$ induces an isomorphism in homology by excision.
+\end{proof}
+
+Because $(D, B)$ is a surrounding pair in $\R^d$ we know that $B$ separates $\R^d$ with the pair $(D\setminus B, \overline{D})$.
+So there is no path from $D\setminus B$ to $\overline{D}$ that does not cross $B$.
+As $D\setminus B\subseteq V$, $Q^\delta\subseteq B$, and $U, V$ and $Q^\delta$ partition $D$ it follows that $U\subset B$ and therefore that $(\hat{P^\delta}, \hat{Q^\delta}) \subseteq (D, B) \subseteq (\hat{P^\gamma}, \hat{Q^\gamma})$.\footnote{\textbf{TODO rigor.}}
+Similarly, $\hom_k(\hat{P^\delta}, \hat{P^\delta}\cap B)\cong \hom_k(D, B)$.
+
+}

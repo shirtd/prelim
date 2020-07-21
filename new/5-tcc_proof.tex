@@ -1,0 +1,178 @@
+% !TeX root = new.tex
+
+We have the following commutative diagrams of inclusions between the pairs $(P,Q)$ and $(\D, \B)$ and their complements with increasing scale.
+
+\[ \begin{tikzcd}
+  (P^\delta, Q^\delta) \arrow[hookrightarrow]{r}\arrow[hookrightarrow]{d} &
+  (P^\gamma, Q^\gamma) \arrow[hookrightarrow]{d} \\
+  %
+  (\D, \B) \arrow[hookrightarrow]{r} &
+  (D_1, B_1),
+\end{tikzcd}\begin{tikzcd}
+  (\overline{B_1}, \overline{D_1})\arrow[hookrightarrow]{r}{j}\arrow[hookrightarrow]{d} &
+  (\overline{\B}, \overline{\D}) \arrow[hookrightarrow]{d}\\
+  %
+  (\overline{Q^\gamma}, \overline{P^\gamma}) \arrow[hookrightarrow]{r}{i} &
+  (\overline{Q^\delta}, \overline{P^\delta}).
+\end{tikzcd}\]
+
+The following diagram is formed by applying the homology functor.
+\begin{equation}\label{dgm:1}\begin{tikzcd}
+    \hom_0(\overline{B_1}, \overline{D_1})\arrow{r}{j_*}\arrow{d} &
+    \hom_0(\overline{\B}, \overline{\D}) \arrow{d} \\
+    %
+    \hom_0(\overline{Q^\gamma}, \overline{P^\gamma}) \arrow{r}{i_*} &
+    \hom_0(\overline{Q^\delta}, \overline{P^\delta}).
+\end{tikzcd}\end{equation}
+Let $p_* : \im~j_*\to\im~i_*$.
+
+% \begin{lemma}\label{lem:complement}
+%     Given assumption 2 \[\im~\hom_k(D_1\setminus B_1\hookrightarrow D_0\setminus B_0)\cong\hom_k(\D\setminus\B).\]
+% \end{lemma}
+%
+% \begin{lemma}\label{lem:jsurj}
+%     Given assumptions 1 \& 2 the map $j_k:\hom_k(D_1\setminus B_1)\to\hom_k(\D\setminus\B)$ is surjective for all $k$.
+% \end{lemma}
+% \begin{proof}
+%     Let $s_k : \hom_k(D_1\setminus B_1)\to\hom_k(D_0\setminus B_0)$ and $t_k : \im~s_k\to\hom_k(\D\setminus\B)$.
+%     Given assumption 2 we have that $t_k$ is an isomorphism by Lemma~\ref{lem:complement} so $\im~t_k = \hom_k(\D\setminus\B)\cong\im~s_k$.
+%     Therefore, $t_k\circ s_k : \hom_k(D_1\setminus B_1)\to\hom_k(\D\setminus\B)$ is surjective as $\im(t_k\circ s_k) = \im~t_k = \hom_k(\D\setminus\B)$.
+%     % By assumption 1 we know that $\gamma,\delta$ are such that $D_0^{\delta+\gamma}\subset D_1$.
+%     % So $D_1\setminus B_1\hookrightarrow D_0^{\delta+\gamma}$ induces the map $f_k : \hom_k(D_1\setminus B_1)\to\hom_k(D_0^{\delta+\gamma})$ and $t_k\circ s_k = j_k\circ f_k$ is surjective, so $j_k$ is surjective as desired.
+% \end{proof}
+
+\begin{lemma}\label{lem:psurj}
+    Given assumptions 1 \& 2, the map $p_*$ is surjective.
+\end{lemma}
+\begin{proof}
+  Choose a basis for $\im~i_*$ such that each basis element is represented by a point in $P^\delta\setminus Q^\gamma$.
+  Let $x\in P^\delta\setminus Q^\gamma$ be such that $[x]$ is non-trivial in $\im~i_*$.
+  Suppose $x\in\B$ and let $y\in B_0$ so that $\dist(x, y) < 2\delta$.
+
+  Now, because $x\in\overline{Q^\gamma}$ by hypothesis $\dist(x, q) \geq \gamma$ for all $q\in Q$.
+  For any $z$ in the shortest path between $x$ and $y$ we have $\dist(x, z)\leq \dist(x, y) < 2\delta$, so the following inequality holds for all $q\in Q$
+  \begin{align*}
+    \dist(x, q) & \geq \dist(x, q) - \dist(x, z)\\
+                & > \gamma - 2\delta\\
+                & \geq \delta.
+  \end{align*}
+  So $z\in \overline{Q^\delta}$ for all $z$ in the shortest path from $x$ to $y$.
+  In particular, $x,y\in\overline{Q^\delta}$.
+
+  Now, suppose $y\in P^\delta$.
+  So there exists some $p\in P$ such that $\dist(p, y) < \delta$.
+  So $\dist(p, y) < \delta$ which implies $p\in Q$ thus $y\in Q^\delta$.
+  But we have shown that $y\in \overline{Q^\delta}$, a contradiction, so we may assume that $y\in \overline{P^\delta}$.
+
+  Because $x,y\in\overline{Q^\delta}$ we have corresponding chains $x,y\in C_0(\overline{Q^\delta})$ as well as $y\in\overline{P^\delta}$ generating a chain $y\in C_0(P^\delta)$.
+  As we have shown that $x\in \B$ implies that the shortest path from $x$ to $y$ is contained in $\overline{Q^\delta}$ there exists a path $h: [0,1]\to \overline{Q^\delta}$ with $h(0) = x$ and $h(1) = y$ that generates a chain $h\in C_1(\overline{Q^\delta})$.
+  So for $h\in C_1(\overline{Q^\delta}, \overline{P^\delta})$ with $\partial h = x + y$ we have that $x = \partial h + y$.
+  Thus $[x]$ is a relative boundary and is therefore trivial in $\hom_0(\overline{P^\delta}, \overline{Q^\delta})$, a contradiction, as we have assumed $[x]$ is non-trivial in $\im~i_*$.
+  So we may conclude that $x\notin \B$.
+
+  So $x\in\overline{\B}$ and $x\in \D\setminus\B$.
+  So $[x]$ is non-trivial in $\hom_0(\overline{\B},\overline{\D})$ and, because $j_*$ is surjective, $\im~j_* = \hom_0(\overline{\B},\overline{\D})$.
+  So $p_*$ is surjective as $p_*[x] = [x]\in\im~p_*$ for all non-trivial $[x]\in\im~i_*$.
+\end{proof}
+
+\begin{lemma}\label{lem:coverage}
+    Given assumptions 1 \& 2, if $p_*$ is injective then $\D\setminus\B\subseteq P^\delta$.
+\end{lemma}
+\begin{proof}
+    Suppose, for the sake of contradiction, that $p_*$ is injective and there exists a point $x\in (\D\setminus\B)\setminus P^\delta$.
+    So $[x]$ is non-trivial in $\hom_0(\overline{\B},\overline{\D}) = \im~j_*$ as $x$ is in some connected component of $\D\setminus\B$ and $j_*$ is surjective.
+    So we have the following sequence of maps induced by inclusions
+    \[ \hom_0(\overline{\B},\overline{\D})\xrightarrow{f_*} \hom_0(\overline{\B},\overline{\D}\cup\{x\})\xrightarrow{g_*} \hom_0(\overline{Q^\delta},\overline{P^\delta}).\]
+    As $f_*[x]$ is trivial in $\hom_0(\overline{\B},\overline{\D}\cup\{x\})$ we have that $p_*[x] = (g_*\circ f_*)[x]$ is trivial, contradicting our hypothesis that $p_*$ is injective.
+\end{proof}
+
+\begin{lemma}\label{lem:separate}
+    Given assumptions 1 \& 2, if the map $p_*$ is injective then $Q^\delta$ separates $\D$.
+\end{lemma}
+\begin{proof}
+    Suppose, for the sake of contradiction, that $Q^\delta$ does not separate $\D$.
+    Then for all $(U, V)$ such that $U \cup V = \D\setminus Q^\delta$ there must exist some path from $U$ to $V$ that does not cross $Q^\delta$.
+    Formally, there exists a path $\pi : [0,1]\to\overline{Q^\delta}$ with $\pi(0)\in U$ and $\pi(1)\in V$.
+    Noting that $\overline{\B}\subseteq \overline{Q^\delta}$ and, because $\B$ surrounds $\D$, $\overline{\B} = \overline{\D}\cup (\D\setminus\B)$, so we can choose $(U, V)$ such that $\D\setminus \B\subset U$ and $\overline{\D}\subset V$.
+
+    Choose $x\in\D\setminus \B$ and $y\in \overline{\D}$ such that there exist paths $\pi_x : [0,1]\to U$ with $\pi_x(0) = x$, $\pi_x(1) = \pi(0)$ and $\pi_y : [0,1]\to V$ with $\pi_y(0) = y$, $\pi_y(1) = \pi(1)$.
+    $\pi_x, \pi_y$ and $\pi$ all generate chains in $C_1(\overline{Q^\delta}, \overline{P^\delta})$ and $\pi_x + \pi + \pi_y = \pi^*\in C_1(\overline{Q^\delta}, \overline{P^\delta})$ with $\partial\pi^* = x + y$.
+    Moreover, $y$ generates a chain in $C_0(\overline{P^\delta})$ as $\overline{\D^{2\delta}}\subseteq\overline{P^\delta}$.
+    So $x = \partial\pi^* + y$ is a relative boundary in $C_0(\overline{Q^\delta}, \overline{P^\delta})$ thus $[x] = 0 = [y]$ in $\hom_0(\overline{Q^\delta}, \overline{P^\delta})$ and therefore $[x] = [y]$ in $\im~i_*$.
+    However, because $\B$ surrounds $\D$ we know that $[x]\neq [y]$ in $\hom_0(\overline{\B}, \overline{\D})\cong \im~j_*$, contradicting our assumption that $p_*$ is injective.
+\end{proof}
+%
+% In the following lemma suppose $Q^\delta$ separates $\D$ and $\D\setminus\B\subseteq P^\delta$.
+% So there is a pair $(U, V)$ of disconnected subsets of $\D$ such that $U, V$ and $Q^\delta$ form a partition of $\D$.
+% Moreover, because $\D\setminus \B \subset P^\delta$ and $Q^\delta \subseteq \B$ we know that either $U$ or $V$ contains $\D\setminus \B$.
+% Choose $U$ to be the component containing $\D\setminus \B$ so that $V\subset \overline{\D\setminus \B}$.
+% As in the previous section let $\hat{P^\delta} = P^\delta\cup V$ and $\hat{Q^\delta} = Q^\delta\cup V$.
+% Similarly, $\hat{P^\gamma} = P^\gamma\cup V$ and $\hat{Q^\gamma} = Q^\gamma\cup V$.
+
+\begin{lemma}\label{lem:qcontain}
+    Given assumptions 1 \& 2, if $p_*$ is injective then $\B\subseteq \hat{Q}^\gamma$.
+\end{lemma}
+\begin{proof}
+    Suppose $p_*$ is injective and there exists some $x\in \B$ such that $x\notin \hat{Q}^\gamma$.
+    Because $\B = B_0^{2\delta}$ there must exist some $y\in B_0$ such that $\dist(x, y) < 2\delta$.
+    By Lemma~\ref{lem:separate} $Q^\delta$ separates $\D$ with a pair $(U, V)$ therefore $x$ and $y$ are each either in $Q^\delta, V$ or $U$.
+    % Moreover, $\overline{U} = Q^\delta \cup V = \hat{Q}^\delta$ so $\B\cap U = \B\setminus \hat{Q}^\delta$ and $B_0\cap U = B_0\setminus \overline{U} = B_0\setminus \hat{Q}^\delta = \emptyset$ as $\B\subset \hat{Q}^\delta$.
+    % So $y\notin \I$ and, because $Q^\delta \subset Q^\gamma$ and $\O\subset \hat{Q}^\delta\subset\hat{Q}^\gamma$, we can assume w.l.o.g. that $x\in \B\cap U$.
+    So $x\in\B\setminus \hat{Q^\gamma} = \B\cap (U\setminus Q^\gamma)$ and $y\in B_0\subseteq\hat{Q^\delta}$.
+
+    If $y\in Q^\delta$ then there exists some $q\in Q$ such that $\dist(q, y) < \delta$ so
+    \[ \dist(q, x)\leq \dist(q, y) + \dist(x, y) < 3\delta\leq\gamma \]
+    which implies $x \in Q^\gamma$.
+
+
+    As $x\in \B\cap (U\setminus Q^\gamma)$ we may assume that $y\in B_0 \cap \overline{Q^\delta} = B_0 \cap (U\cup V) = B_0 \cap V$.
+    Because $Q^\delta$ separates $\D$ with $(U, V)$ there is no path from $x\in U$ to $y\in V$ that does not cross $Q^\delta$, so there must be some point $z\in Q^\delta$ in the shortest path from $x$ to $y$.
+    That is, there exists some $q\in Q$ such that $\dist(q, z) < \delta$ and $\dist(z, x) < \dist(x, y) < 2\delta$ so
+    \[ \dist(q, x)\leq \dist(q, z) + \dist(z, x) < \delta + 2\delta \leq \gamma. \]
+    So $y\in V$ implies $x\in\hat{Q}^\gamma$.
+\end{proof}
+
+% We will modify our definition of a separating $(\delta,\gamma)$-cover to function for the extended sets $(\hat{P^\delta}, \hat{Q^\delta})$ and $(\hat{P^\gamma}, \hat{Q^\gamma})$:
+% For $\gamma > \delta > 0$ we say that $(P, Q)$ is an \emph{(open) separating $(\delta,\gamma)$-cover} of $(D, B)$ if
+% \begin{itemize}
+%   \item $D\setminus B \subseteq P^\delta$,
+%   \item $Q^\delta$ separates $D$ with the pair $(U, V)$ and $D\setminus B\subset U$, and
+%   \item $(P^\delta\cup V, Q^\delta\cup V)\subseteq (D, B)\subseteq (P^\gamma\cup V, Q^\gamma\cup V)$.
+% \end{itemize}
+
+\begin{theorem}[Geometric TCC]\label{thm:tcc}
+  Let $(D_0, B_0)$ and $(D_1, B_1)$ be surrounding pairs of nonempty, compact subsets of $\R^d$ satisfting assumptions 1 \& 2 for $\delta > 0$, and $\gamma > 3\delta$.
+  Let $P\subset D_0$ be a finite collection of sensors and $Q = P\cap B_0^\delta$.
+  Let $(\D, \B) = (D_0^{2\delta}, B_0^{2\delta})$ and $p_* : \im~j_*\to\im~i_*$ for $j_*$, $i_*$ as defined in Diagram~\ref{dgm:1}.
+
+  If $\rk~i_*\geq \rk~j_*$ then  $(P, Q)$ is an (open) separating $(\delta,\gamma)$-cover of $(\D, \B)$.
+\end{theorem}
+\begin{proof}
+  % Lemma~\ref{lem:psurj} states that $p_*$ is surjective so $p_*$ is surjective, so $\rk~i_*\leq \rk~j_*$.
+  % Because $\rk~i_*\geq \rk~j_*$, $$\rk~i_* = \rk~j_*$.
+  Because $P$ is a finite point set we know that $\im~i_*$ is finite-dimensional.
+  Because $\rk~i_*\geq \rk~j_*$ $j_*$ is finite dimensional as well so $p_*$ is injective.
+  Therefore $\D\setminus\B\subseteq P^\delta$ by Lemma~\ref{lem:coverage} and $Q^\delta$ separates $\D$ by Lemma~\ref{lem:separate}.
+  Because $Q^\delta$ separates $\D$ with a pair $(U, V)$ and $\D\setminus\B\subset P^\delta$ we can extend $(P^\delta, Q^\delta)$ and $(P^\gamma, Q^\gamma)$ to the pairs $(\hat{P^\delta}, \hat{Q^\delta})$ and $(\hat{P^\gamma}, \hat{Q^\gamma})$.
+  % there is a pair $(U, V)$ of disconnected subsets of $\D$ such that $U, V$ and $Q^\delta$ form a partition of $\D$.
+  % % Moreover, because $\D\setminus \B \subset P^\delta$ and $Q^\delta \subseteq \B$ we know that either $U$ or $V$ contains $\D\setminus \B$.
+  % % Choose $U$ to be the component containing $\D\setminus \B$ so that $V\subset \overline{\D\setminus \B}$.
+  % % In the following
+  % Let $\hat{P^\delta} = P^\delta\cup V$ and $\hat{Q^\delta} = Q^\delta\cup V$.
+  % Similarly, $\hat{P^\gamma} = P^\gamma\cup V$ and $\hat{Q^\gamma} = Q^\gamma\cup V$.
+
+  As $P\subset B_0$ and $Q = P\cap B_0^\delta$ we have that $(P^\delta, Q^\delta) \subset (D_0^{2\delta}, B_0^{2\delta}) = (\D, \B)$.
+  Because $\B$ surrounds $\D$ in $\R^d$ we know that $\B$ separates $\R^d$ with the pair $(\D\setminus\B, \R^d\setminus\D)$.
+  So $\hat{P^\delta} = P^\delta\cup V$ with $U\cup V\cup Q^\delta = \D$ implies $\hat{P^\delta}\subset \D$ and $\hat{Q^\delta} = Q^\delta\cup V$ implies $\hat{Q^\delta}\subset \B$.
+  Moreover, because $p_*$ is injective $\B\subseteq \hat{Q}^\gamma$ by Lemma~\ref{lem:qcontain}.
+  Finally, $\D\setminus\B\subset P^\delta$ and $\B = B_0^{2\delta}$ implies that $\D = D_0 \subset P^\gamma$ so $\D = D_0^{2\delta} \subset \hat{P^\gamma}$.\footnote{\textbf{TODO need $\D\setminus\B\subset U$.}}
+
+  As $\D\setminus \B \subseteq P^\delta$, $Q^\delta$ separates $\D$, and $(\hat{P^\delta}, \hat{Q^\delta})\subseteq (\D, \B)\subseteq (\hat{P^\gamma}, \hat{Q^\gamma})$ we may conclude that $(P, Q)$ is an (open) separating $(\delta,\gamma)$-cover of $(\D, \B)$.
+\end{proof}
+
+% \begin{corollary}
+%   Given assumptions 1 \& 2 $\rk~i_*\geq \rk~j_*$ implies
+%   \[ \im~\hom_k((P^\delta, Q^\delta)\hookrightarrow (P^\gamma, Q^\gamma))\cong \hom_k(\D, \B). \]
+% \end{corollary}
+%
+% \textbf{TODO} $B_0\subset \hat{Q^\delta}$ and $(\hat{P^\gamma}, \hat{Q^\gamma})\subseteq (D_1, B_1)$.

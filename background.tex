@@ -1,0 +1,109 @@
+% !TeX root = main.tex
+
+% \section{Background}
+% \label{sec:background}
+
+% \paragraph*{\textbf{Simplicial Complexes.}}
+%
+% A \textbf{simplicial complex} $K$ with vertex set $V$ is a collection of \textbf{simplices} $\sigma\subset V$ that is closed under taking subsets.
+% We define a \textbf{pair of complexes} to be a pair $(K, L)$ where $K$ is a simplicial complex and $L$ is a subcomplex of $K$.
+%
+% Given a metric space $(X, d)$ we define the $\e$-offsets of a point $p\in X$ as \[\ball(p, \e) = \{x\in X\mid d(x, p)\leq \e\}.\]
+% For a subset $P\subseteq X$ the \emph{nerve} of a family $\{\ball(p,\e)\}_{p\in P}$ is the abstract simplicial complex with vertex set $P$ with simplices corresponding to subsets of elements with nonempty intersections, and is known as the \emph{\v{C}ech complex}
+% \[
+%   \cech_\e(P) := \left\{\sigma \subseteq P\mid \bigcap_{p\in \sigma}\ball(p,\e)\neq \emptyset \right\}.
+% \]
+% The \textbf{(Vietoris-)Rips complex} of $P$ at scale $\e$ is defined as
+% \[
+%   \rips_\e(P) := \left\{\sigma \subseteq P \mid \{p,q\}\in\cech_\e(P) \text{ for all $p,q\in \sigma$}\right\}.
+% \]
+%
+% For any metric space $(X, d)$ the \v{C}ech and Rips complexes of a subset $P\subset X$ are related by the following interleaving for all $\e > 0$
+% \[ \cech_{\e/2}(P)\subseteq \rips_\e(P)\subseteq \cech_\e(P). \]
+%
+% \paragraph*{\textbf{Homology and Persistent Homology.}} % (fold)
+% \label{par:homology_and_persistent_homology}
+%
+% Homology is a tool from algebraic topology that provides a topological signature for a shape that may be readily computed from a matrix representation of a finite simplicial complex through matrix reduction.
+% The resulting signature is invariant under homeomorphisms and homotopy equivalences, and may be thought of as quantifying the components, loops, and voids in a topological space.
+%
+% Throughout, we assume singular homology over a field, where the \emph{$k$th homology group} of a space $X$ is a vector space denoted $H_k(X)$.
+% We will write $H_*(X)$ to denote the homology of all dimensions.
+% For a pair of spaces $(X,Y)$ with $Y\subseteq X$ the \emph{relative homology groups} gives the homology of $X$ relative to $Y$, and are denoted $H_*(X,Y)$.
+%
+% A \emph{filtration} is a sequence of topological spaces $\mathcal{F} = \{F_\alpha\}_{\alpha\in\R}$ that are nested by inclusions $F_\alpha\hookrightarrow F_\beta$ for $\alpha\leq\beta$.
+% Each inclusion $F_\alpha\hookrightarrow F_\beta$ induces homeomorphisms between homology groups $h_*^{\alpha,\beta} : H_*(F_\alpha)\to H_*(F_\beta)$.
+
+\paragraph*{\textbf{Analysis of Scalar Fields.}} % (fold)
+\label{par:stability_of_persistent}
+
+Figure~\ref{fig:function} depicts a function on a subset of the plane and its function values on the simplices of a simplicial complex defined on a subset of the plane.
+The filtration given by ordering the simplices of this complex by their function values is known as an \emph{induced filtration}.
+Chazal et. al. detail how to construct a filtration (in fact, the inclusion of two filtrations) that approximates the persistence diagram of the function itself~\cite{chazal09analysis} that has a natural application to measurements by coordinate-free sensor networks.
+Extending our testbed to explore this result was a natural next step as it assumes coverage and the structures required are a subset of those used in the computation of the TCC.
+This extension has led to promising results on applications to functions on coordinate-free networks over time as well as interesting theoretical questions on the role of the boundary in these experiments.
+
+For a compact Riemannian manifold $X$, possibly with boundary, a point $x\in X$ and a real value $r\geq 0$, let $B_X(x, r) = \{y\in X\mid d_X(x,y) < r\}$ denote the open geodesic ball of center $x$ and radius $r$.
+For all sufficiently small values $r\geq 0$ the ball $B_X(x,r)$ is said to be \emph{strongly convex} if for every pair of points $y,y'$ in the closure of $B_X(x, r)$, there exists a unique shortest path in $X$ between $y$ and $y'$, and the interior of this path is included in $B_X(x, r)$.
+Let $\varrho(x) > 0$ be supremum of the radii such that this property holds.
+The \emph{strong convexity radius} of $X$ is defined $\varrho(X) = \inf_{x\in X}\varrho(x)$.
+Because $X$ is compact $\varrho(X)$ is known to be positive.
+This quantity is required in order to apply the Nerve theorem in Theorem~\ref{thm:scalar}.
+% In the following let $R_\delta^{\delta'}(P) = \im (R_{\delta}(P)\hookrightarrow R_{\delta'}(P))$ denote the image of the inclusion of Rips complexes of some set $P\subseteq X$ at scales $\delta\leq\delta'$.
+
+\begin{theorem}[Theorem 2 of~\cite{chazal09analysis}]\label{thm:scalar}
+    Let $X$ be a compact Riemannian manifold, possibly with boundary, and let $f:X\to\R$ be a $c$-Lipschitz function.
+    Let also $P$ be a geodesic $\e$-sample of $X$.
+    If $\e < \frac{1}{4}\varrho(X)$, then for any $\delta\in [2\e,\frac{1}{2}\varrho(X))$ and for any $k\in\N$, the $k$th persistent homology modules of $f$ and of the nested pair of filtrations $\{\rips_\delta(P_\alpha^f)\hookrightarrow \rips_{2\delta}(P_\alpha^f)\}_{\alpha\in\R}$ are $2c\delta$-interleaved.
+    % $\{R_\delta^{2\delta}(P_\alpha^f)\}_{\alpha\in\R}$ are $2c\delta$-interleaved.
+    Therefore, the bottleneck distance between their persistence diagrams is at most $2c\delta$.
+\end{theorem}
+
+\paragraph*{\textbf{Stability of Relative Persistent Homology.}} % (fold)
+\label{par:stability_of_relative_persistent}
+
+Let $(X, Y)$ be a pair of spaces with $Y\subseteq X$.
+For $f:X\to\R$ we define a function $\tilde{f}$ on the pair $(X, Y)$ as the pair $(f, f\restriction_Y)$ where $f\restriction_Y:Y\to\R$ is the restriction of $f$ to $Y$.
+The \emph{sublevel-set filtration of $\tilde{f}$ on the pair $(X, Y)$} is the sequence of pairs of sublevel-sets $\{(X_\alpha^f, Y_\alpha^f)\}_{\alpha\in\R}$ where $X_\alpha^f = f^{-1}(-\infty,\alpha]$ and $Y_\alpha^f = f\restriction_Y^{-1}(-\infty,\alpha] = X_\alpha^f\cap Y$ are the sublevel-sets of $f$ and $f\restriction_Y$, respectively.
+
+\begin{lemma}\label{lem:relative_interleave}
+    Let $X$ be a topological space and $Y\subseteq X$.
+    Let $f,g:X\to\R$ be tame functions such that $\dmax(f, g)\leq\e$.
+    Then the sublevel-set filtrations $\{(X_\alpha^f, Y_\alpha^f)\}_{\alpha\in\R}$ of $\tilde{f}$ and $\{(X_\alpha^g, Y_\alpha^g)\}_{\alpha\in\R}$ of $\tilde{g}$ on the pair $(X, Y)$ are $\e$-interleaved.
+\end{lemma}
+\begin{proof}
+    By Lemma~\ref{lem:interleave} we have that the sublevel-set filtrations of $f$ and $g$ are $\e$-interleaved.
+    Note that, because $Y\subseteq X$, we have that $Y^f_\alpha \subseteq X^f_\alpha$ and $Y^g_\alpha \subseteq X^g_\alpha$ for all $\alpha\in\R$, so the sublevel-set filtrations $\{Y^f_\alpha\}_{\alpha\in\R}$ of $g\restriction_Y$ and $\{Y^g_\alpha\}_{\alpha\in\R}$ of $f\restriction_Y$ are $\e$-interleaved.
+    It follows that the sublevel-set filtrations $\{(X^f_\alpha, Y^f_\alpha)\}_{\alpha\in\R}$ of $\tilde{f}$ and $\{(X^g_\alpha, Y^g_\alpha)\}_{\alpha\in\R}$ of $\tilde{g}$ are $\e$-interleaved.
+\end{proof}
+
+The \emph{persistent relative homology modules} of a real-valued function $\tilde{f}$ on the pair $(X, Y)$ is a pair consisting of the family of relative homology groups of $\{(X^f_\alpha, Y^f_\alpha)\}_{\alpha\in\R}$ and the connecting homeomorphisms on relative homology groups induced by inclusions of pairs $(X^f_\alpha, Y^f_\alpha)\hookrightarrow (X^f_\beta, Y^f_\beta)$:
+\[\mathcal{H}_*(\tilde{f}) = (\{H_*(X^f_\alpha, Y^f_\alpha)\}_{\alpha\in\R}, \{H_*(X^f_\alpha, Y^f_\alpha)\to H_*(X^f_\beta, Y^f_\beta)\}_{\alpha\leq\beta\in\R}).\]
+The corresponding \emph{relative persistence diagram} is denoted $\Pers(\tilde{f})$.
+
+\begin{lemma}\label{lem:relative_stability}
+    Let $X$ be is a topological space and $Y\subseteq X$.
+    If $f,g:X\to\R$ are tame functions such that $\dmax(f, g)\leq\e$ then
+    \[ \dist_B(\Pers(\tilde{f}), \Pers(\tilde{g}))\leq\e.\]
+\end{lemma}
+\begin{proof}
+    Because $\dmax(f, g)\leq\e$ the sublevel-set filtrations of $\tilde{f}$ and $\tilde{g}$ on the pair $(X, Y)$ are $\e$-interleaved by Lemma~\ref{lem:relative_interleave}.
+    So, by Lemma~\ref{lem:stability}, we have that $\dist_B(\Pers(\tilde{f}), \Pers(\tilde{g}))\leq\e$.
+\end{proof}
+
+\begin{corollary}\label{cor:relative_stability}
+    If $X$ is a topological space, $Y\subseteq X$, and $f,g: X\to\R$ are tame functions then
+    \[ \dist_B(\Pers(\tilde{f}), \Pers(\tilde{g}))\leq \dmax(f, g).\]
+\end{corollary}
+
+The following result from~\cite{skraba14approximating} allows us to extend results in absolute persistent homology to relative persistent homology.
+Two filtrations $\{A_\alpha\}_{\alpha\in\R}$ and $\{F_\alpha\}_{\alpha\in\R}$ are called \emph{compatible} if for all $\alpha\leq\beta$, the following diagram commutes
+\[\begin{tikzcd}
+    A_\alpha \arrow[r] \arrow[d] & F_\alpha \arrow[d] \\
+    A_\beta \arrow[r] & F_\beta.
+\end{tikzcd}\]
+
+\begin{theorem}[Theorem 1 of~\cite{skraba14approximating}]\label{thm:compatible}
+    If compatible filtrations $\{F_\alpha\}_{\alpha\in\R}$ and $\{G_\alpha\}_{\alpha\in\R}$ are $\e_1$-interleaved,
+    $\{A_\alpha\}_{\alpha\in\R}$ and $\{B_\alpha\}_{\alpha\in\R}$ are $\e_2$-interleaved, then the relative modules $\{(F_\alpha, A_\alpha)\}$ and $\{(G_\alpha, B_\alpha)\}_{\alpha\in\R}$ are $\e$-interleaved, where $\e = \max\{\e_1,\e_2\}$.
+\end{theorem}
