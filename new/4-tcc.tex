@@ -1,6 +1,5 @@
 % !TeX root = new.tex
 
-% Let $\D\subset\R^d$ satisfying the following assumptions for some $\delta > 0$ and $\gamma > 3\delta$.
 Let $P\subset \D$ be a finite collection of sensors $p$ with the following capabilities.
 
 \vspace{3ex}
@@ -17,13 +16,6 @@ Let $P\subset \D$ be a finite collection of sensors $p$ with the following capab
 \end{small}
 }}\end{center}\vspace{3ex}
 
-% The original TCC~\cite{desilva07coverage} and work on scalar fields~\cite{chazal09analysis} make strict assumptions about the geometry of the domain $\D$ and its boundary $\B$.
-% We re-interpreted the TCC by replacing the assumptions about the geometry of the domain with assumptions about its persistent homology~\cite{cavanna2017when}.
-% This amounted to a requirement that the zero-dimensional homology of the domain did not change as we shrunk the domain within a certain range.
-
-% In this work we would like to extend this idea from the zero-dimensional homology of a geometric domain to the homology of all dimensions of a domain defined as a sublevel-set of a function.
-% We can then re-interpret the geometric assumptions made in the work on scalar fields in a similar way which re-purposes the machinery used to confirm coverage.
-
 We will refer to the following preliminary assumptions about pairs $(D_0, B_0)$ and $(D_1, B_1)$ for $\delta > 0$ and $\gamma \geq 3\delta$.
 
 \vspace{2ex}
@@ -38,24 +30,8 @@ We will refer to the following preliminary assumptions about pairs $(D_0, B_0)$ 
         \item \textbf{(Domain)} $(D_0, B_0)$ and $(D_1, B_1)$ are surrounding pairs of nonempty, compact subsets of $\R^d$ with $(D_0^{\delta+\gamma}, B_0^{\delta+\gamma}) \subset (D_1, B_1)$.
         \item \textbf{(Boundary)} $\hom_0(D_1\setminus B_1 \hookrightarrow D_0\setminus B_0^{2\delta})$ is surjective.
         % \item \textbf{(Interleaving)} $\im~\hom_k((D_0, B_0)\hookrightarrow (D_1, B_1))\cong \hom_k(D_0^{2\delta}, B_0^{2\delta})$.
-        % % \item \textbf{(Boundary)} $\im~\hom_k(B_0 \hookrightarrow B_1)$ is isomorphic to $\hom_k(B_0^{2\delta})$ for all $k\in\N$.
-        % % \item \textbf{(Retraction)} $\D_{\omega-c\delta}^\delta\to\D_{\omega-2c\delta}^{2\delta}$ is a deformation retraction.
-        % % \item \textbf{(Inclusion)} $\D_{\omega - 2c\delta}\subseteq \D_{\omega - 2c\delta}^{2\delta} \subseteq \D_{\omega - 2c\delta}^{\delta + \gamma} \subseteq \D_{\omega + 2c\delta}.$
     \end{enumerate}
 \end{small}
 }}\end{center}\vspace{4ex}
 
 In the following let $Q = P\cap B_0^\delta$ and $(\D, \B) = (D_0^{2\delta}, B_0^{2\delta})$.
-
-% Assumption 1 replaces the requirement that $\B$ is the topological boundary of the domain $\D$.
-% As we did in previous work the notion of a topological boundary is replaced with that of a subset which surrounds the domain.
-% In addition to this we define this surrounding subset in terms of a scalar value $\omega$ which gives us a sublevel set that will serve as our boundary $\B$.
-% In doing so we can state the following assumptions in terms of the persistent homology of the function itself instead of the persistent homology of a geometric domain.
-%
-% Assumption 2 is our main restriction on the persistent homology of the surrounding sub-level set and limits the size of features in terms of the offset parameters $\delta,\gamma$.
-% We note that this assumption is stronger than those made in our initial work which only required that the map $\hom_0(\D\setminus\D_{\omega+2c\delta}\hookrightarrow\D\setminus\B^{2\delta})$ be surjective which is not sufficient for the analysis of scalar fields.
-%
-% Assumption 3 requires that the region containing the sampled boundary $Q^\delta$ resembles the extended boundary $\B^{2\delta}$.
-% While this assumption would not be necessary if $Q$ was defined as the set of points within distance $\delta$ of $\B$ we are particularily interested in the case in which the points cannot detect any features of the domain, such as the presence of a boundary, and can only measure some scalar value.
-%
-% Finally, assumption 4 is our only additional restriction on the choice of the parameter $\gamma\geq 3\delta$ so that it does not extend beyond the sub-level set $\D_{\omega+2c\delta}$.

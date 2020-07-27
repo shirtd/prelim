@@ -113,13 +113,11 @@ Let $(\overline{B}, \overline{D}) = (S^d\setminus B, S^d\setminus D)$ denote the
   \begin{equation}\begin{tikzcd}\label{dgm:alexander}
     \tilde{\hom}_{k+1}(D, B)\arrow{r}{\partial_*^{k+1}}\arrow{d}{\Gamma^{k+1}_{(D, B)}} &
     \tilde{\hom}_{k}(B)\arrow{r}{i_*^{k}}\arrow{d}{\Gamma^{k}_B} &
-    \tilde{\hom}_{k}(D)\arrow{d}{\Gamma^{k}_D} \\ % \arrow{r}{j_*^{k}} &
-    % \tilde{\hom}_{k}(D, B)\arrow{d}{\Gamma^{k}_{(D, B)}}\\
+    \tilde{\hom}_{k}(D)\arrow{d}{\Gamma^{k}_D} \\
     %
     \tilde{\hom}^{d-k-1}(\overline{B}, \overline{D})\arrow{r}{\overline{j_*^{d-k-1}}} &
     \tilde{\hom}^{d-k-1}(\overline{B})\arrow{r}{\overline{i_*^{d-k-1}}} &
-    \tilde{\hom}^{d-k-1}(\overline{D}) \\ %\arrow{r}{\overline{\partial_*^{d-k}}} &
-    % \tilde{\hom}^{d-k}(\overline{B}, \overline{D})
+    \tilde{\hom}^{d-k-1}(\overline{D}) \\
   \end{tikzcd}\end{equation}
 
   Because $B$ surrounds $D$ we have that
@@ -133,8 +131,6 @@ Let $(\overline{B}, \overline{D}) = (S^d\setminus B, S^d\setminus D)$ denote the
   \[i_*^{k} = (\Gamma_D^{k})^{-1} \circ\overline{i_*^{d-k-1}}\circ \Gamma_B^{k+1}\]
   is surjective.
 \end{proof}
-
-% \clearpage
 
 We note that this implies the following for non-reduced homology\footnote{\textbf{TODO
   reasoning:\begin{itemize}

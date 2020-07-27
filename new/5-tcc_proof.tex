@@ -27,21 +27,6 @@ The following diagram is formed by applying the homology functor.
 \end{tikzcd}\end{equation}
 Let $p_* : \im~j_*\to\im~i_*$.
 
-% \begin{lemma}\label{lem:complement}
-%     Given assumption 2 \[\im~\hom_k(D_1\setminus B_1\hookrightarrow D_0\setminus B_0)\cong\hom_k(\D\setminus\B).\]
-% \end{lemma}
-%
-% \begin{lemma}\label{lem:jsurj}
-%     Given assumptions 1 \& 2 the map $j_k:\hom_k(D_1\setminus B_1)\to\hom_k(\D\setminus\B)$ is surjective for all $k$.
-% \end{lemma}
-% \begin{proof}
-%     Let $s_k : \hom_k(D_1\setminus B_1)\to\hom_k(D_0\setminus B_0)$ and $t_k : \im~s_k\to\hom_k(\D\setminus\B)$.
-%     Given assumption 2 we have that $t_k$ is an isomorphism by Lemma~\ref{lem:complement} so $\im~t_k = \hom_k(\D\setminus\B)\cong\im~s_k$.
-%     Therefore, $t_k\circ s_k : \hom_k(D_1\setminus B_1)\to\hom_k(\D\setminus\B)$ is surjective as $\im(t_k\circ s_k) = \im~t_k = \hom_k(\D\setminus\B)$.
-%     % By assumption 1 we know that $\gamma,\delta$ are such that $D_0^{\delta+\gamma}\subset D_1$.
-%     % So $D_1\setminus B_1\hookrightarrow D_0^{\delta+\gamma}$ induces the map $f_k : \hom_k(D_1\setminus B_1)\to\hom_k(D_0^{\delta+\gamma})$ and $t_k\circ s_k = j_k\circ f_k$ is surjective, so $j_k$ is surjective as desired.
-% \end{proof}
-
 \begin{lemma}\label{lem:psurj}
     Given assumptions 1 \& 2, the map $p_*$ is surjective.
 \end{lemma}
@@ -91,12 +76,9 @@ Let $p_* : \im~j_*\to\im~i_*$.
     Given assumptions 1 \& 2, if the map $p_*$ is injective then $Q^\delta$ surrounds $P^\delta$ in $\D$.
 \end{lemma}
 \begin{proof}
-    Suppose, for the sake of contradiction, that $Q^\delta$ does not surround $P^\delta$ in $\D$. %does not separate $\D$.
-    % Then for all $(U, V)$ such that $U \cup V = \D\setminus Q^\delta$ there must exist some path from $U$ to $V$ that does not cross $Q^\delta$.
+    Suppose, for the sake of contradiction, that $Q^\delta$ does not surround $P^\delta$ in $\D$.
     Then there exists a path $\pi : [0,1]\to\overline{Q^\delta}$ with $\pi(0)\in P^\delta\setminus Q^\delta$ and $\pi(1)\in \D\setminus P^\delta$.
     By Lemma~\ref{lem:coverage} we know that $\D\setminus\B\subset P^\delta$ and, because $Q^\delta\subset\B$ it follows that $\D\setminus\B\subset P^\delta\setminus Q^\delta$.
-    % Noting that $\overline{\B}\subseteq \overline{Q^\delta}$ and, because $\B$ surrounds $\D$ in $\R^d$, $\overline{\B} = \overline{\D}\cup (\D\setminus\B)$, so we can choose $(U, V)$ such that $\D\setminus \B\subset U$ and $\overline{\D}\subset V$.
-
     Choose $x\in\D\setminus \B$ and $y\in \overline{\D}$ such that there exist paths $\pi_x : [0,1]\to P^\delta\setminus Q^\delta$ with $\pi_x(0) = x$, $\pi_x(1) = \pi(0)$ and $\pi_y : [0,1]\to \overline{D}\cup (\D\setminus P^\delta)$ with $\pi_y(0) = y$, $\pi_y(1) = \pi(1)$.
     $\pi_x, \pi_y$ and $\pi$ all generate chains in $C_1(\overline{Q^\delta}, \overline{P^\delta})$ and $\pi_x + \pi + \pi_y = \pi^*\in C_1(\overline{Q^\delta}, \overline{P^\delta})$ with $\partial\pi^* = x + y$.
     Moreover, $y$ generates a chain in $C_0(\overline{P^\delta})$ as $\overline{\D^{2\delta}}\subseteq\overline{P^\delta}$.
@@ -105,16 +87,8 @@ Let $p_* : \im~j_*\to\im~i_*$.
 \end{proof}
 
 Recall that $Q^\delta$ surrounding $P^\delta$ in $\D$ implies that $\hat{Q^\delta}$, and therefore $\hat{Q^\gamma}$, surrounds $\D$ in $\R^d$.
-%
-% In the following lemma suppose $Q^\delta$ separates $\D$ and $\D\setminus\B\subseteq P^\delta$.
-% So there is a pair $(U, V)$ of disconnected subsets of $\D$ such that $U, V$ and $Q^\delta$ form a partition of $\D$.
-% Moreover, because $\D\setminus \B \subset P^\delta$ and $Q^\delta \subseteq \B$ we know that either $U$ or $V$ contains $\D\setminus \B$.
-% Choose $U$ to be the component containing $\D\setminus \B$ so that $V\subset \overline{\D\setminus \B}$.
-% As in the previous section let $\hat{P^\delta} = P^\delta\cup V$ and $\hat{Q^\delta} = Q^\delta\cup V$.
-% Similarly, $\hat{P^\gamma} = P^\gamma\cup V$ and $\hat{Q^\gamma} = Q^\gamma\cup V$.
 
 \begin{lemma}\label{lem:qdcontain}
-  % If $Q^\delta$ surrounds $P^\delta$ in $\D$
   Given assumptions 1 \& 2, if $p_*$ is injective then then $B_0\subseteq \hat{Q^\delta}$.
 \end{lemma}
 \begin{proof}
@@ -129,7 +103,6 @@ Recall that $Q^\delta$ surrounding $P^\delta$ in $\D$ implies that $\hat{Q^\delt
   It therefore follows that $B_0\subseteq Q^\delta \sqcup (\D\setminus P^\delta) = \hat{Q^\delta}$.
 \end{proof}
 
-% {\color{red}
 \begin{lemma}\label{lem:qcontain}
     Given assumptions 1 \& 2, if $p_*$ is injective then $\B\subseteq \hat{Q}^\gamma$.
 \end{lemma}
@@ -142,58 +115,19 @@ Recall that $Q^\delta$ surrounding $P^\delta$ in $\D$ implies that $\hat{Q^\delt
   \[ \dist(x, q)\leq \dist(x, y) + \dist(y, q) < 2\delta + \delta \leq \gamma \]
   which would imply $x\in Q^\gamma\subset \hat{Q^\gamma}$.
 
-  % {\color{red}
-  % \noindent\textbf{Claim:} $P^\gamma\setminus Q^\gamma \subset P^\delta$.
-  %
-  % If $P^\gamma\setminus Q^\gamma \subset P^\delta$ then
-  % \[(P^\gamma\setminus Q^\gamma)\cup Q^\gamma \subseteq P^\delta\cup Q^\gamma\]
-  % so $P^\gamma\subseteq P^\delta\cup Q^\gamma$.
-  % As $P^\delta\subset P^\gamma$ we have
-  % \[P^\delta\cup Q^\gamma\subseteq P^\gamma\cup Q^\gamma = P^\gamma \subseteq P^\delta\cup Q^\gamma\]
-  % so $P^\delta\cup Q^\gamma = P^\gamma$.}
-
-  Now, suppose $y\in B_0\cap (\D\setminus P^\delta)$.%\setminus Q^\delta$.\textbf{TODO}
-  % As $x\in \B\cap (U\setminus Q^\gamma)$ we may assume that $y\in B_0 \cap \overline{Q^\delta} = B_0 \cap (U\cup V) = B_0 \cap V$.
+  Now, suppose $y\in B_0\cap (\D\setminus P^\delta)$.
   Because $Q^\delta$ surrounds $P^\delta$ in $\D$ there is no path from $x\in \B\cap (P^\delta\setminus Q^\gamma)\subset P^\delta\setminus Q^\delta$ to $y\in B_0\cap (\D\setminus P^\delta)\subset \D\setminus P^\delta$ that does not cross $Q^\delta$.
   So there must be some point $z\in Q^\delta$ in the shortest path from $x$ to $y$.
   That is, there exists some $q\in Q$ such that $\dist(q, z) < \delta$ and $\dist(z, x) < \dist(x, y) < 2\delta$ so
   \[ \dist(q, x)\leq \dist(q, z) + \dist(z, x) < \delta + 2\delta \leq \gamma. \]
   So $y\in B_0\cap (\D\setminus P^\delta)$ implies $x\in Q^\gamma$.
 \end{proof}
-% \begin{proof}
-%     Suppose $p_*$ is injective and there exists some $x\in \B$ such that $x\notin \hat{Q}^\gamma$.
-%     Because $\B = B_0^{2\delta}$ there must exist some $y\in B_0$ such that $\dist(x, y) < 2\delta$.
-%     By Lemma~\ref{lem:separate} $Q^\delta$ separates $\D$ with a pair $(U, V)$ therefore $x$ and $y$ are each either in $Q^\delta, V$ or $U$.
-%     % Moreover, $\overline{U} = Q^\delta \cup V = \hat{Q}^\delta$ so $\B\cap U = \B\setminus \hat{Q}^\delta$ and $B_0\cap U = B_0\setminus \overline{U} = B_0\setminus \hat{Q}^\delta = \emptyset$ as $\B\subset \hat{Q}^\delta$.
-%     % So $y\notin \I$ and, because $Q^\delta \subset Q^\gamma$ and $\O\subset \hat{Q}^\delta\subset\hat{Q}^\gamma$, we can assume w.l.o.g. that $x\in \B\cap U$.
-%     So $x\in\B\setminus \hat{Q^\gamma} = \B\cap (U\setminus Q^\gamma)$ and $y\in B_0\subseteq\hat{Q^\delta}$.
-%
-%     If $y\in Q^\delta$ then there exists some $q\in Q$ such that $\dist(q, y) < \delta$ so
-%     \[ \dist(q, x)\leq \dist(q, y) + \dist(x, y) < 3\delta\leq\gamma \]
-%     which implies $x \in Q^\gamma$.
-%
-%
-%     As $x\in \B\cap (U\setminus Q^\gamma)$ we may assume that $y\in B_0 \cap \overline{Q^\delta} = B_0 \cap (U\cup V) = B_0 \cap V$.
-%     Because $Q^\delta$ separates $\D$ with $(U, V)$ there is no path from $x\in U$ to $y\in V$ that does not cross $Q^\delta$, so there must be some point $z\in Q^\delta$ in the shortest path from $x$ to $y$.
-%     That is, there exists some $q\in Q$ such that $\dist(q, z) < \delta$ and $\dist(z, x) < \dist(x, y) < 2\delta$ so
-%     \[ \dist(q, x)\leq \dist(q, z) + \dist(z, x) < \delta + 2\delta \leq \gamma. \]
-%     So $y\in V$ implies $x\in\hat{Q}^\gamma$.
-% \end{proof}
-
-% We will modify our definition of a separating $(\delta,\gamma)$-cover to function for the extended sets $(\hat{P^\delta}, \hat{Q^\delta})$ and $(\hat{P^\gamma}, \hat{Q^\gamma})$:
-% For $\gamma > \delta > 0$ we say that $(P, Q)$ is an \emph{(open) separating $(\delta,\gamma)$-cover} of $(D, B)$ if
-% \begin{itemize}
-%   \item $D\setminus B \subseteq P^\delta$,
-%   \item $Q^\delta$ separates $D$ with the pair $(U, V)$ and $D\setminus B\subset U$, and
-%   \item $(P^\delta\cup V, Q^\delta\cup V)\subseteq (D, B)\subseteq (P^\gamma\cup V, Q^\gamma\cup V)$.
-% \end{itemize}
 
 \begin{theorem}[Geometric TCC]\label{thm:tcc}
   Let $(D_0, B_0)$ and $(D_1, B_1)$ be surrounding pairs of nonempty, compact subsets of $\R^d$ satisfying assumptions 1 \& 2 for $\delta > 0$, and $\gamma > 3\delta$.
   Let $P\subset D_0$ be a finite collection of sensors and $Q = P\cap B_0^\delta$.
   Let $(\D, \B) = (D_0^{2\delta}, B_0^{2\delta})$ and $p_* : \im~j_*\to\im~i_*$ for $j_*$, $i_*$ as defined in Diagram~\ref{dgm:1}.
 
-  % If $\rk~i_*\geq \rk~j_*$ then  $(P, Q)$ is an (open) separating $(\delta,\gamma)$-cover of $(\D, \B)$.
   If $\rk~i_*\geq \rk~j_*$ and
   \[ \im~\hom_k((D_0, B_0)\hookrightarrow (D_1, B_1))\cong \hom_k(\D, \B) \]
   for all $k$ then
@@ -201,21 +135,11 @@ Recall that $Q^\delta$ surrounding $P^\delta$ in $\D$ implies that $\hat{Q^\delt
   for all $k$.
 \end{theorem}
 \begin{proof}
-  % Lemma~\ref{lem:psurj} states that $p_*$ is surjective so $p_*$ is surjective, so $\rk~i_*\leq \rk~j_*$.
-  % Because $\rk~i_*\geq \rk~j_*$, $$\rk~i_* = \rk~j_*$.
   Because $P$ is a finite point set we know that $\im~i_*$ is finite-dimensional.
   Because $\rk~i_*\geq \rk~j_*$ $j_*$ is finite dimensional as well so $p_*$ is injective.
   Therefore $\D\setminus\B\subseteq P^\delta$ by Lemma~\ref{lem:coverage} and $Q^\delta$ surrounds $P^\delta$ in $\D$ by Lemma~\ref{lem:separate}.
   We can extend $(P^\delta, Q^\delta)$ and $(P^\gamma, Q^\gamma)$ to pairs $(\D, \hat{Q^\delta})$ and $(\D, \hat{Q^\gamma})$ surrounding $\D$ in $\R^d$.
-  % Because $Q^\delta$ separates $\D$ with a pair $(U, V)$ and $\D\setminus\B\subset P^\delta$ we can extend $(P^\delta, Q^\delta)$ and $(P^\gamma, Q^\gamma)$ to the pairs $(\hat{P^\delta}, \hat{Q^\delta})$ and $(\hat{P^\gamma}, \hat{Q^\gamma})$.
-  % there is a pair $(U, V)$ of disconnected subsets of $\D$ such that $U, V$ and $Q^\delta$ form a partition of $\D$.
-  % % Moreover, because $\D\setminus \B \subset P^\delta$ and $Q^\delta \subseteq \B$ we know that either $U$ or $V$ contains $\D\setminus \B$.
-  % % Choose $U$ to be the component containing $\D\setminus \B$ so that $V\subset \overline{\D\setminus \B}$.
-  % % In the following
-  % Let $\hat{P^\delta} = P^\delta\cup V$ and $\hat{Q^\delta} = Q^\delta\cup V$.
-  % Similarly, $\hat{P^\gamma} = P^\gamma\cup V$ and $\hat{Q^\gamma} = Q^\gamma\cup V$.
 
-  % As $P\subset B_0$ and $Q = P\cap B_0^\delta$ we have that $(P^\delta, Q^\delta) \subset (D_0^{2\delta}, B_0^{2\delta}) = (\D, \B)$.
   As $Q = P\cap B_0^\delta$ we have that $Q^\delta\setminus P^\delta\subset B_0^{2\delta} \B$.
   Moreover, $\D\setminus\B\subset P^\delta$ so $\D\setminus P^\delta \subset \D\setminus (\D\setminus\B) = \B$.
   So $\hat{Q^\delta} = Q^\delta\cup (\D\setminus P^\delta)\subseteq \B$.
@@ -224,19 +148,4 @@ Recall that $Q^\delta$ surrounding $P^\delta$ in $\D$ implies that $\hat{Q^\delt
   As $\D\setminus \B \subseteq P^\delta$, $Q^\delta$ surrounds $P^\delta$ in $\D$, and $\hat{Q^\delta}\subseteq \B\subseteq \hat{Q^\gamma}$ we may conclude that $(P, Q)$ is an (open) separating $(\delta,\gamma)$-cover of $(\D, \B)$.
   Therefore, as $B_0\subset \hat{Q^\delta}$ by Lemma~\ref{lem:qdcontain} and $(D_0^{\delta+\gamma}, B_0^{\delta+\gamma})\subset (D_1, B_1)$ by assumption 1 we have that $\hat{Q^\gamma}\subset B_1$.
   The result therefore follows from Theorem~\ref{thm:main}.
-
-  % Now, because $\B$ surrounds $\D$ in $\R^d$ we know that $\B$ separates $\R^d$ with the pair $(\D\setminus\B, \overline{\D})$.
-  % % So $\hat{P^\delta} = P^\delta\cup V$ with $U\cup V\cup Q^\delta = \D$ implies $\hat{P^\delta}\subset \D$ and $\hat{Q^\delta} = Q^\delta\cup V$ implies $\hat{Q^\delta}\subset \B$.
-  % % So $\hat{Q^\delta} = Q^\delta\cup (\D\setminus P^\delta)\subset\B$.
-  % % Moreover,
-  % Because $p_*$ is injective $\B\subseteq \hat{Q}^\gamma$ by Lemma~\ref{lem:qcontain}.
-  % % Finally, $\D\setminus\B\subset P^\delta$ and $\B = B_0^{2\delta}$ implies that $\D = D_0 \subset P^\gamma$ so $\D = D_0^{2\delta} \subset \hat{P^\gamma}$.\footnote{\textbf{TODO need $\D\setminus\B\subset U$.}}
-  % As $\D\setminus \B \subseteq P^\delta$, $Q^\delta$ surrounds $P^\delta$ in $\D$, and $\hat{Q^\delta})\subseteq \B\subseteq \hat{Q^\gamma}$ we may conclude that $(P, Q)$ is an (open) separating $(\delta,\gamma)$-cover of $(\D, \B)$.
 \end{proof}
-
-% \begin{corollary}
-%   Given assumptions 1 \& 2 $\rk~i_*\geq \rk~j_*$ implies
-%   \[ \im~\hom_k((P^\delta, Q^\delta)\hookrightarrow (P^\gamma, Q^\gamma))\cong \hom_k(\D, \B). \]
-% \end{corollary}
-%
-% \textbf{TODO} $B_0\subset \hat{Q^\delta}$ and $(\hat{P^\gamma}, \hat{Q^\gamma})\subseteq (D_1, B_1)$.
