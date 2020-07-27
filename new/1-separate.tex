@@ -1,7 +1,11 @@
 % !TeX root = new.tex
 
+\begin{definition}[Separated]
+  Two subsets $U, V$ of a topological space $X$ are \textbf{separated in $X$} if each is disjoint from the other's closure: $\cl(U)\cap V =\emptyset$ and $U\cap\cl(V) = \emptyset$.
+\end{definition}
+
 \begin{definition}[Separation]
-  We say that a subset $B$ \textbf{separates} a topological space $X$ with the pair $(U, V)$ if $B, U, V$ partitions $X$ and $U, V$ are not path connected.
+  We say that a subset $B$ \textbf{separates} a topological space $X$ with the pair $(U, V)$ if $B, U, V$ partitions $X$, $U, V$ are separated in $X$, and any path from $U$ to $V$ in $X$ intersects $B$.
 \end{definition}
 
 \begin{lemma}\label{lem:separate_splits}
@@ -52,6 +56,40 @@
   We will refer to such a pair $(D, B)$ as a \textbf{surrounding pair} in $X$.
 \end{definition}
 
+We define the \emph{extension} of a surrounding pair $(D, B)$ in $X$ to be the pair
+\[ (X, \hat{B}) = (D\cup (X\setminus D), B\cup (X\setminus D)).\]
+Note that, for $X\subset\mathcal{X}$ the extension of a surrounding pair in $X$ is a surrounding pair in $\mathcal{X}$.
+
+% {\color{red}
+\begin{lemma}\label{lem:extension_iso}
+  If $(D, B)$ is a surrounding pair of open sets in a topological space $X$ then for all $k$
+  \[ \hom_k(D, B)\cong \hom_k(X, \hat{B}).\]
+\end{lemma}
+\begin{proof}
+  Note,
+  \begin{align*}
+    X\setminus (\intr(D)\cup\intr(\hat{B})) &= X\cap \overline{(\intr(D)\cup\intr(\hat{B}))}\\
+      &= X\cap \cl(\overline{D})\cap\cl(\overline{\hat{B}})) \\
+      &= X\cap \overline{D}\cap\cl(\overline{\hat{B}})),
+  \end{align*}
+  because $D$ is open, thus $\overline{D}$ is closed, and therefore equal to its closure.
+
+  Now,
+  \begin{align*}
+    \cl(\overline{\hat{B}}) &= \cl(\overline{B\cup (X\setminus D)})\\
+      &= \cl(\overline{B\cup (X\cap \overline{D})})\\
+      &= \cl(\overline{(B\cup X)\cap (B\cup\overline{D})})\\
+      &= \cl(\overline{X}\cup (D\cap\overline{B}))\\
+      &= \cl(D\setminus B).
+  \end{align*}
+  Therefore,
+  \[ X\setminus (\intr(D)\cup\intr(\hat{B})) = (X\setminus D)\cap \cl(D\setminus B) =\emptyset \]
+  for a surrounding pair $(D, B)$ in $X$ which requires that $(X\setminus D)$ and $D\setminus B$ are separated in $X$.
+
+  So $\intr(D)\cup\intr(\hat{B}) = X$ thus $\hom_k(D, B)\cong \hom_k(X, \hat{B})$ by excision.
+\end{proof}
+% }
+
 The following is a corollary of Theorem~\ref{thm:alexander} (Alexander Duality).
 
 \begin{corollary}\label{cor:alexander_surrounds}
@@ -85,8 +123,8 @@ Let $(\overline{B}, \overline{D}) = (S^d\setminus B, S^d\setminus D)$ denote the
   \end{tikzcd}\end{equation}
 
   Because $B$ surrounds $D$ we have that
-  \[\tilde{\hom}_{d-k-1}(\overline{B}) \cong \tilde{\hom}_{d-k-1}(D\setminus B)\oplus \hom_k(\overline{D})\]
-  by Lemma~\ref{lem:oplus_separates}, where $\tilde{\hom}_{d-k-1}(D\setminus B) \cong \tilde{\hom}_{d-k-1}(\overline{B}, \overline{D})$ by Lemma~\ref{lem:iso_separates}.
+  \[\tilde{\hom}^{d-k-1}(\overline{B}) \cong \tilde{\hom}^{d-k-1}(D\setminus B)\oplus \hom_k(\overline{D})\]
+  by Corollary~\ref{cor:oplus_separates}\footnote{\textbf{TODO show/state this holds for cohomology as well.}}, where $\tilde{\hom}^{d-k-1}(D\setminus B) \cong \tilde{\hom}^{d-k-1}(\overline{B}, \overline{D})$ by Lemma~\ref{lem:iso_separates}.
   It follows that $\overline{j_*^{d-k-1}}$ is injective and $\overline{i_*^{d-k-1}}$ is surjective.
 
   By commutativity of Diagram~\ref{dgm:alexander} and because $\Gamma_{(D,B)}^{k+1}, \Gamma_B^k$ and $\Gamma_D^k$ are isomorphisms we have that
@@ -95,6 +133,8 @@ Let $(\overline{B}, \overline{D}) = (S^d\setminus B, S^d\setminus D)$ denote the
   \[i_*^{k} = (\Gamma_D^{k})^{-1} \circ\overline{i_*^{d-k-1}}\circ \Gamma_B^{k+1}\]
   is surjective.
 \end{proof}
+
+% \clearpage
 
 We note that this implies the following for non-reduced homology\footnote{\textbf{TODO
   reasoning:\begin{itemize}
