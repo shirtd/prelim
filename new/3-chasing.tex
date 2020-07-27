@@ -2,7 +2,7 @@
 
 \begin{theorem}\label{thm:main}
   Let $(\D, \B)$ be a surrounding pair of open subsets of $\R^d$ and let $P\subset \D$ be a finite subset of $\D$.
-  Let $(P, Q)$ be an (open) separating $(\delta,\gamma)$-cover of $(\D, \B)$ for $\gamma > \delta > 0$.
+  Let $(P, Q)$ be an (open) surrounding $(\delta,\gamma)$-cover of $(\D, \B)$ for $\gamma > \delta > 0$.
   Let $(D_0, B_0)$ and $(D_1, B_1)$ be surrounding pairs of nonempty, compact subsets of $\R^d$ such that $B_0\subseteq \hat{Q^\delta}$, $\hat{Q^\gamma}\subseteq B_1$, and
   \[ (D_0, B_0)\subset (\D, \B) \subset (D_1, B_1).\]
 
@@ -44,9 +44,14 @@
 
   Because $(D_0, B_0)$ and $(D_1, B_1)$ are nonempty, compact surrounding pairs of $\R^d$ we can embed them in $S^d \cong \R^d\cup\{\infty\}$ in order to show that $i_0^k$ and $i_1^k$ are surjective by Lemma~\ref{lem:alexander_comm}.
   So, by exactness, $\im~i_0^k = \ker~j_0^k = \hom_k(D_0)$ and $\im~i_1^k = \ker~j_1^k = \hom_k(D_1)$.
-  It follows that for any $[y''] \in \im~\eta^k$ with preimage $[y]\in \hom_k(D_0, B_0)$ we must have that $[y'']\in\cok~j^k_1$ and $[y]\in\cok~j^k_0$.
-  That is, there must exist nonzero $[z] = \partial_0^k[y]$ in $\hom_{k-1}(B_0)$ and $[z''] = \partial_1^k[y'']$ in $\hom_{k-1}(B_1)$ such that $\eta_B^{k-1}[z] = [z'']$.
-  Moreover, because $\eta^k$ factors through $\hom_k(\D, \B)$ and $\eta^{k-1}_B$ factors through $\hom_{k-1}(\B)$ there must exist nonzero $[y'] = d^k[y]$ in $\hom_k(\D, \B)$ and $[z'] = \partial^k_*[y'] = a^{k-1}[z]$ in $\hom_{k-1}(\B)$ such that $h^k[y'] = [y'']$ and $f^{k-1}[z'] = [z'']$.
+  It follows that for any $[y]\in \hom_k(D_0, B_0)$ such that $\eta^k[y]$ is nonzero we must have that $\eta^k[y]\in\cok~j^k_1$ and $[y]\in\cok~j^k_0$.
+  % It follows that for any $[y''] \in \im~\eta^k$ with preimage $[y]\in \hom_k(D_0, B_0)$ we must have that $[y'']\in\cok~j^k_1$ and $[y]\in\cok~j^k_0$.
+
+  % That is, there must exist nonzero $[z] = \partial_0^k[y]$ in $\hom_{k-1}(B_0)$ and $[z''] = \partial_1^k[y'']$ in $\hom_{k-1}(B_1)$ such that $\eta_B^{k-1}[z] = [z'']$.
+  That is, $\partial_0^k[y]$ is nonzero in $\hom_{k-1}(B_0)$ and $\partial_1^k\circ\eta^k[y] = \eta_B^{k-1}\circ\partial_0^k[y]$ is nonzero in $\hom_{k-1}(B_1)$.
+  % Moreover, because $\eta^k$ factors through $\hom_k(\D, \B)$ and $\eta^{k-1}_B$ factors through $\hom_{k-1}(\B)$ there must exist nonzero $[y'] = d^k[y]$ in $\hom_k(\D, \B)$ and $[z'] = \partial^k_*[y'] = a^{k-1}[z]$ in $\hom_{k-1}(\B)$ such that $h^k[y'] = [y'']$ and $f^{k-1}[z'] = [z'']$.
+  Moreover, because $\eta^k$ factors through $\hom_k(\D, \B)$ as $\eta^k = h^k\circ d^k$ we have that $d^k[y]$ is nonzero in $\hom_k(\D,\B)$.
+  Similarly, because $\eta^{k-1}_B$ factors through $\hom_{k-1}(\B)$ as $\eta^{k-1}_B = f^{k-1}\circ a^{k-1}$ we have that $\partial^k_*\circ d^k[y] = a^{k-1}\circ \partial_0^k[y]$ is nonzero in $\hom_{k-1}(\B)$.
 
   Consider the long exact sequence of the pair $(\D, \hat{Q^\delta})$
   \[\ldots\to\hom_k(\D, \hat{Q^\delta})\xrightarrow{\partial^k_\delta}
@@ -94,11 +99,14 @@
 
   \noindent where $\psi_\gamma^{k-1}, \sigma_\gamma^{k-1}, \phi_1^{k-1}$ and $\nu^k$ are induced by inclusion.
 
-  Because $[z']\in\im~\partial_*^k$ we have $[z']\in\ker~i_*^{k-1}$ by exactness and, by commutativity of diagram~\ref{eq:main2a}, $[z']\in \ker~p_\gamma^{k-1}\circ\psi_\gamma^{k-1}$.
-  Noting that $f^{k-1}$ factors through $\hom_{k-1}(\hat{Q^\gamma})$ as $f^{k-1} = \phi_1^{k-1}\circ\psi_\gamma^{k-1}$ we have that $\psi_\gamma^{k-1}[z']$ is nonzero in $\hom_{k-1}(Q^\gamma)$.
-  So $\psi_\gamma^{k-1}[z']\in\ker~p_\gamma^{k-1}$ thus $\psi_\gamma^{k-1}[z'] \in\im~\hom_k(\D, \hat{Q^\gamma})$ by exactness.
+  For brevity, let $[y'] = d^k[y]$ denote the nonzero image of $[y]$ in $\hom_k(\D, \B)$ and recall that $\partial_*^k[y'] = a^{k-1}\circ\partial_0^k[y]$ is nonzero in $\hom_{k-1}(\B)$.
+  % Because $[z']\in\im~\partial_*^k$ we have $[z']\in\ker~i_*^{k-1}$ by exactness and, by commutativity of diagram~\ref{eq:main2a}, $[z']\in \ker~p_\gamma^{k-1}\circ\psi_\gamma^{k-1}$.
+  Because $\partial_*^k[y']$ is nonzero $\partial_*^k[y']\in\ker~i_*^{k-1}$ by exactness and, by commutativity of diagram~\ref{eq:main2a}, $i_*^{k-1} = p_\gamma^{k-1}\circ\psi_\gamma^{k-1}$.
+  So $\partial_*^k[y']\in \ker~p_\gamma^{k-1}\circ\psi_\gamma^{k-1}$.
+  Noting that $f^{k-1}$ factors through $\hom_{k-1}(\hat{Q^\gamma})$ as $f^{k-1} = \phi_1^{k-1}\circ\psi_\gamma^{k-1}$ we have that $\psi_\gamma^{k-1}\circ\partial_*^k[y']$ is nonzero in $\hom_{k-1}(Q^\gamma)$.
+  So $\psi_\gamma^{k-1}\circ\partial_*^k[y']\in\ker~p_\gamma^{k-1}$ thus $\psi_\gamma^{k-1}\circ\partial_*^k[y'] \in\im~\hom_k(\D, \hat{Q^\gamma})$ by exactness.
 
-  So we may conclude that $\eta^k$ factors through $\hat{\tau}^k : \hom_k(\D, \hat{Q^\delta})\to \hom_k(\D), \hat{Q^\gamma})$ with the maps $\mu^k = (\partial^k_\delta)^{-1}\circ \phi_0^{k-1}\circ\partial_0^k$ and $\nu^k : \hom_k(\D, \hat{Q^\gamma}) \to \hom_k(D_1, B_1)$ induced by inclusion.
+  So we may conclude that $\eta^k$ factors through $\hat{\tau}^k : \hom_k(\D, \hat{Q^\delta})\to \hom_k(\D), \hat{Q^\gamma})$ with the maps $\mu^k = (\partial^k_\delta)^{-1}\circ \phi_0^{k-1}\circ\partial_0^k$ and $\nu^k : \hom_k(\D, \hat{Q^\gamma}) \to \hom_k(D_1, B_1)$.
   We therefore have the following sequence of homomorphisms
   \[ \hom_k(D_0, B_0)\xrightarrow{\mu^k} \hom_k(\D, \hat{Q^\delta})\to\hom_k(\D, \B)\to\hom_k(\D, \hat{Q^\gamma})\xrightarrow{\nu^k} \hom_k(D_1, B_1).\]
   So, by Lemma~\ref{lem:sandwich}, $\im~\eta^k\cong \hom_k(\D, \B)$ implies $\im~\hat{\tau}^k\cong \hom_k(\D, \B)$.

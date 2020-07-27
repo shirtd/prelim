@@ -1,5 +1,7 @@
 % !TeX root = new.tex
 
+\subsection{Separation}
+
 \begin{definition}[Separated]
   Two subsets $U, V$ of a topological space $X$ are \textbf{separated in $X$} if each is disjoint from the other's closure: $\cl(U)\cap V =\emptyset$ and $U\cap\cl(V) = \emptyset$.
 \end{definition}
@@ -51,6 +53,17 @@
   As $f_*^k$ is the identity map and, by Corollary~\ref{cor:oplus_separates}, $g^k_*$ is an isomorphism for all $k$ it follows that $h_*^k$ is an isomorphism for all $k$ by Lemma~\ref{lem:five}.
 \end{proof}
 
+Naturally the same results hold for (reduced) cohomology.
+
+\begin{corollary}\label{cor:reduced_cohom}
+  If $B$ separates $X$ with the pair $(U, V)$ then for all $k$
+  \[ \tilde{\hom}^k(X\setminus B) \cong \tilde{\hom}^k(U)\oplus \tilde{\hom}^k(V) \]
+  and
+  \[\tilde{\hom}^k(U)\cong \tilde{\hom}^k(X\setminus B, V).\]
+\end{corollary}
+
+\subsection{Surrounding}
+
 \begin{definition}[Surrounding]
   We say that $B\subset D$ \textbf{surrounds} $D\subset X$ in $X$ if $B$ separates $X$ with the pair $(D\setminus B, X\setminus D)$.
   We will refer to such a pair $(D, B)$ as a \textbf{surrounding pair} in $X$.
@@ -66,27 +79,32 @@ Note that, for $X\subset\mathcal{X}$ the extension of a surrounding pair in $X$ 
   \[ \hom_k(D, B)\cong \hom_k(X, \hat{B}).\]
 \end{lemma}
 \begin{proof}
-  Note,
+  Because $B$ surrounds $D$ in $X$ and $\hat{B} = B\sqcup (X\setminus D)$ we have $X = (D\setminus B)\sqcup B\sqcup (X\setminus D)$ so $X\setminus \hat{B} = D\setminus B$.
+  Moreover, because $D$ is open $\overline{D}$ is closed in $X$, so $\cl(\overline{D}) = \overline{D}$.
+  Therefore
   \begin{align*}
     X\setminus (\intr(D)\cup\intr(\hat{B})) &= X\cap \overline{(\intr(D)\cup\intr(\hat{B}))}\\
       &= X\cap \cl(\overline{D})\cap\cl(\overline{\hat{B}})) \\
-      &= X\cap \overline{D}\cap\cl(\overline{\hat{B}})),
+      % &= X\cap \overline{D}\cap\cl(D\setminus B)\\
+      &= (X\setminus D)\cap \cl(D\setminus B).
   \end{align*}
-  because $D$ is open, thus $\overline{D}$ is closed, and therefore equal to its closure.
+  % because $D$ is open, thus $\overline{D}$ is closed, and therefore equal to its closure.
+  %
+  % Now,
+  % \begin{align*}
+  %   \cl(\overline{\hat{B}}) &= \cl(\overline{B\cup (X\setminus D)})\\
+  %     &= \cl(\overline{B\cup (X\cap \overline{D})})\\
+  %     &= \cl(\overline{(B\cup X)\cap (B\cup\overline{D})})\\
+  %     &= \cl(\overline{X}\cup (D\cap\overline{B}))\\
+  %     &= \cl(D\setminus B).
+  % \end{align*}
+  Because $(D, B)$ is a surrounding pair in $X$ we have that $B$ separates $X$ with the pair $(D\setminus B, X\setminus D)$.
+  So $(X\setminus D)$ and $D\setminus B$ are separated in $X$, thus
+  \[ X\setminus (\intr(D)\cup\intr(\hat{B})) = (X\setminus D)\cap \cl(D\setminus B) =\emptyset.\]
 
-  Now,
-  \begin{align*}
-    \cl(\overline{\hat{B}}) &= \cl(\overline{B\cup (X\setminus D)})\\
-      &= \cl(\overline{B\cup (X\cap \overline{D})})\\
-      &= \cl(\overline{(B\cup X)\cap (B\cup\overline{D})})\\
-      &= \cl(\overline{X}\cup (D\cap\overline{B}))\\
-      &= \cl(D\setminus B).
-  \end{align*}
-  Therefore,
-  \[ X\setminus (\intr(D)\cup\intr(\hat{B})) = (X\setminus D)\cap \cl(D\setminus B) =\emptyset \]
-  for a surrounding pair $(D, B)$ in $X$ which requires that $(X\setminus D)$ and $D\setminus B$ are separated in $X$.
-
-  So $\intr(D)\cup\intr(\hat{B}) = X$ thus $\hom_k(D, B)\cong \hom_k(X, \hat{B})$ by excision.
+  It follows that $\intr(D)\cup\intr(\hat{B}) = X$ and therefore that
+  \[ \hom_k(D, B) = \hom_k(D, D\cap \hat{B}) \cong \hom_k(X, \hat{B})\]
+  by excision.
 \end{proof}
 % }
 
@@ -122,7 +140,10 @@ Let $(\overline{B}, \overline{D}) = (S^d\setminus B, S^d\setminus D)$ denote the
 
   Because $B$ surrounds $D$ we have that
   \[\tilde{\hom}^{d-k-1}(\overline{B}) \cong \tilde{\hom}^{d-k-1}(D\setminus B)\oplus \hom_k(\overline{D})\]
-  by Corollary~\ref{cor:oplus_separates}\footnote{\textbf{TODO show/state this holds for cohomology as well.}}, where $\tilde{\hom}^{d-k-1}(D\setminus B) \cong \tilde{\hom}^{d-k-1}(\overline{B}, \overline{D})$ by Lemma~\ref{lem:iso_separates}.
+  and
+  \[\tilde{\hom}^{d-k-1}(D\setminus B) \cong \tilde{\hom}^{d-k-1}(\overline{B}, \overline{D})\]
+  by Corollary~\ref{cor:reduced_cohom}.
+  % by Corollary~\ref{cor:oplus_separates}\footnote{\textbf{TODO show/state this holds for cohomology as well.}}, where $\tilde{\hom}^{d-k-1}(D\setminus B) \cong \tilde{\hom}^{d-k-1}(\overline{B}, \overline{D})$ by Lemma~\ref{lem:iso_separates}.
   It follows that $\overline{j_*^{d-k-1}}$ is injective and $\overline{i_*^{d-k-1}}$ is surjective.
 
   By commutativity of Diagram~\ref{dgm:alexander} and because $\Gamma_{(D,B)}^{k+1}, \Gamma_B^k$ and $\Gamma_D^k$ are isomorphisms we have that

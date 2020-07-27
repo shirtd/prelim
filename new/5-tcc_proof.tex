@@ -145,7 +145,14 @@ Recall that $Q^\delta$ surrounding $P^\delta$ in $\D$ implies that $\hat{Q^\delt
   So $\hat{Q^\delta} = Q^\delta\cup (\D\setminus P^\delta)\subseteq \B$.
   Moreover, as $p_*$ is injective $\B\subseteq \hat{Q}^\gamma$ by Lemma~\ref{lem:qcontain}, so $\hat{Q^\delta}\subseteq \B\subseteq \hat{Q^\gamma}$.
 
-  As $\D\setminus \B \subseteq P^\delta$, $Q^\delta$ surrounds $P^\delta$ in $\D$, and $\hat{Q^\delta}\subseteq \B\subseteq \hat{Q^\gamma}$ we may conclude that $(P, Q)$ is an (open) separating $(\delta,\gamma)$-cover of $(\D, \B)$.
+  As
+  \begin{enumerate}[label=(\alph*)]
+    \item\textbf{(Covers)} $\D\setminus\B \subseteq P^\delta$,
+    \item\textbf{(Surrounds)} $Q^\delta$ surrounds $P^\delta$ in $\D$, and
+    \item\textbf{(Interleaves)} $\hat{Q^\delta}\subseteq \B\subseteq \hat{Q^\gamma}$.
+  \end{enumerate}
+  % $\D\setminus \B \subseteq P^\delta$ (\emph{(a) covers}), $Q^\delta$ surrounds $P^\delta$ in $\D$ (\emph{(b) surrounds}), and $\hat{Q^\delta}\subseteq \B\subseteq \hat{Q^\gamma}$ (\emph{(c) interleaves})
+  we may conclude that $(P, Q)$ is an (open) surrounding $(\delta,\gamma)$-cover of $(\D, \B)$.
   Therefore, as $B_0\subset \hat{Q^\delta}$ by Lemma~\ref{lem:qdcontain} and $(D_0^{\delta+\gamma}, B_0^{\delta+\gamma})\subset (D_1, B_1)$ by assumption 1 we have that $\hat{Q^\gamma}\subset B_1$.
-  The result therefore follows from Theorem~\ref{thm:main}.
+  The result follows from Theorem~\ref{thm:main}.
 \end{proof}
