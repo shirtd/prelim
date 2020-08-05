@@ -9,4 +9,4 @@ new.pdf
 .stash
 *log
 code
-*.bak
+*.bak*
