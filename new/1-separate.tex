@@ -1,16 +1,20 @@
-% !TeX root = new.tex
+% !TeX root = ../new.tex
 
 \subsection{Separation}
 
+% \begin{definition}[Separated]
+%   Two subsets $U, V$ of a topological space $X$ are \textbf{separated in $X$} if each is disjoint from the other's closure: $\cl(U)\cap V =\emptyset$ and $U\cap\cl(V) = \emptyset$.
+% \end{definition}
+
 \begin{definition}[Separated]
-  Two subsets $U, V$ of a topological space $X$ are \textbf{separated in $X$} if each is disjoint from the other's closure: $\cl(U)\cap V =\emptyset$ and $U\cap\cl(V) = \emptyset$.
+  Two subsets $A$ and $B$ of a topological space $X$ are \textbf{separated by closed neighborhoods} if there is a closed neighborhood $U$ of $A$ and a closed neighborhood $V$ of $B$ such that $U$ and $V$ are disjoint.
 \end{definition}
 
 \begin{definition}[Separation]
   A subset $B$ \textbf{separates} a topological space $X$ with the pair $(U, V)$ if
   \begin{itemize}
     \item $B, U, V$ partitions $X$,
-    \item $U, V$ are separated in $X$,
+    \item $U, V$ are separated by closed neighborhoods in $X$,
     \item and any path from $U$ to $V$ in $X$ intersects $B$.
   \end{itemize}
 \end{definition}
@@ -82,18 +86,20 @@ Naturally the same results hold for (reduced) cohomology.
 
 % {\color{red}
 \begin{lemma}\label{lem:extension_iso}
-  If $(D, B)$ is a surrounding pair of open sets in a topological space $X$ then for all $k$
+  % If $(D, B)$ is a surrounding pair of open sets in a topological space $X$ then for all $k$
+  If $(D, B)$ is a surrounding pair in a topological space $X$ then for all $k$
   \[ \hom_k(D, B)\cong \hom_k(X, \hat{B}).\]
 \end{lemma}
 \begin{proof}
   Because $B$ surrounds $D$ in $X$ and $\hat{B} = B\sqcup (X\setminus D)$ we have $X = (D\setminus B)\sqcup B\sqcup (X\setminus D)$ so $X\setminus \hat{B} = D\setminus B$.
-  Moreover, because $D$ is open $\overline{D}$ is closed in $X$, $\cl(\overline{D}) = \overline{D}$.
+  % Moreover, because $D$ is open $\overline{D}$ is closed in $X$, $\cl(\overline{D}) = \overline{D}$.
   Therefore
   \begin{align*}
     X\setminus (\intr(D)\cup\intr(\hat{B})) &= X\cap \overline{(\intr(D)\cup\intr(\hat{B}))}\\
       &= X\cap \cl(\overline{D})\cap\cl(\overline{\hat{B}})) \\
+      &= X\cap \overline{\intr(D)}\cap\cl(\overline{\hat{B}})) \\
       % &= X\cap \overline{D}\cap\cl(D\setminus B)\\
-      &= (X\setminus D)\cap \cl(D\setminus B).
+      &= \cl(X\setminus D)\cap \cl(D\setminus B).
   \end{align*}
   % because $D$ is open, thus $\overline{D}$ is closed, and therefore equal to its closure.
   %
@@ -106,8 +112,9 @@ Naturally the same results hold for (reduced) cohomology.
   %     &= \cl(D\setminus B).
   % \end{align*}
   Because $(D, B)$ is a surrounding pair in $X$ we have that $B$ separates $X$ with the pair $(D\setminus B, X\setminus D)$.
-  So $(X\setminus D)$ and $D\setminus B$ are separated in $X$, thus
-  \[ X\setminus (\intr(D)\cup\intr(\hat{B})) = (X\setminus D)\cap \cl(D\setminus B) =\emptyset.\]
+  % So $(X\setminus D)$ and $D\setminus B$ are separated in $X$, thus
+  So $(X\setminus D)$ and $D\setminus B$ are separated by closed neighborhoods in $X$, thus
+  \[ X\setminus (\intr(D)\cup\intr(\hat{B})) = \cl(X\setminus D)\cap \cl(D\setminus B) = \emptyset.\]
 
   It follows that $\intr(D)\cup\intr(\hat{B}) = X$ and therefore that
   \[ \hom_k(D, B) = \hom_k(D, D\cap \hat{B}) \cong \hom_k(X, \hat{B})\]
