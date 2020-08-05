@@ -7,7 +7,12 @@
 \end{definition}
 
 \begin{definition}[Separation]
-  We say that a subset $B$ \textbf{separates} a topological space $X$ with the pair $(U, V)$ if $B, U, V$ partitions $X$, $U, V$ are separated in $X$, and any path from $U$ to $V$ in $X$ intersects $B$.
+  A subset $B$ \textbf{separates} a topological space $X$ with the pair $(U, V)$ if
+  \begin{itemize}
+    \item $B, U, V$ partitions $X$,
+    \item $U, V$ are separated in $X$,
+    \item and any path from $U$ to $V$ in $X$ intersects $B$.
+  \end{itemize}
 \end{definition}
 
 \begin{lemma}\label{lem:separate_splits}
@@ -65,13 +70,15 @@ Naturally the same results hold for (reduced) cohomology.
 \subsection{Surrounding}
 
 \begin{definition}[Surrounding]
-  We say that $B\subset D$ \textbf{surrounds} $D\subset X$ in $X$ if $B$ separates $X$ with the pair $(D\setminus B, X\setminus D)$.
+  Given $B\subseteq D\subseteq X$ the set $B$ \textbf{surrounds $D$ in $X$} if $B$ separates $X$ with the pair $(D\setminus B, X\setminus D)$.
   We will refer to such a pair $(D, B)$ as a \textbf{surrounding pair} in $X$.
 \end{definition}
 
-We define the \emph{extension} of a surrounding pair $(D, B)$ in $X$ to be the pair
-\[ (X, \hat{B}) = (D\cup (X\setminus D), B\cup (X\setminus D)).\]
-Note that, for $X\subset\mathcal{X}$ the extension of a surrounding pair in $X$ is a surrounding pair in $\mathcal{X}$.
+\begin{definition}[Excension]
+  The \emph{extension} of a surrounding pair $(D, B)$ in $X$ is the pair
+  \[ (X, \hat{B}) = (D\cup (X\setminus D), B\cup (X\setminus D)).\]
+  Note that, for $X\subset\mathcal{X}$, the extension of a surrounding pair in $X$ is a surrounding pair in $\mathcal{X}$.
+\end{definition}
 
 % {\color{red}
 \begin{lemma}\label{lem:extension_iso}
@@ -80,7 +87,7 @@ Note that, for $X\subset\mathcal{X}$ the extension of a surrounding pair in $X$ 
 \end{lemma}
 \begin{proof}
   Because $B$ surrounds $D$ in $X$ and $\hat{B} = B\sqcup (X\setminus D)$ we have $X = (D\setminus B)\sqcup B\sqcup (X\setminus D)$ so $X\setminus \hat{B} = D\setminus B$.
-  Moreover, because $D$ is open $\overline{D}$ is closed in $X$, so $\cl(\overline{D}) = \overline{D}$.
+  Moreover, because $D$ is open $\overline{D}$ is closed in $X$, $\cl(\overline{D}) = \overline{D}$.
   Therefore
   \begin{align*}
     X\setminus (\intr(D)\cup\intr(\hat{B})) &= X\cap \overline{(\intr(D)\cup\intr(\hat{B}))}\\
