@@ -3,6 +3,7 @@ main.fdb_latexmk
 main.fls
 main.log
 main.pdf
+new.pdf
 main.synctex.gz
 *.log
 .stash
