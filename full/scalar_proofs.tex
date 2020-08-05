@@ -1,0 +1,105 @@
+% !TeX root = main.tex
+
+\subsection{Proof of the Interleaving}
+
+In the following we will assume that $j_*$ is surjective and $p_*$ is injective.
+By Lemma~\ref{lem:separate} $Q^\delta$ separates $\D$ with a pair $(\I, \O)$.
+Let $\hat{Q}^\delta = Q^\delta \cup \O$, $\hat{P}^\delta = P^\delta \cup \O$ and $\hat{Q}^\gamma = Q^\gamma \cup \O$.
+
+\begin{lemma}
+    $\hom_*(\hat{P}^\delta, \hat{Q}^\delta)\cong \hom_*(P^\delta, Q^\delta)$ and $\hom_*(P^\delta\cup\hat{Q}^\gamma, \hat{Q}^\gamma)\cong \hom_*(P^\delta\cup Q^\gamma, Q^\gamma)$.
+\end{lemma}
+\begin{proof}
+    By the definition of $\hat{Q}^\delta$, $\hat{Q}^\gamma$ and $\O$ we have that $\hat{Q}^\delta\setminus\O = Q^\delta$ and $\hat{Q}^\gamma\setminus\O = Q^\gamma$ and $\cl~\O \subset \intr~\hat{Q}^\delta, \intr~\hat{Q}^\gamma$.
+    The desired results follow by Excision.
+\end{proof}
+
+\begin{lemma}\label{lem:qcontain}
+    If $p_*$ is injective then $\B^{2\delta}\subseteq \hat{Q}^\gamma$.
+\end{lemma}
+\begin{proof}
+    Suppose $p_*$ is injective and there exists some $x\in \B^{2\delta}$ such that $x\notin \hat{Q}^\gamma$.
+    So there exists some $y\in U_{\omega - 2c\delta}$ such that $\dist(x, y) < 2\delta$.
+    Because $Q^\delta$ separates $\D = \O \cup Q^\delta \cup \I$ both $x$ and $y$ are either in $Q^\delta, \O$ or $\I$.
+    Moreover, $\overline{\I} = Q^\delta \cup \O = \hat{Q}^\delta$ so $\B^{2\delta}\cap\I = \B^{2\delta}\setminus \hat{Q}^\delta$ and $\B\cap\I = \B\setminus \overline{\I} = \B\setminus \hat{Q}^\delta = \emptyset$ as $\B\subset \hat{Q}^\delta$.
+    So $y\notin \I$ and, because $Q^\delta \subset Q^\gamma$ and $\O\subset \hat{Q}^\delta\subset\hat{Q}^\gamma$, we can assume w.l.o.g. that $x\in \B^{2\delta}\cap\I$.
+
+    If $y\in Q^\delta$ then there exists some $q\in Q$ such that $\dist(q, y) < \delta$ so
+    \[ \dist(q, x)\leq \dist(q, y) + \dist(x, y) < 3\delta\leq\gamma \]
+    which implies $x \in Q^\gamma$.
+
+    So we may assume that $y\in U_{\omega - 2c\delta}\cap\O$.
+    Because $Q^\delta$ separates $\D$ with $(\I, \O)$ there is no path from $x\in \I$ to $y\in\O$ that does not cross $Q^\delta$, so there must be some point $z\in Q^\delta$ in the shortest path from $x$ to $y$.
+    That is, there exists some $q\in Q$ such that $\dist(q, z) < \delta$ and $\dist(z, x) < \dist(x, y) < 2\delta$ so
+    \[ \dist(q, x)\leq \dist(q, z) + \dist(z, x) < \delta + 2\delta \leq \gamma. \]
+    So $y\in\O$ implies $x\in\hat{Q}^\gamma$.
+
+\end{proof}
+
+The following lemma is a well-established result that we provide without proof.
+
+\begin{lemma}[Lemma 3.2 from~\cite{chazal08towards}]\label{lem:sandwich}
+    Given a sequence $A\to B\to C\to D\to E\to F$ of homomorphisms between finite-dimensional vector spaces, if $\rk(A\to F) = \rk(C\to D)$ then this quantity also equals the rank of $B\to E$.
+    Similarly, if $A\to B\to C\to E\to F$ is a sequence of homomorphisms such that $\rk(A\to F) = \dim~C$ then $\rk(B\to E) = \dim~C$.
+\end{lemma}
+
+% \begin{lemma}
+%     If $p_*$ is injective then $\im~\hom_*(P^\delta\to (P^\delta\cup \hat{Q}^\gamma)\setminus\B)\cong \hom_*(\D\setminus\B^{2\delta})$.
+% \end{lemma}
+% \begin{proof}
+%     \textbf{TODO requires \[ \D\setminus \B^{2\delta} \subseteq P^\delta \subseteq P^\delta \cup U_{\omega - 2c\delta}^{2\delta}\subseteq P^\delta\cup \hat{Q}^\gamma \subseteq \D \] and $\im~\hom_*(\D\setminus \B^{2\delta} \to \D)\cong\hom_*(P^\delta \cup U_{\omega - 2c\delta}^{2\delta}) = \hom_*(\D)$.}
+% \end{proof}
+% % \begin{proof}
+% %     First note that because $p_*$ is injective $\D\setminus\B^{2\delta}\subseteq P^\delta$ and because $\B^{2\delta}\subseteq U_\omega$ we have $\D\setminus U_\omega \subseteq \D\setminus \B^{2\delta} \subseteq P^\delta$.
+% %     We have the following sequence of inclusions
+% %     \[ \D\setminus U_\omega \subseteq P^\delta \subseteq P^\delta \cup U_{\omega - 2c\delta}^{2\delta}\subseteq P^\delta\cup \hat{Q}^\gamma \subseteq \D \]
+% %     which induces the following sequence of homomorphisms
+% %     \[ \hom_*(\D\setminus U_\omega)\to\hom_*(P^\delta\setminus\B)\to\hom_*((P^\delta \cup \B^{2\delta})\setminus \B)\to\hom_*((P^\delta\cup\hat{Q}^\gamma)\setminus\B)\to\hom_*(\D\setminus\B).\]
+% %     As $\D\setminus\B^{2\delta}\subseteq P^\delta$ implies $P^\delta\cup\B^{2\delta} = \D$ and $\hom_*(\D\setminus U_\omega)\cong \hom_*(\D\setminus \B)$ we have that $\im~\hom_*(\D\setminus U_\omega\to \D\setminus \B)\cong \hom_*(\D\setminus\B)$ and therefore $\im~\hom_*(P^\delta\to(P^\delta\cup\hat{Q}^\gamma)\setminus\B)\cong\hom_*(\D\setminus \B)$ by Lemma~\ref{lem:sandwich}.
+% % \end{proof}
+
+\begin{lemma}
+    Given assumptions 1-3, if $p_*$ is injective then $\im~\hom_*(\hat{Q}^\delta \to \hat{Q}^{\gamma})\cong \hom_*(\B^{2\delta}).$
+\end{lemma}
+\begin{proof}
+    By assumption 3 $\D_{\omega-c\delta}^\delta\to \D_{\omega-2c\delta}^{2\delta}$ is a deformation retraction so $\hom_*(\D_{\omega-c\delta}^\delta)\to \hom_*(\D_{\omega-2c\delta}^{2\delta})$ is an isomorphism.
+    As $Q = P\cap \D_{\omega-c\delta}$ we have that $\hat{Q}^\delta\subset \D_{\omega-c\delta}^\delta$ and $\hat{Q}^\gamma\subset\D_{\omega - c\delta}^\gamma\subset \D_{\omega + 2c\delta}$ by assumption 4.
+    If $p_*$ is injective we know that $\D_{\omega - 2c\delta}^{2\delta}\subseteq \hat{Q}^\gamma$ by Lemma~\ref{lem:qcontain} so we have the following sequence of homomorphisms
+    \[ \hom_*(\D_{\omega - 2c\delta})\to \hom_*(\hat{Q}^\delta)\to \hom_*(\D_{\omega-c\delta}^\delta)\to \hom_*(\D_{\omega - 2c\delta}^{2\delta})\to\hom_*(\hat{Q}^\gamma)\to\hom_*(\D_{\omega + 2c\delta}).\]
+    By assumption 2 $\im~\hom_*(\D_{\omega - 2c\delta}\hookrightarrow U_{\omega+2c\delta})\cong\hom_*(U_{\omega-2c\delta}^{2\delta})$ so \[\hom_*(\hat{Q}^\delta\hookrightarrow\hat{Q}^\gamma)\cong\hom_*(\D_{\omega-c\delta}^\delta\to \D_{\omega-2c\delta}^{2\delta})\cong \hom_*(\B^{2\delta})\] by Lemma~\ref{lem:sandwich}.
+\end{proof}
+
+\begin{lemma}
+    Given assumption 2, if $p_*$ is injective then $\im~\hom_*(P^\delta\setminus \B^{2\delta} \to P^\delta\setminus \B)\cong \hom_*(\D\setminus\B^{2\delta}).$
+\end{lemma}
+\begin{proof}
+    If $p_*$ is injective we have the following sequence of homomorphisms induced by inclusion
+    \[\hom_*(\D\setminus\D_{\omega+2c\delta})\to\hom_*(P^\delta\setminus \B^{2\delta})\to\hom_*(\D\setminus\B^{2\delta})\to\hom_*(P^\delta\setminus \B)\to\hom_*(\D\setminus\B).\]
+    By assumption 2 $\hom_*(\D\setminus\D_{\omega+2c\delta}\hookrightarrow \D\setminus\B)\cong\hom_*(\D\setminus\B^{2\delta})$ so $\im~\hom_*(P^\delta\setminus \B^{2\delta} \to P^\delta\setminus\B)\cong \hom_*(\D\setminus\B^{2\delta})$ by Lemma~\ref{lem:sandwich}.
+\end{proof}
+
+
+\section{Future Work}
+
+Conformation of the TCC implies that we cover the interior of the domain $\D\setminus\B^{2\delta}$ and that $Q^\delta$ separates $\D$ which.
+As we have shown, this implies that the inclusion our sampled boundary at scales $\delta,\gamma$ captures the homology of the thickened boundary $\B^{2\delta}$ and the inclusion of our sampled interior captures the homology of the interior $\D\setminus\B^{2\delta}$.
+However, this alone does not imply that the inclusion of pairs $(P^\delta, Q^\delta)\to (P^\gamma, Q^\gamma)$ captures the \emph{relative} homology of the pair $(\D,\B^{2\delta})$ as it does not account for homological features that may appear only in relative homology.
+Specifically, any principal homology classes in $\hom_*(\D)$ that become relative homology classes in $\hom_*(\D\setminus\B^{2\delta}, \D_{\omega +2c\delta}\setminus \B^{2\delta})$ may not occur \emph{at all} in $\hom_*(P^\delta, Q^\delta)$.
+Identifying additional assumptions or side-effects of the TCC is the subject of future work, and would allow us to prove Lemma~\ref{lem:broken} and Theorem~\ref{thm:scalar}.
+
+% , as we have shown, implies that $\B^{2\delta}\subset Q^\delta$ and the inclusions $\hom_*(\hat{Q}^\delta\hookrightarrow\hat{Q}^\gamma)$ and $\im~\hom_*(P^\delta\setminus \B^{2\delta} \to P^\delta\setminus \B)$ are isomorphic to $\hom_*(\B^{2\delta})$ and $\hom_*(\D\setminus\B^{2\delta})$ respectively.
+% That is, the inclusion of our sampled boundary serv
+
+% \begin{lemma}
+%     If $\im~\hom_*(\hat{Q}^\delta\to\hat{Q}^\gamma)\cong\hom_*(\B^{2\delta})$ and $\im~\hom_*(P^\delta\setminus\B\to (P^\delta\cup \hat{Q}^\gamma)\setminus\B)\cong \hom_*(\D\setminus\B^{2\delta})$ then
+%     \[\im~\hom_*((P^\delta, Q^\delta)\to (P^\delta\cup Q^\gamma, Q^\gamma))\cong \hom_*(\D, \B). \]
+% \end{lemma}
+
+\begin{lemma}~\label{lem:broken}
+    If $\im~\hom_*(\hat{Q}^\delta\to\hat{Q}^\gamma)\cong\hom_*(\B^{2\delta})$ and $\im~\hom_*(P^\delta\setminus Q^\gamma \to P^\delta\setminus Q^\delta)\cong \hom_*(\D\setminus\B^{2\delta})$ then
+    \[\im~\hom_*((P^\delta, Q^\delta)\to (P^\delta\cup Q^\gamma, Q^\gamma))\cong \hom_*(\D^{2\delta}, \B^{2\delta}). \]
+\end{lemma}
+
+\begin{theorem}\label{thm:scalar}
+    If $\im~\hom_*((P^\delta, Q^\delta)\to (P^\delta\cup Q^\gamma, Q^\gamma))\cong \hom_*(\D^{2\delta}, \B^{2\delta})$ then \[\{(P_\alpha^\delta, Q^\delta)\to (P_\alpha^\delta\cup Q^\gamma, Q^\gamma)\}_{\alpha > \omega+2c\delta}\] is $c\delta$-interleaved with $\{(\D_\alpha, \B^{2\delta})\}_{\alpha > \omega +2c\delta}$.
+\end{theorem}

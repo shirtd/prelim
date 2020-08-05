@@ -1,0 +1,37 @@
+% !TeX root = main.tex
+
+In the following let $\dist(x,y) = \| x - y\|$ denote the Euclidean distance between points in $\R^d$.
+For $X\subset\R^d$ and $y\in\R^d$ let $\dist_X(y) = \displaystyle\min_{x\in X}\dist(x, y)$ denote the distance from $y$ to the set $X$.
+The set of all points within some distance $\e > 0$ of $X$ is the \textbf{(open) $\e$-offset of $X$} and will be denoted
+\[ X^\e = \{ y\in\R^d\mid \dist_X(y) < \e\}. \]
+
+A function $f : X\to\R$ is said to be $c$-Lipschitz if, for all $x,y\in X$,
+\[ | f(x) - f(y) | \leq c\dist(x, y).\]
+For a $c$-Lipschitz function $f : X\to\R$ the \textbf{closed $\e$-sub-level sets} of $f$ are defined for $\e\in\R$ as
+\[ f^{-1}(-\infty,\e] = \{x\in X\mid f(x) \leq \e\}.\]
+For $A\subset X$ the closed $\e$-sublevel set of $f$ restricted to $A$ will be denoted $A_\e = X_\e \cap A$ so that $X_\e = f^{-1}(-\infty,\e]$.
+
+\subsection{The Coverage Problem}\label{sec:coverage}
+
+We first consider the problem of determining coverage in a coordinate free sensor network.
+That is, we would like to determine if an unknown domain is covered by a collection of sensors without their precise coordinates.
+
+Let $\D\subset\R^d$ denote our unknown domain and $P\subset\D$ be a collection of points, each representing a sensor in our network.
+A subset $X\subseteq\R^d$ is covered by $P\subset\D$ at scale $\e > 0$ if every point $x\in X$ is within distance $\e$ of at least one point in $P$.
+\begin{definition}
+    The \textbf{(open) coverage region} of a point $p\in P$ at scale $\e > 0$ is defined as
+    \[ \ball_\e(p) = \{x\in\R^d\mid \dist(x, p) < \e \}. \]
+\end{definition}
+Note that the open $\e$-offset of $P$ is equal to the region covered by $P$.
+That is $P^\e$ is the set of points in $\R^d$ within distance $\e$ of at least one point in $P$:
+\[ P^\e = \bigcup_{p\in P}\ball_\e(p) = \{ y\in\R^d\mid \dist_P(y) < \e\}.\]
+\begin{definition}
+    Let $X, P\subset\D$.
+    $X$ is \textbf{covered} by $P$ at scale $\e$ if $X\subseteq P^\e$.
+\end{definition}
+
+% In order to \textit{verify} coverage by we need our network to sufficiently sample the extent of our domain.
+% Moreover, if there are gaps in coverage, we would like to know if they are due to insufficient sampling or to a gap in the domain itself.
+% The primary
+
+% section complexes (end)

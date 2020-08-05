@@ -1,0 +1,118 @@
+% !TeX root = main.tex
+
+\subsection{Proof of the TCC}
+
+We have the following commutative diagrams of inclusions between the pairs $(P,Q)$ and $(\D, \B)$ and their complements with increasing scale.
+
+\[ \begin{tikzcd}
+(P^\delta, Q^\delta) \arrow[hookrightarrow]{r}\arrow[hookrightarrow]{d}& (P^\gamma, Q^\gamma) \arrow[hookrightarrow]{d} \\%
+(\D^{2\delta}, \B^{2\delta}) \arrow[hookrightarrow]{r} & (\D^{\delta+\gamma}, \B^{\delta+\gamma}),
+\end{tikzcd}
+\begin{tikzcd}
+(\overline{\B^{\delta+\gamma}}, \overline{\D^{\delta+\gamma}})\arrow[hookrightarrow]{r}{j}\arrow[hookrightarrow]{d}& (\overline{\B^{2\delta}}, \overline{\D^{2\delta}}) \arrow[hookrightarrow]{d} \\%
+(\overline{Q^\gamma}, \overline{P^\gamma}) \arrow[hookrightarrow]{r}{i} & (\overline{Q^\delta}, \overline{P^\delta}).
+\end{tikzcd}\]
+
+The following diagram is formed by applying the homology functor.
+\begin{equation}\label{dgm:1}
+    \begin{tikzcd}
+    \hom_0(\overline{\B^{\delta+\gamma}}, \overline{\D^{\delta+\gamma}})\arrow{r}{j_*}\arrow{d}& \hom_0(\overline{\B^{2\delta}}, \overline{\D^{2\delta}}) \arrow{d} \\%
+    \hom_0(\overline{Q^\gamma}, \overline{P^\gamma}) \arrow{r}{i_*} & \hom_0(\overline{Q^\delta}, \overline{P^\delta}).
+    \end{tikzcd}
+\end{equation}
+Let $p_* : \im~j_*\to\im~i_*$.
+
+% \begin{lemma}\label{lem:complement}
+%     Given assumption 2 \[\im~\hom_k(\D\setminus\D_{\omega+2c\delta}\hookrightarrow \D\setminus\B)\cong\hom_k(\D\setminus\B^{2\delta}).\]
+% \end{lemma}
+
+\begin{lemma}\label{lem:jsurj}
+    Given assumptions 1-3 the map $j_k:\hom_k(\D\setminus\B^{\delta+\gamma})\to\hom_k(\D\setminus\B^{2\delta})$ is surjective for all $k\in\N$.
+\end{lemma}
+\begin{proof}
+    Let $s_k : \hom_k(\D\setminus\D_{\omega+2c\delta})\to\hom_k(\D\setminus\B)$ and $t_k : \im~s_k\to\hom_k(\D\setminus\B^{2\delta})$.
+    Given assumption 2 we have that $t_k$ is an isomorphism by Lemma~\ref{lem:complement} so $\im~t_k = \hom_k(\D\setminus\B^{2\delta})\cong\im~s_k$.
+    Therefore, $t_k\circ s_k : \hom_k(\D\setminus\D_{\omega+2c\delta})\to\hom_k(\D\setminus\B^{2\delta})$ is surjective as $\im(t_k\circ s_k) = \im~t_k = \hom_k(\D\setminus\B^{2\delta})$.
+    Because $f$ is $c$-Lipschitz and given assumption 3 we know that $\gamma$ is such that $\D_{\omega-2c\delta}^{\delta+\gamma}\subseteq \D_{\omega+2c\delta}$.
+    So $\D\setminus\D_{\omega+2c\delta}\subseteq\D_{\omega-2c\delta}^{\delta+\gamma}$ induces the map $f_k : \hom_k(\D\setminus\D_{\omega+2c\delta})\to\hom_k(\D_{\omega-2c\delta}^{\delta+\gamma})$ and $t_k\circ s_k = j_k\circ f_k$ is surjective, so $j_k$ is surjective as desired.
+\end{proof}
+
+\begin{lemma}\label{lem:psurj}
+    Given assumptions 1-3, the map $p_*$ is surjective.
+\end{lemma}
+\begin{proof}
+    By Lemma~\ref{lem:jsurj} $j_*$ is surjective.
+    Choose a basis for $\im~i_*$ such that each basis element is represented by a point in $P^\delta\setminus Q^\gamma$.
+    Let $x\in P^\delta\setminus Q^\gamma$ be such that $[x]$ is non-trivial in $\im~i_*$.
+    Suppose $x\in\B^{2\delta}$ and let $y\in\B$ such that $\dist(x, y)< 2\delta$.
+
+    First, suppose $y\in P^\delta$.
+    So there exists some $p\in P$ such that $\dist(p, y) < \delta$.
+    But $y\in \B = \D_{\omega-2c\delta}$ so $f(y)\leq \omega-2c\delta$.
+    Therefore, because $f$ is $c$-Lipschitz
+    \[ f(p) \leq c\dist(p, y) + f(y) < \omega - 2c\delta + c\delta = \omega - c\delta\]
+    so $p\in Q$, thus $y\in Q^\delta$.
+    So $y\in P^\delta$ implies $y\in Q^\delta$ and therefore, by contrapositive, $y\in\overline{Q^\delta}$ implies $y\in\overline{P^\delta}$.
+
+    Now, because $x\in\overline{Q^\gamma}$ by hypothesis $\dist(x, q) \geq \gamma$ for all $q\in Q$.
+    For any $z$ in the shortest path between $x$ and $y$ we have $\dist(x, z)\leq \dist(x, y) < 2\delta$, so the following inequality holds for all $q\in Q$
+    \begin{align*}
+        \dist(x, q) &\geq \dist(x, q) - \dist(x, z)\\
+        &> \gamma - 2\delta\\
+        &\geq \delta.
+    \end{align*}
+    So $z\in \overline{Q^\delta}$ for all $z$ in the shortest path from $x$ to $y$.
+    In particular, $x,y\in\overline{Q^\delta}$ therefore $y\in\overline{P^\delta}$.
+
+    Because $x,y\in\overline{Q^\delta}$ we have corresponding chain $x,y\in C_0(\overline{Q^\delta})$ and $y\in\overline{P^\delta}$ generates a chain $y\in C_0(P^\delta)$.
+    As we have shown that $x\in \B^{2\delta}$ implies that the shortest path from $x$ to $y$ is contained in $\overline{Q^\delta}$ there exists a path $h: [0,1]\to \overline{Q^\delta}$ with $h(0) = x$ and $h(1) = y$ that generates a chain $h\in C_1(\overline{Q^\delta})$.
+    So for $h\in C_1(\overline{Q^\delta}, \overline{P^\delta})$ with $\partial h = x + y$ we have that $x = \partial h + y$.
+    Thus $[x]$ is a relative boundary and is therefore trivial in $\hom_0(\overline{P^\delta}, \overline{Q^\delta})$, a contradiction, as we have assumed $[x]$ is non-trivial in $\im~i_*$.
+    So we may conclude that $x\notin \B^{2\delta}$.
+
+    So $x\in\overline{\B^{2\delta}}$ and $x\in \D\setminus\B^{2\delta}$.
+    So $[x]$ is non-trivial in $\hom_0(\overline{\B^{2\delta}},\overline{\D^{2\delta}})$ and, because $j_*$ is surjective, $\im~j_* = \hom_0(\overline{\B^{2\delta}},\overline{\D^{2\delta}})$.
+    So $p_*$ is surjective as $p_*[x] = [x]\in\im~p_*$ for all non-trivial $[x]\in\im~i_*$.
+\end{proof}
+
+\begin{lemma}\label{lem:coverage}
+    Given assumptions 1-3, if $p_*$ is injective then $\D\setminus\B^{2\delta}\subseteq P^\delta$.
+\end{lemma}
+\begin{proof}
+    Suppose, for the sake of contradiction, that $p_*$ is injective and there exists a point $x\in (\D\setminus\B^{2\delta})\setminus P^\delta$.
+    So $[x]$ is non-trivial in $\hom_0(\overline{\B^{2\delta}},\overline{\D^{2\delta}}) = \im~j_*$ as $x$ is in some connected component of $\D\setminus\B^{2\delta}$ and $j_*$ is surjective.
+    So we have the following sequence of maps induced by inclusions
+    \[ \hom_0(\overline{\B^{2\delta}},\overline{\D^{2\delta}})\xrightarrow{f_*} \hom_0(\overline{\B^{2\delta}},\overline{\D^{2\delta}}\cup\{x\})\xrightarrow{g_*} \hom_0(\overline{Q^\delta},\overline{P^\delta}).\]
+    As $f_*[x]$ is trivial in $\hom_0(\overline{\B^{2\delta}},\overline{\D^{2\delta}}\cup\{x\})$ we have that $p_*[x] = (g_*\circ f_*)[x]$ is trivial, contradicting our hypothesis that $p_*$ is injective.
+\end{proof}
+
+\begin{lemma}\label{lem:separate}
+    Given assumptions 1-3, if the map $p_*$ is injective then $Q^\delta$ separates $\D$.
+\end{lemma}
+\begin{proof}
+    Suppose, for the sake of contradiction, that $Q^\delta$ does not separate $\D$.
+    Then for all $(\I, \O)$ such that $\I \cup \O = \D\setminus Q^\delta$ there must exist some path from $\I$ to $\O$ that does not cross $Q^\delta$.
+    Formally, there exists a path $\pi : [0,1]\to\overline{Q^\delta}$ with $\pi(0)\in \I$ and $\pi(1)\in\O$.
+    Noting that $\overline{\B^{2\delta}}\subseteq \overline{Q^\delta}$ and, because $\overline{\B^{2\delta}} = \overline{\D^{2\delta}}\cup (\D\setminus\B^{2\delta})$ surrounds $\D^{2\delta}$ we can choose $(\I, \O)$ such that $\D\setminus \B^{2\delta}\subset \I$ and $\overline{\D^{2\delta}}\subset \O$.
+
+    Choose $x\in\D\setminus \B^{2\delta}$ and $y\in \overline{\D^{2\delta}}$ such that there exist paths $\pi_x : [0,1]\to \I$ with $\pi_x(0) = x$, $\pi_x(1) = \pi(0)$ and $\pi_y : [0,1]\to \O$ with $\pi_y(0) = y$, $\pi_y(1) = \pi(1)$.
+    $\pi_x, \pi_y$ and $\pi$ all generate chains in $C_1(\overline{Q^\delta}, \overline{P^\delta})$ and $\pi_x + \pi + \pi_y = \pi^*\in C_1(\overline{Q^\delta}, \overline{P^\delta})$ with $\partial\pi^* = x + y$.
+    Moreover, $y$ generates a chain in $C_0(\overline{P^\delta})$ as $\overline{\D^{2\delta}}\subseteq\overline{P^\delta}$.
+    So $x = \partial\pi^* + y$ is a relative boundary in $C_0(\overline{Q^\delta}, \overline{P^\delta})$ thus $[x] = 0 = [y]$ in $\hom_0(\overline{Q^\delta}, \overline{P^\delta})$ and therefore $[x] = [y]$ in $\im~i_*$.
+    However, because $\B^{2\delta}$ separates $\D$ with the pair $(\overline{\D^{2\delta}}, \D\setminus\B^{2\delta})$ we know that $[x]\neq [y]$ in $\hom_0(\overline{\B^{2\delta}}, \overline{\D^{2\delta}})\cong \im~j_*$, contradicting our assumption that $p_*$ is injective.
+\end{proof}
+
+\begin{theorem}[Geometric TCC]\label{thm:tcc}
+    Let $\D\subset\R^d$ and $f:\D\to\R$ be a $c$-Lipschitz function satisfying assumptions 1-3 for $\omega\in\R$, $\delta > 0$, and $\gamma > 3\delta$.
+    Let $P\subset\D$ be a collection of sensors and let $Q = P\cap \D_{\omega - c\delta}$, $\B = \D_{\omega - 2c\delta}$.
+    Let $p_* : \im~j_*\to\im~i_*$ for $j_*$, $i_*$ as defined in Diagram~\ref{dgm:1}.
+
+    If $\rk~i_*\geq \rk~j_*$ then $\D\setminus\B^{2\delta}\subseteq P^\delta$ and $Q^\delta$ separates $\D$.
+\end{theorem}
+\begin{proof}
+    % Lemma~\ref{lem:psurj} states that $p_*$ is surjective so $p_*$ is surjective, so $\rk~i_*\leq \rk~j_*$.
+    % Because $\rk~i_*\geq \rk~j_*$, $$\rk~i_* = \rk~j_*$.
+    Because $P$ is a finite point set we know that $\im~i_*$ is finite-dimensional.
+    Because $\rk~i_*\geq \rk~j_*$ $j_*$ is finite dimensional as well so $p_*$ is injective.
+    Therefore $\D\setminus\B^{2\delta}\subseteq P^\delta$ by Lemma~\ref{lem:coverage} and $Q^\delta$ separates $\D$ by Lemma~\ref{lem:separate}.
+\end{proof}
