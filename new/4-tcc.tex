@@ -1,7 +1,10 @@
 % !TeX root = ../new.tex
 
 % Let $\D\subset\R^d$ and $f:\D\to\R$ be a $c$-Lipschitz function satisfying the following assumptions for some $\omega\in\R$, $\delta > 0$ and $\gamma > 3\delta$.
-Let $f:\D\to\R$ be a $c$-Lipschitz function with $\D\subset\R^d$ and $P\subset \D$ be a finite collection of sensors $p$ with the following capabilities.
+Let $\D\subset \R^d$ be a compact subset of $\R^d$ and $f:\D\to\R$ be a $c$-Lipschitz function on $\D$.
+The requirement that $\D$ is a strict subset is in order to ensure that any set $B$ surrounding $\D$ separates $\R^d$ with \emph{non-empty} parts $(\D\setminus B, \R^d\setminus\D)$.
+In the case of $\D = \R^d$ we can instead view $\D$ as a proper subset of the sphere $S^d\cong \R^d\cup\{\infty\}$.
+Let $P\subset \D$ be a finite collection of points which will serve as the (unknown) locations of sensors with the following capabilities.
 
 \vspace{3ex}
 \begin{center}
@@ -36,7 +39,7 @@ We will make the following assumptions about the sublevel-sets of $f$ with respe
 \begin{small}
     \begin{enumerate}
     \setcounter{enumi}{0}
-        \item\textbf{(Surrounds)} $B_0 = B_{\omega-2c\delta}$ and $B_1 = B_{\omega + c(\gamma-\delta)}$ are nonempty, compact subsets that surround $\D$.
+        \item\textbf{(Surrounds)} $B_0 = B_{\omega-2c\delta}$ and $B_1 = B_{\omega + c(\gamma-\delta)}$ are nonempty, compact subsets that surround $\D$ in $\R^d$.
         % \item \textbf{(Domain)} $(D_0, B_0)$ and $(D_1, B_1)$ are surrounding pairs of nonempty, compact subsets of $\R^d$ with $(D_0^{\delta+\gamma}, B_0^{\delta+\gamma}) \subset (D_1, B_1)$.
         \item \textbf{(Surjective Components)} $\hom_0(\D\setminus B_1 \hookrightarrow \D\setminus B_0^{2\delta})$ is surjective.
         \item \textbf{(Sufficiently Large $\gamma$)} $B_\omega\subseteq B_0^{\gamma-\delta}\cap\D$.

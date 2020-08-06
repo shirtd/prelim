@@ -13,11 +13,25 @@
 \begin{definition}[Separation]
   A subset $B$ \textbf{separates} a topological space $X$ with the pair $(U, V)$ if
   \begin{itemize}
-    \item $B, U, V$ partitions $X$,
-    \item $U, V$ are separated by closed neighborhoods in $X$,
-    \item and any path from $U$ to $V$ in $X$ intersects $B$.
+    \item $B, U,$ and $V$ partition $X$,
+    \item every connected component of $X$ intersects $B, U$ and $V$, and
+    \item $U, V$ are separated by closed neighborhoods in $X$.%, and
+    % \item any path from $U$ to $V$ in $X$ intersects $B$.
   \end{itemize}
 \end{definition}
+
+If $B$ separates a topological space $X$ with a pair $(U, V)$ then $U, B, V$ will serve as the interior, boundary, and complement of $U\cup B$ throughout.
+That is, because $U\sqcup B\sqcup V = X$ the region of separation between $U$ and $V$ is precisely $B$.
+This will allow us more flexibility as $B$ is a topological boundary of any set, but can be thought of as a thickened boundary.
+
+\begin{lemma}\label{lem:separate_path}
+  If $B$ separates $X$ with the pair $(U, V)$ then every path from $U$ to $V$ in $X$ must intersect $\intr(B)$.
+\end{lemma}
+\begin{proof}
+  Because every connected component of $X$ intersects $B, U$ and $V$ we can choose any two points $u\in U$ and $v\in V$ such that there exists a path $\gamma : [0,1]\to X$ with $\gamma(0) = u$ and $\gamma(1) = v$.
+  Because $U$ and $V$ are separated by closed neighborhoods there must exist some $t\in[0,1]$ for any such path with $\gamma(t)\in X\setminus(\cl(U)\cup \cl(V)) = \intr(B)$ as $U\sqcup B\sqcup V = X$.
+  It follows that every path from $U$ to $V$ in $X$ must intersect $B$.
+\end{proof}
 
 \begin{lemma}\label{lem:separate_splits}
   If $B$ separates $X$ with the pair $(U, V)$ then for all $k$ the short exact sequence
@@ -78,11 +92,12 @@ Naturally the same results hold for (reduced) cohomology.
   We will refer to such a pair $(D, B)$ as a \textbf{surrounding pair} in $X$.
 \end{definition}
 
-\begin{definition}[Excension]
+\begin{definition}[Extension]
   The \emph{extension} of a surrounding pair $(D, B)$ in $X$ is the pair
   \[ (X, \hat{B}) = (D\cup (X\setminus D), B\cup (X\setminus D)).\]
-  Note that, for $X\subset\mathcal{X}$, the extension of a surrounding pair in $X$ is a surrounding pair in $\mathcal{X}$.
 \end{definition}
+
+Note that, for $X\subset\mathcal{X}$, the extension of a surrounding pair in $X$ is a surrounding pair in $\mathcal{X}$.
 
 % {\color{red}
 \begin{lemma}\label{lem:extension_iso}
