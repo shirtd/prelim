@@ -28,7 +28,7 @@ In this work we would like to extend this idea from the zero-dimensional homolog
 We can then re-interpret the geometric assumptions made in the work on scalar fields in a similar way which re-purposes the machinery used to confirm coverage.
 
 Throughout, let $D_a = f^{-1}[a, \infty)$ and $B_a = f^{-1}(-\infty, a]$  denote the superlevel and sublevel sets of $f$.
-We will make the following assumptions about the sublevel-sets of $f$ with respect to constants $\omega\in\R$ and $\gamma\geq \delta > 0$.
+We will make the following assumptions about the sublevel-sets of $f$ with respect to constants $\omega\in\R$ and $\gamma\geq \delta > 0$, as well as $2\delta\geq\e\leq \gamma - \delta$.
 
 \vspace{2ex}
 \begin{center}
@@ -39,10 +39,10 @@ We will make the following assumptions about the sublevel-sets of $f$ with respe
 \begin{small}
     \begin{enumerate}
     \setcounter{enumi}{0}
-        \item\textbf{(Surrounds)} $B_{\omega-2c\delta}$ and $B_{\omega + c(\gamma-\delta)}$ are nonempty, compact subsets that surround $\D$ in $\R^d$.
+        \item\textbf{(Surrounds)} $B_{\omega-c\e}$ and $B_{\omega + c(\gamma-\delta)}$ are nonempty, compact subsets that surround $\D$ in $\R^d$.
         % \item \textbf{(Domain)} $(D_0, B_0)$ and $(D_1, B_1)$ are surrounding pairs of nonempty, compact subsets of $\R^d$ with $(D_0^{\delta+\gamma}, B_0^{\delta+\gamma}) \subset (D_1, B_1)$.
-        \item \textbf{(Surjective Components)} $\hom_0(\D\setminus B_{\omega + c(\gamma-\delta)} \hookrightarrow \D\setminus B_{\omega-2c\delta}^{2\delta})$ is surjective.
-        \item \textbf{(Sufficiently Large $\gamma$)} $B_\omega\subseteq B_{\omega-2c\delta}^{\gamma-\delta}\cap\D$.
+        \item \textbf{(Surjective Components)} $\hom_0(\D\setminus B_{\omega + c(\gamma-\delta)} \hookrightarrow \D\setminus B_{\omega-\e}^{2\delta})$ is surjective.
+        \item \textbf{(Sufficiently Large $\gamma$)} $B_\omega\subseteq B_{\omega-\e}^{\gamma-\delta}\cap\D$.
         % \item \textbf{(Interleaving)} $\im~\hom_k((D_0, B_0)\hookrightarrow (D_1, B_1))\cong \hom_k(D_0^{2\delta}, B_0^{2\delta})$.
     \end{enumerate}
 \end{small}
@@ -66,8 +66,8 @@ We will make the following assumptions about the sublevel-sets of $f$ with respe
 % \end{small}
 % }}\end{center}\vspace{4ex}
 
-In the following we restrict $P$ to $D_{\omega-2c\delta}$ and let $Q = P\cap B_{\omega - c\delta}$.
-For ease of notation let $B_0 = B_{\omega - 2c\delta}$, $B_1 = B_{\omega + c(\gamma-\delta)}$ and $\B = B_{\omega-2c\delta}^{\gamma-\delta}\cap\D$.
+In the following we restrict $P$ to $D_{\omega-c\e}$ and let $Q = P\cap B_{\omega - c(\e - \delta)}$.
+For ease of notation let $B_0 = B_{\omega - c\e}$, $B_1 = B_{\omega + c(\gamma-\delta)}$ and $\B = B_{\omega-c\e}^{\gamma-\delta}\cap\D$.
 
 % Assumption 1 replaces the requirement that $\B$ is the topological boundary of the domain $\D$.
 % As we did in previous work the notion of a topological boundary is replaced with that of a subset which surrounds the domain.
