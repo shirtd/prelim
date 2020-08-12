@@ -12,25 +12,26 @@
 
 \begin{definition}[Separation]
   A subset $B$ \textbf{separates} a topological space $X$ with the pair $(U, V)$ if
-  \begin{itemize}
+  \begin{enumerate}[label=(\alph*)]
     \item $B, U,$ and $V$ partition $X$,
     \item every connected component of $X$ intersects $B, U$ and $V$, and
     \item $U, V$ are separated by closed neighborhoods in $X$.%, and
     % \item any path from $U$ to $V$ in $X$ intersects $B$.
-  \end{itemize}
+  \end{enumerate}
 \end{definition}
 
 If $B$ separates a topological space $X$ with a pair $(U, V)$ then $U, B, V$ will serve as the interior, boundary, and complement of $U\cup B$ throughout.
 That is, because $U\sqcup B\sqcup V = X$ the region of separation between $U$ and $V$ is precisely $B$.
-This will allow us more flexibility as $B$ is a topological boundary of any set, but can be thought of as a thickened boundary.
+% This will allow us more flexibility as $B$ is a topological boundary of any set, but can be thought of as a thickened boundary.
 
 \begin{lemma}\label{lem:separate_path}
   If $B$ separates $X$ with the pair $(U, V)$ then every path from $U$ to $V$ in $X$ must intersect $\intr(B)$.
 \end{lemma}
 \begin{proof}
-  Because every connected component of $X$ intersects $B, U$ and $V$ we can choose any two points $u\in U$ and $v\in V$ such that there exists a path $\gamma : [0,1]\to X$ with $\gamma(0) = u$ and $\gamma(1) = v$.
-  Because $U$ and $V$ are separated by closed neighborhoods there must exist some $t\in[0,1]$ for any such path with $\gamma(t)\in X\setminus(\cl(U)\cup \cl(V)) = \intr(B)$ as $U\sqcup B\sqcup V = X$.
-  It follows that every path from $U$ to $V$ in $X$ must intersect $B$.
+  By condition \emph{(b)} there must exist points $u\in U$ and $v\in V$ in every connected component of $X$.
+  That is, there exists a path $\gamma : [0,1]\to X$ with $\gamma(0) = u$ and $\gamma(1) = v$.
+  Because $U$ and $V$ are separated by closed neighborhoods by condition \emph{(c)} there must exist some $t\in[0,1]$ for any such path with $\gamma(t)\in X\setminus(\cl(U)\cup \cl(V)) = \intr(B)$ as $U\sqcup B\sqcup V = X$ by condition \emph{(a)}.
+  It follows that every path from $U$ to $V$ in $X$ must intersect $\intr(B)$.
 \end{proof}
 
 \begin{lemma}\label{lem:separate_splits}
@@ -39,7 +40,7 @@ This will allow us more flexibility as $B$ is a topological boundary of any set,
   splits.
 \end{lemma}
 \begin{proof}
-  Because $X\setminus B$ is the disjoint union of $U$ and $V$ we know that $i_* : \hom_k(V)\to \hom_k(X\setminus B)$ is the map induced by inclusion and $p_* : \hom_k(X\setminus B)\to \hom_k(V)$ is induced by the restriction of the identity on $X\setminus B$ to $V$.
+  Because $X\setminus B$ is the disjoint union of $U$ and $V$ we know that $i_* : \hom_k(V)\to \hom_k(X\setminus B)$ is the map induced by inclusion and $p_* : \hom_k(X\setminus B)\to \hom_k(V)$ is induced by the restriction of the identity on $X\setminus B = U\sqcup V$ to $V$.
   Thus $p_*\circ i_* = \mathbf{Id}_{\hom_k(V)}$ and therefore, by Lemma~\ref{lem:splitting} the sequence splits.%we have a natural isomorphism $\hom_k(X\setminus )
 \end{proof}
 
@@ -86,6 +87,9 @@ Naturally the same results hold for (reduced) cohomology.
 \end{corollary}
 
 \subsection{Surrounding}
+
+Note that the definition of a separating pair gives us some freedom in the choice of the sets $U$ and $V$, which we respectively view as the interior and complement by convention.
+We introduce the following definition to make this assignment more concrete.
 
 \begin{definition}[Surrounding]
   Given $B\subseteq D\subseteq X$ the set $B$ \textbf{surrounds $D$ in $X$} if $B$ separates $X$ with the pair $(D\setminus B, X\setminus D)$.
