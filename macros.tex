@@ -113,20 +113,20 @@
 
 
 \newcommand{\of}{{\delta}}
-\newcommand{\off}{{2\delta}}
-\newcommand{\offf}{{3\delta}}
+\newcommand{\off}{{2\delta}} % {{\gamma - \delta}} %
+\newcommand{\offf}{{\gamma}} % {{3\delta}}
 
 \newcommand{\ome}{\omega}
-\renewcommand{\o}{\ome - 2c\of}
-\newcommand{\oo}{\ome + 4c\of}
+\renewcommand{\o}{\ome - 2c\of} % {\ome - c(\off)} % {\ome - 2c\of}
+\newcommand{\oo}{\ome + c(\of + \offf)} % {\ome + 4c\of}
 
 \renewcommand{\b}{B_{\o}}
-\newcommand{\bb}{\b^{\off}}
+\newcommand{\bb}{B_\omega}%{\b^{\offf - \of}} % {\b^{\off}} % 
 \newcommand{\B}{B_{\ome}}
 \newcommand{\BB}{B_{\oo}}
 
 \newcommand{\fen}{\ome - c\of}
-\newcommand{\fenn}{\ome + \offf}
+\newcommand{\fenn}{\ome + c\offf}
 
 \newcommand{\Q}{Q_{\fen}}
 \newcommand{\QQ}{Q_{\fenn}}

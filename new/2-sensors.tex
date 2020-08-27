@@ -2,30 +2,31 @@
 
 \section{The Topological Coverage Criterion}
 
-In the following let $\dist(x, y) = \|x - y\|$ denote the Euclidean distance between points $x,y\in \R^d$.
-For $A\subset\R^d$ and $x\in \R^d$ let
+Let $D$ be a compact subset of $\R^d$.
+Let $\dist(x, y) = \|x - y\|$ denote the Euclidean distance between points $x,y\in D$ as a subspace of $\R^d$.
+For $A\subset D$ and $x\in D$ let
 \[\dist_A(x) = \min_{a\in A}\dist(x, a)\]
 denote the distance from $x$ to the set $A$.
 % In the following, we will use open metric balls
 % \[\ball_\e(x) = \{y\in\R^d\mid \dist(x, y) < \e\}\]
-In the following, we will use closed metric balls
-\[\ball_\e(x) = \{y\in\R^d\mid \dist(x, y)\leq \e\}\]
+We will use open metric balls restricted to $D$ with the subspace topology
+\[\ball_\e(x) = \{y\in D\mid \dist(x, y) < \e\}\]
 and offsets
 % \[A^\e = \dist_A^{-1}[0, \e) = \{x\in \R^d\mid \dist_A(x) < \e\}.\]
-\[A^\e = \dist_A^{-1}[0, \e) = \{x\in \R^d\mid \dist_A(x)\leq \e\}.\]
+\[A^\e = \{x\in D\mid \dist_A(x) < \e\}.\]
 
-Let $D$ be a compact subset of $\R^d$ and $f : D\to \R$ be a $c$-Lipschitz function.
+Let $f : D\to \R$ be a $c$-Lipschitz function on $D$.
 Let $B_a = f^{-1}(-\infty, a]$ denote the $a$-sublevel set of $f$.
 For a subset $A$ of $D$ let $A_a := A\cap B_a$ denote the $a$-sublevelset of $f$ restricted to $A$.
 Let $\overline{X} = \R^d\setminus X$ denote the complement of any subset $X\subset\R^d$ in $\R^d$.
 
 
 Let $P$ be a finite subset of $D$ and $Q_a := P\cap B_a$ for $a\in\R$.
-Let $\gamma\geq 3\delta > 0$ and $\omega\in\R$ be constants such that $P^\delta \subseteq D$.
+Let $\offf\geq 3\of > 0$ and $\omega\in\R$ be constants such that $\P \subseteq D$.
 
 % \textbf{If $B_{\omega - c\delta}^\delta \subseteq B_{\omega - c(\gamma - \delta)}^{\gamma - \delta}$} then we have the following commutative diagrams of inclusions between the pairs $(P,Q)$ and $(D, B)$ and their complements \emph{in $\R^d$} with increasing scale.
 
-\textbf{If $B_{\omega - c\delta}^\delta \subseteq \bb$} then we have the following commutative diagrams of inclusions between the pairs $(P,Q)$ and $(D, B)$ and their complements \emph{in $\R^d$} with increasing scale.
+\textbf{If $B_{\fen}^\delta \subseteq \bb$} then we have the following commutative diagrams of inclusions between the pairs $(P,Q)$ and $(D, B)$ and their complements \emph{in $\R^d$} with increasing scale.
 
 % \[ \begin{tikzcd}
 %   (P^\delta, Q^\delta) \arrow[hookrightarrow]{r}\arrow[hookrightarrow]{d} &
@@ -76,8 +77,8 @@ Let $\gamma\geq 3\delta > 0$ and $\omega\in\R$ be constants such that $P^\delta 
 % Let $p_* : \im~j_*\to\im~i_*$.
 
 \[ \begin{tikzcd}
-  (\P, \Q^\delta) \arrow[hookrightarrow]{r}\arrow[hookrightarrow]{d} &
-  (\P, \QQ^\delta) \arrow[hookrightarrow]{d} \\
+  (\P, \Q^\of) \arrow[hookrightarrow]{r}\arrow[hookrightarrow]{d} &
+  (\P, \QQ^\of) \arrow[hookrightarrow]{d} \\
   %
   (D, \bb) \arrow[hookrightarrow]{r} &
   (D, \BB),
@@ -85,8 +86,8 @@ Let $\gamma\geq 3\delta > 0$ and $\omega\in\R$ be constants such that $P^\delta 
   (\cmp{\BB},\cmp{D})\arrow[hookrightarrow]{d}\arrow[hookrightarrow]{r} & %{j} &
   (\cmp{\bb}, \cmp{D}) \arrow[hookrightarrow]{d}\\
   %
-  (\cmp{\QQ^\delta}, \cmp{\P}) \arrow[hookrightarrow]{r} & %{i} &
-  (\cmp{\Q^\delta}, \cmp{\P}).
+  (\cmp{\QQ^\of}, \cmp{\P}) \arrow[hookrightarrow]{r} & %{i} &
+  (\cmp{\Q^\of}, \cmp{\P}).
 \end{tikzcd}\]
 
 The following diagram is formed by applying the homology functor.
@@ -94,49 +95,49 @@ The following diagram is formed by applying the homology functor.
   \hom_0(\cmp{\BB},\cmp{D})\arrow{d} \arrow{r}{j} & %{j_*} &
   \hom_0(\cmp{\bb}, \cmp{D}) \arrow{d} \\
   %
-  \hom_0(\cmp{\QQ^\delta}, \cmp{\P}) \arrow{r}{i} & %{i_*} &
-  \hom_0(\cmp{\Q^\delta}, \cmp{\P}).
+  \hom_0(\cmp{\QQ^\of}, \cmp{\P}) \arrow{r}{i} & %{i_*} &
+  \hom_0(\cmp{\Q^\of}, \cmp{\P}).
 \end{tikzcd}\end{equation}
 Let $p : \im~j\to\im~i$.
 
 \begin{lemma}\label{lem:psurj}
-  Suppose $\b$ surrounds $D$ in $\R^d$ and $B_{\omega - c\delta}^\delta\subseteq \bb$.
+  Suppose $\b$ surrounds $D$ in $\R^d$ and $\gamma\geq 3\delta$ is such that $B_{\fen}^\of\subseteq \bb$.
 
   If $j$ is surjective then $p : \im~j\to\im~i$ is surjective.
 \end{lemma}
 \begin{proof}
-  Choose a basis for $\im~i$ such that each basis element is represented by a point in $\P\setminus \QQ^\delta$.
-  Let $x\in \P\setminus \QQ^\delta$ be such that $[x]$ is non-trivial in $\im~i_*$.
+  Choose a basis for $\im~i$ such that each basis element is represented by a point in $\P\setminus \QQ^\of$.
+  Let $x\in \P\setminus \QQ^\of$ be such that $[x]$ is non-trivial in $\im~i_*$.
   Suppose $x\in\bb$ and let $y\in \b$ so that $\dist(x, y) < \off$.
-
-  Because $x\in \P$ there exists some $p\in P$ such that $\dist(x, p) < \delta$.
-  However, because $x\in\cmp{\QQ^\delta}$, $\dist(x, q) \geq \delta$ for all $q\in \QQ^\delta$.
-  So $p$ is not in $\QQ$, so $f(p) > \ome + \offf$.
-  Therefore, because $f$ is $c$-Lipschitz,
-  \[ f(x)\geq f(p) - c\dist(x, p) > \ome + \offf - c\delta = \ome + \off.\]
-  So $x\in \cmp{B_{\ome+\off}}$ where $\Q^\offf \subseteq B_{\fen}^\offf\subseteq B_{\ome+\off}$, so $x\in \cmp{\Q^\offf}$.
-
-  Because $x\in\cmp{\Q^\offf}$ by hypothesis $\dist(x, q) > \offf$ for all $q\in \Q$.
-  For any $z$ in the shortest path between $x$ and $y$ we have $\dist(x, z)\leq \dist(x, y)\leq \off$, so the following inequality holds for all $q\in \Q$
-  \begin{align*}
-    \dist(x, q) & \geq \dist(x, q) - \dist(x, z)\\
-                & > \offf - \off\\
-                & = \of.
-  \end{align*}
-  So $z\in \cmp{\Q^\delta}$ for all $z$ in the shortest path from $x$ to $y$.
-  In particular, $x,y\in\cmp{\Q^\delta}$.
-
-  Now, suppose $y\in \P$.
-  So there exists some $p\in P$ such that $\dist(p, y) < \delta$.
-  Because $f$ is $c$-Lipschitz and $y\in \b$
-  \[ f(p)\leq f(y) + c\dist(p, y) < \o + c\off = \fen \]
-  which implies $p\in \Q$, a contradiction, as we have shown $y\in\cmp{\Q^\delta}$, so we may assume that $y\in \cmp{\P}$.
-
-  Because $x,y\in\cmp{\Q^\delta}$ we have corresponding chains $x,y\in C_0(\cmp{\Q^\delta})$ as well as $y\in\cmp{\P}$ generating a chain $y\in C_0(\P)$.
-  As we have shown that $x\in \bb$ implies that the shortest path from $x$ to $y$ is contained in $\cmp{\Q^\delta}$ there exists a path $\zeta: [0,1]\to \cmp{\Q^\delta}$ with $\zeta(0) = x$ and $\zeta(1) = y$ that generates a chain $C_1(\cmp{\Q^\delta})$.
-  So for $\zeta\in C_1(\cmp{\Q^\delta}, \cmp{\P})$ with $\partial \zeta = x + y$ we have that $x = \partial \zeta + y$.
-  Thus $[x]$ is a relative boundary and is therefore trivial in $\hom_0(\cmp{\P}, \cmp{\Q^\delta})$, a contradiction, as we have assumed $[x]$ is non-trivial in $\im~i$.
-  So we may conclude that $x\notin \bb$.
+  %
+  % Because $x\in \P$ there exists some $p\in P$ such that $\dist(x, p) < \of$.
+  % However, because $x\in\cmp{\QQ^\of}$, $\dist(x, q) \geq \of$ for all $q\in \QQ^\of$.
+  % So $p$ is not in $\QQ$, so $f(p) > \ome + \offf$.
+  % Therefore, because $f$ is $c$-Lipschitz,
+  % \[ f(x)\geq f(p) - c\dist(x, p) > \ome + \offf - c\of = \ome + \off.\]
+  % So $x\in \cmp{B_{\ome+\off}}$ where $\Q^\offf \subseteq B_{\fen}^\offf\subseteq B_{\ome+\off}$, so $x\in \cmp{\Q^\offf}$.
+  %
+  % Because $x\in\cmp{\Q^\offf}$ by hypothesis $\dist(x, q) > \offf$ for all $q\in \Q$.
+  % For any $z$ in the shortest path between $x$ and $y$ we have $\dist(x, z)\leq \dist(x, y)\leq \off$, so the following inequality holds for all $q\in \Q$
+  % \begin{align*}
+  %   \dist(x, q) & \geq \dist(x, q) - \dist(x, z)\\
+  %               & > \offf - (\off)\\
+  %               & \geq \of.
+  % \end{align*}
+  % So $z\in \cmp{\Q^\of}$ for all $z$ in the shortest path from $x$ to $y$.
+  % In particular, $x,y\in\cmp{\Q^\of}$.
+  %
+  % Now, suppose $y\in \P$.
+  % So there exists some $p\in P$ such that $\dist(p, y) < \of$.
+  % Because $f$ is $c$-Lipschitz and $y\in \b$
+  % \[ f(p)\leq f(y) + c\dist(p, y) < \o + c\of\leq \fen \]
+  % which implies $p\in \Q$, a contradiction, as we have shown $y\in\cmp{\Q^\of}$, so we may assume that $y\in \cmp{\P}$.
+  %
+  % Because $x,y\in\cmp{\Q^\of}$ we have corresponding chains $x,y\in C_0(\cmp{\Q^\of})$ as well as $y\in\cmp{\P}$ generating a chain $y\in C_0(\P)$.
+  % As we have shown that $x\in \bb$ implies that the shortest path from $x$ to $y$ is contained in $\cmp{\Q^\of}$ there exists a path $\zeta: [0,1]\to \cmp{\Q^\of}$ with $\zeta(0) = x$ and $\zeta(1) = y$ that generates a chain $C_1(\cmp{\Q^\of})$.
+  % So for $\zeta\in C_1(\cmp{\Q^\of}, \cmp{\P})$ with $\partial \zeta = x + y$ we have that $x = \partial \zeta + y$.
+  % Thus $[x]$ is a relative boundary and is therefore trivial in $\hom_0(\cmp{\P}, \cmp{\Q^\of})$, a contradiction, as we have assumed $[x]$ is non-trivial in $\im~i$.
+  % So we may conclude that $x\notin \bb$.
 
   So $x\in\cmp{\bb}$ and $x\in D\setminus\bb$.
   So $[x]$ is non-trivial in $\hom_0(\cmp{\bb},\cmp{D})$ and, because $j_*$ is surjective, $\im~j = \hom_0(\cmp{\bb},\cmp{D})$.
@@ -145,10 +146,10 @@ Let $p : \im~j\to\im~i$.
 
 \begin{theorem}[Geometric TCC]
   Let $D$ be a compact subset of $\R^d$ and $f : D\to\R$ be $c$-Lipschitz function.
-  Let $\omega\in\R$, $\delta > 0$ be such that $\b$ surrounds $D$ in $\R^d$ and $j : \hom_0(D\setminus \BB)\to \hom_0(D\setminus\bb)$ is surjective.
-  Let $P\subset D$ be a finite collection of points and $i : \hom_0(\cmp{\QQ^\delta}, \cmp{\P})\to \hom_0(\cmp{\Q^\delta}, \cmp{\P})$.
+  Let $\omega\in\R$, $\of > 0$ be such that $\b$ surrounds $D$ in $\R^d$ and $j : \hom_0(D\setminus \BB)\to \hom_0(D\setminus\bb)$ is surjective.
+  Let $P\subset D$ be a finite collection of points and $i : \hom_0(\cmp{\QQ^\of}, \cmp{\P})\to \hom_0(\cmp{\Q^\of}, \cmp{\P})$.
 
-  If $\rk~i\geq \rk~j$ then $D\setminus \B\subseteq \P$ and $\Q^\delta$ surrounds $\P$ in $D$.
+  If $\rk~i\geq \rk~j$ then $D\setminus \bb\subseteq \P$ and $\Q^\of$ surrounds $\P$ in $D$.
 \end{theorem}
 \begin{proof}
 
@@ -157,13 +158,8 @@ Let $p : \im~j\to\im~i$.
   Because $P$ is a finite point set we know that $\im~i$ is finite-dimensional and, because $\rk~i = \rk~j$, $j$ is finite dimensional as well.
   So $p$ is bijective and therefore injective.
 
-  As $j$ is surjective $\im~j = \hom_0(\cmp{\bb}, \cmp{D})$ and, because $\im~i$ is a subspace of $\hom_0(\cmp{\Q^\delta}, \cmp{\P})$, $p$ injective implies that the map $\hom_0(\cmp{\bb}, \cmp{D})\to \hom_0(\cmp{\Q^\delta}, \cmp{\P})$ must be injective, therefore $D\setminus\bb\subseteq \P$ by Lemma~\ref{lem:coverage}, and $\Q^\delta$ surrounds $\P$ in $D$ by Lemma~\ref{lem:cov_surrounds}.
-  Finally, because $f$ is $c$-Lipschitz, $\bb\subseteq \B$, therefore $D\setminus\B\subseteq D\setminus \bb\subseteq \P$.
-
-  % Because $j$ is surjective $\im~j = \hom_0(\cmp{\bb}, \cmp{D})$
-  % so $p : \im~j\to \im~i$ is injective.
-  % Therefore $\D\setminus\B\subseteq P^\delta$ by Lemma~\ref{lem:coverage} and $Q^\delta$ surrounds $P^\delta$ in $\D$ by Lemma~\ref{lem:separate}.
-  % So we can extend $(P^\delta, Q^\delta)$ and $(P^\gamma, Q^\gamma)$ to pairs $(\D, \hat{Q^\delta})$ and $(\D, \hat{Q^\gamma})$ surrounding $\D$ in $\R^d$.
+  As $j$ is surjective $\im~j = \hom_0(\cmp{\bb}, \cmp{D})$ and, because $\im~i$ is a subspace of $\hom_0(\cmp{\Q^\of}, \cmp{\P})$, $p$ injective implies that the map $\hom_0(\cmp{\bb}, \cmp{D})\to \hom_0(\cmp{\Q^\of}, \cmp{\P})$ must be injective, therefore $D\setminus\bb\subseteq \P$ by Lemma~\ref{lem:coverage}, and $\Q^\of$ surrounds $\P$ in $D$ by Lemma~\ref{lem:cov_surrounds}.
+  % Finally, because $f$ is $c$-Lipschitz, $\bb\subseteq \B$, therefore $D\setminus\B\subseteq D\setminus \bb\subseteq \P$.
 \end{proof}
 
 \clearpage
@@ -179,14 +175,31 @@ Let $p : \im~j\to\im~i$.
 \end{lemma}
 
 \begin{corollary}
-  If $\eta^k : \hom_k(\b)\to \hom_k(\BB)$ is surjective and $\im~\eta^k\cong \hom_k(\B)$ then for any $A\subset D$ such that $\BB\subset A$
-  \[ \im~\hom_k((\P\cap A, \Q^\delta)\to (\P\cap A, \QQ^\delta))\cong \hom_k(A, \B). \]
+  If $\eta^k : \hom_k(\b)\to \hom_k(\BB)$ is surjective and $\im~\eta^k\cong \hom_k(\bb)$ then for any $A\subset D$ such that $\BB\subset A$
+  \[ \im~\hom_k((\P\cap A, \Q^\of)\to (\P\cap A, \QQ^\of))\cong \hom_k(A, \bb)\]
+  for all $k > 0$.
 \end{corollary}
 
 \begin{lemma}
-  $\{(\P\cap B_\alpha, \Q^\delta)\to (\P\cap B_\alpha, \QQ^\delta)\}_{\alpha\geq\oo}$ is $c\delta$-interleaved with $\{(P_\alpha^\delta, \Q^\delta)\to (P_\alpha^\delta, \QQ^\delta)\}_{\alpha\geq\oo}$.
+  $\{(\P\cap B_\alpha, \Q^\of)\to (\P\cap B_\alpha, \QQ^\of)\}_{\alpha\geq\oo}$ is $c\of$-interleaved with $\{(P_\alpha^\of, \Q^\of)\to (P_\alpha^\of, \QQ^\of)\}_{\alpha\geq\oo}$.
 \end{lemma}
 
 \begin{corollary}
-  If $\eta^k : \hom_k(\b)\to \hom_k(\BB)$ is surjective and $\im~\eta^k\cong \hom_k(\B)$ then $\{(B_\alpha, \B)\}_{\alpha\geq\oo}$ is $c\delta$-interleaved with $\{(P_\alpha^\delta, \Q^\delta)\to (P_\alpha^\delta, \QQ^\delta)\}_{\alpha\geq\oo}$.
+  If $\eta^k : \hom_k(\b)\to \hom_k(\BB)$ is surjective and $\im~\eta^k\cong \hom_k(\bb)$ then the $k$th persistent homology module of $\{(B_\alpha, \bb)\}_{\alpha\geq\oo}$ is $c\of$-interleaved with that of $\{(P_\alpha^\of, \Q^\of)\to (P_\alpha^\of, \QQ^\of)\}_{\alpha\geq\oo}$ for $k > 0$.
 \end{corollary}
+
+\section{NEW NOTATION}
+
+Let $D_\alpha := f^{-1}(-\infty, \alpha]$ for $\alpha\in\R$ and $B_\alpha := D_{\omega+\alpha}$ for $\omega\in\R$ such that $B_0 = D_\omega$ surrounds $D$ in $\R^d$.
+Let $\gamma\geq 3\delta$ be such that $B_{c\delta}^\delta\subseteq B_0^{\gamma-\delta}$ and $\lambda \geq \gamma + 3\delta$ be such that
+\[j : \hom_0(D\setminus B_{c\lambda})\to \hom_0(D\setminus B_0^{\gamma - \delta}) \]
+is surjective.
+
+Let $P$ be a finite set of points in $D$ and $Q_\alpha := P\cap B_\alpha$.
+\begin{equation}\label{dgm:1}\begin{tikzcd}
+  \hom_0(\cmp{B_{c\lambda}}, \cmp{D})\arrow{d} \arrow{r}{j} & %{j_*} &
+  \hom_0(\cmp{B_0^{\gamma - \delta}},\cmp{D}) \arrow{d} \\
+  %
+  \hom_0(\cmp{Q_{c(\lambda - \delta)}^\of}, \cmp{\P}) \arrow{r}{i} & %{i_*} &
+  \hom_0(\cmp{Q_{c\delta}^\of}, \cmp{\P}).
+\end{tikzcd}\end{equation}
