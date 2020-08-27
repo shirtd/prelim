@@ -136,6 +136,8 @@ This allows us to clearly state the extension of a surrounding pair in a subspac
 
 \clearpage
 
+In the following let $X$ be a topological space and $\overline{A} := X\setminus A$ denote the complement of a subset $A$ of $X$.
+
 \begin{lemma}\label{lem:coverage}
   Let $(D, B)$ be a surrounding pair in $X$ and $P\subseteq D$, $Q\subseteq P\cap B$.
 
@@ -152,7 +154,7 @@ This allows us to clearly state the extension of a surrounding pair in a subspac
     As $f[x]$ is trivial in $\hom_0(\overline{B},\overline{D}\cup\{x\})$ we have that $p[x] = (g\circ f)[x]$ is trivial, contradicting our hypothesis that $p$ is injective.
 \end{proof}
 
-\begin{lemma}\label{lem:coverage}
+\begin{lemma}\label{lem:cov_surrounds}
   Let $(D, B)$ be a surrounding pair in $X$ and $P\subseteq D$, $Q\subseteq P\cap B$.
 
   If $p: \hom_0(\overline{B}, \overline{D})\to \hom_0(\overline{Q}, \overline{P})$ is injective then $Q$ surrounds $P$ in $D$.
