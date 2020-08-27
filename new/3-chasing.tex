@@ -1,8 +1,8 @@
-% !TeX root = new.tex
+% !TeX root = ../new.tex
 
 \begin{theorem}\label{thm:main}
-  Let $(\D, \B)$ be a surrounding pair of open subsets of $\R^d$ and let $P\subset \D$ be a finite subset of $\D$.
-  Let $(P, Q)$ be an (open) surrounding $(\delta,\gamma)$-cover of $(\D, \B)$ for $\gamma > \delta > 0$.
+  Let $(\D, \B)$ be a surrounding pair of subsets of $\R^d$ and let $P\subset \D$ be a finite subset of $\D$.
+  Let $(P, Q)$ be a surrounding $(\delta,\gamma)$-cover of $(\D, \B)$ for $\gamma > \delta > 0$.
   Let $(D_0, B_0)$ and $(D_1, B_1)$ be surrounding pairs of nonempty, compact subsets of $\R^d$ such that $B_0\subseteq \hat{Q^\delta}$, $\hat{Q^\gamma}\subseteq B_1$, and
   \[ (D_0, B_0)\subset (\D, \B) \subset (D_1, B_1).\]
 
@@ -12,15 +12,7 @@
   \[\im~\hom_k((P^\delta, Q^\delta)\hookrightarrow (P^\gamma, Q^\gamma))\cong \hom_k(\D, \B).\]
 \end{theorem}
 \begin{proof}
-
-  In the following let
-  \begin{align*}
-    \eta_B^k &: \hom_k(B_0)\to \hom_k(B_1),\\
-    \eta_D^k &: \hom_k(D_0)\to \hom_k(D_1),\text{ and }\\
-    \eta^k &: \hom_k(D_0, B_0)\to \hom_k(D_1, B_1).
-  \end{align*}
-
-  Consider the commutative diagram of long exact sequences of the pairs $(D_0, B_0), (\D, \B)$ and $(D_1, B_1)$.
+  Consider the commutative diagram of long exact sequences of the pairs $(D_0, B_0), (\D, \B)$ and $(D_1, B_1)$ with vertical maps induced by inclusion.
 
   \begin{equation}\begin{tikzcd}
       \hom_k(B_0)\arrow{r}{i^k_0}\arrow{d}{a^k} &
@@ -41,6 +33,13 @@
       \hom_{k-1}(B_1)\arrow{r}{i^{k-1}_1} &
       \hom_{k-1}(D_1)
   \end{tikzcd}\end{equation}
+  and let $\eta_B^k = f^k\circ a^k$, $\eta_D^k = g^k \circ b^k$, and $\eta^k = h^k\circ d^k$ be the maps between long exact sequences of the pairs $(D_0, B_0)$ and $(D_1, B_1)$ induced by inclusion.
+  % In the following let
+  % \begin{align*}
+  %   \eta_B^k &: \hom_k(B_0)\to \hom_k(B_1),\\
+  %   \eta_D^k &: \hom_k(D_0)\to \hom_k(D_1),\text{ and }\\
+  %   \eta^k &: \hom_k(D_0, B_0)\to \hom_k(D_1, B_1).
+  % \end{align*}
 
   Because $(D_0, B_0)$ and $(D_1, B_1)$ are nonempty, compact surrounding pairs of $\R^d$ we can embed them in $S^d \cong \R^d\cup\{\infty\}$ in order to show that $i_0^k$ and $i_1^k$ are surjective by Lemma~\ref{lem:alexander_comm}.
   So, by exactness, $\im~i_0^k = \ker~j_0^k = \hom_k(D_0)$ and $\im~i_1^k = \ker~j_1^k = \hom_k(D_1)$.

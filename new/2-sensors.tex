@@ -1,18 +1,192 @@
-% !TeX root = new.tex
+% !TeX root = ../new.tex
 
-In the following let $\dist(x, y) = \|x - y\|$ denote the euclidean distance between points $x,y\in \R^d$.
+\section{The Topological Coverage Criterion}
+
+In the following let $\dist(x, y) = \|x - y\|$ denote the Euclidean distance between points $x,y\in \R^d$.
 For $A\subset\R^d$ and $x\in \R^d$ let
 \[\dist_A(x) = \min_{a\in A}\dist(x, a)\]
 denote the distance from $x$ to the set $A$.
-In the following, we will use open metric balls
-\[\ball_\e(x) = \{y\in\R^d\mid \dist(x, y) < \e\}\]
+% In the following, we will use open metric balls
+% \[\ball_\e(x) = \{y\in\R^d\mid \dist(x, y) < \e\}\]
+In the following, we will use closed metric balls
+\[\ball_\e(x) = \{y\in\R^d\mid \dist(x, y)\leq \e\}\]
 and offsets
-\[A^\e = \dist_A^{-1}[0, \e) = \{x\in \R^d\mid \dist_A(x) < \e\}.\]
-\begin{definition}[Surrounding Cover]
-  For $\delta > 0$, $\gamma > \delta$, and finite subsets $P\subset D$, $Q\subset P\cap B$ we say that $(P, Q)$ is an \textbf{(open) surrounding $(\delta,\gamma)$-cover} of a surrounding pair $(D, B)$ if
-  \begin{enumerate}[label=(\alph*)]
-    \item\textbf{(Covers)} $D\setminus B \subseteq P^\delta$,
-    \item\textbf{(Surrounds)} $Q^\delta$ surrounds $P^\delta$ in $D$, and
-    \item\textbf{(Interleaves)} $\hat{Q^\delta}\subseteq B\subseteq \hat{Q^\gamma}$.
-  \end{enumerate}
-\end{definition}
+% \[A^\e = \dist_A^{-1}[0, \e) = \{x\in \R^d\mid \dist_A(x) < \e\}.\]
+\[A^\e = \dist_A^{-1}[0, \e) = \{x\in \R^d\mid \dist_A(x)\leq \e\}.\]
+
+Let $D$ be a compact subset of $\R^d$ and $f : D\to \R$ be a $c$-Lipschitz function.
+Let $B_a = f^{-1}(-\infty, a]$ denote the $a$-sublevel set of $f$.
+For a subset $A$ of $D$ let $A_a := A\cap B_a$ denote the $a$-sublevelset of $f$ restricted to $A$.
+Let $\overline{X} = \R^d\setminus X$ denote the complement of any subset $X\subset\R^d$ in $\R^d$.
+
+
+Let $P$ be a finite subset of $D$ and $Q_a := P\cap B_a$ for $a\in\R$.
+Let $\gamma\geq 3\delta > 0$ and $\omega\in\R$ be constants such that $P^\delta \subseteq D$.
+
+% \textbf{If $B_{\omega - c\delta}^\delta \subseteq B_{\omega - c(\gamma - \delta)}^{\gamma - \delta}$} then we have the following commutative diagrams of inclusions between the pairs $(P,Q)$ and $(D, B)$ and their complements \emph{in $\R^d$} with increasing scale.
+
+\textbf{If $B_{\omega - c\delta}^\delta \subseteq \bb$} then we have the following commutative diagrams of inclusions between the pairs $(P,Q)$ and $(D, B)$ and their complements \emph{in $\R^d$} with increasing scale.
+
+% \[ \begin{tikzcd}
+%   (P^\delta, Q^\delta) \arrow[hookrightarrow]{r}\arrow[hookrightarrow]{d} &
+%   (P^\gamma, Q^\gamma) \arrow[hookrightarrow]{d} \\
+%   %
+%   (\D, \B) \arrow[hookrightarrow]{r} &
+%   (D_1, B_1),
+% \end{tikzcd}\begin{tikzcd}
+%   (\overline{B_1}, \overline{D_1})\arrow[hookrightarrow]{r}{j}\arrow[hookrightarrow]{d} &
+%   (\overline{\B}, \overline{\D}) \arrow[hookrightarrow]{d}\\
+%   %
+%   (\overline{Q^\gamma}, \overline{P^\gamma}) \arrow[hookrightarrow]{r}{i} &
+%   (\overline{Q^\delta}, \overline{P^\delta}).
+% \end{tikzcd}\]
+%
+% The following diagram is formed by applying the homology functor.
+% \begin{equation}\label{dgm:1}\begin{tikzcd}
+%     \hom_0(\overline{B_1}, \overline{D_1})\arrow{r}{j_*}\arrow{d} &
+%     \hom_0(\overline{\B}, \overline{\D}) \arrow{d} \\
+%     %
+%     \hom_0(\overline{Q^\gamma}, \overline{P^\gamma}) \arrow{r}{i_*} &
+%     \hom_0(\overline{Q^\delta}, \overline{P^\delta}).
+% \end{tikzcd}\end{equation}
+% Let $p_* : \im~j_*\to\im~i_*$.
+
+% \[ \begin{tikzcd}
+%   (P^\delta, Q_{\omega - c\delta}^\delta) \arrow[hookrightarrow]{r}\arrow[hookrightarrow]{d} &
+%   (P^\delta, Q_{\omega + c\gamma}^\delta) \arrow[hookrightarrow]{d} \\
+%   %
+%   (D, B_{\omega - c(\gamma - \delta)}^{\gamma - \delta}) \arrow[hookrightarrow]{r} &
+%   (D, B_{\omega + c(\gamma + \delta)}),
+% \end{tikzcd}\begin{tikzcd}
+%   (\overline{B_{\omega + c(\gamma + \delta)}}, \overline{D})\arrow[hookrightarrow]{r}{j}\arrow[hookrightarrow]{d} &
+%   (\overline{B_{\omega - c(\gamma - \delta)}^{\gamma - \delta}}, \overline{D}) \arrow[hookrightarrow]{d}\\
+%   %
+%   (\overline{Q_{\omega + c\gamma}^\delta}, \overline{P^\delta}) \arrow[hookrightarrow]{r}{i} &
+%   (\overline{Q_{\omega - c\delta}^\delta}, \overline{P^\delta}).
+% \end{tikzcd}\]
+%
+% The following diagram is formed by applying the homology functor.
+% \begin{equation}\label{dgm:1}\begin{tikzcd}
+%     \hom_0(\overline{B_{\omega + c(\gamma + \delta)}}, \overline{D})\arrow{r}{j_*}\arrow{d} &
+%     \hom_0(\overline{B_{\omega - c(\gamma - \delta)}^{\gamma - \delta}}, \overline{D}) \arrow{d} \\
+%     %
+%     \hom_0(\overline{Q_{\omega + c\gamma}^\delta}, \overline{P^\gamma}) \arrow{r}{i_*} &
+%     \hom_0(\overline{Q_{\omega - c\delta}^\delta}, \overline{P^\delta}).
+% \end{tikzcd}\end{equation}
+% Let $p_* : \im~j_*\to\im~i_*$.
+
+\[ \begin{tikzcd}
+  (\P, \Q^\delta) \arrow[hookrightarrow]{r}\arrow[hookrightarrow]{d} &
+  (\P, \QQ^\delta) \arrow[hookrightarrow]{d} \\
+  %
+  (D, \bb) \arrow[hookrightarrow]{r} &
+  (D, \BB),
+\end{tikzcd}\begin{tikzcd}
+  (\cmp{\BB},\cmp{D})\arrow[hookrightarrow]{d}\arrow[hookrightarrow]{r} & %{j} &
+  (\cmp{\bb}, \cmp{D}) \arrow[hookrightarrow]{d}\\
+  %
+  (\cmp{\QQ^\delta}, \cmp{\P}) \arrow[hookrightarrow]{r} & %{i} &
+  (\cmp{\Q^\delta}, \cmp{\P}).
+\end{tikzcd}\]
+
+The following diagram is formed by applying the homology functor.
+\begin{equation}\label{dgm:1}\begin{tikzcd}
+  \hom_0(\cmp{\BB},\cmp{D})\arrow{d} \arrow{r}{j} & %{j_*} &
+  \hom_0(\cmp{\bb}, \cmp{D}) \arrow{d} \\
+  %
+  \hom_0(\cmp{\QQ^\delta}, \cmp{\P}) \arrow{r}{i} & %{i_*} &
+  \hom_0(\cmp{\Q^\delta}, \cmp{\P}).
+\end{tikzcd}\end{equation}
+Let $p : \im~j\to\im~i$.
+
+\begin{lemma}\label{lem:psurj}
+  Suppose $\b$ surrounds $D$ in $\R^d$ and $B_{\omega - c\delta}^\delta\subseteq \bb$.
+
+  If $j$ is surjective then $p : \im~j\to\im~i$ is surjective.
+\end{lemma}
+\begin{proof}
+  Choose a basis for $\im~i$ such that each basis element is represented by a point in $\P\setminus \QQ^\delta$.
+  Let $x\in \P\setminus \QQ^\delta$ be such that $[x]$ is non-trivial in $\im~i_*$.
+  Suppose $x\in\bb$ and let $y\in \b$ so that $\dist(x, y) < \off$.
+
+  Because $x\in \P$ there exists some $p\in P$ such that $\dist(x, p) < \delta$.
+  However, because $x\in\cmp{\QQ^\delta}$, $\dist(x, q) \geq \delta$ for all $q\in \QQ^\delta$.
+  So $p$ is not in $\QQ$, so $f(p) > \ome + \offf$.
+  Therefore, because $f$ is $c$-Lipschitz,
+  \[ f(x)\geq f(p) - c\dist(x, p) > \ome + \offf - c\delta = \ome + \off.\]
+  So $x\in \cmp{B_{\ome+\off}}$ where $\Q^\offf \subseteq B_{\fen}^\offf\subseteq B_{\ome+\off}$, so $x\in \cmp{\Q^\offf}$.
+
+  Because $x\in\cmp{\Q^\offf}$ by hypothesis $\dist(x, q) > \offf$ for all $q\in \Q$.
+  For any $z$ in the shortest path between $x$ and $y$ we have $\dist(x, z)\leq \dist(x, y)\leq \off$, so the following inequality holds for all $q\in \Q$
+  \begin{align*}
+    \dist(x, q) & \geq \dist(x, q) - \dist(x, z)\\
+                & > \offf - \off\\
+                & = \of.
+  \end{align*}
+  So $z\in \cmp{\Q^\delta}$ for all $z$ in the shortest path from $x$ to $y$.
+  In particular, $x,y\in\cmp{\Q^\delta}$.
+
+  Now, suppose $y\in \P$.
+  So there exists some $p\in P$ such that $\dist(p, y) < \delta$.
+  Because $f$ is $c$-Lipschitz and $y\in \b$
+  \[ f(p)\leq f(y) + c\dist(p, y) < \o + c\off = \fen \]
+  which implies $p\in \Q$, a contradiction, as we have shown $y\in\cmp{\Q^\delta}$, so we may assume that $y\in \cmp{\P}$.
+
+  Because $x,y\in\cmp{\Q^\delta}$ we have corresponding chains $x,y\in C_0(\cmp{\Q^\delta})$ as well as $y\in\cmp{\P}$ generating a chain $y\in C_0(\P)$.
+  As we have shown that $x\in \bb$ implies that the shortest path from $x$ to $y$ is contained in $\cmp{\Q^\delta}$ there exists a path $\zeta: [0,1]\to \cmp{\Q^\delta}$ with $\zeta(0) = x$ and $\zeta(1) = y$ that generates a chain $C_1(\cmp{\Q^\delta})$.
+  So for $\zeta\in C_1(\cmp{\Q^\delta}, \cmp{\P})$ with $\partial \zeta = x + y$ we have that $x = \partial \zeta + y$.
+  Thus $[x]$ is a relative boundary and is therefore trivial in $\hom_0(\cmp{\P}, \cmp{\Q^\delta})$, a contradiction, as we have assumed $[x]$ is non-trivial in $\im~i$.
+  So we may conclude that $x\notin \bb$.
+
+  So $x\in\cmp{\bb}$ and $x\in D\setminus\bb$.
+  So $[x]$ is non-trivial in $\hom_0(\cmp{\bb},\cmp{D})$ and, because $j_*$ is surjective, $\im~j = \hom_0(\cmp{\bb},\cmp{D})$.
+  So $p$ is surjective as $p[x] = [x]\in\im~p$ for all non-trivial $[x]\in\im~i$.
+\end{proof}
+
+\begin{theorem}[Geometric TCC]
+  Let $D$ be a compact subset of $\R^d$ and $f : D\to\R$ be $c$-Lipschitz function.
+  Let $\omega\in\R$, $\delta > 0$ be such that $\b$ surrounds $D$ in $\R^d$ and $j : \hom_0(D\setminus \BB)\to \hom_0(D\setminus\bb)$ is surjective.
+  Let $P\subset D$ be a finite collection of points and $i : \hom_0(\cmp{\QQ^\delta}, \cmp{\P})\to \hom_0(\cmp{\Q^\delta}, \cmp{\P})$.
+
+  If $\rk~i\geq \rk~j$ then $D\setminus \B\subseteq \P$ and $\Q^\delta$ surrounds $\P$ in $D$.
+\end{theorem}
+\begin{proof}
+
+  By Lemma~\ref{lem:psurj} $p :\im~j\to \im~i$ is surjective.
+  So, with the assumption that $\rk~i\geq \rk~j$, $\rk~i = \rk~j$.
+  Because $P$ is a finite point set we know that $\im~i$ is finite-dimensional and, because $\rk~i = \rk~j$, $j$ is finite dimensional as well.
+  So $p$ is bijective and therefore injective.
+
+  As $j$ is surjective $\im~j = \hom_0(\cmp{\bb}, \cmp{D})$ and, because $\im~i$ is a subspace of $\hom_0(\cmp{\Q^\delta}, \cmp{\P})$, $p$ injective implies that the map $\hom_0(\cmp{\bb}, \cmp{D})\to \hom_0(\cmp{\Q^\delta}, \cmp{\P})$ must be injective, therefore $D\setminus\bb\subseteq \P$ by Lemma~\ref{lem:coverage}, and $\Q^\delta$ surrounds $\P$ in $D$ by Lemma~\ref{lem:cov_surrounds}.
+  Finally, because $f$ is $c$-Lipschitz, $\bb\subseteq \B$, therefore $D\setminus\B\subseteq D\setminus \bb\subseteq \P$.
+
+  % Because $j$ is surjective $\im~j = \hom_0(\cmp{\bb}, \cmp{D})$
+  % so $p : \im~j\to \im~i$ is injective.
+  % Therefore $\D\setminus\B\subseteq P^\delta$ by Lemma~\ref{lem:coverage} and $Q^\delta$ surrounds $P^\delta$ in $\D$ by Lemma~\ref{lem:separate}.
+  % So we can extend $(P^\delta, Q^\delta)$ and $(P^\gamma, Q^\gamma)$ to pairs $(\D, \hat{Q^\delta})$ and $(\D, \hat{Q^\gamma})$ surrounding $\D$ in $\R^d$.
+\end{proof}
+
+\clearpage
+
+\section{From Coverage Testing to the Analysis of Scalar Fields}
+
+\begin{lemma}
+  $\b\subseteq \widehat{\Q^\of}$.
+\end{lemma}
+
+\begin{lemma}
+  $\B\subseteq \widehat{\QQ^\of}$.
+\end{lemma}
+
+\begin{corollary}
+  If $\eta^k : \hom_k(\b)\to \hom_k(\BB)$ is surjective and $\im~\eta^k\cong \hom_k(\B)$ then for any $A\subset D$ such that $\BB\subset A$
+  \[ \im~\hom_k((\P\cap A, \Q^\delta)\to (\P\cap A, \QQ^\delta))\cong \hom_k(A, \B). \]
+\end{corollary}
+
+\begin{lemma}
+  $\{(\P\cap B_\alpha, \Q^\delta)\to (\P\cap B_\alpha, \QQ^\delta)\}_{\alpha\geq\oo}$ is $c\delta$-interleaved with $\{(P_\alpha^\delta, \Q^\delta)\to (P_\alpha^\delta, \QQ^\delta)\}_{\alpha\geq\oo}$.
+\end{lemma}
+
+\begin{corollary}
+  If $\eta^k : \hom_k(\b)\to \hom_k(\BB)$ is surjective and $\im~\eta^k\cong \hom_k(\B)$ then $\{(B_\alpha, \B)\}_{\alpha\geq\oo}$ is $c\delta$-interleaved with $\{(P_\alpha^\delta, \Q^\delta)\to (P_\alpha^\delta, \QQ^\delta)\}_{\alpha\geq\oo}$.
+\end{corollary}
