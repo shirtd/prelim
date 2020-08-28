@@ -48,12 +48,15 @@ Corollary~\ref{cor:tcc_iso} therefore follows from Theorem~\ref{thm:separate_iso
   for all $k > 0$.
 \end{corollary}
 
-\begin{lemma}
-  The $k$th persistent homology modules of
-  \[\{(\P\cap B_\alpha, \Q^\of)\to (\P\cap B_\alpha, \QQ^\of)\}_{\alpha\geq\oo}\]
-  are $c\of$-interleaved with
-  \[ \{(P_\alpha^\of, \Q^\of)\to (P_\alpha^\of, \QQ^\of)\}_{\alpha\geq\oo} \]
-  for all $k$.
+% \begin{lemma}
+%   The $k$th persistent homology modules of
+%   \[\{(\P\cap B_\alpha, \Q^\of)\to (\P\cap B_\alpha, \QQ^\of)\}_{\alpha\geq\oo}\]
+%   are $c\of$-interleaved with
+%   \[ \{(P_\alpha^\of, \Q^\of)\to (P_\alpha^\of, \QQ^\of)\}_{\alpha\geq\oo} \]
+%   for all $k$.
+% \end{lemma}
+\begin{lemma}\label{lem:ps_inter}
+  The $k$th persistent homology modules of $\{\P\cap B_\alpha\}_{\alpha\in\R}$ are $c\of$-interleaved with those of $\{(P_\alpha^\of\}_{\alpha\in\R}$ for all $k$.
 \end{lemma}
 \begin{proof}
   For all $x\in \P\cap B_\alpha$ we have $f(x)\leq \alpha$ and some $p\in P$ such that $\dist(x, p) < \of$.
@@ -67,14 +70,13 @@ Corollary~\ref{cor:tcc_iso} therefore follows from Theorem~\ref{thm:separate_iso
   \[ f(x)\leq f(p)+c\dist(x, p) < \alpha + c\of. \]
   So $x\in \P\cap B_{\alpha+c\delta}$.
 
-  That is, $P_{\alpha-c\delta}^\delta\subseteq \P\cap B_\alpha\subseteq P_{\alpha + c\delta}^\delta$.
-
-  Now, for any $k > 0$, let
-  \[\Sigma_\alpha := \im~\hom_k((\P\cap B_\alpha, \Q^\of)\to (\P\cap B_\alpha, \QQ^\of))\]
-  and
-  \[\Pi_\alpha := \im~\hom_k((P_\alpha^\of, \Q^\of)\to (P_\alpha^\of, \QQ^\of)).\]
-
-  For ease of notation, let $(P^\delta)_\alpha := \P\cap B_\alpha$ for $\alpha\in\R$.
+  That is, $P_{\alpha-c\delta}^\delta\subseteq \P\cap B_\alpha\subseteq P_{\alpha + c\delta}^\delta$, therefore $\{\P\cap B_\alpha\}$ is $c\of$-interleaved with $\{(P_\alpha^\of\}$.
+  % Now, for any $k > 0$, let
+  % \[\Sigma_\alpha := \im~\hom_k((\P\cap B_\alpha, \Q^\of)\to (\P\cap B_\alpha, \QQ^\of))\]
+  % and
+  % \[\Pi_\alpha := \im~\hom_k((P_\alpha^\of, \Q^\of)\to (P_\alpha^\of, \QQ^\of)).\]
+  %
+  % For ease of notation, let $(P^\delta)_\alpha := \P\cap B_\alpha$ for $\alpha\in\R$.
 %   The following diagrams commute for all $\alpha\leq \beta$ as all maps are induced by inclusion.
 %
 %   \begin{tiny}\begin{subequations}
@@ -124,12 +126,12 @@ Corollary~\ref{cor:tcc_iso} therefore follows from Theorem~\ref{thm:separate_iso
 %   So
 \end{proof}
 
-\begin{corollary}
-  If $\eta^k : \hom_k(\b)\to \hom_k(\BB)$ is surjective and $\im~\eta^k\cong \hom_k(\bb)$ then the $k$th persistent homology modules of
-  $\{(B_\alpha, \bb)\}_{\alpha\geq\oo}$ is $c\of$-interleaved with that of
-  \[\{(P_\alpha^\of, \Q^\of)\to (P_\alpha^\of, \QQ^\of)\}_{\alpha\geq\oo}\]
-  for $k > 0$.
-\end{corollary}
+% \begin{corollary}
+%   If $\eta^k : \hom_k(\b)\to \hom_k(\BB)$ is surjective and $\im~\eta^k\cong \hom_k(\bb)$ then the $k$th persistent homology modules of
+%   $\{(B_\alpha, \bb)\}_{\alpha\geq\oo}$ is $c\of$-interleaved with that of
+%   \[\{(P_\alpha^\of, \Q^\of)\to (P_\alpha^\of, \QQ^\of)\}_{\alpha\geq\oo}\]
+%   for $k > 0$.
+% \end{corollary}
 
 % \section{NEW NOTATION}
 %
