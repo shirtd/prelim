@@ -1,18 +1,156 @@
 % !TeX root = ../new.tex
 
-In the following let $\Omega := \ome + 3c\of$.
-We define the following $k$th persistence modules for $k > 0$.
-\begin{align*}
-  \Psi &= (\{\Psi_\alpha\}, \{\psi_\alpha^\beta : \Psi_\alpha\to \Psi_\beta\}_{\beta\geq \alpha})_{\alpha\geq\Omega}, & &\Psi_\alpha := \hom_k(B_\alpha, \B),\\
-  \Pi &= (\{\Pi_\alpha\}, \{\pi_\alpha^\beta : \Pi_\alpha\to \Pi_\beta\}_{\beta\geq \alpha})_{\alpha\geq\Omega}, & &\Pi_\alpha := \im~\hom_k((\P_\alpha, \Q^\of)\to (\P_\alpha, \QQ^\of)),\\
-  \Psi &= (\{\Psi_\alpha\}, \{\lambda_\alpha^\beta : \Lambda_\alpha\to \Lambda_\beta\}_{\beta\geq \alpha})_{\alpha\geq\Omega}, & &\Lambda_\alpha := \im~\hom_k(\cech^\delta(P_\alpha, \Q)\to \cech^\delta(P_\alpha, \QQ)),\\
-  \Phi &= (\{\Phi_\alpha\}, \{\phi_\alpha^\beta : \Phi_\alpha\to \Phi_\beta\}_{\beta\geq \alpha})_{\alpha\geq\Omega}, & &\Phi_\alpha := \im~\hom_k(\rips^{2\delta}(P_\alpha, \Q)\to \rips^{2\delta}(P_\alpha, \QQ)),
-\end{align*}
+% In the following let $\Omega := \ome + 3c\of$.
+% We define the following $k$th persistence modules for $k > 0$.
+% \begin{align*}
+%   \Psi &= (\{\Psi_\alpha\}, \{\psi_\alpha^\beta : \Psi_\alpha\to \Psi_\beta\}_{\beta\geq \alpha})_{\alpha\geq\Omega}, & &\Psi_\alpha := \hom_k(B_\alpha, \B),\\
+%   \Pi &= (\{\Pi_\alpha\}, \{\pi_\alpha^\beta : \Pi_\alpha\to \Pi_\beta\}_{\beta\geq \alpha})_{\alpha\geq\Omega}, & &\Pi_\alpha := \im~\hom_k((\P_\alpha, \Q^\of)\to (\P_\alpha, \QQ^\of)),\\
+%   \Psi &= (\{\Psi_\alpha\}, \{\lambda_\alpha^\beta : \Lambda_\alpha\to \Lambda_\beta\}_{\beta\geq \alpha})_{\alpha\geq\Omega}, & &\Lambda_\alpha := \im~\hom_k(\cech^\delta(P_\alpha, \Q)\to \cech^\delta(P_\alpha, \QQ)),\\
+%   \Phi &= (\{\Phi_\alpha\}, \{\phi_\alpha^\beta : \Phi_\alpha\to \Phi_\beta\}_{\beta\geq \alpha})_{\alpha\geq\Omega}, & &\Phi_\alpha := \im~\hom_k(\rips^{2\delta}(P_\alpha, \Q)\to \rips^{2\delta}(P_\alpha, \QQ)),
+% \end{align*}
+%
+% Suppose $B_{\omega - 3c\delta}$ surrounds $D$ in $\R^d$ and $\eta^k : \hom_k(B_{\omega-3c\delta})\to \hom_k(B_\omega)$ is surjective and $\im~\eta^k\cong \hom_(B_\omega)$.
+% If $D\setminus\B\subseteq\P$ and $\Q^\of$ surrounds $\P$ in $D$ then we have the following sequence of inclusions
+% \[ B_{\omega - 3c\delta}\subseteq \widehat{Q_{\omega-2c\delta}^\delta}\subseteq \widehat{Q_{\omega-2c\delta}^{2\delta}}\subseteq \B\subseteq \widehat{\QQ^\delta}\subseteq\widehat{\QQ^{2\delta}}\subseteq B_{\Omega}\]
+% and, by Theorem~\ref{thm:separate_iso},
+% \[\im~\hom_k(((\P)_\alpha,Q_{\omega-2c\delta}^\of)\to ((\P)_\alpha,\QQ^\of))\cong\hom_k(B_\alpha, B_\omega),\text{ and }\]
+% \[\im~\hom_k(((P^{2\delta})_\alpha,Q_{\omega-2c\delta}^{2\of})\to ((P^{2\of})_\alpha,\QQ^{2\of}))\cong\hom_k(B_\alpha, B_\omega)\]
+% for $k > 0$ and $\alpha\geq\Omega$.
 
-Suppose $B_{\omega - 3c\delta}$ surrounds $D$ in $\R^d$ and $\eta^k : \hom_k(B_{\omega-3c\delta})\to \hom_k(B_\omega)$ is surjective and $\im~\eta^k\cong \hom_(B_\omega)$.
-If $D\setminus\B\subseteq\P$ and $\Q^\of$ surrounds $\P$ in $D$ then we have the following sequence of inclusions
-\[ B_{\omega - 3c\delta}\subseteq \widehat{Q_{\omega-2c\delta}^\delta}\subseteq \widehat{Q_{\omega-2c\delta}^{2\delta}}\subseteq \B\subseteq \widehat{\QQ^\delta}\subseteq\widehat{\QQ^{2\delta}}\subseteq B_{\Omega}\]
-and, by Theorem~\ref{thm:separate_iso},
-\[\im~\hom_k(((\P)_\alpha,Q_{\omega-2c\delta}^\of)\to ((\P)_\alpha,\QQ^\of))\cong\hom_k(B_\alpha, B_\omega),\text{ and }\]
-\[\im~\hom_k(((P^{2\delta})_\alpha,Q_{\omega-2c\delta}^{2\of})\to ((P^{2\of})_\alpha,\QQ^{2\of}))\cong\hom_k(B_\alpha, B_\omega)\]
-for $k > 0$ and $\alpha\geq\Omega$.
+For two filtrations $\{F_\alpha\}_{\alpha\in\R}$ and $\{G_\alpha\}_{\alpha\in\R}$ we will write $F_\alpha\sim_\e G_\alpha$ to indicate that the persistence modules of the filtrations $\{F_\alpha\}$ and $\{G_\alpha\}$ are $\e$-interleaved.
+
+\begin{definition}[Compatible Filtrations (Skraba~\cite{skraba14approximating})]
+  Two filtrations $\{A_\alpha\}$ and $\{F_\alpha\}$ are \textbf{compatible} if the following diagram commutes for all $\alpha\leq\beta$
+  \begin{equation}\begin{tikzcd}
+    A_\alpha\arrow{r}\arrow{d} &
+    F_\alpha\arrow{d} \\
+    %
+    A_\beta\arrow{r} &
+    F_\beta
+  \end{tikzcd}\end{equation}
+\end{definition}
+
+\begin{theorem}[Skraba~\cite{skraba14approximating}]
+  Let $(\{F_\alpha\}, \{A_\alpha\})$ and $(\{G_\alpha\}, \{B_\alpha\})$ be pairs of compatible filtrations.
+  If $F_\alpha\sim_{\e_1} G_\alpha$ and $A_\alpha\sim_{\e_2} B_\alpha$ then the relative modules $\{(F_\alpha, A_\alpha)\}$ and $\{(G_\alpha, B_\alpha)\}$ are $\max(\e_1, \e_2)$-interleaved.
+\end{theorem}
+
+Now, suppose $\{A_\alpha\}$, $\{B_\alpha\}$ are compatible with $\{F_\alpha\}$ and $\{C_\alpha\}$,$\{D_\alpha\}$ are compatible with $\{G_\alpha\}$.
+If $A_\alpha\sim_{\e_1} C_\alpha$, $B_\alpha\sim_{\e_2} D_\alpha$, and $F_\alpha\sim_{\e_3} G_\alpha$ then
+\[ (F_\alpha, A_\alpha)\sim_{\max(\e_1,\e_3)} (G_\alpha, C_\alpha)\]
+and
+\[ (F_\alpha, B_\alpha)\sim_{\max(\e_2,\e_3)} (G_\alpha, D_\alpha).\]
+Let $\e = \max(\e_1, \e_2, \e_3)$ so both pairs of relative persistence modules are $\e$-interleaved.
+
+Consider the following commutative diagrams for $\alpha\leq\beta$
+
+\vspace{3ex}\begin{subequations}
+\begin{minipage}{0.5\textwidth}\begin{equation}\label{dgm:fab}\begin{tikzcd}
+  \hom_k(F_\alpha, A_\alpha)\arrow{r}{f_\alpha}\arrow{d}{a_\alpha^\beta} &
+  \hom_k(F_\alpha, B_\alpha)\arrow{d}{b_\alpha^\beta}\\
+  %
+  \hom_k(F_\beta, A_\beta)\arrow{r}{f_\beta} &
+  \hom_k(F_\beta, B_\beta)
+\end{tikzcd}\end{equation}\end{minipage}
+\begin{minipage}{0.5\textwidth}\begin{equation}\label{dgm:gcd}\begin{tikzcd}
+  \hom_k(G_\alpha, C_\alpha)\arrow{r}{g_\alpha}\arrow{d}{c_\alpha^\beta} &
+  \hom_k(G_\alpha, D_\alpha)\arrow{d}{d_\alpha^\beta}\\
+  %
+  \hom_k(G_\beta, C_\beta)\arrow{r}{g_\beta} &
+  \hom_k(G_\beta, D_\beta)
+\end{tikzcd}\end{equation}\end{minipage}
+\end{subequations}\vspace{3ex}
+
+% \vspace{3ex}\begin{subequations}
+% \begin{minipage}{0.5\textwidth}\begin{equation}\label{dgm:fab}\begin{tikzcd}
+%   \hom_k(F_{\alpha-, A_\alpha)\arrow{r}{f_\alpha}\arrow{d}{a_\alpha^\beta} &
+%   \hom_k(F_\alpha, B_\alpha)\arrow{d}{b_\alpha^\beta}\\
+%   %
+%   \hom_k(G_\beta, A_\beta)\arrow{r}{f_\beta} &
+%   \hom_k(F_\beta, B_\beta)
+% \end{tikzcd}\end{equation}\end{minipage}
+% \begin{minipage}{0.5\textwidth}\begin{equation}\label{dgm:gcd}\begin{tikzcd}
+%   \hom_k(G_\alpha, C_\alpha)\arrow{r}{g_\alpha}\arrow{d}{c_\alpha^\beta} &
+%   \hom_k(G_\alpha, D_\alpha)\arrow{d}{d_\alpha^\beta}\\
+%   %
+%   \hom_k(G_\beta, C_\beta)\arrow{r}{g_\beta} &
+%   \hom_k(G_\beta, D_\beta)
+% \end{tikzcd}\end{equation}\end{minipage}
+% \end{subequations}\vspace{3ex}
+
+Let $\Phi_\alpha = \im~f_\alpha$ and $\Psi_\alpha = \im~g_\alpha$.
+
+\begin{lemma}
+  If Diagrams~\ref{dgm:fab} and~\ref{dgm:gcd} commute then $\Phi_\alpha\sim_\e \Psi_\alpha$.
+\end{lemma}
+\begin{proof}
+
+  \begin{enumerate}[label=\Roman*.]
+    \item \begin{equation}\label{dgm:intr1}\begin{tikzcd}[column sep=scriptsize]
+      % Fa & & & Fb
+      \Phi_{\alpha-\e}  \arrow[to=Fb, "\phi_{\alpha-\e}^{\beta+\e}"]
+                        \arrow[to=Ga, "\mu_{\alpha-\e}"]
+      & & & |[alias=Fb]|
+        \Phi_{\beta+\e} \\
+      % & Ga & Gb &
+      & |[alias=Ga]|
+      \Psi_\alpha \arrow[to=Gb, "\psi_\alpha^\beta"]
+      & |[alias=Gb]|
+        \Psi_\beta \arrow[to=Fb, "\nu_\beta"] &
+    \end{tikzcd}\end{equation}
+
+    Because Diagrams~\ref{dgm:fab} and~\ref{dgm:gcd} commute, $(F_\alpha, A_\alpha)\sim_\e (G_\alpha, C_\alpha),$ and $(F_\alpha, B_\alpha)\sim_\e (G_\alpha, D_\alpha)$ Diagram~\ref{dgm:intr1a} commutes (?)\footnote{Do we know that the top and bottom trapezoids commute?}
+
+    \begin{equation}\label{dgm:intr1a}\begin{tikzcd}[column sep=scriptsize]
+      % Aa & & & Ba
+      \hom_k(F_{\alpha-\e}, A_{\alpha-\e})  \arrow[to=Ba, "f_{\alpha-\e}"]
+                                            \arrow[to=Ca, "m_{\alpha-\e}"]
+                                            \arrow[to=Ab, "a_{\alpha-\e}^{\beta +\e}"]
+      & & & |[alias=Ba]|
+        \hom_k(F_{\alpha - \e}, B_{\alpha-\e})  \arrow[to=Da, "n_{\alpha -\e}"]
+                                                \arrow[to=Bb, "b_{\alpha-\e}^{\beta+\e}"] \\
+      % & Ca & Da &
+      & |[alias=Ca]|
+      \hom_k(G_\alpha, C_\alpha)  \arrow[to=Da, "g_\alpha"]
+                                  \arrow[to=Cb, "c_\alpha^\beta"]
+      & |[alias=Da]|
+        \hom_k(G_\alpha, D_\alpha)  \arrow[to=Db, "d_\alpha^\beta"] & \\
+      % & Cb & Db
+      & |[alias=Cb]|
+      \hom_k(G_\beta, C_\beta)  \arrow[to=Ab, "u_\beta"]
+                                \arrow[to=Db, "g_\beta"]
+      & |[alias=Db]|
+        \hom_k(G_\beta, D_\beta)  \arrow[to=Bb, "v_\beta"] & \\
+      % Ab & & & Bb
+      |[alias=Ab]|
+      \hom_k(F_{\beta +\e}, A_{\beta + \e}) \arrow[to=Bb, "f_{\beta+\e}"]
+      & & & |[alias=Bb]|
+        \hom_k(F_{\beta+\e}, B_{\beta + \e})
+    \end{tikzcd}\end{equation}
+
+    Because $\mu_{\alpha-\e} : \im~f_{\alpha-\e}\to\im~g_\alpha$, $\im~\mu_{\alpha-\e} = \im~g_\alpha\circ m_{\alpha-\e}$ is a subspace of $\im~g_\alpha$ and $\psi_\alpha^\beta : \im~g_\alpha\to \im~g_\beta$ with $\im~\psi_\alpha^\beta = \im~d_\alpha^\beta\circ g_\alpha$ we have
+    \[ \im~\psi_\alpha^\beta\circ \mu_{\alpha-\e} = \im~d_\alpha^\beta \circ \mu_{\alpha-\e} = \im~d_\alpha^\beta\circ g_\alpha\circ m_{\alpha-\e}.\]
+    Similarly, $\nu_\beta : \im~g_\beta \to \im~f_{\beta + \e}$ where $\im~\nu_\beta = \im~\beta\circ g_\beta$ so, because $\im~\psi_\alpha^\beta\circ\mu_{\alpha-\e}$ is a subspace of $\im~g_{\beta}$,
+    \begin{align*}
+      \im~\nu_\beta\circ\psi_\alpha^\beta\circ\mu_{\alpha-\e} &= \im~v_\beta\circ\psi_\alpha^\beta \circ\mu_{\alpha-\e}\\
+        &= \im~v_\beta\circ d_\alpha^\beta\circ g_\alpha\circ m_{\alpha-\e}.
+    \end{align*}
+    Therefore, by commutativity of Diagram~\ref{dgm:intr1a},
+    \[v_\beta\circ d_\alpha^\beta\circ g_\alpha\circ m_{\alpha-\e} = b_{\alpha-\e}^{\beta +\e}\circ f_{\alpha-\e}\]
+    and, because $\im~b_{\alpha-\e}^{\beta +\e}\circ f_{\alpha-\e} = \im~\phi_{\alpha-e}^{\beta+\e}$, it follows that $\im~\phi_{\alpha-e}^{\beta+\e} = \im~\nu_\beta\circ\psi_\alpha^\beta\circ\mu_{\alpha-\e}$.
+    So Diagram~\ref{dgm:intr1} commutes.
+
+    \item \begin{equation}\label{dgm:intr1}\begin{tikzcd}[column sep=scriptsize]
+      % Fa & & & Fb
+      \Psi_{\alpha-\e}  \arrow[to=Fb, "\psi_{\alpha-\e}^{\beta+\e}"]
+                        \arrow[to=Ga, "\nu_{\alpha-\e}"]
+      & & & |[alias=Fb]|
+        \Psi_{\beta+\e} \\
+      % & Ga & Gb &
+      & |[alias=Ga]|
+      \Phi_\alpha \arrow[to=Gb, "\phi_\alpha^\beta"]
+      & |[alias=Gb]|
+        \Phi_\beta \arrow[to=Fb, "\mu_\beta"] &
+    \end{tikzcd}\end{equation}
+  \end{enumerate}
+\end{proof}
