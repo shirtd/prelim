@@ -1,0 +1,234 @@
+\begin{lemma}\label{lem:psurj}
+  Suppose $\B$ surrounds $D$ in $\X$ and let $\delta > 0$.
+
+  If $j$ is surjective then $p : \im~j\to\im~i$ is surjective.
+\end{lemma}
+\begin{proof}
+  Choose a basis for $\im~i$ such that each basis element is represented by a point in $\P\setminus \QQ^\of$.
+  Let $x\in \P\setminus \QQ^\of$ be such that $[x]$ is non-trivial in $\im~i$.
+  So there exits some $p\in P$ such that $\dist(p, x) < \delta$ and $p\notin \QQ$, otherwise $x\in\QQ^\of$.
+  Therefore, because $f$ is $c$-Lipschitz,
+  \[ f(x)\geq f(p) - c\dist(x, p) > \fenn - c\of =\omega.\]
+
+  So $x\in\cmp{\B}$ and, because $x\in \P\subseteq D$, $x\in D\setminus \B$.
+  That is, $[x]$ is non-trivial in $\hom_0(\cmp{\B},\cmp{D})$ which, by our assumption that $j$ is surjective, is equal to $\im~j$.
+  As $i, j$ are induced by inclusion we may therefore conclude that $p$ is surjective as $p[x] = [x]$ for all non-trivial $[x]\in\im~i$.
+  %
+  % Because $x\in \P$ there exists some $p\in P$ such that $\dist(x, p) < \of$.
+  % However, because $x\in\cmp{\QQ^\of}$, $\dist(x, q) \geq \of$ for all $q\in \QQ^\of$.
+  % So $p$ is not in $\QQ$, so $f(p) > \ome + \offf$.
+  % Therefore, because $f$ is $c$-Lipschitz,
+  % \[ f(x)\geq f(p) - c\dist(x, p) > \ome + \offf - c\of = \ome + \off.\]
+  % So $x\in \cmp{B_{\ome+\off}}$ where $\Q^\offf \subseteq B_{\fen}^\offf\subseteq B_{\ome+\off}$, so $x\in \cmp{\Q^\offf}$.
+  %
+  % Because $x\in\cmp{\Q^\offf}$ by hypothesis $\dist(x, q) > \offf$ for all $q\in \Q$.
+  % For any $z$ in the shortest path between $x$ and $y$ we have $\dist(x, z)\leq \dist(x, y)\leq \off$, so the following inequality holds for all $q\in \Q$
+  % \begin{align*}
+  %   \dist(x, q) & \geq \dist(x, q) - \dist(x, z)\\
+  %               & > \offf - (\off)\\
+  %               & \geq \of.
+  % \end{align*}
+  % So $z\in \cmp{\Q^\of}$ for all $z$ in the shortest path from $x$ to $y$.
+  % In particular, $x,y\in\cmp{\Q^\of}$.
+  %
+  % Now, suppose $y\in \P$.
+  % So there exists some $p\in P$ such that $\dist(p, y) < \of$.
+  % Because $f$ is $c$-Lipschitz and $y\in \b$
+  % \[ f(p)\leq f(y) + c\dist(p, y) < \o + c\of\leq \fen \]
+  % which implies $p\in \Q$, a contradiction, as we have shown $y\in\cmp{\Q^\of}$, so we may assume that $y\in \cmp{\P}$.
+  %
+  % Because $x,y\in\cmp{\Q^\of}$ we have corresponding chains $x,y\in C_0(\cmp{\Q^\of})$ as well as $y\in\cmp{\P}$ generating a chain $y\in C_0(\P)$.
+  % As we have shown that $x\in \bb$ implies that the shortest path from $x$ to $y$ is contained in $\cmp{\Q^\of}$ there exists a path $\zeta: [0,1]\to \cmp{\Q^\of}$ with $\zeta(0) = x$ and $\zeta(1) = y$ that generates a chain $C_1(\cmp{\Q^\of})$.
+  % So for $\zeta\in C_1(\cmp{\Q^\of}, \cmp{\P})$ with $\partial \zeta = x + y$ we have that $x = \partial \zeta + y$.
+  % Thus $[x]$ is a relative boundary and is therefore trivial in $\hom_0(\cmp{\P}, \cmp{\Q^\of})$, a contradiction, as we have assumed $[x]$ is non-trivial in $\im~i$.
+  % So we may conclude that $x\notin \bb$.
+  %
+  % So $x\in\cmp{\bb}$ and $x\in D\setminus\bb$.
+  % So $[x]$ is non-trivial in $\hom_0(\cmp{\bb},\cmp{D})$ and, because $j_*$ is surjective, $\im~j = \hom_0(\cmp{\bb},\cmp{D})$.
+  % So $p$ is surjective as $p[x] = [x]\in\im~p$ for all non-trivial $[x]\in\im~i$.
+\end{proof}
+
+\begin{theorem}[Geometric TCC]\label{thm:geo_tcc}
+  Let $D$ be a compact subset of $\X$ and $f : D\to\R$ be $c$-Lipschitz function.
+  Let $\omega\in\R$, $\of > 0$ be constants such that
+  \begin{enumerate}[label=(\alph*)]
+    \item $\B$ surrounds $D$ in $\X$, and
+    \item $j : \hom_0(\cmp{\BB},\cmp{D})\to \hom_0(\cmp{\B}, \cmp{D})$ is surjective.
+  \end{enumerate}
+  Let $P\subset D$ be a finite collection of points and $i : \hom_0(\cmp{\QQ^\of}, \cmp{\P})\to \hom_0(\cmp{\Q^\of}, \cmp{\P})$.
+
+  If $\rk~i\geq \rk~j$ then $D\setminus \B\subseteq \P$ and $\Q^\of$ surrounds $\P$ in $D$.
+\end{theorem}
+\begin{proof}
+  By Lemma~\ref{lem:psurj} $p :\im~j\to \im~i$ is surjective.
+  So, with the assumption that $\rk~i\geq \rk~j$, $\rk~i = \rk~j$.
+  Because $P$ is a finite point set we know that $\im~i$ is finite-dimensional and, because $\rk~i = \rk~j$, $j$ is finite dimensional as well.
+  So $p$ is bijective and therefore injective.
+
+  As $j$ is surjective $\im~j = \hom_0(\cmp{\B}, \cmp{D})$ and, because $\im~i$ is a subspace of $\hom_0(\cmp{\Q^\of}, \cmp{\P})$, $p$ injective implies that the map $\hom_0(\cmp{\B}, \cmp{D})\to \hom_0(\cmp{\Q^\of}, \cmp{\P})$ must be injective, therefore $D\setminus\bb\subseteq \P$ by Lemma~\ref{lem:coverage}, and $\Q^\of$ surrounds $\P$ in $D$ by Lemma~\ref{lem:cov_surrounds}.
+  % Finally, because $f$ is $c$-Lipschitz, $\bb\subseteq \B$, therefore $D\setminus\B\subseteq D\setminus \bb\subseteq \P$.
+\end{proof}
+
+
+\begin{enumerate}[label=\Roman*.]
+  \item Note that the inner and outer rectangles of the following diagram commute if Diagrams~\ref{dgm:fab} and~\ref{dgm:gcd} commute, and the upper and lower trapezoids commute if Diagrams~\ref{dgm:fabgcd} and~\ref{dgm:gcdfab} commute, respectively.
+  The left and right trapezoids commute because $(F_\alpha, A_\alpha)\sim_\e (G_\alpha, C_\alpha)$ and $(F_\alpha, B_\alpha)\sim_\e (G_\alpha, D_\alpha)$.
+
+  \begin{equation}\label{dgm:intr1a}\begin{tikzcd}[column sep=scriptsize]
+    % Aa & & & Ba
+    \hom_k(F_{\alpha-\e}, A_{\alpha-\e})  \arrow[to=Ba, "f_{\alpha-\e}"]
+                                          \arrow[to=Ca, "m_{\alpha-\e}"]
+                                          \arrow[to=Ab, "a_{\alpha-\e}^{\beta +\e}"]
+    & & & |[alias=Ba]|
+      \hom_k(F_{\alpha - \e}, B_{\alpha-\e})  \arrow[to=Da, "n_{\alpha -\e}"]
+                                              \arrow[to=Bb, "b_{\alpha-\e}^{\beta+\e}"] \\
+    % & Ca & Da &
+    & |[alias=Ca]|
+    \hom_k(G_\alpha, C_\alpha)  \arrow[to=Da, "g_\alpha"]
+                                \arrow[to=Cb, "c_\alpha^\beta"]
+    & |[alias=Da]|
+      \hom_k(G_\alpha, D_\alpha)  \arrow[to=Db, "d_\alpha^\beta"] & \\
+    % & Cb & Db
+    & |[alias=Cb]|
+    \hom_k(G_\beta, C_\beta)  \arrow[to=Ab, "u_\beta"]
+                              \arrow[to=Db, "g_\beta"]
+    & |[alias=Db]|
+      \hom_k(G_\beta, D_\beta)  \arrow[to=Bb, "v_\beta"] & \\
+    % Ab & & & Bb
+    |[alias=Ab]|
+    \hom_k(F_{\beta +\e}, A_{\beta + \e}) \arrow[to=Bb, "f_{\beta+\e}"]
+    & & & |[alias=Bb]|
+      \hom_k(F_{\beta+\e}, B_{\beta + \e})
+  \end{tikzcd}\end{equation}
+
+  Because $\mu_{\alpha-\e} : \im~f_{\alpha-\e}\to\im~g_\alpha$, $\im~\mu_{\alpha-\e} = \im~g_\alpha\circ m_{\alpha-\e}$ is a subspace of $\im~g_\alpha$ and $\psi_\alpha^\beta : \im~g_\alpha\to \im~g_\beta$ with $\im~\psi_\alpha^\beta = \im~d_\alpha^\beta\circ g_\alpha$ we have
+  \[ \im~\psi_\alpha^\beta\circ \mu_{\alpha-\e} = \im~d_\alpha^\beta \circ \mu_{\alpha-\e} = \im~d_\alpha^\beta\circ g_\alpha\circ m_{\alpha-\e}.\]
+  Similarly, $\nu_\beta : \im~g_\beta \to \im~f_{\beta + \e}$ where $\im~\nu_\beta = \im~\beta\circ g_\beta$ so, because $\im~\psi_\alpha^\beta\circ\mu_{\alpha-\e}$ is a subspace of $\im~g_{\beta}$,
+  \begin{align*}
+    \im~\nu_\beta\circ\psi_\alpha^\beta\circ\mu_{\alpha-\e} &= \im~v_\beta\circ\psi_\alpha^\beta \circ\mu_{\alpha-\e}\\
+      &= \im~v_\beta\circ d_\alpha^\beta\circ g_\alpha\circ m_{\alpha-\e}.
+  \end{align*}
+  Therefore, by commutativity of Diagram~\ref{dgm:intr1a},
+  \[v_\beta\circ d_\alpha^\beta\circ g_\alpha\circ m_{\alpha-\e} = b_{\alpha-\e}^{\beta +\e}\circ f_{\alpha-\e}\]
+  and, because $\im~b_{\alpha-\e}^{\beta +\e}\circ f_{\alpha-\e} = \im~\phi_{\alpha-e}^{\beta+\e}$, it follows that $\im~\phi_{\alpha-e}^{\beta+\e} = \im~\nu_\beta\circ\psi_\alpha^\beta\circ\mu_{\alpha-\e}$.
+  So Diagram~\ref{dgm:intr1} commutes.
+
+  \item As above the following diagram commutes by hypothesis.
+
+  \begin{equation}\label{dgm:intr2a}\begin{tikzcd}
+    % Aa & & & Ba
+    \hom_k(G_{\alpha-\e}, C_{\alpha-\e})  \arrow[to=Ba, "g_{\alpha-\e}"]
+                                          \arrow[to=Ca, "u_{\alpha-\e}"]
+                                          \arrow[to=Ab, "c_{\alpha-\e}^{\beta +\e}"]
+    & & & |[alias=Ba]|
+      \hom_k(G_{\alpha - \e}, D_{\alpha-\e})  \arrow[to=Da, "v_{\alpha -\e}"]
+                                              \arrow[to=Bb, "d_{\alpha-\e}^{\beta+\e}"] \\
+    % & Ca & Da &
+    & |[alias=Ca]|
+    \hom_k(F_\alpha, A_\alpha)  \arrow[to=Da, "f_\alpha"]
+                                \arrow[to=Cb, "a_\alpha^\beta"]
+    & |[alias=Da]|
+      \hom_k(F_\alpha, B_\alpha)  \arrow[to=Db, "b_\alpha^\beta"] & \\
+    % & Cb & Db
+    & |[alias=Cb]|
+    \hom_k(F_\beta, A_\beta)  \arrow[to=Ab, "m_\beta"]
+                              \arrow[to=Db, "f_\beta"]
+    & |[alias=Db]|
+      \hom_k(F_\beta, B_\beta)  \arrow[to=Bb, "n_\beta"] & \\
+    % Ab & & & Bb
+    |[alias=Ab]|
+    \hom_k(G_{\beta +\e}, C_{\beta + \e}) \arrow[to=Bb, "g_{\beta+\e}"]
+    & & & |[alias=Bb]|
+      \hom_k(G_{\beta+\e}, D_{\beta + \e})
+  \end{tikzcd}\end{equation}
+
+  The proof is the same as the above.
+  Because $\im~\nu_{\alpha-\e}$ is a subspace of $\im~f_\alpha$ and $\im~\phi_\alpha^\beta = \im~b_\alpha^\beta\circ f_\alpha$,
+  \[ \im~\phi_\alpha^\beta\circ \nu_{\alpha-\e} = \im~b_\alpha^\beta\circ f_\alpha\circ u_{\alpha-e},\]
+  which is a subspact of $\im~f_\beta$.
+  As $\im~\mu_\beta = \im~n_\beta\circ f_\beta$ it follows that
+  \begin{align*}
+    \im~\mu_\beta\circ \phi_\alpha^\beta\circ\nu_{\alpha-\e} &= \im~n_\beta\circ b_\alpha^\beta\circ f_\alpha\circ u_{\alpha-e}\\
+      &= \im~d_{\alpha-\e}^{\beta+\e}\circ f_{\alpha-\e}\\
+      &= \im~\psi_{\alpha-\e}^{\beta+\e}.
+  \end{align*}
+  So Diagram~\ref{dgm:intr2} commutes.
+
+  \item The following diagram commutes by hypothesis.
+
+  \begin{equation}\label{dgm:intr2a}\begin{tikzcd}
+    % Aa & & & Ba
+    |[alias=Aa]|\hom_k(G_{\alpha}, C_{\alpha})  \arrow[to=Ba, "g_{\alpha}"]
+                                    \arrow[to=Ab, "c_{\alpha}^{\beta}"]
+    & & & |[alias=Ba]|
+      \hom_k(G_{\alpha - \e}, D_{\alpha-\e})  \arrow[to=Bb, "d_{\alpha}^{\beta}"] \\
+    % & Ca & Da &
+    & |[alias=Ca]|
+    \hom_k(F_{\alpha-\e}, A_{\alpha-\e})  \arrow[to=Aa, "m_{\alpha-\e}"]
+                                \arrow[to=Da, "f_{\alpha-\e}"]
+                                \arrow[to=Cb, "a_{\alpha-\e}^{\beta-\e}"]
+    & |[alias=Da]|
+      \hom_k(F_{\alpha-\e}, B_{\alpha-\e})  \arrow[to=Ba, "n_{\alpha-\e}"]
+                                  \arrow[to=Db, "b_{\alpha-\e}^{\beta-\e}"] & \\
+    % & Cb & Db
+    & |[alias=Cb]|
+    \hom_k(F_{\beta-\e}, A_{\beta-\e})  \arrow[to=Ab, "m_{\beta-\e}"]
+                                        \arrow[to=Db, "f_{\beta-\e}"]
+    & |[alias=Db]|
+      \hom_k(F_{\beta-\e}, B_{\beta-\e})  \arrow[to=Bb, "n_{\beta-\e}"] & \\
+    % Ab & & & Bb
+    |[alias=Ab]|
+    \hom_k(G_{\beta}, C_{\beta}) \arrow[to=Bb, "g_{\beta}"]
+    & & & |[alias=Bb]|
+      \hom_k(G_{\beta}, D_{\beta})
+  \end{tikzcd}\end{equation}
+
+  Because $\im~\phi_{\alpha-\e}^{\beta-\e} = \im~b_{\alpha-e}^{\beta-\e}\circ f_{\alpha-e}$ is a subspace of $\im~f_{\beta -\e}$ and $\im~\mu_{\beta -\e} = \im~n_{\beta -\e}\circ f_{\beta-\e}$ we have
+  \[ \im~\mu_{\beta-\e}\circ\phi_{\alpha-\e}^{\beta +\e} = \im~n_{\beta -\e}\circ b_{\alpha-e}^{\beta-\e}\circ f_{\alpha-e}.\]
+  Similarly, $\im~\mu_{\alpha-\e} = \im~n_{\alpha-\e}\circ f_{\alpha-\e}$ is a subspace of $\im~g_\alpha$ and $\im~\phi_\alpha^\beta = \im~d_\alpha^\beta\circ g_\alpha$ so
+  \begin{align*}
+    \psi_\alpha^\beta \circ\mu_{\alpha-\e} &= \im~d_\alpha^\beta\circ n_{\alpha-\e}\circ f_{\alpha-\e} \\
+      &=\im~n_{\beta -\e}\circ b_{\alpha-e}^{\beta-\e}\circ f_{\alpha-e}\\
+      &=\im~\mu_{\beta -\e}\circ \phi_{\alpha-\e}^{\beta -\e}.
+  \end{align*}
+  So Diagram~\ref{dgm:intr3} commutes.
+
+  \item The following diagram commutes by hypothesis.
+
+  \begin{equation}\label{dgm:intr1a}\begin{tikzcd}[column sep=scriptsize]
+    % Aa & & & Ba
+    \hom_k(F_{\alpha}, A_{\alpha})  \arrow[to=Ba, "f_{\alpha}"]
+                                    \arrow[from=Ca, "u_{\alpha-\e}"]
+                                    \arrow[to=Ab, "a_{\alpha}^{\beta}"]
+    & & & |[alias=Ba]|
+      \hom_k(F_{\alpha}, B_{\alpha})  \arrow[from=Da, "v_{\alpha -\e}"]
+                                      \arrow[to=Bb, "b_{\alpha}^{\beta}"] \\
+    % & Ca & Da &
+    & |[alias=Ca]|
+    \hom_k(G_{\alpha-\e}, C_{\alpha-\e})  \arrow[to=Da, "g_{\alpha-\e}"]
+                                          \arrow[to=Cb, "c_{\alpha-\e}^{\beta-\e}"]
+    & |[alias=Da]|
+      \hom_k(G_{\alpha-\e}, D_{\alpha-\e})  \arrow[to=Db, "d_{\alpha-\e}^{\beta-\e}"] & \\
+    % & Cb & Db
+    & |[alias=Cb]|
+    \hom_k(G_{\beta-\e}, C_{\beta-\e})  \arrow[to=Ab, "u_{\beta-\e}"]
+                              \arrow[to=Db, "g_{\beta-\e}"]
+    & |[alias=Db]|
+      \hom_k(G_{\beta-\e}, D_{\beta-\e})  \arrow[to=Bb, "v_{\beta-\e}"] & \\
+    % Ab & & & Bb
+    |[alias=Ab]|
+    \hom_k(F_{\beta}, A_{\beta}) \arrow[to=Bb, "f_{\beta}"]
+    & & & |[alias=Bb]|
+      \hom_k(F_{\beta}, B_{\beta})
+  \end{tikzcd}\end{equation}
+
+  Because $\im~\nu_{\alpha-\e} = \im~v_{\alpha-\e}\circ g_{\alpha-\e}$ is a subspace of $\im~f_\alpha$ and $\im~\phi_\alpha^\beta = \im~b_\alpha^\beta\circ f_\alpha$ we have
+  \[ \im~\phi_\alpha^\beta\circ \nu_{\alpha-\e} = \im~b_\alpha^\beta\circ v_{\alpha-\e}\circ g_{\alpha-\e}.\]
+  Similarly, $\im~\psi_{\alpha-\e}^{\beta + \e} = \im~d_{\alpha-\e}^{\beta -\e}\circ g_{\alpha-\e}$ is a subspace of $\im~g_{\beta-\e}$, and $\im~\nu_{\beta -\e} = \im~v_{\beta -\e}\circ g_{\beta-\e}$ so
+  \begin{align*}
+    \im~\nu_{\beta -\e}\circ\psi_{\alpha-\e}^{\beta -\e} &= \im~v_{\beta -\e}\circ d_{\alpha-\e}^{\beta-\e}\circ g_{\alpha-\e}\\
+      &=\im~ b_\alpha^\beta\circ v_{\alpha-\e}\circ g_{\alpha-\e}\\
+      &= \im~\phi_\alpha^\beta\circ\nu_{\alpha-\e}.
+  \end{align*}
+  So Diagram~\ref{dgm:intr4} commutes.
+\end{enumerate}

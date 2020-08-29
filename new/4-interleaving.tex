@@ -185,168 +185,57 @@ Let $\e = \max(\e_1, \e_2, \e_3)$ so both pairs of relative persistence modules 
   \end{minipage}
   \end{subequations}
 
+  Where
+  \[ \psi_\alpha^\beta = d_\alpha^\beta\rest_{\Psi_\alpha},\ \phi_\alpha^\beta = b_\alpha^\beta\rest_{\Phi_\alpha},\]
+  \[ \mu_\alpha = n_\alpha\rest_{\Phi_\alpha},\text{ and } \nu_\alpha = v_\alpha\rest_{\Psi_\alpha}. \]
+
   \begin{enumerate}[label=\Roman*.]
-    \item Note that the inner and outer rectangles of the following diagram commute if Diagrams~\ref{dgm:fab} and~\ref{dgm:gcd} commute, and the upper and lower trapezoids commute if Diagrams~\ref{dgm:fabgcd} and~\ref{dgm:gcdfab} commute, respectively.
-    The left and right trapezoids commute because $(F_\alpha, A_\alpha)\sim_\e (G_\alpha, C_\alpha)$ and $(F_\alpha, B_\alpha)\sim_\e (G_\alpha, D_\alpha)$.
+    \item $\im~\psi_\alpha^\beta = \im~d_\alpha^\beta\rest_{\im~g_\alpha}$ is a subspace of $\im~g_\beta = \Psi_\beta$ as Diagram~\ref{dgm:gcd} commutes for all $\beta\geq\alpha$, so
+      \[ \nu_\beta\circ\psi_\alpha^\beta = v_\beta\rest_{\Psi_\beta}\circ d_\alpha^\beta\rest_{\Psi_\alpha} = v_\beta\circ d_\alpha^\beta\rest_{\Psi_\alpha}. \]
+      Similarly, because Diagram~\ref{dgm:fabgcd} commutes $\im~\mu_{\alpha-\e} = \im~n_{\alpha-\e}\rest_{\Phi_{\alpha-\e}}$ is a subspace of $\im~g_\alpha = \Psi_\alpha$, therefore
+      \[ \phi_\alpha^\beta\circ\mu_{\alpha-\e} = d_\alpha^\beta\rest_{\Psi_\alpha}\circ n_{\alpha-\e}\rest_{\Phi_{\alpha-\e}} = d_\alpha^\beta\circ n_{\alpha-\e}\rest_{\Phi_{\alpha-\e}}.\]
+      So $\im~\phi_\alpha^\beta\circ\mu_{\alpha-\e}$ is a subspace of $\im~g_\beta = \Psi_\beta$ so
+      \[ \nu_\beta\circ\psi_\alpha^\beta\circ\mu_{\alpha-\e} = v_\beta\circ d_\alpha^\beta\circ n_{\alpha-\e}\rest_{\Phi_{\alpha-\e}}.\]
+      Because $(F_\alpha, B_\alpha)\sim_\e (G_\alpha, D_\alpha)$, $b_{\alpha-\e}^{\beta+\e} = v_\beta\circ d_\alpha^\beta\circ n_{\alpha-\e}$ for all $\beta\geq \alpha$.
+      Therefore,
+      \begin{align*}
+        \phi_{\alpha-\e}^{\beta+\e} &= b_{\alpha-\e}^{\beta+\e}\rest_{\Phi_{\alpha-\e}}\\
+          &= v_\beta\circ d_\alpha^\beta\circ n_{\alpha-\e}\rest_{\Phi_{\alpha-e}}\\
+          &= \nu_\beta\circ\psi_\alpha^\beta\circ\mu_{\alpha-\e}
+      \end{align*}
+      so Diagram~\ref{dgm:intr1} commutes.
 
-    \begin{equation}\label{dgm:intr1a}\begin{tikzcd}[column sep=scriptsize]
-      % Aa & & & Ba
-      \hom_k(F_{\alpha-\e}, A_{\alpha-\e})  \arrow[to=Ba, "f_{\alpha-\e}"]
-                                            \arrow[to=Ca, "m_{\alpha-\e}"]
-                                            \arrow[to=Ab, "a_{\alpha-\e}^{\beta +\e}"]
-      & & & |[alias=Ba]|
-        \hom_k(F_{\alpha - \e}, B_{\alpha-\e})  \arrow[to=Da, "n_{\alpha -\e}"]
-                                                \arrow[to=Bb, "b_{\alpha-\e}^{\beta+\e}"] \\
-      % & Ca & Da &
-      & |[alias=Ca]|
-      \hom_k(G_\alpha, C_\alpha)  \arrow[to=Da, "g_\alpha"]
-                                  \arrow[to=Cb, "c_\alpha^\beta"]
-      & |[alias=Da]|
-        \hom_k(G_\alpha, D_\alpha)  \arrow[to=Db, "d_\alpha^\beta"] & \\
-      % & Cb & Db
-      & |[alias=Cb]|
-      \hom_k(G_\beta, C_\beta)  \arrow[to=Ab, "u_\beta"]
-                                \arrow[to=Db, "g_\beta"]
-      & |[alias=Db]|
-        \hom_k(G_\beta, D_\beta)  \arrow[to=Bb, "v_\beta"] & \\
-      % Ab & & & Bb
-      |[alias=Ab]|
-      \hom_k(F_{\beta +\e}, A_{\beta + \e}) \arrow[to=Bb, "f_{\beta+\e}"]
-      & & & |[alias=Bb]|
-        \hom_k(F_{\beta+\e}, B_{\beta + \e})
-    \end{tikzcd}\end{equation}
-
-    Because $\mu_{\alpha-\e} : \im~f_{\alpha-\e}\to\im~g_\alpha$, $\im~\mu_{\alpha-\e} = \im~g_\alpha\circ m_{\alpha-\e}$ is a subspace of $\im~g_\alpha$ and $\psi_\alpha^\beta : \im~g_\alpha\to \im~g_\beta$ with $\im~\psi_\alpha^\beta = \im~d_\alpha^\beta\circ g_\alpha$ we have
-    \[ \im~\psi_\alpha^\beta\circ \mu_{\alpha-\e} = \im~d_\alpha^\beta \circ \mu_{\alpha-\e} = \im~d_\alpha^\beta\circ g_\alpha\circ m_{\alpha-\e}.\]
-    Similarly, $\nu_\beta : \im~g_\beta \to \im~f_{\beta + \e}$ where $\im~\nu_\beta = \im~\beta\circ g_\beta$ so, because $\im~\psi_\alpha^\beta\circ\mu_{\alpha-\e}$ is a subspace of $\im~g_{\beta}$,
-    \begin{align*}
-      \im~\nu_\beta\circ\psi_\alpha^\beta\circ\mu_{\alpha-\e} &= \im~v_\beta\circ\psi_\alpha^\beta \circ\mu_{\alpha-\e}\\
-        &= \im~v_\beta\circ d_\alpha^\beta\circ g_\alpha\circ m_{\alpha-\e}.
-    \end{align*}
-    Therefore, by commutativity of Diagram~\ref{dgm:intr1a},
-    \[v_\beta\circ d_\alpha^\beta\circ g_\alpha\circ m_{\alpha-\e} = b_{\alpha-\e}^{\beta +\e}\circ f_{\alpha-\e}\]
-    and, because $\im~b_{\alpha-\e}^{\beta +\e}\circ f_{\alpha-\e} = \im~\phi_{\alpha-e}^{\beta+\e}$, it follows that $\im~\phi_{\alpha-e}^{\beta+\e} = \im~\nu_\beta\circ\psi_\alpha^\beta\circ\mu_{\alpha-\e}$.
-    So Diagram~\ref{dgm:intr1} commutes.
-
-    \item As above the following diagram commutes by hypothesis.
-
-    \begin{equation}\label{dgm:intr2a}\begin{tikzcd}
-      % Aa & & & Ba
-      \hom_k(G_{\alpha-\e}, C_{\alpha-\e})  \arrow[to=Ba, "g_{\alpha-\e}"]
-                                            \arrow[to=Ca, "u_{\alpha-\e}"]
-                                            \arrow[to=Ab, "c_{\alpha-\e}^{\beta +\e}"]
-      & & & |[alias=Ba]|
-        \hom_k(G_{\alpha - \e}, D_{\alpha-\e})  \arrow[to=Da, "v_{\alpha -\e}"]
-                                                \arrow[to=Bb, "d_{\alpha-\e}^{\beta+\e}"] \\
-      % & Ca & Da &
-      & |[alias=Ca]|
-      \hom_k(F_\alpha, A_\alpha)  \arrow[to=Da, "f_\alpha"]
-                                  \arrow[to=Cb, "a_\alpha^\beta"]
-      & |[alias=Da]|
-        \hom_k(F_\alpha, B_\alpha)  \arrow[to=Db, "b_\alpha^\beta"] & \\
-      % & Cb & Db
-      & |[alias=Cb]|
-      \hom_k(F_\beta, A_\beta)  \arrow[to=Ab, "m_\beta"]
-                                \arrow[to=Db, "f_\beta"]
-      & |[alias=Db]|
-        \hom_k(F_\beta, B_\beta)  \arrow[to=Bb, "n_\beta"] & \\
-      % Ab & & & Bb
-      |[alias=Ab]|
-      \hom_k(G_{\beta +\e}, C_{\beta + \e}) \arrow[to=Bb, "g_{\beta+\e}"]
-      & & & |[alias=Bb]|
-        \hom_k(G_{\beta+\e}, D_{\beta + \e})
-    \end{tikzcd}\end{equation}
-
-    The proof is the same as the above.
-    Because $\im~\nu_{\alpha-\e}$ is a subspace of $\im~f_\alpha$ and $\im~\phi_\alpha^\beta = \im~b_\alpha^\beta\circ f_\alpha$,
-    \[ \im~\phi_\alpha^\beta\circ \nu_{\alpha-\e} = \im~b_\alpha^\beta\circ f_\alpha\circ u_{\alpha-e},\]
-    which is a subspact of $\im~f_\beta$.
-    As $\im~\mu_\beta = \im~n_\beta\circ f_\beta$ it follows that
-    \begin{align*}
-      \im~\mu_\beta\circ \phi_\alpha^\beta\circ\nu_{\alpha-\e} &= \im~n_\beta\circ b_\alpha^\beta\circ f_\alpha\circ u_{\alpha-e}\\
-        &= \im~d_{\alpha-\e}^{\beta+\e}\circ f_{\alpha-\e}\\
-        &= \im~\psi_{\alpha-\e}^{\beta+\e}.
-    \end{align*}
-    So Diagram~\ref{dgm:intr2} commutes.
-
-    \item The following diagram commutes by hypothesis.
-
-    \begin{equation}\label{dgm:intr2a}\begin{tikzcd}
-      % Aa & & & Ba
-      |[alias=Aa]|\hom_k(G_{\alpha}, C_{\alpha})  \arrow[to=Ba, "g_{\alpha}"]
-                                      \arrow[to=Ab, "c_{\alpha}^{\beta}"]
-      & & & |[alias=Ba]|
-        \hom_k(G_{\alpha - \e}, D_{\alpha-\e})  \arrow[to=Bb, "d_{\alpha}^{\beta}"] \\
-      % & Ca & Da &
-      & |[alias=Ca]|
-      \hom_k(F_{\alpha-\e}, A_{\alpha-\e})  \arrow[to=Aa, "m_{\alpha-\e}"]
-                                  \arrow[to=Da, "f_{\alpha-\e}"]
-                                  \arrow[to=Cb, "a_{\alpha-\e}^{\beta-\e}"]
-      & |[alias=Da]|
-        \hom_k(F_{\alpha-\e}, B_{\alpha-\e})  \arrow[to=Ba, "n_{\alpha-\e}"]
-                                    \arrow[to=Db, "b_{\alpha-\e}^{\beta-\e}"] & \\
-      % & Cb & Db
-      & |[alias=Cb]|
-      \hom_k(F_{\beta-\e}, A_{\beta-\e})  \arrow[to=Ab, "m_{\beta-\e}"]
-                                          \arrow[to=Db, "f_{\beta-\e}"]
-      & |[alias=Db]|
-        \hom_k(F_{\beta-\e}, B_{\beta-\e})  \arrow[to=Bb, "n_{\beta-\e}"] & \\
-      % Ab & & & Bb
-      |[alias=Ab]|
-      \hom_k(G_{\beta}, C_{\beta}) \arrow[to=Bb, "g_{\beta}"]
-      & & & |[alias=Bb]|
-        \hom_k(G_{\beta}, D_{\beta})
-    \end{tikzcd}\end{equation}
-
-    Because $\im~\phi_{\alpha-\e}^{\beta-\e} = \im~b_{\alpha-e}^{\beta-\e}\circ f_{\alpha-e}$ is a subspace of $\im~f_{\beta -\e}$ and $\im~\mu_{\beta -\e} = \im~n_{\beta -\e}\circ f_{\beta-\e}$ we have
-    \[ \im~\mu_{\beta-\e}\circ\phi_{\alpha-\e}^{\beta +\e} = \im~n_{\beta -\e}\circ b_{\alpha-e}^{\beta-\e}\circ f_{\alpha-e}.\]
-    Similarly, $\im~\mu_{\alpha-\e} = \im~n_{\alpha-\e}\circ f_{\alpha-\e}$ is a subspace of $\im~g_\alpha$ and $\im~\phi_\alpha^\beta = \im~d_\alpha^\beta\circ g_\alpha$ so
-    \begin{align*}
-      \psi_\alpha^\beta \circ\mu_{\alpha-\e} &= \im~d_\alpha^\beta\circ n_{\alpha-\e}\circ f_{\alpha-\e} \\
-        &=\im~n_{\beta -\e}\circ b_{\alpha-e}^{\beta-\e}\circ f_{\alpha-e}\\
-        &=\im~\mu_{\beta -\e}\circ \phi_{\alpha-\e}^{\beta -\e}.
-    \end{align*}
-    So Diagram~\ref{dgm:intr3} commutes.
-
-    \item The following diagram commutes by hypothesis.
-
-    \begin{equation}\label{dgm:intr1a}\begin{tikzcd}[column sep=scriptsize]
-      % Aa & & & Ba
-      \hom_k(F_{\alpha}, A_{\alpha})  \arrow[to=Ba, "f_{\alpha}"]
-                                      \arrow[from=Ca, "u_{\alpha-\e}"]
-                                      \arrow[to=Ab, "a_{\alpha}^{\beta}"]
-      & & & |[alias=Ba]|
-        \hom_k(F_{\alpha}, B_{\alpha})  \arrow[from=Da, "v_{\alpha -\e}"]
-                                        \arrow[to=Bb, "b_{\alpha}^{\beta}"] \\
-      % & Ca & Da &
-      & |[alias=Ca]|
-      \hom_k(G_{\alpha-\e}, C_{\alpha-\e})  \arrow[to=Da, "g_{\alpha-\e}"]
-                                            \arrow[to=Cb, "c_{\alpha-\e}^{\beta-\e}"]
-      & |[alias=Da]|
-        \hom_k(G_{\alpha-\e}, D_{\alpha-\e})  \arrow[to=Db, "d_{\alpha-\e}^{\beta-\e}"] & \\
-      % & Cb & Db
-      & |[alias=Cb]|
-      \hom_k(G_{\beta-\e}, C_{\beta-\e})  \arrow[to=Ab, "u_{\beta-\e}"]
-                                \arrow[to=Db, "g_{\beta-\e}"]
-      & |[alias=Db]|
-        \hom_k(G_{\beta-\e}, D_{\beta-\e})  \arrow[to=Bb, "v_{\beta-\e}"] & \\
-      % Ab & & & Bb
-      |[alias=Ab]|
-      \hom_k(F_{\beta}, A_{\beta}) \arrow[to=Bb, "f_{\beta}"]
-      & & & |[alias=Bb]|
-        \hom_k(F_{\beta}, B_{\beta})
-    \end{tikzcd}\end{equation}
-
-    Because $\im~\nu_{\alpha-\e} = \im~v_{\alpha-\e}\circ g_{\alpha-\e}$ is a subspace of $\im~f_\alpha$ and $\im~\phi_\alpha^\beta = \im~b_\alpha^\beta\circ f_\alpha$ we have
-    \[ \im~\phi_\alpha^\beta\circ \nu_{\alpha-\e} = \im~b_\alpha^\beta\circ v_{\alpha-\e}\circ g_{\alpha-\e}.\]
-    Similarly, $\im~\psi_{\alpha-\e}^{\beta + \e} = \im~d_{\alpha-\e}^{\beta -\e}\circ g_{\alpha-\e}$ is a subspace of $\im~g_{\beta-\e}$, and $\im~\nu_{\beta -\e} = \im~v_{\beta -\e}\circ g_{\beta-\e}$ so
-    \begin{align*}
-      \im~\nu_{\beta -\e}\circ\psi_{\alpha-\e}^{\beta -\e} &= \im~v_{\beta -\e}\circ d_{\alpha-\e}^{\beta-\e}\circ g_{\alpha-\e}\\
-        &=\im~ b_\alpha^\beta\circ v_{\alpha-\e}\circ g_{\alpha-\e}\\
-        &= \im~\phi_\alpha^\beta\circ\nu_{\alpha-\e}.
-    \end{align*}
-    So Diagram~\ref{dgm:intr4} commutes.
-  \end{enumerate}
+    \item Because Diagrams~\ref{dgm:fab} and~\ref{dgm:gcdfab} commute for all $\alpha\leq\beta$ we have that $\im~\phi_\alpha^\beta = \im~b_\alpha^\beta\rest_{\im~f_\alpha}$ is a subspace of $\im~f_\beta = \Phi_\beta$ and $\im~\nu_{\alpha-\e} = \im~v_{\alpha-\e}\rest_{\im~g_{\alpha-\e}}$ is a subspace of $\im~f_\alpha = \Phi_\alpha$, respectively.
+      Therefore,
+      \[ \mu_\beta\circ \phi_\alpha^\beta\circ \nu_{\alpha-\e} = n_\beta\circ b_\alpha^\beta\circ v_{\alpha-\e}\rest_{\Psi_{\alpha-\e}}. \]
+      Because $(F_\alpha, B_\alpha)\sim_\e (G_\alpha, D_\alpha)$, $d_{\alpha-\e}^{\beta+\e} = n_\beta\circ b_\alpha^\beta\circ v_{\alpha-\e}$ so
+      \begin{align*}
+        \psi_{\alpha-\e}^{\alpha+\e} &= d_{\alpha-\e}^{\beta+\e}\rest_{g_{\alpha-\e}}\\
+          &=n_\beta\circ b_\alpha^\beta\circ v_{\alpha-\e}\rest_{g_{\alpha-\e}}\\
+          &= \mu_\beta\circ \phi_\alpha^\beta\circ \nu_{\alpha-\e}
+      \end{align*}
+      so Diagram~\ref{dgm:intr2} commutes.
+    \item As we have shown,
+      \[ \mu_{\beta - \e}\circ \phi_{\alpha-\e}^{\beta-\e} = n_{\beta-\e}\circ b_{\alpha-\e}^{\beta-\e}\rest_{\Phi_{\alpha-\e}}\]
+      and
+      \[ \psi_\alpha^\beta\circ\mu_{\alpha-\e} = d_\alpha^\beta\circ n_{\alpha-\e}\rest_{\Phi_{\alpha-\e}}.\]
+      Because $(F_\alpha, B_\alpha)\sim_\e (G_\alpha, D_\alpha)$, $d_\alpha^\beta\circ n_{\alpha-\e} = n_{\beta-\e}\circ b_{\alpha-\e}$, therefore
+      \begin{align*}
+        \mu_{\beta - \e}\circ \phi_{\alpha-\e}^{\beta-\e} &= n_{\beta-\e}\circ b_{\alpha-\e}^{\beta-\e}\rest_{\Phi_{\alpha-\e}}\\
+          &= d_\alpha^\beta\circ n_{\alpha-\e}\rest_{\Phi_{\alpha-\e}}\\
+          &= \psi_\alpha^\beta\circ\mu_{\alpha-\e}
+      \end{align*}
+      so Diagram~\ref{dgm:intr3} commutes.
+    \item As we have shown,
+      \[\nu_{\beta-\e}\circ \psi_{\alpha-\e}^{\beta-\e} = v_{\beta-\e}\circ d_{\alpha-\e}^{\beta-\e}\rest_{\Psi_{\alpha-\e}}.\]
+      Because $(F_\alpha, B_\alpha)\sim_\e (G_\alpha, D_\alpha)$, $b_\alpha^\beta\circ v_{\alpha-\e} = v_{\beta-\e}\circ d_{\alpha-\e}^{\beta-\e}$, therefore
+      \begin{align*}
+        \phi_\alpha^\beta\circ \nu_{\alpha-\e} &= b_\alpha^\beta\circ v_{\alpha-\e}\rest_{\Psi_{\alpha-\e}}\\
+          &= v_{\beta-\e}\circ d_{\alpha-\e}^{\beta-\e}\rest_{\Psi_{\alpha-\e}}\\
+          &= \nu_{\beta-\e}\circ \psi_{\alpha-\e}^{\beta-\e}
+      \end{align*}
+      so Diagram~\ref{dgm:intr4} commutes.
+    \end{enumerate}
 \end{proof}
 
 \begin{lemma}
