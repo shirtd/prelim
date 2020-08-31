@@ -55,11 +55,14 @@ Corollary~\ref{cor:tcc_iso} therefore follows from Theorem~\ref{thm:separate_iso
 %   \[ \{(P_\alpha^\of, \Q^\of)\to (P_\alpha^\of, \QQ^\of)\}_{\alpha\geq\oo} \]
 %   for all $k$.
 % \end{lemma}
+
+In the following let $(\P)_\alpha := \P\cap B_\alpha$ for all $\alpha\in\R$.
+
 \begin{lemma}\label{lem:ps_inter}
-  The $k$th persistent homology modules of $\{\P\cap B_\alpha\}_{\alpha\in\R}$ are $c\of$-interleaved with those of $\{(P_\alpha^\of\}_{\alpha\in\R}$ for all $k$.
+  The $k$th persistent homology modules of $\{(\P)_\alpha\}_{\alpha\in\R}$ are $c\of$-interleaved with those of $\{P_\alpha^\of\}_{\alpha\in\R}$ for all $k$.
 \end{lemma}
 \begin{proof}
-  For all $x\in \P\cap B_\alpha$ we have $f(x)\leq \alpha$ and some $p\in P$ such that $\dist(x, p) < \of$.
+  For all $x\in (\P)_\alpha$ we have $f(x)\leq \alpha$ and some $p\in P$ such that $\dist(x, p) < \of$.
   Therefore, because $f$ is $c$-Lipschitz,
   \[ f(p)\leq f(x) + c\dist(x, p) < \alpha + c\delta.\]
   So $p\in P_{\alpha + c\delta}$ therefore $x\in P_{\alpha+c\delta}^\delta$.
@@ -68,9 +71,9 @@ Corollary~\ref{cor:tcc_iso} therefore follows from Theorem~\ref{thm:separate_iso
   So there exists some $p\in P$ such that $f(p)\leq \alpha$ and $\dist(x, p) < \delta$.
   Once again, because $f$ is $c$-Lipschitz,
   \[ f(x)\leq f(p)+c\dist(x, p) < \alpha + c\of. \]
-  So $x\in \P\cap B_{\alpha+c\delta}$.
+  So $x\in (\P)_{\alpha+c\delta}$.
 
-  That is, $P_{\alpha-c\delta}^\delta\subseteq \P\cap B_\alpha\subseteq P_{\alpha + c\delta}^\delta$, therefore $\{\P\cap B_\alpha\}$ is $c\of$-interleaved with $\{(P_\alpha^\of\}$.
+  That is, $P_{\alpha-c\delta}^\delta\subseteq (\P)_\alpha\subseteq P_{\alpha + c\delta}^\delta$, therefore $\{(\P)_\alpha\}$ is $c\of$-interleaved with $\{P_\alpha^\of\}$.
   % Now, for any $k > 0$, let
   % \[\Sigma_\alpha := \im~\hom_k((\P\cap B_\alpha, \Q^\of)\to (\P\cap B_\alpha, \QQ^\of))\]
   % and

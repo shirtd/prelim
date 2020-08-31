@@ -189,12 +189,25 @@ Let $\e = \max(\e_1, \e_2, \e_3)$ so both pairs of relative persistence modules 
   \[ \psi_\alpha^\beta = d_\alpha^\beta\rest_{\Psi_\alpha},\ \phi_\alpha^\beta = b_\alpha^\beta\rest_{\Phi_\alpha},\]
   \[ \mu_\alpha = n_\alpha\rest_{\Phi_\alpha},\text{ and } \nu_\alpha = v_\alpha\rest_{\Psi_\alpha}. \]
 
-  \begin{enumerate}[label=\Roman*.]
-    \item $\im~\psi_\alpha^\beta = \im~d_\alpha^\beta\rest_{\im~g_\alpha}$ is a subspace of $\im~g_\beta = \Psi_\beta$ as Diagram~\ref{dgm:gcd} commutes for all $\beta\geq\alpha$, so
+  We first make the following observations for any $\alpha\leq\beta$.
+  \begin{itemize}
+    \item Because Diagram~\ref{dgm:gcd} commutes $\im~\psi_\alpha^\beta = \im~d_\alpha^\beta\rest_{\im~g_\alpha}$ is a subspace of $\im~g_\beta = \Psi_\beta$, so
       \[ \nu_\beta\circ\psi_\alpha^\beta = v_\beta\rest_{\Psi_\beta}\circ d_\alpha^\beta\rest_{\Psi_\alpha} = v_\beta\circ d_\alpha^\beta\rest_{\Psi_\alpha}. \]
-      Similarly, because Diagram~\ref{dgm:fabgcd} commutes $\im~\mu_{\alpha-\e} = \im~n_{\alpha-\e}\rest_{\Phi_{\alpha-\e}}$ is a subspace of $\im~g_\alpha = \Psi_\alpha$, therefore
+    \item Because Diagram~\ref{dgm:fabgcd} commutes $\im~\mu_{\alpha-\e} = \im~n_{\alpha-\e}\rest_{\Phi_{\alpha-\e}}$ is a subspace of $\im~g_\alpha = \Psi_\alpha$, so
       \[ \phi_\alpha^\beta\circ\mu_{\alpha-\e} = d_\alpha^\beta\rest_{\Psi_\alpha}\circ n_{\alpha-\e}\rest_{\Phi_{\alpha-\e}} = d_\alpha^\beta\circ n_{\alpha-\e}\rest_{\Phi_{\alpha-\e}}.\]
-      So $\im~\phi_\alpha^\beta\circ\mu_{\alpha-\e}$ is a subspace of $\im~g_\beta = \Psi_\beta$ so
+    \item Because Diagram~\ref{dgm:fab} commutes $\im~\phi_\alpha^\beta = \im~b_\alpha^\beta\rest_{\im~f_\alpha}$ is a subspace of $\im~f_\beta = \Phi_\beta$, so
+      \[\phi_\alpha^\beta\circ \nu_{\alpha-\e} = b_\alpha^\beta\rest_{\Phi_\alpha}\circ v_{\alpha-\e}\rest_{\Psi_{\alpha-\e}} = b_\alpha^\beta\circ v_{\alpha-\e}\rest_{\Psi_{\alpha-\e}}.\]
+    \item Because Diagram~\ref{dgm:gcdfab} commutes $\im~\nu_{\alpha-\e} = \im~v_{\alpha-\e}\rest_{\im~g_{\alpha-\e}}$ is a subspace of $\im~f_\alpha = \Phi_\alpha$, so
+      \[ \mu_\beta\circ \phi_\alpha^\beta = n_\beta\rest_{\Phi_\beta}\circ b_\alpha^\beta\rest_{\Phi_\alpha} = n_\beta\circ b_\alpha^\beta\rest_{\Phi_\alpha}. \]
+  \end{itemize}
+
+  \begin{enumerate}[label=\Roman*.]
+    \item $\im~\phi_\alpha^\beta\circ\mu_{\alpha-\e}$ is a subspace of $\im~g_\beta = \Psi_\beta$
+      % $\im~\psi_\alpha^\beta = \im~d_\alpha^\beta\rest_{\im~g_\alpha}$ is a subspace of $\im~g_\beta = \Psi_\beta$ as Diagram~\ref{dgm:gcd} commutes for all $\beta\geq\alpha$, so
+      % \[ \nu_\beta\circ\psi_\alpha^\beta = v_\beta\rest_{\Psi_\beta}\circ d_\alpha^\beta\rest_{\Psi_\alpha} = v_\beta\circ d_\alpha^\beta\rest_{\Psi_\alpha}. \]
+      % Similarly, because Diagram~\ref{dgm:fabgcd} commutes $\im~\mu_{\alpha-\e} = \im~n_{\alpha-\e}\rest_{\Phi_{\alpha-\e}}$ is a subspace of $\im~g_\alpha = \Psi_\alpha$, therefore
+      % \[ \phi_\alpha^\beta\circ\mu_{\alpha-\e} = d_\alpha^\beta\rest_{\Psi_\alpha}\circ n_{\alpha-\e}\rest_{\Phi_{\alpha-\e}} = d_\alpha^\beta\circ n_{\alpha-\e}\rest_{\Phi_{\alpha-\e}}.\]
+      % So $\im~\phi_\alpha^\beta\circ\mu_{\alpha-\e}$ is a subspace of $\im~g_\beta = \Psi_\beta$ so
       \[ \nu_\beta\circ\psi_\alpha^\beta\circ\mu_{\alpha-\e} = v_\beta\circ d_\alpha^\beta\circ n_{\alpha-\e}\rest_{\Phi_{\alpha-\e}}.\]
       Because $(F_\alpha, B_\alpha)\sim_\e (G_\alpha, D_\alpha)$, $b_{\alpha-\e}^{\beta+\e} = v_\beta\circ d_\alpha^\beta\circ n_{\alpha-\e}$ for all $\beta\geq \alpha$.
       Therefore,
@@ -205,8 +218,9 @@ Let $\e = \max(\e_1, \e_2, \e_3)$ so both pairs of relative persistence modules 
       \end{align*}
       so Diagram~\ref{dgm:intr1} commutes.
 
-    \item Because Diagrams~\ref{dgm:fab} and~\ref{dgm:gcdfab} commute for all $\alpha\leq\beta$ we have that $\im~\phi_\alpha^\beta = \im~b_\alpha^\beta\rest_{\im~f_\alpha}$ is a subspace of $\im~f_\beta = \Phi_\beta$ and $\im~\nu_{\alpha-\e} = \im~v_{\alpha-\e}\rest_{\im~g_{\alpha-\e}}$ is a subspace of $\im~f_\alpha = \Phi_\alpha$, respectively.
-      Therefore,
+    \item $\phi_\alpha^\beta\circ \nu_{\alpha-\e}$ is a subspace of $\im~f_\beta = \Phi_\beta$ so
+      % Because Diagrams~\ref{dgm:fab} and~\ref{dgm:gcdfab} commute for all $\alpha\leq\beta$ we have that $\im~\phi_\alpha^\beta = \im~b_\alpha^\beta\rest_{\im~f_\alpha}$ is a subspace of $\im~f_\beta = \Phi_\beta$ and $\im~\nu_{\alpha-\e} = \im~v_{\alpha-\e}\rest_{\im~g_{\alpha-\e}}$ is a subspace of $\im~f_\alpha = \Phi_\alpha$, respectively.
+      % Therefore,
       \[ \mu_\beta\circ \phi_\alpha^\beta\circ \nu_{\alpha-\e} = n_\beta\circ b_\alpha^\beta\circ v_{\alpha-\e}\rest_{\Psi_{\alpha-\e}}. \]
       Because $(F_\alpha, B_\alpha)\sim_\e (G_\alpha, D_\alpha)$, $d_{\alpha-\e}^{\beta+\e} = n_\beta\circ b_\alpha^\beta\circ v_{\alpha-\e}$ so
       \begin{align*}
@@ -215,42 +229,84 @@ Let $\e = \max(\e_1, \e_2, \e_3)$ so both pairs of relative persistence modules 
           &= \mu_\beta\circ \phi_\alpha^\beta\circ \nu_{\alpha-\e}
       \end{align*}
       so Diagram~\ref{dgm:intr2} commutes.
-    \item As we have shown,
-      \[ \mu_{\beta - \e}\circ \phi_{\alpha-\e}^{\beta-\e} = n_{\beta-\e}\circ b_{\alpha-\e}^{\beta-\e}\rest_{\Phi_{\alpha-\e}}\]
-      and
-      \[ \psi_\alpha^\beta\circ\mu_{\alpha-\e} = d_\alpha^\beta\circ n_{\alpha-\e}\rest_{\Phi_{\alpha-\e}}.\]
-      Because $(F_\alpha, B_\alpha)\sim_\e (G_\alpha, D_\alpha)$, $d_\alpha^\beta\circ n_{\alpha-\e} = n_{\beta-\e}\circ b_{\alpha-\e}$, therefore
+    \item Because
+      \[ \mu_{\beta - \e}\circ \phi_{\alpha-\e}^{\beta-\e} = n_{\beta-\e}\circ b_{\alpha-\e}^{\beta-\e}\rest_{\Phi_{\alpha-\e}}, \]
+      \[ \psi_\alpha^\beta\circ\mu_{\alpha-\e} = d_\alpha^\beta\circ n_{\alpha-\e}\rest_{\Phi_{\alpha-\e}},\]
+      and $(F_\alpha, B_\alpha)\sim_\e (G_\alpha, D_\alpha)$ imples $d_\alpha^\beta\circ n_{\alpha-\e} = n_{\beta-\e}\circ b_{\alpha-\e}$, we have
       \begin{align*}
         \mu_{\beta - \e}\circ \phi_{\alpha-\e}^{\beta-\e} &= n_{\beta-\e}\circ b_{\alpha-\e}^{\beta-\e}\rest_{\Phi_{\alpha-\e}}\\
           &= d_\alpha^\beta\circ n_{\alpha-\e}\rest_{\Phi_{\alpha-\e}}\\
-          &= \psi_\alpha^\beta\circ\mu_{\alpha-\e}
+          &= \psi_\alpha^\beta\circ\mu_{\alpha-\e}.
       \end{align*}
-      so Diagram~\ref{dgm:intr3} commutes.
-    \item As we have shown,
-      \[\nu_{\beta-\e}\circ \psi_{\alpha-\e}^{\beta-\e} = v_{\beta-\e}\circ d_{\alpha-\e}^{\beta-\e}\rest_{\Psi_{\alpha-\e}}.\]
-      Because $(F_\alpha, B_\alpha)\sim_\e (G_\alpha, D_\alpha)$, $b_\alpha^\beta\circ v_{\alpha-\e} = v_{\beta-\e}\circ d_{\alpha-\e}^{\beta-\e}$, therefore
+      So Diagram~\ref{dgm:intr3} commutes.
+    \item Because
+      \[\nu_{\beta-\e}\circ \psi_{\alpha-\e}^{\beta-\e} = v_{\beta-\e}\circ d_{\alpha-\e}^{\beta-\e}\rest_{\Psi_{\alpha-\e}},\]
+      \[\phi_\alpha^\beta\circ \nu_{\alpha-\e} = b_\alpha^\beta\circ v_{\alpha-\e}\rest_{\Psi_{\alpha-\e}},\]
+      and $(F_\alpha, B_\alpha)\sim_\e (G_\alpha, D_\alpha)$ implies $b_\alpha^\beta\circ v_{\alpha-\e} = v_{\beta-\e}\circ d_{\alpha-\e}^{\beta-\e}$ we have
       \begin{align*}
         \phi_\alpha^\beta\circ \nu_{\alpha-\e} &= b_\alpha^\beta\circ v_{\alpha-\e}\rest_{\Psi_{\alpha-\e}}\\
           &= v_{\beta-\e}\circ d_{\alpha-\e}^{\beta-\e}\rest_{\Psi_{\alpha-\e}}\\
-          &= \nu_{\beta-\e}\circ \psi_{\alpha-\e}^{\beta-\e}
+          &= \nu_{\beta-\e}\circ \psi_{\alpha-\e}^{\beta-\e}.
       \end{align*}
-      so Diagram~\ref{dgm:intr4} commutes.
+      So Diagram~\ref{dgm:intr4} commutes.
     \end{enumerate}
 \end{proof}
 
 \begin{lemma}
   The $k$th persistent homology modules of
-  \[ \{(\P\cap B_\alpha), \Q^\delta)\to (\P\cap B_\alpha, \QQ^\delta)\}_{\alpha\in\Omega} \]
+  \[ \{(\P)_\alpha, \Q^\delta)\to ((\P)_\alpha, \QQ^\delta)\}_{\alpha\geq\omega+2c\of} \]
   are $c\of$-interleaved with those of
-  \[ \{(\P_\alpha, \Q^\delta)\to (\P_\alpha,\QQ^\delta)\}_{\alpha\in\Omega} \]
+  \[ \{(\P_\alpha, \Q^\delta)\to (\P_\alpha,\QQ^\delta)\}_{\alpha\geq \omega+2c\of} \]
   for all $k > 0$.
 \end{lemma}
 \begin{proof}
-  By Lemma~\ref{lem:ps_inter} $\P\cap B_\alpha\sim_{c\of} \P_\alpha$ for all $\alpha\in\R$ and therefore
-  \[ (\P\cap B_\alpha, \Q^\delta)\sim_{c\of} (\P_\alpha, \Q^\delta)\text{ for } \alpha \geq \omega - 2c\of\]
+  By Lemma~\ref{lem:ps_inter} $(\P)_\alpha\sim_{c\of} \P_\alpha$ for all $\alpha\in\R$ and therefore
+  \[ ((\P)_\alpha, \Q^\delta)\sim_{c\of} (\P_\alpha, \Q^\delta)\text{ for } \alpha \geq \omega - 2c\of\]
   and
-  \[ (\P\cap B_\alpha, \QQ^\delta)\sim_{c\of} (\P_\alpha, \QQ^\delta)\text{ for }\alpha \geq \omega + 2c\delta.\]
-  Because all maps are induced by inclusion the required diagrams commute, so the result follows from Lemma~\ref{lem:short_pair_inter}.
+  \[ ((\P)_\alpha, \QQ^\delta)\sim_{c\of} (\P_\alpha, \QQ^\delta)\text{ for }\alpha \geq \omega + 2c\delta.\]
+  Because all maps are induced by inclusion the following diagrams commute for all $\beta\geq\alpha\geq\omega+2c\delta$.
+
+  \begin{scriptsize}
+  \vspace{3ex}\begin{subequations}
+  \begin{minipage}{0.5\textwidth}\begin{equation}\label{dgm:fab}
+  \begin{tikzcd}[column sep=scriptsize]
+    \hom_k((\P)_\alpha, \Q^\delta)\arrow{r} \arrow{d} &
+    \hom_k((\P)_\alpha, \QQ^\delta)\arrow{d} \\
+    %
+    \hom_k((\P)_\beta, \Q^\delta)\arrow{r} &
+    \hom_k(\P)_\beta, \QQ^\delta)
+  \end{tikzcd}\end{equation}\end{minipage}
+  \begin{minipage}{0.5\textwidth}\begin{equation}\label{dgm:gcd}
+  \begin{tikzcd}[column sep=scriptsize]
+    \hom_k(\P_\alpha, \Q^\of)\arrow{r} \arrow{d} &
+    \hom_k(\P_\alpha, \QQ^\of)\arrow{d} \\
+    %
+    \hom_k(\P_\beta, \Q^\of)\arrow{r} &
+    \hom_k(\P_\beta, \QQ^\of)
+  \end{tikzcd}\end{equation}\end{minipage}
+  \end{subequations}\vspace{3ex}
+
+  \vspace{3ex}\begin{subequations}
+  \begin{minipage}{0.5\textwidth}\begin{equation}\label{dgm:fabgcd}
+  \begin{tikzcd}[column sep=scriptsize]
+    \hom_k((\P)_\alpha, \Q^\delta)\arrow{r}\arrow{d} &
+    \hom_k((\P)_\alpha, \QQ^\delta)\arrow{d}\\
+    %
+    \hom_k(\P_{\alpha+c\delta}, \Q^\of)\arrow{r}&
+    \hom_k(\P_{\alpha+c\delta}, \QQ^\of)
+  \end{tikzcd}\end{equation}\end{minipage}
+  \begin{minipage}{0.5\textwidth}\begin{equation}\label{dgm:gcdfab}
+  \begin{tikzcd}[column sep=scriptsize]
+    \hom_k(\P_\alpha, \Q^\of)\arrow{r}\arrow{d} &
+    \hom_k(\P_\alpha, \Q^\of)\arrow{d}\\
+    %
+    \hom_k((\P)_{\alpha+\e}, \Q^\delta)\arrow{r} &
+    \hom_k((\P)_{\alpha+\e}, \QQ^\delta)
+  \end{tikzcd}\end{equation}\end{minipage}
+  \end{subequations}\vspace{3ex}
+  \end{scriptsize}
+
+  The result therefore follows from Lemma~\ref{lem:short_pair_inter}.
 \end{proof}
 
 \begin{corollary}\label{cor:geo_inter}
