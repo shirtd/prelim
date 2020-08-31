@@ -150,7 +150,7 @@ Let $\e = \max(\e_1, \e_2, \e_3)$ so both pairs of relative persistence modules 
     \Phi_{\alpha-\e}  \arrow[to=Fb, "\phi_{\alpha-\e}^{\beta-\e}"]
                       \arrow[to=Ga, "\mu_{\alpha-\e}"]
     & |[alias=Fb]|
-      \Phi_{\beta+\e} \arrow[to=Gb, "\mu_{\beta -\e}"] \\
+      \Phi_{\beta-\e} \arrow[to=Gb, "\mu_{\beta -\e}"] \\
     % & Ga & Gb
     & |[alias=Ga]|
     \Psi_\alpha \arrow[to=Gb, "\psi_\alpha^\beta"]
@@ -180,7 +180,7 @@ Let $\e = \max(\e_1, \e_2, \e_3)$ so both pairs of relative persistence modules 
     \Psi_{\alpha-\e}  \arrow[to=Gb, "\psi_{\alpha-\e}^{\beta-\e}"]
                       \arrow[to=Fa, "\nu_{\alpha-\e}"]
     & |[alias=Gb]|
-      \Psi_{\beta + \e} \arrow[to=Fb, "\nu_{\beta-\e}"]&
+      \Psi_{\beta - \e} \arrow[to=Fb, "\nu_{\beta-\e}"]&
   \end{tikzcd}\end{equation}
   \end{minipage}
   \end{subequations}
@@ -307,6 +307,82 @@ Let $\e = \max(\e_1, \e_2, \e_3)$ so both pairs of relative persistence modules 
   \end{scriptsize}
 
   The result therefore follows from Lemma~\ref{lem:short_pair_inter}.
+\end{proof}
+
+\begin{lemma}
+  The $k$th persistent homology modules of $\{\hom_k(B_\alpha, \B)\}_{\alpha < 2c\of}$ and $\{(\P_\alpha, \Q^\delta)\to (\P_\alpha,\QQ^\delta)\}_{\alpha < 2c\of}$ are $c\of$-interleaved.
+\end{lemma}
+\begin{proof}
+  Let $\Psi_\alpha := \hom_k(B_\alpha, \B)$ and $\Phi_\alpha := \im~\hom_k((\P_\alpha, \Q^\delta)\to (\P_\alpha,\QQ^\delta))$.
+  Let $\psi_\alpha^\beta : \Psi_\alpha\to \Psi_\beta$ and $\phi_\alpha^\beta : \Phi_\alpha\to \Phi_\beta$.
+
+  First note that $\Phi_{\alpha-c\delta} = \im~\hom_k((\P_\alpha, \Q^\delta)\to (\P_\alpha,\QQ^\delta)) = 0$ for all $\alpha\leq \omega+2c\delta$ as
+  \[\hom_k(\P_{\alpha-c\delta},\QQ^\delta) = \hom_k(\P_{\omega + c\delta}, \QQ^\of) = 0.\]
+  So the following diagrams ``commute'' trivially.\textbf{TODO: need to define $\mu_\alpha, \nu_\alpha$}
+
+  \vspace{3ex}
+  \begin{subequations}
+  \begin{minipage}{0.45\textwidth}
+  \begin{equation}\label{dgm:intrr1}\begin{tikzcd}[column sep=scriptsize]
+    % Fa & & & Fb
+    \Phi_{\alpha-c\of}  \arrow[to=Fb, "\phi_{\alpha-c\of}^{\beta+c\of}"]
+                      \arrow[to=Ga, "\mu_{\alpha-c\of}"]
+    & & & |[alias=Fb]|
+      \Phi_{\beta+c\of} \\
+    % & Ga & Gb &
+    & |[alias=Ga]|
+    \Psi_\alpha \arrow[to=Gb, "\psi_\alpha^\beta"]
+    & |[alias=Gb]|
+      \Psi_\beta \arrow[to=Fb, "\nu_\beta"] &
+  \end{tikzcd}\end{equation}
+  \end{minipage} \begin{minipage}{0.45\textwidth}
+  \begin{equation}\label{dgm:intrr3}\begin{tikzcd}
+    % Fa & Fb &
+    \Phi_{\alpha-c\of}  \arrow[to=Fb, "\phi_{\alpha-c\of}^{\beta-c\of}"]
+                      \arrow[to=Ga, "\mu_{\alpha-c\of}"]
+    & |[alias=Fb]|
+      \Phi_{\beta-c\of} \arrow[to=Gb, "\mu_{\beta -c\of}"] \\
+    % & Ga & Gb
+    & |[alias=Ga]|
+    \Psi_\alpha \arrow[to=Gb, "\psi_\alpha^\beta"]
+    & |[alias=Gb]|
+      \Psi_\beta
+  \end{tikzcd}\end{equation}
+  \end{minipage}
+  \end{subequations}
+  \vspace{3ex}
+
+  Now, we note that that $\Psi_{\alpha-c\delta} = \hom_k(B_{\alpha-c\delta}, \B) = 0$ for all $\alpha\leq \omega+c\delta$.
+  Suppose $\alpha\in (\omega+c\delta, \omega+2c\delta)$ and $[x]\in\hom_k(B_{\alpha-c\of}, \B)$.
+  So $\beta+c\of \geq \alpha+c\delta > \omega +2c\delta$ thus $\BB\subseteq B_{\beta+c\of}$.
+  As $\hom_k(A, \B)\cong \hom_k(A, \BB)$ for all $A$ containing $\BB$ we have $\hom_k(B_{\beta+c\of}, \B)\cong\hom_k(B_{\beta+c\of}, \BB)$.
+  Therefore, $[x]\in\hom_k(B_{\alpha-c\of}, \B)$ cannot be in $\hom_k(B_{\beta+c\of}, \B)$, so $[x]\in\ker~\psi_{\alpha-c\of}^{\beta+c\of}$ for all $\beta\geq\alpha$, $\alpha\leq 2c\delta$, and the following diagram ``commutes'' trivially.
+  \begin{equation}\label{dgm:intrr2}\begin{tikzcd}
+    % Fa & & & Fb
+    & |[alias=Fa]|
+    \Phi_\alpha  \arrow[to=Fb, "\phi_\alpha^\beta"]
+    & |[alias=Fb]|
+      \Phi_\beta  \arrow[to=Gb, "\mu_\beta"] & \\
+    % & Ga & Gb &
+    \Psi_{\alpha-c\of}  \arrow[to=Gb, "\psi_{\alpha-c\of}^{\beta+c\of}"]
+                      \arrow[to=Fa, "\nu_{\alpha-c\of}"]
+    & & & |[alias=Gb]|
+      \Psi_{\beta + c\of}
+  \end{tikzcd}\end{equation}
+
+  \textbf{TODO: show the following diagram commutes for all $\alpha\leq\beta$, $\alpha\leq \omega + 2c\delta$.}
+  \begin{equation}\label{dgm:intr4}\begin{tikzcd}
+    % & Fa & Fb
+    & |[alias=Fa]|
+    \Phi_\alpha  \arrow[to=Fb, "\phi_\alpha^\beta"]
+    & |[alias=Fb]|
+      \Phi_\beta\\
+    % Ga & Gb &
+    \Psi_{\alpha-c\of}  \arrow[to=Gb, "\psi_{\alpha-c\of}^{\beta-c\of}"]
+                      \arrow[to=Fa, "\nu_{\alpha-c\of}"]
+    & |[alias=Gb]|
+      \Psi_{\beta - c\of} \arrow[to=Fb, "\nu_{\beta-c\of}"]&
+  \end{tikzcd}\end{equation}
 \end{proof}
 
 \begin{corollary}\label{cor:geo_inter}

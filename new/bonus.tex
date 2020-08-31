@@ -98,8 +98,8 @@
 \clearpage
 
 \begin{theorem}\label{thm:separate_iso_coker}
-  Suppose $B\subseteq B'$ all surround $D$ in $X$ and $A\subseteq D$ such that $B'\subseteq A$.
-  Suppose $S$ surrounds $L$ in $D$ is such that $B\subseteq \ext{S} \subseteq B'$.
+  Suppose $B\subseteq B'$ surround $D$ in $X$ and $A\subseteq D$ such that $B'\subseteq A$.
+  Suppose $S$ surrounds $L$ in $D$ is such that $B\cap L\subseteq B$ and $D\setminus B'\subseteq L\setminus S$.
   Let $\eta^k : \hom_k(B)\to \hom_k(B')$ be induced by inclusion.
 
   If $\eta^k$ is surjective then
@@ -127,8 +127,11 @@
   With our hypothesis that $\eta^{k-1}$ is surjective $c$ is therefore surjective by Lemma~\ref{lem:five}.
 
   Because $S$ surrounds $L$ in $D$, $\hom_k(L\cap A, S)\cong \hom_k(A, \ext{S})$ for all $k$ by Lemma~\ref{lem:excision}.
-  Because $c$ is induced by inclusion it factors factors through $\hom_k(A, \ext{S})$ as
-  \[ \hom_k(A, B)\xrightarrow{m}\hom_k(A, \ext{S})\xrightarrow{n}\hom_k(A, B').\]
+  Note that $B\setminus (D\setminus L) = B\cap L\subseteq S$ implies $B\subseteq S\sqcup(D\setminus L) = \ext{S}$.
+  Moreover, $D\setminus \ext{S} = (D\setminus S)\cap L = L\setminus S$ so $D\setminus B'\subseteq L\setminus S = D\setminus\ext{S}$ implies $\ext{S}\subseteq B'$.
+  So we have a sequence of inclusions
+  \[ \hom_k(A, B)\xrightarrow{m}\hom_k(A, \ext{S})\xrightarrow{n}\hom_k(A, B')\]
+  where $c = n\circ m$ factors through $\hom_k(A, \ext{S})$.
   As we have shown, $c = n\circ m$ is surjective, therefore $n : \hom_k(A, \ext{S}) \to \hom_k(A, B')$ must be surjective.
 
   Now, consider the following long exact sequence of the triple $(\ext{S}, B', A)$.
