@@ -310,7 +310,7 @@ Let $\e = \max(\e_1, \e_2, \e_3)$ so both pairs of relative persistence modules 
 \end{proof}
 
 \begin{lemma}
-  The $k$th persistent homology modules of $\{\hom_k(B_\alpha, \B)\}_{\alpha < 2c\of}$ and $\{(\P_\alpha, \Q^\delta)\to (\P_\alpha,\QQ^\delta)\}_{\alpha < 2c\of}$ are $c\of$-interleaved.
+  If $\eta^k : \hom_k(\b)\to \hom_k(\BB)$ is surjective and $\im~\eta^k\cong \hom_k(\bb)$ then the $k$th persistent homology modules of $\{\hom_k(B_\alpha, \B)\}_{\alpha < 2c\of}$ and $\{(\P_\alpha, \Q^\delta)\to (\P_\alpha,\QQ^\delta)\}_{\alpha < 2c\of}$ are $c\of$-interleaved for all $k$.
 \end{lemma}
 \begin{proof}
   Let $\Psi_\alpha := \hom_k(B_\alpha, \B)$ and $\Phi_\alpha := \im~\hom_k((\P_\alpha, \Q^\delta)\to (\P_\alpha,\QQ^\delta))$.
@@ -320,7 +320,7 @@ Let $\e = \max(\e_1, \e_2, \e_3)$ so both pairs of relative persistence modules 
 
   \begin{scriptsize}
   \vspace{3ex}\begin{subequations}
-  \begin{minipage}{0.5\textwidth}\begin{equation}\label{dgm:fab}
+  \begin{minipage}{0.5\textwidth}\begin{equation}\label{dgm:intr_tight1a}
   \begin{tikzcd}[column sep=scriptsize]
     \hom_k(B_\alpha, \b)\arrow{r}{\rho_\alpha} \arrow{d}{f_\alpha^\beta} &
     \hom_k(B_\alpha, \B)\arrow{d}{g_\alpha^\beta} \\
@@ -330,7 +330,7 @@ Let $\e = \max(\e_1, \e_2, \e_3)$ so both pairs of relative persistence modules 
   \end{tikzcd}\end{equation}
   % \end{minipage}
   % \begin{minipage}{0.5\textwidth}\begin{equation}\label{dgm:gcd}
-  \begin{equation}
+  \begin{equation}\label{dgm:intr_tight1b}
   \begin{tikzcd}[column sep=scriptsize]
     \hom_k(B_\alpha, \B)\arrow{r}{\sigma_\alpha} \arrow{d}{g_\alpha^\beta} &
     \hom_k(B_\alpha, \BB)\arrow{d}{h_\alpha^\beta} \\
@@ -338,7 +338,7 @@ Let $\e = \max(\e_1, \e_2, \e_3)$ so both pairs of relative persistence modules 
     \hom_k(B_\beta, \B)\arrow{r}{\sigma_\beta} &
     \hom_k(B_\beta, \BB)
   \end{tikzcd}\end{equation}%\end{minipage}
-  \begin{equation}
+  \begin{equation}\label{dgm:intr_tight1c}
   \begin{tikzcd}[column sep=scriptsize]
     \hom_k(B_{\alpha-c\of}, \b)\arrow{r}{\rho_{\alpha-c\of}} \arrow{d}{u_{\alpha-c\of}} &
     \hom_k(B_{\alpha-c\of}, \B)\arrow{d}{v_{\alpha-c\of}} \\
@@ -348,7 +348,7 @@ Let $\e = \max(\e_1, \e_2, \e_3)$ so both pairs of relative persistence modules 
   \end{tikzcd}\end{equation}\end{minipage}
   % \end{subequations}\vspace{3ex}
   % \vspace{3ex}\begin{subequations}
-  \begin{minipage}{0.5\textwidth}\begin{equation}\label{dgm:fab}
+  \begin{minipage}{0.5\textwidth}\begin{equation}\label{dgm:intr_tight1d}
   \begin{tikzcd}[column sep=scriptsize]
     \hom_k(\P_\alpha, \Q^\of)\arrow{r}{\tau_\alpha} \arrow{d}{a_\alpha^\beta} &
     \hom_k(\P_\alpha, \QQ^\of)\arrow{d}{b_\alpha^\beta} \\
@@ -358,7 +358,7 @@ Let $\e = \max(\e_1, \e_2, \e_3)$ so both pairs of relative persistence modules 
   \end{tikzcd}\end{equation}
   % \end{minipage}
   % \begin{minipage}{0.5\textwidth}\begin{equation}\label{dgm:fab}
-  \begin{equation}
+  \begin{equation}\label{dgm:intr_tight1e}
   \begin{tikzcd}[column sep=scriptsize]
     \hom_k(\ext{\P_\alpha}, \ext{\Q^\of})\arrow{r}{\ext{\tau_\alpha}} \arrow{d}{\ext{a_\alpha^\beta}} &
     \hom_k(\ext{\P_\alpha}, \ext{\QQ^\of})\arrow{d}{\ext{b_\alpha^\beta}} \\
@@ -370,7 +370,7 @@ Let $\e = \max(\e_1, \e_2, \e_3)$ so both pairs of relative persistence modules 
   % \end{subequations}\vspace{3ex}
   % \vspace{3ex}\begin{subequations}
   % \begin{minipage}{0.5\textwidth}\begin{equation}\label{dgm:fab}
-  \begin{equation}
+  \begin{equation}\label{dgm:intr_tight1f}
   \begin{tikzcd}[column sep=scriptsize]
     \hom_k(\P_{\alpha-c\of}, \Q^\delta)\arrow{r}{\tau_{\alpha-c\of}} \arrow{d}{m_{\alpha-c\of}} &
     \hom_k(\P_{\alpha-c\of}, \QQ^\delta)\arrow{d}{n_{\alpha-c\of}} \\
@@ -387,20 +387,22 @@ Let $\e = \max(\e_1, \e_2, \e_3)$ so both pairs of relative persistence modules 
   \[ t_\alpha^\beta := b_\alpha^\beta\rest_{\im~\tau_\alpha},\ \ext{t_\alpha^\beta} = \ext{b_\alpha^\beta}\rest_{\im~\ext{\tau_\alpha}}\]
   \[ p_\alpha^\beta := g_\alpha^\beta\rest_{\im~\rho_\alpha},\ s_\alpha^\beta := h_\alpha^\beta\rest_{\im~\sigma_\alpha}.\]
   % Noting that $\rho_\alpha$ is surjective for all $\alpha\in\R$ and $\sigma_\alpha$ is an isomorphism for all $\alpha\geq\omega+2c\of$ we also define
-  \[q_\alpha^\beta := \sigma_\beta\circ g_\alpha^\beta\rest_{\im~\rho_\alpha}.\]%\ r_\alpha^\beta := \rho_\beta\circ h_\alpha^\beta\rest_{\im~\sigma_\alpha}.\]
-  Noting that $\rho_\alpha$ is surjective for all $\alpha\in\R$ and $\sigma_\alpha$ is an isomorphism for all $\alpha\geq\omega+2c\of$ we observe that $g_\alpha^\beta$ is a map from $\hom_k(B_\alpha, \B)\cong \im\sigma_\alpha = \hom_k(B_\alpha, \BB)$ for $\alpha\geq\omega+2c\of$ to $\hom_k(B_\beta, \B)= \im~\rho_\beta$.
+  \[q_\alpha^\beta := \sigma_\beta\circ g_\alpha^\beta\rest_{\im~\rho_\alpha}.\] %\ r_\alpha^\beta := \rho_\beta\circ h_\alpha^\beta\rest_{\im~\sigma_\alpha}.\]
+  Noting that $\rho_\alpha$ is surjective for all $\alpha\in\R$ and $\sigma_\alpha$ is an isomorphism for all $\alpha\geq\omega+2c\of$ we observe that $g_\alpha^\beta$ is a map from
+  $\hom_k(B_\alpha, \B)\cong \im~\sigma_\alpha = \hom_k(B_\alpha, \BB)$ for $\alpha\geq\omega+2c\of$ to $\hom_k(B_\beta, \B)= \im~\rho_\beta$.
   We also define
-  \[ \xi_\alpha : \hom_k(\ext{\P_\alpha}, \ext{\Q^\of})\to \hom_k(\P_\alpha, \Q^\of), \xi_\alpha' : \hom_k(\ext{\P_\alpha}, \ext{\QQ^\of})\to \hom_k(\P_\alpha, \QQ^\of)\]
+  \[ \xi_\alpha : \hom_k(\ext{\P_\alpha}, \ext{\Q^\of})\to \hom_k(\P_\alpha, \Q^\of),\ \xi_\alpha' : \hom_k(\ext{\P_\alpha}, \ext{\QQ^\of})\to \hom_k(\P_\alpha, \QQ^\of)\]
   to be the isomorphisms give by excision, with inverses induced by inclusion.
   % \[ \zeta_\alpha : \hom_k(\P_\alpha, \Q^\of)\to \hom_k(\ext{\P_\alpha}, \ext{\Q^\of}),\  \zeta_\alpha' : \hom_k(\P_\alpha, \QQ^\of)\to \hom_k(\ext{\P_\alpha}, \ext{\QQ^\of})\]
   % induced by inclusion.
 
   We would like to show the following diagrams commute.
 
-  % \vspace{3ex}
-  % \begin{subequations}
-  % \begin{minipage}{0.45\textwidth}
-  \begin{equation}\label{dgm:intrr1}\begin{tikzcd}[column sep=scriptsize]
+  \vspace{3ex}
+  \begin{scriptsize}
+  \begin{subequations}
+  \begin{minipage}{0.45\textwidth}
+  \begin{equation}\label{dgm:intr_tight2a}\begin{tikzcd}[column sep=scriptsize]
     % Fa & & & Fb
     \im~\tau_{\alpha-c\of}  \arrow[to=Fb, "t_{\alpha-c\of}^{\beta+c\of}"]
                       \arrow[to=Ga, "\mu_{\alpha-c\of}"]
@@ -413,7 +415,7 @@ Let $\e = \max(\e_1, \e_2, \e_3)$ so both pairs of relative persistence modules 
       \im~\rho_\beta \arrow[to=Fb, "\nu_\beta"] &
   \end{tikzcd}\end{equation}
   % \end{minipage} \begin{minipage}{0.45\textwidth}
-  \begin{equation}\label{dgm:intrr3}\begin{tikzcd}
+  \begin{equation}\label{dgm:intr_tight2b}\begin{tikzcd}
     % Fa & Fb &
     \im~\tau_{\alpha-c\of}  \arrow[to=Fb, "t_{\alpha-c\of}^{\beta-c\of}"]
                       \arrow[to=Ga, "\mu_{\alpha-c\of}"]
@@ -425,11 +427,11 @@ Let $\e = \max(\e_1, \e_2, \e_3)$ so both pairs of relative persistence modules 
     & |[alias=Gb]|
       \im~\sigma_\beta
   \end{tikzcd}\end{equation}
-  % \end{minipage}
+  \end{minipage}
   % \end{subequations}
   % \vspace{3ex}
-
-  \begin{equation}\label{dgm:intrr2}\begin{tikzcd}
+  \begin{minipage}{0.45\textwidth}
+  \begin{equation}\label{dgm:intr_tight2c}\begin{tikzcd}
     % Fa & & & Fb
     & |[alias=Fa]|
     \im~\ext{\tau_\alpha}  \arrow[to=Fb, "\xi_\beta\circ\ext{t_\alpha^\beta}"]
@@ -441,8 +443,7 @@ Let $\e = \max(\e_1, \e_2, \e_3)$ so both pairs of relative persistence modules 
     & & & |[alias=Gb]|
       \im~\sigma_{\beta + c\of}
   \end{tikzcd}\end{equation}
-
-  \begin{equation}\label{dgm:intr4}\begin{tikzcd}
+  \begin{equation}\label{dgm:intr_tight2d}\begin{tikzcd}
     % & Fa & Fb
     & |[alias=Fa]|
     \im~\ext{\tau_\alpha}  \arrow[to=Fb, "\ext{t_\alpha^\beta}"]
@@ -454,6 +455,33 @@ Let $\e = \max(\e_1, \e_2, \e_3)$ so both pairs of relative persistence modules 
     & |[alias=Gb]|
       \im~\rho_{\beta - c\of} \arrow[to=Fb, "\nu_{\beta-c\of}"]&
   \end{tikzcd}\end{equation}
+  \end{minipage}
+  \end{subequations}
+  \end{scriptsize}
+  \vspace{3ex}
+
+  \begin{enumerate}[label=\Roman*.]
+    \item Note that $\im~\tau_{\alpha-c\of} = \im~\hom_k((\P_{\alpha-c\of}, \Q^\of)\to (\P_{\alpha-c\of}, \QQ^\of))$ is trivial for $\alpha\leq \omega+2c\of$, as
+    $\P_{\alpha-c\of}\subseteq \QQ^\of$ implies $\hom_k(\P_{\alpha-c\of}, \QQ^\of)$ is trivial and $\im~\tau_{\alpha-c\of}$ is a subspace of $\hom_k(\P_{\alpha-c\of}, \QQ^\of)$.
+    Therefore $t_{\alpha-c\of}^{\beta+c\of}$ is the zero map so Diagram~\ref{dgm:intr_tight2a} commutes.
+    \item Once again, $t_{\alpha-c\of}^{\beta-c\of}$ is the zero map for all $\alpha\leq\omega+2c\delta$ as $\im~\tau_{\alpha-c\of}$ is a subspace of $\hom_k(\P_{\alpha-c\of}, \QQ^\of)$ which is trivial for all $\alpha\leq\omega+2c\delta$.
+    So Diagram~\ref{dgm:intr_tight2b} commutes.
+    \item We first note that $\im~\rho_{\alpha-c\of} = \im~\hom_k((B_{\alpha-c\of}, \b)\to (B_{\alpha-c\of, \B}))$ is trivial for all $\alpha\leq \omega+c\of$.
+    So it suffices to assume that $\alpha\in (\omega+c\of, \omega+2c\of)$.
+    So for all $\beta\geq\alpha$ we have $\beta+c\of\geq\omega+2c\of$.
+    So $q_{\alpha-c\of}^{\beta+c\of}$ factors through $\hom_k(\B, \B)$ as $\B\subseteq B_{\beta+c\of}$ for all $\beta\geq\alpha$.
+    Because $\hom_k(\B, \B)$ is trivial $q_{\alpha-c\of}^{\beta+c\of}$ is the zero map, so Diagram~\ref{dgm:intr_tight2c} commutes.
+    \item Once again, $\im~\rho_{\alpha-c\of}$ is trivial for $\alpha\leq\omega+c\of$ so it suffices to assume $\alpha\in (\omega+c\of, \omega+2c\of)$.
+    Suppose there exists a homology class $[x]\in\hom_k(B_{\alpha-c\of}, \b)$ such that $\rho_{\alpha-c\of}[x]\neq 0$ and $p_{\alpha-c\of}^{\beta-c\of}\circ\rho_{\alpha-c\of}[x]\neq 0$.
+    Because Diagram~\ref{dgm:intr_tight1a} commutes it follows that
+    \[\rho_\beta\circ f_{\alpha-c\of}^{\beta-c\of} = g_{\alpha-c\of}^{\beta-c\of}\circ\rho_{\alpha-c\of} = p_{\alpha-c\of}^{\beta-c\of}\circ\rho_{\alpha-c\of}\]
+    so $f_{\alpha - c\of}^{\beta-c\of}[x]\neq 0$.
+
+    If $[x]\in\ker~u_{\alpha-c\of}$ then $f_{\alpha - c\of}^{\beta-c\of}[x]\in\ker~u_{\beta-c\of}$.
+    Otherwise, if $u_{\alpha-c\of}[x]\neq 0$ we can observe that $\ext{b_\alpha^\beta}\circ\ext{\tau_\alpha}$ factors through $\hom_k(\ext{\P_\alpha}, \ext{\QQ^\of})$ as Diagram~\ref{dgm:intr_tight1e} commutes.
+    That is, if $\rho_{\alpha -c\of}[x]\in\ker~\nu_{\alpha-c\of}$ then $p_{\alpha-c\of}^{\beta-c\of}\circ\rho_{\alpha-c\of}[x]\in\ker~\nu_{\beta-c\of}$ for any $[x]\in \hom_k(B_{\alpha-c\of}, \b)$.
+    It follows that Diagram~\ref{dgm:intr_tight2d}.
+  \end{enumerate}
 
   % First note that $\Phi_{\alpha-c\delta} = \im~\hom_k((\P_\alpha, \Q^\delta)\to (\P_\alpha,\QQ^\delta)) = 0$ for all $\alpha\leq \omega+2c\delta$ as
   % \[\hom_k(\P_{\alpha-c\delta},\QQ^\delta) = \hom_k(\P_{\omega + c\delta}, \QQ^\of) = 0.\]
