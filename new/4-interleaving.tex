@@ -310,13 +310,28 @@ Let $\e = \max(\e_1, \e_2, \e_3)$ so both pairs of relative persistence modules 
 \end{proof}
 
 \begin{lemma}
-  If $\eta^k : \hom_k(\b)\to \hom_k(\BB)$ is surjective and $\im~\eta^k\cong \hom_k(\bb)$ then the $k$th persistent homology modules of $\{\hom_k(B_\alpha, \B)\}_{\alpha < 2c\of}$ and $\{(\P_\alpha, \Q^\delta)\to (\P_\alpha,\QQ^\delta)\}_{\alpha < 2c\of}$ are $c\of$-interleaved for all $k$.
+  Suppose $\b$ surrounds $D$ in $\X$ and $\Q^\of$ surrounds $\P$ in $D$ such that
+  \begin{itemize}
+    \item $D\setminus \B\subseteq \P$,
+    \item $\b\cap \P \subseteq \Q^\of\subseteq \B$, and
+    \item $\B\cap \P\subseteq \QQ^\of\subseteq \BB$.
+  \end{itemize}
+
+  If $\eta^k : \hom_k(\b)\to \hom_k(\BB)$ is surjective and $\im~\eta^k\cong \hom_k(\B)$ then the $k$th persistent homology modules of $\{\hom_k(B_\alpha, \B)\}_{\alpha < 2c\of}$ and $\{(\P_\alpha, \Q^\delta)\to (\P_\alpha,\QQ^\delta)\}_{\alpha < 2c\of}$ are $c\of$-interleaved for all $k$.
 \end{lemma}
 \begin{proof}
   Let $\Psi_\alpha := \hom_k(B_\alpha, \B)$ and $\Phi_\alpha := \im~\hom_k((\P_\alpha, \Q^\delta)\to (\P_\alpha,\QQ^\delta))$.
   Let $\psi_\alpha^\beta : \Psi_\alpha\to \Psi_\beta$ and $\phi_\alpha^\beta : \Phi_\alpha\to \Phi_\beta$.
 
-  We have the folowing commutative diagrams induced by inclusion for all $\alpha\in\R$, where $\ext{\P_\alpha} := \P_\alpha\cup (D\setminus \P)$.
+  Because $\Q^\delta$ surrounds $\P$ in $D$ and $D\setminus \B\subseteq \P$ we have
+  \[ B_{\alpha-c\of} = (\P\cup (D\setminus \P))\cap B_{\alpha -c\of}\subseteq \P_\alpha \cup (B_{\alpha - c\of}\cap (D\setminus \P))\]
+  where $B_{\alpha - c\of}\cap (D\setminus \P) = (D\setminus \P)$ for $\alpha\geq \omega+c\of$.
+  So we define the extension $\ext{\P_\alpha} := \P_\alpha\cup (D\setminus \P)$ of $\P_\alpha$ for $\alpha\geq\omega+c\of$ so that the maps $u_{\alpha-c\of}$ and $v_{\alpha-c\of}$ below are induced by inclusion.
+  We also note that $\P_{\alpha-c\of}\subseteq B_\alpha$ for all $\alpha$ as
+  \[ \P_{\alpha-c\of}\subseteq \P\cap B_\alpha\subseteq B_\alpha.\]
+  As
+  \[ \b\subseteq \ext{\Q^\of}\subseteq \B\subseteq \ext{\QQ^\of} \]
+  by Lemma~\ref{lem:surround_and_cover} we have the following commutative diagrams induced by inclusion for all $\alpha\in (\omega+c\of, \omega+2c\of)$.
 
   \begin{scriptsize}
   \vspace{3ex}\begin{subequations}
@@ -383,16 +398,22 @@ Let $\e = \max(\e_1, \e_2, \e_3)$ so both pairs of relative persistence modules 
   \end{scriptsize}
 
   Let
-  \[ \mu_\alpha := n_\alpha\rest_{\im~\tau_\alpha},\ \nu_\alpha := v_\alpha\rest_{\im~\rho_\alpha}\]
+  \[ \mu_\alpha := n_\alpha\rest_{\im~\tau_\alpha},\ \ext{\mu_\alpha} := \ext{n_\alpha}\rest_{\im~\ext{\tau_\alpha}},\]
+  \[ \nu_\alpha := \begin{cases} v_\alpha\rest_{\im~\rho_\alpha}&\text{ if } \alpha\geq \omega+c\of\\ 0&\text{ otherwise.}\end{cases}\]
   \[ t_\alpha^\beta := b_\alpha^\beta\rest_{\im~\tau_\alpha},\ \ext{t_\alpha^\beta} = \ext{b_\alpha^\beta}\rest_{\im~\ext{\tau_\alpha}}\]
   \[ p_\alpha^\beta := g_\alpha^\beta\rest_{\im~\rho_\alpha},\ s_\alpha^\beta := h_\alpha^\beta\rest_{\im~\sigma_\alpha}.\]
   % Noting that $\rho_\alpha$ is surjective for all $\alpha\in\R$ and $\sigma_\alpha$ is an isomorphism for all $\alpha\geq\omega+2c\of$ we also define
   \[q_\alpha^\beta := \sigma_\beta\circ g_\alpha^\beta\rest_{\im~\rho_\alpha}.\] %\ r_\alpha^\beta := \rho_\beta\circ h_\alpha^\beta\rest_{\im~\sigma_\alpha}.\]
-  Noting that $\rho_\alpha$ is surjective for all $\alpha\in\R$ and $\sigma_\alpha$ is an isomorphism for all $\alpha\geq\omega+2c\of$ we observe that $g_\alpha^\beta$ is a map from
-  $\hom_k(B_\alpha, \B)\cong \im~\sigma_\alpha = \hom_k(B_\alpha, \BB)$ for $\alpha\geq\omega+2c\of$ to $\hom_k(B_\beta, \B)= \im~\rho_\beta$.
-  We also define
-  \[ \xi_\alpha : \hom_k(\ext{\P_\alpha}, \ext{\Q^\of})\to \hom_k(\P_\alpha, \Q^\of),\ \xi_\alpha' : \hom_k(\ext{\P_\alpha}, \ext{\QQ^\of})\to \hom_k(\P_\alpha, \QQ^\of)\]
-  to be the isomorphisms give by excision, with inverses induced by inclusion.
+
+  Because $\sigma_\alpha$ is an isomorphism and $\rho_\alpha$ is surjective for all $\alpha\geq\omega+2c\of$ we also define
+  \[ r_\alpha^\beta := g_\alpha^\beta\circ\sigma_\alpha^{-1} : \im~\sigma_\alpha\to \im~\rho_\beta \]
+  for all $\alpha\geq\omega+2c\of$ as $\beta\geq\alpha$ implies $\rho_\beta$ is surjective, so $\im~\rho_\beta = \hom_k(B_\beta, \B)$.
+  %
+  % Noting that $\rho_\alpha$ is surjective for all $\alpha\in\R$ and $\sigma_\alpha$ is an isomorphism for all $\alpha\geq\omega+2c\of$ we observe that $g_\alpha^\beta$ is a map from
+  % $\hom_k(B_\alpha, \B)\cong \im~\sigma_\alpha = \hom_k(B_\alpha, \BB)$ for $\alpha\geq\omega+2c\of$ to $\hom_k(B_\beta, \B)= \im~\rho_\beta$.
+  % We also define
+  % \[ \xi_\alpha : \hom_k(\ext{\P_\alpha}, \ext{\Q^\of})\to \hom_k(\P_\alpha, \Q^\of),\ \xi_\alpha' : \hom_k(\ext{\P_\alpha}, \ext{\QQ^\of})\to \hom_k(\P_\alpha, \QQ^\of)\]
+  % to be the isomorphisms give by excision, with inverses induced by inclusion.
   % \[ \zeta_\alpha : \hom_k(\P_\alpha, \Q^\of)\to \hom_k(\ext{\P_\alpha}, \ext{\Q^\of}),\  \zeta_\alpha' : \hom_k(\P_\alpha, \QQ^\of)\to \hom_k(\ext{\P_\alpha}, \ext{\QQ^\of})\]
   % induced by inclusion.
 
@@ -436,7 +457,7 @@ Let $\e = \max(\e_1, \e_2, \e_3)$ so both pairs of relative persistence modules 
     & |[alias=Fa]|
     \im~\ext{\tau_\alpha}  \arrow[to=Fb, "\xi_\beta\circ\ext{t_\alpha^\beta}"]
     & |[alias=Fb]|
-      \im~\tau_\beta  \arrow[to=Gb, "\mu_\beta"] & \\
+      \im~\ext{\tau_\beta}  \arrow[to=Gb, "\mu_\beta"] & \\
     % & Ga & Gb &
     \im~\rho_{\alpha-c\of}  \arrow[to=Gb, "q_{\alpha-c\of}^{\beta+c\of}"]
                       \arrow[to=Fa, "\nu_{\alpha-c\of}"]
@@ -480,76 +501,8 @@ Let $\e = \max(\e_1, \e_2, \e_3)$ so both pairs of relative persistence modules 
     If $[x]\in\ker~u_{\alpha-c\of}$ then $f_{\alpha - c\of}^{\beta-c\of}[x]\in\ker~u_{\beta-c\of}$.
     Otherwise, if $u_{\alpha-c\of}[x]\neq 0$ we can observe that $\ext{b_\alpha^\beta}\circ\ext{\tau_\alpha}$ factors through $\hom_k(\ext{\P_\alpha}, \ext{\QQ^\of})$ as Diagram~\ref{dgm:intr_tight1e} commutes.
     That is, if $\rho_{\alpha -c\of}[x]\in\ker~\nu_{\alpha-c\of}$ then $p_{\alpha-c\of}^{\beta-c\of}\circ\rho_{\alpha-c\of}[x]\in\ker~\nu_{\beta-c\of}$ for any $[x]\in \hom_k(B_{\alpha-c\of}, \b)$.
-    It follows that Diagram~\ref{dgm:intr_tight2d}.
+    It follows that Diagram~\ref{dgm:intr_tight2d} commutes.
   \end{enumerate}
-
-  % First note that $\Phi_{\alpha-c\delta} = \im~\hom_k((\P_\alpha, \Q^\delta)\to (\P_\alpha,\QQ^\delta)) = 0$ for all $\alpha\leq \omega+2c\delta$ as
-  % \[\hom_k(\P_{\alpha-c\delta},\QQ^\delta) = \hom_k(\P_{\omega + c\delta}, \QQ^\of) = 0.\]
-  % So the following diagrams ``commute'' trivially.\textbf{TODO: need to define $\mu_\alpha, \nu_\alpha$}
-  %
-  % \vspace{3ex}
-  % \begin{subequations}
-  % \begin{minipage}{0.45\textwidth}
-  % \begin{equation}\label{dgm:intrr1}\begin{tikzcd}[column sep=scriptsize]
-  %   % Fa & & & Fb
-  %   \Phi_{\alpha-c\of}  \arrow[to=Fb, "\phi_{\alpha-c\of}^{\beta+c\of}"]
-  %                     \arrow[to=Ga, "\mu_{\alpha-c\of}"]
-  %   & & & |[alias=Fb]|
-  %     \Phi_{\beta+c\of} \\
-  %   % & Ga & Gb &
-  %   & |[alias=Ga]|
-  %   \Psi_\alpha \arrow[to=Gb, "\psi_\alpha^\beta"]
-  %   & |[alias=Gb]|
-  %     \Psi_\beta \arrow[to=Fb, "\nu_\beta"] &
-  % \end{tikzcd}\end{equation}
-  % \end{minipage} \begin{minipage}{0.45\textwidth}
-  % \begin{equation}\label{dgm:intrr3}\begin{tikzcd}
-  %   % Fa & Fb &
-  %   \Phi_{\alpha-c\of}  \arrow[to=Fb, "\phi_{\alpha-c\of}^{\beta-c\of}"]
-  %                     \arrow[to=Ga, "\mu_{\alpha-c\of}"]
-  %   & |[alias=Fb]|
-  %     \Phi_{\beta-c\of} \arrow[to=Gb, "\mu_{\beta -c\of}"] \\
-  %   % & Ga & Gb
-  %   & |[alias=Ga]|
-  %   \Psi_\alpha \arrow[to=Gb, "\psi_\alpha^\beta"]
-  %   & |[alias=Gb]|
-  %     \Psi_\beta
-  % \end{tikzcd}\end{equation}
-  % \end{minipage}
-  % \end{subequations}
-  % \vspace{3ex}
-
-  % Now, we note that that $\Psi_{\alpha-c\delta} = \hom_k(B_{\alpha-c\delta}, \B) = 0$ for all $\alpha\leq \omega+c\delta$.
-  % Suppose $\alpha\in (\omega+c\delta, \omega+2c\delta)$ and $[x]\in\hom_k(B_{\alpha-c\of}, \B)$.
-  % So $\beta+c\of \geq \alpha+c\delta > \omega +2c\delta$ thus $\BB\subseteq B_{\beta+c\of}$.
-  % As $\hom_k(A, \B)\cong \hom_k(A, \BB)$ for all $A$ containing $\BB$ we have $\hom_k(B_{\beta+c\of}, \B)\cong\hom_k(B_{\beta+c\of}, \BB)$.
-  % Therefore, $[x]\in\hom_k(B_{\alpha-c\of}, \B)$ cannot be in $\hom_k(B_{\beta+c\of}, \B)$, so $[x]\in\ker~\psi_{\alpha-c\of}^{\beta+c\of}$ for all $\beta\geq\alpha$, $\alpha\leq 2c\delta$, and the following diagram ``commutes'' trivially.
-  % \begin{equation}\label{dgm:intrr2}\begin{tikzcd}
-  %   % Fa & & & Fb
-  %   & |[alias=Fa]|
-  %   \Phi_\alpha  \arrow[to=Fb, "\phi_\alpha^\beta"]
-  %   & |[alias=Fb]|
-  %     \Phi_\beta  \arrow[to=Gb, "\mu_\beta"] & \\
-  %   % & Ga & Gb &
-  %   \Psi_{\alpha-c\of}  \arrow[to=Gb, "\psi_{\alpha-c\of}^{\beta+c\of}"]
-  %                     \arrow[to=Fa, "\nu_{\alpha-c\of}"]
-  %   & & & |[alias=Gb]|
-  %     \Psi_{\beta + c\of}
-  % \end{tikzcd}\end{equation}
-  %
-  % \textbf{TODO: show the following diagram commutes for all $\alpha\leq\beta$, $\alpha\leq \omega + 2c\delta$.}
-  % \begin{equation}\label{dgm:intr4}\begin{tikzcd}
-  %   % & Fa & Fb
-  %   & |[alias=Fa]|
-  %   \Phi_\alpha  \arrow[to=Fb, "\phi_\alpha^\beta"]
-  %   & |[alias=Fb]|
-  %     \Phi_\beta\\
-  %   % Ga & Gb &
-  %   \Psi_{\alpha-c\of}  \arrow[to=Gb, "\psi_{\alpha-c\of}^{\beta-c\of}"]
-  %                     \arrow[to=Fa, "\nu_{\alpha-c\of}"]
-  %   & |[alias=Gb]|
-  %     \Psi_{\beta - c\of} \arrow[to=Fb, "\nu_{\beta-c\of}"]&
-  % \end{tikzcd}\end{equation}
 \end{proof}
 
 \begin{corollary}\label{cor:geo_inter}
