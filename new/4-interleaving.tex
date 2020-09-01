@@ -316,73 +316,212 @@ Let $\e = \max(\e_1, \e_2, \e_3)$ so both pairs of relative persistence modules 
   Let $\Psi_\alpha := \hom_k(B_\alpha, \B)$ and $\Phi_\alpha := \im~\hom_k((\P_\alpha, \Q^\delta)\to (\P_\alpha,\QQ^\delta))$.
   Let $\psi_\alpha^\beta : \Psi_\alpha\to \Psi_\beta$ and $\phi_\alpha^\beta : \Phi_\alpha\to \Phi_\beta$.
 
-  First note that $\Phi_{\alpha-c\delta} = \im~\hom_k((\P_\alpha, \Q^\delta)\to (\P_\alpha,\QQ^\delta)) = 0$ for all $\alpha\leq \omega+2c\delta$ as
-  \[\hom_k(\P_{\alpha-c\delta},\QQ^\delta) = \hom_k(\P_{\omega + c\delta}, \QQ^\of) = 0.\]
-  So the following diagrams ``commute'' trivially.\textbf{TODO: need to define $\mu_\alpha, \nu_\alpha$}
+  We have the folowing commutative diagrams induced by inclusion for all $\alpha\in\R$, where $\ext{\P_\alpha} := \P_\alpha\cup (D\setminus \P)$.
 
-  \vspace{3ex}
-  \begin{subequations}
-  \begin{minipage}{0.45\textwidth}
+  \begin{scriptsize}
+  \vspace{3ex}\begin{subequations}
+  \begin{minipage}{0.5\textwidth}\begin{equation}\label{dgm:fab}
+  \begin{tikzcd}[column sep=scriptsize]
+    \hom_k(B_\alpha, \b)\arrow{r}{\rho_\alpha} \arrow{d}{f_\alpha^\beta} &
+    \hom_k(B_\alpha, \B)\arrow{d}{g_\alpha^\beta} \\
+    %
+    \hom_k(B_\beta, \b)\arrow{r}{\rho_\beta} &
+    \hom_k(B_\beta, \B)
+  \end{tikzcd}\end{equation}
+  % \end{minipage}
+  % \begin{minipage}{0.5\textwidth}\begin{equation}\label{dgm:gcd}
+  \begin{equation}
+  \begin{tikzcd}[column sep=scriptsize]
+    \hom_k(B_\alpha, \B)\arrow{r}{\sigma_\alpha} \arrow{d}{g_\alpha^\beta} &
+    \hom_k(B_\alpha, \BB)\arrow{d}{h_\alpha^\beta} \\
+    %
+    \hom_k(B_\beta, \B)\arrow{r}{\sigma_\beta} &
+    \hom_k(B_\beta, \BB)
+  \end{tikzcd}\end{equation}%\end{minipage}
+  \begin{equation}
+  \begin{tikzcd}[column sep=scriptsize]
+    \hom_k(B_{\alpha-c\of}, \b)\arrow{r}{\rho_{\alpha-c\of}} \arrow{d}{u_{\alpha-c\of}} &
+    \hom_k(B_{\alpha-c\of}, \B)\arrow{d}{v_{\alpha-c\of}} \\
+    %
+    \hom_k(\ext{\P_\alpha}, \ext{\Q^\of})\arrow{r}{\ext{\tau_{\alpha}}} &
+    \hom_k(\ext{\P_\alpha}, \ext{\QQ^\of})
+  \end{tikzcd}\end{equation}\end{minipage}
+  % \end{subequations}\vspace{3ex}
+  % \vspace{3ex}\begin{subequations}
+  \begin{minipage}{0.5\textwidth}\begin{equation}\label{dgm:fab}
+  \begin{tikzcd}[column sep=scriptsize]
+    \hom_k(\P_\alpha, \Q^\of)\arrow{r}{\tau_\alpha} \arrow{d}{a_\alpha^\beta} &
+    \hom_k(\P_\alpha, \QQ^\of)\arrow{d}{b_\alpha^\beta} \\
+    %
+    \hom_k(\P_\beta, \Q^\of)\arrow{r}{\tau_\beta} &
+    \hom_k(\P_\beta, \QQ^\of)
+  \end{tikzcd}\end{equation}
+  % \end{minipage}
+  % \begin{minipage}{0.5\textwidth}\begin{equation}\label{dgm:fab}
+  \begin{equation}
+  \begin{tikzcd}[column sep=scriptsize]
+    \hom_k(\ext{\P_\alpha}, \ext{\Q^\of})\arrow{r}{\ext{\tau_\alpha}} \arrow{d}{\ext{a_\alpha^\beta}} &
+    \hom_k(\ext{\P_\alpha}, \ext{\QQ^\of})\arrow{d}{\ext{b_\alpha^\beta}} \\
+    %
+    \hom_k(\ext{\P_\beta}, \ext{\Q^\of})\arrow{r}{\ext{\tau_\beta}} &
+    \hom_k(\ext{\P_\beta}, \ext{\QQ^\of})
+  \end{tikzcd}\end{equation}
+% \end{minipage}
+  % \end{subequations}\vspace{3ex}
+  % \vspace{3ex}\begin{subequations}
+  % \begin{minipage}{0.5\textwidth}\begin{equation}\label{dgm:fab}
+  \begin{equation}
+  \begin{tikzcd}[column sep=scriptsize]
+    \hom_k(\P_{\alpha-c\of}, \Q^\delta)\arrow{r}{\tau_{\alpha-c\of}} \arrow{d}{m_{\alpha-c\of}} &
+    \hom_k(\P_{\alpha-c\of}, \QQ^\delta)\arrow{d}{n_{\alpha-c\of}} \\
+    %
+    \hom_k(B_\alpha, \B)\arrow{r}{\sigma_\alpha} &
+    \hom_k(B_\alpha, \BB)
+  \end{tikzcd}\end{equation}\end{minipage}
+  % \begin{minipage}{0.5\textwidth}\begin{equation}\label{dgm:gcd}
+  \end{subequations}\vspace{3ex}
+  \end{scriptsize}
+
+  Let
+  \[ \mu_\alpha := n_\alpha\rest_{\im~\tau_\alpha},\ \nu_\alpha := v_\alpha\rest_{\im~\rho_\alpha}\]
+  \[ t_\alpha^\beta := b_\alpha^\beta\rest_{\im~\tau_\alpha},\ \ext{t_\alpha^\beta} = \ext{b_\alpha^\beta}\rest_{\im~\ext{\tau_\alpha}}\]
+  \[ p_\alpha^\beta := g_\alpha^\beta\rest_{\im~\rho_\alpha},\ s_\alpha^\beta := h_\alpha^\beta\rest_{\im~\sigma_\alpha}.\]
+  % Noting that $\rho_\alpha$ is surjective for all $\alpha\in\R$ and $\sigma_\alpha$ is an isomorphism for all $\alpha\geq\omega+2c\of$ we also define
+  \[q_\alpha^\beta := \sigma_\beta\circ g_\alpha^\beta\rest_{\im~\rho_\alpha}.\]%\ r_\alpha^\beta := \rho_\beta\circ h_\alpha^\beta\rest_{\im~\sigma_\alpha}.\]
+  Noting that $\rho_\alpha$ is surjective for all $\alpha\in\R$ and $\sigma_\alpha$ is an isomorphism for all $\alpha\geq\omega+2c\of$ we observe that $g_\alpha^\beta$ is a map from $\hom_k(B_\alpha, \B)\cong \im\sigma_\alpha = \hom_k(B_\alpha, \BB)$ for $\alpha\geq\omega+2c\of$ to $\hom_k(B_\beta, \B)= \im~\rho_\beta$.
+  We also define
+  \[ \xi_\alpha : \hom_k(\ext{\P_\alpha}, \ext{\Q^\of})\to \hom_k(\P_\alpha, \Q^\of), \xi_\alpha' : \hom_k(\ext{\P_\alpha}, \ext{\QQ^\of})\to \hom_k(\P_\alpha, \QQ^\of)\]
+  to be the isomorphisms give by excision, with inverses induced by inclusion.
+  % \[ \zeta_\alpha : \hom_k(\P_\alpha, \Q^\of)\to \hom_k(\ext{\P_\alpha}, \ext{\Q^\of}),\  \zeta_\alpha' : \hom_k(\P_\alpha, \QQ^\of)\to \hom_k(\ext{\P_\alpha}, \ext{\QQ^\of})\]
+  % induced by inclusion.
+
+  We would like to show the following diagrams commute.
+
+  % \vspace{3ex}
+  % \begin{subequations}
+  % \begin{minipage}{0.45\textwidth}
   \begin{equation}\label{dgm:intrr1}\begin{tikzcd}[column sep=scriptsize]
     % Fa & & & Fb
-    \Phi_{\alpha-c\of}  \arrow[to=Fb, "\phi_{\alpha-c\of}^{\beta+c\of}"]
+    \im~\tau_{\alpha-c\of}  \arrow[to=Fb, "t_{\alpha-c\of}^{\beta+c\of}"]
                       \arrow[to=Ga, "\mu_{\alpha-c\of}"]
     & & & |[alias=Fb]|
-      \Phi_{\beta+c\of} \\
+      \im~\tau_{\beta+c\of} \\
     % & Ga & Gb &
     & |[alias=Ga]|
-    \Psi_\alpha \arrow[to=Gb, "\psi_\alpha^\beta"]
+    \im~\sigma_\alpha \arrow[to=Gb, "g_\alpha^\beta"]
     & |[alias=Gb]|
-      \Psi_\beta \arrow[to=Fb, "\nu_\beta"] &
+      \im~\rho_\beta \arrow[to=Fb, "\nu_\beta"] &
   \end{tikzcd}\end{equation}
-  \end{minipage} \begin{minipage}{0.45\textwidth}
+  % \end{minipage} \begin{minipage}{0.45\textwidth}
   \begin{equation}\label{dgm:intrr3}\begin{tikzcd}
     % Fa & Fb &
-    \Phi_{\alpha-c\of}  \arrow[to=Fb, "\phi_{\alpha-c\of}^{\beta-c\of}"]
+    \im~\tau_{\alpha-c\of}  \arrow[to=Fb, "t_{\alpha-c\of}^{\beta-c\of}"]
                       \arrow[to=Ga, "\mu_{\alpha-c\of}"]
     & |[alias=Fb]|
-      \Phi_{\beta-c\of} \arrow[to=Gb, "\mu_{\beta -c\of}"] \\
+      \im~\tau_{\beta-c\of} \arrow[to=Gb, "\mu_{\beta -c\of}"] \\
     % & Ga & Gb
     & |[alias=Ga]|
-    \Psi_\alpha \arrow[to=Gb, "\psi_\alpha^\beta"]
+    \im~\sigma_\alpha \arrow[to=Gb, "s_\alpha^\beta"]
     & |[alias=Gb]|
-      \Psi_\beta
+      \im~\sigma_\beta
   \end{tikzcd}\end{equation}
-  \end{minipage}
-  \end{subequations}
-  \vspace{3ex}
+  % \end{minipage}
+  % \end{subequations}
+  % \vspace{3ex}
 
-  Now, we note that that $\Psi_{\alpha-c\delta} = \hom_k(B_{\alpha-c\delta}, \B) = 0$ for all $\alpha\leq \omega+c\delta$.
-  Suppose $\alpha\in (\omega+c\delta, \omega+2c\delta)$ and $[x]\in\hom_k(B_{\alpha-c\of}, \B)$.
-  So $\beta+c\of \geq \alpha+c\delta > \omega +2c\delta$ thus $\BB\subseteq B_{\beta+c\of}$.
-  As $\hom_k(A, \B)\cong \hom_k(A, \BB)$ for all $A$ containing $\BB$ we have $\hom_k(B_{\beta+c\of}, \B)\cong\hom_k(B_{\beta+c\of}, \BB)$.
-  Therefore, $[x]\in\hom_k(B_{\alpha-c\of}, \B)$ cannot be in $\hom_k(B_{\beta+c\of}, \B)$, so $[x]\in\ker~\psi_{\alpha-c\of}^{\beta+c\of}$ for all $\beta\geq\alpha$, $\alpha\leq 2c\delta$, and the following diagram ``commutes'' trivially.
   \begin{equation}\label{dgm:intrr2}\begin{tikzcd}
     % Fa & & & Fb
     & |[alias=Fa]|
-    \Phi_\alpha  \arrow[to=Fb, "\phi_\alpha^\beta"]
+    \im~\ext{\tau_\alpha}  \arrow[to=Fb, "\xi_\beta\circ\ext{t_\alpha^\beta}"]
     & |[alias=Fb]|
-      \Phi_\beta  \arrow[to=Gb, "\mu_\beta"] & \\
+      \im~\tau_\beta  \arrow[to=Gb, "\mu_\beta"] & \\
     % & Ga & Gb &
-    \Psi_{\alpha-c\of}  \arrow[to=Gb, "\psi_{\alpha-c\of}^{\beta+c\of}"]
+    \im~\rho_{\alpha-c\of}  \arrow[to=Gb, "q_{\alpha-c\of}^{\beta+c\of}"]
                       \arrow[to=Fa, "\nu_{\alpha-c\of}"]
     & & & |[alias=Gb]|
-      \Psi_{\beta + c\of}
+      \im~\sigma_{\beta + c\of}
   \end{tikzcd}\end{equation}
 
-  \textbf{TODO: show the following diagram commutes for all $\alpha\leq\beta$, $\alpha\leq \omega + 2c\delta$.}
   \begin{equation}\label{dgm:intr4}\begin{tikzcd}
     % & Fa & Fb
     & |[alias=Fa]|
-    \Phi_\alpha  \arrow[to=Fb, "\phi_\alpha^\beta"]
+    \im~\ext{\tau_\alpha}  \arrow[to=Fb, "\ext{t_\alpha^\beta}"]
     & |[alias=Fb]|
-      \Phi_\beta\\
+      \im~\ext{\tau_\beta}\\
     % Ga & Gb &
-    \Psi_{\alpha-c\of}  \arrow[to=Gb, "\psi_{\alpha-c\of}^{\beta-c\of}"]
+    \im~\rho_{\alpha-c\of}  \arrow[to=Gb, "p_{\alpha-c\of}^{\beta-c\of}"]
                       \arrow[to=Fa, "\nu_{\alpha-c\of}"]
     & |[alias=Gb]|
-      \Psi_{\beta - c\of} \arrow[to=Fb, "\nu_{\beta-c\of}"]&
+      \im~\rho_{\beta - c\of} \arrow[to=Fb, "\nu_{\beta-c\of}"]&
   \end{tikzcd}\end{equation}
+
+  % First note that $\Phi_{\alpha-c\delta} = \im~\hom_k((\P_\alpha, \Q^\delta)\to (\P_\alpha,\QQ^\delta)) = 0$ for all $\alpha\leq \omega+2c\delta$ as
+  % \[\hom_k(\P_{\alpha-c\delta},\QQ^\delta) = \hom_k(\P_{\omega + c\delta}, \QQ^\of) = 0.\]
+  % So the following diagrams ``commute'' trivially.\textbf{TODO: need to define $\mu_\alpha, \nu_\alpha$}
+  %
+  % \vspace{3ex}
+  % \begin{subequations}
+  % \begin{minipage}{0.45\textwidth}
+  % \begin{equation}\label{dgm:intrr1}\begin{tikzcd}[column sep=scriptsize]
+  %   % Fa & & & Fb
+  %   \Phi_{\alpha-c\of}  \arrow[to=Fb, "\phi_{\alpha-c\of}^{\beta+c\of}"]
+  %                     \arrow[to=Ga, "\mu_{\alpha-c\of}"]
+  %   & & & |[alias=Fb]|
+  %     \Phi_{\beta+c\of} \\
+  %   % & Ga & Gb &
+  %   & |[alias=Ga]|
+  %   \Psi_\alpha \arrow[to=Gb, "\psi_\alpha^\beta"]
+  %   & |[alias=Gb]|
+  %     \Psi_\beta \arrow[to=Fb, "\nu_\beta"] &
+  % \end{tikzcd}\end{equation}
+  % \end{minipage} \begin{minipage}{0.45\textwidth}
+  % \begin{equation}\label{dgm:intrr3}\begin{tikzcd}
+  %   % Fa & Fb &
+  %   \Phi_{\alpha-c\of}  \arrow[to=Fb, "\phi_{\alpha-c\of}^{\beta-c\of}"]
+  %                     \arrow[to=Ga, "\mu_{\alpha-c\of}"]
+  %   & |[alias=Fb]|
+  %     \Phi_{\beta-c\of} \arrow[to=Gb, "\mu_{\beta -c\of}"] \\
+  %   % & Ga & Gb
+  %   & |[alias=Ga]|
+  %   \Psi_\alpha \arrow[to=Gb, "\psi_\alpha^\beta"]
+  %   & |[alias=Gb]|
+  %     \Psi_\beta
+  % \end{tikzcd}\end{equation}
+  % \end{minipage}
+  % \end{subequations}
+  % \vspace{3ex}
+
+  % Now, we note that that $\Psi_{\alpha-c\delta} = \hom_k(B_{\alpha-c\delta}, \B) = 0$ for all $\alpha\leq \omega+c\delta$.
+  % Suppose $\alpha\in (\omega+c\delta, \omega+2c\delta)$ and $[x]\in\hom_k(B_{\alpha-c\of}, \B)$.
+  % So $\beta+c\of \geq \alpha+c\delta > \omega +2c\delta$ thus $\BB\subseteq B_{\beta+c\of}$.
+  % As $\hom_k(A, \B)\cong \hom_k(A, \BB)$ for all $A$ containing $\BB$ we have $\hom_k(B_{\beta+c\of}, \B)\cong\hom_k(B_{\beta+c\of}, \BB)$.
+  % Therefore, $[x]\in\hom_k(B_{\alpha-c\of}, \B)$ cannot be in $\hom_k(B_{\beta+c\of}, \B)$, so $[x]\in\ker~\psi_{\alpha-c\of}^{\beta+c\of}$ for all $\beta\geq\alpha$, $\alpha\leq 2c\delta$, and the following diagram ``commutes'' trivially.
+  % \begin{equation}\label{dgm:intrr2}\begin{tikzcd}
+  %   % Fa & & & Fb
+  %   & |[alias=Fa]|
+  %   \Phi_\alpha  \arrow[to=Fb, "\phi_\alpha^\beta"]
+  %   & |[alias=Fb]|
+  %     \Phi_\beta  \arrow[to=Gb, "\mu_\beta"] & \\
+  %   % & Ga & Gb &
+  %   \Psi_{\alpha-c\of}  \arrow[to=Gb, "\psi_{\alpha-c\of}^{\beta+c\of}"]
+  %                     \arrow[to=Fa, "\nu_{\alpha-c\of}"]
+  %   & & & |[alias=Gb]|
+  %     \Psi_{\beta + c\of}
+  % \end{tikzcd}\end{equation}
+  %
+  % \textbf{TODO: show the following diagram commutes for all $\alpha\leq\beta$, $\alpha\leq \omega + 2c\delta$.}
+  % \begin{equation}\label{dgm:intr4}\begin{tikzcd}
+  %   % & Fa & Fb
+  %   & |[alias=Fa]|
+  %   \Phi_\alpha  \arrow[to=Fb, "\phi_\alpha^\beta"]
+  %   & |[alias=Fb]|
+  %     \Phi_\beta\\
+  %   % Ga & Gb &
+  %   \Psi_{\alpha-c\of}  \arrow[to=Gb, "\psi_{\alpha-c\of}^{\beta-c\of}"]
+  %                     \arrow[to=Fa, "\nu_{\alpha-c\of}"]
+  %   & |[alias=Gb]|
+  %     \Psi_{\beta - c\of} \arrow[to=Fb, "\nu_{\beta-c\of}"]&
+  % \end{tikzcd}\end{equation}
 \end{proof}
 
 \begin{corollary}\label{cor:geo_inter}
