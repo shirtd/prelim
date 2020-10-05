@@ -45,12 +45,40 @@
 %   \[ \Gamma_{(D,B)}^k : \tilde{\hom}_k(D, B)\to \tilde{\hom}^{d-k}(S^d\setminus B, S^d\setminus D). \]
 % \end{theorem}
 
-\begin{lemma}[Lemma 3.2 from~\cite{chazal08towards}]\label{lem:sandwich}
-    Given a sequence $A\to B\to C\to D\to E\to F$ of homomorphisms between finite-dimensional vector spaces, if $\rk(A\to F) = \rk(C\to D)$ then this quantity also equals the rank of $B\to E$.
-    Similarly, if $A\to B\to C\to E\to F$ is a sequence of homomorphisms such that $\rk(A\to F) = \dim~C$ then $\rk(B\to E) = \dim~C$.
-\end{lemma}
+% \begin{lemma}[Lemma 3.2 from~\cite{chazal08towards}]\label{lem:sandwich}
+%     Given a sequence $A\to B\to C\to D\to E\to F$ of homomorphisms between finite-dimensional vector spaces, if $\rk(A\to F) = \rk(C\to D)$ then this quantity also equals the rank of $B\to E$.
+%     Similarly, if $A\to B\to C\to E\to F$ is a sequence of homomorphisms such that $\rk(A\to F) = \dim~C$ then $\rk(B\to E) = \dim~C$.
+% \end{lemma}
 
 % \textbf{TODO
 % \begin{itemize}
 %   \item Excision
 % \end{itemize}}
+
+% \begin{lemma}
+%   Suppose $B\subseteq B' \subseteq A$.
+%
+%   If $\hom_k(B\to B')$ is surjective for all $k$ then $\hom_k((A, B)\to (A,B'))$ is surjective.
+% \end{lemma}
+% \begin{proof}
+%   This result follows from Lemma~\ref{lem:five} applied to the long exact sequences of the pairs $(A, B)$ and $(A, B')$.
+%     \begin{equation}\begin{tikzcd}\label{dgm:separate_iso}
+%       \hom_k(B)\arrow{r}{i}\arrow{d}{a} &
+%       \hom_k(A)\arrow{r}{j}\arrow{d}{b} &
+%       \hom_k(A, B)\arrow{r}{k}\arrow{d}{c} &
+%       \hom_{k-1}(B)\arrow{r}{\ell}\arrow{d}{d} &
+%       \hom_{k-1}(A)\arrow{d}{e} &\\
+%       %
+%       \hom_k(B')\arrow{r}{i'}%\arrow{d}{a'} &
+%       \hom_k(A)\arrow{r}{j'}%\arrow{d}{b'} &
+%       \hom_k(A, B')\arrow{r}{k'}%\arrow{d}{c'} &
+%       \hom_{k-1}(B')\arrow{r}{\ell'}%\arrow{d}{d'} &
+%       \hom_{k-1}(A)%\arrow{d}{e'} \\
+%       % %
+%       % \hom_k(B'')\arrow{r}{i''}&
+%       % \hom_k(A)\arrow{r}{j''}&
+%       % \hom_k(A, B'')\arrow{r}{k''}&
+%       % \hom_{k-1}(B'')\arrow{r}{\ell''} &
+%       % \hom_{k-1}(A)
+%     \end{tikzcd}\end{equation}
+%     Because $

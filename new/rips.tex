@@ -1,0 +1,79 @@
+% !TeX root = ../new.tex
+
+\section{Rips Interleaving}
+
+Now, suppose $B_{\omega -3c\of}$ surrounds $D$ in $\X$ and $Q_{\omega-3c\of}^\of$ surrounds $\P$ in $D$ such that
+
+\begin{itemize}
+  \item $D\setminus \B\subseteq \P$,
+  \item $B_{\omega -3c\of}\cap \P \subseteq Q_{\omega-2c\of}\subseteq \B$, and
+  \item $\B\cap \P\subseteq \QQ^\of\subseteq B_{\omega+3c\of}$.
+\end{itemize}
+
+Let $\U, \V, \W$ be the $k$th persistent homology modules of $\{(D\subi{\omega-3c\of, \alpha}, B_{\omega-3c\of})\}$, $\{(D\subi{\omega,\alpha}, \B)\}$, $\{(D\subi{\omega+3c\of,\alpha}, B_{\omega+3c\of})\}$, and $\S, \T$ the $k$th persistent homology modules of $\{(\ext{\P\subi{\omega-2c\of,\alpha}},\ext{Q_{\omega-2c\of}^\of})\}$ and $\{(\ext{\P\subi{\omega+c\of,\alpha}},\ext{\QQ^\of})\}$ respectively.
+We also define $\hat{\S}$ and $\hat{\T}$ to be the $k$th persistent homology modules of $\{(\ext{P^{2\delta}\subi{\omega-2c\of,\alpha}},\ext{Q_{\omega-2c\of}^{2\of}})\}$ and $\{(\ext{P^{2\of}\subi{\omega+c\of,\alpha}},\ext{\QQ^{2\of}})\}$ respectively.
+We also define the $k$th persistent homology modules of the corresponding Rips and \v{C}ech complexes as
+% \[ \cech^\delta\S := (\{\check{S_\alpha}:=\hom_k(\ext{\cech^\delta(P\subi{\omega-c\of,\alpha}},\ext{\cech^\delta(Q_{\omega-c\of})}))
+
+$\cech^\e$ and $\rips^\e$ takes pairs of finite point sets to simplicial complexes.
+\begin{align*}
+  K \in\Hom(\cech^\delta\S, \rips^{2\delta}\S),&& L \in \Hom(\rips^{2\delta}\S, \cech^{2\delta}\S)\\
+  K'\in\Hom(\cech^\delta\T, \rips^{2\delta}\T),&& L' \in\Hom(\rips^{2\delta}\T, \cech^{2\delta}\T)
+\end{align*}
+are all homomorphisms induced by inclusion.
+We also have the following isomorphisms provided by the nerve theorem.
+\begin{align*}
+  C \in\Hom(\S,\cech^\of\S),&& D \in\Hom(\cech^{2\of}\S,\hat{\S})\\
+  C'\in \Hom(\T,\cech^\of\T),&& D'\in \Hom(\cech^{2\of}\T,\hat{\T})
+\end{align*}
+
+For $F\in\Hom^{c\delta}(\U,\S)$, $\hat{M}\in\Hom^{2c\delta}(\hat{\S},\V)$, $G\in\Hom^{c\delta}(\V,\T)$, and $\hat{N}\in\Hom^{2c\delta}(\hat{\T},\W)$ we define the following homomorphisms of degree $c\of$
+\[ \tilde{F} := \{\tilde{f_\alpha}:= k_{\alpha+c\of}\circ c_{\alpha+c\of}\circ f_\alpha : \U\to\rips^{2\of}\S\}\]
+\[ \tilde{G} := \{\tilde{g_\alpha}:= k_{\alpha+c\of}'\circ c_{\alpha+c\of}'\circ g_\alpha : \V\to\rips^{2\of}\T\}\]
+and the following homomorphisms of degree $2c\of$
+\[ \tilde{M} := \{\tilde{m_\alpha}:= \hat{m_\alpha}\circ d_\alpha\circ \ell_\alpha :\rips^{2\of}\S\to\V\},\]
+\[ \tilde{N} := \{\tilde{n_\alpha}:=\hat{n_\alpha}\circ d_\alpha'\circ\ell_\alpha' : \rips^{2\of}\T\to\W\}.\]
+
+Let $\Gamma\in\Hom(\U, \V)$, $\Pi\in\Hom(\V,\W)$, and $\tilde{\Lambda}\in\Hom(\rips^{2\of}\S,\rips^{2\of}\T)$.
+If the following diagrams commute $\tilde{\Phi}(\tilde{F},\tilde{G}) : \im~\Gamma\to\im~\tilde{\Lambda}$ is an image module homomorphism of degree $c\delta$ and $\tilde{\Psi}(\tilde{M},\tilde{N}) : \im~\tilde{\Lambda}\to \im~\Pi$ is an image module homomorphism of degree $2c\of$.
+
+% \begin{minipage}{0.5\textwidth}
+\begin{equation}\label{dgm:shifted_homomorphism_rips1}
+  \begin{tikzcd}[column sep=large]
+    U_\alpha\arrow{rr}{v_\alpha^\beta\circ\gamma_\alpha}\arrow{d}{\tilde{f}_\alpha} &&
+    V_\beta\arrow{d}{\tilde{g}_\beta}\\
+    %
+    \rips^{2\of} S_{\alpha+c\delta}\arrow{rr}{\tilde{t}_{\alpha+c\delta}^{\beta+c\delta}\circ\tilde{\lambda}_{\alpha+c\delta}} &&
+    \rips^{2\of} T_{\beta +c\delta}
+\end{tikzcd}\end{equation}
+\begin{equation}\label{dgm:shifted_homomorphism_rips2}
+  \begin{tikzcd}[column sep=large]
+    \rips^{2\of} S_{\alpha}\arrow{rr}{\tilde{t}_{\alpha}^{\beta}\circ\tilde{\lambda}_{\alpha}}\arrow{d}{\tilde{m}_\alpha} & &
+    \rips^{2\of} T_{\beta}\arrow{d}{\tilde{n}_\alpha}\\
+    %
+    V_{\alpha+2c\of}\arrow{rr}{v_{\alpha+2c\delta}^{\beta+2c\delta}\circ\gamma_{\alpha+2c\delta}} &&
+    W_{\beta+2c\of}\\
+\end{tikzcd}\end{equation}
+
+If the following diagram commutes $\tilde{\Phi}_{\tilde{M}}$ and $\tilde{\Psi}_{\tilde{G}}$ are partial $2c\of$-interleavings of image modules.
+
+% \end{minipage}
+% \begin{minipage}{0.5\textwidth}
+% \begin{equation}\label{dgm:shifted_homomorphism_rips2}
+%   \begin{tikzcd}[column sep=large]
+%     \rips^{2\of} S_{\alpha}\arrow{r}{\tilde{t}_{\alpha}^{\beta}\circ\tilde{\lambda}_{\alpha}}\arrow{d}{\tilde{m}_\alpha} &
+%     \rips^{2\of} T_{\beta}\arrow{d}{\tilde{n}_\alpha}\\
+%     %
+%     V_{\alpha+2c\of}\arrow{r}{v_{\alpha+2c\delta}^{\beta+2c\delta}\circ\gamma_{\alpha+2c\delta}} &
+%     W_{\beta+2c\of}\\
+% \end{tikzcd}\end{equation}
+% \end{minipage}
+\begin{equation}\label{dgm:partial_interleaving_rips}
+  \begin{tikzcd}
+    U_{\alpha-3c\delta}\arrow{rr}{v_{\alpha-3c\delta}^{\alpha}\circ\gamma_{\alpha-c\delta}}\arrow{dr}{\tilde{f}_{\alpha-c\delta}} & &
+    V_{\alpha}\arrow{rr}{w_\alpha^{\alpha+3c\of}\circ\pi_\alpha}\arrow{dr}{\tilde{g_\alpha}} & &
+    W_{\alpha+3c\of}\\
+    %
+    & \rips^{2\of}S_{\alpha-2c\of}\arrow{ur}{\tilde{m}_{\alpha-2c\of}}\arrow{rr}{\tilde{t}_{\alpha-2c\of}^{\alpha+c\of}\circ\tilde{\lambda}_{\alpha-2c\of}} & &
+    \rips^{2\of}T_{\alpha+c\of}\arrow{ur}{\tilde{n}_{\alpha+c\of}} &
+\end{tikzcd}\end{equation}

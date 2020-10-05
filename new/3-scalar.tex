@@ -40,23 +40,25 @@ We will also assume that $\b$ surrounds $D$ in $\X$, so that $\b$, $\B$, and $\B
 
 So $\b\subseteq \B\subseteq \BB$ all surround $D$ in $\X$ and $\Q^\of$ and $\QQ^\of$ surround $P^\of$ in $D$ where
 \[ \b\subseteq \ext{\Q^\of}\subseteq \B\subseteq \ext{\QQ^\of}\subseteq \BB.\]
-Corollary~\ref{cor:tcc_iso} therefore follows from Theorem~\ref{thm:separate_iso}.
+% Corollary~\ref{cor:tcc_iso} therefore follows from Theorem~\ref{thm:separate_iso}.
+%
+% \begin{corollary}\label{cor:tcc_iso}
+%   If $\eta^k : \hom_k(\b)\to \hom_k(\BB)$ is surjective and $\im~\eta^k\cong \hom_k(\bb)$ then for any $A\subset D$ such that $\BB\subset A$
+%   \[ \im~\hom_k((\P\cap A, \Q^\of)\to (\P\cap A, \QQ^\of))\cong \hom_k(A, \bb)\]
+%   for all $k > 0$.
+% \end{corollary}
+%
+% % \begin{lemma}
+% %   The $k$th persistent homology modules of
+% %   \[\{(\P\cap B_\alpha, \Q^\of)\to (\P\cap B_\alpha, \QQ^\of)\}_{\alpha\geq\oo}\]
+% %   are $c\of$-interleaved with
+% %   \[ \{(P_\alpha^\of, \Q^\of)\to (P_\alpha^\of, \QQ^\of)\}_{\alpha\geq\oo} \]
+% %   for all $k$.
+% % \end{lemma}
 
-\begin{corollary}\label{cor:tcc_iso}
-  If $\eta^k : \hom_k(\b)\to \hom_k(\BB)$ is surjective and $\im~\eta^k\cong \hom_k(\bb)$ then for any $A\subset D$ such that $\BB\subset A$
-  \[ \im~\hom_k((\P\cap A, \Q^\of)\to (\P\cap A, \QQ^\of))\cong \hom_k(A, \bb)\]
-  for all $k > 0$.
-\end{corollary}
+\clearpage
 
-% \begin{lemma}
-%   The $k$th persistent homology modules of
-%   \[\{(\P\cap B_\alpha, \Q^\of)\to (\P\cap B_\alpha, \QQ^\of)\}_{\alpha\geq\oo}\]
-%   are $c\of$-interleaved with
-%   \[ \{(P_\alpha^\of, \Q^\of)\to (P_\alpha^\of, \QQ^\of)\}_{\alpha\geq\oo} \]
-%   for all $k$.
-% \end{lemma}
-
-In the following let $(\P)_\alpha := \P\cap B_\alpha$ for all $\alpha\in\R$.
+In the following let $D_\alpha = f^{-1}(-\infty, \alpha]$ and $(\P)_\alpha := \P\cap D_\alpha$ for all $\alpha\in\R$.
 
 \begin{lemma}\label{lem:ps_inter}
   The $k$th persistent homology modules of $\{(\P)_\alpha\}_{\alpha\in\R}$ are $c\of$-interleaved with those of $\{P_\alpha^\of\}_{\alpha\in\R}$ for all $k$.
@@ -128,26 +130,26 @@ In the following let $(\P)_\alpha := \P\cap B_\alpha$ for all $\alpha\in\R$.
 %   \[\nu_\alpha : \Pi_\alpha\to \Sigma_{\alpha+c\delta}\text{ where } \nu_\alpha = s_{\alpha+c\delta} \circ n_\alpha = n_\alpha'\circ p_\alpha.\]
 %   So
 \end{proof}
-
-% \begin{corollary}
-%   If $\eta^k : \hom_k(\b)\to \hom_k(\BB)$ is surjective and $\im~\eta^k\cong \hom_k(\bb)$ then the $k$th persistent homology modules of
-%   $\{(B_\alpha, \bb)\}_{\alpha\geq\oo}$ is $c\of$-interleaved with that of
-%   \[\{(P_\alpha^\of, \Q^\of)\to (P_\alpha^\of, \QQ^\of)\}_{\alpha\geq\oo}\]
-%   for $k > 0$.
-% \end{corollary}
-
-% \section{NEW NOTATION}
 %
-% Let $D_\alpha := f^{-1}(-\infty, \alpha]$ for $\alpha\in\R$ and $B_\alpha := D_{\omega+\alpha}$ for $\omega\in\R$ such that $B_0 = D_\omega$ surrounds $D$ in $\X$.
-% Let $\gamma\geq 3\delta$ be such that $B_{c\delta}^\delta\subseteq B_0^{\gamma-\delta}$ and $\lambda \geq \gamma + 3\delta$ be such that
-% \[j : \hom_0(D\setminus B_{c\lambda})\to \hom_0(D\setminus B_0^{\gamma - \delta}) \]
-% is surjective.
+% % \begin{corollary}
+% %   If $\eta^k : \hom_k(\b)\to \hom_k(\BB)$ is surjective and $\im~\eta^k\cong \hom_k(\bb)$ then the $k$th persistent homology modules of
+% %   $\{(B_\alpha, \bb)\}_{\alpha\geq\oo}$ is $c\of$-interleaved with that of
+% %   \[\{(P_\alpha^\of, \Q^\of)\to (P_\alpha^\of, \QQ^\of)\}_{\alpha\geq\oo}\]
+% %   for $k > 0$.
+% % \end{corollary}
 %
-% Let $P$ be a finite set of points in $D$ and $Q_\alpha := P\cap B_\alpha$.
-% \begin{equation}\label{dgm:1}\begin{tikzcd}
-%   \hom_0(\cmp{B_{c\lambda}}, \cmp{D})\arrow{d} \arrow{r}{j} & %{j_*} &
-%   \hom_0(\cmp{B_0^{\gamma - \delta}},\cmp{D}) \arrow{d} \\
-%   %
-%   \hom_0(\cmp{Q_{c(\lambda - \delta)}^\of}, \cmp{\P}) \arrow{r}{i} & %{i_*} &
-%   \hom_0(\cmp{Q_{c\delta}^\of}, \cmp{\P}).
-% \end{tikzcd}\end{equation}
+% % \section{NEW NOTATION}
+% %
+% % Let $D_\alpha := f^{-1}(-\infty, \alpha]$ for $\alpha\in\R$ and $B_\alpha := D_{\omega+\alpha}$ for $\omega\in\R$ such that $B_0 = D_\omega$ surrounds $D$ in $\X$.
+% % Let $\gamma\geq 3\delta$ be such that $B_{c\delta}^\delta\subseteq B_0^{\gamma-\delta}$ and $\lambda \geq \gamma + 3\delta$ be such that
+% % \[j : \hom_0(D\setminus B_{c\lambda})\to \hom_0(D\setminus B_0^{\gamma - \delta}) \]
+% % is surjective.
+% %
+% % Let $P$ be a finite set of points in $D$ and $Q_\alpha := P\cap B_\alpha$.
+% % \begin{equation}\label{dgm:1}\begin{tikzcd}
+% %   \hom_0(\cmp{B_{c\lambda}}, \cmp{D})\arrow{d} \arrow{r}{j} & %{j_*} &
+% %   \hom_0(\cmp{B_0^{\gamma - \delta}},\cmp{D}) \arrow{d} \\
+% %   %
+% %   \hom_0(\cmp{Q_{c(\lambda - \delta)}^\of}, \cmp{\P}) \arrow{r}{i} & %{i_*} &
+% %   \hom_0(\cmp{Q_{c\delta}^\of}, \cmp{\P}).
+% % \end{tikzcd}\end{equation}
