@@ -3,13 +3,13 @@
 \section{Persistence Modules}
 
 A \textbf{persistence module} $\S$ over $\R$ is an indexed family of vector spaces $\{S_\alpha\}$ and linear maps $\{s_\alpha^\beta : S_\alpha\to S_\beta\}$ such that $s^\gamma_\beta\circ s_\alpha^\beta = s_\alpha^\gamma$ whenever $\alpha\leq\beta\leq\gamma$ and $s_\alpha^\alpha$ is the identity on $S_\alpha$.
-A \textbf{homomorphism} $\Lambda$ between two $\R$-persistence modules $\S, \T$ is a collection of linear maps $\{\lambda_\alpha : S_\alpha\to T_\alpha$ such that the following diagram commutes for all $\alpha\leq\beta$.
+A \textbf{homomorphism} $\Lambda$ between two $\R$-persistence modules $\S, \T$ is a collection of linear maps $\{\lambda_\alpha : S_\alpha\to T_\alpha\}$ such that the following diagram commutes for all $\alpha\leq\beta$.
 \begin{equation}\label{dgm:homomorphism}
   \begin{tikzcd}
     S_\alpha\arrow{r}{s_\alpha^\beta}\arrow{d}{\lambda_\alpha} &
     S_\beta\arrow{d}{\lambda_\beta}\\
     %
-    T_\alpha\arrow{r}{s_\alpha^\beta} &
+    T_\alpha\arrow{r}{t_\alpha^\beta} &
     T_\beta
 \end{tikzcd}\end{equation}
 The space of homomorphisms from $\S$ to $\T$ will be denoted $\Hom(\S, \T)$.
