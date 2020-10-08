@@ -20,25 +20,47 @@ Let $\cech^\e\S$ be defined as the family $\{\cech^\e S_\alpha := \hom_k(\cech^\
 Define $\rips^\e\S$, $\cech^\e\T$, $\rips^\e\T$ in the same way.
 We have the following maps induced by inclusions
 \[ \cech^\e\Lambda\in\Hom(\cech^\e\S,\cech^\e\T),\ \rips^\e\Lambda\in\Hom(\rips^\e\S,\rips^\e\T).\]
-By the Nerve Theorem\textbf{TODO} there exist isomorphisms $\S^\e\to \cech^\e\S$ and $\T^\e\to\cech^\e\T$ for all $\e$.
-Moreover, we have the following sequences of inclusions for all $\e > 0$, $\alpha\in\R$
-\[ \cech^\e S_\alpha\subseteq \rips^{2\e} S_\alpha \subseteq \cech^{2\e} S_\alpha \]
-\[ \cech^\e T_\alpha\subseteq \rips^{2\e} T_\alpha \subseteq \cech^{2\e} T_\alpha. \]
+
+Let $\N^\e \in\Hom(\S^\e,\cech^\e\S)$ be the family of isomorphisms
+\[\{\eta_\alpha^\e : \hom_k(P\subi{\omega-c\zeta,\alpha}^\e, \Q^\e)\xrightarrow{\cong}\hom_k(\cech^\e(P\subi{\omega-c\zeta,\alpha}),\cech^\e(\Q))\}\]
+provided by the Nerve Theorem.
+We have the following sequence of maps induced by inclusion for all $\e > 0$, $\alpha\in\R$
+\[ \cech^\e S_\alpha\xrightarrow{R_\alpha^\e} \rips^{2\e} S_\alpha\xrightarrow{C_\alpha^{2\e}}\cech^{2\e} S_\alpha \]
+% Let $\N^{\e}'\in\Hom(\T^\e,\cech^\e\T)$ be defined similarly.
+
+Let $\Sigma\in \Hom(\S^\delta, \rips^{2\delta}\S)$ be defined as the family linear maps
+\[\{\sigma_\alpha := R_\alpha^\delta\circ \eta_\alpha^\delta :S_\alpha^\delta\to\rips^{2\delta}S_\alpha\}\]
+and $\Upsilon\in \Hom(\rips^{2\delta}\S, \S^{2\delta})$ be defined as the family linear maps
+\[\{\upsilon_\alpha := (\eta_\alpha^{2\delta})^{-1}\circ C_\alpha^{2\delta} :\rips^{2\delta}S_\alpha\to S_\alpha^{2\delta}\}.\]
+
+Suppose $\Phi^\delta_{M^\delta}(F^\delta, G^\delta)\in\Hom^\delta(\im~\Gamma, \im~\Lambda^\delta)$ is a partial $\delta$-interleaving and $\Phi^\delta_{M^{2\delta}}(F^{2\delta}, G^{2\delta})\in\Hom^\delta(\im~\Gamma, \im~\Lambda^{2\delta})$ is a partial $2\delta$-interleaving where all maps are induced by inclusion.
+Because $\N^\e$ is an isomorphism for all $\delta\leq\e\leq2\delta$ and $R_\alpha^\e$, $C^\e_\alpha$ are induced by inclusion
+\begin{align*}
+  m_\alpha^\delta &= m_\alpha^{2\delta}\circ ((\eta_\alpha^{2\delta})^{-1}\circ C_\alpha^{2\delta})\circ (R_\alpha^\delta\circ \eta_\alpha^\delta)\\
+    &= m_\alpha\circ\upsilon_\alpha\circ\sigma_\alpha
+\end{align*}
+thus $M^\delta = M^{2\delta}\circ \Upsilon\circ \Sigma$.
+Because $\Gamma$ is left $\delta$ interleaved with  $\Lambda^\delta$ and left $2\delta$ interleaved with $\Lambda^{2\delta}$ it follows that $\Gamma$ is left $2\delta$-interleaved with $\rips^{2\delta}\Lambda$ by Lemma~\ref{lem:left}.
+
+% By the Nerve Theorem\textbf{TODO} there exist isomorphisms $\N^\e \in \Hom(\S^\e\to \cech^\e\S$ and $\T^\e\to\cech^\e\T$ for all $\e$.
+% Moreover, we have the following sequences of inclusions for all $\e > 0$, $\alpha\in\R$
+% \[ \cech^\e S_\alpha\subseteq \rips^{2\e} S_\alpha \subseteq \cech^{2\e} S_\alpha \]
+% \[ \cech^\e T_\alpha\subseteq \rips^{2\e} T_\alpha \subseteq \cech^{2\e} T_\alpha. \]
 % It follows that we have the following sequence of maps between image modules
 % \[ \im~\Lambda^\e\to \cech^\e\Lambda\to\rips^{2\e}\Lambda\to\cech^{2\e}\Lambda\to\im\Lambda^{2\e}.\]
 
-So we have the following homomorphisms of persistence modules.
-\begin{align*}
-  \Sigma&\in\Hom(\S^\delta, \rips^{2\delta}\S) & \Theta&\in\Hom(\T^\delta,\rips^{2\delta}\T)\\
-  \Xi&\in\Hom(\rips^{2\delta}\S, \S^{2\delta}) & \Upsilon&\in\Hom(\rips^{2\delta}\T, \T^{2\delta}).
-\end{align*}
-\textbf{TODO $S^{2\delta}_{\alpha-\delta}\subseteq T^\delta_{\alpha+\delta}$.}
-
-\begin{itemize}
-  \item All maps between Rips/Cech induced by inclusion: there is a partial 0-interleaving from $\cech^\delta\Lambda$ to $\rips^{2\delta}\Lambda$ and from from $\rips^{2\delta}\Lambda$ to $\cech^{2\delta}\Lambda$ by Lemmas~\ref{lem:left} and~\ref{lem:right}
-  \item If everything commutes with the nerve theorem isomorphism there is a partial 0-interleaving from $\Lambda^\delta$ to $\cech^\delta\Lambda$ (and therefore from $\Lambda^\delta$ to $\rips^{2\delta}\Lambda$) and a partial $2\delta$-interleaving from $\cech^{2\delta}\Lambda$ to $\Lambda^{2\delta}$ by Lemmas~\ref{lem:left} and~\ref{lem:right}.
-  \item So there is a partial $2\delta$ interleaving from $\im~\Gamma$ to $\im~\rips^{2\delta}\Lambda$ and from $\im~\rips^{2\delta}\Lambda$ to $\im~\Pi$: apply Theorem~\ref{thm:interleaving_main}.
-\end{itemize}
+% So we have the following homomorphisms of persistence modules.
+% \begin{align*}
+%   \Sigma&\in\Hom(\S^\delta, \rips^{2\delta}\S) & \Theta&\in\Hom(\T^\delta,\rips^{2\delta}\T)\\
+%   \Upsilon&\in\Hom(\rips^{2\delta}\S, \S^{2\delta}) & \Xi&\in\Hom(\rips^{2\delta}\T, \T^{2\delta}).
+% \end{align*}
+% \textbf{TODO $S^{2\delta}_{\alpha-\delta}\subseteq T^\delta_{\alpha+\delta}$.}
+%
+% \begin{itemize}
+%   \item All maps between Rips/Cech induced by inclusion: there is a partial 0-interleaving from $\cech^\delta\Lambda$ to $\rips^{2\delta}\Lambda$ and from from $\rips^{2\delta}\Lambda$ to $\cech^{2\delta}\Lambda$ by Lemmas~\ref{lem:left} and~\ref{lem:right}
+%   \item If everything commutes with the nerve theorem isomorphism there is a partial 0-interleaving from $\Lambda^\delta$ to $\cech^\delta\Lambda$ (and therefore from $\Lambda^\delta$ to $\rips^{2\delta}\Lambda$) and a partial $2\delta$-interleaving from $\cech^{2\delta}\Lambda$ to $\Lambda^{2\delta}$ by Lemmas~\ref{lem:left} and~\ref{lem:right}.
+%   \item So there is a partial $2\delta$ interleaving from $\im~\Gamma$ to $\im~\rips^{2\delta}\Lambda$ and from $\im~\rips^{2\delta}\Lambda$ to $\im~\Pi$: apply Theorem~\ref{thm:interleaving_main}.
+% \end{itemize}
 
 % the $k$th persistent homology modules of
 % \[ \{(P^\delta\subi{\omega-2c\delta,\alpha},Q_{\omega-2c\delta}^\delta)\to (P^\delta\subi{\omega+c\delta,\alpha},Q^{2\delta}_{\omega+c\delta}^\delta)\} \]

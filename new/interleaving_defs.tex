@@ -2,37 +2,39 @@
 
 \section{Persistence Modules}
 
-A \textbf{persistence module} $\V$ over $\R$ is an indexed family of vector spaces $\{V_\alpha\}$ and linear maps $\{v_\alpha^\beta : V_\alpha\to V_\beta\}$ such that $v^\e_\beta\circ v_\alpha^\beta = v_\alpha^\e$ whenever $\alpha\leq\beta\leq\e$ and $v_\alpha^\alpha$ is the identity on $V_\alpha$.
-A \textbf{homomorphism} $\Gamma$ between two $\R$-persistence modules $\U, \V$ is a collection of linear mapw $\{\gamma_\alpha : U_\alpha\to V_\alpha$ such that the following diagram commutes for all $\alpha\leq\beta$.
+A \textbf{persistence module} $\S$ over $\R$ is an indexed family of vector spaces $\{S_\alpha\}$ and linear maps $\{s_\alpha^\beta : S_\alpha\to S_\beta\}$ such that $s^\gamma_\beta\circ s_\alpha^\beta = s_\alpha^\gamma$ whenever $\alpha\leq\beta\leq\gamma$ and $s_\alpha^\alpha$ is the identity on $S_\alpha$.
+A \textbf{homomorphism} $\Lambda$ between two $\R$-persistence modules $\S, \T$ is a collection of linear maps $\{\lambda_\alpha : S_\alpha\to T_\alpha$ such that the following diagram commutes for all $\alpha\leq\beta$.
 \begin{equation}\label{dgm:homomorphism}
   \begin{tikzcd}
-    U_\alpha\arrow{r}{u_\alpha^\beta}\arrow{d}{\gamma_\alpha} &
-    U_\beta\arrow{d}{\gamma_\beta}\\
+    S_\alpha\arrow{r}{s_\alpha^\beta}\arrow{d}{\lambda_\alpha} &
+    T_\beta\arrow{d}{\lambda_\beta}\\
     %
-    V_\alpha\arrow{r}{v_\alpha^\beta} &
-    V_\beta
+    S_\alpha\arrow{r}{s_\alpha^\beta} &
+    T_\beta
 \end{tikzcd}\end{equation}
-The space of homomorphisms from $\U$ to $\V$ will be denoted $\Hom(\U, \V)$.
+The space of homomorphisms from $\S$ to $\T$ will be denoted $\Hom(\S, \T)$.
 
-A \textbf{homomorphism of degree $\delta$} is a collection $F$ of linear maps $f_\alpha : U_\alpha\to V_{\alpha+\delta}$ such that the following diagram commutes for all $\alpha\leq\beta$.
+A \textbf{homomorphism of degree $\delta$} is a collection $F$ of linear maps $f_\alpha : U_\alpha\to S_{\alpha+\delta}$ such that the following diagram commutes for all $\alpha\leq\beta$.
+
 \begin{equation}\label{dgm:shifted_homomorphism}
   \begin{tikzcd}
     U_\alpha\arrow{r}{u_\alpha^\beta}\arrow{d}{f_\alpha} &
     U_\beta\arrow{d}{f_\beta}\\
     %
-    V_{\alpha+\delta}\arrow{r}{v_{\alpha+\delta}^{\beta+\delta}} &
-    V_{\beta +\delta}
+    S_{\alpha+\delta}\arrow{r}{s_{\alpha+\delta}^{\beta+\delta}} &
+    S_{\beta +\delta}
 \end{tikzcd}\end{equation}
-The space of homomorphisms of degree $\delta$ from $\U$ to $\V$ will be denoted $\Hom^\delta(\U, \V)$.
+The space of homomorphisms of degree $\delta$ from $\U$ to $\S$ will be denoted $\Hom^\delta(\U, \S)$.
 
-Two persistence modules $\U$ and $\V$ are \textbf{$\delta$-interleaved} if there exist homomorphisms $F\in\Hom^\delta(\U, \V)$ and $G \in\Hom^\delta(\V,\U)$ such that the following diagrams commute for all $\alpha$.
+Two persistence modules $\U$ and $\S$ are \textbf{$\delta$-interleaved} if there exist homomorphisms $F\in\Hom^\delta(\U, \S)$ and $G \in\Hom^\delta(\S,\U)$ such that the following diagrams commute for all $\alpha$.
+
 \begin{minipage}{0.45\textwidth}
 \begin{equation}\label{dgm:interleaving1}
   \begin{tikzcd}
     U_{\alpha-\delta}\arrow{rr}{u_{\alpha-\delta}^{\alpha+\delta}}\arrow{dr}{f_{\alpha-\delta}} & &
     U_{\alpha+\delta}\\
     %
-    & V_{\alpha}\arrow{ur}{g_\alpha} &
+    & S_{\alpha}\arrow{ur}{g_\alpha} &
 \end{tikzcd}\end{equation}
 \end{minipage}
 \begin{minipage}{0.45\textwidth}
@@ -40,14 +42,15 @@ Two persistence modules $\U$ and $\V$ are \textbf{$\delta$-interleaved} if there
   \begin{tikzcd}
     & U_{\alpha}\arrow{dr}{f_\alpha} &\\
     %
-    V_{\alpha-\delta}\arrow{rr}{v_{\alpha-\delta}^{\alpha+\delta}}\arrow{ur}{g_{\alpha-\delta}} & &
-    V_{\alpha+\delta}
+    S_{\alpha-\delta}\arrow{rr}{s_{\alpha-\delta}^{\alpha+\delta}}\arrow{ur}{g_{\alpha-\delta}} & &
+    S_{\alpha+\delta}
 \end{tikzcd}\end{equation}
 \end{minipage}
 
 \subsection{Left and Right Interleavings}
 
 Two homomorphisms $I\in\Hom^{2\delta}(\U,\V)$ and $J\in\Hom^{2\delta}(\S,\T)$ of degree (at most) $2\delta$ are said to be \textbf{left $\delta$-interleaved} if there exist $F\in\Hom^\delta(\U,\S)$ and $M\in\Hom^\delta(\S,\V)$ such that the following diagram commutes for all $\alpha$.
+
 \begin{equation}\label{dgm:left_interleaving}
   \begin{tikzcd}
     U_{\alpha-\delta}\arrow{rr}{i_{\alpha-\delta}}\arrow{dr}{f_{\alpha-\delta}} & &
@@ -56,6 +59,7 @@ Two homomorphisms $I\in\Hom^{2\delta}(\U,\V)$ and $J\in\Hom^{2\delta}(\S,\T)$ of
     & S_{\alpha}\arrow{ur}{m_\alpha} &
 \end{tikzcd}\end{equation}
 The homomorphisms are said to be \textbf{right $delta$-interleaved} if there exist $M\in\Hom^\delta(\S,\V)$ and $G\in\Hom^\delta(\V,\T)$ such that the following diagram commutes for all $\alpha$.
+
 \begin{equation}\label{dgm:right_interleaving}
   \begin{tikzcd}
     & V_{\alpha}\arrow{dr}{g_\alpha} &\\
@@ -65,31 +69,34 @@ The homomorphisms are said to be \textbf{right $delta$-interleaved} if there exi
 \end{tikzcd}\end{equation}
 $I$ and $J$ are \textbf{weakly $\delta$-interleaved} if they are both left and right $\delta$-interleaved.
 
-\begin{lemma}\label{lem:left}
-  Suppose $I$ is left $\delta$-interleaved with $J$ and $J'$ by pairs $(F, M)$ and $(F', M')$, respectively.
 
-  If there exist $\Sigma\in\Hom(\S,\tilde{\S})$ and $\Xi\in\Hom(\tilde{\S}, \S')$ such that $M = M'\circ\Xi\circ\Sigma$ then $I$ and $\tilde{J}$ are left $\delta$-interleaved by the pair $(\Sigma\circ F, M'\circ\Xi)$.
+% In the following let $I\in\Hom^{2\delta}(\U, \V)$, $J\in\Hom^{2\delta}(\S,\T)$, $\tilde{J}\in\Hom^{2\delta}(\tilde{\S},\tilde{\T})$, $J'\in\Hom^{2\delta}(\S',\T')$ be homomorphisms of degree (at most) $2\delta$.
+
+\begin{lemma}\label{lem:left}
+  Suppose $I\in\Hom^{2\delta}(\U, \V)$ is left $\delta$-interleaved with $J\in\Hom^{2\delta}(\S,\T)$ and $J'\in\Hom^{2\delta}(\S',\T')$ by pairs $(F, M)$ and $(F', M')$, respectively.
+
+  If there exist $\Sigma\in\Hom(\S,\tilde{\S})$ and $\Upsilon\in\Hom(\tilde{\S}, \S')$ such that $M = M'\circ\Upsilon\circ\Sigma$ then $I$ and $\tilde{J}\in\Hom^{2\delta}(\tilde{\S},\tilde{\T})$ are left $\delta$-interleaved by the pair $(\Sigma\circ F, M'\circ\Upsilon)$.
 \end{lemma}
 \begin{proof}
   Because $I$ is left $\delta$-interleaved with $J$ Diagram~\ref{dgm:left_interleaving} commutes for all $\alpha$, so $i_{\alpha-\delta} = m_\alpha\circ f_{\alpha-\delta}$.
-  By our hypothesis that $M = M'\circ\Xi\circ\Sigma$ it follows
-  \[ i_{\alpha-\delta} = (m_\alpha'\circ\xi_\alpha)\circ(\sigma\circ f_{\alpha-\delta}) \]
-  which implies that $I$ and $\tilde{J}$ are left $\delta$-interleaved by the pair $(\Sigma\circ F, M'\circ\Xi)$ as desired.
+  By our hypothesis that $M = M'\circ\Upsilon\circ\Sigma$ it follows
+  \[ i_{\alpha-\delta} = (m_\alpha'\circ\upsilon_\alpha)\circ(\sigma\circ f_{\alpha-\delta}) \]
+  which implies that $I$ and $\tilde{J}$ are left $\delta$-interleaved by the pair $(\Sigma\circ F, M'\circ\Upsilon)$ as desired.
   % Similarly, because $\Gamma[2\delta]$ is left $\delta$-interleaved with $\Lambda'[2\delta]$ we have $\gamma[2\delta]_{\alpha-\delta}
 \end{proof}
 
 \begin{lemma}\label{lem:right}
-  Suppose $I$ is right $\delta$-interleaved with $L\in\Hom^{2\delta}(\S',\T)$ by a pair $(M', G)$.
+  Suppose $I\in\Hom^{2\delta}(\U, \V)$ is right $\delta$-interleaved with $L\in\Hom^{2\delta}(\S',\T)$ by a pair $(M', G)$.
 
-  If there exist $\Xi\in\Hom(\tilde{\S},\S')$ and $\Omega\in\Hom(\T,\tilde{\T})$ such that
-  \[\tilde{j}_\alpha = \omega_{\alpha+2\delta}\circ \ell_\alpha\circ\xi_\alpha \]
-  for all $\alpha$ then $I$ and $\tilde{J}$ are right $\delta$-interleaved by the pair $(M'\circ\Xi, \Omega\circ G)$.
+  If there exist $\Upsilon\in\Hom(\tilde{\S},\S')$ and $\Theta\in\Hom(\T,\tilde{\T})$ such that
+  \[\tilde{j}_\alpha = \omega_{\alpha+2\delta}\circ \ell_\alpha\circ\upsilon_\alpha \]
+  for all $\alpha$ then $I$ and $\tilde{J}\in\Hom^{2\delta}(\tilde{\S},\tilde{\T})$ are right $\delta$-interleaved by the pair $(M'\circ\Upsilon, \Theta\circ G)$.
 \end{lemma}
 \begin{proof}
   Because $I$ and $L$ are right $\delta$-interleaved by a pair $(M', G)$ Daigram~\ref{dgm:right_interleaving} commutes for all $\alpha$, so $\ell_{\alpha-\delta} = g_\alpha\circ m_{\alpha-\delta}'$.
-  By our assumption that $\tilde{j}_\alpha = \omega_{\alpha+2\delta}\circ \ell_\alpha\circ\xi_\alpha$ it follows
-  \[ \tilde{j}_\alpha = \omega_{\alpha+2\delta}\circ \ell_\alpha\circ\xi_\alpha = (\omega_{\alpha+\delta}\circ g_\alpha)\circ (m_{\alpha-\delta}\circ\xi_{\alpha-\delta}) \]
-  which implies that $I$ and $\tilde{J}$ are right $\delta$-interleaved by the pair $(M'\circ \Xi, \Omega\circ G)$ as desired.
+  By our assumption that $\tilde{j}_\alpha = \vartheta_{\alpha+2\delta}\circ \ell_\alpha\circ\upsilon_\alpha$ it follows
+  \[ \tilde{j}_\alpha = \vartheta_{\alpha+2\delta}\circ \ell_\alpha\circ\upsilon_\alpha = (\vartheta_{\alpha+\delta}\circ g_\alpha)\circ (m_{\alpha-\delta}\circ\upsilon_{\alpha-\delta}) \]
+  which implies that $I$ and $\tilde{J}$ are right $\delta$-interleaved by the pair $(M'\circ \Upsilon, \Theta\circ G)$ as desired.
 \end{proof}
 
 \subsection{Image Persistence Modules}
@@ -120,7 +127,7 @@ Therefore, if $\Phi(F, G)$ is an image module homomorphism of degree $\delta$ th
 \end{tikzcd}\end{equation}
 
 \begin{lemma}\label{lem:composition}
-  If $\Phi(F, G)\in\Hom^\delta(\im~\Gamma, \im~\Lambda)$ and $\Psi(M, N)\in\Hom^{\delta'}(\im~\Lambda, \im~\Pi)$ then $\Psi\Phi(M\circ F, N\circ G)\in\Hom^{\delta+\delta'}(\im~\Gamma,\im~\Pi)$.
+  If $\Phi(F, G)\in\Hom^\delta(\im~\Gamma, \im~\Lambda)$ and $\Phi'(F', G')\in\Hom^{\delta'}(\im~\Lambda, \im~\Lambda')$ then $\Phi'\Phi(F'\circ F, G'\circ G)\in\Hom^{\delta+\delta'}(\im~\Gamma,\im~\Lambda')$.
 \end{lemma}
 % \begin{proof}
 %   Because $\Phi(F, G)$ is an image module homomorphism of degree $\delta$
@@ -169,7 +176,6 @@ An image module homomorphism $\Phi(F, G)\in\Hom^\delta(\im~\Gamma,\im~\Lambda)$ 
 
 % In the following let $\Gamma\in\Hom(\U, \V)$, $\Lambda\in\Hom(\S,\T)$, $\tilde{\Lambda}\in\Hom(\tilde{\S},\tilde{\T})$, $\Lambda'\in\Hom(\S',\T')$, and $\Pi\in\Hom(\U,\W)$ be homomorphisms of persistence modules.
 
-In the following let $I\in\Hom^{2\delta}(\U, \V)$, $J\in\Hom^{2\delta}(\S,\T)$, $\tilde{J}\in\Hom^{2\delta}(\tilde{\S},\tilde{\T})$, $J'\in\Hom^{2\delta}(\S',\T')$ be homomorphisms of degree (at most) $2\delta$.
 
 % \begin{lemma}
 %   Suppose $I(\Sigma, \Theta)\in\Hom(\im~\Lambda,\im~\tilde{\Lambda})$ is an image module homomorphism and $\Phi'(F', G')\in\Hom^{\delta'}(\im~\Gamma,\im~\Lambda')$ is a left $\delta'$-interleaving for some $M'\in\Hom^{\delta'}(\S',\V)$.

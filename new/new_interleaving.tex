@@ -1,26 +1,57 @@
 % !TeX root = ../new.tex
 
-\clearpage
+% \clearpage
 
 In the following let $D\subi{w,a} := B_w\cup f\rest_{\comp{B_w}}^{-1}(-\infty,a]$ and $P\subi{w,a} := P\cap D\subi{w,a}$.
 
-Suppose $\b$ surrounds $D$ in $\X$ and $\Q^\of$ surrounds $\P$ in $D$ such that
-\begin{itemize}
-  \item $D\setminus \B\subseteq \P$,
-  \item $\b\cap \P \subseteq \Q^\of\subseteq \B$, and
-  \item $\B\cap \P\subseteq \QQ^\of\subseteq \BB$.
-\end{itemize}
+\begin{lemma}\label{lem:extension_apply}
+  If $Q_w^\e$ surrounds $P^\e$ in $D$ then for all $w,a\in\R$ and $\ext{P\subi{w,a}^\e} = P\subi{w,a}^\e \cup (D\setminus P^\e)$
+  \[\hom_k(P\subi{w,a}^\e, Q_w^\e)\cong \hom_k(\ext{P\subi{w,a}^\e}, \ext{Q^\e_a}).\]
+\end{lemma}
+\begin{proof}
+  Because $P\subi{w,a} := P\cap D\subi{w,a}$ and $B_w\subseteq D\subi{w,a}$ we know $Q_w = P\cap B_w \subseteq P\subi{w,a}$ for all $w,a\in\R$.
+  So
+  \[\ext{Q^\e_a} = Q^\e_a\cup (D\setminus P^\e) \subseteq P\subi{w,a}^\e \cup (D\setminus P^\e) = \ext{P\subi{w,a}^\e}.\]
+  As $(P^\e, Q_w^\e)$ is a surrounding pair in $D$, $P^\e$ is open in $D$ and $\ext{P\subi{w,a}^\e}\subseteq D$ is such that $\ext{Q^\e_a}\subseteq \ext{P\subi{w,a}^\e}$ it follows that
+  \[\hom_k(P\subi{w,a}^\e, Q^\e_a) = \hom_k(P^\e\cap \ext{P\subi{w,a}^\e}, Q^\e_a) \cong\hom_k(\ext{P\subi{w,a}^\e}, \ext{Q^\e_a})\]
+  by Lemma~\ref{lem:excision}
+\end{proof}
 
-Because $\Q^\delta$ surrounds $\P$ in $D$ and $D\setminus \B\subseteq \P$ we have
-\[ D\subi{\omega,\alpha} = (\P\cup (D\setminus \P))\cap D\subi{\omega,\alpha}\subseteq \P\subi{\omega,\alpha} \cup (D\subi{\omega,\alpha}\cap (D\setminus \P))\]
-where $D\subi{\omega,\alpha}\cap (D\setminus \P) = (D\setminus \P)$ for all $\alpha\in\R$.
+% Because $\Q^\delta$ surrounds $\P$ in $D$ and $D\setminus \B\subseteq \P$ we have
+% \[ D\subi{\omega,\alpha} = (\P\cup (D\setminus \P))\cap D\subi{\omega,\alpha}\subseteq \P\subi{\omega,\alpha} \cup (D\subi{\omega,\alpha}\cap (D\setminus \P))\]
+% where $D\subi{\omega,\alpha}\cap (D\setminus \P) = (D\setminus \P)$ for all $\alpha\in\R$.
 So we define the extensions
 \[\ext{P^\e\subi{\omega-c\zeta, \alpha}} := P^\e\subi{\omega-c\delta, \alpha}\cup (D\setminus \P)\]
 and
 \[\ext{P^\e\subi{\omega+c\delta, \alpha}} := P^\e\subi{\omega+c\delta, \alpha}\cup (D\setminus \P)\]
 of $P^\e_\alpha$ for all $\alpha\in\R$ and $\delta\leq\e\leq\zeta$.
-Moreover, our assumptions imply that we have the following sequence of inclusions by Lemma~\ref{lem:surround_and_cover}.
-\[ \b\subseteq \ext{\Q^\e}\subseteq \B\subseteq\ext{\QQ^\e}\subseteq \BB.\]
+
+\begin{lemma}\label{lem:p_interleave}
+ If $Q_w^\e$ surrounds $P^\e$ in $D$ and $D\setminus B_{w + \e}\subseteq P^\e$ then
+ \[ D\subi{w-c\e, a-c\e} \subseteq \ext{P\subi{w, a}^\e}\subseteq D\subi{w+c\e,a+c\e}.\]
+\end{lemma}
+\begin{proof}
+  Suppose $x\in (P^\e\cap B\subi{w-c\e, a-c\e})\setminus B_{w+\e}$.
+  Because $B_{w-\e}\subset B_{w+\e}$ we know $x\notin B_{w-\e}$ so $w+c\e < f(x)\leq a-c\e$ and there exists some $p\in P$ such that $\dist(x, p) < \e$.
+  Because $f$ is $c$-Lipschitz it follows
+  \[ f(p)\leq f(x) + c\dist(x, p) < a - c\e + c\e = a\]
+  and
+  \[ f(p)\geq f(x) - c\dist(x, p) > w+c\e-c\e = w.\]
+  So $x\in P\subi{w,a}^\e$.
+
+  Now, suppose $x\in P\subi{w,a}^\e\setminus B_{w+c\e}$.
+  So $w+c\e < f(x)$ and there exists some $p\in P\subi{w,a}$ such that $\dist(x,p) < \e$.
+  Because $f$ is $c$-Lipschitz it follows
+  \[ f(x) \leq f(p) + c\dist(x,p) < a + c\e.\]
+  So $x\in B\subi{w+c\e, a+c\e}\setminus B_{w+c\e}$.
+
+  Because $D\setminus B_{w+c\e}\subseteq P^\e$ we know that $D\setminus P^\e \subseteq B_{w+c\e}$, so
+  \[D\subi{w-c\e, a-c\e}\setminus B_{w+c\e} \subseteq P\subi{w,a}^\e\setminus B_{w+c\e}\subseteq D\subi{w+c\e, a+c\e}\setminus B_{w+c\e}\]
+  implies
+  \[ D\subi{w-c\e, a-c\e}\subseteq P\subi{w,a}^\e\cup (D\setminus P^\e) = \ext{P\subi{w,a}^\e} \subseteq D\subi{w+c\e, a+c\e} \]
+  as desired.
+\end{proof}
+
 
 % Because $\Q^\delta$ surrounds $\P$ in $D$ and $D\setminus \B\subseteq \P$ we have
 % \[ B_{\alpha-c\of} = (\P\cup (D\setminus \P))\cap B_{\alpha -c\of}\subseteq \P\subi{\alpha} \cup (B_{\alpha - c\of}\cap (D\setminus \P))\]
@@ -74,8 +105,13 @@ Moreover, our assumptions imply that we have the following sequence of inclusion
 %   \hom_k(D_{\alpha+c\of}, \FB_{\alpha+c\of}'')
 % \end{tikzcd}\end{equation}
 
-
-Because all maps are induced by inclusion the following diagram commutes for all $\alpha$ and $\delta\leq\e\leq\zeta$.
+Suppose $\b$ surrounds $D$ in $\X$, $D\setminus\B\subseteq \P$, and $\Q^\of$ surrounds $\P$ in $D$ such that
+\[ \b\cap \P \subseteq \Q^\of\subseteq \B\cap \P\subseteq \QQ^\of\subseteq \BB.\]
+By Lemma~\ref{lem:surround_and_cover} and Lemma~\ref{lem:p_interleave} it follows that for all $\alpha\in\R$ and $\delta\leq\e\leq\zeta$.
+\[ (D\subi{\omega-c(\delta+\zeta),\alpha-c\delta},\b)\subseteq (\ext{P^\e\subi{\omega-c\zeta,\alpha}},\ext{\Q^\e})\subseteq (D\subi{\omega,\alpha+c\e},\B)\]
+and
+\[ (D\subi{\omega,\alpha-c\delta},\B)\subseteq (\ext{P^\e\subi{\omega+c\delta,\alpha}},\ext{\QQ^\e})\subseteq (D\subi{\omega+c(\delta+\zeta),\alpha+c\e},\BB).\]
+Therefore the following diagram of maps induced by inclusion commutes.
 % \[(\{(\ext{P_\alpha},\FQ_\alpha)\},\{(\ext{P_\alpha},\FQ_\alpha')\}),\]
 % \[(\{(D_\alpha, \FB_\alpha)\}, \{(D_\alpha,\FB_\alpha')\}),\]
 % \[(\{(D_\alpha, \FB_\alpha')\},\{(D_\alpha,\FB_\alpha'')\}),\]
@@ -111,7 +147,8 @@ Because all maps are induced by inclusion the following diagram commutes for all
   So $\Gamma : \U\to \V$ is an epimorphism.
   Similarly, the assumption that $\hom_k(\B)\cong \hom_k(\BB)$ implies $\pi_\alpha : \hom_k(D\subi{\omega,\alpha},\B)\to \hom_k(D\subi{\omega+c(\delta+\zeta),\alpha},\BB)$ is an isomorphism by applying Lemma~\ref{lem:five} to the long exact sequences of the pairs $(D\subi{\omega,\alpha},\B)$ and $(D\subi{\omega+c(\delta+\zeta),\alpha},\BB)$.
   So $\Pi : \V\to\W$ is an isomorphism of persistence modules (and therefore a monomorphism).
-  The result follows from Theorem~\ref{thm:interleaving_main}.
+  As \[\im~\lambda_\alpha \cong \im~\hom_k((P\subi{\omega-c\zeta,\alpha}^\e,\Q^\e)\to (P\subi{\omega+c\delta,\alpha}^\e,\QQ^\e))\]
+  for all $\alpha$ by Lemma~\ref{lem:extension_apply} the result follows from Theorem~\ref{thm:interleaving_main}.
 
   % As we have shown
   % As $(\{(\ext{P_\alpha},\FQ_\alpha)\},\{(\ext{P_\alpha},\FQ_\alpha')\})$, $(\{(D_\alpha, \FB_\alpha)\}, \{(D_\alpha,\FB_\alpha')\})$, and $(\{(D_\alpha, \FB_\alpha')\},\{(D_\alpha,\FB_\alpha'')\})$ are compatible pairs of filtrations such that Digram~\ref{dgm:interleaving} commutes with $f_\alpha$ surjective and $h_\alpha$ injective for all $\alpha\in\R$ the result follows from Theorem~\ref{thm:interleaving}.
