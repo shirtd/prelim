@@ -10,37 +10,205 @@
 %   \item $\B\cap \P\subseteq \QQ^\of\subseteq B_{\omega+3c\of}$.
 % \end{itemize}
 
-Let $\zeta=2\delta$ and suppose $\hom_k(B_{\omega-3c\delta}\to B_\omega)$ is surjective and $\hom_k(B_\omega)\cong\hom_k(B_{\omega+3c\delta})$ for all $k$.
-Let $\U, \V, \W$ be the $k$th persistent homology modules of $\{(D\subi{\omega-3c\of, \alpha}, B_{\omega-3c\of})\}$, $\{(D\subi{\omega,\alpha}, \B)\}$, $\{(D\subi{\omega+3c\of,\alpha}, B_{\omega+3c\of})\}$.
-For $\delta\leq\e\leq 2\delta$ let $\S^\e, \T^\e$ denote the $k$th persistent homology modules of $\{(P^\e\subi{\omega-2c\of,\alpha},Q_{\omega-2c\of}^\e)\}$ and $\{(P^\e\subi{\omega+c\of,\alpha},\QQ^\e)\}$ respectively.
-For all $\delta\leq\e\leq 2\delta$ and $\Lambda^\e\in\Hom(\S^\e, \T^\e)$ induced by inclusion $\im~\Lambda^\e$ and $\V$ are $c\e$ interleaved by Lemma~\ref{lem:pt_interleaving}.
+% Let $\zeta=2\delta$ and suppose $\hom_k(B_{\omega-3c\delta}\to B_\omega)$ is surjective and $\hom_k(B_\omega)\cong\hom_k(B_{\omega+3c\delta})$ for all $k$.
+% Let $\U, \V, \W$ be the $k$th persistent homology modules of $\{(D\subi{\omega-3c\of, \alpha}, B_{\omega-3c\of})\}$, $\{(D\subi{\omega,\alpha}, \B)\}$, $\{(D\subi{\omega+3c\of,\alpha}, B_{\omega+3c\of})\}$.
+% For $\delta\leq\e\leq 2\delta$ let $\S^\e, \T^\e$ denote the $k$th persistent homology modules of $\{(P^\e\subi{\omega-2c\of,\alpha},Q_{\omega-2c\of}^\e)\}$ and $\{(P^\e\subi{\omega+c\of,\alpha},\QQ^\e)\}$ respectively.
+% For all $\delta\leq\e\leq 2\delta$ and $\Lambda^\e\in\Hom(\S^\e, \T^\e)$ induced by inclusion $\im~\Lambda^\e$ and $\V$ are $c\e$ interleaved by Lemma~\ref{lem:pt_interleaving}.
+%
+%
+% Let $\cech^\e\S$ be defined as the family $\{\cech^\e S_\alpha := \hom_k(\cech^\e(P\subi{\omega-2c\delta, \alpha}), \cech^\e(Q_{\omega-2c\delta}))\}$ and linear maps $\{(\check{s}^\e)_\alpha^\beta : \cech^\e S_\alpha\to \cech^\e S_\beta\}$ induced by inclusion.
+% Define $\rips^\e\S$, $\cech^\e\T$, $\rips^\e\T$ in the same way.
+
+\begin{lemma}\label{lem:left_interleavings}
+  For some $w\in\R$, $\e > 0$ and $k\in\Z$ let $\U,\V$ denote the $k$th persistent homology modules of $\{(D\subi{w-c\e,\alpha}, B_{w-c\e})\}$ and $\{(D\subi{w+2c\e,\alpha},B_{w+c\e})\}$.
+  Let $\rips^{2\e}\S$ denote the $k$th persistent homology module of $\{(\rips^{2\delta}(P\subi{w,\alpha}), \rips^{2\delta}(Q_w))\}$.
+
+  If $D\setminus B_{w-c\e}\subseteq P^\e$ and $Q^\e_{w}$ surrounds $P^\e$ in $D$ then $\Gamma\in\Hom(\U,\V)$ induced by inclusion is partially $2\e$-interleaved with $\rips^{2\e}\S$.
+\end{lemma}
+\begin{proof}
+  For any $\epsilon > 0$ let $\S^\epsilon$ and $\cech^\epsilon\S$ denote the $k$th persistent homology modules of $\{(\ext{P\subi{w, \alpha}^\epsilon}, \ext{Q^\epsilon_{w}})\}$ and $\{(\cech^\epsilon(P\subi{w, \alpha}),\cech^\epsilon(Q_{w}))\}$, respectively.
+  First note that, because
+  \[(D\subi{w-c\e,\alpha-c\e}, B_{w-c\e})\subseteq (\ext{P\subi{w, \alpha}^\e}, \ext{Q^\e_{w}})\subseteq (\ext{P\subi{w, \alpha}^{2\e}}, \ext{Q^{2\e}_{w}})\subseteq (D\subi{w+2c\e, \alpha+2c\e}, B_{w+2c\e})\]
+  for all $\alpha$ we know that $\Gamma$ is $\e$-interleaved with $\S^\e$ by a pair $(F, M)$ of maps induced by inclusion and $\S^{2\e}$ by a pair $(F',M')$ of maps induced by inclusion.
+  The following diagram commutes by Lemma~\ref{lem:rel_pers_nerve} where vertical maps are isomorphisms provided by the Nerve Theorem and Lemma~\ref{lem:excision} and horizontal maps are induced by inclusion for all $\alpha$.
+  \begin{equation}\begin{tikzcd}
+    S^\e_\alpha\arrow{r}{i_\alpha} &
+    S^{2\e}_\alpha\\
+    %
+    \cech^\e S_\alpha\arrow{r}{\check{i}_\alpha}\arrow{u}{\eta_\alpha^\e}  &
+    \cech^{2\e} S_\alpha\arrow{u}{\eta_\alpha^{2\e}}
+  \end{tikzcd}\end{equation}
+  Note that, because all maps are induced by inclusion, $m_\alpha = m_\alpha'\circ i_\alpha$ and $f_{\alpha-c\e}' = i_\alpha\circ f_{\alpha-c\e}$ for all $\alpha$.
+  Moreover, we have the following sequence of maps induced by inclusions for all $\alpha$
+  \[ \cech^\e S_\alpha\xrightarrow{k_\alpha} \rips^{2\e} S_\alpha\xrightarrow{\ell_\alpha} \cech^{2\e} S_\alpha, \]
+  so $\check{i}_\alpha = \ell_\alpha\circ k_\alpha$.
+
+  Let $\Sigma\in\Hom(\S^\e, \rips^{2\e}\S)$ be defined as the family of linear maps
+  \[\{\sigma_\alpha := k_\alpha\circ (\eta_\alpha^\e)^{-1} : S_\alpha^\e\to \rips^{2\e} S_\alpha\}\]
+  and $\Upsilon\in\Hom(\rips^{2\e}\S, \S^{2\e})$ be defined
+  \[\{\upsilon_\alpha := \eta_\alpha^{2\delta}\circ \ell_\alpha : \rips^{2\e} S_\alpha \to S^{2\e}_\alpha\}.\]
+  It follows
+  \begin{align*}
+    i_\alpha &= \eta_\alpha^{2\e}\circ \check{i}_\alpha\circ (\eta_\alpha^\e)^{-1}\\
+      &= (\eta_\alpha^{2\e}\circ \ell_\alpha)\circ (k_\alpha\circ (\eta_\alpha^\e)^{-1})\\
+      &= \upsilon_\alpha\circ\sigma_\alpha.
+  \end{align*}
+  So $M = M'\circ\Upsilon\circ \Sigma$ and $F' = \Upsilon\circ\Sigma\circ F$, therefore $\Gamma$ is $2c\e$-interleaved with $\rips^{2\e}\S$ by Lemma~\ref{lem:left}.
+\end{proof}
+
+% \begin{lemma}\label{lem:right_interleaving}
+%   For some $w\in\R$ and $k\in\Z$ let $\V$ denote the $k$th persistent homology module of $\{(D\subi{w,\alpha}, B_{w})\}$ and let $\S^\epsilon$ and $\T^\epsilon$ denote the $k$th persistent homology modules of $\{(\rips^{\epsilon}(P\subi{w-c\epsilon,\alpha}), \rips^{\epsilon}(Q_{w-c\epsilon}))\}$ and $\{(\rips^{\epsilon}(P\subi{w+c\epsilon,\alpha}), \rips^{\epsilon}(Q_{w+c\epsilon}))\}$ for any $\epsilon > 0$, respectively.
+%
+%   If $D\setminus B_{w}\subseteq P^\e\setminus Q_{w-c\e}^{\e}$ and $Q^\e_{w}$ surrounds $P^\delta$ in $D$
+
+\begin{theorem}
+  Let $f: D\to \R$ be a $c$-Lipschitz function and $\omega\in\R$, $0 < 2\delta\leq\zeta$ be constants such that $\hom_k(B_{\omega-c(\delta+\zeta)}\hookrightarrow B_\omega)$ is surjective and $\hom_k(B_\omega)\cong \hom_k(B_{\omega+c(\delta+2\zeta)})$ for all $k$.
+
+  If $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ in $D$ then the $k$th persistent homology modules of $\{(D\subi{\omega,\alpha},B_\omega)\}$ and
+  \[ \{(\rips^{2\delta}(P\subi{\omega-c\zeta,\alpha}),\rips^{2\delta}(Q_{\omega-c\zeta}))\hookrightarrow (\rips^{2\zeta}(P\subi{\omega+c\delta,\alpha}),\rips^{2\zeta}(Q_{\omega+c\delta}))\}\]
+  are $2c\zeta$-interleaved for all $k$.
+\end{theorem}
+\begin{proof}
+  Let $\U,\V,$ and $\W$ denote the $k$th persistent homology modules of $\{(D\subi{\omega-c{\delta+\zeta},\alpha}, B_{\omega-c{\delta+\zeta}})\}$, $\{(D\subi{\omega,\alpha}, B_\omega)\}$, and $\{(D\subi{\omega+c{\delta+2\zeta},\alpha}, B_{\omega+c{\delta+2\zeta}})\}$ respectively.
+  Let $\Gamma\in\Hom(\U,\V)$ and $\Pi\in\Hom(\V,\W)$.
+
+  As in Lemma~\ref{lem:left_interleavings} let $\S^\epsilon$, $\cech^\epsilon\S$, and $\rips^\epsilon\S$ denote the $k$th persistent homology modules of $\{(\ext{P\subi{\omega-c\zeta, \alpha}^\epsilon}, \ext{Q^\epsilon_{\omega-c\zeta}})\}$, $\{(\cech^\epsilon(P\subi{\omega-c\zeta, \alpha}),\cech^\epsilon(Q_{\omega-c\zeta}))\}$, and $\{(\rips^\epsilon(P\subi{\omega-c\zeta, \alpha}),\rips^\epsilon(Q_{\omega-c\zeta}))\}$ for any $\epsilon > 0$, respectively.
+  $\T^\epsilon$, $\cech^\epsilon\S$, and $\rips^\epsilon\T$ are defined similarly for pairs $(P\subi{\omega+c\delta, \alpha}^\epsilon, Q^\epsilon_{\omega+c\delta})$.
+
+  Let $\Lambda\in\Hom(\S^\delta, \T^\zeta)$ be induced by inclusion so that $\Phi(F^\delta, G^\zeta)\in\Hom^{\zeta}(\im~\Gamma, \im~\Lambda)$ and $\Psi(M, N)\in\Hom^{\zeta}(\im~\Lambda, \im~\Pi)$ are image module homomorphisms of degree $\zeta$.
+  Similarly, let $\Lambda'\in\Hom(\S^{2\delta}, \T^{2\zeta})$ be induced by inclusion so that $\Phi'(F^{2\delta}, G^{2\zeta})\in\Hom^{2\zeta}(\im~\Gamma, \im~\Lambda')$ and $\Psi'(M^{2\delta}, N^{2\zeta})\in\Hom^{2\zeta}(\im~\Lambda', \im~\Pi)$ are image module homomorphisms of degree $2\zeta$.
+
+  % By Lemmas~\ref{lem:surround_and_cover} and~\ref{lem:p_interleave} we have the following diagram of maps of pairs induced by inclusion.
+  % \begin{equation}\begin{tikzcd}[column sep=scriptsize]
+  %   |[alias=U]| U_{\alpha-3c\delta}
+  %                                   \arrow[to=V, "{\gamma[3c\delta]}_{\alpha-3c\delta}"]
+  %                                   \arrow[to=Sa, "f^\delta_{\alpha-3c\delta}"]
+  %   &&& |[alias=V]| V_{\alpha}
+  %                                   \arrow[to=W, "{\pi[3c\zeta]}_\alpha"]
+  %                                   \arrow[to=Ta, "g^\zeta_\alpha"]
+  %   &&& |[alias=W]|
+  %   W_{\alpha+3c\zeta}\\
+  %   %
+  %   & |[alias=Sa]|
+  %   S^{\delta}_{\alpha-2c\delta}
+  %                                   \arrow[to=Sb, "i_{\alpha-2c\delta}"]
+  %   & |[alias=Sb]| S^{2\delta}_{\alpha-2c\delta}
+  %                                   \arrow[to=Ta, "{\vartheta[2c\delta+\zeta]}_{\alpha-2c\delta}"]
+  %                                   \arrow[to=V, "m_{\alpha-2c\delta}^{2\delta}"]
+  %   && |[alias=Ta]| T^\zeta_{\alpha+c\zeta}
+  %                                   \arrow[to=Tb, "j_{\alpha+c\zeta}"]
+  %   & |[alias=Tb]| T^{2\zeta}_{\alpha+c\zeta}
+  %                                   \arrow[to=W, "n^{2\zeta}_{\alpha+c\zeta}"]
+  %   &
+  % \end{tikzcd}\end{equation}
+
+  By Lemma~\ref{lem:left_interleavings} $\Gamma$ is partially $2\delta$-interleaved with $\rips^{2\delta}\S$ by the pair $(\Sigma\circ F^\delta, M^{2\delta}\circ\Upsilon)$ and $\Pi$ is partially $2\zeta$-interleaved with $\rips^{2\zeta}\T$ by a pair $(\Sigma'\circ G^\zeta, N^{2\zeta}\circ\Upsilon')$.
+  So we have $\Upsilon\in\Hom(\rips^{2\delta}\S,\V)$ and $\Sigma'\in\Hom(\T^\zeta, \rips^{2\zeta}\T)$ that commute with inclusion.
+
+  Because  $\tilde{\Phi}(\Sigma\circ F^{\delta}, \Sigma'\circ G^\zeta)\in\Hom^{\zeta}(\im~\Gamma, \im~\rips\Lambda)$ as 
+
+  For $\Theta\in\Hom(\S^{2\delta},\T^\zeta)$ induced by inclusion it follows from Lemma~\ref{lem:right} that $\rips\Lambda :=\Sigma'\circ\Theta\circ\Upsilon\in\Hom(\rips^{2\delta}\S, \rips^{2\zeta}\T)$ is partially $c\zeta$-interleaved with $\V$ by the pair $(M^{2\delta}\circ \Upsilon, \Sigma'\circ G^{\zeta})$.
+
+  % Let $\tilde{F} := \Sigma\circ F^\delta$, $\tilde{G} := \Sigma'\circ G^{\zeta}$.
+  % Because
+  %
+  % Let $\Phi_
+  % Let $\Lambda\in\Hom(\S^\delta, \T^\zeta)$ and $\Lambda'\in\Hom(\S^{2\delta}, \T^{2\zeta})$ be induced by inclusions.
+  % By Lemma~\ref{lem:pt_interleaving} we have that $\im~\Lambda$ is $c\zeta$-interleaved with $\V$
+\end{proof}
 
 
-Let $\cech^\e\S$ be defined as the family $\{\cech^\e S_\alpha := \hom_k(\cech^\e(P\subi{\omega-2c\delta, \alpha}), \cech^\e(Q_{\omega-2c\delta}))\}$ and linear maps $\{\check{s}[\e]_\alpha^\beta : \cech^\e S_\alpha\to \cech^\e S_\beta\}$ induced by inclusion.
-Define $\rips^\e\S$, $\cech^\e\T$, $\rips^\e\T$ in the same way.
-We have the following maps induced by inclusions
-\[ \cech^\e\Lambda\in\Hom(\cech^\e\S,\cech^\e\T),\ \rips^\e\Lambda\in\Hom(\rips^\e\S,\rips^\e\T).\]
+% The proof of the next lemma is identical to that of~\ref{lem:gamma_interleaving}, we include it for completeness.
+%
+% \begin{lemma}\label{lem:gamma_interleaving}
+%   $\Pi\in\Hom(\V,\W)$ induced by inclusion is partially $2\zeta$-interleaved with $\rips^{2\zeta}\T$.
+% \end{lemma}
+% \begin{proof}
+%   First note that, because
+%   \[(D\subi{\omega,\alpha-3c\zeta}, B_{\omega})\subseteq (P\subi{\omega+c\delta, \alpha-2c\zeta}^\zeta, Q^\zeta_{\omega+c\delta})\subseteq (P\subi{\omega+c\delta, \alpha-2c\zeta}^{2\zeta}, Q^{2\zeta}_{\omega+c\delta})\subseteq (D\subi{\omega+c(\delta+\zeta), \alpha}, B_{\omega+c(\delta+\zeta)})\]
+%   for all $\alpha$ we know that $\Gamma$ is $c\zeta$-interleaved with $\S^\zeta$ by a pair $(G, N)$ of maps induced by inclusion and $2c\zeta$-interleaved with $\S^{2\zeta}$ by a pair $(G',N')$ of maps induced by inclusion.
+%   The following diagram commutes by Lemma~\ref{lem:rel_pers_nerve} where vertical maps are isomorphisms and horizontal maps are induced by inclusion for all $\alpha$.
+%   \begin{equation}\begin{tikzcd}
+%     T^\zeta_\alpha\arrow{r}{i_\alpha} &
+%     T^{2\zeta}_\alpha\\
+%     %
+%     \cech^\zeta S_\alpha\arrow{r}{j_\alpha}\arrow{u}{\eta_\alpha^\zeta}  &
+%     \cech^{2\zeta} S_\alpha\arrow{u}{\eta_\alpha^{2\zeta}}
+%   \end{tikzcd}\end{equation}
+%   Note that, because all maps are induced by inclusion, $m_\alpha = m_\alpha'\circ i_\alpha$ and $f_{\alpha-c\delta}' = i_\alpha\circ f_{\alpha-c\delta}$ for all $\alpha$.
+%   Moreover, we have the following sequence of maps induced by inclusions for all $\alpha$
+%   \[ \cech^\delta S_\alpha\xrightarrow{k_\alpha} \rips^{2\delta} S_\alpha\xrightarrow{\ell_\alpha} \cech^{2\delta} S_\alpha. \]
+%   So $j_\alpha = \ell_\alpha\circ k_\alpha$ and
+%   \begin{align*}
+%     i_\alpha &= \eta_\alpha^{2\delta}\circ j_\alpha\circ (\eta_\alpha^\delta)^{-1}\\
+%       &= \eta_\alpha^{2\delta}\circ \ell_\alpha\circ k_\alpha\circ (\eta_\alpha^\delta)^{-1}.
+%   \end{align*}
+%   Letting $\Sigma\in\Hom(\S^\delta, \rips^{2\delta}\S)$ be defined as the family
+%   \[\{\sigma_\alpha := k_\alpha\circ (\eta_\alpha^\delta)^{-1} : S_\alpha^\delta\to \rips^{2\delta} S_\alpha\}\]
+%   and $\Upsilon\in\Hom(\rips^{2\delta}\S, \S^{2\delta})$ be defined
+%   \[\{\upsilon_\alpha := \eta_\alpha^{2\delta}\circ \ell_\alpha : \rips^{2\delta} S_\alpha \to S^{2\delta}_\alpha\}\]
+%   it follows that $M = M'\circ\Upsilon\circ \Sigma$ and $F' = \Upsilon\circ\Sigma\circ F$, and therefore that $\Gamma$ is $2c\delta$-interleaved with $\rips^{2\delta}\S$ by Lemma~\ref{lem:left}.
+% \end{proof}
 
-Let $\N^\e \in\Hom(\S^\e,\cech^\e\S)$ be the family of isomorphisms
-\[\{\eta_\alpha^\e : \hom_k(P\subi{\omega-c\zeta,\alpha}^\e, \Q^\e)\xrightarrow{\cong}\hom_k(\cech^\e(P\subi{\omega-c\zeta,\alpha}),\cech^\e(\Q))\}\]
-provided by the Nerve Theorem.
-We have the following sequence of maps induced by inclusion for all $\e > 0$, $\alpha\in\R$
-\[ \cech^\e S_\alpha\xrightarrow{R_\alpha^\e} \rips^{2\e} S_\alpha\xrightarrow{C_\alpha^{2\e}}\cech^{2\e} S_\alpha \]
-% Let $\N^{\e}'\in\Hom(\T^\e,\cech^\e\T)$ be defined similarly.
-
-Let $\Sigma\in \Hom(\S^\delta, \rips^{2\delta}\S)$ be defined as the family linear maps
-\[\{\sigma_\alpha := R_\alpha^\delta\circ \eta_\alpha^\delta :S_\alpha^\delta\to\rips^{2\delta}S_\alpha\}\]
-and $\Upsilon\in \Hom(\rips^{2\delta}\S, \S^{2\delta})$ be defined as the family linear maps
-\[\{\upsilon_\alpha := (\eta_\alpha^{2\delta})^{-1}\circ C_\alpha^{2\delta} :\rips^{2\delta}S_\alpha\to S_\alpha^{2\delta}\}.\]
-
-Suppose $\Phi^\delta_{M^\delta}(F^\delta, G^\delta)\in\Hom^\delta(\im~\Gamma, \im~\Lambda^\delta)$ is a partial $\delta$-interleaving and $\Phi^\delta_{M^{2\delta}}(F^{2\delta}, G^{2\delta})\in\Hom^\delta(\im~\Gamma, \im~\Lambda^{2\delta})$ is a partial $2\delta$-interleaving where all maps are induced by inclusion.
-Because $\N^\e$ is an isomorphism for all $\delta\leq\e\leq2\delta$ and $R_\alpha^\e$, $C^\e_\alpha$ are induced by inclusion
-\begin{align*}
-  m_\alpha^\delta &= m_\alpha^{2\delta}\circ ((\eta_\alpha^{2\delta})^{-1}\circ C_\alpha^{2\delta})\circ (R_\alpha^\delta\circ \eta_\alpha^\delta)\\
-    &= m_\alpha\circ\upsilon_\alpha\circ\sigma_\alpha
-\end{align*}
-thus $M^\delta = M^{2\delta}\circ \Upsilon\circ \Sigma$.
-Because $\Gamma$ is left $\delta$ interleaved with  $\Lambda^\delta$ and left $2\delta$ interleaved with $\Lambda^{2\delta}$ it follows that $\Gamma$ is left $2\delta$-interleaved with $\rips^{2\delta}\Lambda$ by Lemma~\ref{lem:left}.
+% % We have the following maps induced by inclusions
+% % \[ \cech^\e\Lambda\in\Hom(\cech^\e\S,\cech^\e\T),\ \rips^\e\Lambda\in\Hom(\rips^\e\S,\rips^\e\T).\]
+%
+% % Let $\N^\e \in\Hom(\S^\e,\cech^\e\S)$ be the family of isomorphisms
+% % \[\{\eta_\alpha^\e : \hom_k(P\subi{\omega-c\zeta,\alpha}^\e, \Q^\e)\xrightarrow{\cong}\hom_k(\cech^\e(P\subi{\omega-c\zeta,\alpha}),\cech^\e(\Q))\}\]
+% % provided by the Nerve Theorem.
+% % We have the following sequence of maps induced by inclusion for all $\e > 0$, $\alpha\in\R$
+% % \[ \cech^\e S_\alpha\xrightarrow{R_\alpha^\e} \rips^{2\e} S_\alpha\xrightarrow{C_\alpha^{2\e}}\cech^{2\e} S_\alpha. \]
+% % \[ \cech^\e S_\alpha\xrightarrow{R_\alpha^\e} \rips^{2\e} S_\alpha\xrightarrow{C_\alpha^{2\e}}\cech^{2\e} S_\alpha. \]
+% By Lemma~\ref{lem:rel_pers_nerve} the following diagrams commutes for all $\alpha$ where the vertical arrows are isomorphisms and the horizontal arrows are maps induced by inclusion.
+%
+% \begin{equation}\begin{tikzcd}
+%   S^\delta_\alpha\arrow{r}{a_\alpha}\arrow{d}{i_\alpha} &
+%   S^{2\delta}_\alpha\arrow{r}{b_\alpha}\arrow{d}{j_\alpha} &
+%   T^{\zeta}_\alpha\arrow{r}{c_\alpha}\arrow{d}{k_\alpha} &
+%   T^{2\zeta}_\alpha\arrow{d}{\ell_\alpha}\\
+%   %
+%   \cech^\delta S_\alpha\arrow{r}{a_\alpha'} &
+%   \cech^{2\delta} S_\alpha\arrow{r}{b_\alpha'} &
+%   \cech^{\zeta} T_\alpha\arrow{r}{c_\alpha'} &
+%   \cech^{2\zeta} T_\alpha &
+% \end{tikzcd}\end{equation}
+% % \begin{equation}\begin{tikzcd}
+% %   S^\delta_\alpha\arrow{r}\arrow{d} &
+% %   S^{2\delta}_\alpha\arrow{r}\arrow{d} &
+% %   T^{\zeta}_\alpha\arrow{r}\arrow{d} &
+% %   T^{2\zeta}_\alpha\arrow{d}\\
+% %   %
+% %   \cech^\delta S_\alpha\arrow{r}\arrow{dr} &
+% %   \cech^{2\delta} S_\alpha\arrow{r} &
+% %   \cech^{\zeta} T_\alpha\arrow{r}\arrow{d} &
+% %   \cech^{2\zeta} T_\alpha\\
+% %   %
+% %   &\rips^{2\delta} S_\alpha\arrow{u}\arrow{r} &
+% %   \rips^{2\zeta} T_\alpha\arrow{ur} &
+% % \end{tikzcd}\end{equation}
+%
+%
+%
+% Noting that we have the following sequences of maps induced by inclusion
+% \[ \cech^\e S_\alpha\xrightarrow{p_\alpha} \rips^{2\e} S_\alpha\xrightarrow{q_\alpha}\cech^{2\e} S_\alpha, \]
+% \[ \cech^\e T_\alpha\xrightarrow{p_\alpha'} \rips^{2\e} T_\alpha\xrightarrow{q_\alpha}\cech^{2\e} T_\alpha. \]
+% As all maps are induced by inclusion it follows that $a_\alpha' = q_\alpha\circ p_\alpha$, $c_\alpha' = q_\alpha'\circ p_\alpha'$, and $b_\alpha'
+%
+% % Let $\N^{\e}'\in\Hom(\T^\e,\cech^\e\T)$ be defined similarly.
+%
+% Let $\Sigma\in \Hom(\S^\delta, \rips^{2\delta}\S)$ be defined as the family linear maps
+% \[\{\sigma_\alpha := R_\alpha^\delta\circ \eta_\alpha^\delta :S_\alpha^\delta\to\rips^{2\delta}S_\alpha\}\]
+% and $\Upsilon\in \Hom(\rips^{2\delta}\S, \S^{2\delta})$ be defined as the family linear maps
+% \[\{\upsilon_\alpha := (\eta_\alpha^{2\delta})^{-1}\circ C_\alpha^{2\delta} :\rips^{2\delta}S_\alpha\to S_\alpha^{2\delta}\}.\]
+%
+% Suppose $\Phi^\delta_{M^\delta}(F^\delta, G^\delta)\in\Hom^\delta(\im~\Gamma, \im~\Lambda^\delta)$ is a partial $\delta$-interleaving and $\Phi^\delta_{M^{2\delta}}(F^{2\delta}, G^{2\delta})\in\Hom^\delta(\im~\Gamma, \im~\Lambda^{2\delta})$ is a partial $2\delta$-interleaving where all maps are induced by inclusion.
+% Because $\N^\e$ is an isomorphism for all $\delta\leq\e\leq2\delta$ and $R_\alpha^\e$, $C^\e_\alpha$ are induced by inclusion
+% \begin{align*}
+%   m_\alpha^\delta &= m_\alpha^{2\delta}\circ ((\eta_\alpha^{2\delta})^{-1}\circ C_\alpha^{2\delta})\circ (R_\alpha^\delta\circ \eta_\alpha^\delta)\\
+%     &= m_\alpha\circ\upsilon_\alpha\circ\sigma_\alpha
+% \end{align*}
+% thus $M^\delta = M^{2\delta}\circ \Upsilon\circ \Sigma$.
+% Because $\Gamma$ is left $\delta$ interleaved with  $\Lambda^\delta$ and left $2\delta$ interleaved with $\Lambda^{2\delta}$ it follows that $\Gamma$ is left $2\delta$-interleaved with $\rips^{2\delta}\Lambda$ by Lemma~\ref{lem:left}.
 
 % By the Nerve Theorem\textbf{TODO} there exist isomorphisms $\N^\e \in \Hom(\S^\e\to \cech^\e\S$ and $\T^\e\to\cech^\e\T$ for all $\e$.
 % Moreover, we have the following sequences of inclusions for all $\e > 0$, $\alpha\in\R$

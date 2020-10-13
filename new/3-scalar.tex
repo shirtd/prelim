@@ -6,32 +6,32 @@ In addition to the assumptions made in Theorem~\ref{thm:geo_tcc} we will now ass
 % We will also assume that $\b$ surrounds $D$ in $\X$, so that $\b$, $\B$, and $\BB$ all surround $D$ in $\X$.
 
 \begin{lemma}\label{lem:q_contain_1}
-  If $D\setminus \B\subseteq \P$ and $\Q^\of$ surrounds $\P$ in $D$ then $\b\subseteq \ext{\Q^\of}$.
+  If $D\setminus \B\subseteq P^\of$ and $\Q^\of$ surrounds $P^\of$ in $D$ then $\b\subseteq \ext{\Q^\of}$.
 \end{lemma}
 \begin{proof}
-  We first note that $\b\cap \P\subseteq \Q^\of$ as $x\in \b\cap \P$ implies there exists some $p\in P$ such that $\dist(x, p)\leq \of$ which, because $f$ is $c$-Lipschitz, implies
+  We first note that $\b\cap P^\of\subseteq \Q^\of$ as $x\in \b\cap P^\of$ implies there exists some $p\in P$ such that $\dist(x, p)\leq \of$ which, because $f$ is $c$-Lipschitz, implies
   \[ f(p) \leq f(x) + c\dist(x, p)\leq \o + c\delta = \fen\]
   for any $x\in \b$.
-  Therefore, $\b\cap (\P\setminus \Q^\of) = \emptyset$.
+  Therefore, $\b\cap (P^\of\setminus \Q^\of) = \emptyset$.
   % It follows that
-  % \[\b\cap (\P\setminus \Q^\of) = \b\cap \P\cap \cmp{\Q^\of} \subseteq Q^\of\cap\cmp{\Q^\of} = \emptyset.\]
-  So $\b\setminus (\P\setminus \Q^\of) = \b$ and, because $\Q^\of$ surrounds $\P$ in $D$ we have that
-  \[ D = (\P\setminus \Q^\of)\sqcup \Q^\of \sqcup (D\setminus \P).\]
+  % \[\b\cap (P^\of\setminus \Q^\of) = \b\cap P^\of\cap \cmp{\Q^\of} \subseteq Q^\of\cap\cmp{\Q^\of} = \emptyset.\]
+  So $\b\setminus (P^\of\setminus \Q^\of) = \b$ and, because $\Q^\of$ surrounds $P^\of$ in $D$ we have that
+  \[ D = (P^\of\setminus \Q^\of)\sqcup \Q^\of \sqcup (D\setminus P^\of).\]
   Because $\b\subseteq D$ it follows that
-  \[ \b = \b \setminus (\P\setminus \Q^\of)\subseteq \Q^\of\sqcup (D\setminus \P) = \ext{\Q^\of}. \]
-  % \[ \b \subseteq D = (\P\setminus \Q^\of)\sqcup \Q^\of \sqcup (D\setminus \P)\]
-  % where $\b\cap (\P\setminus \Q^\of) = \emptyset$.
-  % It therefore follows that $\b\subseteq \Q^\of \sqcup (D\setminus \P) = \ext{\Q^\of}$.
+  \[ \b = \b \setminus (P^\of\setminus \Q^\of)\subseteq \Q^\of\sqcup (D\setminus P^\of) = \ext{\Q^\of}. \]
+  % \[ \b \subseteq D = (P^\of\setminus \Q^\of)\sqcup \Q^\of \sqcup (D\setminus P^\of)\]
+  % where $\b\cap (P^\of\setminus \Q^\of) = \emptyset$.
+  % It therefore follows that $\b\subseteq \Q^\of \sqcup (D\setminus P^\of) = \ext{\Q^\of}$.
 \end{proof}
 
 \begin{lemma}\label{lem:q_contain_2}
-  If $D\setminus \B\subseteq \P$ and $\Q^\of$ surrounds $\P$ in $D$ then $\B\subseteq \ext{\QQ^\of}$.
+  If $D\setminus \B\subseteq P^\of$ and $\Q^\of$ surrounds $P^\of$ in $D$ then $\B\subseteq \ext{\QQ^\of}$.
 \end{lemma}
 \begin{proof}
-  Because $\Q^\of \subset \QQ^\of$ it follows that $\QQ^\of$ surrounds $\P$ in $D$ as well.
-  So we can extend $\QQ^\of$ to surround $D$ in $\X$ as $\ext{\QQ^\of} = \QQ^\of\sqcup (D\setminus\P)$.
+  Because $\Q^\of \subset \QQ^\of$ it follows that $\QQ^\of$ surrounds $P^\of$ in $D$ as well.
+  So we can extend $\QQ^\of$ to surround $D$ in $\X$ as $\ext{\QQ^\of} = \QQ^\of\sqcup (D\setminus P^\of)$.
 
-  For any $x\in \B$ such that $x\notin D\setminus\P$ we have $x\in \B\setminus (D\setminus \P) = \B\cap \P$.
+  For any $x\in \B$ such that $x\notin D\setminus P^\of$ we have $x\in \B\setminus (D\setminus P^\of) = \B\cap P^\of$.
   So there exists some $p\in P$ such that $\dist(x, p) < \delta$.
   Because $f$ is $c$-Lipschitz it follows that
   \[ f(p)\leq f(x) + c\dist(x, p) < \omega + c\delta. \]
@@ -44,13 +44,13 @@ So $\b\subseteq \B\subseteq \BB$ all surround $D$ in $\X$ and $\Q^\of$ and $\QQ^
 %
 % \begin{corollary}\label{cor:tcc_iso}
 %   If $\eta^k : \hom_k(\b)\to \hom_k(\BB)$ is surjective and $\im~\eta^k\cong \hom_k(\bb)$ then for any $A\subset D$ such that $\BB\subset A$
-%   \[ \im~\hom_k((\P\cap A, \Q^\of)\to (\P\cap A, \QQ^\of))\cong \hom_k(A, \bb)\]
+%   \[ \im~\hom_k((P^\of\cap A, \Q^\of)\to (P^\of\cap A, \QQ^\of))\cong \hom_k(A, \bb)\]
 %   for all $k > 0$.
 % \end{corollary}
 %
 % % \begin{lemma}
 % %   The $k$th persistent homology modules of
-% %   \[\{(\P\cap B_\alpha, \Q^\of)\to (\P\cap B_\alpha, \QQ^\of)\}_{\alpha\geq\oo}\]
+% %   \[\{(P^\of\cap B_\alpha, \Q^\of)\to (P^\of\cap B_\alpha, \QQ^\of)\}_{\alpha\geq\oo}\]
 % %   are $c\of$-interleaved with
 % %   \[ \{(P_\alpha^\of, \Q^\of)\to (P_\alpha^\of, \QQ^\of)\}_{\alpha\geq\oo} \]
 % %   for all $k$.

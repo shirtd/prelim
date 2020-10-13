@@ -1,0 +1,211 @@
+% !TeX root = ../new.tex
+
+\section{Rips Interleaving}
+
+For $w\in\R$ and $k\in\Z$ let
+\[ \DD(w) := \left(\left\{\D_\alpha(w) := \hom_k(D\subi{w,\alpha},B_w)\right\}_{\alpha\in\R},\left\{d_\alpha^\beta(w) : \D_\alpha(w)\to\D_\beta(w)\right\}_{\alpha\leq\beta}\right)\]
+denote the $k$th persistent homology module of $\{(D\subi{w,\alpha},B_w)\}$.
+
+For $w\in\R$, $\e > 0$ and $k\in\Z$ let
+\[\PP(w,\e) := \left(\left\{\P_\alpha(w,\e) := \hom_k(P\subi{w,\alpha}^\e,Q_w^\e)\right\}_{\alpha\in\R}, \left\{p_\alpha^\beta(w,\e) : \P_\alpha(w,\e)\to\P_\beta(w,\e)\right\}_{\alpha\leq\beta}\right)\]
+denote the $k$th persistent homology module of $\{(P\subi{w,\alpha}^\e,Q_w^\e)\}$.
+
+For any $w\in\R$ and $\e > 0$ suppose $B_{w-3c\e}$ surrounds $D$ in $\X$, $D\setminus B_w \subseteq P^\e$, and $Q_w^\e$ surrounds $P^\e$ in $D$.
+We can define a filtration of extensions $\{(\ext{P\subi{w,\alpha}^\e},\ext{Q_w^\e})\}$ and let $\ext{\PP(w,\e)}$ denote its $k$th persistent homology module.
+Let
+% \[ \E(w,\e) := \{\E_\alpha(w,\e) : \P_\alpha(w,\e)\to \ext{\P_\alpha(w,\e)}\} \in \Hom(\PP(w,\e),\ext{\PP(w,\e)})\]
+$\E(w,\e) \in \Hom(\PP(w,\e),\ext{\PP(w,\e)})$
+denote the isomorphism of persistence modules defined to be the family of isomorphisms
+\[ \{\E_\alpha(w,\e) : \P_\alpha(w,\e)\to \ext{\P_\alpha(w,\e)}\}\]
+provided by from Lemma~\ref{lem:extension_apply}.
+By Lemma~\ref{lem:p_interleave} we have the following sequence of maps induced by inclusion for all $\alpha$
+\[ \D_{\alpha-c\e}(w-c\e)\to \P_{\alpha}(w,\e)\to \D_{\alpha+c\e}(w+c\e).\]
+
+% \begin{lemma}\label{lem:weak_interleave}
+%   For any $w\in\R$, $\e\geq 0$ let $\Gamma\in\Hom(\DD(w-c\e), \DD(w+c\e))$ be induced by inclusion.
+%
+%   The pair $(F(w,\e), M(w,\e))\in \Hom^{c\e}(\DD(w-c\e), \ext{\PP(w,\e)})\times\Hom^{c\e}(\ext{\PP(w,\e)},\DD(w+c\e))$ of maps induced by inclusion is a weak $c\e$-interleaving of $\Gamma$ with $\ext{\PP(w,\e)}$.
+% \end{lemma}
+
+\begin{lemma}\label{lem:weak_interleave_left}
+  For any $w\in\R$, $\eta\geq\e \geq 0$ let $\Gamma\in\Hom(\DD(w-c\e, \DD(w+c\eta))$ and $\Lambda\in\Hom(\PP(w,\e),\PP(w,\eta))$ be induced by inclusion.
+
+  The pair $(F(w-c\e,\e), M(w,\eta))\in \Hom^{c\e}(\DD(w-c\e), \ext{\PP(w,\e)})\times\Hom^{c\eta}(\ext{\PP(w,\eta)},\DD(w+c\eta))$ of maps induced by inclusion is a weak $c\eta$-interleaving of $\Gamma$ with $\Lambda$.
+\end{lemma}
+
+\begin{lemma}\label{lem:weak_interleave_right}
+  For any $w\in\R$, $\eta\geq \e \geq 0$ let $\Lambda\in\Hom(\PP(w-c\e,\e),\PP(w+c\e,\eta))$ be induced by inclusion.
+
+  The pair $(M(w-c\e,\e), G(w,\eta))\in \Hom^{c\e}(\ext{\PP(w-c\e,\e)}, \DD(w))\times\Hom^{c\eta}(\DD(w), \ext{\PP(w+c\e,\eta)})$ of maps induced by inclusion is a weak $c\eta$-interleaving of $\Lambda$ with $\DD(w)$.
+\end{lemma}
+
+
+Let $\N(w,\e)\in\Hom(\cech^\e\PP(w), \PP(w,\e))$
+% \[ \N(w,\e) := \{\N_\alpha(w,\e) : \P_\alpha(w,\e)\to \cech^\e\P_\alpha(w)\} \in \Hom(\PP(w,\e),\cech^\e\PP(w) \]
+denote the isomorphism provided by the Nerve Theorem where
+\[\cech^\e\PP(w) := \left(\left\{\cech^\e\P_\alpha(w) := \hom_k(\cech^\e(P\subi{w,\alpha}),\cech^\e(Q_w))\right\}_{\alpha\in\R}, \left\{\check{c}_\alpha^\beta(w,\e) : \cech^\e\P_\alpha(w)\to\cech^\e\P_\beta(w)\right\}_{\alpha\leq\beta}\right),\]
+denotes the $k$th persistent homology module of the \Cech filtration.
+So $\E\N(w,\e) := \E(w,\e)\circ \N(w,\e)\in\Hom(\cech^\e\PP(w), \ext{\PP(w,\e)})$ is an isomorphism for all $w\in\R$ and $\e > 0$.
+
+\begin{lemma}\label{lem:excisive_nerve}
+  For all $w\leq w'$, $\e\leq\e'$, and $\alpha\leq\beta$ the following diagram commutes
+  \begin{equation}\begin{tikzcd}
+    \cech^\e\P_\alpha(w)\arrow{r}\arrow{d}{\E\N_\alpha(w,\e)} &
+    \cech^{\e'}\P_\beta(w')\arrow{d}{\E\N_\beta(w',\e')}\\
+    %
+    \P_\alpha(w,\e)\arrow{r} &
+    \P_\beta(w',\e')
+  \end{tikzcd}\end{equation}
+  where the horizontal arrows are induced by inclusion and vertical arrows are isomorphisms.
+\end{lemma}
+
+\begin{corollary}\label{cor:excisive_nerve}
+ For any $w\leq w'$, $\e\leq\e'$ let $\Lambda\in\Hom(\PP(w,\e),\PP(w',\e'))$ and $\cech\Lambda(\cech^{\e}\PP(w),\cech^{\e'}\PP(w'))$ be induced by inclusions.
+ Then
+ \[\Lambda = \E\N(w',\e')\circ \cech\Lambda\circ \E\N(w,\e)^{-1}\text{ and }\ \cech\Lambda = \E\N(w',\e')^{-1}\circ \Lambda\circ \E\N(w,\e).\]
+\end{corollary}
+
+For any $w\in\R$ and $\e\geq 0$ let the $k$th persistent homology module of the Rips filtration be denoted
+\[\rips^\e\PP(w) := \left(\left\{\rips^\e\P_\alpha(w) := \hom_k(\rips^\e(P\subi{w,\alpha}),\rips^\e(Q_w))\right\}_{\alpha\in\R}, \left\{r_\alpha^\beta(w,\e) : \rips^\e\P_\alpha(w)\to\rips^\e\P_\beta(w)\right\}_{\alpha\leq\beta}\right).\]
+Let $\I(w,\e)\in\Hom(\cech^\e\PP(w), \rips^{2\e}\PP(w))$ and $\J(w,\e)\in\Hom(\rips^{\e}\PP(w),\cech^\e\PP(w))$ be defined by the following maps induced by inclusion
+\[ \cech^\e\P_\alpha(w)\xrightarrow{\I_\alpha(w,\e)} \rips^{2\e}\P_\alpha(w)\xrightarrow{\J_\alpha(w,2\e)}\cech^{2\e}\P_\alpha(w)\]
+for $\alpha\in\R$.
+
+% In the following let
+
+\begin{lemma}\label{lem:weak_rips_left}
+  Let $\Lambda\in\Hom(\ext{\PP(w,\e)}, \ext{\PP(w,2\e)})$ be induced by inclusions.
+  Then there exists a weak interleaving
+  \[ (\Sigma(w,\e), \Upsilon(w,2\e))\in \Hom(\PP(w,\e), \rips^{2\e}\PP(w))\times \Hom(\rips^{2\e}\PP(w),\PP(w,2\e))\]
+  of $\Lambda$ with $\rips^{2\e}\PP(w)$.
+\end{lemma}
+\begin{proof}
+  Let $\cech\Lambda\in\Hom(\cech^\e\PP(w),\cech^{2\e}\PP(w))$ be induced by inclusion.
+  % By Lemma~\ref{lem:excisive_nerve} we know $\E\N(w,2\e)\circ \Lambda = \cech\Lambda\circ \E\N(w,\e)$ and $\cech\Lambda\circ \E\N(w,\e)^{-1} =
+  Because $\I(w,\e)$ and $\J(w,2\e)$ are induced by inclusions $\cech\Lambda = \J(w,2\e)\circ \I(w,\e)$.
+  Let $\Sigma(w,\e) := \I(w,\e)\circ \E\N(w,\e)^{-1}$ and $\Upsilon(w,2\e) := \E\N(w,2\e)\circ \J(w,2\e)$.
+  By Corollary~\ref{cor:excisive_nerve} we have
+  \begin{align*}
+    \Lambda &= \E\N(w,2\e)\circ \cech\Lambda\circ \E\N(w,\e)^{-1}\\
+      &= (\E\N(w,2\e)\circ \J(w,2\e))\circ (\I(w,\e)\circ \E\N(w,\e)^{-1})\\
+      &= \Upsilon(w, 2\e)\circ \Sigma(w,\e)
+  \end{align*}
+  so $(\Sigma(w,\e), \Upsilon(w,2\e))$ is a weak interleaving of $\Lambda$ with $\rips^{2\e}\PP(w)$.
+\end{proof}
+
+\begin{lemma}\label{cor:weak_rips_left}
+  For any $w\in\R$, $\e \geq 0$ let $\Gamma\in\Hom(\DD(w-c\e), \DD(w+2c\e))$ be induced by inclusions.
+
+  Then there exists a weak $2c\e$-interleaving
+  \[ (\rips^{2\e} F(w-c\e), \rips^{2\e} M(w))\in\Hom^{c\e}(\DD(w-c\e),\rips^{2\e}\PP(w))\times \Hom^{2c\e}(\rips^{2\e}\PP(w),\DD(w+2c\e)) \]
+  of $\Gamma$ with $\rips^{2\e}\PP(w)$.
+  % $(\Sigma(w,\e)\circ F(w-c\e,\e), M(w,\eta)\circ\Upsilon(w,2\e))$ \[ \Sigma(w,\e)\circ F(w-c\e,\e)
+  % \[(F(w-c\e,\e), M(w,\eta))\in \Hom^{c\e}(\DD(w-c\e), \ext{\PP(w,\e)})\times\Hom^{c\e}(\ext{\PP(w,\eta)},\DD(w+c\eta))\]
+  % be the weak $c\eta$-interleaving of $\Gamma$ with $\Lambda$ provided by Lemma~\ref{lem:weak_interleave_left}.
+  % Let
+  % \[ (\Sigma(w,\e), \Upsilon(w,\eta))\in \Hom(\PP(w,\e), \rips^{2\e}\PP(w))\times \Hom(\rips^{2\e}\PP(w),\PP(w,\eta))\]
+  % be the weak interleaving of $\Lambda$ with $\rips^\eta\PP(w)$ provided by Lemma~\ref{lem:weak_rips_left}.
+  % Then the pair
+  % \[ (\Sigma(w,\e)\circ F(w-c\e,\e), M(w,\eta)\circ\Upsilon(w,2\e))\in \Hom^{c\e}(\DD(w-c\e), \rips^{2\e}\PP(w)})\times\Hom^{c\eta}(\rips^{2\e}\PP(w)},\DD(w+c\eta))\]
+  % is a weak $c\eta$-interleaving of $\Gamma$ with $\rips^{2\e}\PP(w)$.
+
+\end{lemma}
+\begin{proof}
+  Let $\Lambda\in\Hom(\PP(w,\e),\PP(w,2\e))$ be induced by inclusions.
+  By Lemma~\ref{lem:weak_rips_left} we have a weak interleaving
+  \[ (\Sigma(w,\e), \Upsilon(w,2\e))\in \Hom(\PP(w,\e), \rips^{2\e}\PP(w))\times \Hom(\rips^{2\e}\PP(w),\PP(w,2\e))\]
+  of $\Lambda$ with $\rips^{2\e}\PP(w)$.
+  By Lemma~\ref{lem:weak_interleave_left} the pair
+  \[ (F(w-c\e,\e), M(w,2\e))\in\Hom^{c\e}(\DD(w-c\e),\E\PP(w,\e))\times\Hom^{2c\e}(\E\PP(w,2c\e),\DD(w+2c\e))\]
+  of maps induced by inclusion is a weak $2c\e$-interleaving of $\Gamma$ with $\Lambda$.
+  It follows that the pair $(\rips^{2\e} F(w-c\e), \rips^{2\e} M(w)) := (\Sigma(w,\e)\circ F(w-c\e,\e), M(w,2\e)\circ \Upsilon(w,2\e))$ is a weak $2c\e$-interleaving of $\Gamma$ with $\rips^{2\e}\PP(w)$ by Lemma~\ref{lem:left}.
+\end{proof}
+%
+% \begin{lemma}\label{lem:weak_rips_right}
+%   For $\e\leq\eta$ and $w\leq w'$ let
+%   \[ \Lambda\in\Hom(\ext{\PP(w,\e)}, \ext{\PP(w',\eta)})\text{ and } \rips\Lambda\in\Hom(\rips^\e\PP(w),\rips^{2\eta}\PP(w'))\]
+%   be induced by inclusions.
+%   Then
+%   \[ (\Upsilon(w,\e), \Sigma(w',\eta))\in \Hom(\rips^{\e}\PP(w), \PP(w,\e))\times \Hom(\PP(w',\eta), \rips^{2\eta}\PP(w'))\]
+%   is a weak interleaving of $\rips\Lambda$ with $\Lambda$.
+% \end{lemma}
+
+\begin{theorem}
+  Let $D\subset\X$ and $f : D\to\R$ be a $c$-Lipschitz function.
+  Let $\omega\in\R$, $\zeta\geq 2\delta\geq 0$ be constants such that
+  \begin{enumerate}[label=\Roman*.]
+    \item $B_{\omega-c(\delta+\zeta)}$ surrounds $D$ in $\X$,
+    \item $\hom(B_{\omega-c(\delta+\zeta)}\hookrightarrow B_\omega)$ is surjective, and
+    \item $\hom(B_\omega)\cong\hom_k(B_{\omega+c(\delta+2\zeta)})$.
+  \end{enumerate}
+  Let $P\subset D$ be a finite subset and $Q_w := P\cap B_w$.
+  % Suppose $\hom_k(B_{\omega-c(\delta+\zeta)}\hookrightarrow B_\omega)$ is surjective and $\hom_k(B_\omega)\cong\hom_k(B_{\omega+c(\delta+2\zeta)})$ for all $k$.
+
+  If $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ in $D$ then the $k$th persistent homology modules of $\{(D\subi{\omega,\alpha}, B_\omega)\}$ and
+  \[
+    \{(\rips^{2\delta}(P\subi{\omega-c\zeta,\alpha}), \rips^{2\delta}(Q_{\omega-c\zeta})) \hookrightarrow
+      (\rips^{2\zeta}(P\subi{\omega+c\delta,\alpha}), \rips^{2\zeta}(Q_{\omega+c\delta}))\}
+  \]
+  are $2c\zeta$-interleaved.
+\end{theorem}
+\begin{proof}
+  Let $\Gamma\in\Hom(\DD(\omega-c(\delta+\zeta)), \DD(\omega))$ and $\Pi\in\Hom(\DD(\omega), \DD(\omega+c(\delta+2\zeta))$ be induced by inclusions.
+  Let $\mathcal{S}\in\Hom(\ext{\PP(\omega-c\zeta,\delta)}, \ext{\PP(\omega-c\zeta,2\delta)})$ and $\mathcal{T}\in\Hom(\ext{\PP(\omega+c\delta,\zeta)}, \ext{\PP(\omega+c\delta,2\zeta)})$ be induced by inclusions.
+
+  By Corollary~\ref{cor:weak_rips_left} the pair $(\rips^{2\delta} F(\omega-c(\delta+\zeta)),\rips^{2\delta} M(\omega-c\zeta))$ is a weak $2c\delta$-interleaving of $\Gamma$ with $\rips^{2\delta}\PP(\omega-c\zeta)$.
+  Similarly,  and the pair $(\rips^{2\zeta} F(\omega),\rips^{2\zeta} M(\omega+c\delta))$ is a weak $2c\zeta$-interleaving of $\Pi$ with $\rips^{2\zeta}\PP(\omega+c\delta)$.
+
+  Because
+  \[ (\ext{P\subi{\omega-c\zeta, \alpha-2c{\delta}}^{2\delta}},\ext{Q_{\omega-c\zeta}^{2\delta}})\subseteq (D\subi{\omega, \alpha}, B_\omega)\subseteq (\ext{P\subi{\omega+c\delta, \alpha+c\zeta}^\zeta},\ext{Q_{\omega+c\delta}^\zeta}) \]
+  for all $\alpha\in\R$ the pair
+  \[ (M(\omega-c\zeta), F{\omega+c\delta})\in\Hom^{2c\delta}(\ext{\PP(\omega-c\zeta,2\delta)}, \DD(\omega))\times \Hom^{c\zeta}(\DD(\omega), \ext{\PP(\omega+c\delta, \zeta)})\]
+  is a weak $c\zeta$-interleaving of $\Lambda\in\Hom(\ext{\PP(\omega-c\zeta,2\delta)}, \ext{\PP(\omega+c\delta, \zeta)})$ with $\DD(\omega)$.
+
+  % Let $\rips\Lambda \in\Hom(\rips^{2\delta}\PP(\omega-c\zeta), \rips^{2\zeta}\PP(\omega+c\delta))$ be induced by inclusion and
+  % \[\cech\Lambda =
+  % \[\cech\Lambda = \I(\omega+c\delta,\zeta)\circ \rips\Lambda \J(\omega-c\zeta,2c\delta)
+  By Corollary~\ref{cor:excisive_nerve}
+  \[\cech\Lambda = \E\N(\omega+c\delta,\zeta)^{-1}\circ\Lambda\circ \E\N(\omega-c\zeta,2c\delta)\]
+  and define
+  \[\rips\Lambda := \I(\omega+c\delta, \zeta)\circ \cech\Lambda\circ \J(\omega-c\zeta, 2\delta)\in\Hom(\rips^{2\delta}\PP(\omega-c\zeta), \rips^{2\zeta}\PP(\omega+c\delta)).\]
+  So
+  \begin{align*}
+    \rips\Lambda &= \I(\omega+c\delta, \zeta)\circ \cech\Lambda\circ \J(\omega-c\zeta, 2\delta)\\
+      &= (\I(\omega+c\delta, \zeta)\circ \E\N(\omega+c\delta,\zeta)^{-1})\circ\Lambda \circ (\E\N(\omega-c\zeta,2c\delta)\circ\J(\omega-c\zeta, 2\delta))\\
+      &= \rips^{2\zeta} F(\omega+c\delta)\circ \Lambda\circ \rips^{2\delta} M(\omega-c\zeta).
+  \end{align*}
+  So we may conclude that $(\rips^{2\delta} M(\omega-c\zeta), \rips^{2\zeta} F(\omega+c\delta))$ is a $c\zeta$-interleaving of $\rips\Lambda$ with $\DD(\omega)$ by Lemma~\ref{lem:right}.
+
+  Because all maps are induced by inclusion
+  \[ \rips\Phi_{\rips^{2\delta} M(\omega-c\zeta)}(\rips^{2\delta} F(\omega-c(\delta+\zeta)), \rips^{2\zeta} F(\omega))\in\Hom^{c\zeta}(\im~\Gamma, \im~\rips\Lambda) \]
+  is a partial $c\zeta$-interleaving of image modules, and
+  \[ \rips\Psi_{\rips^{2\zeta} F(\omega)}(\rips^{2\delta} M(\omega-c\zeta), \rips^{2\zeta} M(\omega+c\delta))\in\Hom^{2c\zeta}(\im~\rips\Lambda, \im~\Pi) \]
+  is a partial $2c\zeta$-interleaving of image modules.
+
+  By Lemma~\ref{lem:pt_interleaving} $\Gamma$ is an epimorphism and $\Pi$ is an isomorphism (and therefore a monomorphism).
+  The result follows from Theorem~\ref{thm:interleaving_main}.
+
+
+  % For
+  % % \[F(\omega-c(\delta+\zeta),\delta)\in \Hom^{c\delta}(\DD(\omega-c(\delta+\zeta)), \ext{\PP(\omega-c\zeta,\delta)})\]
+  % \[F(\delta)\in \Hom^{c\delta}(\DD(\omega-c(\delta+\zeta)), \ext{\PP(\omega-c\zeta,\delta)})\]
+  % and
+  % % \[M(\omega-c\zeta, 2\delta)\in \Hom^{2c\delta}(\ext{\PP(\omega-c\zeta, 2\delta)}, \DD(\omega))\]
+  % \[M(2\delta)\in \Hom^{2c\delta}(\ext{\PP(\omega-c\zeta, 2\delta)}, \DD(\omega))\]
+  % % induced by inclusion the pair $(F(\omega-c(\delta+\zeta),\delta)), M(\omega-c\zeta, 2\delta))$ is a weak $2c\delta$-interleaving of $\Gamma$ with $\mathcal{S}$ by Lemma~\ref{lem:weak_interleave_left}.
+  % induced by inclusions the pair $(F(\delta), M(2\delta)$ is a weak $2c\delta$-interleaving of $\Gamma$ with $\mathcal{S}$ by Lemma~\ref{lem:weak_interleave_left}.
+  % % By Lemma~\ref{lem:weak_rips_left} the pair
+  % By Lemma~\ref{lem:weak_rips_right} the $(\Sigma(\omega-c\zeta),\Upsilon(\omega-c\zeta))$ is a weak interleaving of $\mathcal{S}$ with $\rips^{2\delta}\PP(\omega-c\zeta)$, where
+  % \[ \Sigma(\omega-c\zeta) \in\Hom(\ext{\PP(\omega-c\zeta,\delta)},\rips^{2\delta}\PP(\omega-c\zeta)),\]
+  % and
+  % \[ \Upsilon(\omega-c\zeta)\in\Hom(\rips^{2\delta}\PP(\omega-c\zeta), \PP(\omega-c\zeta,2\delta)).\]
+  % It follows from Lemma~\ref{lem:left} that the pair $(\Sigma(\omega-c\zeta)\circ F(\delta), M(2\delta)\circ \Upsilon(\omega-c\zeta))$ is a weak $2c\delta$-interleaving of $\Gamma$ with $\rips^{2\delta}\PP(\omega-c\zeta)$.
+  %
+  % Using an identical process we obtain a weak $2c\zeta$-interleaving $(\Sigma(\omega+c\delta)\circ F(\zeta), M(2\zeta)\circ \Upsilon(\omega+c\delta))$ of $\Pi$ with $\rips^{2\zeta}\PP(\omega+c\delta)$.
+
+\end{proof}
+
+
+% We also define the $k$th persistent homology modules of \Cech and Rips filtrations as follows:
+% \[\cech^\e\PP(w) := \left(\left\{\cech^\e\P_\alpha(w) := \hom_k(\cech^\e(P\subi{w,\alpha}),\cech^\e(Q_w))\right\}_{\alpha\in\R}, \left\{\check{c}_\alpha^\beta(w,\e) : \cech^\e\P_\alpha(w)\to\cech^\e\P_\beta(w)\right\}_{\alpha\leq\beta}\right),\]
+% \[\rips^\e\PP(w) := \left(\left\{\rips^\e\P_\alpha(w) := \hom_k(\rips^\e(P\subi{w,\alpha}),\rips^\e(Q_w))\right\}_{\alpha\in\R}, \left\{r_\alpha^\beta(w,\e) : \rips^\e\P_\alpha(w)\to\rips^\e\P_\beta(w)\right\}_{\alpha\leq\beta}\right).\]

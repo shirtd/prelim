@@ -17,13 +17,13 @@ In the following let $D\subi{w,a} := B_w\cup f\rest_{\comp{B_w}}^{-1}(-\infty,a]
   by Lemma~\ref{lem:excision}
 \end{proof}
 
-% Because $\Q^\delta$ surrounds $\P$ in $D$ and $D\setminus \B\subseteq \P$ we have
-% \[ D\subi{\omega,\alpha} = (\P\cup (D\setminus \P))\cap D\subi{\omega,\alpha}\subseteq \P\subi{\omega,\alpha} \cup (D\subi{\omega,\alpha}\cap (D\setminus \P))\]
-% where $D\subi{\omega,\alpha}\cap (D\setminus \P) = (D\setminus \P)$ for all $\alpha\in\R$.
+% Because $\Q^\delta$ surrounds $P^\of$ in $D$ and $D\setminus \B\subseteq P^\of$ we have
+% \[ D\subi{\omega,\alpha} = (P^\of\cup (D\setminus P^\of))\cap D\subi{\omega,\alpha}\subseteq P^\of\subi{\omega,\alpha} \cup (D\subi{\omega,\alpha}\cap (D\setminus P^\of))\]
+% where $D\subi{\omega,\alpha}\cap (D\setminus P^\of) = (D\setminus P^\of)$ for all $\alpha\in\R$.
 So we define the extensions
-\[\ext{P^\e\subi{\omega-c\zeta, \alpha}} := P^\e\subi{\omega-c\delta, \alpha}\cup (D\setminus \P)\]
+\[\ext{P^\e\subi{\omega-c\zeta, \alpha}} := P^\e\subi{\omega-c\delta, \alpha}\cup (D\setminus P^\of)\]
 and
-\[\ext{P^\e\subi{\omega+c\delta, \alpha}} := P^\e\subi{\omega+c\delta, \alpha}\cup (D\setminus \P)\]
+\[\ext{P^\e\subi{\omega+c\delta, \alpha}} := P^\e\subi{\omega+c\delta, \alpha}\cup (D\setminus P^\of)\]
 of $P^\e_\alpha$ for all $\alpha\in\R$ and $\delta\leq\e\leq\zeta$.
 
 \begin{lemma}\label{lem:p_interleave}
@@ -105,8 +105,8 @@ of $P^\e_\alpha$ for all $\alpha\in\R$ and $\delta\leq\e\leq\zeta$.
 %   \hom_k(D_{\alpha+c\of}, \FB_{\alpha+c\of}'')
 % \end{tikzcd}\end{equation}
 
-Suppose $\b$ surrounds $D$ in $\X$, $D\setminus\B\subseteq \P$, and $\Q^\of$ surrounds $\P$ in $D$ such that
-\[ \b\cap \P \subseteq \Q^\of\subseteq \B\cap \P\subseteq \QQ^\of\subseteq \BB.\]
+Suppose $\b$ surrounds $D$ in $\X$, $D\setminus\B\subseteq P^of$, and $\Q^\of$ surrounds $P^of$ in $D$ such that
+\[ \b\cap P^of \subseteq \Q^\of\subseteq \B\cap P^of\subseteq \QQ^\of\subseteq \BB.\]
 By Lemma~\ref{lem:surround_and_cover} and Lemma~\ref{lem:p_interleave} it follows that for all $\alpha\in\R$ and $\delta\leq\e\leq\zeta$.
 \[ (D\subi{\omega-c(\delta+\zeta),\alpha-c\delta},\b)\subseteq (\ext{P^\e\subi{\omega-c\zeta,\alpha}},\ext{\Q^\e})\subseteq (D\subi{\omega,\alpha+c\e},\B)\]
 and
@@ -127,28 +127,50 @@ Therefore the following diagram of maps induced by inclusion commutes.
   \hom_k(D\subi{\omega+c(\delta+\zeta),\alpha+c\e}, \BB)
 \end{tikzcd}\end{equation}
 
+% \begin{lemma}\label{lem:pt_interleaving}
+%   If $\hom_k(\b\to\B)$ is surjective and $\hom_k(\B)\cong \hom_k(\BB)$ for all $k$ then for all $\delta\leq\e\leq\zeta$ the $k$th persistent homology modules of \[\{(P^\e\subi{\omega-c\of,\alpha},\Q^\e)\to(P^\e\subi{\omega+c\of,\alpha},\QQ^\e)\}\] and $\{(D\subi{\omega,\alpha}, \B)\}$ are $c\e$-interleaved.
+% \end{lemma}
+% \begin{proof}
+%   Let $\U, \V, \W$ be the $k$th persistent homology modules of $\{(D\subi{\omega-c(\delta+\zeta), \alpha}, \b)\}$, $\{(D\subi{\omega,\alpha}, \B)\}$, $\{(D\subi{\omega+c(\delta+\zeta),\alpha}, \BB)\}$, and $\S, \T$ the $k$th persistent homology modules of $\{(\ext{P^\e\subi{\omega-c\zeta,\alpha}},\ext{\Q^\e})\}$ and $\{(\ext{P^\e\subi{\omega+c\of,\alpha}},\ext{\QQ^\e})\}$ respectively.
+%   Let $\Gamma\in\Hom(\U,\V)$, $\Lambda\in\Hom(\S, \T)$, and $\Pi\in\Hom(\V,\W)$ be homomorphisms induced by inclusion.
+%   Because Diagram~\ref{dgm:interleaving2} commutes for all $\alpha$ we have the following homomorphisms of degree $c\delta$ and $c\e$ induced by inclusion.
+%   \begin{align*}
+%     F&\in\Hom^{c\delta}(\U,\S)& M&\in\Hom^{c\e}(\S,\V)\\
+%     G&\in\Hom^{c\delta}(\V,\T)& N&\in\Hom^{c\e}(\T,\W)
+%   \end{align*}
+%   Because all maps are induced by inclusion we have a partial $c\e$-interleavings
+%   \begin{align*}
+%     \Phi(F, G; M)&\in\Hom^{c\e}(\im~\Gamma, \im~\Lambda), & \Psi(M, N; G)&\in\Hom^{c\e}(\im~\Lambda, \im~\Pi).
+%   \end{align*}
+%
+%   By applying Lemma~\ref{lem:five} to the long exact sequences of the pairs $(D\subi{\omega-c(\delta+\zeta),\alpha},\b)$ and $(D\subi{\omega,\alpha},\B)$ our assumption that $\hom_k(\b\to\B)$ is surjective for all $k$ implies $\gamma_\alpha : \hom_k(D\subi{\omega-c(\delta+\zeta),\alpha},\b)\to \hom_k(D\subi{\omega,\alpha},\B)$ is surjective for all $\alpha\in\R$.
+%   So $\Gamma : \U\to \V$ is an epimorphism.
+%   Similarly, the assumption that $\hom_k(\B)\cong \hom_k(\BB)$ implies $\pi_\alpha : \hom_k(D\subi{\omega,\alpha},\B)\to \hom_k(D\subi{\omega+c(\delta+\zeta),\alpha},\BB)$ is an isomorphism by applying Lemma~\ref{lem:five} to the long exact sequences of the pairs $(D\subi{\omega,\alpha},\B)$ and $(D\subi{\omega+c(\delta+\zeta),\alpha},\BB)$.
+%   So $\Pi : \V\to\W$ is an isomorphism of persistence modules (and therefore a monomorphism).
+%   As \[\im~\lambda_\alpha \cong \im~\hom_k((P\subi{\omega-c\zeta,\alpha}^\e,\Q^\e)\to (P\subi{\omega+c\delta,\alpha}^\e,\QQ^\e))\]
+%   for all $\alpha$ by Lemma~\ref{lem:extension_apply} the result follows from Theorem~\ref{thm:interleaving_main}.
+%
+%   % As we have shown
+%   % As $(\{(\ext{P_\alpha},\FQ_\alpha)\},\{(\ext{P_\alpha},\FQ_\alpha')\})$, $(\{(D_\alpha, \FB_\alpha)\}, \{(D_\alpha,\FB_\alpha')\})$, and $(\{(D_\alpha, \FB_\alpha')\},\{(D_\alpha,\FB_\alpha'')\})$ are compatible pairs of filtrations such that Digram~\ref{dgm:interleaving} commutes with $f_\alpha$ surjective and $h_\alpha$ injective for all $\alpha\in\R$ the result follows from Theorem~\ref{thm:interleaving}.
+%
+%
+% \end{proof}
+
 \begin{lemma}\label{lem:pt_interleaving}
-  If $\hom_k(\b\to\B)$ is surjective and $\hom_k(\B)\cong \hom_k(\BB)$ for all $k$ then for all $\delta\leq\e\leq\zeta$ the $k$th persistent homology modules of \[\{(P^\e\subi{\omega-c\of,\alpha},\Q^\e)\to(P^\e\subi{\omega+c\of,\alpha},\QQ^\e)\}\] and $\{(D\subi{\omega,\alpha}, \B)\}$ are $c\e$-interleaved.
+  If $\hom_k(\b\to\B)$ is surjective and $\hom_k(\B)\cong \hom_k(\BB)$ for all $k$ then for all $k$ and $\alpha\leq\beta$
+  \[\hom_k\left((D\subi{\omega-c(\delta+\zeta),\alpha},B_{\omega-c(\delta+\zeta)})\hookrightarrow (D\subi{\omega,\beta},B_{\omega})\right)\]
+  is surjective and
+  \[ \hom_k\left( (D\subi{\omega,\alpha},B_\omega)\hookrightarrow (D\subi{\omega+c(\delta+\zeta),\beta},B_{\omega+c(\delta+\zeta)}) \right)\]
+  is an isomorphism.
 \end{lemma}
 \begin{proof}
-  Let $\U, \V, \W$ be the $k$th persistent homology modules of $\{(D\subi{\omega-c(\delta+\zeta), \alpha}, \b)\}$, $\{(D\subi{\omega,\alpha}, \B)\}$, $\{(D\subi{\omega+c(\delta+\zeta),\alpha}, \BB)\}$, and $\S, \T$ the $k$th persistent homology modules of $\{(\ext{P^\e\subi{\omega-c\zeta,\alpha}},\ext{\Q^\e})\}$ and $\{(\ext{P^\e\subi{\omega+c\of,\alpha}},\ext{\QQ^\e})\}$ respectively.
-  Let $\Gamma\in\Hom(\U,\V)$, $\Lambda\in\Hom(\S, \T)$, and $\Pi\in\Hom(\V,\W)$ be homomorphisms induced by inclusion.
-  Because Diagram~\ref{dgm:interleaving2} commutes for all $\alpha$ we have the following homomorphisms of degree $c\delta$ and $c\e$ induced by inclusion.
-  \begin{align*}
-    F&\in\Hom^{c\delta}(\U,\S)& M&\in\Hom^{c\e}(\S,\V)\\
-    G&\in\Hom^{c\delta}(\V,\T)& N&\in\Hom^{c\e}(\T,\W)
-  \end{align*}
-  Because all maps are induced by inclusion we have a partial $c\e$-interleavings
-  \begin{align*}
-    \Phi(F, G; M)&\in\Hom^{c\e}(\im~\Gamma, \im~\Lambda), & \Psi(M, N; G)&\in\Hom^{c\e}(\im~\Lambda, \im~\Pi).
-  \end{align*}
+  Let $\U, \V, \W$ be the $k$th persistent homology modules of $\{(D\subi{\omega-c(\delta+\zeta), \alpha}, \b)\}$, $\{(D\subi{\omega,\alpha}, \B)\}$, $\{(D\subi{\omega+c(\delta+\zeta),\alpha}, \BB)\}$.
+  Let $\Gamma\in\Hom(\U,\V)$ and $\Pi\in\Hom(\V,\W)$ be homomorphisms induced by inclusion.
 
   By applying Lemma~\ref{lem:five} to the long exact sequences of the pairs $(D\subi{\omega-c(\delta+\zeta),\alpha},\b)$ and $(D\subi{\omega,\alpha},\B)$ our assumption that $\hom_k(\b\to\B)$ is surjective for all $k$ implies $\gamma_\alpha : \hom_k(D\subi{\omega-c(\delta+\zeta),\alpha},\b)\to \hom_k(D\subi{\omega,\alpha},\B)$ is surjective for all $\alpha\in\R$.
   So $\Gamma : \U\to \V$ is an epimorphism.
   Similarly, the assumption that $\hom_k(\B)\cong \hom_k(\BB)$ implies $\pi_\alpha : \hom_k(D\subi{\omega,\alpha},\B)\to \hom_k(D\subi{\omega+c(\delta+\zeta),\alpha},\BB)$ is an isomorphism by applying Lemma~\ref{lem:five} to the long exact sequences of the pairs $(D\subi{\omega,\alpha},\B)$ and $(D\subi{\omega+c(\delta+\zeta),\alpha},\BB)$.
   So $\Pi : \V\to\W$ is an isomorphism of persistence modules (and therefore a monomorphism).
-  As \[\im~\lambda_\alpha \cong \im~\hom_k((P\subi{\omega-c\zeta,\alpha}^\e,\Q^\e)\to (P\subi{\omega+c\delta,\alpha}^\e,\QQ^\e))\]
-  for all $\alpha$ by Lemma~\ref{lem:extension_apply} the result follows from Theorem~\ref{thm:interleaving_main}.
 
   % As we have shown
   % As $(\{(\ext{P_\alpha},\FQ_\alpha)\},\{(\ext{P_\alpha},\FQ_\alpha')\})$, $(\{(D_\alpha, \FB_\alpha)\}, \{(D_\alpha,\FB_\alpha')\})$, and $(\{(D_\alpha, \FB_\alpha')\},\{(D_\alpha,\FB_\alpha'')\})$ are compatible pairs of filtrations such that Digram~\ref{dgm:interleaving} commutes with $f_\alpha$ surjective and $h_\alpha$ injective for all $\alpha\in\R$ the result follows from Theorem~\ref{thm:interleaving}.
