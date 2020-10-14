@@ -158,10 +158,18 @@
 \renewcommand{\V}{\mathbb{V}}
 \renewcommand{\W}{\mathbb{W}}
 
-\renewcommand{\P}{\mathcal{P}}
+\renewcommand{\D}[2]{\mathcal{D}_{#1}[#2]}
+\newcommand{\DD}[1]{\mathbb{D}_{#1}}
+
+
 \newcommand{\E}{\mathcal{E}}
-\newcommand{\DD}{\mathbb{D}}
-\newcommand{\PP}{\mathbb{P}}
+\renewcommand{\P}[3]{\mathcal{P}_{#1}^{#2}[#3]}
+\newcommand{\CP}[3]{\cech\mathcal{P}_{#1}^{#2}[#3]}
+\newcommand{\RP}[3]{\rips\mathcal{P}_{#1}^{#2}[#3]}
+
+\newcommand{\PP}[2]{\mathbb{P}_{#1}^{#2}}
+\newcommand{\CPP}[2]{\cech\mathbb{P}_{#1}^{#2}}
+\newcommand{\RPP}[2]{\rips\mathbb{P}_{#1}^{#2}}
 
 
 % \newcommand{\ext}[1]{\widehat{#1}}

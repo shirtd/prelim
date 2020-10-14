@@ -6,6 +6,8 @@
   A \textbf{persistence module} $\S$ over $\R$ is an indexed family of vector spaces $\{S_\alpha\}$ and linear maps $\{s_\alpha^\beta : S_\alpha\to S_\beta\}$ such that $s^\gamma_\beta\circ s_\alpha^\beta = s_\alpha^\gamma$ whenever $\alpha\leq\beta\leq\gamma$ and $s_\alpha^\alpha$ is the identity on $S_\alpha$.
 \end{definition}
 
+For a persistence module $\S$ we will also use $S[\alpha]$ to denote the vector space $S_\alpha$ and $s[\alpha,\beta]$ to denote the linear maps $s_\alpha^\beta$ when additional notation is required.
+
 \begin{definition}[Persistence Module Homomorphism]
   A \textbf{homomorphism} $\Lambda$ between two $\R$-persistence modules $\S, \T$ is a collection of linear maps $\{\lambda_\alpha : S_\alpha\to T_\alpha\}$ such that the following diagram commutes for all $\alpha\leq\beta$.
   \begin{equation}\label{dgm:homomorphism}
@@ -36,6 +38,10 @@
 Noting that $\Hom^\delta(\U,\V)\subseteq\Hom^{\delta'}(\U,\V)$ for all $0\leq\delta\leq\delta'$ we will define particular shifted homomorphisms with the assumption that $\Hom^\delta(\U,\V) = \Hom(\U,\V)$ for $\delta = 0$.
 For $\Gamma\in\Hom(\U,\V)$ let $\Gamma[\delta]\in\Hom^\delta(\U,\V)$ denote the homomorphism of degree $\delta$ defined as the family of linear maps
 \[\{\gamma_\alpha[\delta] := v_\alpha^{\alpha+\delta}\circ \gamma_\alpha : U_\alpha\to V_{\alpha+\delta}\}.\]
+
+Using our alternative notation we will write
+\[\gamma[\alpha;\delta] := v[\alpha,\alpha+\delta]\circ\gamma[\alpha] : U[\alpha]\to V[\alpha+\delta]\]
+to denote a map $\gamma_\alpha[\delta]$ of $\Gamma[\delta]$.
 
 \begin{lemma}\label{lem:trans_shift}
   If $F\in \Hom^\delta(\U,\S)$ and $F'\in\Hom^{\delta'}(\S,\S')$ then $F'\circ F\in\Hom^{\delta+\delta'}(\U,\S')$.
@@ -228,17 +234,29 @@ Because $\im~\gamma_\alpha[\beta-\alpha] = \im~\gamma_\alpha^\beta$ and $\im~\la
     \Lambda_{\beta +\delta}
 \end{tikzcd}\end{equation}
 
-\begin{lemma}\label{lem:composition}
+We note that whenever $\Gamma\in\Hom(\U,\V)$ and $\Lambda\in\Hom(\S,\T)$ the assumption that $\Phi(F, G)\in\Hom^\delta(\im~\Gamma, \im~\Lambda)$ implies that $F\in\Hom^\delta(\U,\S)$ and $G\in\Hom^\delta(\V,\T)$.
+
+\begin{lemma}\label{lem:image_composition}
+  Suppose $\Gamma\in\Hom(\U,\V)$, $\Lambda\in\Hom(\S,\T)$, and $\Lambda'\in\Hom(\S',\T')$.
   If $\Phi(F, G)\in\Hom^\delta(\im~\Gamma, \im~\Lambda)$ and $\Phi'(F', G')\in\Hom^{\delta'}(\im~\Lambda, \im~\Lambda')$ then $\Phi''(F'\circ F, G'\circ G)\in\Hom^{\delta+\delta'}(\im~\Gamma,\im~\Lambda')$.
 \end{lemma}
-% \begin{proof}
-%   Because $\Phi(F, G)$ is an image module homomorphism of degree $\delta$
-%   \[g_\beta\circ (v_\alpha^\beta\circ \gamma_\alpha) = (t_{\alpha+\delta}^{\beta+\delta}\circ\lambda_{\alpha+\delta})\circ f_\alpha\]
-%   for all $\alpha$.
-%   Because $\Psi(M, N)$ is an image module homomorphism of degree $\delta'$
-%   \[n_\beta\circ (_\alpha^\beta\circ \gamma_\alpha) = (t_{\alpha+\delta}^{\beta+\delta}\circ\lambda_{\alpha+\delta})\circ f_\alpha\]
-%
-% \end{proof}
+\begin{proof}
+  Because $\Phi(F, G)$ is an image module homomorphism of degree $\delta$
+  \[ g_{\beta-\delta}\circ\gamma_{\alpha-\delta}[\beta-\alpha] = \lambda_\alpha[\beta-\alpha]\circ f_{\alpha-\delta}.\]
+  Because $\Phi'(F', G')$ is an image module homomorphism of degree $\delta'$
+  \[ g_{\beta}'\circ\lambda_{\alpha}[\beta-\alpha] = \lambda_{\alpha +\delta'}'[\beta-\alpha]\circ f_{\alpha}'.\]
+  Therefore, for all $\alpha\leq\beta$,
+  \begin{align*}
+    g_\beta'\circ (g_{\beta-\delta}\circ \gamma_{\alpha-\delta}[\beta-\alpha]) &= (g_\beta'\circ \lambda_\alpha[\beta-\alpha])\circ f_{\alpha-\delta}\\
+      &=\lambda_{\alpha+\delta'}[\beta-\alpha]\circ f_\alpha'\circ f_{\alpha-\delta}.
+  \end{align*}
+  So $\Phi''(F'\circ F, G'\circ G)\in\Hom^{\delta+\delta'}(\im~\Gamma,\im~\Lambda')$ as desired.
+  % \[g_\beta\circ (v_\alpha^\beta\circ \gamma_\alpha) = (t_{\alpha+\delta}^{\beta+\delta}\circ\lambda_{\alpha+\delta})\circ f_\alpha\]
+  % for all $\alpha$.
+  % Because $\Psi(M, N)$ is an image module homomorphism of degree $\delta'$
+  % \[n_\beta\circ (_\alpha^\beta\circ \gamma_\alpha) = (t_{\alpha+\delta}^{\beta+\delta}\circ\lambda_{\alpha+\delta})\circ f_\alpha\]
+
+\end{proof}
 
 \subsection{Partial Interleavings of Image Modules}
 
@@ -310,18 +328,18 @@ Because $\im~\gamma_\alpha[\beta-\alpha] = \im~\gamma_\alpha^\beta$ and $\im~\la
 % \end{lemma}
 
 
-\begin{theorem}\label{thm:interleaving_main}
-  For $\R$-persistence modules $\S, \T, \U, \V, \W$ let
-  \[ \Gamma\in\Hom(\U,\V),\ \Lambda\in\Hom(\S, \T),\text{ and } \Pi\in\Hom(\V,\W)\]
-  be homomorphisms of persistence modules.% and
+\begin{lemma}\label{thm:interleaving_main}
+  % For $\R$-persistence modules $\S, \T, \U, \V, \W$ let
+  Suppose $\Gamma\in\Hom(\U,\V)$, $\Pi\in\Hom(\V,\W)$, and $\Lambda\in\Hom(\S, \T)$.
+  % be homomorphisms of persistence modules.% and
   % \begin{align*}
   %   F\in\Hom^\delta(\U,\S)& & M\in\Hom^\delta(\S,\V)\\
   %   G\in\Hom^\delta(\V,\T)& & N\in\Hom^\delta(\T,\W)
   % \end{align*}
   % be homomorphisms of degree $\delta$.
 
-  If $\Phi_M(F, G) :\im~\Gamma\to\im~\Lambda$ and $\Psi_G(M, N): \im~\Lambda\to\im~\Pi$ are partial $\delta$-interleavings of image modules such that $\Gamma$ is a epimorphism and $\Pi$ is a monomorphism then $\im~\Lambda$ is $\delta$-interleaved with $\V$.
-\end{theorem}
+  If $\Phi_M(F, G)\in\Hom^\delta(\im~\Gamma, \im~\Lambda)$ and $\Psi_G(M, N)\in\Hom^\delta(\im~\Lambda, \im~\Pi)$ are partial $\delta$-interleavings of image modules such that $\Gamma$ is a epimorphism and $\Pi$ is a monomorphism then $\im~\Lambda$ is $\delta$-interleaved with $\V$.
+\end{lemma}
 \begin{proof}
   For ease of notation let $\Phi$ denote $\Phi_M(F, G)$ and $\Psi$ denote $\Psi_G(M, N)$.
 
