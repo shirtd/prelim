@@ -1,53 +1,116 @@
-% !TeX root = ../new.tex
+% !TeX root = ../main.tex
 
-\begin{landscape}
+\clearpage
+
+\section{Helpful Diagram}
+
+% \begin{landscape}
+% \begin{scriptsize}
+% \begin{centering}
+% \[\begin{tikzcd}[row sep=large, column sep=scriptsize]
+%   |[alias=U]| \D{\omega-c(\delta+\zeta)}{\alpha-3c\delta}
+%                                   \arrow[to=V, "\gamma_{\alpha-3c\delta}{[3c\delta]}"]
+%                                   \arrow[to=Sa, "f_{\omega-c(\delta+\zeta}{[\alpha-3c\delta]}"]
+%   &&&& |[alias=V]| \D{\omega}{\alpha}
+%                                   \arrow[to=W, "\pi_\alpha{[3c\zeta]}"]
+%                                   \arrow[to=Ta, "f_\omega{[\alpha]}"]
+%   &&&& |[alias=W]|
+%   \D{\omega+c(\delta+2\zeta)}{\alpha+3c\zeta}\\
+%   %
+%   & |[alias=Sa]|
+%   \P{\omega-c\zeta}{\delta}{\alpha-2c\delta}
+%                                   \arrow[to=Sb, "s_{\alpha-2c\delta}"]
+%                                   \arrow[to=CSa, "(\E\N_{w-c\zeta}^\delta{[\alpha-2c\delta]})^{-1}"]
+%   && |[alias=Sb]| \P{\omega-c\zeta}{2\delta}{\alpha-2c\delta}
+%                                   \arrow[to=Ta, "\vartheta_{\alpha-2c\delta}{[2c\delta+\zeta]}"]
+%                                   \arrow[to=V, "m_{\omega-c\zeta}^{2\delta}{[\alpha-2c\delta]}"]
+%   && |[alias=Ta]| \P{\omega+c\delta}{\zeta}{\alpha+c\zeta}
+%                                   \arrow[to=Tb, "t_{\alpha+c\zeta}"]
+%                                   \arrow[to=CTa, "(\E\N_{w+c\delta}^\zeta{[\alpha+c\zeta]})^{-1}"]
+%   && |[alias=Tb]| \P{\omega+c\delta}{2\zeta}{\alpha+c\zeta}
+%                                   \arrow[to=W, "m_{\omega+c\delta}^{2\zeta}{[\alpha+c\zeta]}"]
+%   &\\
+%   %
+%   & |[alias=CSa]|
+%   \CP{\omega-c\zeta}{\delta}{\alpha-2c\delta}
+%                                   \arrow[to=CSb, "\check{s}_{\alpha-2c\delta}"]
+%                                   \arrow[to=RS, "\I_{\omega-c\zeta}^\delta{[\alpha-2c\delta]}"']
+%   && |[alias=CSb]| \CP{\omega-c\zeta}{2\delta}{\alpha-2c\delta}
+%                                   \arrow[to=Sb, "\E\N_{w-c\zeta}^{2\delta}{[\alpha-2c\delta]}"]
+%                                   \arrow[to=CTa, "\check{\vartheta}_{\alpha-2c\delta}{[2c\delta+\zeta]}"]
+%   && |[alias=CTa]| \CP{\omega+c\delta}{\zeta}{\alpha+c\zeta}
+%                                   \arrow[to=CTb, "\check{t}_{\alpha+c\zeta}"]
+%                                   \arrow[to=RT, "\I_{\omega+c\delta}^\zeta{[\alpha+c\zeta]}"']
+%   && |[alias=CTb]| \CP{\omega+c\delta}{2\zeta}{\alpha+c\zeta}
+%                                   \arrow[to=Tb, "\E\N_{w+c\delta}^{2\zeta}{[\alpha+2c\zeta]}"]
+%   &\\
+%   %
+%   && |[alias=RS]| \CP{\omega-c\zeta}{2\delta}{\alpha-2c\delta}
+%                                   \arrow[to=CSb, "\J_{\omega-c\zeta}^{2\delta}{[\alpha-2c\delta]}"]
+%                                   \arrow[to=RT, "\rips\lambda_{\alpha-c\zeta}{[c(2\delta+\zeta)]}"]
+%   &&&& |[alias=RT]| \RP{\omega+c\delta}{2\zeta}{\alpha+c\zeta}
+%                                   \arrow[to=CTb, "\J_{\omega+c\delta}^{2\zeta}{[\alpha+c\zeta]}"]
+%   &&\\
+% \end{tikzcd}\]
+% \end{centering}
+% \end{scriptsize}
+% \end{landscape}
+
 \begin{scriptsize}
 \begin{centering}
 \[\begin{tikzcd}[row sep=large, column sep=scriptsize]
-  |[alias=U]| \D{\omega-c(\delta+\zeta)}{\alpha-3c\delta}
-                                  \arrow[to=V, "\gamma_{\alpha-3c\delta}{[3c\delta]}"]
-                                  \arrow[to=Sa, "f_{\omega-c(\delta+\zeta}{[\alpha-3c\delta]}"]
-  &&&& |[alias=V]| \D{\omega}{\alpha}
-                                  \arrow[to=W, "\pi_\alpha{[3c\zeta]}"]
-                                  \arrow[to=Ta, "f_\omega{[\alpha]}"]
+  |[alias=U]| \DD{\omega-c(\delta+\zeta)}
+                                  \arrow[to=V, two heads, blue, "\Gamma{[3c\delta]}"]
+                                  \arrow[to=Sa,blue, "F"]
+  &&&& |[alias=V]| \DD{\omega}
+                                  \arrow[to=W, hook,red, "\Pi{[3c\zeta]}"]
+                                  \arrow[to=Ta,red, "G"]
   &&&& |[alias=W]|
-  \D{\omega+c(\delta+2\zeta)}{\alpha+3c\zeta}\\
+  \DD{\omega+c(\delta+2\zeta)}\\
   %
   & |[alias=Sa]|
-  \P{\omega-c\zeta}{\delta}{\alpha-2c\delta}
-                                  \arrow[to=Sb, "s_{\alpha-2c\delta}"]
-                                  \arrow[to=CSa, "(\E\N_{w-c\zeta}^\delta{[\alpha-2c\delta]})^{-1}"]
-  && |[alias=Sb]| \P{\omega-c\zeta}{2\delta}{\alpha-2c\delta}
-                                  \arrow[to=Ta, "\vartheta_{\alpha-2c\delta}{[2c\delta+\zeta]}"]
-                                  \arrow[to=V, "m_{\omega-c\zeta}^{2\delta}{[\alpha-2c\delta]}"]
-  && |[alias=Ta]| \P{\omega+c\delta}{\zeta}{\alpha+c\zeta}
-                                  \arrow[to=Tb, "t_{\alpha+c\zeta}"]
-                                  \arrow[to=CTa, "(\E\N_{w+c\delta}^\zeta{[\alpha+c\zeta]})^{-1}"]
-  && |[alias=Tb]| \P{\omega+c\delta}{2\zeta}{\alpha+c\zeta}
-                                  \arrow[to=W, "m_{\omega+c\delta}^{2\zeta}{[\alpha+c\zeta]}"]
+  \E\PP{\omega-c\zeta}{\delta}
+                                  \arrow[to=Sb, blue, "\mathcal{S}"]
+                                  \arrow[to=CSa, "(\E\N_{w-c\zeta}^\delta)^{-1}"]
+  && |[alias=Sb]| \E\PP{\omega-c\zeta}{2\delta}
+                                  \arrow[to=Ta, "\Theta{[2c\delta+\zeta]}"]
+                                  \arrow[to=V, blue, "M"]
+  && |[alias=Ta]| \E\PP{\omega+c\delta}{\zeta}
+                                  \arrow[to=Tb, red, "\mathcal{T}"]
+                                  \arrow[to=CTa, "(\E\N_{w+c\delta}^\zeta)^{-1}"]
+  && |[alias=Tb]| \E\PP{\omega+c\delta}{2\zeta}
+                                  \arrow[to=W, red, "N"]
   &\\
   %
   & |[alias=CSa]|
-  \CP{\omega-c\zeta}{\delta}{\alpha-2c\delta}
-                                  \arrow[to=CSb, "\check{s}_{\alpha-2c\delta}"]
-                                  \arrow[to=RS, "\I_{\omega-c\zeta}^\delta{[\alpha-2c\delta]}"']
-  && |[alias=CSb]| \CP{\omega-c\zeta}{2\delta}{\alpha-2c\delta}
-                                  \arrow[to=Sb, "\E\N_{w-c\zeta}^{2\delta}{[\alpha-2c\delta]}"]
-                                  \arrow[to=CTa, "\check{\vartheta}_{\alpha-2c\delta}{[2c\delta+\zeta]}"]
-  && |[alias=CTa]| \CP{\omega+c\delta}{\zeta}{\alpha+c\zeta}
-                                  \arrow[to=CTb, "\check{t}_{\alpha+c\zeta}"]
-                                  \arrow[to=RT, "\I_{\omega+c\delta}^\zeta{[\alpha+c\zeta]}"']
-  && |[alias=CTb]| \CP{\omega+c\delta}{2\zeta}{\alpha+c\zeta}
-                                  \arrow[to=Tb, "\E\N_{w+c\delta}^{2\zeta}{[\alpha+2c\zeta]}"]
+  \CPP{\omega-c\zeta}{\delta}
+                                  \arrow[to=CSb, green, "\cech\mathcal{S}"]
+                                  \arrow[to=RS, green, "\I_{\omega-c\zeta}^\delta"']
+  && |[alias=CSb]| \CPP{\omega-c\zeta}{2\delta}
+                                  \arrow[to=Sb, "\E\N_{w-c\zeta}^{2\delta}"]
+                                  \arrow[to=CTa, "\cech\Theta{[2c\delta+c\zeta]}"]
+  && |[alias=CTa]| \CPP{\omega+c\delta}{\zeta}
+                                  \arrow[to=CTb, orange, "\cech\mathcal{T}"]
+                                  \arrow[to=RT, orange, "\I_{\omega+c\delta}^\zeta"']
+  && |[alias=CTb]| \CPP{\omega+c\delta}{2\zeta}
+                                  \arrow[to=Tb, "\E\N_{w+c\delta}^{2\zeta}"]
   &\\
   %
-  && |[alias=RS]| \CP{\omega-c\zeta}{2\delta}{\alpha-2c\delta}
-                                  \arrow[to=CSb, "\J_{\omega-c\zeta}^{2\delta}{[\alpha-2c\delta]}"]
-                                  \arrow[to=RT, "\rips\lambda_{\alpha-c\zeta}{[c(2\delta+\zeta)]}"]
-  &&&& |[alias=RT]| \RP{\omega+c\delta}{2\zeta}{\alpha+c\zeta}
-                                  \arrow[to=CTb, "\J_{\omega+c\delta}^{2\zeta}{[\alpha+c\zeta]}"]
+  && |[alias=RS]| \RPP{\omega-c\zeta}{2\delta}
+                                  \arrow[to=CSb, green, "\J_{\omega-c\zeta}^{2\delta}"]
+                                  \arrow[to=RT, "\rips\Lambda"]
+  &&&& |[alias=RT]| \RPP{\omega+c\delta}{2\zeta}
+                                  \arrow[to=CTb, orange, "\J_{\omega+c\delta}^{2\zeta}"]
   &&\\
 \end{tikzcd}\]
 \end{centering}
 \end{scriptsize}
-\end{landscape}
+
+\begin{enumerate}
+  \item Blue commutes (all inclusions) + green commutes (all inclusions) + middle left square commutes with inclusion (pers. nerve lemma) $\implies$ weak interleaving of $\Gamma$ with $\RPP{\omega-c\zeta}{2\delta}$.
+  \item Red commutes (all inclusions) + orange commutes (all inclusions) + middle right square commutes with inclusion (pers. nerve lemma) $\implies$ weak interleaving of $\Pi$ with $\RPP{\omega+c\delta}{2\zeta}$.
+  \item Middle commutes using the same arguments $\implies$ weak interleaving of $\rips\Lambda$ with $\DD{\omega}$
+  \item weak interleaving of $\Gamma$ with $\RPP{\omega-c\zeta}{2\delta}$ + weak interleaving of $\rips\Lambda$ with $\DD{\omega}$ + path \textbf{down} from $\Gamma$ to $\rips\Lambda$ is an image module homomorphism $\implies$ partial interleaving of image modules from $\Gamma$ to $\rips\Lambda$.
+  \item weak interleaving of $\rips\Lambda$ with $\DD{\omega}$ + weak interleaving of $\Pi$ with $\RPP{\omega+c\delta}{2\zeta}$ + path \textbf{up} from $\rips\Lambda$ to $\Pi$ is an image module homomorphism $\implies$ partial interleaving of image modules from $\rips\Lambda$ to $\Pi$.
+  \item these two partial interleavings + $\Gamma$ epi + $\Pi$ mono $\implies$ $\im~\rips\Lambda$ is interleaved with $\DD{\omega}$ by Lemma~\ref{thm:interleaving_main}.
+\end{enumerate}
