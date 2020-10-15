@@ -7,7 +7,6 @@
 
 Note that the sets $U, V$ that form a separation of $X$ are both open and closed in $X$.
 For a subspace $Y$ of $X$ we will denote the interior and closure of a set $U$ in $Y$ with $\intr_Y(U)$ and $\cl_Y(X)$.
- % where $\intr(U)$ and $\cl(U)$ will refer to the interior and closure of $U$ in $X$, unless otherwise stated.
 
 \begin{lemma}[23.1 (Munkres~\cite{munkres00topology})]
   If $Y$ is a subspace of $X$, a separation of $Y$ is a pair of disjoint, nonempty sets $A, B$ whose union is $Y$, neither of which contains a limit point of the other.
@@ -35,11 +34,6 @@ Note that while $U$ and $V$ are both open and closed in $X\setminus S$, each com
 Therefore, if $S$ separates $X$ with a pair $(U, V)$, we require that $\cl_X(U)\cap V = \emptyset$ and $U\cap \cl_X(V) = \emptyset$.
 If $S$ is an open set in $X$ then $U$ and $V$ are closed in $X$, therefore $\cl_X(U)\cap V = \emptyset$ and $U\cap \cl_X(V) = \emptyset$.
 Otherwise, if $S$ is closed in $X$, then $U$ and $V$ are open in $X$.
-
-% \begin{lemma}
-%   If $S$ separates $X$ with a pair $(U, V)$ then
-%   \[ \hom_k()
-% \end{lemma}
 
 Throughout we will use $U, S,$ and $V$ to denote subsets of $X$ analogous to the interior, boundary, and complement of $S\sqcup U$ in $X$, respectively.
 The following definition, while equivalent to that of a separating set, makes this distinction explicit by defining the set $S$ relative to the set $S\sqcup U$.
@@ -98,134 +92,6 @@ This allows us to clearly state the extension of a surrounding pair in a subspac
   \[ \ext{S} = S\sqcup (D\setminus L) \subseteq B'\cup (D\setminus L) = B'. \]
   So $B \subseteq \ext{S}\subseteq B'$ as desired.
 \end{proof}
-
-% \begin{theorem}\label{thm:separate_iso}
-%   Suppose $B\subseteq B'\subseteq B''$ all surround $D$ in $X$ and $A\subseteq D$ such that $B''\subset A$.
-%   % Suppose $S$ and $S'$ surround $L$ in $D$ such that %$B\subseteq \ext{S} \subseteq B'\subseteq \ext{S'}\subseteq B''$.
-%   % \begin{itemize}
-%   %   \item $D\setminus B'\subseteq L$,
-%   %   \item $B\cap L \subseteq S\subseteq B'$, and
-%   %   \item $B'\cap L\subseteq S'\subseteq B''$.
-%   % \end{itemize}
-%   % Let $\eta^k : \hom_k(B)\to \hom_k(B'')$ be induced by inclusion.
-%
-%   If $\hom_k(B\to B')$ is surjective and $\hom_k(B')\cong\hom_k(B'')$ for all $k$ then $\hom_k((A, B)\to (A, B'))$ is surjective for all $A\subseteq D$ such that $B'\subseteq A$ and $\hom_k(A', B')\cong\hom_k(A', B'')$ for all $A'\subset D$ such that $B''\subseteq A'$.
-%   % \[ \im~\hom_k((A, B)\to (A, B''))\cong \hom_k(A, B')\]
-%   % for any $A\subset D$ such that $
-%
-%   % If $\eta^k$ is surjective and $\im~\eta^k\cong \hom_k(B')$ then
-%   % \[\im~\hom_k((L\cap A, S)\to (L\cap A, S'))\cong \hom_k(A, B')\]
-%   % for all $k$.\footnote{In dimension $0$ the last two columns of the Diagram~\ref{dgm:separate_iso} are zero.}
-% \end{theorem}
-% \begin{proof}
-%   Consider the following commutative diagrams of long exact sequences of pairs $(A, B)$, $(A, B')$ and $(A, B'')$.
-%   \begin{equation}\begin{tikzcd}\label{dgm:separate_iso}
-%     \hom_k(B)\arrow{r}{i}\arrow{d}{a} &
-%     \hom_k(A)\arrow{r}{j}\arrow{d}{b} &
-%     \hom_k(A, B)\arrow{r}{k}\arrow{d}{c} &
-%     \hom_{k-1}(B)\arrow{r}{\ell}\arrow{d}{d} &
-%     \hom_{k-1}(A)\arrow{d}{e} &\\
-%     %
-%     \hom_k(B')\arrow{r}{i'}\arrow{d}{a'} &
-%     \hom_k(A)\arrow{r}{j'}\arrow{d}{b'} &
-%     \hom_k(A, B')\arrow{r}{k'}\arrow{d}{c'} &
-%     \hom_{k-1}(B')\arrow{r}{\ell'}\arrow{d}{d'} &
-%     \hom_{k-1}(A)\arrow{d}{e'} \\
-%     %
-%     \hom_k(B'')\arrow{r}{i''}&
-%     \hom_k(A)\arrow{r}{j''}&
-%     \hom_k(A, B'')\arrow{r}{k''}&
-%     \hom_{k-1}(B'')\arrow{r}{\ell''} &
-%     \hom_{k-1}(A)
-%   \end{tikzcd}\end{equation}
-%   where vertical maps are induced by inclusion.
-%
-%   If $\im~\eta^k\cong\hom_k(B')$ for all $k$ then, because $\eta^k = a'\circ a$ and $\eta^{k-1} = d'\circ d$, $a, d$ must be surjective and $a', d'$ must be injective.
-%   Moreover, if $\eta^k$ is surjective then $d'$ is surjective, and therefore an isomorphism.
-%   As $b,b',e$ and $e'$ are the identity map they are bijective, therefore $c$ must be surjective and $c'$ must be bijective by Lemma~\ref{lem:five}, thus $\im~c'\circ c\cong \hom_k(A, B')$.
-%
-%   % % Because $S$ and $S'$ surround $L$ in $D$, $\hom_k(L\cap A, S)\cong \hom_k(A, \ext{S})$ and $\hom_k(L\cap A, S')\cong \hom_k(A, \ext{S'})$ for all $k$ by Lemma~\ref{lem:excision}.
-%   % Note that our assumptions imply that we have the following sequence of inclusions by Lemma~\ref{lem:surround_and_cover}.
-%   % % \begin{enumerate}
-%   % %   \item $D\setminus B'\subseteq L$,
-%   % %   \item $B\cap L \subseteq S\subseteq B'$, and
-%   % %   \item $B'\cap L\subseteq S'\subseteq B''$
-%   % % \end{enumerate}
-%   % % imply that
-%   % \[ B\subseteq \ext{S}\subseteq B'\subseteq\ext{S'}\subseteq B''.\]
-%   % So have the following sequence of homomorphisms induced by inclusion of pairs
-%   % \[ \hom_k(A, B)\xrightarrow{m}\hom_k(A, \ext{S})\xrightarrow{n}\hom_k(A, B')\xrightarrow{p}\hom_k(A, \ext{S'})\xrightarrow{q}\hom_k(A, B'').\]
-%   % As $q\circ p\circ n\circ m = c' \circ c$ and $\im~c'\circ c\cong \hom_k(A, B')$, $\im~n\circ p\cong \hom_k(A, B')$ by Lemma~\ref{lem:sandwich}.
-%   % The result follows from Lemma~\ref{lem:excision} as $\im~n\circ p\cong \im~\hom_k((L\cap A, S)\to (L\cap A, S'))$.
-%
-% \end{proof}
-
-% \begin{theorem}\label{thm:separate_iso}
-%   Suppose $B\subseteq B'\subseteq B''$ all surround $D$ in $X$ and $A\subseteq D$ such that $B''\subset A$.
-%   Suppose $S$ and $S'$ surround $L$ in $D$ such that %$B\subseteq \ext{S} \subseteq B'\subseteq \ext{S'}\subseteq B''$.
-%   \begin{itemize}
-%     \item $D\setminus B'\subseteq L$,
-%     \item $B\cap L \subseteq S\subseteq B'$, and
-%     \item $B'\cap L\subseteq S'\subseteq B''$.
-%   \end{itemize}
-%   Let $\eta^k : \hom_k(B)\to \hom_k(B'')$ be induced by inclusion.
-%
-%   If $\eta^k$ is surjective and $\im~\eta^k\cong \hom_k(B')$ then
-%   \[\im~\hom_k((L\cap A, S)\to (L\cap A, S'))\cong \hom_k(A, B')\]
-%   for all $k$.\footnote{In dimension $0$ the last two columns of the Diagram~\ref{dgm:separate_iso} are zero.}
-% \end{theorem}
-% \begin{proof}
-%   Consider the following commutative diagrams of long exact sequences of pairs $(A, B)$, $(A, B')$ and $(A, B'')$.
-%   \begin{equation}\begin{tikzcd}\label{dgm:separate_iso}
-%     \hom_k(B)\arrow{r}{i}\arrow{d}{a} &
-%     \hom_k(A)\arrow{r}{j}\arrow{d}{b} &
-%     \hom_k(A, B)\arrow{r}{k}\arrow{d}{c} &
-%     \hom_{k-1}(B)\arrow{r}{\ell}\arrow{d}{d} &
-%     \hom_{k-1}(A)\arrow{d}{e} &\\
-%     %
-%     \hom_k(B')\arrow{r}{i'}\arrow{d}{a'} &
-%     \hom_k(A)\arrow{r}{j'}\arrow{d}{b'} &
-%     \hom_k(A, B')\arrow{r}{k'}\arrow{d}{c'} &
-%     \hom_{k-1}(B')\arrow{r}{\ell'}\arrow{d}{d'} &
-%     \hom_{k-1}(A)\arrow{d}{e'} \\
-%     %
-%     \hom_k(B'')\arrow{r}{i''}&
-%     \hom_k(A)\arrow{r}{j''}&
-%     \hom_k(A, B'')\arrow{r}{k''}&
-%     \hom_{k-1}(B'')\arrow{r}{\ell''} &
-%     \hom_{k-1}(A)
-%   \end{tikzcd}\end{equation}
-%   where vertical maps are induced by inclusion.
-%
-%   If $\im~\eta^k\cong\hom_k(B')$ for all $k$ then, because $\eta^k = a'\circ a$ and $\eta^{k-1} = d'\circ d$, $a, d$ must be surjective and $a', d'$ must be injective.
-%   Moreover, if $\eta^k$ is surjective then $d'$ is surjective, and therefore an isomorphism.
-%   As $b,b',e$ and $e'$ are the identity map they are bijective, therefore $c$ must be surjective and $c'$ must be bijective by Lemma~\ref{lem:five}, thus $\im~c'\circ c\cong \hom_k(A, B')$.
-%
-%   % Because $S$ and $S'$ surround $L$ in $D$, $\hom_k(L\cap A, S)\cong \hom_k(A, \ext{S})$ and $\hom_k(L\cap A, S')\cong \hom_k(A, \ext{S'})$ for all $k$ by Lemma~\ref{lem:excision}.
-%   Note that our assumptions imply that we have the following sequence of inclusions by Lemma~\ref{lem:surround_and_cover}.
-%   % \begin{enumerate}
-%   %   \item $D\setminus B'\subseteq L$,
-%   %   \item $B\cap L \subseteq S\subseteq B'$, and
-%   %   \item $B'\cap L\subseteq S'\subseteq B''$
-%   % \end{enumerate}
-%   % imply that
-%   \[ B\subseteq \ext{S}\subseteq B'\subseteq\ext{S'}\subseteq B''.\]
-%   So have the following sequence of homomorphisms induced by inclusion of pairs
-%   \[ \hom_k(A, B)\xrightarrow{m}\hom_k(A, \ext{S})\xrightarrow{n}\hom_k(A, B')\xrightarrow{p}\hom_k(A, \ext{S'})\xrightarrow{q}\hom_k(A, B'').\]
-%   As $q\circ p\circ n\circ m = c' \circ c$ and $\im~c'\circ c\cong \hom_k(A, B')$, $\im~n\circ p\cong \hom_k(A, B')$ by Lemma~\ref{lem:sandwich}.
-%   The result follows from Lemma~\ref{lem:excision} as $\im~n\circ p\cong \im~\hom_k((L\cap A, S)\to (L\cap A, S'))$.
-%
-% \end{proof}
-
-% \begin{lemma}
-%   If $S$ surrounds $L$ in $D$ and $\ext{S}\subseteq B$ for some subset $B$ of $D$ then $D\setminus B\subseteq L\setminus S$.
-% \end{lemma}
-% \begin{proof}
-%   If $S$ surrounds $L$ in $D$ then $\ext{S} = S\sqcup (D\setminus L)$.
-%   So $\ext{S}\subseteq
-% \end{proof}
-
-% \clearpage
 
 In the following let $X$ be a topological space and $\overline{A} := X\setminus U$ denote the complement of a subset $U$ of $X$.
 

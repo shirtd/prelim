@@ -116,88 +116,6 @@ to denote a map $\gamma_\alpha[\delta]$ of $\Gamma[\delta]$.
   We may therefore conclude that $(F\circ F', N'\circ M)\in\Hom^{2\delta}(\U',\S)\times\Hom^{2\delta}(\S,\V')$ is a weak $2\delta$-interleaving of $I'$ with $\S$.
 \end{proof}
 
-% A homomorphism $I\in\Hom^{2\delta}(\U,\V)$ of degree (at most) $2\delta$ are said to be \textbf{partially $\delta$-interleaved} with a persistence module $\S$ if there exist $F\in\Hom^\delta(\U,\S)$ and $M\in\Hom^\delta(\S,\V)$ such that the following diagram commutes for all $\alpha$.
-%
-% \begin{equation}\label{dgm:left_interleaving}
-%   \begin{tikzcd}
-%     U_{\alpha-\delta}\arrow{rr}{i_{\alpha-\delta}}\arrow{dr}{f_{\alpha-\delta}} & &
-%     V_{\alpha+\delta}\\
-%     %
-%     & S_{\alpha}\arrow{ur}{m_\alpha} &
-% \end{tikzcd}\end{equation}
-% We say that $I$ is partially $\delta$-interleaved by the pair $(F, M)$.
-%
-% % The homomorphisms are said to be \textbf{right $delta$-interleaved} if there exist $M\in\Hom^\delta(\S,\V)$ and $G\in\Hom^\delta(\V,\T)$ such that the following diagram commutes for all $\alpha$.
-% %
-% % \begin{equation}\label{dgm:right_interleaving}
-% %   \begin{tikzcd}
-% %     & V_{\alpha}\arrow{dr}{g_\alpha} &\\
-% %     %
-% %     S_{\alpha-\delta}\arrow{rr}{j}\arrow{ur}{m_{\alpha-\delta}} & &
-% %     T_{\alpha+\delta}
-% % \end{tikzcd}\end{equation}
-% % $I$ and $J$ are \textbf{weakly $\delta$-interleaved} if they are both left and right $\delta$-interleaved.
-%
-%
-% % In the following let $I\in\Hom^{2\delta}(\U, \V)$, $J\in\Hom^{2\delta}(\S,\T)$, $\tilde{J}\in\Hom^{2\delta}(\tilde{\S},\tilde{\T})$, $J'\in\Hom^{2\delta}(\S',\T')$ be homomorphisms of degree (at most) $2\delta$.
-%
-% \begin{lemma}\label{lem:left}
-%   Suppose $I\in\Hom^{2\delta}(\U,\V)$ is partially $\delta$-interleaved with $\S$ by a pair $(F, M)$ and $\S'$ by a pair $(F',M')$.
-%
-%   If there exist $\Sigma\in\Hom(\S, \tilde{S})$ and $\Upsilon\in\Hom(\tilde{\S},\S')$ such that $M = M'\circ\Upsilon\circ\Sigma$ and $F' = \Upsilon\circ\Sigma\circ F$ then $I$ is partially $\delta$-interleaved with $\tilde{S}$ by the pair $(\Sigma\circ F, M'\circ\Upsilon)$.
-% \end{lemma}
-% \begin{proof}
-%   If $I$ is partially $\delta$-interleaved with $\S$ by a pair $(F, M)$ then $i_{\alpha-\delta} = m_\alpha\circ f_{\alpha-\delta}$ for all $\alpha$.
-%   So, by our hypothesis that $M = M'\circ\Upsilon\circ\Sigma$ and $F' = \Upsilon\circ\Sigma\circ F$,
-%   \begin{align*}
-%     i_{\alpha-\delta} &= m_\alpha\circ f_{\alpha-\delta}\\
-%       &= (m_\alpha'\circ \upsilon_\alpha)\circ (\sigma_\alpha\circ f_{\alpha-\delta}).
-%   \end{align*}
-%   as desired.
-% \end{proof}
-%
-% \begin{lemma}\label{lem:right}
-%   Suppose $J\in\Hom^{2\delta}(\S,\T)$ is partially $\delta$-interleaved with $\V$ by the pair $(M, G)$.
-%
-%   If there exist $\Upsilon\in\Hom(\tilde{\S},\S)$ and $\Theta\in\Hom(\T, \tilde{\T})$ such that $\tilde{J} := \Theta\circ J\circ \Upsilon\in\Hom^{2\delta}(\tilde{\S},\tilde{\T})$ then $\tilde{J}$ is $\delta$-interleaved with $\V$ by the pair $(M\circ \Upsilon, \Theta\circ G)$.
-% \end{lemma}
-% \begin{proof}
-%   Because $J$ is partially $\delta$-interleaved with $\V$ we know $j_{\alpha-\delta} = g_\alpha\circ m_{\alpha-\delta}$.
-%   By our hypothesis that $\tilde{J} = \Theta\circ J\circ \Upsilon$ is a homomorphism of degree $2\delta$ we have
-%   \begin{align*}
-%     \tilde{j}_{\alpha-\delta} &= \vartheta_{\alpha+\delta}\circ j_{\alpha-\delta}\circ \upsilon_{\alpha-\delta}\\
-%       &= (\vartheta_{\alpha+\delta}\circ g_\alpha)\circ (m_{\alpha-\delta}\circ \upsilon_{\alpha-\delta})
-%     \end{align*}
-%     for all $\alpha$ as desired.
-% \end{proof}
-%
-% % \begin{lemma}\label{lem:left}
-% %   Suppose $I\in\Hom^{2\delta}(\U, \V)$ is left $\delta$-interleaved with $J\in\Hom^{2\delta}(\S,\T)$ and $J'\in\Hom^{2\delta}(\S',\T')$ by pairs $(F, M)$ and $(F', M')$, respectively.
-% %
-% %   If there exist $\Sigma\in\Hom(\S,\tilde{\S})$ and $\Upsilon\in\Hom(\tilde{\S}, \S')$ such that $M = M'\circ\Upsilon\circ\Sigma$ then $I$ and $\tilde{J}\in\Hom^{2\delta}(\tilde{\S},\tilde{\T})$ are left $\delta$-interleaved by the pair $(\Sigma\circ F, M'\circ\Upsilon)$.
-% % \end{lemma}
-% % \begin{proof}
-% %   Because $I$ is left $\delta$-interleaved with $J$ Diagram~\ref{dgm:left_interleaving} commutes for all $\alpha$, so $i_{\alpha-\delta} = m_\alpha\circ f_{\alpha-\delta}$.
-% %   By our hypothesis that $M = M'\circ\Upsilon\circ\Sigma$ it follows
-% %   \[ i_{\alpha-\delta} = (m_\alpha'\circ\upsilon_\alpha)\circ(\sigma\circ f_{\alpha-\delta}) \]
-% %   which implies that $I$ and $\tilde{J}$ are left $\delta$-interleaved by the pair $(\Sigma\circ F, M'\circ\Upsilon)$ as desired.
-% %   % Similarly, because $\Gamma[2\delta]$ is left $\delta$-interleaved with $\Lambda'[2\delta]$ we have $\gamma[2\delta]_{\alpha-\delta}
-% % \end{proof}
-% %
-% % \begin{lemma}\label{lem:right}
-% %   Suppose $I\in\Hom^{2\delta}(\U, \V)$ is right $\delta$-interleaved with $L\in\Hom^{2\delta}(\S',\T)$ by a pair $(M', G)$.
-% %
-% %   If there exist $\Upsilon\in\Hom(\tilde{\S},\S')$ and $\Theta\in\Hom(\T,\tilde{\T})$ such that
-% %   \[\tilde{j}_\alpha = \omega_{\alpha+2\delta}\circ \ell_\alpha\circ\upsilon_\alpha \]
-% %   for all $\alpha$ then $I$ and $\tilde{J}\in\Hom^{2\delta}(\tilde{\S},\tilde{\T})$ are right $\delta$-interleaved by the pair $(M'\circ\Upsilon, \Theta\circ G)$.
-% % \end{lemma}
-% % \begin{proof}
-% %   Because $I$ and $L$ are right $\delta$-interleaved by a pair $(M', G)$ Daigram~\ref{dgm:right_interleaving} commutes for all $\alpha$, so $\ell_{\alpha-\delta} = g_\alpha\circ m_{\alpha-\delta}'$.
-% %   By our assumption that $\tilde{j}_\alpha = \vartheta_{\alpha+2\delta}\circ \ell_\alpha\circ\upsilon_\alpha$ it follows
-% %   \[ \tilde{j}_\alpha = \vartheta_{\alpha+2\delta}\circ \ell_\alpha\circ\upsilon_\alpha = (\vartheta_{\alpha+\delta}\circ g_\alpha)\circ (m_{\alpha-\delta}\circ\upsilon_{\alpha-\delta}) \]
-% %   which implies that $I$ and $\tilde{J}$ are right $\delta$-interleaved by the pair $(M'\circ \Upsilon, \Theta\circ G)$ as desired.
-% % \end{proof}
-
 \subsection{Image Persistence Modules}
 
 \begin{definition}[Image Persistence Module]
@@ -210,11 +128,9 @@ to denote a map $\gamma_\alpha[\delta]$ of $\Gamma[\delta]$.
 
   \begin{equation}\label{dgm:image_homomorphism}
     \begin{tikzcd}[column sep=large]
-      % U_\alpha\arrow{r}{v_\alpha^\beta\circ\gamma_\alpha}\arrow{d}{f_\alpha} &
         U_\alpha\arrow{r}{\gamma_\alpha[\beta-\alpha]}\arrow{d}{f_\alpha} &
       V_\beta\arrow{d}{g_\beta}\\
       %
-      % S_{\alpha+\delta}\arrow{r}{t_{\alpha+\delta}^{\beta+\delta}\circ\lambda_{\alpha+\delta}} &
       S_{\alpha+\delta}\arrow{r}{\lambda_{\alpha+\delta}[\beta-\alpha]} &
       T_{\beta +\delta}
   \end{tikzcd}\end{equation}
@@ -258,18 +174,6 @@ We note that whenever $\Gamma\in\Hom(\U,\V)$ and $\Lambda\in\Hom(\S,\T)$ the ass
 
 \subsection{Partial Interleavings of Image Modules}
 
-% Let $\Gamma[2\delta]\in\Hom^{2\delta}(\U,\V)$ be defined as the family of linear maps
-% \[\{\gamma[2\delta]_\alpha := v_{\alpha}^{\alpha+2\delta}\circ\gamma_{\alpha} : U_\alpha\to V_{\alpha+2\delta}\}\]
-% and let $\Lambda[2\delta]\in\Hom^{2\delta}(\S,\T)$ be defined as the family of linear maps
-% \[\{\lambda[2\delta]_\alpha := t_{\alpha}^{\alpha+2\delta}\circ\lambda_\alpha : S_\alpha\to T_{\alpha+2\delta}\}.\]
-
-% An image module homomorphism $\Phi(F,G)\in\Hom^\delta(\im~\Gamma,\im~\Lambda)$ of degree $\delta$ is said to be a \textbf{left $\delta$-interleaving of image modules} if there exists some $M\in\Hom^\delta(\S,\V)$ such that $\Gamma[2\delta]$ and $\Lambda[2\delta]$ are right $\delta$-interleaved by the pair $(F, M)$.
-% If $\Gamma[2\delta]$ and $\Lambda[2\delta]$ are left $\delta$-interleaved by the pair $(M, G)$ then $\Phi(F, G)$ is said to be a \textbf{right $\delta$-interleaving of image modules}.
-
-% An image module homomorphism $\Phi(F, G)\in\Hom^\delta(\im~\Gamma,\im~\Lambda)$ along with a map $M\in\Hom^\delta(\S,\V)$ is a \textbf{left $\delta$-interleaving of image modules} if $\Gamma[2\delta]$ is partially $\delta$-interleaved with $\S$ by the pair $(F, M)$.
-% $\Phi(F, G)$ is a \textbf{right $\delta$-interleaving of image modules} if $\Lambda[2\delta]$ is partially $\delta$-interleaved with $\V$ by the pair $(M, G)$.
-% $\Phi(F, G)$ is a \textbf{partial $\delta$-interleaving of image modules}, and denoted $\Phi_M(F, G)$ if it is is both a left and right $\delta$-interleaving of image modules.
-
 \begin{definition}[Partial Interleaving of Image Modules]
   For $\Gamma\in\Hom(\U,\V)$ and $\Lambda\in\Hom(\S,\T)$ an image module homomorphism $\Phi(F, G)\in\Hom^\delta(\im~\Gamma,\im~\Lambda)$ along with $M\in\Hom^\delta(\S,\V)$ is a \textbf{left $\delta$-interleaving of image modules} if $(F, M)$ is a weak $\delta$-interleaving of $\Gamma[2\delta]$ with $\S$.
   $\Phi(F, G)$ is a \textbf{right $\delta$-interleaving of image modules} if $(M, G)$ is a weak $\delta$-interleaving of $\Lambda[2\delta]$ with $\V$.
@@ -277,64 +181,8 @@ We note that whenever $\Gamma\in\Hom(\U,\V)$ and $\Lambda\in\Hom(\S,\T)$ the ass
   An image module homomorphism $\Phi(F, G)$ is a \textbf{partial $\delta$-interleaving of image modules}, and denoted $\Phi_M(F, G)$, if it is both a left and right $\delta$-interleaving of image modules.
 \end{definition}
 
-% A strong $\delta$-interleaving of image modules by pairs $(F, M)$ and $(M, G)$ will be denoted $\Phi_M(F, G)
-% then $\Phi(F,G)$ is said to be a
-% Let $\Gamma\in\Hom(\U,\V)$, $\Lambda\in\Hom(\S,\T)$ and $F\in\Hom^\delta(\U, \S)$, $G\in\Hom^\delta(\V, \T)$ be such that $\Phi(F,G) : \im~\Gamma\to\im~\Lambda$ is a image module homomorphism of degree $\delta$.
-% $\Phi(F, G)$ is said to be a \textbf{partial $\delta$ interleaving of image modules} $\im~\Gamma$ and $\im~\Lambda$ if there exists some $M\in\Hom^\delta(\S,\V)$ such that the following diagrams commute for all $\alpha$.
-%
-% \begin{minipage}{0.45\textwidth}
-% \begin{equation}\label{dgm:partial_interleaving1}
-%   \begin{tikzcd}
-%     U_{\alpha-\delta}\arrow{rr}{v_{\alpha-\delta}^{\alpha+\delta}\circ\gamma_{\alpha-\delta}}\arrow{dr}{f_{\alpha-\delta}} & &
-%     V_{\alpha+\delta}\\
-%     %
-%     & S_{\alpha}\arrow{ur}{m_\alpha} &
-% \end{tikzcd}\end{equation}
-% \end{minipage}
-% \begin{minipage}{0.45\textwidth}
-% \begin{equation}\label{dgm:partial_interleaving2}
-%   \begin{tikzcd}
-%     & V_{\alpha}\arrow{dr}{g_\alpha} &\\
-%     %
-%     S_{\alpha-\delta}\arrow{rr}{t_{\alpha-\delta}^{\alpha+\delta}\circ\lambda_{\alpha-\delta}}\arrow{ur}{m_{\alpha-\delta}} & &
-%     T_{\alpha+\delta}
-% \end{tikzcd}\end{equation}
-% \end{minipage}
-%
-% An image module homomorphism of degree $\delta$ that provides a partial $\delta$-interleaving will be denoted $\Phi_M(F, G)$.
-
-% In the following let $\Gamma\in\Hom(\U, \V)$, $\Lambda\in\Hom(\S,\T)$, $\tilde{\Lambda}\in\Hom(\tilde{\S},\tilde{\T})$, $\Lambda'\in\Hom(\S',\T')$, and $\Pi\in\Hom(\U,\W)$ be homomorphisms of persistence modules.
-
-
-% \begin{lemma}
-%   Suppose $I(\Sigma, \Theta)\in\Hom(\im~\Lambda,\im~\tilde{\Lambda})$ is an image module homomorphism and $\Phi'(F', G')\in\Hom^{\delta'}(\im~\Gamma,\im~\Lambda')$ is a left $\delta'$-interleaving for some $M'\in\Hom^{\delta'}(\S',\V)$.
-%
-%   If there exists some $\Xi\in\Hom(\tilde{\S},\S')$ such that $\Phi(F, G)\in\Hom^\delta(\im~\Gamma,\im~\Lambda)$ is a left $\delta$-interleaving by the pair $(F, M'\circ\Xi\circ\Sigma)$ then
-%   \[\tilde{\Phi}(\Sigma\circ F, G'\circ\Theta)\in\Hom^{\delta'}(\im~\Gamma, \im~\tilde{\Lambda})\]
-%   is a left $\delta'$-interleaving by the pair $(\Sigma\circ F, M'\circ\Xi)$.
-% \end{lemma}
-
-
-% \begin{lemma}
-%   Suppose $I(\Sigma, \Theta)\in\Hom(\im~\Lambda,\im~\tilde{\Lambda})$ is an image module homomorphism and $L\in\Hom^{2\delta'}(\S',\T)$.
-%
-%   If $\Gamma$ and $L$ are right $\delta'$-interleaved by a pair $(M', G)$ and there exists some $\Xi\in\Hom(\tilde{\S},\S')$ such that $\Phi(F, G)\in\Hom^\delta(\im~\Gamma,\im~\Lambda)$ is a left $\delta$-interleaving by the pair $(F, M'\circ\Xi\circ\Sigma)$ and
-%   \[\tilde{\lambda}[2\delta']_\alpha = \omega_{\alpha+2\delta'}\circ \ell_\alpha\circ\xi_\alpha \]
-%   then
-%   \[\tilde{\Phi}(\Sigma\circ F, G'\circ\Theta)\in\Hom^{\delta'}(\im~\Gamma, \im~\tilde{\Lambda})\]
-%   is a right $\delta'$-interleaving by the pair $(M'\circ\Xi, \Omega\circ G)$.
-% \end{lemma}
-
-
 \begin{lemma}\label{thm:interleaving_main}
-  % For $\R$-persistence modules $\S, \T, \U, \V, \W$ let
   Suppose $\Gamma\in\Hom(\U,\V)$, $\Pi\in\Hom(\V,\W)$, and $\Lambda\in\Hom(\S, \T)$.
-  % be homomorphisms of persistence modules.% and
-  % \begin{align*}
-  %   F\in\Hom^\delta(\U,\S)& & M\in\Hom^\delta(\S,\V)\\
-  %   G\in\Hom^\delta(\V,\T)& & N\in\Hom^\delta(\T,\W)
-  % \end{align*}
-  % be homomorphisms of degree $\delta$.
 
   If $\Phi_M(F, G)\in\Hom^\delta(\im~\Gamma, \im~\Lambda)$ and $\Psi_G(M, N)\in\Hom^\delta(\im~\Lambda, \im~\Pi)$ are partial $\delta$-interleavings of image modules such that $\Gamma$ is a epimorphism and $\Pi$ is a monomorphism then $\im~\Lambda$ is $\delta$-interleaved with $\V$.
 \end{lemma}
@@ -356,47 +204,17 @@ We note that whenever $\Gamma\in\Hom(\U,\V)$ and $\Lambda\in\Hom(\S,\T)$ the ass
   \end{align*}
   It follows that $\im~v_{\alpha+\delta}^{\beta+\delta}\circ\psi_\alpha^* = \im~v_{\alpha+\delta}^{\beta+\delta}\circ m_\alpha$
 
-  % Now,
-  % \begin{align*}
-  %   v_{\alpha+\delta}^{\beta+\delta}\circ\psi_\alpha^* &= v_{\alpha+\delta}^{\beta+\delta}\circ (\pi^{-1}_\alpha \circ \psi_\alpha)\\
-  %     &= v_{\alpha+\delta}^{\beta+\delta}\circ \pi^{-1}_\alpha \circ n_\alpha\rest_{\Lambda_\alpha}
-  % \end{align*}
-  % where, because $\Psi$ is a partial $\delta$-interleaving of image modules, $n_\alpha\circ\lambda_\alpha = \pi_{\alpha+\delta}\circ m_\alpha$.
-  % So,
-  % \begin{align*}
-  %   \im~v_{\alpha+\delta}^{\beta+\delta}\circ\psi_\alpha^* &= \im~ v_{\alpha+\delta}^{\beta+\delta}\circ \pi^{-1}_\alpha \circ n_\alpha\rest_{\Lambda_\alpha}\\
-  %     &= \im~v_{\alpha+\delta}^{\beta+\delta}\circ \pi^{-1}_{\alpha+\delta}\circ(\pi_{\alpha+\delta}\circ m_\alpha)\\
-  %     &= \im~v_{\alpha+\delta}^{\beta+\delta}\circ m_\alpha.
-  % \end{align*}
-
   Similarly, because $\Psi$ is a $\delta$-interleaving of image modules $n_\beta\circ t_\alpha^\beta\circ \lambda_\alpha = w_{\alpha+\delta}^{\beta+\delta}\circ\pi_{\alpha+\delta}\circ m_\alpha$.
   Moreover, because $\Pi$ is a homomorphism of persistence modules, $w_{\alpha+\delta}^{\beta+\delta}\circ\pi_{\alpha+\delta} = \pi_{\beta+\delta}\circ v_{\alpha+\delta}^{\beta+\delta}$, so
   \[ n_\beta\circ t_\alpha^\beta\circ \lambda_\alpha = \pi_{\beta+\delta}\circ v_{\alpha+\delta}^{\beta+\delta}\circ m_\alpha.\]
   As $\psi_\beta\circ\lambda_\alpha^\beta = n_\beta\circ\lambda_\alpha^\beta = n_\beta\circ t_\alpha^\beta\rest_{\Lambda_\alpha}$ it follows
   \begin{align*}
-    % \im~\psi_\beta^*\circ\lambda_\alpha^\beta &= \im~\pi^{-1}_{\beta+\delta}\circ\psi_\beta\circ\lambda_\alpha^\beta\\
     \im~\psi_\beta^*\circ\lambda_\alpha^\beta &= \im~\pi^{-1}_{\beta+\delta}\circ (n_\beta\circ t_\alpha^\beta\circ\lambda_\alpha)\\
-      % &= \im~\pi^{-1}_{\beta+\delta}\circ (w_{\alpha+\delta}^{\beta+\delta}\circ\pi_{\alpha+\delta})\circ m_\alpha\\
       &= \im~\pi^{-1}_{\beta+\delta}\circ (\pi_{\beta+\delta}\circ v_{\alpha+\delta}^{\beta+\delta})\circ m_\alpha\\
       &= \im~v_{\alpha+\delta}^{\beta+\delta}\circ m_\alpha\\
       &= \im~v_{\alpha+\delta}^{\beta+\delta}\circ\psi_\alpha^*.
   \end{align*}
   So we may conclude that $\Psi^*\in\Hom^\delta(\im~\Lambda,\V)$.
-
-  % \begin{align*}
-  %   \psi_{\beta}^*\circ\lambda_\alpha^\beta &=\pi^{-1}_{\beta+\delta}\circ\psi_\beta\circ\lambda_\alpha^\beta\\
-  %     &= \pi^{-1}_{\beta+\delta}\circ (n_\beta\rest_{\Lambda_\beta})\circ\lambda_\alpha^\beta\\
-  %     &= \pi^{-1}_{\beta+\delta}\circ n_\beta\circ (t_\alpha^\beta\rest_{\Lambda_\alpha}).
-  % \end{align*}
-  % Because $\Psi$ is a $\delta$-interleaving of image modules $n_\beta\circ t_\alpha^\beta\circ \lambda_\alpha = w_{\alpha+\delta}^{\beta+\delta}\circ\pi_{\alpha+\delta}\circ m_\alpha$ and, because $\Pi$ is a homomorphism of persistence modules, $w_{\alpha+\delta}^{\beta+\delta}\circ\pi_{\alpha+\delta} = \pi_{\beta+\delta}\circ v_{\alpha+\delta}^{\beta+\delta}$.
-  % So,
-  % \begin{align*}
-  %   \im~\psi_{\beta}^*\circ\lambda_\alpha^\beta &= \im~\pi^{-1}_{\beta+\delta}\circ (n_\beta\circ t_\alpha^\beta\rest_{\Lambda_\alpha})\\
-  %     &= \im~\pi^{-1}_{\beta+\delta}\circ (\pi_{\beta+\delta}\circ v_{\alpha+\delta}^{\beta+\delta}\circ m_\alpha)\\
-  %     &= \im~v_{\alpha+\delta}^{\beta+\delta}\circ m_\alpha\\
-  %     &= \im~v_{\alpha+\delta}^{\beta+\delta}\circ\psi_\alpha^*.
-  % \end{align*}
-  % As the images of $v_{\alpha+\delta}^{\beta+\delta}\circ\psi_\alpha^*, \psi_{\beta}^*\circ\lambda_\alpha^\beta : \Lambda_\alpha\to V_{\beta+\delta}$ are equal we may conclude that $v_{\alpha+\delta}^{\beta+\delta}\circ\psi_\alpha^* = \psi_{\beta}^*\circ\lambda_\alpha^\beta$ for all $\alpha\leq\beta$, so $\Psi^*\in\Hom^\delta(\im~\Lambda,\V)$.
 
   So $\Phi\in\Hom^\delta(\V,\im~\Lambda)$ and $\Psi_G^*\in\Hom^\delta(\im~\Lambda,\V)$.
   As we have shown, $\im~\psi_{\alpha-\delta}^* = \im~m_{\alpha-\delta}$ so $\im~\phi_\alpha\circ\psi_{\alpha-\delta}^* = \im~\phi_\alpha\circ m_{\alpha-\delta}$.
@@ -415,72 +233,3 @@ We note that whenever $\Gamma\in\Hom(\U,\V)$ and $\Lambda\in\Hom(\S,\T)$ the ass
   We may therefore conclude that $\im~\Lambda$ and $\V$ are $\delta$-interleaved.
 
 \end{proof}
-
-% \begin{theorem}\label{thm:interleaving}
-%   Suppose $(\{S_\alpha\},\{T_\alpha\})$, $(\{X_\alpha\}, \{Y_\alpha\})$, and $(\{Y_\alpha\}, \{Z_\alpha\})$ are all pairs of compatible filtrations such that the following diagram commutes for all $\alpha\in\R$.
-%   \begin{equation}\label{dgm:interleaving}
-%   \begin{tikzcd}
-%     \hom_k(X_{\alpha-\e})\arrow{r}{u_{\alpha-\e}}\arrow{d}{f_{\alpha-\e}} &
-%     \hom_k(S_\alpha)\arrow{r}{m_\alpha}\arrow{d}{g_\alpha} &
-%     \hom_k(Y_{\alpha+\e})\arrow{d}{h_{\alpha+\e}}\\
-%     %
-%     \hom_k(Y_{\alpha-\e})\arrow{r}{v_{\alpha-\e}} &
-%     \hom_k(T_\alpha)\arrow{r}{n_\alpha} &
-%     \hom_k(Z_{\alpha+\e})
-%   \end{tikzcd}\end{equation}
-%
-%   If $f_\alpha : \hom_k(X_\alpha)\to\hom_k(Y_\alpha)$ is surjective and $h_\alpha : \hom_k(Y_\alpha)\to \hom_k(Z_\alpha)$ is injective for all $\alpha\in\R$ then the $k$th persistent homology modules of $\{S_\alpha\to T_\alpha\}$ and $\{Y_\alpha\}$ are $\e$-interleaved.
-% \end{theorem}
-% \begin{proof}
-%   Let $\Phi := (\{\Phi_\alpha\}, \{\phi_\alpha^\beta : \Phi_\alpha\to\Phi_\beta\})$ denote the $k$th persistent homology module of $\{S_\alpha\to T_\alpha\}$ where $\Phi_\alpha := \im~g_\alpha$  and $\phi_\alpha^\beta := t_\alpha^\beta\rest_{\im~g_\alpha}$ for $t_\alpha^\beta : \hom_k(T_\alpha)\to\hom_k(T_\beta)$.
-%   Note that this map is well defined for all $\alpha\leq\beta$ as $\{S_\alpha\}$ and $\{T_\alpha\}$ are compatible filtrations.
-%   Let $\Psi := (\{\Psi_\alpha\}, \{\psi_\alpha^\beta : \Psi_\alpha\to\Psi_\beta\})$ be the $k$th persistent homology module of $\{Y_\alpha\}$ where $\Psi_\alpha := \hom_k(Y_\alpha)$ and $\psi_\alpha^\beta$ induced by the map $Y_\alpha\to Y_\beta$.
-%   Once again, because $(\{X_\alpha\},\{Y_\alpha\})$ and $(\{Y_\alpha\},\{Z_\alpha\})$ are compatible pairs of filtrations this map commutes with both $X_\alpha\to X_\beta$ and $Z_\alpha\to Z_\beta$ for all $\alpha\leq\beta$.
-%
-%   Because $h_\alpha$ is injective for all $\alpha$ we have an isomorphism $h_\alpha^{-1} : \im~h_\alpha\to \Psi_\alpha$.
-%   Because the right square of Diagram~\ref{dgm:interleaving} commutes $n_\alpha\circ g_\alpha = h_\alpha\circ m_\alpha$, so $\im~n_\alpha\rest_{\Phi_\alpha}$ is a subspace of $\im~h_\alpha$.
-%   We therefore define $\mu_\alpha : \Phi_\alpha\to\Psi_{\alpha+\e}$ as $\mu_\alpha := h^{-1}_{\alpha+\e}\circ n_\alpha\rest_{\Phi_\alpha}$.
-%   Similarly, because the left square of Diagram~\ref{dgm:interleaving} commutes and $f_{\alpha-\e}$ is surjective $\im~v_{\alpha-\e}\circ f_{\alpha-\e} = \im~v_{\alpha-\e}$ is a subspace of $\Phi_\alpha$.
-%   We may therefore define $\nu_{\alpha-\e} : \Psi_{\alpha-\e}\to \Phi_\alpha$ as $\nu_{\alpha-\e} = v_{\alpha-\e}$ for all $\alpha$.
-%
-%   \textbf{It follows that the following diagrams commute for all $\alpha\leq\beta$}
-%
-%   \begin{minipage}{0.5\textwidth}
-%   \begin{equation}\label{dgm:intr1}
-%   \begin{tikzcd}
-%     \Phi_{\alpha-\e}\arrow{rr}{\phi_{\alpha-\e}^{\alpha+\e}}\arrow{dr}{\mu_{\alpha-\e}} & &
-%     \Phi_{\alpha+\e}\\
-%     %
-%     & \Psi_{\alpha}\arrow{ur}{\nu_\alpha} &
-%   \end{tikzcd}\end{equation}
-%   \begin{equation}\label{dgm:intr3}
-%   \begin{tikzcd}
-%     \Phi_{\alpha-\e}\arrow{r}{\phi_{\alpha-\e}^{\beta-\e}}\arrow{dr}{\mu_{\alpha-\e}} &
-%     \Phi_{\beta-\e}\arrow{dr}{\mu_{\beta-\e}} &\\
-%     %
-%     & \Psi_{\alpha}\arrow{r}{\psi_\alpha^\beta} &
-%     \Psi_{\beta}
-%   \end{tikzcd}\end{equation}
-%   \end{minipage}
-%   \begin{minipage}{0.5\textwidth}
-%   \begin{equation}\label{dgm:intr2}
-%   \begin{tikzcd}
-%     & \Phi_{\alpha}\arrow{dr}{\mu_{\alpha}} &\\
-%     %
-%     \Psi_{\alpha-\e}\arrow{ur}{\nu_{\alpha-\e}}\arrow{rr}{\psi_{\alpha-\e}^{\alpha+\e}} & &
-%     \Psi_{\alpha+\e}
-%   \end{tikzcd}\end{equation}
-%   \begin{equation}\label{dgm:intr4}
-%   \begin{tikzcd}
-%     & \Phi_{\alpha}\arrow{r}{\phi_{\alpha}^{\beta}} &
-%     \Phi_{\beta}\\
-%     %
-%     \Psi_{\alpha-\e}\arrow{ur}{\nu_{\alpha-\e}}\arrow{r}{\psi_{\alpha-\e}^{\beta-\e}} &
-%     \Psi_{\beta-\e}\arrow{ur}{\nu_{\beta-\e}}
-%   \end{tikzcd}\end{equation}
-%   \end{minipage}
-%
-%   % Because
-%   % $\nu_\alpha\circ\mu_{\alpha-\e} = v_\alpha\circ (h^{-1}_{\alpha-\e}\circ n_\alpha\rest_{\Phi_\alpha})
-% \end{proof}
-%

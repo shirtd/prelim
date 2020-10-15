@@ -1,17 +1,13 @@
 % !TeX root = ../new.tex
 
 Let $D$ be a compact subset of $\X$.
-% Let $\dist(x, y) = \|x - y\|$ denote the Euclidean distance between points $x,y\in D$ as a subspace of $\X$.
 Let $\dist(x, y) = \|x - y\|$ denote the distance between points $x,y\in D$ as a subspace of $\X$.
 For $A\subset D$ and $x\in D$ let
 \[\dist_A(x) = \min_{a\in A}\dist(x, a)\]
 denote the distance from $x$ to the set $A$.
-% In the following, we will use open metric balls
-% \[\ball_\e(x) = \{y\in\X\mid \dist(x, y) < \e\}\]
 We will use open metric balls restricted to $D$ with the subspace topology
 \[\ball_\e(x) = \{y\in D\mid \dist(x, y) < \e\}\]
 and offsets
-% \[A^\e = \dist_A^{-1}[0, \e) = \{x\in \X\mid \dist_A(x) < \e\}.\]
 \[A^\e = \{x\in D\mid \dist_A(x) < \e\}.\]
 
 Let $f : D\to \R$ be a $c$-Lipschitz function on $D$.
@@ -26,7 +22,6 @@ Let $\zeta\geq\of > 0 $ and $\omega\in \R$ be constants such that $P^\of\subsete
   Let $i : \hom_0(\cmp{\QQ^\of}, \cmp{P^\of})\to \hom_0(\cmp{\Q^\of}, \cmp{P})$.
 
   If $\B$ surrounds $D$ in $\X$ then $\dim~\hom_0(\cmp{\B}, \cmp{D})\geq \rk~i$.
-  % If $j$ is surjective then $p : \im~j\to\im~i$ is surjective.
 \end{lemma}
 \begin{proof}
   Choose a basis for $\im~i$ such that each basis element is represented by a point in $P^\of\setminus \QQ^\of$.
@@ -38,7 +33,6 @@ Let $\zeta\geq\of > 0 $ and $\omega\in \R$ be constants such that $P^\of\subsete
   So $x\in\cmp{\B}$ and, because $x\in P^\of\subseteq D$, $x\in D\setminus \B$.
   Because $i$ and $\ell : \hom_0(\cmp{\B}, \cmp{D})\to \hom_0(\cmp{\Q^\of}, \cmp{P^\of})$ are induced by inclusion $\ell[x] = i[x]\neq 0$ in $\hom_0(\cmp{\Q^\of}, \cmp{P^\of})$.
   That is, every element of $\im~i$ has a preimage in $\hom_0(\cmp{\B}, \cmp{D})$, so we may conclude that $\dim~\hom_0(\cmp{\B}, \cmp{D})\geq \rk~i$.
-  % That is, $[x]$ is non-trivial in $\hom_0(\cmp{\B},\cmp{D})$ for all $[x]\in\im~i$, so $\dim~\hom_0(\cmp{\B},\cmp{D})\geq \rk~i$.
 \end{proof}
 
 Note that, while there is a surjective map from $\hom_0(\cmp{\B}, \cmp{D})$ to $\im~i$ this map is not necessarily induced by inclusion, as $\QQ^\of\not\subseteq \B$.
@@ -51,22 +45,20 @@ We therefore must introduce a larger space $\BB$ that contains $\QQ^\of$ in orde
   (D, \bb) \arrow[hookrightarrow]{r} &
   (D, \BB),
 \end{tikzcd}\begin{tikzcd}
-  (\cmp{\BB},\cmp{D})\arrow[hookrightarrow]{d}\arrow[hookrightarrow]{r} & %{j} &
+  (\cmp{\BB},\cmp{D})\arrow[hookrightarrow]{d}\arrow[hookrightarrow]{r} &
   (\cmp{\bb}, \cmp{D}) \arrow[hookrightarrow]{d}\\
   %
-  (\cmp{\QQ^\of}, \cmp{P^\of}) \arrow[hookrightarrow]{r} & %{i} &
+  (\cmp{\QQ^\of}, \cmp{P^\of}) \arrow[hookrightarrow]{r} &
   (\cmp{\Q^\of}, \cmp{P^\of}).
 \end{tikzcd}\]
 
-% The following diagram is formed by applying the homology functor.
 \begin{equation}\label{dgm:1}\begin{tikzcd}
-  \hom_0(\cmp{\BB},\cmp{D})\arrow{d}{m} \arrow{r}{j} & %{j_*} &
+  \hom_0(\cmp{\BB},\cmp{D})\arrow{d}{m} \arrow{r}{j} &
   \hom_0(\cmp{\bb}, \cmp{D}) \arrow{d}{\ell} \\
   %
-  \hom_0(\cmp{\QQ^\of}, \cmp{P^\of}) \arrow{r}{i} & %{i_*} &
+  \hom_0(\cmp{\QQ^\of}, \cmp{P^\of}) \arrow{r}{i} &
   \hom_0(\cmp{\Q^\of}, \cmp{P^\of}).
 \end{tikzcd}\end{equation}
-% Let $p : \im~j\to\im~i$.
 
 \begin{theorem}[Geometric TCC]\label{thm:geo_tcc}
   Let $D$ be a compact subset of $\X$ and $f : D\to\R$ be $c$-Lipschitz function.
@@ -77,7 +69,6 @@ We therefore must introduce a larger space $\BB$ that contains $\QQ^\of$ in orde
   If $j$ is surjective and $\rk~i\geq \rk~j$ then $D\setminus \B\subseteq P^\of$ and $\Q^\of$ surrounds $P^\of$ in $D$.
 \end{theorem}
 \begin{proof}
-  % As we have shown, $\hom_0(\cmp{\B}, \cmp{D})\cong \hom_0(D\setminus\B)$ because $\B$ surrounds $D$ in $\X$.
   Because $j$ is surjective by hypothesis $\rk~j = \dim~\hom_0(\cmp{\B},\cmp{D})$ so $\rk~j\geq \rk~i$ by Lemma~\ref{lem:psurj}.
   So $\rk~j = \rk~i$ with our assumption that $\rk~i\geq \rk~j$.
   Because $P$ is a finite point set we know that $\im~i$ is finite-dimensional and, because $\rk~i = \rk~j$, $\im~j=\hom_0(\cmp{\B}, \cmp{D})$ is finite dimensional as well.
