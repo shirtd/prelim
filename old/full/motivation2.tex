@@ -1,0 +1,29 @@
+
+\subsection{What do we have? How can we use it?}
+
+A collection of sensors can be verified as covering a domain if
+\begin{enumerate}
+    \item[a.] the boundary of the domain is adequately covered,
+    \item[b.] the balloon has not been ``punctured.''
+\end{enumerate}
+Condition (b) relies on condition (a) in order to provide a topological condition that is necessary but not sufficient.
+Given (a) we can confirm coverage by checking if the balloon has been punctured simply by checking the dimension of the top-dimensional relative homology of the sample.
+Adequate coverage of the boundary can be broken into two parts.
+First, we require that the sampled boundary is in some sense simple in order to ensure our condition cannot produce false positives.
+This is achieved by using what we refer to as \emph{short-filtrations}: applying one step of persistence in order to de-noise the data.
+By testing our network at two scales we can ensure no spurious features are present in the boundary which may contribute to false positives.
+We also note that these short-filtrations are employed in the analysis of scalar fields as well.
+
+Secondly, we require that the so-called ``sampled boundary'' surrounds the interior of the domain.
+Otherwise, we may cover the domain but see what looks like a punctured ball as the ball when in fact the ball was never formed.
+In the TCC this situation is not handled explicitly.
+Instead it is stated as a condition for coverage that is necessary but not sufficient.
+That is, it can verify \emph{coverage} without false positives but may produce false negatives.
+In fact, the TCC tests a more specific problem: whether we have a reliable representation of the boundary \emph{and} a reliable representation of the interior.
+
+Given this observation we considered how best two use \emph{all} the information given by the TCC in a way that re-uses the machinery used to compute it.
+We therefore consider the relative persistent homology of a domain modulo a sublevel-set.
+That is, we re-cast the TCC for a domain defined as a domain surrounded by sub-level set of a function on that domain in order to ensure that a given sample can adequately approximate the relative homology of the domain modulo a sub-level set.
+We then modify the analysis of scalar fields in order to give an approximation of the \emph{relative} persistent homology of a sample.
+Finally, we consider classes of functions which satisfy the assumptions made.
+Namely, we consider functions with multiple sub-level sets which may serve as a boundary for this procedure and show how they can be integrated to give a more robust signature for the function.

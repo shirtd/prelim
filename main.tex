@@ -1,107 +1,33 @@
 \documentclass[12pt]{article}
-\usepackage{amsmath,amssymb,amsthm,xspace}
-\usepackage{tikz-cd,xspace,graphicx,wrapfig,algorithm}
+\usepackage{amsmath,amssymb,amsthm,xspace,enumitem,xcolor}
+\usepackage{tikz-cd,xspace,graphicx,wrapfig,algorithm,lscape}
 \usepackage[noend]{algpseudocode}
 \usepackage[margin=1in]{geometry}
-\usepackage{enumitem}
-% \input{environment}
+
 \input{macros}
-
-\usepackage{xcolor}
-
-% \usepackage{graphicx, algorithm, enumerate, xspace, mathtools}
-% \usepackage{amsthm, amssymb, amsmath, thmtools, thm-restate}
-% \usepackage[all]{xy}
-% \usepackage{wrapfig}
-% \usepackage{url}
-%
-% \input{etc/environments}
-% \input{etc/macros}
-
-\newcommand{\kcoverage}[1]{}
-\newcommand{\nokcoverage}[1]{#1}
-\newcommand{\noeuclidean}[1]{}
-\newcommand{\euclidean}[1]{#1}
-
-\title{From Coverage Testing to the Relative Persistence of Scalar Fields}
-% \author{Kirk Gardner}
-
-% \newcommand{\figblock}[1]{}
-\newcommand{\figblock}[1]{#1}
-
-% \begin{document}
-%   \input{duality}
-% \end{document}
 
 \begin{document}
 
-  \maketitle
+\section{Some Useful Theorems}
+\input{src/0-lemmas}
 
-  % \input{abstract}
-  \input{full/introduction}
-  \input{full/related}
-  \clearpage
+\section{Persistence Modules}
+\input{src/1-modules}
 
-  \section{Background}
-  \input{full/coverage}
-  \input{full/simplicial}
-  \input{full/homology}
-  \input{full/persistence}
-  % \input{background}
-  % \input{interleaving}
-  % \clearpage
+\section{Separation}
+\input{src/2-separate}
 
-  \section{Some Useful Theorems}
-  \input{new/0-lemmas}
-  % \clearpage
+\clearpage
+\section{The Topological Coverage Criterion}
+\input{src/3-sensors}
 
-  \section{Separation}
-  \input{new/1-separate}
-  % \clearpage
+\clearpage
+\section{From Coverage Testing to the Analysis of Scalar Fields}
+\input{src/4-scalar}
 
-  \section{Separating Covers}
-  \input{new/2-sensors}
-  % \clearpage
+\input{src/5-rips}
 
-  \section{Chasing}
-  \input{new/3-chasing}
-  % \clearpage
+\appendix
+% \input{src/appendix}
 
-
-  \section{Connection with the TCC}
-
-  \subsection{Assumptions}\label{ssec:assumptions}
-  \input{new/4-tcc}
-  % \clearpage
-
-  \subsection{Proof of the TCC}
-  \input{new/5-tcc_proof}
-  % \clearpage
-
-  % \section{From Coverage Testing to the Analysis of Scalar Fields}
-  % \input{motivation}
-  %
-  % \section{The Topological Coverage Criterion}
-  % \input{assumptions}
-  % \input{tcc_proofs}
-  % \input{scalar_proofs}
-  % \input{diagrams}
-  % \input{tcc}
-  % % \input{excision}
-  % \input{stability}
-  % \input{sampling}
-  % % \input{extension}
-  % \clearpage
-  %
-  % \section{Experiments}\label{sec:experiments}
-  % \input{software}
-  % \input{experiments}
-  % \clearpage
-  %
-  % \section{Conclusions}
-  % \input{trajectories}
-  % \input{future}
-
-  \bibliographystyle{unsrt}
-  \bibliography{bibliography}
 \end{document}

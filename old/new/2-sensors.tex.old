@@ -1,0 +1,22 @@
+% !TeX root = ../new.tex
+
+In the following let $\dist(x, y) = \|x - y\|$ denote the Euclidean distance between points $x,y\in \R^d$.
+For $A\subset\R^d$ and $x\in \R^d$ let
+\[\dist_A(x) = \min_{a\in A}\dist(x, a)\]
+denote the distance from $x$ to the set $A$.
+% In the following, we will use open metric balls
+% \[\ball_\e(x) = \{y\in\R^d\mid \dist(x, y) < \e\}\]
+In the following, we will use closed metric balls
+\[\ball_\e(x) = \{y\in\R^d\mid \dist(x, y)\leq \e\}\]
+and offsets
+% \[A^\e = \dist_A^{-1}[0, \e) = \{x\in \R^d\mid \dist_A(x) < \e\}.\]
+\[A^\e = \dist_A^{-1}[0, \e) = \{x\in \R^d\mid \dist_A(x)\leq \e\}.\]
+\begin{definition}[Surrounding Cover]
+  % For $\delta > 0$, $\gamma > \delta$, and finite subsets $P\subset D$, $Q\subset P\cap B$ we say that $(P, Q)$ is an \textbf{(open) surrounding $(\delta,\gamma)$-cover} of a surrounding pair $(D, B)$ if
+  For $\delta > 0$, $\gamma > \delta$, and finite subsets $P\subset D$, $Q\subset P\cap B$ we say that $(P, Q)$ is a \textbf{surrounding $(\delta,\gamma)$-cover} of a surrounding pair $(D, B)$ if
+  \begin{enumerate}[label=(\alph*)]
+    \item\textbf{(Covers)} $D\setminus B \subseteq P^\delta$,
+    \item\textbf{(Surrounds)} $Q^\delta$ surrounds $P^\delta$ in $D$, and
+    \item\textbf{(Interleaves)} $\hat{Q^\delta}\subseteq B\subseteq \hat{Q^\gamma}$.
+  \end{enumerate}
+\end{definition}

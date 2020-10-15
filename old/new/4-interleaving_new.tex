@@ -1,0 +1,243 @@
+% !TeX root = ../new.tex
+
+We would like to show that the persistence modules of the filtrations $\F = \{(B_\alpha, \B)\}$ and $\G = \{(\P_\alpha, \Q^\of)\to (\P_\alpha, \QQ^\of)\}$ are $c\of$-interleaved for all $\alpha\in\R$.
+However, the homology of these pairs is not well defined for certain values of $\alpha$.
+Specifically, $\{(B_\alpha, \B)\}$ is not well defined for $\alpha < \omega$, $(\P_\alpha, \Q^\of)$ for $\alpha < \omega-c\of$, and $(\P_\alpha, \QQ^\of)$ for $\alpha < \omega+c\of$.
+
+Let
+\[\FQ_\alpha = \begin{cases} \QQ&\text{ if } \alpha\geq \omega+c\of\\ \Q&\text{ otherwise.}\end{cases}\]
+\[\FP_\alpha = \begin{cases} P_\alpha&\text{ if } \alpha\geq \omega-c\of\\ P_{\omega-c\of}&\text{ otherwise.}\end{cases}\]
+and
+\[\FB_\alpha = \begin{cases} B_\alpha&\text{ if } \alpha\geq\omega\\ \B&\text{ otherwise.}\end{cases}\]
+
+We will consider the following filtrations
+\[ \overline{\F} = \{(\FB_\alpha, \B)\}_{\alpha\in\R},\ \overline{\G} = \{(\FP^\of_\alpha, \Q^\of)\to (\FP^\of_\alpha, \FQ^\of_\alpha)\}_{\alpha\in\R}.\]
+
+\begin{lemma}
+  Suppose $\b$ surrounds $D$ in $\X$ and $\Q^\of$ surrounds $\P$ in $D$ such that
+  \begin{itemize}
+    \item $D\setminus \B\subseteq \P$,
+    \item $\b\cap \P \subseteq \Q^\of\subseteq \B$, and
+    \item $\B\cap \P\subseteq \QQ^\of\subseteq \BB$.
+  \end{itemize}
+
+  If $\im~\hom_k(\b\to\B)$ is surjective and $\hom_k(\B)\cong \hom_k(\BB)$ then the $k$th persistent homology modules of $\{\hom_k(B_\alpha, \B)\}_{\alpha\geq\omega}$ and
+  \[\{(\P_\alpha, \Q^\delta)\}_{\alpha\in[\omega,\omega+c\of]}\cup\{(\P_\alpha, \Q^\delta)\to (\P_\alpha,\QQ^\delta)\}_{\alpha > \omega+c\of}\]
+  are $c\of$-interleaved for all $k$.
+\end{lemma}
+\begin{proof}
+  Because $\Q^\delta$ surrounds $\P$ in $D$ and $D\setminus \B\subseteq \P$ we have
+  \[ B_{\alpha-c\of} = (\P\cup (D\setminus \P))\cap B_{\alpha -c\of}\subseteq \P_\alpha \cup (B_{\alpha - c\of}\cap (D\setminus \P))\]
+  where $B_{\alpha - c\of}\cap (D\setminus \P) = (D\setminus \P)$ for $\alpha\geq \omega+c\of$.
+  So we define the extension $\ext{\P_\alpha} := \P_\alpha\cup (D\setminus \P)$ of $\P_\alpha$ for $\alpha\geq\omega+c\of$.
+  So our assumptions imply that we have the following sequence of inclusions by Lemma~\ref{lem:surround_and_cover}.
+  \[ \b\subseteq \ext{\Q^\of}\subseteq \B\subseteq\ext{\QQ^\of}\subseteq \BB.\]
+  Therefore, because
+  \[B_{\alpha-c\of} = (\ext{\P})_{\alpha-c\of}\subseteq\ext{\P_{\alpha}}\subseteq (\ext{\P})_{\alpha+c\of} = B_{\alpha+c\of}\]
+  for all $\alpha$ by Lemma~\ref{lem:ps_inter}, the following diagrams commute with inclusion for all $\alpha\geq\omega+c\of$.
+
+  % \begin{scriptsize}\vspace{3ex}
+  % \begin{subequations}
+  \begin{minipage}{0.55\textwidth}
+  \begin{equation}\label{dgm:intr_tight4}
+  \begin{tikzcd}[column sep=scriptsize]
+    \hom_k(B_{\alpha-c\of}, \b)\arrow{r}{r_{\alpha-c\of}} \arrow{d}{u_{\alpha-c\of}} &
+    \hom_k(B_{\alpha-c\of}, \B)\arrow{d}{v_{\alpha-c\of}} \\
+    %
+    \hom_k(\ext{\P_\alpha}, \ext{\Q^\of})\arrow{r}{t_{\alpha}}\arrow{d}{m_{\alpha}} &
+    \hom_k(\ext{\P_\alpha}, \ext{\QQ^\of})\arrow{d}{n_{\alpha}}\\
+    %
+    \hom_k(B_{\alpha+c\of}, \B)\arrow{r}{s_{\alpha+c\of}} &
+    \hom_k(B_{\alpha+c\of}, \BB).
+  \end{tikzcd}\end{equation}
+\end{minipage}\begin{minipage}{0.45\textwidth}
+  \begin{equation}\label{dgm:intr_tight2a}
+  \begin{tikzcd}[column sep=scriptsize]
+    \hom_k(\ext{\P_{\alpha}}, \ext{\Q^\delta})\arrow{r}{t_\alpha} \arrow{d}{a_\alpha^\beta} &
+    \hom_k(\ext{\P_{\alpha}}, \ext{\QQ^\delta})\arrow{d}{b_\alpha^\beta} \\
+    %
+    \hom_k(\ext{\P_{\beta}}, \ext{\Q^\delta})\arrow{r}{t_\beta} &
+    \hom_k(\ext{\P_{\beta}}, \ext{\QQ^\delta})
+  \end{tikzcd}\end{equation}
+\end{minipage}\vspace{3ex}
+  % \end{subequations}
+
+  Recall that we have assumed $\hom_k(\b\to\B)$ is surjective and $\hom_k(\B)\cong \hom_k(\BB)$ for all $k$.
+  By applying Lemma~\ref{lem:five} to the long exact sequences of the pairs $(A, \b)$ and $(A, \B)$ it follows that $\hom_k((A, \b)\to (A,\B))$ is surjective for any $A\subseteq D$ such that $\B\subseteq A$.
+  Similarly, because $\hom_k(\B)\cong \hom_k(\BB)$, Lemma~\ref{lem:five} applied to the long exact sequences of the pairs $(A', \B)$ and $(A', \BB)$ implies $\hom_k(A', \B)\cong\hom_k(A', \BB)$ for any $A'\subseteq D$ such that $\BB\subseteq A'$.
+
+  Let $\Psi_\alpha := \hom_k(B_\alpha, \B)$ and $\psi_\alpha^\beta : \Psi_\alpha\to \Psi_\beta$ be induced by inclusion for $\beta\geq\alpha\geq\omega$.
+  Because $\hom_k(\b\to\B)$ is surjective and $\hom_k(\B)\cong \hom_k(\BB)$ the argument above implies that $\im~r_\alpha = \Psi_\alpha$ for $\alpha\geq\omega$ and $s_\alpha$ is an isomorphism for all $\alpha\geq\omega+2c\of$.
+
+  Let $\Lambda_\alpha :=\hom_k(\ext{\P_\alpha},\ext{\Q^\of})$ for $\alpha\geq\omega-c\of$, $\Pi_\alpha := \hom_k(\ext{\P_\alpha}, \ext{\Q^\of})$ for $\alpha\geq\omega+c\of$, and
+  \[ \Phi_\alpha :=\begin{cases} \im~t_\alpha &\text{ if }\alpha\geq\omega+c\of\\ \Lambda_\alpha&\text{ otherwise.}\end{cases}
+  \text{\hspace{3ex}with\hspace{3ex}}
+  \phi_\alpha^\beta := \begin{cases}
+    b_\alpha^\beta\rest_{\Phi_\alpha}&\text{ if } \alpha\geq \omega+c\of\\
+    t_\beta\circ a_\alpha^\beta&\text{ if } \alpha < \omega+c\of\leq \beta\\
+    a_\alpha^\beta&\text{ otherwise.}
+  \end{cases}\]
+
+  Let
+  \[ \mu_\alpha :=\begin{cases} m_\alpha&\text{ if } \alpha\leq\omega + c\of\\ s_{\alpha+c\of}^{-1}\circ n_\alpha\rest_{\Phi_\alpha}&\text{ otherwise}\end{cases}\]
+  and note that, because $r_\alpha$ is surjective and Diagram~\ref{dgm:intr_tight4} commutes for all $\alpha\geq\omega$, $\nu_\alpha = v_\alpha\rest_{\im~r_{\alpha}}$ maps $\Psi_\alpha$ to $\Phi_{\alpha+c\of}$ for $\alpha\geq\omega$.
+
+  We would like to show the following diagrams commute for all $\beta\geq\alpha\geq\omega$.
+
+  \begin{small}
+  \begin{subequations}
+  \begin{minipage}{0.45\textwidth}
+  \begin{equation}\label{dgm:intr1}\begin{tikzcd}[column sep=large]
+    % Fa & & & Fb
+    \Phi_{\alpha}  \arrow[to=Fb, "\phi_{\alpha}^{\alpha+2c\of}"]
+                      \arrow[to=Ga, "\mu_{\alpha}"]
+    & & |[alias=Fb]|
+      \Phi_{\alpha+2c\of} \\
+    % & Ga & Gb &
+    & |[alias=Ga]|
+    \Psi_{\alpha+c\of} \arrow[to=Fb, "\nu_{\alpha+c\of}"] &
+    % \arrow[to=Gb, "\psi_\alpha^\beta"]
+    % & |[alias=Gb]|
+      % \Psi_\beta
+  \end{tikzcd}\end{equation}
+  \begin{equation}\label{dgm:intr3}\begin{tikzcd}[column sep=large, row sep=large]
+    % Fa & Fb &
+    \Phi_{\alpha}  \arrow[to=Fb, "\phi_{\alpha}^{\beta}"]
+                      \arrow[to=Ga, "\mu_{\alpha}"]
+    & |[alias=Fb]|
+      \Phi_{\beta} \arrow[to=Gb, "\mu_{\beta}"] \\
+    % & Ga & Gb
+    & |[alias=Ga]|
+    \Psi_{\alpha+c\of} \arrow[to=Gb, "\psi_{\alpha+c\of}^{\beta+c\of}"]
+    & |[alias=Gb]|
+      \Psi_{\beta+c\of}
+  \end{tikzcd}\end{equation}
+  \end{minipage} \begin{minipage}{0.45\textwidth}
+  \begin{equation}\label{dgm:intr2}\begin{tikzcd}[column sep=large]
+    % Fa & & & Fb
+    & |[alias=Fa]|
+    \Phi_{\alpha+c\of} \arrow[to=Gb, "\mu_{\alpha+c\of}"] &\\%  \arrow[to=Fb, "\phi_\alpha^\beta"]
+    % & |[alias=Fb]|
+      % \Phi_\beta  \arrow[to=Gb, "\mu_\beta"] & \\
+    % & Ga & Gb &
+    \Psi_{\alpha}  \arrow[to=Gb, "\psi_{\alpha}^{\alpha+2c\of}"]
+                      \arrow[to=Fa, "\nu_{\alpha}"]
+    & & |[alias=Gb]|
+      \Psi_{\alpha+2c\of}
+  \end{tikzcd}\end{equation}
+  \begin{equation}\label{dgm:intr4}\begin{tikzcd}[column sep=large,row sep=large]
+    % & Fa & Fb
+    & |[alias=Fa]|
+    \Phi_{\alpha+c\of}  \arrow[to=Fb, "\phi_{\alpha+c\of}^{\beta+c\of}"]
+    & |[alias=Fb]|
+      \Phi_{\beta+c\of}\\
+    % Ga & Gb &
+    \Psi_{\alpha}  \arrow[to=Gb, "\psi_{\alpha}^{\beta}"]
+                      \arrow[to=Fa, "\nu_{\alpha}"]
+    & |[alias=Gb]|
+      \Psi_{\beta} \arrow[to=Fb, "\nu_{\beta}"]&
+  \end{tikzcd}\end{equation}
+  \end{minipage}
+  \end{subequations}
+\end{small}
+
+\begin{enumerate}[label=\Roman*.]
+  \item For $\alpha\leq \omega+c\of$ recall $\Phi_\alpha = \Lambda_\alpha$ and $\mu_\alpha = m_\alpha$ induced by inclusion.
+    Because $r_{\alpha+c\of}$ is surjective $\Psi_{\alpha+c\of} = \im~r_{\alpha+c\of}$ so $\nu_{\alpha+c\of} = v_{\alpha+c\of}\rest_{\im~r_{\alpha+c\of}} = v_{\alpha+c\of}$.
+    Because all maps are induced by inclusion the following diagram commutes
+    \begin{equation}\begin{tikzcd}
+      \Lambda_\alpha\arrow{r}{m_\alpha}\arrow{d}{a_{\alpha}^{\alpha+2c\of}} &
+      \Psi_{\alpha+c\of}\arrow{d}{v_{\alpha+c\of}}\\
+      %
+      \Lambda_{\alpha+2c\of}\arrow{r}{t_{\alpha+2c\of}} &
+      \Pi_{\alpha+2c\of}
+    \end{tikzcd}\end{equation}
+    So
+    \begin{align*}
+      \phi_{\alpha}^{\alpha+2c\of} &= t_{\alpha+2c\of}\circ a_\alpha^{\alpha+2c\of}\\
+        &= v_{\alpha+c\of}\circ m_\alpha\\
+        &=\nu_{\alpha+c\of}\circ\mu_\alpha.
+    \end{align*}
+
+    Otherwise, if $\alpha > \omega+c\of$ then $\Phi_\alpha = \im~t_\alpha$ and $s_{\alpha+c\of}$ is an isomorphism.
+    So $\mu_\alpha = s^{-1}_{\alpha+c\of}\circ n_\alpha\rest_{\Phi}$ is well defined and $s^{-1}_{\alpha+c\of}\circ n_\alpha\circ t_\alpha = \im~m_\alpha$ by the commutativity of Diagram~\ref{dgm:intr_tight4}
+    Because all maps are induced by inclusion the following diagram commutes
+    \begin{equation}\begin{tikzcd}
+      \Lambda_\alpha\arrow{r}{m_\alpha}\arrow{d}{t_{\alpha}} &
+      \Psi_{\alpha+c\of}\arrow{d}{v_{\alpha+c\of}}\\
+      %
+      \Pi_{\alpha}\arrow{r}{b_{\alpha}^{\alpha+2c\of}} &
+      \Pi_{\alpha+2c\of}
+    \end{tikzcd}\end{equation}
+    So
+    \[ b_\alpha^{\alpha+2c\of}\circ t_\alpha = v_{\alpha+c\of}\circ m_\alpha = v_{\alpha+c\of}\circ s^{-1}_{\alpha+c\of}\circ n_\alpha\circ t_\alpha.\]
+    Therefore, because $\Phi_\alpha = \im~t_\alpha$,
+    \begin{align*}
+      \nu_{\alpha+c\of}\circ \mu_\alpha &= v_{\alpha+c\of}\circ s^{-1}_{\alpha+c\of}\circ n_\alpha\rest_{\Phi_\alpha}\\
+        &= b_\alpha^{\alpha+c\of}\rest_{\Phi_\alpha}\\
+        &= \phi_\alpha^{\alpha+2c\of}
+    \end{align*}
+    for $\alpha > \omega+c\of$, so Diagram~\ref{dgm:intr1} commutes for all $\alpha \geq \omega$.
+  \item First suppose $\alpha,\beta\leq\omega+c\of$.
+    So $\Phi_\alpha = \Lambda_\alpha$, $\Phi_\beta = \Lambda_\beta$, $\mu_\alpha = m_\alpha$, and $\mu_\beta = m_\beta$.
+    Because all maps are induced by inclusion $\psi_{\alpha+c\of}^{\beta+c\of}\circ m_\alpha = m_\beta\circ \phi_\alpha^\beta$.
+
+    Now, suppose $\alpha\leq\omega+c\of <\beta$.
+    So $\Phi_\beta = \im~t_\beta$, $\phi_\alpha^\beta = t_\beta\circ a_\alpha^\beta$, and $\beta+c\of > \omega+2c\of$ implies $s_{\beta+c\of}$ is an isomorphism, so $\mu_\beta = s_{\beta+c\of}^{-1}\circ n_\alpha\rest_{\Phi_\beta}$ is well defined.
+    Because all maps are induced by inclusion the following diagram commutes
+    \begin{equation}\begin{tikzcd}
+      \Lambda_\alpha\arrow{d}{m_\alpha}\arrow{r}{t_{\beta}\circ a_\alpha^\beta} &
+      \Phi_{\beta}\arrow{d}{s_{\beta+c\of}^{-1}\circ n_\alpha\rest_{\Phi_\beta}}\\
+      %
+      \Psi_{\alpha+c\of}\arrow{r}{\psi_{\alpha+c\of}^{\beta+c\of}} &
+      \Psi_{\beta+c\of}
+    \end{tikzcd}\end{equation}
+    thus
+    \begin{align*}
+      \mu_\beta\circ \phi_\alpha^\beta &= s_{\beta+c\of}^{-1}\circ n_\alpha \circ t_\beta\circ a_\alpha^\beta\\
+        &=\psi_{\alpha+c\of}^\beta+c\of\circ m_\alpha\\
+        &=\psi_{\alpha+c\of}^{\beta+c\of}\circ \mu_\alpha
+    \end{align*}
+
+    Lastly, suppose $\alpha > \omega+c\of.$
+    So $s_{\alpha+c\of}$ is an isomorphism as well so $\mu_\alpha = s^{-1}_{\alpha+c\of}\circ n_\alpha\rest_{\Phi_\alpha}$ is well defined and $\phi_\alpha^\beta = b_\alpha^\beta\rest_{\Phi_\alpha}$.
+    So
+    \begin{align*}
+      \mu_\beta\circ \phi_\alpha^\beta &= s^{-1}_{\beta+c\of}\circ n_\alpha\circ b_\alpha^\beta\rest_{\Phi_\alpha}\\
+        &= \psi_{\alpha+c\of}^{\beta+c\of}\circ s^{-1}_{\alpha+c\of}\circ n_\alpha\rest_{\Phi_\alpha}\\
+        &= \psi_{\alpha+c\of}^{\beta+c\of}\circ\mu_\alpha
+    \end{align*}
+    for $\beta\geq\alpha\geq\omega+c\of$.
+    It follows that Diagram~\ref{dgm:intr3} commutes for all $\beta\geq\alpha\geq\omega$.
+
+  \item For all $\alpha\geq \omega$, $\alpha+c\of \geq \omega+c\of$ so $\Phi_{\alpha+c\of} = \im~t_{\alpha+c\of}$ and $s_{\alpha+2c\of}$ is an isomorphism so
+    \[\mu_{\alpha+c\of} = s^{-1}_{\alpha+2c\of}\circ n_{\alpha+c\of}\rest_{\Phi_{\alpha+c\of}}\]
+    is well defined.
+    Because all maps are induced by inclusion the following diagram commutes
+    \begin{equation}\begin{tikzcd}
+      \hom_k(B_\alpha, \b)\arrow{r}{r_\alpha}\arrow{d}{u_\alpha} &
+      \Psi_\alpha\arrow{r}{\psi_{\alpha}^{\alpha+2c\of}}\arrow{d}{v_\alpha} &
+      \Psi_{\alpha+2c\of}\arrow{d}{s_{\alpha+2c\of}}\\
+      %
+      \Lambda_{\alpha+c\of}\arrow{r}{t_{\alpha+c\of}} &
+      \Pi_{\alpha+c\of}\arrow{r}{n_{\alpha+c\of}} &
+      \hom_k(B_{\alpha+2c\of}, \BB)
+    \end{tikzcd}\end{equation}
+    Because $r_\alpha$ is surjective $\im~r_\alpha = \Psi_\alpha$ so $\im~v_\alpha = \im~t_{\alpha+c\of}\circ u_\alpha$ is a subspace of $\Phi_{\alpha+c\of} = \im~t_{\alpha+c\of}$, so
+    \[\im~n_{\alpha+c\of}\rest_{\Phi_{\alpha+c\of}}\circ v_\alpha = \im~n_{\alpha+c\of}\circ v_\alpha.\]
+    As $s_{\alpha+2c\of}$ is an isomorphism we may conclude that Diagram~\ref{dgm:intr2} commutes as
+    \begin{align*}
+      \mu_{\alpha+c\of}\circ \nu_\alpha &= s^{-1}_{\alpha+2c\of}\circ n_{\alpha+c\of}\circ v_\alpha\\
+        &= \psi_{\alpha}^{\alpha+2c\of}.
+    \end{align*}
+  \item Once again, for all $\beta\geq\alpha\geq\omega$ we know $\Phi_{\alpha+c\of} = \im~t_{\alpha+c\of}$.
+    Because $r_\alpha, r_\beta$ are surjective $\im~r_\alpha = \Psi_\alpha$ and $\im~r_\beta = \Psi_\beta$.
+    So $\im~\nu_\alpha = \im~v_\alpha$ is a subspace of $\Phi_\alpha$ and $\im~\nu_\beta = \im~v_\beta$ is a subspace of $\Phi_\beta$, therefore
+    \begin{align*}
+      \phi_{\alpha+c\of}^{\beta+c\of}\circ \nu_\alpha &= b_{\alpha+c\of}^{\beta+c\of}\circ v_\alpha\\
+        &= \nu_\beta\circ \psi_\alpha^\beta
+    \end{align*}
+    so we may conclude that Diagram~\ref{dgm:intr4} commutes for all $\alpha\geq\omega$.
+\end{enumerate}
+
+\end{proof}

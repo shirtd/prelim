@@ -1,0 +1,155 @@
+% !TeX root = ../new.tex
+
+In addition to the assumptions made in Theorem~\ref{thm:geo_tcc} we will now assume that $\b$ surrounds $D$ in $\X$.
+
+% In the following we assume the pair $(P, Q)$ and $f : D\to\R$ are as in Theorem~\ref{thm:geo_tcc}.
+% We will also assume that $\b$ surrounds $D$ in $\X$, so that $\b$, $\B$, and $\BB$ all surround $D$ in $\X$.
+
+\begin{lemma}\label{lem:q_contain_1}
+  If $D\setminus \B\subseteq P^\of$ and $\Q^\of$ surrounds $P^\of$ in $D$ then $\b\subseteq \ext{\Q^\of}$.
+\end{lemma}
+\begin{proof}
+  We first note that $\b\cap P^\of\subseteq \Q^\of$ as $x\in \b\cap P^\of$ implies there exists some $p\in P$ such that $\dist(x, p)\leq \of$ which, because $f$ is $c$-Lipschitz, implies
+  \[ f(p) \leq f(x) + c\dist(x, p)\leq \o + c\delta = \fen\]
+  for any $x\in \b$.
+  Therefore, $\b\cap (P^\of\setminus \Q^\of) = \emptyset$.
+  % It follows that
+  % \[\b\cap (P^\of\setminus \Q^\of) = \b\cap P^\of\cap \cmp{\Q^\of} \subseteq Q^\of\cap\cmp{\Q^\of} = \emptyset.\]
+  So $\b\setminus (P^\of\setminus \Q^\of) = \b$ and, because $\Q^\of$ surrounds $P^\of$ in $D$ we have that
+  \[ D = (P^\of\setminus \Q^\of)\sqcup \Q^\of \sqcup (D\setminus P^\of).\]
+  Because $\b\subseteq D$ it follows that
+  \[ \b = \b \setminus (P^\of\setminus \Q^\of)\subseteq \Q^\of\sqcup (D\setminus P^\of) = \ext{\Q^\of}. \]
+  % \[ \b \subseteq D = (P^\of\setminus \Q^\of)\sqcup \Q^\of \sqcup (D\setminus P^\of)\]
+  % where $\b\cap (P^\of\setminus \Q^\of) = \emptyset$.
+  % It therefore follows that $\b\subseteq \Q^\of \sqcup (D\setminus P^\of) = \ext{\Q^\of}$.
+\end{proof}
+
+\begin{lemma}\label{lem:q_contain_2}
+  If $D\setminus \B\subseteq P^\of$ and $\Q^\of$ surrounds $P^\of$ in $D$ then $\B\subseteq \ext{\QQ^\of}$.
+\end{lemma}
+\begin{proof}
+  Because $\Q^\of \subset \QQ^\of$ it follows that $\QQ^\of$ surrounds $P^\of$ in $D$ as well.
+  So we can extend $\QQ^\of$ to surround $D$ in $\X$ as $\ext{\QQ^\of} = \QQ^\of\sqcup (D\setminus P^\of)$.
+
+  For any $x\in \B$ such that $x\notin D\setminus P^\of$ we have $x\in \B\setminus (D\setminus P^\of) = \B\cap P^\of$.
+  So there exists some $p\in P$ such that $\dist(x, p) < \delta$.
+  Because $f$ is $c$-Lipschitz it follows that
+  \[ f(p)\leq f(x) + c\dist(x, p) < \omega + c\delta. \]
+  So $p\in \QQ$, therefore $x\in \QQ^\delta$ so we may conclude that for all $B\subseteq \ext{\QQ^\delta}$.
+\end{proof}
+
+So $\b\subseteq \B\subseteq \BB$ all surround $D$ in $\X$ and $\Q^\of$ and $\QQ^\of$ surround $P^\of$ in $D$ where
+\[ \b\subseteq \ext{\Q^\of}\subseteq \B\subseteq \ext{\QQ^\of}\subseteq \BB.\]
+% Corollary~\ref{cor:tcc_iso} therefore follows from Theorem~\ref{thm:separate_iso}.
+%
+% \begin{corollary}\label{cor:tcc_iso}
+%   If $\eta^k : \hom_k(\b)\to \hom_k(\BB)$ is surjective and $\im~\eta^k\cong \hom_k(\bb)$ then for any $A\subset D$ such that $\BB\subset A$
+%   \[ \im~\hom_k((P^\of\cap A, \Q^\of)\to (P^\of\cap A, \QQ^\of))\cong \hom_k(A, \bb)\]
+%   for all $k > 0$.
+% \end{corollary}
+%
+% % \begin{lemma}
+% %   The $k$th persistent homology modules of
+% %   \[\{(P^\of\cap B_\alpha, \Q^\of)\to (P^\of\cap B_\alpha, \QQ^\of)\}_{\alpha\geq\oo}\]
+% %   are $c\of$-interleaved with
+% %   \[ \{(P_\alpha^\of, \Q^\of)\to (P_\alpha^\of, \QQ^\of)\}_{\alpha\geq\oo} \]
+% %   for all $k$.
+% % \end{lemma}
+
+% \clearpage
+%
+% In the following let $D_\alpha = f^{-1}(-\infty, \alpha]$ and $(\P)_\alpha := \P\cap D_\alpha$ for all $\alpha\in\R$.
+%
+% \begin{lemma}\label{lem:ps_inter}
+%   The $k$th persistent homology modules of $\{(\P)_\alpha\}_{\alpha\in\R}$ are $c\of$-interleaved with those of $\{P_\alpha^\of\}_{\alpha\in\R}$ for all $k$.
+% \end{lemma}
+% \begin{proof}
+%   For all $x\in (\P)_\alpha$ we have $f(x)\leq \alpha$ and some $p\in P$ such that $\dist(x, p) < \of$.
+%   Therefore, because $f$ is $c$-Lipschitz,
+%   \[ f(p)\leq f(x) + c\dist(x, p) < \alpha + c\delta.\]
+%   So $p\in P_{\alpha + c\delta}$ therefore $x\in P_{\alpha+c\delta}^\delta$.
+%
+%   On the other hand, suppose $x\in P_\alpha^\delta$.
+%   So there exists some $p\in P$ such that $f(p)\leq \alpha$ and $\dist(x, p) < \delta$.
+%   Once again, because $f$ is $c$-Lipschitz,
+%   \[ f(x)\leq f(p)+c\dist(x, p) < \alpha + c\of. \]
+%   So $x\in (\P)_{\alpha+c\delta}$.
+%
+%   That is, $P_{\alpha-c\delta}^\delta\subseteq (\P)_\alpha\subseteq P_{\alpha + c\delta}^\delta$, therefore $\{(\P)_\alpha\}$ is $c\of$-interleaved with $\{P_\alpha^\of\}$.
+%   % Now, for any $k > 0$, let
+%   % \[\Sigma_\alpha := \im~\hom_k((\P\cap B_\alpha, \Q^\of)\to (\P\cap B_\alpha, \QQ^\of))\]
+%   % and
+%   % \[\Pi_\alpha := \im~\hom_k((P_\alpha^\of, \Q^\of)\to (P_\alpha^\of, \QQ^\of)).\]
+%   %
+%   % For ease of notation, let $(P^\delta)_\alpha := \P\cap B_\alpha$ for $\alpha\in\R$.
+% %   The following diagrams commute for all $\alpha\leq \beta$ as all maps are induced by inclusion.
+% %
+% %   \begin{tiny}\begin{subequations}
+% %   \begin{minipage}{0.5\textwidth}\begin{centering}
+% %   \begin{equation}\begin{tikzcd}%[column sep=small]
+% %       \hom_k((\P)_\alpha, \Q^\of)\arrow{r}{s_\alpha}\arrow{d}{t_\alpha^\beta} &
+% %       \hom_k((\P)_\alpha, \QQ^\of)\arrow{d}{u_\alpha^\beta}\\
+% %       %
+% %       \hom_k((\P)_\beta, \Q^\of)\arrow{r}{s_\beta} &
+% %       \hom_k((\P)_\beta, \QQ^\of)
+% %     \end{tikzcd}\end{equation}\end{centering}\end{minipage}
+% %     \begin{minipage}{0.5\textwidth}\begin{centering}
+% %     \begin{equation}\begin{tikzcd}%[column sep=small]
+% %       \hom_k(\P_\alpha, \Q^\of)\arrow{r}{p_\alpha}\arrow{d}{q_\alpha^\beta} &
+% %       \hom_k(\P_\alpha, \QQ^\of)\arrow{d}{r_\alpha^\beta}\\
+% %       %
+% %       \hom_k(\P_\beta, \Q^\of)\arrow{r}{p_\beta} &
+% %       \hom_k(\P_\beta, \QQ^\of)
+% %     \end{tikzcd}\end{equation}\end{centering}\end{minipage}
+% %   \end{subequations}\end{tiny}\vspace{2ex}
+% %
+% %   \begin{tiny}\begin{subequations}
+% %   \begin{minipage}{0.5\textwidth}\begin{centering}
+% %   \begin{equation}\begin{tikzcd}%[column sep=small]
+% %         \hom_k((\P)_\alpha, \Q^\of)\arrow{r}{s_\alpha}\arrow{d}{m_\alpha} &
+% %         \hom_k((\P)_\alpha, \QQ^\of)\arrow{d}{m_\alpha'}\\
+% %         %
+% %         \hom_k(\P_{\alpha+c\delta}, \Q^\of)\arrow{r}{p_{\alpha+c\delta}} &
+% %         \hom_k(\P_{\alpha+c\delta}, \QQ^\of)
+% %       \end{tikzcd}\end{equation}\end{centering}\end{minipage}
+% %       \begin{minipage}{0.5\textwidth}\begin{centering}
+% %       \begin{equation}\begin{tikzcd}%[column sep=small]
+% %         \hom_k(\P_\alpha, \Q^\of)\arrow{r}{p_\alpha}\arrow{d}{n_\alpha} &
+% %         \hom_k(\P_\alpha, \QQ^\of)\arrow{d}{n_\alpha'}\\
+% %         %
+% %         \hom_k((\P)_{\alpha+c\delta}, \Q^\of)\arrow{r}{s_{\alpha+c\delta}} &
+% %         \hom_k((\P)_{\alpha+c\delta}, \QQ^\of)
+% %       \end{tikzcd}\end{equation}\end{centering}\end{minipage}
+% %     \end{subequations}\end{tiny}\vspace{2ex}
+% %
+% %   We have maps
+% %   \[\sigma_\alpha^\beta : \Sigma_\alpha\to \Sigma_\beta\text{ where }\sigma_\alpha^\beta = s_\beta\circ t_\alpha^\beta = u_\alpha^\beta\circ s_\alpha,\text{ and}\]
+% %   \[\pi_\alpha^\beta : \Pi_\alpha\to\Pi_\beta\text{ defined }\pi_\alpha^\beta = p_\beta\circ q_\alpha^\beta = r_\alpha^\beta\circ p_\alpha\]
+% %   as well as
+% %   \[ \mu_\alpha : \Sigma_\alpha\to \Pi_{\alpha+c\delta}\text{ where } \mu_\alpha = p_{\alpha + c\delta}\circ m_\alpha = m_\alpha'\circ s_\alpha,\text{ and}\]
+% %   \[\nu_\alpha : \Pi_\alpha\to \Sigma_{\alpha+c\delta}\text{ where } \nu_\alpha = s_{\alpha+c\delta} \circ n_\alpha = n_\alpha'\circ p_\alpha.\]
+% %   So
+% \end{proof}
+% %
+% % % \begin{corollary}
+% % %   If $\eta^k : \hom_k(\b)\to \hom_k(\BB)$ is surjective and $\im~\eta^k\cong \hom_k(\bb)$ then the $k$th persistent homology modules of
+% % %   $\{(B_\alpha, \bb)\}_{\alpha\geq\oo}$ is $c\of$-interleaved with that of
+% % %   \[\{(P_\alpha^\of, \Q^\of)\to (P_\alpha^\of, \QQ^\of)\}_{\alpha\geq\oo}\]
+% % %   for $k > 0$.
+% % % \end{corollary}
+% %
+% % % \section{NEW NOTATION}
+% % %
+% % % Let $D_\alpha := f^{-1}(-\infty, \alpha]$ for $\alpha\in\R$ and $B_\alpha := D_{\omega+\alpha}$ for $\omega\in\R$ such that $B_0 = D_\omega$ surrounds $D$ in $\X$.
+% % % Let $\gamma\geq 3\delta$ be such that $B_{c\delta}^\delta\subseteq B_0^{\gamma-\delta}$ and $\lambda \geq \gamma + 3\delta$ be such that
+% % % \[j : \hom_0(D\setminus B_{c\lambda})\to \hom_0(D\setminus B_0^{\gamma - \delta}) \]
+% % % is surjective.
+% % %
+% % % Let $P$ be a finite set of points in $D$ and $Q_\alpha := P\cap B_\alpha$.
+% % % \begin{equation}\label{dgm:1}\begin{tikzcd}
+% % %   \hom_0(\cmp{B_{c\lambda}}, \cmp{D})\arrow{d} \arrow{r}{j} & %{j_*} &
+% % %   \hom_0(\cmp{B_0^{\gamma - \delta}},\cmp{D}) \arrow{d} \\
+% % %   %
+% % %   \hom_0(\cmp{Q_{c(\lambda - \delta)}^\of}, \cmp{\P}) \arrow{r}{i} & %{i_*} &
+% % %   \hom_0(\cmp{Q_{c\delta}^\of}, \cmp{\P}).
+% % % \end{tikzcd}\end{equation}

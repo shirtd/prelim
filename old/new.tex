@@ -1,0 +1,67 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsthm,xspace}
+\usepackage{tikz-cd,xspace,graphicx,wrapfig,algorithm}
+% \usepackage{enumerate}
+\usepackage[noend]{algpseudocode}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{enumitem}
+\input{macros}
+
+% \newcommand{\figblock}[1]{}
+\newcommand{\figblock}[1]{#1}
+
+\usepackage{xcolor}
+\usepackage{lscape}
+
+\begin{document}
+
+% \color{blue}
+
+\section{Some Useful Theorems}
+\input{new/0-lemmas}
+
+\input{new/interleaving_defs}
+
+\section{Separation}
+\input{new/1-separate}
+
+% \clearpage
+% \section{Interleaving Images of Pairs}
+% \input{new/1b-interleaving}
+
+\clearpage
+\section{The Topological Coverage Criterion}
+\input{new/2-sensors}
+
+\clearpage
+% replaced by Lemma 10?
+% \input{new/3-scalar}
+% %
+\clearpage
+\section{From Coverage Testing to the Analysis of Scalar Fields}
+% \section{Interleaving}
+\input{new/new_interleaving}
+
+% \clearpage
+\input{new/rips2}
+% \input{new/4-interleaving_new2}
+
+% \clearpage
+% \section{Algorithm}
+% \input{new/5-algorithm}
+%
+% \section{Connection with the TCC}
+%
+% \subsection{Assumptions}
+% \input{new/4-tcc}
+%
+% \subsection{Proof of the TCC}
+% \input{new/5-tcc_proof}
+
+% \input{new/fancy}
+
+\appendix
+% \input{new/big_diagram}
+
+\end{document}

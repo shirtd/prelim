@@ -1,0 +1,170 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsthm,xspace}
+\usepackage{tikz-cd,xspace,graphicx,wrapfig,algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage[margin=1in]{geometry}
+
+\usepackage{enumitem}
+\input{../macros}
+
+% \newcommand{\figblock}[1]{}
+\newcommand{\figblock}[1]{#1}
+
+\usepackage{xcolor}
+
+\begin{document}
+
+\begin{lemma}[The Five-Lemma (Hatcher p. 129)]\label{lem:five}
+  In a commutative diagram of abelian groups as below, if the two rows are exact and $\alpha,\beta,\delta$, and $\e$ are isomorphisms then $\gamma$ is an isomorphism.
+  \[\begin{tikzcd}
+      A\ar[r, "i"]\ar[d, "\alpha"]
+    & B\ar[r, "j"]\ar[d, "\beta"]
+    & C\ar[r, "k"]\ar[d, "\gamma"]
+    & D\ar[r, "\ell"]\ar[d, "\delta"]
+    & E\ar[d, "\e"]\\
+    %
+      A'\ar[r, "i'"]
+    & B'\ar[r, "j'"]
+    & C'\ar[r, "k'"]
+    & D'\ar[r, "\ell'"]
+    & E'\\
+  \end{tikzcd}\]
+
+  \begin{itemize}
+    \item If $\beta$ and $\delta$ are surjective and $\e$ is injective then $\gamma$ is surjective.
+    \item If $\beta$ and $\delta$ are injective and $\alpha$ is surjective then $\gamma$ is injective.
+  \end{itemize}
+\end{lemma}
+
+\begin{definition}[Separation (Munkres~\cite{munkres00topology})]
+  Let $X$ be a topological space. A \textbf{separation} of $X$ is a pair $U, V$ of disjoint, nonempty, open subsets of $X$ whose union is $X$.
+  The space $X$ is said to be \textbf{connected} if there does not exist a separation of $X$.
+\end{definition}
+
+% Note that the sets $U, V$ that form a separation of $X$ are both open and closed in $X$.
+% For a subspace $Y$ of $X$ we will denote the interior and closure of a set $U$ in $Y$ with $\intr_Y(U)$ and $\cl_Y(X)$.
+%  % where $\intr(U)$ and $\cl(U)$ will refer to the interior and closure of $U$ in $X$, unless otherwise stated.
+
+\begin{lemma}[23.1 (Munkres~\cite{munkres00topology})]
+  If $Y$ is a subspace of $X$, a separation of $Y$ is a pair of disjoint, nonempty sets $A, B$ whose union is $Y$, neither of which contains a limit point of the other.
+  The space $Y$ is connected if there exists no separation of $Y$.
+\end{lemma}
+
+% If $A, B$ is a separation of a subspace $Y$ of $X$ then $A, B$ are both open and closed in $Y$, but not necessarily $X$.
+% The condition that neither $A$ nor $B$ contains a limit point of the other requires that $\cl_X(A)\cap B = \emptyset$ and $A\cap \cl_X(B) =\emptyset$ where $\cl_Y(A) = A$ and $\cl_Y(B) = B$.
+%
+% % \begin{definition}[Components (Munkres~\cite{munkres00topology})]
+% %   Given $X$, define an equivalence relation on $X$ by setting $x\sim y$ if there is a connected subspace of $X$ containing both $x$ and $y$.
+% %   The equivalence class are called the \textbf{components} (or ``connected components'') of $X$.
+% % \end{definition}
+%
+% For a disconnected topological space $X$ let $X_1, X_2, \ldots$ denote it's path-connected components.
+% For $A\subseteq X$ let $A_i = A\cap X_i$ denote the component of $A$ in $X_i$.
+
+\begin{definition}[Separating Set]
+  Let $X$ be a (possibly disconnected) topological space and $S\subset X$.
+  $S$ \textbf{separates $X$ with a pair $(U, V)$} if $(U_i, V_i)$ is a separation of $X_i\setminus S_i$ for all $i$.
+\end{definition}
+
+% If $S$ separates $X$ with a pair $(U, V)$ then $X = U\sqcup S\sqcup V$.
+% Note that while $U$ and $V$ are both open and closed in $X\setminus S$, each component $X_i = U_i\sqcup S_i\sqcup V_i$ is connected.
+% Therefore, if $S$ separates $X$ with a pair $(U, V)$, we require that $\cl_X(U)\cap V = \emptyset$ and $U\cap \cl_X(V) = \emptyset$.
+% If $S$ is an open set in $X$ then $U$ and $V$ are closed in $X$, therefore $\cl_X(U)\cap V = \emptyset$ and $U\cap \cl_X(V) = \emptyset$.
+% Otherwise, if $S$ is closed in $X$, then $U$ and $V$ are open in $X$.
+%
+% Throughout we will use $U, S,$ and $V$ to denote subsets of $X$ analogous to the interior, boundary, and complement of $S\sqcup U$ in $X$, respectively.
+% The following definition, while equivalent to that of a separating set, makes this distinction explicit by defining the set $S$ relative to the set $S\sqcup U$.
+
+\begin{definition}[Surrounding]
+  Given $B\subset D \subset X$ the set $B$ \textbf{surrounds $D$ in $X$} if $B$ separates $X$ with the pair $(D\setminus B, X\setminus D)$.
+  We will refer to such a pair as a \textbf{surrounding pair in $X$}.
+\end{definition}
+
+% Now, the set $D\setminus B$ corresponds to the interior of $D$ and $X\setminus D$ corresponds to the complement of $D$ in $X$.
+% This allows us to clearly state the extension of a surrounding pair in a subspace of $X$ to a surrounding pair in $X$.
+
+\begin{definition}[Extension]
+  If $S$ surrounds $L$ in a subspace $D$ of $X$ let $\ext{S} := S\sqcup (D\setminus L)$ denote the (disjoint) union of the separating set $S$ with the complement of $L$ in $D$.
+  The \textbf{extension of $(L, S)$ in $D$} is the pair
+  \[ (D, \ext{S}) = (L\sqcup (D\setminus L), S\sqcup (D\setminus L)).\]
+\end{definition}
+
+\begin{lemma}\label{lem:excision}
+  If $(L, S)$ is a surrounding pair in a subspace $D$ of $X$ and $L$ is open in $D$ then
+  \[ \hom_k(L\cap A, S) \cong \hom_k(A, \ext{S}) \]
+  for all $k$ and any $A\subseteq D$ such that $\ext{S}\subset A$.
+\end{lemma}
+
+\clearpage
+
+\begin{theorem}\label{thm:separate_iso_coker}
+  Suppose $B\subseteq B'$ surround $D$ in $X$ and $A\subseteq D$ such that $B'\subseteq A$.
+  Suppose $S$ surrounds $L$ in $D$ is such that $B\cap L\subseteq B$ and $D\setminus B'\subseteq L\setminus S$.
+  Let $\eta^k : \hom_k(B)\to \hom_k(B')$ be induced by inclusion.
+
+  If $\eta^k$ is surjective then
+  \[\cok~\hom_k((L\cap B', S)\to (L\cap A, S))\cong \hom_k(A, B')\]
+  for all $k$.
+\end{theorem}
+\begin{proof}
+  Consider the following commutative diagrams of long exact sequences of pairs $(A, B)$ and $(A, B')$.
+  \begin{equation}\begin{tikzcd}\label{dgm:separate_iso}
+    \hom_k(B)\arrow{r}{i}\arrow{d}{\eta^k} &
+    \hom_k(A)\arrow{r}{j}\arrow{d}{b} &
+    \hom_k(A, B)\arrow{r}{k}\arrow{d}{c} &
+    \hom_{k-1}(B)\arrow{r}{\ell}\arrow{d}{\eta^{k-1}} &
+    \hom_{k-1}(A)\arrow{d}{e} &\\
+    %
+    \hom_k(B')\arrow{r}{i'} &
+    \hom_k(A)\arrow{r}{j'} &
+    \hom_k(A, B')\arrow{r}{k'} &
+    \hom_{k-1}(B')\arrow{r}{\ell'} &
+    \hom_{k-1}(A)
+  \end{tikzcd}\end{equation}
+  where vertical maps are induced by inclusion.
+
+  Because $b$ and $e$ are identity maps they are bijections, and therefore surjective and injective, respectively.
+  With our hypothesis that $\eta^{k-1}$ is surjective $c$ is therefore surjective by Lemma~\ref{lem:five}.
+
+  Because $S$ surrounds $L$ in $D$, $\hom_k(L\cap A, S)\cong \hom_k(A, \ext{S})$ for all $k$ by Lemma~\ref{lem:excision}.
+  Note that $B\setminus (D\setminus L) = B\cap L\subseteq S$ implies $B\subseteq S\sqcup(D\setminus L) = \ext{S}$.
+  Moreover, $D\setminus \ext{S} = (D\setminus S)\cap L = L\setminus S$ so $D\setminus B'\subseteq L\setminus S = D\setminus\ext{S}$ implies $\ext{S}\subseteq B'$.
+  So we have a sequence of inclusions
+  \[ \hom_k(A, B)\xrightarrow{m}\hom_k(A, \ext{S})\xrightarrow{n}\hom_k(A, B')\]
+  where $c = n\circ m$ factors through $\hom_k(A, \ext{S})$.
+  As we have shown, $c = n\circ m$ is surjective, therefore $n : \hom_k(A, \ext{S}) \to \hom_k(A, B')$ must be surjective.
+
+  Now, consider the following long exact sequence of the triple $(\ext{S}, B', A)$.
+  \[\ldots\to \hom_k(B', \ext{S})\xrightarrow{u} \hom_k(A, \ext{S})\xrightarrow{n}\hom_k(A, B')\to\ldots.\]
+  Because $n$ is surjective $\im~n = \hom_k(A, B')$ where $\im~n\cong \coim~n = \cok~u$ by exactness.
+  As $S\subseteq B', A$ we have that $\hom_k(B', \ext{S})\cong \hom_k(L\cap B', S)$ and $\hom_k(A, \ext{S})\cong \hom_k(L\cap A, S)$ by Lemma~\ref{lem:excision}, so
+  \[ \cok~\hom_k((L\cap B', S)\to (L\cap A, S))\cong \cok~u\cong \hom_k(A, B') \]
+  as desired.
+\end{proof}
+
+\paragraph{Questions}
+\begin{itemize}
+  \item Can we use cokernels the same way we have been using images?
+    Typically the cokernel of $f: A\to B$ as $B/\im~f$ the same way to coimage is defined $A/\ker~f$.
+    That is, the coimage and cokernel are quotients by subspaces, which may be more difficult to interpret than the kernel and image which are simple subspaces of the domain and codomain.
+  \item How does this handle spurious features?
+    First remember, we have already confirmed coverage (note, however, we do not seem to need to assume that $D\setminus B'\subseteq L$... that doesn't seem right).
+    Spurious features would give us false positives to the coverage problem.
+    In any case, these features would be contained in both the domain $\hom_k(L\cap B', S)$ and codomain $\hom_k(L\cap A, S)$ of our function.
+    Therefore, these features \emph{would} be in our image, and the cokernel is the quotient of the codomain with the image, so these features are modded out.
+  \item I believe $n$ surjective implies we have a short exact sequence, which would imply $u$ is injective: $\im~u\cong \hom_k(L\cap B', S)$.
+    If we can interpret $\hom_k(L\cap B', S)$ as a (normal) subspace of $\hom_k(L\cap A, S)$ we may be able to compute the cokernel as $\hom_k(L\cap A, S) / \hom_k(L\cap B', S)$.
+    I havent seen much on quotients of homology groups, let alone quotients of \emph{relative} homology groups.
+    For fun, let's expand
+    \begin{align*}
+      \hom_k(L\cap A, S) / \hom_k(L\cap B', S) &= \frac{Z_k(L\cap A, S) / B_k(L\cap A, S)}{Z_k(L\cap B', S) / B_k(L\cap B', S)}\\
+        & \frac{
+            \left(\frac{Z_k(L\cap A)}{Z_k(S)}\right) / \left(\frac{B_k(L\cap A)}{B_k(S)}\right)
+          }{
+            \left(\frac{Z_k(L\cap B'}{Z_k(S)}\right) / \left(\frac{B_k(L\cap B')}{B_k(S)}\right)
+          }
+    \end{align*}
+
+\end{itemize}
+
+\end{document}
