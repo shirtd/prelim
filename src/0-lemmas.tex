@@ -15,7 +15,7 @@
 %   \end{enumerate}
 % \end{lemma}
 
-\begin{lemma}[The Five-Lemma (Hatcher p. 129)]\label{lem:five}
+\begin{lemma}[\textbf{The Five-Lemma} (Hatcher p. 129)]\label{lem:five}
   In a commutative diagram of abelian groups as below, if the two rows are exact and $\alpha,\beta,\delta$, and $\e$ are isomorphisms then $\gamma$ is an isomorphism.
   \[\begin{tikzcd}
       A\ar[r, "i"]\ar[d, "\alpha"]
@@ -37,12 +37,120 @@
   \end{itemize}
 \end{lemma}
 
-\begin{lemma}[Persistent Nerve Lemma (Chazal~\cite{chazal08towards}, Lemma 3.4)]\label{lem:rel_pers_nerve}
-  Let $X\subseteq X'$ be two paracompact spaces and $Y\subseteq Y'$ be two subspaces $Y\subseteq X$, $Y'\subseteq X'$.
-  Let $\mathcal{U} = \{U_a\}_{a\in A}$ and $\mathcal{U}' = \{U_a'\}_{a\in A}$ be good open covers of $X$ and $X'$, respectively, such that $U_a\subseteq U_a'$ for all $a\in A$.
-  Let $\mathcal{V} = \{V_a\}_{a\in A} \subseteq \mathcal{U}$ and $\mathcal{V}' = \{V_a'\}_{a\in A}\subseteq \mathcal{U}'$ be good open subcovers of $Y$ and $Y'$, respectively, such that $V\subseteq V'$ for all $a\in A$.
-  Then there exist homotopy equivalences of pairs $(\N\mathcal{U}, \N\mathcal{V})\to (X, Y)$ and $(\N\mathcal{U}', \N\mathcal{V}')$ that commute with the canonical inclusions of pairs $(X, Y)\hookrightarrow (X', Y')$ and $(\N\mathcal{U}, \N\mathcal{V})\hookrightarrow (\N\mathcal{U}', \N\mathcal{V}')$ at the homology and homotopy levels.
+\subsection{For Algorithmic TCC}
+
+\begin{lemma}[\textbf{Universal Coefficient Theorem} (Munkres p. 337, Corollary 56.4)]
+  Let $(A,B)$ be a topological pair such that $\hom_k(A, B)$ is finitely generated for all $k$.
+  Then for all $k$ and any abelian group $G$ there is a natural exact sequence
+  \[ 0\to\mathrm{Ext}(\hom^{k+1}(A, B), G)\to \hom_k(A, B; G)\to \Hom(\hom^k(A, B), G)\to 0.\]
+  This sequence splits, but not naturally.
 \end{lemma}
+
+\begin{theorem}[\textbf{Alexander Duality} (Spanier p. 296, Theorem 6.2.17)]
+  Let $U$ be an orientation over $R$ of an $d$-manifold $X$ and let $(A, B)$ be a compact pair in $X$.
+  Then for all $k$ and $R$ modules $G$ there is a natural isomorphism
+  \[ \hom_k(X\setminus B, X\setminus A; G)\to\overline{\hom}^{d-k}(A, B; G).\]
+\end{theorem}
+
+\begin{lemma}
+  Let $U$ be an orientation over $R$ of an $d$-manifold $X$ and let $(A, B)$ be a compact pair in $X$ such that $\hom_k(A, B)$ is finitely generated for all $k$.
+  Then for all $R$ modules $G$ there is a natural isomorphism
+  \[ \hom_0(X\setminus B, X\setminus A; G)\to\hom_d(A, B; G). \]
+\end{lemma}
+\begin{proof}
+  \textbf{TODO}
+\end{proof}
+
+\subsection{For Relative Persistent Nerve Lemma}
+
+\begin{lemma}[\textbf{Persistent Nerve Lemma} (Chazal et. al.~\cite{chazal08towards}, Lemma 3.4)]\label{lem:pers_nerve}
+  Let $X\subseteq X'$ be two paracompact spaces, and let $\cU = \{U_i\}_{i\in I}$ and $\mathcal{U}' = \{U_i'\}_{i\in I}$ be good open covers of $X$ and $X'$, respectively, based on some finite parameter set $I$, such that $U_i\subseteq U_i'$ for all $i\in I$.
+  Then there exist homotopy equivalences of pairs $\N\cU\to X$ and $\N\cU'\to X'$ that commute with the canonical inclusions $X \hookrightarrow X'$ and $\N\cU\hookrightarrow \N\cU'$ at the homology and homotopy levels.
+\end{lemma}
+
+The following lemma is a straightforward application of the Persistent Nerve Lemma to a filtration.
+
+\begin{lemma}\label{lem:pers_nerve_filt}
+  Let $X$ be a paracompact space and $\cU = \{U_i\}_{i\in I}$ be a good open covers of $X$ based on some finite parameter set $I$.
+  Let $\F = \{F_\alpha\subseteq X\}_{\alpha\in\R}$ be a filtration in $X$ and define $\cU_\alpha := \{X_\alpha\cap U_i\}_{i\in I}$ for all $\alpha\in\R$.
+  Then for all $\alpha\leq\beta$ there exist homotopy equivalences of pairs $\N\cU_\alpha\to F_\alpha$ and $\N\cU_\beta\to F_\beta$ that commute with the canonical inclusions $F_\alpha \hookrightarrow F_\beta$ and $\N\cU_\alpha\hookrightarrow \N\cU_\beta$ at the homology and homotopy levels.
+\end{lemma}
+\begin{proof}
+  Because $\cU$ is a good open cover of $X$ we know that $\cU_\alpha$ is a good open cover of $F_\alpha$ for all $\alpha\in\R$.\footnote{\textbf{TODO} prove it.}
+  Moreover, because $\F$ is a filtration $F_\alpha\subseteq F_\beta$ for all $\alpha\leq\beta$.
+  So $F_\alpha\cap U_i\subseteq X_\beta\cap U_i$ for all $i\in I$, $\alpha\leq\beta$.
+  The result therefore follows from Lemma~\ref{lem:pers_nerve}.
+\end{proof}
+
+\begin{definition}[Compatible Filtrations (Skraba et. al.~\cite{skraba14approximating})]
+  Two filtrations $\A = \{A_\alpha\}$ and $\F = \{F_\alpha\}$ are said to be \textbf{compatible} if for all $\alpha\leq\beta$ the following diagram commutes
+  \begin{equation}\label{dgm:compatible}
+    \begin{tikzcd}
+      A_\alpha\arrow{r}\arrow{d} &
+      F_\alpha\arrow{d}\\
+      %
+      A_\beta\arrow{r} &
+      F_\beta.
+    \end{tikzcd}
+  \end{equation}
+  In order to specify an order we will refer to a pair of filtrations $(\F, \A)$ as a \textbf{compatible pair of filtrations}.
+\end{definition}
+
+\begin{theorem}[Skraba et. al.~\cite{skraba14approximating}, Theorem 1]\label{thm:rel_interleave}
+  If $(\F, \A)$ and $(\F', \A')$ are compatible pairs of filtrations such that the $k$th persistent homology modules of $\F$ and $\F'$ (resp. $\A$ and $\A'$) are $\e$-interleaved then the corresponding relative modules of $\{(F_\alpha, A_\alpha)\}$ and $\{(X_\alpha', Y_\alpha')\}$ are $\e$-interleaved.
+\end{theorem}
+
+Because two isomorphic persistence modules are $0$-interleaved we have the following corollary of Theorem~\ref{thm:rel_interleave}.
+
+\begin{corollary}\label{cor:rel_interleave_iso}
+  If $(\F, \A)$ and $(\F', \A')$ are compatible pairs of filtrations such that the $k$th persistent homology modules of $\F$ and $\F'$ (resp. $\A$ and $\A'$) are isomorphic then the relative modules $\{(F_\alpha, A_\alpha)\}$ and $\{(X_\alpha', Y_\alpha')\}$ are isomorphic.
+\end{corollary}
+
+\begin{lemma}[\textbf{Relative Persistent Nerve Lemma}]
+  Let $X$ be a paracompact space and $Y\subseteq X$.
+  Let $\cU = \{U_i\}_{i\in I}$ and $\cV = \{V_i\}_{i\in I}$ be good open covers of $X$ and $Y$, respectively, based on some finite parameter set $I$, such that $V_i\subseteq U_i$ for all $i\in I$.
+  Let $\F = \{F_\alpha\}$ be a filtration in $X$ and $A_\alpha := Y\cap F_\alpha$ so that $\A = \{A_\alpha\}$ is a filtration in $Y$.
+  Let $\cU_\alpha := \{X_\alpha\cap U_i\}$ and $\cV_\alpha := \{A_\alpha\cap V_i\}$.
+  Then the $k$th (relative) persistent homology modules of $\{(F_\alpha, A_\alpha)\}$ and $\{(\N\cU_\alpha, \N\cV_\alpha)\}$ are isomorphic.
+\end{lemma}
+\begin{proof}
+  Because
+  \[\N\cU_\alpha = \left\{\bigcap_{i\in S} F_\alpha\cap U_i\mid S\subseteq I\right\} = \{\sigma\cap F_\alpha\}_{\sigma\in \N\cU}\]
+  and $F_\alpha\leq F_\beta$ for all $\alpha\leq\beta$ we have inclusions $\N\cU_\alpha\hookrightarrow\N\cU_\beta$ for all $\alpha\leq\beta$.
+  Similarly, because
+  \[\N\cV_\alpha = \{\tau\cap A_\alpha\}_{\tau\in \N\cV} = \{\sigma\cap (Y\cap F_\alpha)\}_{\sigma\in\N\cU}\]
+  we have inclusions $\N\cV_\alpha\hookrightarrow\N\cV_\beta$ for all $\alpha\leq\beta$ and, because $V_i\subseteq U_i$ for all $i\in I$, we have inclusions $\N\cV_\alpha\hookrightarrow \N\cU_\alpha$ for all $\alpha\in\R$.
+  Letting $\N\cU_\F := \{\N\cU_\alpha\}$ and $\N\cV_\A := \{\N\cV_\alpha\}$ it follows that $(\N\cU_\F, \N\cV_\A)$ is a compatible pair of filtrations.
+
+  Moreover, by Lemma~\ref{lem:pers_nerve_filt}, the following diagrams commute for all $\alpha\leq\beta$.
+  \[\begin{tikzcd}
+      \N\cU_\alpha \arrow{r}\arrow{d} &
+      \N\cU_\beta \arrow{d}\\
+      %
+      X_\alpha\arrow{r} &
+      X_\beta,
+    \end{tikzcd}\hspace{10ex}
+    \begin{tikzcd}
+      \N\cV_\alpha \arrow{r}\arrow{d} &
+      \N\cV_\beta \arrow{d}\\
+      %
+      Y_\alpha\arrow{r} &
+      Y_\beta
+    \end{tikzcd}\]
+  where the horizontal maps are canonical inclusions and vertical maps are homotopy equivalences.
+  Letting $\N\U_\F$, $\X_\F$ and $\N\V_\A$, $\Y_\A$ denote the $k$th persistent homology modules of $\N\cU_\F$, $\F$ and $\N\cV_\A$, $\A$, respectively, the homotopy equivalences induce isomorphisms on homology for all $\alpha\in\R$, which constitute the following isomorphisms of persistence modules
+  \[ \N_\F\in\Hom(\N\U_\F, \X_\F),\text{ and } \N_\A\in\Hom(\N\V_\A,\Y_\A).\]
+  % \[ \N_\F := \{n_{\cU_\alpha} : \hom_k(\N\cU_\alpha)\to \hom_k(F_\alpha)\}\in\Hom(\N\U_\F, \X_\F),\text{ and }\]
+  % \[ \N_\A : = \{n_{\cV_\alpha} : \hom_k(\N\cV_\alpha)\to \hom_k(A_\alpha)\}\in\Hom(\N\V_\A,\Y_\A).\]
+  The result therefore follows from Corollary~\ref{cor:rel_interleave_iso}.
+\end{proof}
+
+% \begin{lemma}[Persistent Nerve Lemma]\label{lem:rel_pers_nerve}% (Lemma 3.4, Chazal~\cite{chazal08towards})]\label{lem:rel_pers_nerve}
+%   Let $X\subseteq X'$ be two paracompact spaces and $Y\subseteq Y'$ be two subspaces $Y\subseteq X$, $Y'\subseteq X'$.
+%   Let $\mathcal{U} = \{U_a\}_{a\in A}$ and $\mathcal{U}' = \{U_a'\}_{a\in A}$ be good open covers of $X$ and $X'$, respectively, such that $U_a\subseteq U_a'$ for all $a\in A$.
+%   Let $\cV = \{V_a\}_{a\in A} \subseteq \mathcal{U}$ and $\cV' = \{V_a'\}_{a\in A}\subseteq \mathcal{U}'$ be good open subcovers of $Y$ and $Y'$, respectively, such that $V\subseteq V'$ for all $a\in A$.
+%   Then there exist homotopy equivalences of pairs $(\N\mathcal{U}, \N\cV)\to (X, Y)$ and $(\N\mathcal{U}', \N\cV')$ that commute with the canonical inclusions of pairs $(X, Y)\hookrightarrow (X', Y')$ and $(\N\mathcal{U}, \N\cV)\hookrightarrow (\N\mathcal{U}', \N\cV')$ at the homology and homotopy levels.
+% \end{lemma}
 
 % \begin{theorem}[Alexander Duality]\label{thm:alexander}
 %   If $D$ is a compact, locally contractible, nonempty, proper subspace of $S^d$ then for all $k$ there is an isomorphism
