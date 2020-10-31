@@ -39,27 +39,73 @@
 
 \subsection{For Algorithmic TCC}
 
-\begin{lemma}[\textbf{Universal Coefficient Theorem} (Munkres p. 337, Corollary 56.4)]
+\begin{theorem}[Alexander-Poincar\'e Duality (Julian et. al.~\cite{julian83alexander}, Theorem 5.1)]\label{thm:alexander}
+  Let $K$ be an abstract simplicial complex that is a combinatorial oriented $d$-manifold.
+  Let $L$ be a subcomplex of some refinement of $K$ and $M$ be a subcomplex of $L$.
+  Let $\overline{L}$ and $\overline{M}$ denote the complements of $L$ and $M$ as subcomplexes of $K$ that do not share vertices with the original complexes.
+  Then for all $k$ there is a natural isomorphism
+  \[ \hom^k(L, M)\to \hom_{d-k}(\overline{M},\overline{L}). \]
+\end{theorem}
+
+% \begin{corollary}
+%   Let $X$ be a topological space and $D$ be a compact subspace of $X$.
+%   Let $(U, V)$ be a topological pair of spaces in $D$ and suppose there exists a triangulation $\Delta X$ of $X$ such that there exists triangulation $\Delta U$ of $U\subset$ that is a subcomplex of some refinement of $\Delta X$ and a triangulation $\Delta V$ of $V$ that is a subcomplex of $\Delta U$.
+%   Then for all $k$ there is a natural isomorphism
+%   \[ \hom^k(U, V)\to\hom_{d-k}(D\setminus U, D\setminus V).\]
+% \end{corollary}
+
+% \begin{lemma}[\textbf{Universal Coefficient Theorem} (Munkres p. 323, Corollary 53.2)]
+%   Let $(U,V)$ be a topological pair.
+%   Then for all $k$ and any abelian group $G$ there is a natural exact sequence
+%   \[ 0\to\mathrm{Ext}(\hom_{k-1}(U, V), G)\to \hom^k(U, V; G)\to \Hom(\hom_k(U, V), G)\to 0.\]
+%   This sequence splits, but not naturally.
+% \end{lemma}
+
+\begin{theorem}[\textbf{Universal Coefficient Theorem} (Munkres p. 337, Corollary 56.4)]\label{thm:univ_coef}
   Let $(A,B)$ be a topological pair such that $\hom_k(A, B)$ is finitely generated for all $k$.
   Then for all $k$ and any abelian group $G$ there is a natural exact sequence
   \[ 0\to\mathrm{Ext}(\hom^{k+1}(A, B), G)\to \hom_k(A, B; G)\to \Hom(\hom^k(A, B), G)\to 0.\]
   This sequence splits, but not naturally.
-\end{lemma}
-
-\begin{theorem}[\textbf{Alexander Duality} (Spanier p. 296, Theorem 6.2.17)]
-  Let $U$ be an orientation over $R$ of an $d$-manifold $X$ and let $(A, B)$ be a compact pair in $X$.
-  Then for all $k$ and $R$ modules $G$ there is a natural isomorphism
-  \[ \hom_k(X\setminus B, X\setminus A; G)\to\overline{\hom}^{d-k}(A, B; G).\]
 \end{theorem}
 
-\begin{lemma}
-  Let $U$ be an orientation over $R$ of an $d$-manifold $X$ and let $(A, B)$ be a compact pair in $X$ such that $\hom_k(A, B)$ is finitely generated for all $k$.
-  Then for all $R$ modules $G$ there is a natural isomorphism
-  \[ \hom_0(X\setminus B, X\setminus A; G)\to\hom_d(A, B; G). \]
-\end{lemma}
+\begin{theorem}
+  Let $X$ be a topological space and $D$ be a compact subspace of $X$.
+  Let $(U, V)$ be a topological pair of spaces in $D$ such that $\hom_k(U,V)$ is finitely generated for all $k$.
+  Suppose there exists a triangulation $\Delta X$ of $X$ that is a combinatorial oriented $d$-manifold.
+  Further suppose that there exists a triangulation $\Delta U$ of $U\subset$ that is a subcomplex of some refinement of $\Delta X$ and a triangulation $\Delta V$ of $V$ that is a subcomplex of $\Delta U$.
+  Then there is a natural isomorphism
+  \[ \hom_d(U, V)\to \hom_0(X\setminus V, X\setminus U).\]
+\end{theorem}
 \begin{proof}
-  \textbf{TODO}
+  \begin{itemize}
+    \item By Theorem~\ref{thm:univ_coef} we have a short exact sequence
+      \[ 0\to\mathrm{Ext}(\hom^{d+1}(\Delta U, \Delta V), G)\to \hom_d(\Delta U, \Delta V; G)\to \Hom(\hom^d(\Delta U, \Delta V), G)\to 0\]
+      for any abelian group $G$.
+      Because $\Delta U,\Delta V$ are subcomplexes of the combinatorial $d$-manifold $\Delta X$, $\hom^{d+1}(\Delta U, \Delta V) = 0$, so $\hom_d(\Delta U, \Delta V; G)\to \Hom(\hom^d(\Delta U, \Delta V), G)$ is an isomorphism.
+    \item By Theorem~\ref{thm:alexander} we have a natural isomorphism $\hom^d(\Delta U, \Delta V)\to \hom_0(\overline{\Delta V},\overline{\Delta U})$.
+      Therefore, because we have natural\footnote{\textbf{TODO} natural short exact $\implies$ natural isomorphism.} isomorphisms $\hom_d(\Delta U, \Delta V; G)\to \Hom(\hom^d(\Delta U, \Delta V), G)$ for all abelian groups $G$, we have a natural isomorphism (\textbf{TODO} prove it).
+      \[\hom_d(\Delta U, \Delta V)\to \hom_0(\overline{\Delta V},\overline{\Delta U}).\]
+    \item Because $\hom_d(U, V)\cong \hom_d(\Delta U, \Delta V)$ and $\hom_0(X\setminus V, X\setminus U)\cong \hom_0(\overline{\Delta V},\overline{\Delta U})$ (\textbf{TODO} prove it\footnote{$(X\setminus V, X\setminus U)$ or $(D\setminus V, D\setminus U)$?}), we have a natural isomorphism
+    \[ \hom_d(U, V)\to \hom_0(X\setminus V, X\setminus U). \]
+  \end{itemize}
 \end{proof}
+
+
+%
+% \begin{theorem}[\textbf{Alexander Duality} (Spanier p. 296, Theorem 6.2.17)]
+%   Let $U$ be an orientation over $R$ of an $d$-manifold $X$ and let $(A, B)$ be a compact pair in $X$.
+%   Then for all $k$ and $R$ modules $G$ there is a natural isomorphism
+%   \[ \hom_k(X\setminus B, X\setminus A; G)\to\overline{\hom}^{d-k}(A, B; G).\]
+% \end{theorem}
+%
+% \begin{lemma}
+%   Let $U$ be an orientation over $R$ of an $d$-manifold $X$ and let $(A, B)$ be a compact pair in $X$ such that $\hom_k(A, B)$ is finitely generated for all $k$.
+%   Then for all $R$ modules $G$ there is a natural isomorphism
+%   \[ \hom_0(X\setminus B, X\setminus A; G)\to\hom_d(A, B; G). \]
+% \end{lemma}
+% \begin{proof}
+%   \textbf{TODO}
+% \end{proof}
 
 \subsection{For Relative Persistent Nerve Lemma}
 
@@ -116,12 +162,11 @@ Because two isomorphic persistence modules are $0$-interleaved we have the follo
 \begin{proof}
   Because
   \[\N\cU_\alpha = \left\{\bigcap_{i\in S} F_\alpha\cap U_i\mid S\subseteq I\right\} = \{\sigma\cap F_\alpha\}_{\sigma\in \N\cU}\]
-  and $F_\alpha\leq F_\beta$ for all $\alpha\leq\beta$ we have inclusions $\N\cU_\alpha\hookrightarrow\N\cU_\beta$ for all $\alpha\leq\beta$.
+  and $F_\alpha\subseteq F_\beta$ for all $\alpha\leq\beta$ we have inclusions $\N\cU_\alpha\hookrightarrow\N\cU_\beta$ for all $\alpha\leq\beta$.
   Similarly, because
   \[\N\cV_\alpha = \{\tau\cap A_\alpha\}_{\tau\in \N\cV} = \{\sigma\cap (Y\cap F_\alpha)\}_{\sigma\in\N\cU}\]
   we have inclusions $\N\cV_\alpha\hookrightarrow\N\cV_\beta$ for all $\alpha\leq\beta$ and, because $V_i\subseteq U_i$ for all $i\in I$, we have inclusions $\N\cV_\alpha\hookrightarrow \N\cU_\alpha$ for all $\alpha\in\R$.
   Letting $\N\cU_\F := \{\N\cU_\alpha\}$ and $\N\cV_\A := \{\N\cV_\alpha\}$ it follows that $(\N\cU_\F, \N\cV_\A)$ is a compatible pair of filtrations.
-
   Moreover, by Lemma~\ref{lem:pers_nerve_filt}, the following diagrams commute for all $\alpha\leq\beta$.
   \[\begin{tikzcd}
       \N\cU_\alpha \arrow{r}\arrow{d} &
@@ -138,8 +183,9 @@ Because two isomorphic persistence modules are $0$-interleaved we have the follo
       Y_\beta
     \end{tikzcd}\]
   where the horizontal maps are canonical inclusions and vertical maps are homotopy equivalences.
-  Letting $\N\U_\F$, $\X_\F$ and $\N\V_\A$, $\Y_\A$ denote the $k$th persistent homology modules of $\N\cU_\F$, $\F$ and $\N\cV_\A$, $\A$, respectively, the homotopy equivalences induce isomorphisms on homology for all $\alpha\in\R$, which constitute the following isomorphisms of persistence modules
-  \[ \N_\F\in\Hom(\N\U_\F, \X_\F),\text{ and } \N_\A\in\Hom(\N\V_\A,\Y_\A).\]
+  Letting $\N\U_\F$, $\X_\F$ and $\N\V_\A$, $\Y_\A$ denote the $k$th persistent homology modules of $\N\cU_\F$, $\F$ and $\N\cV_\A$, $\A$, respectively, the homotopy equivalences induce isomorphisms on homology for all $\alpha\in\R$, which constitute isomorphisms of persistence modules.
+  % the following isomorphisms of persistence modules
+  % \[ \N_\F\in\Hom(\N\U_\F, \X_\F),\text{ and } \N_\A\in\Hom(\N\V_\A,\Y_\A).\]
   % \[ \N_\F := \{n_{\cU_\alpha} : \hom_k(\N\cU_\alpha)\to \hom_k(F_\alpha)\}\in\Hom(\N\U_\F, \X_\F),\text{ and }\]
   % \[ \N_\A : = \{n_{\cV_\alpha} : \hom_k(\N\cV_\alpha)\to \hom_k(A_\alpha)\}\in\Hom(\N\V_\A,\Y_\A).\]
   The result therefore follows from Corollary~\ref{cor:rel_interleave_iso}.
@@ -164,3 +210,27 @@ Because two isomorphic persistence modules are $0$-interleaved we have the follo
 %     Given a sequence $A\to B\to C\to D\to E\to F$ of homomorphisms between finite-dimensional vector spaces, if $\rk(A\to F) = \rk(C\to D)$ then this quantity also equals the rank of $B\to E$.
 %     Similarly, if $A\to B\to C\to E\to F$ is a sequence of homomorphisms such that $\rk(A\to F) = \dim~C$ then $\rk(B\to E) = \dim~C$.
 % \end{lemma}
+
+\subsection{What we need from $D$ and $\X$}
+
+Let $\X$ be a compact Riemannian $d$-manifold, possibly with boundary, such that there exists a triangulation $\Delta \X$ of $\X$ that is a combinatorial $d$-manifold.
+Let $D$ be a compact subset of $\X$ and let $\dist(x, y) = \|x - y\|$ denote the distance between points $x,y\in D$ as a subspace of $\X$.
+For $A\subset D$ and $x\in D$ let
+\[\dist_A(x) = \min_{a\in A}\dist(x, a)\]
+denote the distance from $x$ to the set $A$.
+We will use open metric balls restricted to $D$ with the subspace topology
+\[\ball_D^\e(x) = \{y\in D\mid \dist(x, y) < \e\}\]
+and offsets
+\[A^\e = \{x\in D\mid \dist_A(x) < \e\}.\]
+
+A ball $\ball_D^\e(x)$ is said to be \textbf{strongly convex} if for each pair of points $y,z$ in the closure of $\ball_D^\e(x)$ there exists a unique shortest path in $D$ between $y$ and $z$, and the interior of this path is included in $\ball_D^\e(x)$.
+Let $\varrho_D(x)$ be the supremum of the radii such that $\ball_D^\e(x)$ is strongly convex.
+The \textbf{strong convexity radius} of $D$ is defined
+\[ \varrho_D := \inf_{x\in D} \varrho_D(x).\]
+Note that this value is positive for compact $D$.
+
+We will require that, for some $\zeta > 0$, $D$ is a compact subspace of $\X$ with strong convexity radius $\varrho_D > 2\zeta$ such that for any finite point set $P\subset D$ and $\e \leq 2\zeta$ there exists a triangulation $\Delta S^\e$ of $P^\e$ that is a subcomplex of some refinement of $\Delta \X$.
+
+\begin{lemma}
+  
+\end{lemma}
