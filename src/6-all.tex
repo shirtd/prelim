@@ -10,13 +10,13 @@ Unlike the persistent homology of the restriction $f\rest_{D\setminus B_\omega}$
 For lack of a better analogy, this has the effect of ``quarantining'' the persistent homology of the function below $\omega$.
 Our hypothesis is that, given the persistent homology of the function up to $\omega$, one can recover the full diagram by pairing specific infinite $(k-1)$-dimensional features of $f\rest_{B_\omega}$ with specific infinite $k$-dimensional features of $f\rest_{D\setminus B_\omega}$ modulo $B_\omega$ via the long exact sequence(s) of pairs $(D\subi{\omega,\alpha}, B_\omega)$.
 
-\subsubsection{Interval Modules}
+\subsubsection{Restricted Interval Modules}
 
 For an interval $I = [s,t)\subseteq \R$ let $I_+ := [t,\infty)$ and $I_- := (-\infty, s]$.
-For $\alpha\leq\beta\in\R$ let
-\[ F_\alpha^I := \begin{cases} \FF&\text{ if } \alpha\in I\\ 0 &\text{otherwise,}\end{cases}\ \text{ and }\ \ f_{\alpha,\beta}^I := \begin{cases} \id_\FF&\text{ if } \alpha,\beta\in I\\ 0&\text{otherwise.}\end{cases}.\]
-An \textbf{interval module} is a persistence module $\FF^I$ defined to be the family of vector spaces $\{F_\alpha^I\}_{\alpha\in\R}$ along with linear maps $\{f_{\alpha,\beta}^I : F_\alpha^I\to F_\beta^I\}_{\alpha\leq\beta}$.
-
+% For $\alpha\leq\beta\in\R$ let
+% \[ F_\alpha^I := \begin{cases} \FF&\text{ if } \alpha\in I\\ 0 &\text{otherwise,}\end{cases}\ \text{ and }\ \ f_{\alpha,\beta}^I := \begin{cases} \id_\FF&\text{ if } \alpha,\beta\in I\\ 0&\text{otherwise.}\end{cases}.\]
+% An \textbf{interval module} is a persistence module $\FF^I$ defined to be the family of vector spaces $\{F_\alpha^I\}_{\alpha\in\R}$ along with linear maps $\{f_{\alpha,\beta}^I : F_\alpha^I\to F_\beta^I\}_{\alpha\leq\beta}$.
+%
 For $\omega\in\R$ let $\FF_\omega^I$ denote the interval module consisting of vector spaces $\{F_{\alpha\mid\omega}^I\}_{\alpha\in\R}$ and linear maps $\{f_{\alpha,\beta\mid \omega}^I : F_{\alpha\mid\omega}^I\to F_{\beta\mid\omega}^I\}_{\alpha\leq\beta}$ where
 \[ F_{\alpha\mid \omega}^I := \begin{cases} F_\alpha^I&\text{ if } \omega\in I_-\\ 0&\text{ otherwise,}\end{cases}\ \text{ and }\ \ f_{\alpha,\beta\mid\omega}^I := \begin{cases} f_{\alpha,\beta}^I&\text{ if } \omega\in I_-\\ 0&\text{ otherwise.}\end{cases}\]
 
@@ -64,25 +64,13 @@ Letting $\AA_\omega^k := \displaystyle\bigoplus_{I\in\I^k} \FF_\omega^I$ and $\B
 
 %$\hom_k(B_\alpha) = \displaystyle\bigoplus_{I\in \I^k}F_\alpha^I$
 
-
-\begin{theorem}
-  Let $\X$ be an orientable $d$-manifold and let $D$ be a compact subset of $\X$ with strong convexity radius $\varrho_D$.
-  Let $f : D\to\R$ be $c$-Lipschitz function and $B_w := f^{-1}((-\infty,w])$.
-  Let $\omega\in\R$, $2\delta\leq \zeta < \varrho_D/2$ be constants such that
-  \begin{enumerate}[label=\Roman*.]
-    \item $B_{\omega-c(\delta+\zeta)}$ surrounds $D$ in $\X$,
-    \item $\hom_k(B_{\omega-c(\delta+\zeta)}\hookrightarrow B_\omega)$ is surjective, and
-    \item $\hom_k(B_\omega)\cong\hom_k(B_{\omega+c(\delta+2\zeta)})$
-  \end{enumerate}
-  for all $k$.
+\begin{theorem}[Algorithmic TCC]\label{thm:algo_tcc}
+  Let $\X$ be an orientable $d$-manifold and let $D$ be a compact subset of $\X$ with strong convexity radius $\varrho_D > \delta$.
+  Let $f : D\to\R$ be $c$-Lipschitz function and let $\omega\in\R$ and $2\delta\leq\zeta < \varrho_D/2$ be constants such that $B_{\omega - c(\zeta +\delta)}$ surrounds $D$ in $\X$.
   Let $P$ be a finite subset of $D$ such that $P^\delta\subset \intr_\X(D)$ and $D\setminus S^\delta$ is locally path connected for all $S\subseteq P$.
-  Let $Q_w := Q\cap B_w$.
+  Suppose $\hom_k(B_{\omega-c(\delta+\zeta)}\hookrightarrow B_\omega)$ and $\hom_k(B_\omega)\cong\hom_k(B_{\omega+c(\delta+2\zeta)})$ for all $k$.
 
   If
   \[\rk~\hom_d(\rips^\delta(P, Q_{\omega -c\zeta})\hookrightarrow \rips^{2\delta}(P, Q_{\omega+c\delta})) \geq \dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-c\zeta}))\]
-  then the $k$th persistent (relative) homology module of
-  \[
-    \{(\rips^{2\delta}(P\subi{\omega-c\zeta,\alpha},Q_{\omega-c\zeta})) \hookrightarrow
-      (\rips^{2\zeta}(P\subi{\omega+c\delta,\alpha}, Q_{\omega+c\delta}))\}
-  \] is $2c\zeta$ interleaved with $\DD{\omega}^k \cong \AA_\omega^k\oplus \BB_\omega^{k-1}$.
+  then the image module $\im~(\RPP{\omega-c\zeta}{2\delta}\to \RPP{\omega+c\delta}{2\zeta})$ (in dimension $k$) is $2c\zeta$-interleaved with $\DD{\omega}^k \cong \AA_\omega^k\oplus \BB_\omega^{k-1}$.
 \end{theorem}

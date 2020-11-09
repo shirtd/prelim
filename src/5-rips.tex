@@ -1,185 +1,343 @@
 % !TeX root = ../main.tex
 
-For $w\in\R$ and $k\in\Z$ let
-\[ \DD{w} := \left(\left\{\D{w}{\alpha} := \hom_k(D\subi{w,\alpha},B_w)\right\}_{\alpha\in\R},\left\{d_w[\alpha,\beta] : \D{w}{\alpha}\to\D{w}{\beta}\right\}_{\alpha\leq\beta}\right)\]
-denote the $k$th persistent homology module of $\{(D\subi{w,\alpha},B_w)\}$.
-
 For $w\in\R$, $\e > 0$ and $k\in\Z$ let
 \[\PP{w}{\e} := \left(\left\{\P{w}{\e}{\alpha} := \hom_k(P\subi{w,\alpha}^\e,Q_w^\e)\right\}_{\alpha\in\R}, \left\{p_w^\e[\alpha,\beta] : \P{w}{\e}{\alpha}\to\P{w}{\e}{\beta}\right\}_{\alpha\leq\beta}\right)\]
 denote the $k$th persistent homology module of $\{(P\subi{w,\alpha}^\e,Q_w^\e)\}$.
-
-For any $w\in\R$ and $\e > 0$ suppose $B_{w-3c\e}$ surrounds $D$ in $\X$, $D\setminus B_w \subseteq P^\e$, and $Q_w^\e$ surrounds $P^\e$ in $D$.
-We can define a filtration of extensions $\{(\ext{P\subi{w,\alpha}^\e},\ext{Q_w^\e})\}$ and let $\ext{\PP{w}{\e}}$ denote its $k$th persistent homology module.
+If $Q_w^\e$ surrounds $P^\e$ in $D$ we can define a filtration of extensions $\{(\ext{P\subi{w,\alpha}^\e},\ext{Q_w^\e})\}$ and let $\ext{\PP{w}{\e}}$ denote its $k$th persistent homology module.
 Let
 $\E_w^\e \in \Hom(\PP{w}{\e},\ext{\PP{w}{\e}})$
-denote the isomorphism of persistence modules defined to be the family of isomorphisms
-\[ \{\E_w^\e[\alpha] : \P{w}{\e}{\alpha}\to \ext{\P{w}{\e}{\alpha}}\}\]
-provided by from Lemma~\ref{lem:extension_apply}.
-By Lemma~\ref{lem:p_interleave} we have the following sequence of maps induced by inclusion for all $\alpha$
-\[ \D{w-c\e}{\alpha-c\e}\to \P{w}{\e}{\alpha}\to \D{w+c\e}{\alpha+c\e}.\]
+denote the isomorphism of persistence modules defined to be the family of isomorphisms $\{\E_w^\e[\alpha] : \P{w}{\e}{\alpha}\to \ext{\P{w}{\e}{\alpha}}\}$ provided by from Lemma~\ref{lem:extension_apply}.
+% By Lemma~\ref{lem:p_interleave} we have the following sequence of maps induced by inclusion for all $\alpha$
+% \[ \D{w-c\e}{\alpha-c\e}\to \P{w}{\e}{\alpha}\to \D{w+c\e}{\alpha+c\e}.\]
 
-Let $\N_w^\e\in\Hom(\CPP{w}{\e}, \PP{w}{\e})$
-denote the isomorphism provided by the Nerve Theorem where
-\[\CPP{w}{\e} := \left(\left\{\CP{w}{\e}{\alpha} := \hom_k(\cech^\e(P\subi{w,\alpha}),\cech^\e(Q_w))\right\}_{\alpha\in\R}, \left\{\cech p_w^\e[\alpha,\beta] : \CP{w}{\e}{\alpha}\to\CP{w}{\e}{\beta}\right\}_{\alpha\leq\beta}\right),\]
-denotes the $k$th persistent homology module of the \Cech filtration.
-So $\E\N_w^\e := \E_w^\e\circ \N_w^\e)\in\Hom(\CPP{w}{\e}, \ext{\PP{w}{\e}})$ is an isomorphism for all $w\in\R$ and $\e > 0$.
+Let
+\[\CPP{w}{\e} := \left(\left\{\CP{w}{\e}{\alpha} := \hom_k(\cech^\e(P\subi{w,\alpha}, Q_w))\right\}_{\alpha\in\R}, \left\{\cech p_w^\e[\alpha,\beta] : \CP{w}{\e}{\alpha}\to\CP{w}{\e}{\beta}\right\}_{\alpha\leq\beta}\right),\]
+denote the $k$th persistent homology module of the \Cech filtration $\{\cech^\e(P\subi{\omega,\alpha}, Q_w)\}$.
+For $\varrho_D > \e$ the isomorphisms $\N_w^\e\in\Hom(\CPP{w}{\e}, \PP{w}{\e})$ provided by Lemma~\ref{lem:rel_pers_nerve} commute with maps induced by inclusion.
+% denote the isomorphism provided by the Nerve Theorem where
+% So $\E\N_w^\e := \E_w^\e\circ \N_w^\e)\in\Hom(\CPP{w}{\e}, \ext{\PP{w}{\e}})$ is an isomorphism for all $w\in\R$ and $\e > 0$.
 
-\begin{lemma}\label{lem:excisive_nerve}
-  For all $w\leq z$, $\e\leq\eta$, and $\alpha\leq\beta$ the following diagram commutes
-  \begin{equation}\begin{tikzcd}
-    \CP{w}{\e}{\alpha}\arrow{r}\arrow{d}{\E\N_w^\e[\alpha]} &
-    \CP{z}{\eta}{\beta}\arrow{d}{\E\N_{z}^{e'}[\beta]}\\
-    %
-    \P{w}{\e}{\alpha}\arrow{r} &
-    \P{z}{\eta}{\beta}
-  \end{tikzcd}\end{equation}
-  where the horizontal arrows are induced by inclusion and vertical arrows are isomorphisms.
+% \begin{lemma}\label{lem:excisive_nerve}
+%   For all $w\leq z$, $\e\leq\eta$, and $\alpha\leq\beta$ the following diagram commutes
+%   \begin{equation}\begin{tikzcd}
+%     \CP{w}{\e}{\alpha}\arrow{r}\arrow{d}{\E\N_w^\e[\alpha]} &
+%     \CP{z}{\eta}{\beta}\arrow{d}{\E\N_{z}^{e'}[\beta]}\\
+%     %
+%     \P{w}{\e}{\alpha}\arrow{r} &
+%     \P{z}{\eta}{\beta}
+%   \end{tikzcd}\end{equation}
+%   where the horizontal arrows are induced by inclusion and vertical arrows are isomorphisms.
+% \end{lemma}
+%
+% \begin{corollary}\label{cor:excisive_nerve}
+%  For any $w\leq z$, $\e\leq\eta$ let $\Lambda\in\Hom(\E\PP{w}{\e},\E\PP{z}{\eta})$ and $\cech\Lambda(\CPP{w}{\e},\CPP{z}{\eta})$ be induced by inclusions.
+%  Then
+%  \[\Lambda = \E\N_{z}^{\eta}\circ \cech\Lambda\circ (\E\N_w^\e)^{-1}\text{ and }\ \cech\Lambda = (\E\N_{z}^{\eta})^{-1}\circ \Lambda\circ \E\N_w^\e.\]
+% \end{corollary}
+
+\begin{lemma}\label{cor:excisive_nerve}
+  For any $w\leq z$, $\e\leq \eta < \varrho_D$ let $\Lambda\in\Hom(\E\PP{w}{\e},\E\PP{z}{\eta})$ and $\cech\Lambda\in\Hom(\CPP{w}{\e},\CPP{z}{\eta})$ be induced by inclusions.
+  Then $\E\N_w^\e$ and $\E\N_z^\eta$ are isomorphisms such that $\Lambda = \E\N_{z}^{\eta}\circ \cech\Lambda\circ (\E\N_w^\e)^{-1}$ and $\cech\Lambda = (\E\N_{z}^{\eta})^{-1}\circ \Lambda\circ \E\N_w^\e.$
 \end{lemma}
 
-\begin{corollary}\label{cor:excisive_nerve}
- For any $w\leq z$, $\e\leq\eta$ let $\Lambda\in\Hom(\E\PP{w}{\e},\E\PP{z}{\eta})$ and $\cech\Lambda(\CPP{w}{\e},\CPP{z}{\eta})$ be induced by inclusions.
- Then
- \[\Lambda = \E\N_{z}^{\eta}\circ \cech\Lambda\circ (\E\N_w^\e)^{-1}\text{ and }\ \cech\Lambda = (\E\N_{z}^{\eta})^{-1}\circ \Lambda\circ \E\N_w^\e.\]
-\end{corollary}
+For any $w\in\R$ and $\e\geq 0$ let the $k$th persistent homology module of the Rips filtration $\{\rips^\e(P\subi{w,\alpha}, Q_w)\}$ be denoted
+\[\RPP{w}{\e} := \left(\left\{\RP{w}{\e}{\alpha} := \hom_k(\rips^\e(P\subi{w,\alpha}, Q_w))\right\}_{\alpha\in\R}, \left\{\rips p_w^\e[\alpha,\beta] : \RP{w}{\e}{\alpha}\to\RP{w}{\e}{\beta}\right\}_{\alpha\leq\beta}\right).\]
+Let $\I_w^\e\in\Hom(\CPP{w}{\e}, \RPP{w}{2\e})$ and $\J_w^\e\in\Hom(\RPP{w}{\e},\CPP{w}{\e})$ be induced by inclusions.
+ % defined by the following maps induced by inclusion
+% \[ \CP{w}{\e}{\alpha}\xrightarrow{\I_w^\e[\alpha]} \RP{w}{2\e}{\alpha}\xrightarrow{\J_w^{2\e}[\alpha]}\CP{w}{2\e}{\alpha}\]
+% for $\alpha\in\R$.
 
-For any $w\in\R$ and $\e\geq 0$ let the $k$th persistent homology module of the Rips filtration be denoted
-\[\RPP{w}{\e} := \left(\left\{\RP{w}{\e}{\alpha} := \hom_k(\rips^\e(P\subi{w,\alpha}),\rips^\e(Q_w))\right\}_{\alpha\in\R}, \left\{\rips p_w^\e[\alpha,\beta] : \RP{w}{\e}{\alpha}\to\RP{w}{\e}{\beta}\right\}_{\alpha\leq\beta}\right).\]
-Let $\I_w^\e\in\Hom(\CPP{w}{\e}, \RPP{w}{2\e})$ and $\J_w^\e\in\Hom(\RPP{w}{\e},\CPP{w}{\e})$ be defined by the following maps induced by inclusion
-\[ \CP{w}{\e}{\alpha}\xrightarrow{\I_w^\e[\alpha]} \RP{w}{2\e}{\alpha}\xrightarrow{\J_w^{2\e}[\alpha]}\CP{w}{2\e}{\alpha}\]
-for $\alpha\in\R$.
+\subsubsection{Rips-Cover Interleaving}
+
+% In the following let $\Lambda\in\Hom(\ext{\PP{w}{\e}}, \ext{\PP{w}{2\e}})$, $\cech\Lambda\in\Hom(\CPP{w}{\e},\CPP{w}{2\e})$, and $\rips\Lambda\in\Hom(\RPP{w}{\e},\CPP{w}{2\e})$ be induced by inclusions for all $w\in\R$, $\e > 0$.
+For any $w\in\R$ and $\e < \varrho_D$ let
+\[\Sigma_w^\e := \I_w^\e\circ (\E\N_w^\e)^{-1}\]
+and
+\[\Upsilon_w^\e := \E\N_w^{2\e}\circ \J_w^{\e}.\]
+
+\begin{lemma}\label{lem:rips_homomorphism_left}
+  For any $w\leq z$, $\e\leq\eta < \varrho_D$ let $\Lambda\in\Hom(\ext{\PP{w}{\e}}, \ext{\PP{w}{2\e}})$ and $\rips\Lambda\in\Hom(\RPP{w}{\e},\CPP{w}{2\e})$ be induced by inclusions.
+  Then $\tilde{\Phi}(\Sigma_w^\e,\Sigma_z^\eta)$ is an image module homomorphism.
+\end{lemma}
+\begin{proof}
+  By Lemma~\ref{cor:excisive_nerve} we have $\cech\Lambda\circ (\E\N_w^\e)^{-1} = (\E\N_z^\eta)^{-1}\circ \Lambda$ for $\cech\Lambda\in\Hom(\CPP{w}{\e},\CPP{z}{\eta})$ induced by inclusions.
+  As $\rips\Lambda\circ\I_w^\e = \I_z^\eta\circ\cech\Lambda$
+  \[ \rips\Lambda\circ \I_w^\e\circ(\E\N_w^\e)^{-1} = \I_z^\eta\circ\cech\Lambda\circ (\E\N_w^\e)^{-1} = \I_z^\eta\circ (\E\N_z^\eta)^{-1}\circ\Lambda.\]
+  It follows that $\rips\Lambda\circ\Sigma_w^\e = \Sigma_z^\eta\circ\Lambda$ by the definition of $\Sigma$.
+  So Diagram~\ref{dgm:image_homomorphism} commutes and we may therefore conclude that $\tilde{\Phi}(\Sigma_w^\e,\Sigma_z^\eta)$ is an image module homomorphism.
+\end{proof}
+
+\begin{lemma}\label{lem:rips_homomorphism_right}
+  For any $w\leq z$, $\e\leq\eta$ let $\rips\Lambda\in\Hom(\RPP{w}{\e},\RPP{w}{\eta})$ and $\Lambda'\in\Hom(\ext{\PP{w}{2\e}},\ext{\PP{z}{2\eta}})$ be induced by inclusions.
+  Then $\tilde{\Psi}(\Upsilon_w^{2\e},\Upsilon_z^{2\eta})$ is an image module homomorphism.
+\end{lemma}
+\begin{proof}
+  The proof is similar to Lemma~\ref{lem:rips_homomorphism_left}.
+  By Lemma~\ref{cor:excisive_nerve} we have $\E\N_z^{2\eta} \circ\cech\Lambda'  = \cech \Lambda\circ \E\N_w^{2\e}$ for $\cech\Lambda'\in\Hom(\CPP{w}{2\e},\CPP{z}{2\eta})$ induced by inclusions.
+  As $\J_z^\eta\circ \rips\Lambda = \cech\Lambda'\circ\J_w^\e$
+  \[ \E\N_z^{2\eta}\circ \J_z^\eta\circ \rips\Lambda = \E\N_z^{2\eta}\circ\cech\Lambda'\circ\J_w^\e = \cech \Lambda\circ \E\N_w^{2\e}\circ\J_w^\e.\]
+  Once again, Diagram~\ref{dgm:image_homomorphism} commutes by the definition of $\Upsilon$, so $\tilde{\Psi}(\Upsilon_w^{2\e},\Upsilon_z^{2\eta})$ is an image module homomorphism.
+\end{proof}
 
 \begin{lemma}\label{lem:weak_rips_left}
   Let $\Lambda\in\Hom(\ext{\PP{w}{\e}}, \ext{\PP{w}{2\e}})$ be induced by inclusions.
-  Then there exists a weak interleaving
-  \[ (\Sigma_w^\e, \Upsilon_w^{2\e})\in \Hom(\ext{\PP{w}{\e}}, \RPP{w}{2\e})\times \Hom(\RPP{w}{2\e},\ext{\PP{w}{2\e}})\]
-  of $\Lambda$ with $\RPP{w}{2\e}$.
+  Then $(\Sigma_w^\e, \Upsilon_w^{2\e})$ factors $\Lambda$ through $\RPP{w}{2\e}$.
 \end{lemma}
 \begin{proof}
   Let $\cech\Lambda\in\Hom(\CPP{w}{\e},\CPP{w}{2\e})$ be induced by inclusion.
   Because $\I_w^\e$ and $\J_w^{2\e}$ are induced by inclusions $\cech\Lambda = \J_w^{2\e}\circ \I_w^\e$.
   Let
-  \[ \Sigma_w^\e := \I_w^\e\circ (\E\N_w^\e)^{-1}\text{and}\ \Upsilon_w^{2\e} := \E\N_w^{2\e}\circ \J_w^{2\e}.\]
-  By Corollary~\ref{cor:excisive_nerve} we have
-  \begin{align*}
-    \Lambda &= \E\N_w^{2\e}\circ \cech\Lambda\circ (\E\N_w^\e)^{-1}\\
-      &= (\E\N_w^{2\e}\circ \J_w^{2\e})\circ (\I_w^\e\circ (\E\N_w^\e)^{-1})\\
-      &= \Upsilon_w^{2\e}\circ \Sigma_w^\e
-  \end{align*}
-  so $(\Sigma_w^\e, \Upsilon_w^{2\e})$ is a weak interleaving of $\Lambda$ with $\RPP{w}{2\e}$.
+  % \[ \Sigma_w^\e := \I_w^\e\circ (\E\N_w^\e)^{-1}\text{and}\ \Upsilon_w^{2\e} := \E\N_w^{2\e}\circ \J_w^{2\e}.\]
+  Because $\I_w^\e$ and $\J_w^{2\e}$ are induced by inclusions $\Lambda = \E\N_w^{2\e}\circ (\J_w^{2\e})\circ \I_w^\e)\circ \E\N_w^\e)^{-1}$ by Lemma~\ref{cor:excisive_nerve}.
+  Therefore, by the definitions of $\Sigma_w^\e$ and $\Upsilon_w^{2\e}$, the pair $(\Sigma_w^\e, \Upsilon_w^{2\e})$ factors $\Lambda$ through $\RPP{w}{2\e}$.
 \end{proof}
 
-In the following let $(\Sigma_w^\e, \Upsilon_w^{2\e}) := (\E\N_w^\e)^{-1}, \E\N_w^{2\e}\circ \J_w^{2\e})$ denote the pair provided by Lemma~\ref{lem:weak_rips_left} for any $w\in\R$, $\e\geq 0$.
+% \begin{lemma}\label{lem:weak_rips_left}
+%   Let $\Lambda\in\Hom(\ext{\PP{w}{\e}}, \ext{\PP{w}{2\e}})$ be induced by inclusions.
+%   Then there exists a weak interleaving
+%   \[ (\Sigma_w^\e, \Upsilon_w^{2\e})\in \Hom(\ext{\PP{w}{\e}}, \RPP{w}{2\e})\times \Hom(\RPP{w}{2\e},\ext{\PP{w}{2\e}})\]
+%   of $\Lambda$ with $\RPP{w}{2\e}$.
+% \end{lemma}
+% \begin{proof}
+%   Let $\cech\Lambda\in\Hom(\CPP{w}{\e},\CPP{w}{2\e})$ be induced by inclusion.
+%   Because $\I_w^\e$ and $\J_w^{2\e}$ are induced by inclusions $\cech\Lambda = \J_w^{2\e}\circ \I_w^\e$.
+%   Let
+%   \[ \Sigma_w^\e := \I_w^\e\circ (\E\N_w^\e)^{-1}\text{and}\ \Upsilon_w^{2\e} := \E\N_w^{2\e}\circ \J_w^{2\e}.\]
+%   By Corollary~\ref{cor:excisive_nerve} we have
+%   \begin{align*}
+%     \Lambda &= \E\N_w^{2\e}\circ \cech\Lambda\circ (\E\N_w^\e)^{-1}\\
+%       &= (\E\N_w^{2\e}\circ \J_w^{2\e})\circ (\I_w^\e\circ (\E\N_w^\e)^{-1})\\
+%       &= \Upsilon_w^{2\e}\circ \Sigma_w^\e
+%   \end{align*}
+%   so $(\Sigma_w^\e, \Upsilon_w^{2\e})$ is a weak interleaving of $\Lambda$ with $\RPP{w}{2\e}$.
+% \end{proof}
 
-\begin{lemma}\label{lem:rips_homomorphisms}
-  For any $w\leq z$ and $\e\leq\eta$ let $\Lambda\in\Hom(\ext{\PP{w}{\e}}, \ext{\PP{z}{\eta}})$, $\Lambda'\in\Hom(\ext{\PP{w}{2\e}},\ext{\PP{z}{2\eta}})$, and $\rips\Lambda\in\Hom(\RPP{w}{\e},\RPP{w}{\eta})$ be induced by inclusions.
-  Then
-  \[ \tilde{\Phi}(\Sigma_w^\e,\Sigma_z^\eta)\in\Hom(\im~\Lambda,\im~\rips\Lambda)\]
-  and
-  \[ \tilde{\Psi}(\Upsilon_w^{2\e},\Upsilon_z^{2\eta})\in\Hom(\im~\rips\Lambda,\im~\Lambda')\]
-  are image module homomorphisms.
+% In the following let $(\Sigma_w^\e, \Upsilon_w^{2\e}) := (\E\N_w^\e)^{-1}, \E\N_w^{2\e}\circ \J_w^{2\e})$ denote the pair provided by Lemma~\ref{lem:weak_rips_left} for any $w\in\R$, $\e\geq 0$.
+
+% \begin{lemma}\label{lem:rips_homomorphisms}
+%   For any $w\leq z$ and $\e\leq\eta$ let $\Lambda\in\Hom(\ext{\PP{w}{\e}}, \ext{\PP{z}{\eta}})$, $\Lambda'\in\Hom(\ext{\PP{w}{2\e}},\ext{\PP{z}{2\eta}})$, and $\rips\Lambda\in\Hom(\RPP{w}{\e},\RPP{w}{\eta})$ be induced by inclusions.
+%   Then
+%   \[ \tilde{\Phi}(\Sigma_w^\e,\Sigma_z^\eta)\in\Hom(\im~\Lambda,\im~\rips\Lambda)\]
+%   and
+%   \[ \tilde{\Psi}(\Upsilon_w^{2\e},\Upsilon_z^{2\eta})\in\Hom(\im~\rips\Lambda,\im~\Lambda')\]
+%   are image module homomorphisms.
+% \end{lemma}
+% \begin{proof}
+%   Because $\I_w^\e$, $\I_z^\eta$, and $\rips\Lambda$ are induced by inclusions, and letting $\cech\Lambda\in\Hom(\CPP{w}{\e},\CPP{z}{\eta})$ be induced by inclusion,
+%   \[ \rips\Lambda\circ\I_w^\e = \I_z^\eta\circ\cech\Lambda.\]
+%   Moreover, because $\cech\Lambda$ is induced by inclusions
+%   \[\cech\Lambda\circ(\E\N_w^\e)^{-1} = (\E\N_z^\eta)^{-1}\circ\Lambda\]
+%   by Lemma~\ref{lem:excisive_nerve}.
+%   We therefore have the following for all $\alpha\leq\beta$ by the definition of $\Sigma_w^\e$.
+%   \begin{align*}
+%     \rips\lambda[\alpha;\beta-\alpha]\circ\sigma_w^\e[\alpha] &= (\rips\lambda[\alpha;\beta-\alpha]\circ\I_w^\e[\alpha])\circ (\E\N_w^\e)^{-1}[\alpha]\\
+%       &= \I_z^\eta[\beta]\circ(\cech\lambda[\alpha;\beta-\alpha]\circ (\E\N_w^\e)^{-1}[\alpha])\\
+%       &= \I_z^\eta[\beta]\circ (\E\N_z^\eta)^{-1}[\beta]\circ\lambda[\alpha;\beta-\alpha]\\
+%       &= \sigma_z^\eta[\beta]\circ\lambda[\alpha;\beta-\alpha]
+%   \end{align*}
+%   so Diagram~\ref{dgm:image_homomorphism} commutes, and we may therefore conclude that $\tilde{\Phi}(\Sigma_w^\e,\Sigma_z^\eta)$ is an image module homomorphism.
+%
+%   Because $\Lambda'$ is induced by inclusions and letting $\cech\Lambda'\in\Hom(\CPP{w}{2\e},\CPP{w}{2\eta})$ be induced by inclusions
+%   \[\Lambda'\circ\E\N_w^{2\e} = \E\N_z^{2\eta}\circ \cech\Lambda'\]
+%   by Lemma~\ref{lem:excisive_nerve}.
+%   Because $\rips\Lambda$, $\J_w^\e$ and $\J_z^\eta$ are induced by inclusions
+%   \[ \cech\Lambda'\circ \J_w^{2\e} = \J_z^{2\eta}\circ\rips\Lambda.\]
+%   We therefore have the following for all $\alpha\leq\beta$ by the definition of $\Upsilon_w^\e$.
+%   \begin{align*}
+%     \lambda'[\alpha;\beta-\alpha]\circ \upsilon_w^{2\e}[\alpha] &= (\lambda'[\alpha;\beta-\alpha]\circ \E\N_w^{2\e}[\alpha])\circ \J_w^{2\e}[\alpha]\\
+%       &=\E\N_z^{2\eta}[\beta]\circ(\cech\lambda'[\alpha;\beta-\alpha]\circ\J_w^{2\e}[\alpha])\\
+%       &=(\E\N_z^{2\eta}[\beta]\circ\J_z^{2\e}[\beta])\circ\rips\lambda[\alpha;\beta-\alpha]\\
+%       &=\upsilon_z^{2\eta}[\beta]\circ\rips\lambda[\alpha;\beta-\alpha]
+%   \end{align*}
+%   so Diagram~\ref{dgm:image_homomorphism} commutes, and we may therefore conclude that $\tilde{\Psi}(\Upsilon_w^{2\e},\Upsilon_z^{2\eta})$ is an image module homomorphism.
+% \end{proof}
+
+\subsubsection{Rips-Function Interleaving}
+
+For $w\in\R$ and $k\in\Z$ let
+\[ \DD{w} := \left(\left\{\D{w}{\alpha} := \hom_k(D\subi{w,\alpha},B_w)\right\}_{\alpha\in\R},\left\{d_w[\alpha,\beta] : \D{w}{\alpha}\to\D{w}{\beta}\right\}_{\alpha\leq\beta}\right)\]
+denote the $k$th persistent homology module of the sub-levelset filtration modulo $B_w$, $\{(D\subi{w,\alpha},B_w)\}$.
+
+Let $\zeta\geq 2\delta$ and suppose $Q_{\omega-c\zeta}$ surrounds $P^\delta$ in $D$ and $D\setminus B_\omega\subseteq P^\delta$.
+Then, because $f$ is $c$-Lipschitz, $B_{\omega-c(\delta+\zeta)}\cap P^\delta\subseteq Q_{\omega-c\zeta}^\delta$ and $B_\omega\cap P^\delta\subseteq Q_{\omega+c\delta}^\zeta$.
+Similarly, $Q_{\omega-c\zeta}^{2\delta}\subseteq B_\omega$ and $Q_{\omega+c\delta}^{2\zeta}\subseteq B_{\omega+c{\delta+2\zeta}}$.
+Therefore, by Lemma~\ref{lem:surround_and_cover}
+\[ B_{\omega-c(\delta+\zeta)}\subseteq \E Q_{\omega-c\zeta}^\delta\subseteq\E Q_{\omega-c\zeta}^{2\delta}\subseteq B_\omega
+  \subseteq \E Q_{\omega+c\delta}^\zeta\subseteq \E Q_{\omega+c\delta}^{2\zeta}\subseteq B_{\omega+c{\delta+2\zeta}}.\]
+% and
+% \[ B_\omega\subseteq \E Q_{\omega+c\delta}^\zeta\subseteq \E Q_{\omega+c\delta}^{2\zeta}\subseteq B_{\omega+c{\delta+2\zeta}}.\]
+So we have the following commutative diagrams of persistence modules where all maps are induced by inclusions.
+\[\begin{tikzcd}
+    \DD{\omega-c(\delta+\zeta)} \arrow{r}{\Gamma}\arrow{d}{F} &
+    \DD{\omega} \arrow{d}{G}\\
+    %
+    \E\PP{\omega-c\zeta}{\delta}\arrow{r}{\Lambda} &
+    \E\PP{\omega+c\delta}{\zeta}
+  \end{tikzcd}\hspace{10ex}
+  \begin{tikzcd}
+    \E\PP{\omega-c\zeta}{2\delta} \arrow{r}{\Lambda'}\arrow{d}{M} &
+    \E\PP{\omega+c\delta}{2\zeta}\arrow{d}{N}\\
+    %
+    \DD{\omega} \arrow{r}{\Pi} &
+    \DD{\omega+c{\delta+2c\zeta}}.
+  \end{tikzcd}\]
+
+Clearly, $\Phi(F, G)$ is an image module homomorphism of degree $c\zeta$ and $\Psi(M, N)$ is an image module homomorphism of degree $2c\zeta$.
+% Having defined image module homomorphisms $\tilde{\Phi}(\Sigma_{\omega-c\zeta}^\delta,\Sigma_{\omega+c\delta}^\zeta)$ and $\tilde{\Psi}(\Upsilon_{\omega-c\zeta}^{2\delta},\Upsilon_{\omega+c\delta}^{2\zeta})$ let $\tilde{\Phi}\circ\Phi$ and $\Psi\circ\tilde{\Psi}$ denote the composition of pairs $(\Sigma_{\omega-c\zeta}^\delta\circ F,\Sigma_{\omega+c\delta}^\zeta\circ G)$ and $(M\circ \Upsilon_{\omega-c\zeta}^{2\delta},N\circ\Upsilon_{\omega+c\delta}^{2\zeta})$, respectively.
+
+In the following let $\rips\Lambda\in\Hom(\RPP{\omega-c\zeta}{2\delta},\RPP{\omega+c\delta}{2\zeta})$ be induced by inclusion.
+By Lemmas~\ref{lem:rips_homomorphism_left} and~\ref{lem:rips_homomorphism_right} we have image module homomorphisms $\tilde{\Phi}(\Sigma_{\omega-c\zeta}^\delta, \Sigma_{\omega+c\delta}^\zeta)\in\Hom(\im~\Lambda, \im~\rips\Lambda)$ and $\tilde{\Psi}(\Upsilon_{\omega-c\zeta}^{2\delta}, \Upsilon_{\omega+c\delta}^{2\zeta})\in\Hom(\im~\rips\Lambda,\im~\Lambda')$.
+Therefore, by Lemma~\ref{lem:image_composition} we have image module homomorphisms $\rips\Phi := \tilde{\Phi}\circ\Phi\in\Hom^{c\zeta}(\im~\Gamma,\im~\rips\Lambda)$ and $\rips\Psi :=\Psi\circ\tilde{\Psi}\in\Hom^{2c\zeta}(\im~\rips\Lambda, \im~\Pi)$ given by the compositions
+\[ \rips\Phi(\rips F, \rips G) := (\Sigma_{\omega-c\zeta}^\delta\circ F, \Sigma_{\omega+c\delta}^\zeta\circ G)\]
+and
+\[ \rips\Psi(\rips M, \rips N) := (M\circ \Upsilon_{\omega-c\zeta}^{2\delta}, N\circ\Upsilon_{\omega+c\delta}^{2\zeta}).\]
+
+\begin{lemma}\label{lem:rips_factor_mid}
+  The pair $(\rips M, \rips G)$ factors $\rips\Lambda[2c\delta+c\zeta]$ through $\DD{\omega}$.
 \end{lemma}
 \begin{proof}
-  Because $\I_w^\e$, $\I_z^\eta$, and $\rips\Lambda$ are induced by inclusions, and letting $\cech\Lambda\in\Hom(\CPP{w}{\e},\CPP{z}{\eta})$ be induced by inclusion,
-  \[ \rips\Lambda\circ\I_w^\e = \I_z^\eta\circ\cech\Lambda.\]
-  Moreover, because $\cech\Lambda$ is induced by inclusions
-  \[\cech\Lambda\circ(\E\N_w^\e)^{-1} = (\E\N_z^\eta)^{-1}\circ\Lambda\]
-  by Lemma~\ref{lem:excisive_nerve}.
-  We therefore have the following for all $\alpha\leq\beta$ by the definition of $\Sigma_w^\e$.
-  \begin{align*}
-    \rips\lambda[\alpha;\beta-\alpha]\circ\sigma_w^\e[\alpha] &= (\rips\lambda[\alpha;\beta-\alpha]\circ\I_w^\e[\alpha])\circ (\E\N_w^\e)^{-1}[\alpha]\\
-      &= \I_z^\eta[\beta]\circ(\cech\lambda[\alpha;\beta-\alpha]\circ (\E\N_w^\e)^{-1}[\alpha])\\
-      &= \I_z^\eta[\beta]\circ (\E\N_z^\eta)^{-1}[\beta]\circ\lambda[\alpha;\beta-\alpha]\\
-      &= \sigma_z^\eta[\beta]\circ\lambda[\alpha;\beta-\alpha]
-  \end{align*}
-  so Diagram~\ref{dgm:image_homomorphism} commutes, and we may therefore conclude that $\tilde{\Phi}(\Sigma_w^\e,\Sigma_z^\eta)$ is an image module homomorphism.
-
-  Because $\Lambda'$ is induced by inclusions and letting $\cech\Lambda'\in\Hom(\CPP{w}{2\e},\CPP{w}{2\eta})$ be induced by inclusions
-  \[\Lambda'\circ\E\N_w^{2\e} = \E\N_z^{2\eta}\circ \cech\Lambda'\]
-  by Lemma~\ref{lem:excisive_nerve}.
-  Because $\rips\Lambda$, $\J_w^\e$ and $\J_z^\eta$ are induced by inclusions
-  \[ \cech\Lambda'\circ \J_w^{2\e} = \J_z^{2\eta}\circ\rips\Lambda.\]
-  We therefore have the following for all $\alpha\leq\beta$ by the definition of $\Upsilon_w^\e$.
-  \begin{align*}
-    \lambda'[\alpha;\beta-\alpha]\circ \upsilon_w^{2\e}[\alpha] &= (\lambda'[\alpha;\beta-\alpha]\circ \E\N_w^{2\e}[\alpha])\circ \J_w^{2\e}[\alpha]\\
-      &=\E\N_z^{2\eta}[\beta]\circ(\cech\lambda'[\alpha;\beta-\alpha]\circ\J_w^{2\e}[\alpha])\\
-      &=(\E\N_z^{2\eta}[\beta]\circ\J_z^{2\e}[\beta])\circ\rips\lambda[\alpha;\beta-\alpha]\\
-      &=\upsilon_z^{2\eta}[\beta]\circ\rips\lambda[\alpha;\beta-\alpha]
-  \end{align*}
-  so Diagram~\ref{dgm:image_homomorphism} commutes, and we may therefore conclude that $\tilde{\Psi}(\Upsilon_w^{2\e},\Upsilon_z^{2\eta})$ is an image module homomorphism.
-\end{proof}
-
-\begin{theorem}
-  Let $D\subset\X$ and $f : D\to\R$ be a $c$-Lipschitz function.
-  Let $\omega\in\R$, $\zeta\geq 2\delta\geq 0$ be constants such that
-  \begin{enumerate}[label=\Roman*.]
-    \item $B_{\omega-c(\delta+\zeta)}$ surrounds $D$ in $\X$,
-    \item $\hom_k(B_{\omega-c(\delta+\zeta)}\hookrightarrow B_\omega)$ is surjective, and
-    \item $\hom_k(B_\omega)\cong\hom_k(B_{\omega+c(\delta+2\zeta)})$
-  \end{enumerate}
-  for all $k$.
-  Let $P\subset D$ be a finite subset and $Q_w := P\cap B_w$.
-
-  If $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ in $D$ then the $k$th persistent homology modules of $\{(D\subi{\omega,\alpha}, B_\omega)\}$ and
-  \[
-    \{(\rips^{2\delta}(P\subi{\omega-c\zeta,\alpha}), \rips^{2\delta}(Q_{\omega-c\zeta})) \hookrightarrow
-      (\rips^{2\zeta}(P\subi{\omega+c\delta,\alpha}), \rips^{2\zeta}(Q_{\omega+c\delta}))\}
-  \]
-  are $2c\zeta$-interleaved.
-\end{theorem}
-\begin{proof}
-  By Lemma~\ref{lem:surround_and_cover} and Lemma~\ref{lem:p_interleave}
-  \[ (D\subi{\omega-c(\delta+\zeta),\alpha-c\delta},\b)\subseteq (\ext{P^\e\subi{\omega-c\zeta,\alpha}},\ext{\Q^\e})\subseteq (D\subi{\omega,\alpha+c\e},\B)\]
-  and
-  \[ (D\subi{\omega,\alpha-c\delta},\B)\subseteq (\ext{P^\e\subi{\omega+c\delta,\alpha}},\ext{\QQ^\e})\subseteq (D\subi{\omega+c(\delta+\zeta),\alpha+c\e},\BB)\]
-  for all $\alpha\in\R$ and $\delta\leq\e\leq\zeta$.
-
-  Let $\Gamma\in\Hom(\DD{\omega-c(\delta+\zeta)},\DD{\omega})$ and $\Lambda\in\Hom(\ext{\PP{\omega-c\zeta}{\delta}},\ext{\PP{\omega+c\delta}{\zeta}})$.
-  As all maps are induced by inclusion we have $\Phi(F, G)\in\Hom^{c\zeta}(\im~\Gamma, \im~\Lambda).$
-  Similarly, for $\Pi\in\Hom(\DD{w},\DD{\omega+c(\delta+2\zeta)})$ and $\Lambda\in\Hom(\ext{\PP{\omega-c\zeta}{2\delta}},\ext{\PP{\omega+c\delta}{2\zeta}})$ we have $\Psi(M, N)\in\Hom^{2c\zeta}(\im~\Lambda',\im~\Pi).$
-
-  By Lemma~\ref{lem:rips_homomorphisms} we have
-  \[ \tilde{\Phi}(\Sigma_{\omega-c\zeta}^\delta,\Sigma_{\omega+c\delta}^\zeta)\in\Hom(\im~\Lambda,\im~\rips\Lambda)\]
-  and
-  \[ \tilde{\Psi}(\Upsilon_{\omega-c\zeta}^{2\delta},\Upsilon_{\omega+c\delta}^{2\zeta})\in\Hom(\im~\rips\Lambda,\im~\Lambda')\]
-  therefore, letting
-  \[ (\rips F, \rips G) := (\Sigma_{\omega-c\zeta}^\delta\circ F, \Sigma_{\omega+c\delta}^\zeta\circ G)\]
-  and
-  \[ (\rips F, \rips G) := (M\circ \Upsilon_{\omega-c\zeta}^{2\delta}, N\circ\Upsilon_{\omega+c\delta}^{2\zeta})\]
-  it follows from Lemma~\ref{lem:image_composition} that $\rips \Phi (\rips F, \rips G)\in\Hom^{c\zeta}(\im~\Gamma,\im~\rips\Lambda)$ is an image module homomorphism of degree $c\zeta$ and $\rips\Psi(\rips M, \rips N)\in\Hom^{2c\zeta}(\im~\rips\Lambda,\im~\Pi)$ is an image module homomorphism of degree $2c\zeta$.
-
-
-  Let $\mathcal{S}\in\Hom(\ext{\PP{\omega-c\zeta}{\delta}},\ext{\PP{\omega-c\zeta}{2\delta}})$, $\Theta\in\Hom(\ext{\PP{\omega-c\zeta}{2\delta}},\ext{\PP{\omega+c\delta}{\zeta}})$, and $\mathcal{T}\in\Hom(\ext{\PP{\omega+c\delta}{\zeta}},\ext{\PP{\omega+c\delta}{2\zeta}})$ be induced by inclusions so that $\Lambda = \Theta\circ \mathcal{S}$ and $\Lambda' = \Theta\circ \mathcal{T}$.
-
-  Because $\Gamma\in\Hom(\DD{\omega-c(\delta+\zeta)},\DD{\omega})$, $F\in\Hom^{c\delta}(\DD{\omega-c(\delta+\zeta)}, \ext{\PP{\omega-c\zeta}{\delta}})$, and $M\in\Hom^{2c\delta}(\ext{\PP{\omega-c\zeta}{2\delta}}, \DD{\omega})$ are induced by inclusions $\Gamma[3c\delta] = M\circ\mathcal{S}\circ F$.
-  So $(F, M)$ is a weak $2c\delta$-interleaving of $\Gamma[3c\delta]$ with $\mathcal{S}$.
-  By Lemma~\ref{lem:weak_rips_left} $(\Sigma_{\omega-c\zeta}^{\delta},\Upsilon_{\omega-c\zeta}^{2\delta})$ is a weak interleaving of $\mathcal{S}$ with $\RPP{\omega-c\zeta}{2\delta}$.
-  So $(\Sigma_{\omega-c\zeta}^{\delta}\circ F, M\circ \Upsilon_{\omega-c\zeta}^{2\delta}) = (\rips F, \rips M)$ is a weak $2c\delta$-interleaving of $\Gamma[3c\delta]$ with $\RPP{\omega-c\zeta}{2\delta}$ by Lemma~\ref{lem:left}.
-
-  Similarly, because $\Pi\in\Hom(\DD{\omega},\DD{\omega+c(\delta+2\zeta)})$, $G\in\Hom^{c\zeta}(\DD{\omega}, \ext{\PP{\omega+c\delta}{\zeta}})$, and $N\in\Hom^{2c\zeta}(\ext{\PP{\omega+c\delta}{2\zeta}})$ are induced by inclusion $\Pi[3c\zeta] = N\circ \mathcal{T}\circ G$, so $(G, N)$ is a weak $2c\zeta$-interleaving of $\Pi$ with $\mathcal{T}$.
-  Once again, by Lemma~\ref{lem:weak_rips_left}, $(\Sigma_{\omega+c\delta}^{\zeta},\Upsilon_{\omega+c\delta}^{2\zeta})$ is a weak $2c\zeta$-interleaving of $\mathcal{T}$ with $\RPP{\omega+c\delta}{2\zeta}$.
-  So $(\Sigma_{\omega+c\delta}^{\zeta}\circ G, N\circ \Upsilon_{\omega+c\delta}^{2\zeta}) = (\rips G, \rips N)$ is a weak $2c\zeta$-interleaving of $\Pi[3c\zeta]$ with $\RPP{\omega+c\delta}{2\zeta}$ by Lemma~\ref{lem:left}.
-
-  By Corollary~\ref{cor:excisive_nerve} we know that $\cech\Theta := (\E\N_{\omega+c\delta}^\zeta)^{-1}\circ \Theta\circ \E\N_{\omega-c\zeta}^{2\delta}$
-  where, because all maps are induced by inclusions,
+  Let $\Theta\in\Hom(\ext{\PP{\omega-c\zeta}{2\delta}},\ext{\PP{\omega+c\delta}{\zeta}})$ and $\cech\Theta\in\Hom(\CPP{\omega-c\zeta}{2\delta}, \CPP{\omega+c\delta}{\zeta})$ be induced by inclusions so that $\Theta[2c\delta+c\zeta] = G\circ M$ and $\rips\Lambda = \I_{\omega+c\delta}^\zeta\circ\cech\Theta\circ\J_{\omega-c\zeta}^{2\delta}$.
+  So $\cech\Theta$ factors through $\Theta$ with the pair $(\E\N_{\omega-c\zeta}^{2\delta}, (\E\N_{\omega+c\delta}^\zeta)^{-1})$ by Lemma~\ref{cor:excisive_nerve}.
+  That is,
   \begin{align*}
     \rips\Lambda &= \I_{\omega+c\delta}^\zeta\circ\cech\Theta\circ\J_{\omega-c\zeta}^{2\delta}\\
       &= (\I_{\omega+c\delta}^\zeta\circ (\E\N_{\omega+c\delta}^\zeta)^{-1})\circ \Theta\circ (\E\N_{\omega-c\zeta}^{2\delta}\circ \J_{\omega-c\zeta}^{2\delta})\\
       &= \Sigma_{\omega+c\delta}^\zeta\circ \Theta\circ \Upsilon_{\omega-c\zeta}^{2\delta}\\
   \end{align*}
-  Because $\Theta[2c\delta+c\zeta] = G\circ M$ the pair $(M, G)$ is a weak $c\zeta$-interleaving of $\Theta[2c\delta+c\zeta]$ with $\DD{\omega}$.
-  Therefore,
-  \begin{align*}
-    \rips\Lambda[2c\delta+c\zeta] &= \Sigma_{\omega+c\delta}^\zeta\circ \Theta[2c\delta+c\zeta]\circ \Upsilon_{\omega-c\zeta}^{2\delta}\\
-      &= (\Sigma_{\omega+c\delta}^\zeta\circ G)\circ (M\circ \Upsilon_{\omega-c\zeta}^{2\delta})\\
-      &= \rips G\circ \rips M.
-  \end{align*}
-  So $(\rips M, \rips G)$ is a weak $c\zeta$-interleaving of $\rips\Lambda$ with $\DD{\omega}$.
+  As $\Theta[2c\delta+c\zeta] = G\circ M$ the result follows from the definition
+  \[ \rips\Lambda[2c\delta+c\zeta] = (\Sigma_{\omega+c\delta}^\zeta\circ G)\circ (M\circ \Upsilon_{\omega-c\zeta}^{2\delta}) = \rips G\circ \rips M.\]
+\end{proof}
 
-  Because $(\rips F,\rips M)$ is a weak $2c\delta$-interleaving $\rips \Phi$ is a left $2c\delta$-interleaving of image modules.
-  Because $(\rips G, \rips N)$ is a weak $2c\zeta$-interleaving $\rips \Psi$ is a right $2c\zeta$-interleaving of image modules.
-  Finally, because $(\rips M, \rips G)$ is a weak $c\zeta$-interleaving $\rips \Phi$ is a right $c\zeta$-interleaving of image modules and $\rips \Psi$ is a left $c\zeta$-interleaving of image modules.
-  So $\rips \Phi_{\rips M}(\rips F, \rips G)$ is a partial $c\zeta$-interleaving of image modules and $\rips \Psi_{\rips G} (\rips M,\rips N)$ is a partial $2c\zeta$-interleaving of image modules.
+\begin{corollary}\label{cor:rips_inter_left}
+  $\rips \Phi_{\rips M} := \tilde{\Phi}\circ \Phi\in\Hom^{2c\delta}(\im~\Gamma,\im~\rips\Lambda)$ is a partial $c\zeta$-interleaving of image modules.
+\end{corollary}
+\begin{proof}
+  Because $F,M$ are induced by inclusions and $\Upsilon_{\omega-c\zeta}^{2\delta}\circ \Sigma_{\omega-c\zeta}^{\delta}$ commutes with inclusion it follows that
+  \[\Gamma[3c\delta] = M\circ (\Upsilon_{\omega-c\zeta}^{2\delta}\circ \Sigma_{\omega-c\zeta}^{\delta})\circ F = \rips M\circ \rips F.\]
+  So $\rips\Phi$ with $\rips M$ is a left $2c\delta$-interleaving of image modules.
+  As Lemma~\ref{lem:rips_factor_mid} implies $\rips \Phi$ (with $\rips M$) is a right $c\zeta$-interleaving of image modules it follows that $\rips \Phi_{\rips M}$ is a partial $c\zeta$-interleaving of image modules.
+\end{proof}
+
+\begin{corollary}\label{cor:rips_inter_right}
+  $\rips \Psi_{\rips G} := \Psi\circ\tilde{\Psi}\in\Hom^{2c\zeta}(\im~\rips\Lambda, \im~\Pi)$ is a right $2c\zeta$-interleaving of image modules.
+\end{corollary}
+\begin{proof}
+  This proof is identical to that of Corollary~\ref{cor:rips_inter_left}.
+  Because $G,N$ are induced by inclusions and $\Upsilon_{\omega+c\delta}^{2\zeta}\circ \Sigma_{\omega+c\delta}^{\zeta}$ commutes with inclusion
+  \[\Pi[3c\zeta] = N\circ (\Upsilon_{\omega+c\delta}^{2\zeta}\circ \Sigma_{\omega+c\delta}^{\zeta})\circ G = \rips N\circ \rips G.\]
+  So $\rips\Psi$ with $\rips G$ is a right $2c\zeta$-interleaving of image modules.
+  As Lemma~\ref{lem:rips_factor_mid} implies $\rips \Psi$ (with $\rips G$) is a left $c\zeta$-interleaving of image modules it follows that $\rips \Psi_{\rips G}$ is a partial $2c\zeta$-interleaving of image modules.
+\end{proof}
+% \begin{proof}
+%   Because $\Pi\in\Hom(\DD{\omega},\DD{\omega+c(\delta+2\zeta)})$, $G\in\Hom^{c\zeta}(\DD{\omega}, \ext{\PP{\omega+c\delta}{\zeta}})$, and $N\in\Hom^{2c\zeta}(\ext{\PP{\omega+c\delta}{2\zeta}})$ are induced by inclusion $\Pi[3c\zeta] = N\circ \mathcal{T}\circ G$, so $(G, N)$ is a weak $2c\zeta$-interleaving of $\Pi$ with $\mathcal{T}$.
+%   Once again, by Lemma~\ref{lem:weak_rips_left}, $(\Sigma_{\omega+c\delta}^{\zeta},\Upsilon_{\omega+c\delta}^{2\zeta})$ is a weak $2c\zeta$-interleaving of $\mathcal{T}$ with $\RPP{\omega+c\delta}{2\zeta}$.
+%   So $(\Sigma_{\omega+c\delta}^{\zeta}\circ G, N\circ \Upsilon_{\omega+c\delta}^{2\zeta}) = (\rips G, \rips N)$ is a weak $2c\zeta$-interleaving of $\Pi[3c\zeta]$ with $\RPP{\omega+c\delta}{2\zeta}$ by Lemma~\ref{lem:left}.
+% \end{proof}
+%
+% \begin{proof}
+%   Let $\mathcal{T}\in\Hom(\ext{\PP{\omega+c\delta}{\zeta}},\ext{\PP{\omega+c\delta}{2\zeta}})$ be induced by inclusions.
+%   Because $G,N$ are induced by inclusions it follows that $\Pi[3c\zeta] = N\circ\mathcal{T}\circ G$.
+%   So $(G, N)$ factors $\Gamma[3c\zeta]$ through $\mathcal{T}$.
+%   Moreover,
+%   \[ \mathcal{T} = (\E\N_{\omega+c\delta}^{2\zeta}\circ\J_{\omega+c\zeta}^{2\zeta})\circ(\I_{\omega+c\delta}^\zeta\circ (\E\N_{\omega+c\delta}^\zeta)^{-1}) = \Upsilon_{\omega+c\delta}^{2\zeta}\circ \Sigma_{\omega+c\delta}^\zeta\] by Lemma~\ref{cor:excisive_nerve}.
+%   It follows that the pair $(\rips G,\rips N) = (\Sigma_{\omega+c\delta}^\zeta\circ G, N\circ \Upsilon_{\omega+c\delta}^{2\zeta})$ factors $\Pi[3c\zeta]$ through $\RPP{\omega+c\delta}{2\zeta}$.
+%
+%   So $\rips\Psi$ with $\rips M$ is a left $2c\delta$-interleaving of image modules and.
+%   As Lemma~\ref{lem:rips_factor_mid} implies $\rips\Phi$ is a right $c\zeta$-interleaving of image modules it follows that $\rips\Phi_{\rips M}(\rips F, \rips G)$ is a partial $c\zeta$-interleaving of image modules.
+% \end{proof}
+
+\begin{theorem}
+  Let $D\subset\X$ and $f : D\to\R$ be a $c$-Lipschitz function.
+  Let $\omega\in\R$, $2\delta\leq\zeta\leq\varrho_D/2$ be constants such that $B_{\omega-c(\delta+\zeta)}$ surrounds $D$ in $\X$.
+  Let $P\subset D$ be a finite subset and $Q_w := P\cap B_w$.
+  Suppose $\hom_k(B_{\omega-c(\delta+\zeta)}\hookrightarrow B_\omega)$ is surjective and $\hom_k(B_\omega)\cong\hom_k(B_{\omega+c(\delta+2\zeta)})$ for all $k$.
+
+  If $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ in $D$ then the image module $\im~(\RPP{\omega-c\zeta}{2\delta}\to \RPP{\omega+c\delta}{2\zeta})$ is $2c\zeta$-interleaved with $\DD{\omega}$.
+\end{theorem}
+\begin{proof}
+  Because $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ in $D$ Diagrams~\ref{TODO} and~\ref{TODO} commute as all maps are induced by inclusions.
+  Moreover, because $\zeta < \varrho_D/2$ the isomorphisms provided by the Nerve Theorem commute with inclusions by Lemma~\ref{cor:excisive_nerve}.
+
+  Let $\rips\Lambda \in\Hom(\RPP{\omega-c\zeta}{2c\delta}, \RPP{\omega+c\delta}{2c\zeta})$ be induced by inclusions.
+  By Corollary~\ref{cor:rips_inter_left} $\rips \Phi_{\rips M}(\rips F, \rips G)\in\Hom^{2c\delta}(\im~\Gamma,\im~\rips\Lambda)$ is a partial $c\zeta$-interleaving of image modules.
+  Similarly, by Corollary~\ref{cor:rips_inter_right} $\rips \Psi_{\rips G} (\rips M,\rips N)\in\Hom^{2c\zeta}(\im~\rips\Lambda, \im~\Pi)$ is a partial $2c\zeta$-interleaving of image modules.
 
   As we have assumed that $\hom_k(B_{\omega-c(\delta+\zeta)}\hookrightarrow B_\omega)$ is surjective and $\hom_k(B_\omega)\cong\hom_k(B_{\omega+c(\delta+2\zeta)})$ Lemma~\ref{lem:pt_interleaving} implies $\gamma_\alpha$ is surjective and $\pi_\alpha$ is an isomorphism (and therefore injective) for all $\alpha$.
   So $\Gamma$ is an epimorphism and $\Pi$ is a monomorphism, thus $\im~\rips\Lambda$ is $2c\zeta$-interleaved with $\DD{\omega}$ by Lemma~\ref{thm:interleaving_main} as desired.
 \end{proof}
+
+% \begin{theorem}
+%   Let $D\subset\X$ and $f : D\to\R$ be a $c$-Lipschitz function.
+%   Let $\omega\in\R$, $\zeta\geq 2\delta\geq 0$ be constants such that
+%   \begin{enumerate}[label=\Roman*.]
+%     \item $B_{\omega-c(\delta+\zeta)}$ surrounds $D$ in $\X$,
+%     \item $\hom_k(B_{\omega-c(\delta+\zeta)}\hookrightarrow B_\omega)$ is surjective, and
+%     \item $\hom_k(B_\omega)\cong\hom_k(B_{\omega+c(\delta+2\zeta)})$
+%   \end{enumerate}
+%   for all $k$.
+%   Let $P\subset D$ be a finite subset and $Q_w := P\cap B_w$.
+%
+%   If $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ in $D$ then the $k$th persistent homology modules of $\{(D\subi{\omega,\alpha}, B_\omega)\}$ and
+%   \[
+%     \{(\rips^{2\delta}(P\subi{\omega-c\zeta,\alpha}), \rips^{2\delta}(Q_{\omega-c\zeta})) \hookrightarrow
+%       (\rips^{2\zeta}(P\subi{\omega+c\delta,\alpha}), \rips^{2\zeta}(Q_{\omega+c\delta}))\}
+%   \]
+%   are $2c\zeta$-interleaved.
+% \end{theorem}
+% \begin{proof}
+%   By Lemma~\ref{lem:surround_and_cover} and Lemma~\ref{lem:p_interleave}
+%   \[ (D\subi{\omega-c(\delta+\zeta),\alpha-c\delta},\b)\subseteq (\ext{P^\e\subi{\omega-c\zeta,\alpha}},\ext{\Q^\e})\subseteq (D\subi{\omega,\alpha+c\e},\B)\]
+%   and
+%   \[ (D\subi{\omega,\alpha-c\delta},\B)\subseteq (\ext{P^\e\subi{\omega+c\delta,\alpha}},\ext{\QQ^\e})\subseteq (D\subi{\omega+c(\delta+\zeta),\alpha+c\e},\BB)\]
+%   for all $\alpha\in\R$ and $\delta\leq\e\leq\zeta$.
+%
+%   Let $\Gamma\in\Hom(\DD{\omega-c(\delta+\zeta)},\DD{\omega})$ and $\Lambda\in\Hom(\ext{\PP{\omega-c\zeta}{\delta}},\ext{\PP{\omega+c\delta}{\zeta}})$.
+%   As all maps are induced by inclusion we have $\Phi(F, G)\in\Hom^{c\zeta}(\im~\Gamma, \im~\Lambda).$
+%   Similarly, for $\Pi\in\Hom(\DD{w},\DD{\omega+c(\delta+2\zeta)})$ and $\Lambda\in\Hom(\ext{\PP{\omega-c\zeta}{2\delta}},\ext{\PP{\omega+c\delta}{2\zeta}})$ we have $\Psi(M, N)\in\Hom^{2c\zeta}(\im~\Lambda',\im~\Pi).$
+%
+%   By Lemma~\ref{lem:rips_homomorphisms} we have
+%   \[ \tilde{\Phi}(\Sigma_{\omega-c\zeta}^\delta,\Sigma_{\omega+c\delta}^\zeta)\in\Hom(\im~\Lambda,\im~\rips\Lambda)\]
+%   and
+%   \[ \tilde{\Psi}(\Upsilon_{\omega-c\zeta}^{2\delta},\Upsilon_{\omega+c\delta}^{2\zeta})\in\Hom(\im~\rips\Lambda,\im~\Lambda')\]
+%   therefore, letting
+%   \[ (\rips F, \rips G) := (\Sigma_{\omega-c\zeta}^\delta\circ F, \Sigma_{\omega+c\delta}^\zeta\circ G)\]
+%   and
+%   \[ (\rips F, \rips G) := (M\circ \Upsilon_{\omega-c\zeta}^{2\delta}, N\circ\Upsilon_{\omega+c\delta}^{2\zeta})\]
+%   it follows from Lemma~\ref{lem:image_composition} that $\rips \Phi (\rips F, \rips G)\in\Hom^{c\zeta}(\im~\Gamma,\im~\rips\Lambda)$ is an image module homomorphism of degree $c\zeta$ and $\rips\Psi(\rips M, \rips N)\in\Hom^{2c\zeta}(\im~\rips\Lambda,\im~\Pi)$ is an image module homomorphism of degree $2c\zeta$.
+%
+%
+%   Let $\mathcal{S}\in\Hom(\ext{\PP{\omega-c\zeta}{\delta}},\ext{\PP{\omega-c\zeta}{2\delta}})$, $\Theta\in\Hom(\ext{\PP{\omega-c\zeta}{2\delta}},\ext{\PP{\omega+c\delta}{\zeta}})$, and $\mathcal{T}\in\Hom(\ext{\PP{\omega+c\delta}{\zeta}},\ext{\PP{\omega+c\delta}{2\zeta}})$ be induced by inclusions so that $\Lambda = \Theta\circ \mathcal{S}$ and $\Lambda' = \Theta\circ \mathcal{T}$.
+%
+%   Because $\Gamma\in\Hom(\DD{\omega-c(\delta+\zeta)},\DD{\omega})$, $F\in\Hom^{c\delta}(\DD{\omega-c(\delta+\zeta)}, \ext{\PP{\omega-c\zeta}{\delta}})$, and $M\in\Hom^{2c\delta}(\ext{\PP{\omega-c\zeta}{2\delta}}, \DD{\omega})$ are induced by inclusions $\Gamma[3c\delta] = M\circ\mathcal{S}\circ F$.
+%   So $(F, M)$ is a weak $2c\delta$-interleaving of $\Gamma[3c\delta]$ with $\mathcal{S}$.
+%   By Lemma~\ref{lem:weak_rips_left} $(\Sigma_{\omega-c\zeta}^{\delta},\Upsilon_{\omega-c\zeta}^{2\delta})$ is a weak interleaving of $\mathcal{S}$ with $\RPP{\omega-c\zeta}{2\delta}$.
+%   So $(\Sigma_{\omega-c\zeta}^{\delta}\circ F, M\circ \Upsilon_{\omega-c\zeta}^{2\delta}) = (\rips F, \rips M)$ is a weak $2c\delta$-interleaving of $\Gamma[3c\delta]$ with $\RPP{\omega-c\zeta}{2\delta}$ by Lemma~\ref{lem:left}.
+%
+%   Similarly, because $\Pi\in\Hom(\DD{\omega},\DD{\omega+c(\delta+2\zeta)})$, $G\in\Hom^{c\zeta}(\DD{\omega}, \ext{\PP{\omega+c\delta}{\zeta}})$, and $N\in\Hom^{2c\zeta}(\ext{\PP{\omega+c\delta}{2\zeta}})$ are induced by inclusion $\Pi[3c\zeta] = N\circ \mathcal{T}\circ G$, so $(G, N)$ is a weak $2c\zeta$-interleaving of $\Pi$ with $\mathcal{T}$.
+%   Once again, by Lemma~\ref{lem:weak_rips_left}, $(\Sigma_{\omega+c\delta}^{\zeta},\Upsilon_{\omega+c\delta}^{2\zeta})$ is a weak $2c\zeta$-interleaving of $\mathcal{T}$ with $\RPP{\omega+c\delta}{2\zeta}$.
+%   So $(\Sigma_{\omega+c\delta}^{\zeta}\circ G, N\circ \Upsilon_{\omega+c\delta}^{2\zeta}) = (\rips G, \rips N)$ is a weak $2c\zeta$-interleaving of $\Pi[3c\zeta]$ with $\RPP{\omega+c\delta}{2\zeta}$ by Lemma~\ref{lem:left}.
+%
+%   By Corollary~\ref{cor:excisive_nerve} we know that $\cech\Theta := (\E\N_{\omega+c\delta}^\zeta)^{-1}\circ \Theta\circ \E\N_{\omega-c\zeta}^{2\delta}$
+%   where, because all maps are induced by inclusions,
+%   \begin{align*}
+%     \rips\Lambda &= \I_{\omega+c\delta}^\zeta\circ\cech\Theta\circ\J_{\omega-c\zeta}^{2\delta}\\
+%       &= (\I_{\omega+c\delta}^\zeta\circ (\E\N_{\omega+c\delta}^\zeta)^{-1})\circ \Theta\circ (\E\N_{\omega-c\zeta}^{2\delta}\circ \J_{\omega-c\zeta}^{2\delta})\\
+%       &= \Sigma_{\omega+c\delta}^\zeta\circ \Theta\circ \Upsilon_{\omega-c\zeta}^{2\delta}\\
+%   \end{align*}
+%   Because $\Theta[2c\delta+c\zeta] = G\circ M$ the pair $(M, G)$ is a weak $c\zeta$-interleaving of $\Theta[2c\delta+c\zeta]$ with $\DD{\omega}$.
+%   Therefore,
+%   \begin{align*}
+%     \rips\Lambda[2c\delta+c\zeta] &= \Sigma_{\omega+c\delta}^\zeta\circ \Theta[2c\delta+c\zeta]\circ \Upsilon_{\omega-c\zeta}^{2\delta}\\
+%       &= (\Sigma_{\omega+c\delta}^\zeta\circ G)\circ (M\circ \Upsilon_{\omega-c\zeta}^{2\delta})\\
+%       &= \rips G\circ \rips M.
+%   \end{align*}
+%   So $(\rips M, \rips G)$ is a weak $c\zeta$-interleaving of $\rips\Lambda$ with $\DD{\omega}$.
+%
+%   Because $(\rips F,\rips M)$ is a weak $2c\delta$-interleaving $\rips \Phi$ is a left $2c\delta$-interleaving of image modules.
+%   Because $(\rips G, \rips N)$ is a weak $2c\zeta$-interleaving $\rips \Psi$ is a right $2c\zeta$-interleaving of image modules.
+%   Finally, because $(\rips M, \rips G)$ is a weak $c\zeta$-interleaving $\rips \Phi$ is a right $c\zeta$-interleaving of image modules and $\rips \Psi$ is a left $c\zeta$-interleaving of image modules.
+%   So $\rips \Phi_{\rips M}(\rips F, \rips G)$ is a partial $c\zeta$-interleaving of image modules and $\rips \Psi_{\rips G} (\rips M,\rips N)$ is a partial $2c\zeta$-interleaving of image modules.
+%
+%   As we have assumed that $\hom_k(B_{\omega-c(\delta+\zeta)}\hookrightarrow B_\omega)$ is surjective and $\hom_k(B_\omega)\cong\hom_k(B_{\omega+c(\delta+2\zeta)})$ Lemma~\ref{lem:pt_interleaving} implies $\gamma_\alpha$ is surjective and $\pi_\alpha$ is an isomorphism (and therefore injective) for all $\alpha$.
+%   So $\Gamma$ is an epimorphism and $\Pi$ is a monomorphism, thus $\im~\rips\Lambda$ is $2c\zeta$-interleaved with $\DD{\omega}$ by Lemma~\ref{thm:interleaving_main} as desired.
+% \end{proof}

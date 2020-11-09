@@ -280,32 +280,32 @@ Because two isomorphic persistence modules are $0$-interleaved we have the follo
 %     Similarly, if $A\to B\to C\to E\to F$ is a sequence of homomorphisms such that $\rk(A\to F) = \dim~C$ then $\rk(B\to E) = \dim~C$.
 % \end{lemma}
 
-\subsection{What we need from $X$, $D$, and $P$}
-
-Let $\X$ be a compact Riemannian $d$-manifold and let $D$ be a compact subset of $\X$ and let $\dist(x, y) = \|x - y\|$ denote the distance between points $x,y\in D$ as a subspace of $\X$.
-For $A\subset D$ and $x\in D$ let
-\[\dist_A(x) = \min_{a\in A}\dist(x, a)\]
-denote the distance from $x$ to the set $A$.
-We will use open metric balls restricted to $D$ with the subspace topology
-\[\ball_D^\e(x) = \{y\in D\mid \dist(x, y) < \e\}\]
-and offsets
-\[A^\e = \{x\in D\mid \dist_A(x) < \e\}.\]
-
-A ball $\ball_D^\e(x)$ is said to be \textbf{strongly convex} if for each pair of points $y,z$ in the closure of $\ball_D^\e(x)$ there exists a unique shortest path in $D$ between $y$ and $z$, and the interior of this path is included in $\ball_D^\e(x)$.
-Let $\varrho_D(x)$ be the supremum of the radii such that $\ball_D^\e(x)$ is strongly convex.
-The \textbf{strong convexity radius} of $D$ is defined
-\[ \varrho_D := \inf_{x\in D} \varrho_D(x).\]
-Note that this value is positive for compact $D$.
-
-We will require that, for some $\zeta > 0$, $D$ is a compact subspace of $\X$ with strong convexity radius $\varrho_D > 2\zeta$.
-For a finite point set $P$ such that $P^{2\delta}\subset \intr_\X(D)$ and any subset $Q\subseteq P$ we will assume that $D\setminus Q^\delta,$ and $D\setminus P^\delta$ are locally path connected for some $\delta > 0$.
-
+% \subsection{What we need from $X$, $D$, and $P$}
+%
+% Let $\X$ be a compact Riemannian $d$-manifold and let $D$ be a compact subset of $\X$ and let $\dist(x, y) = \|x - y\|$ denote the distance between points $x,y\in D$ as a subspace of $\X$.
+% For $A\subset D$ and $x\in D$ let
+% \[\dist_A(x) = \min_{a\in A}\dist(x, a)\]
+% denote the distance from $x$ to the set $A$.
+% We will use open metric balls restricted to $D$ with the subspace topology
+% \[\ball_D^\e(x) = \{y\in D\mid \dist(x, y) < \e\}\]
+% and offsets
+% \[A^\e = \{x\in D\mid \dist_A(x) < \e\}.\]
+%
+% A ball $\ball_D^\e(x)$ is said to be \textbf{strongly convex} if for each pair of points $y,z$ in the closure of $\ball_D^\e(x)$ there exists a unique shortest path in $D$ between $y$ and $z$, and the interior of this path is included in $\ball_D^\e(x)$.
+% Let $\varrho_D(x)$ be the supremum of the radii such that $\ball_D^\e(x)$ is strongly convex.
+% The \textbf{strong convexity radius} of $D$ is defined
+% \[ \varrho_D := \inf_{x\in D} \varrho_D(x).\]
+% Note that this value is positive for compact $D$.
+%
+% We will require that, for some $\zeta > 0$, $D$ is a compact subspace of $\X$ with strong convexity radius $\varrho_D > 2\zeta$.
+% For a finite point set $P$ such that $P^{2\delta}\subset \intr_\X(D)$ and any subset $Q\subseteq P$ we will assume that $D\setminus Q^\delta,$ and $D\setminus P^\delta$ are locally path connected for some $\delta > 0$.
+%
+% % \begin{lemma}
+% %   If $Q\subseteq R\subseteq P$ then
+% %   \[ \rk~\hom_d((P^\delta, Q^\delta)\hookrightarrow (P^{2\delta}, R^{\delta})) = \rk~\hom_0((D\setminus R^{\delta}, D\setminus P^{\delta})\hookrightarrow(D\setminus Q^\delta, D\setminus P^\delta)).\]
+% % \end{lemma}
+%
 % \begin{lemma}
-%   If $Q\subseteq R\subseteq P$ then
-%   \[ \rk~\hom_d((P^\delta, Q^\delta)\hookrightarrow (P^{2\delta}, R^{\delta})) = \rk~\hom_0((D\setminus R^{\delta}, D\setminus P^{\delta})\hookrightarrow(D\setminus Q^\delta, D\setminus P^\delta)).\]
+%   For any $Q\subseteq R\subseteq P$
+%   \[\rk~\hom_d(\rips^\delta(P, Q)\hookrightarrow \rips^{2\delta}(P, R))\leq \rk~\hom_0((D\setminus R^{\delta}, D\setminus P^{\delta})\hookrightarrow (D\setminus Q^\delta, D\setminus P^\delta)).\]
 % \end{lemma}
-
-\begin{lemma}
-  For any $Q\subseteq R\subseteq P$
-  \[\rk~\hom_d(\rips^\delta(P, Q)\hookrightarrow \rips^{2\delta}(P, R))\leq \rk~\hom_0((D\setminus R^{\delta}, D\setminus P^{\delta})\hookrightarrow (D\setminus Q^\delta, D\setminus P^\delta)).\]
-\end{lemma}
