@@ -63,3 +63,26 @@ Letting $\AA_\omega^k := \displaystyle\bigoplus_{I\in\I^k} \FF_\omega^I$ and $\B
 \[ \DD{\omega}^k \cong \AA_\omega^k\oplus \BB_\omega^{k-1}.\]% = \left(\bigoplus_{I\in\I^k} \FF_\omega^I\right)\oplus\left(\bigoplus_{I\in\I^{k-1}} \FF_\omega^{I_+} \right).\]
 
 %$\hom_k(B_\alpha) = \displaystyle\bigoplus_{I\in \I^k}F_\alpha^I$
+
+
+\begin{theorem}
+  Let $\X$ be an orientable $d$-manifold and let $D$ be a compact subset of $\X$ with strong convexity radius $\varrho_D$.
+  Let $f : D\to\R$ be $c$-Lipschitz function and $B_w := f^{-1}((-\infty,w])$.
+  Let $\omega\in\R$, $2\delta\leq \zeta < \varrho_D/2$ be constants such that
+  \begin{enumerate}[label=\Roman*.]
+    \item $B_{\omega-c(\delta+\zeta)}$ surrounds $D$ in $\X$,
+    \item $\hom_k(B_{\omega-c(\delta+\zeta)}\hookrightarrow B_\omega)$ is surjective, and
+    \item $\hom_k(B_\omega)\cong\hom_k(B_{\omega+c(\delta+2\zeta)})$
+  \end{enumerate}
+  for all $k$.
+  Let $P$ be a finite subset of $D$ such that $P^\delta\subset \intr_\X(D)$ and $D\setminus S^\delta$ is locally path connected for all $S\subseteq P$.
+  Let $Q_w := Q\cap B_w$.
+
+  If
+  \[\rk~\hom_d(\rips^\delta(P, Q_{\omega -c\zeta})\hookrightarrow \rips^{2\delta}(P, Q_{\omega+c\delta})) \geq \dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-c\zeta}))\]
+  then the $k$th persistent (relative) homology module of
+  \[
+    \{(\rips^{2\delta}(P\subi{\omega-c\zeta,\alpha},Q_{\omega-c\zeta})) \hookrightarrow
+      (\rips^{2\zeta}(P\subi{\omega+c\delta,\alpha}, Q_{\omega+c\delta}))\}
+  \] is $2c\zeta$ interleaved with $\DD{\omega}^k \cong \AA_\omega^k\oplus \BB_\omega^{k-1}$.
+\end{theorem}
