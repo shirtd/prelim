@@ -8,32 +8,34 @@ We find that the $k$th persistent (relative) homology of a function restricted t
 Unlike the persistent homology of the restriction $f\rest_{D\setminus B_\omega}$ this approach leaves features of the full diagram that are born after $\omega$ unchanged.
 
 For lack of a better analogy, this has the effect of ``quarantining'' the persistent homology of the function below $\omega$.
-Our hypothesis is that, given the persistent homology of the function up to $\omega$, one can recover the full diagram by pairing specific infinite $(k-1)$-dimensional features of $f\rest_{B_\omega}$ with specific infinite $k$-dimensional features of $f\rest_{D\setminus B_\omega}$ modulo $B_\omega$ via the long exact sequence(s) of pairs $(D\subi{\omega,\alpha}, B_\omega)$.
+Our hypothesis is that, given the persistent homology of the function up to $\omega$, one can recover the full diagram by pairing specific infinite $(k-1)$-dimensional features of $f\rest_{B_\omega}$ with specific infinite $k$-dimensional features of $f\rest_{D\setminus B_\omega}$ modulo $B_\omega$ via the long exact sequence(s) of pairs $(D\subi{\omega}{\alpha}, B_\omega)$.
 
-\subsubsection{Restricted Interval Modules}
+% \subsubsection{Restricted Interval Modules}
+\subsection{Restricted Interval Modules}
 
 For an interval $I = [s,t)\subseteq \R$ let $I_+ := [t,\infty)$ and $I_- := (-\infty, s]$.
 % For $\alpha\leq\beta\in\R$ let
 % \[ F_\alpha^I := \begin{cases} \FF&\text{ if } \alpha\in I\\ 0 &\text{otherwise,}\end{cases}\ \text{ and }\ \ f_{\alpha,\beta}^I := \begin{cases} \id_\FF&\text{ if } \alpha,\beta\in I\\ 0&\text{otherwise.}\end{cases}.\]
 % An \textbf{interval module} is a persistence module $\FF^I$ defined to be the family of vector spaces $\{F_\alpha^I\}_{\alpha\in\R}$ along with linear maps $\{f_{\alpha,\beta}^I : F_\alpha^I\to F_\beta^I\}_{\alpha\leq\beta}$.
 %
-For $\omega\in\R$ let $\FF_\omega^I$ denote the interval module consisting of vector spaces $\{F_{\alpha\mid\omega}^I\}_{\alpha\in\R}$ and linear maps $\{f_{\alpha,\beta\mid \omega}^I : F_{\alpha\mid\omega}^I\to F_{\beta\mid\omega}^I\}_{\alpha\leq\beta}$ where
-\[ F_{\alpha\mid \omega}^I := \begin{cases} F_\alpha^I&\text{ if } \omega\in I_-\\ 0&\text{ otherwise,}\end{cases}\ \text{ and }\ \ f_{\alpha,\beta\mid\omega}^I := \begin{cases} f_{\alpha,\beta}^I&\text{ if } \omega\in I_-\\ 0&\text{ otherwise.}\end{cases}\]
+For $\omega\in\R$ let $\FF_\omega^I$ denote the interval module consisting of vector spaces $\{F\subi{\omega}{\alpha}^I\}_{\alpha\in\R}$ and linear maps $\{f_{\alpha,\beta\mid \omega}^I : F\subi{\omega}{\alpha}^I\to F_{\beta\mid\omega}^I\}_{\alpha\leq\beta}$ where
+\[ F\subi{\omega}{\alpha}^I := \begin{cases} F_\alpha^I&\text{ if } \omega\in I_-\\ 0&\text{ otherwise,}\end{cases}\ \text{ and }\ \ f_{\alpha,\beta\mid\omega}^I := \begin{cases} f_{\alpha,\beta}^I&\text{ if } \omega\in I_-\\ 0&\text{ otherwise.}\end{cases}\]
 
-\subsubsection{The Persistent Homology of a Function Modulo a Sub-levelset}
+% \subsubsection{The Persistent Homology of a Function Modulo a Sub-levelset}
+\subsection{The Persistent Homology of a Function Modulo a Sub-levelset}
 
-In the following we will assume that, for fixed $\omega\in\R$, the homology groups $\hom_k(B_\alpha)$ and $\hom_k(D\subi{\omega,\alpha}, B_\omega)$ are finite dimensional vector spaces for all $k$ and $\alpha\in\R$.
-Let $\AA^k$ denote the $k$th persistent homology module of $\{B_\alpha\}_{\alpha\in\R}$ and $\DD{\omega}^k$ denote the $k$th persistent (relative) homology module of $\{(D\subi{\omega,\alpha},B_\omega)\}_{\alpha\in\R}$, taking homology with coefficients in a field $\FF$.
+In the following we will assume that, for fixed $\omega\in\R$, the homology groups $\hom_k(B_\alpha)$ and $\hom_k(D\subi{\omega}{\alpha}, B_\omega)$ are finite dimensional vector spaces for all $k$ and $\alpha\in\R$.
+Let $\AA^k$ denote the $k$th persistent homology module of $\{B_\alpha\}_{\alpha\in\R}$ and $\DD{\omega}^k$ denote the $k$th persistent (relative) homology module of $\{(D\subi{\omega}{\alpha},B_\omega)\}_{\alpha\in\R}$, taking homology with coefficients in a field $\FF$.
 
 Because all homology groups are finite dimensional we can decompose the modules $\AA^k$ and $\DD{\omega}^k$ into direct sums of interval modules
 % That is, for all $k$ there exist collections $\I^k$ and $\J^k$ of intervals $I,J\subseteq \R$ such that
 \[ \AA^k = \bigoplus_{I\in\I^k} \FF^I\ \text{ and }\ \DD{\omega}^k = \bigoplus_{J\in\J^k} \FF^J\]
 for collections $\I^k$ and $\J^k$ of intervals $I,J\subseteq \R$ for all $k$.
 Moreover, for all $\alpha\in\R$ we have
-\[ \hom_k(B_\alpha) = \bigoplus_{I\in \I^k}F_\alpha^I\ \text{ and }\ \hom_k(D\subi{\omega,\alpha}, B_\omega) = \bigoplus_{J\in\J^k} F_\alpha^J.\]
+\[ \hom_k(B_\alpha) = \bigoplus_{I\in \I^k}F_\alpha^I\ \text{ and }\ \hom_k(D\subi{\omega}{\alpha}, B_\omega) = \bigoplus_{J\in\J^k} F_\alpha^J.\]
 
-Consider the long exact sequence of the pair $\hom_k(D\subi{\omega,\alpha}, B_\omega)$
-\[ \ldots\to \hom_k(B_\omega)\xrightarrow{p_\alpha^k} \hom_k(B_\alpha)\xrightarrow{q_\alpha^k}\hom_k(D\subi{\omega,\alpha}, B_\omega)\xrightarrow{r_\alpha^k} \hom_{k-1}(B_\omega)\xrightarrow{p_\alpha^{k-1}}\hom_{k-1}\hom_{k-1}(B_\alpha)\to\ldots\]
+Consider the long exact sequence of the pair $\hom_k(D\subi{\omega}{\alpha}, B_\omega)$
+\[ \ldots\to \hom_k(B_\omega)\xrightarrow{p_\alpha^k} \hom_k(B_\alpha)\xrightarrow{q_\alpha^k}\hom_k(D\subi{\omega}{\alpha}, B_\omega)\xrightarrow{r_\alpha^k} \hom_{k-1}(B_\omega)\xrightarrow{p_\alpha^{k-1}}\hom_{k-1}\hom_{k-1}(B_\alpha)\to\ldots\]
 where $p_\alpha^k = \displaystyle\bigoplus_{I\in\I^k} f_{\omega,\alpha}^I$.
 By exactness %$\ker~r_\alpha = \im~q_\alpha^k \cong \hom_k(B_\alpha) /\ker~q_\alpha^k$, where
 \[\ker~p_\alpha^k = \im~p_\alpha^k = \bigoplus_{I\in\I^k}\im~f_{\omega,\alpha}^I = \bigoplus_{I\in\I^k \mid \omega\in I} F_\alpha^I.\]
@@ -42,12 +44,12 @@ Thus,
   \ker~r_\alpha^k &\cong \hom_k(B_\alpha) / \ker~q_\alpha^k\\
     % &= \frac{\bigoplus_{I\in \I^k}F_\alpha^I}{\bigoplus_{I\in\I^k \mid \omega\in I} F_\alpha^I}\\
     &= \bigoplus_{I\in \I^k\mid \omega\notin I} F_\alpha^I\\
-    &= \bigoplus_{I\in\I^k} F_{\alpha\mid \omega}^I.
+    &= \bigoplus_{I\in\I^k} F\subi{\omega}{\alpha}^I.
 \end{align*}
 Similarly,
 \begin{align*} \im~r_\alpha^k &= \ker~p_\alpha^{k-1}\\
   &= \bigoplus_{I\in\I^{k-1}\mid \alpha\notin I} F_\omega^I\\ %= \bigoplus_{I\in\I^{k-1}\mid \omega\in I} F_\alpha^{I_+}\\
-  &= \bigoplus_{I\in\I^{k-1}} F_{\alpha\mid\omega}^{I_+}.
+  &= \bigoplus_{I\in\I^{k-1}} F\subi{\omega}{\alpha}^{I_+}.
 \end{align*}
 
 Note that we have the following split exact sequence associated with the connecting homomorphism $r_\alpha^k$
@@ -55,16 +57,18 @@ Note that we have the following split exact sequence associated with the connect
 So for all $\alpha\in\R$
 % \[ \bigoplus_{J\in\J^k} F_\alpha^J\cong \ker~r_\alpha^k\oplus \im~r_\alpha^k.\]
 % Thus
-\begin{align*}
-  \bigoplus_{J\in\J^k} F_\alpha^J &\cong \ker~r_\alpha^k\oplus \im~r_\alpha^k\\
-    &\cong\left(\bigoplus_{I\in\I^k} F_{\alpha\mid \omega}^I\right)\oplus\left(\bigoplus_{I\in\I^{k-1}} F_{\alpha\mid\omega}^{I_+}\right).
-\end{align*}
+\[ \bigoplus_{J\in\J^k} F_\alpha^J \cong \ker~r_\alpha^k\oplus \im~r_\alpha^k
+  \cong\left(\bigoplus_{I\in\I^k} F\subi{\omega}{\alpha}^I\right)\oplus\left(\bigoplus_{I\in\I^{k-1}} F\subi{\omega}{\alpha}^{I_+}\right).\]
+% \begin{align*}
+%   \bigoplus_{J\in\J^k} F_\alpha^J &\cong \ker~r_\alpha^k\oplus \im~r_\alpha^k\\
+%     &\cong\left(\bigoplus_{I\in\I^k} F\subi{\omega}{\alpha}^I\right)\oplus\left(\bigoplus_{I\in\I^{k-1}} F\subi{\omega}{\alpha}^{I_+}\right).
+% \end{align*}
 Letting $\AA_\omega^k := \displaystyle\bigoplus_{I\in\I^k} \FF_\omega^I$ and $\BB_\omega^k := \displaystyle\bigoplus_{I\in\I^k} \FF_\omega^{I_+}$ for all $k$ we have
 \[ \DD{\omega}^k \cong \AA_\omega^k\oplus \BB_\omega^{k-1}.\]% = \left(\bigoplus_{I\in\I^k} \FF_\omega^I\right)\oplus\left(\bigoplus_{I\in\I^{k-1}} \FF_\omega^{I_+} \right).\]
 
 %$\hom_k(B_\alpha) = \displaystyle\bigoplus_{I\in \I^k}F_\alpha^I$
 
-\begin{theorem}[Algorithmic TCC]\label{thm:algo_tcc}
+\begin{theorem}%[Algorithmic TCC]\label{thm:algo_tcc}
   Let $\X$ be an orientable $d$-manifold and let $D$ be a compact subset of $\X$ with strong convexity radius $\varrho_D > \delta$.
   Let $f : D\to\R$ be $c$-Lipschitz function and let $\omega\in\R$ and $2\delta\leq\zeta < \varrho_D/2$ be constants such that $B_{\omega - c(\zeta +\delta)}$ surrounds $D$ in $\X$.
   Let $P$ be a finite subset of $D$ such that $P^\delta\subset \intr_\X(D)$ and $D\setminus S^\delta$ is locally path connected for all $S\subseteq P$.

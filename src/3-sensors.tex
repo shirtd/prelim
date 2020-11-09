@@ -36,16 +36,16 @@ Let $\zeta\geq\of > 0 $ and $\omega\in \R$ be constants such that $P^\of\subsete
 \end{proof}
 
 Note that, while there is a surjective map from $\hom_0(\cmp{\B}, \cmp{D})$ to $\im~i$ this map is not necessarily induced by inclusion, as $\QQ^\of\not\subseteq \B$.
-We therefore must introduce a larger space $\BB$ that contains $\QQ^\of$ in order to provide a computable criteria for the injectivity of $\ell : \hom_0(\cmp{\B}, \cmp{D})\to\hom_0(\cmp{\Q^\of}, \cmp{P^\of})$.
+We therefore must introduce a larger space $B_{\omega+c(\delta+\zeta)}$ that contains $\QQ^\of$ in order to provide a computable criteria for the injectivity of $\ell : \hom_0(\cmp{\B}, \cmp{D})\to\hom_0(\cmp{\Q^\of}, \cmp{P^\of})$.
 
 \[ \begin{tikzcd}
   (P^\of, \Q^\of) \arrow[hookrightarrow]{r}\arrow[hookrightarrow]{d} &
   (P^\of, \QQ^\of) \arrow[hookrightarrow]{d} \\
   %
   (D, \bb) \arrow[hookrightarrow]{r} &
-  (D, \BB),
+  (D, B_{\omega+c(\delta+\zeta)}),
 \end{tikzcd}\begin{tikzcd}
-  (\cmp{\BB},\cmp{D})\arrow[hookrightarrow]{d}\arrow[hookrightarrow]{r} &
+  (\cmp{B_{\omega+c(\delta+\zeta)}},\cmp{D})\arrow[hookrightarrow]{d}\arrow[hookrightarrow]{r} &
   (\cmp{\bb}, \cmp{D}) \arrow[hookrightarrow]{d}\\
   %
   (\cmp{\QQ^\of}, \cmp{P^\of}) \arrow[hookrightarrow]{r} &
@@ -53,7 +53,7 @@ We therefore must introduce a larger space $\BB$ that contains $\QQ^\of$ in orde
 \end{tikzcd}\]
 
 \begin{equation}\label{dgm:1}\begin{tikzcd}
-  \hom_0(\cmp{\BB},\cmp{D})\arrow{d}{m} \arrow{r}{j} &
+  \hom_0(\cmp{B_{\omega+c(\delta+\zeta)}},\cmp{D})\arrow{d}{m} \arrow{r}{j} &
   \hom_0(\cmp{\bb}, \cmp{D}) \arrow{d}{\ell} \\
   %
   \hom_0(\cmp{\QQ^\of}, \cmp{P^\of}) \arrow{r}{i} &
@@ -64,7 +64,7 @@ We therefore must introduce a larger space $\BB$ that contains $\QQ^\of$ in orde
   Let $D$ be a compact subset of $\X$ and $f : D\to\R$ be $c$-Lipschitz function.
   Let $\omega\in\R$, $\of > 0$ be constants such that $\B$ surrounds $D$ in $\X$.
   Let $P\subset D$ be a finite collection of points and $Q_\alpha := P\cap B_\alpha$ for $\alpha\in\R$.
-  Let $j : \hom_0(\cmp{\BB},\cmp{D})\to \hom_0(\cmp{\B},\cmp{D})$ and $i : \hom_0(\cmp{\QQ^\of}, \cmp{P^\of})\to \hom_0(\cmp{\Q^\of}, \cmp{P^\of})$ be induced by inclusion.
+  Let $j : \hom_0(\cmp{B_{\omega+c(\delta+\zeta)}},\cmp{D})\to \hom_0(\cmp{\B},\cmp{D})$ and $i : \hom_0(\cmp{\QQ^\of}, \cmp{P^\of})\to \hom_0(\cmp{\Q^\of}, \cmp{P^\of})$ be induced by inclusion.
 
   If $j$ is surjective and $\rk~i\geq \rk~j$ then $D\setminus \B\subseteq P^\of$ and $\Q^\of$ surrounds $P^\of$ in $D$.
 \end{theorem}
@@ -86,13 +86,12 @@ Note that this value is positive for compact $D$.
 \begin{theorem}[Algorithmic TCC]\label{thm:algo_tcc}
   Let $\X$ be an orientable $d$-manifold and let $D$ be a compact subset of $\X$ with strong convexity radius $\varrho_D > \delta$.
   Let $f : D\to\R$ be $c$-Lipschitz function and $B_w := f^{-1}((-\infty,w])$.
-  Let $\omega\in\R$ and $\delta\leq\zeta < \varrho_D$ be constants such that
-  \begin{enumerate}
-    \item $B_{\omega - c(\zeta +\delta)}$ surrounds $D$ in $\X$,
-    \item $\hom_0(D\setminus B_{\omega+c(\delta+\zeta)}\hookrightarrow D\setminus B_\omega)$ is surjective,
-    \item $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega+c(\delta+\zeta)})$ is injective.
-  \end{enumerate}
-
+  Let $\omega\in\R$ and $\delta\leq\zeta < \varrho_D$ be constants such that $B_{\omega - c(\zeta +\delta)}$ surrounds $D$ in $\X$, $\hom_0(D\setminus B_{\omega+c(\delta+\zeta)}\hookrightarrow D\setminus B_\omega)$ is surjective, and $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega+c(\delta+\zeta)})$ is injective.
+  % \begin{enumerate}
+  %   \item $B_{\omega - c(\zeta +\delta)}$ surrounds $D$ in $\X$,
+  %   \item $\hom_0(D\setminus B_{\omega+c(\delta+\zeta)}\hookrightarrow D\setminus B_\omega)$ is surjective,
+  %   \item $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega+c(\delta+\zeta)})$ is injective.
+  % \end{enumerate}
   Let $P$ be a finite subset of $D$ such that $P^\delta\subset \intr_\X(D)$ and $D\setminus S^\delta$ is locally path connected for all $S\subseteq P$.
   Let $Q_w := Q\cap B_w$.
 
