@@ -61,21 +61,23 @@ Their proofs may be found in the appendix.
   for all $k$ and any $A\subseteq D$ such that $\ext{S}\subset A$.
 \end{lemma}
 % \begin{proof}
-%   Because $S$ surrounds $L$ in $D$, $(L\setminus S, D\setminus L)$ is a separation of $D\setminus S$, a subspace of $D$.
-%   So $\cl_D(L\setminus S)\setminus L = \cl_D(L\setminus S) \cap (D\setminus L) = \emptyset$ which implies $\cl_D(L\setminus S)\subseteq L = \intr_D(L)$ as $L$ is open in $D$.
-%   Therefore,
-%   \begin{align*}
-%     \cl_D(D\setminus L) &= D\setminus \intr_D(L)\\
-%                         &\subseteq D\setminus \cl_D(L\setminus S)\\
-%                         &= \intr_D(D\setminus (L\setminus S))\\
-%                         &= \intr_D(\ext{S}).
-%   \end{align*}
-%   so,
-%   \begin{align*}
-%     \hom_k(L\cap A, S) &= \hom_k(A\setminus (D\setminus L), \ext{S}\setminus (D\setminus L))\\
-%       &\cong \hom_k(A, \ext{S})
-%   \end{align*}
-%   for all $k$ and any $A\subseteq D$ such that $\ext{S}\subset A$ by Excision.
+\proofatend
+  Because $S$ surrounds $L$ in $D$, $(L\setminus S, D\setminus L)$ is a separation of $D\setminus S$, a subspace of $D$.
+  So $\cl_D(L\setminus S)\setminus L = \cl_D(L\setminus S) \cap (D\setminus L) = \emptyset$ which implies $\cl_D(L\setminus S)\subseteq L = \intr_D(L)$ as $L$ is open in $D$.
+  Therefore,
+  \begin{align*}
+    \cl_D(D\setminus L) &= D\setminus \intr_D(L)\\
+                        &\subseteq D\setminus \cl_D(L\setminus S)\\
+                        &= \intr_D(D\setminus (L\setminus S))\\
+                        &= \intr_D(\ext{S}).
+  \end{align*}
+  so,
+  \begin{align*}
+    \hom_k(L\cap A, S) &= \hom_k(A\setminus (D\setminus L), \ext{S}\setminus (D\setminus L))\\
+      &\cong \hom_k(A, \ext{S})
+  \end{align*}
+  for all $k$ and any $A\subseteq D$ such that $\ext{S}\subset A$ by Excision.
+\endproofatend
 % \end{proof}
 
 % \begin{lemma}\label{lem:excision_commute}
@@ -90,10 +92,12 @@ Their proofs may be found in the appendix.
   If $D\setminus B'\subseteq L$ and $L\cap B\subseteq S\subseteq B'$ then $B\subseteq \ext{S}\subseteq B'$.
 \end{lemma}
 % \begin{proof}
-%   Note that $B\setminus (D\setminus L) = B\cap L\subseteq S$ implies $B\subseteq S\sqcup(D\setminus L) = \ext{S}$.
-%   Moreover, because $S\subseteq B'$ and $D\setminus B'\subseteq L$ implies $D\setminus L \subset D\setminus (D\setminus B') = B'$, we have
-%   \[ \ext{S} = S\sqcup (D\setminus L) \subseteq B'\cup (D\setminus L) = B'. \]
-%   So $B \subseteq \ext{S}\subseteq B'$ as desired.
+\proofatend
+  Note that $B\setminus (D\setminus L) = B\cap L\subseteq S$ implies $B\subseteq S\sqcup(D\setminus L) = \ext{S}$.
+  Moreover, because $S\subseteq B'$ and $D\setminus B'\subseteq L$ implies $D\setminus L \subset D\setminus (D\setminus B') = B'$, we have
+  \[ \ext{S} = S\sqcup (D\setminus L) \subseteq B'\cup (D\setminus L) = B'. \]
+  So $B \subseteq \ext{S}\subseteq B'$ as desired.
+\endproofatend
 % \end{proof}
 
 % In the following let $X$ be a topological space and $\overline{A} := X\setminus U$ denote the complement of a subset $U$ of $X$.
@@ -104,14 +108,18 @@ Their proofs may be found in the appendix.
   If $\ell$ is injective then $D\setminus B\subseteq L$.
 \end{lemma}
 % \begin{proof}
-%     Suppose, for the sake of contradiction, that $p$ is injective and there exists a point $x\in (D\setminus B)\setminus L$.
-%     Because $B$ surrounds $D$ in $X$ the pair $(D\setminus B, \overline{D})$ forms a separation of $\overline{B}$.
-%     Therefore, $\hom_0(\overline{B})\cong \hom_0(D\setminus B)\oplus \hom_0(\overline{D})$ so
-%     \[ \hom_0(\overline{B}, \overline{D})\cong \hom_0(D\setminus B). \]
-%     So $[x]$ is non-trivial in $\hom_0(\overline{B},\overline{D})\cong \hom_0(D\setminus B)$ as $x$ is in some connected component of $D\setminus B$.
-%     So we have the following sequence of maps induced by inclusions
-%     \[ \hom_0(\overline{B},\overline{D})\xrightarrow{f} \hom_0(\overline{B},\overline{D}\cup\{x\})\xrightarrow{g} \hom_0(\overline{S},\overline{L}).\]
-%     As $f[x]$ is trivial in $\hom_0(\overline{B},\overline{D}\cup\{x\})$ we have that $\ell[x] = (g\circ f)[x]$ is trivial, contradicting our hypothesis that $\ell$ is injective.
+\proofatend
+    Let $\overline{U} := X\setminus U$ denote the complement of a subset $U$ of $X$.
+
+    Suppose, for the sake of contradiction, that $p$ is injective and there exists a point $x\in (D\setminus B)\setminus L$.
+    Because $B$ surrounds $D$ in $X$ the pair $(D\setminus B, \overline{D})$ forms a separation of $\overline{B}$.
+    Therefore, $\hom_0(\overline{B})\cong \hom_0(D\setminus B)\oplus \hom_0(\overline{D})$ so
+    \[ \hom_0(\overline{B}, \overline{D})\cong \hom_0(D\setminus B). \]
+    So $[x]$ is non-trivial in $\hom_0(\overline{B},\overline{D})\cong \hom_0(D\setminus B)$ as $x$ is in some connected component of $D\setminus B$.
+    So we have the following sequence of maps induced by inclusions
+    \[ \hom_0(\overline{B},\overline{D})\xrightarrow{f} \hom_0(\overline{B},\overline{D}\cup\{x\})\xrightarrow{g} \hom_0(\overline{S},\overline{L}).\]
+    As $f[x]$ is trivial in $\hom_0(\overline{B},\overline{D}\cup\{x\})$ we have that $\ell[x] = (g\circ f)[x]$ is trivial, contradicting our hypothesis that $\ell$ is injective.
+\endproofatend
 % \end{proof}
 
 \begin{lemma}\label{lem:cov_surrounds}
@@ -120,13 +128,17 @@ Their proofs may be found in the appendix.
   If $\ell$ injective then $S$ surrounds $L$ in $D$.
 \end{lemma}
 % \begin{proof}
-%   Suppose, for the sake of contradiction, that $S$ does not surround $L$ in $D$.
-%   Then there exists a path $\gamma : [0,1]\to\overline{S}$ with $\gamma(0)\in L\setminus S$ and $\gamma(1)\in D\setminus L$.
-%   By Lemma~\ref{lem:coverage} we know that $D\setminus B\subseteq L$, so $D\setminus B\subseteq L\setminus S$.
-%
-%   Choose $x\in D\setminus B$ and $z\in \overline{D}$ such that there exist paths $\xi : [0,1]\to L\setminus S$ with $\xi(0) = x$, $\xi(1) = \gamma(0)$ and $\zeta : [0,1]\to \overline{D}\cup (D\setminus L)$ with $\zeta(0) = z$, $\zeta(1) = \gamma(1)$.
-%   $\xi, \gamma$ and $\zeta$ all generate chains in $C_1(\overline{S}, \overline{L})$ and $\xi + \gamma + \zeta = \gamma^*\in C_1(\overline{S}, \overline{L})$ with $\partial\gamma^* = x + z$.
-%   Moreover, $z$ generates a chain in $C_0(\overline{L})$ as $\overline{D}\subseteq\overline{L}$.
-%   So $x = \partial\gamma^* + z$ is a relative boundary in $C_0(\overline{S}, \overline{L})$, thus $\ell[x] = \ell[z]$ in $\hom_0(\overline{S}, \overline{L})$.
-%   However, because $B$ surrounds $D$, $[x]\neq [y]$ in $\hom_0(\overline{B}, \overline{D})$ contradicting our assumption that $\ell$ is injective.
+\proofatend
+  Let $\overline{U} := X\setminus U$ denote the complement of a subset $U$ of $X$.
+
+  Suppose, for the sake of contradiction, that $S$ does not surround $L$ in $D$.
+  Then there exists a path $\gamma : [0,1]\to\overline{S}$ with $\gamma(0)\in L\setminus S$ and $\gamma(1)\in D\setminus L$.
+  By Lemma~\ref{lem:coverage} we know that $D\setminus B\subseteq L$, so $D\setminus B\subseteq L\setminus S$.
+
+  Choose $x\in D\setminus B$ and $z\in \overline{D}$ such that there exist paths $\xi : [0,1]\to L\setminus S$ with $\xi(0) = x$, $\xi(1) = \gamma(0)$ and $\zeta : [0,1]\to \overline{D}\cup (D\setminus L)$ with $\zeta(0) = z$, $\zeta(1) = \gamma(1)$.
+  $\xi, \gamma$ and $\zeta$ all generate chains in $C_1(\overline{S}, \overline{L})$ and $\xi + \gamma + \zeta = \gamma^*\in C_1(\overline{S}, \overline{L})$ with $\partial\gamma^* = x + z$.
+  Moreover, $z$ generates a chain in $C_0(\overline{L})$ as $\overline{D}\subseteq\overline{L}$.
+  So $x = \partial\gamma^* + z$ is a relative boundary in $C_0(\overline{S}, \overline{L})$, thus $\ell[x] = \ell[z]$ in $\hom_0(\overline{S}, \overline{L})$.
+  However, because $B$ surrounds $D$, $[x]\neq [y]$ in $\hom_0(\overline{B}, \overline{D})$ contradicting our assumption that $\ell$ is injective.
+\endproofatend
 % \end{proof}

@@ -5,13 +5,6 @@
 For a pair $(A, B)$ in a topological space $X$ and any $R$ module $G$ let $\hom^k(A, B; G)$ denote the \textbf{singular cohomology} of $(A,B)$ (with coefficients in $G$) as a vector space.
 Let $\hom^k_c(A, B; G)$ denote the corresponding \textbf{singular cohomology with compact support}, where $\hom^k_c(A, B; G)\cong \hom^k(A, B; G)$ for any compact pair $(A,B)$.
 
-\begin{theorem}[\textbf{Universal Coefficient Theorem} (Munkres p. 323, Corollary 53.2)]\label{thm:univ_coef}
-  Let $(A,B)$ be a topological pair.
-  Then for all $k$ and any abelian group $G$ there is a natural exact sequence
-  \[ 0\to\mathrm{Ext}(\hom_{k-1}(A, B), G)\to \hom^k(A, B; G)\xrightarrow{\nu} \Hom(\hom_k(A, B), G)\to 0.\]
-  This sequence splits, but not naturally.
-\end{theorem}
-
 The following corollary follows from the Universal Coefficient Theorem for singular homology (and cohomology) as vector spaces over a field $\FF$, as the dual vector space $\Hom(\hom_k(A, B), \FF)$ is isomorphic to $\hom_k(A, B; \FF)$ for any finitely generated $\hom_k(A, B)$.\footnote{Reference/verify.}
 
 \begin{corollary}\label{cor:univ_coef}

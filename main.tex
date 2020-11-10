@@ -3,7 +3,9 @@
 \usepackage{tikz-cd,xspace,graphicx,wrapfig,algorithm,lscape}
 \usepackage[noend]{algpseudocode}
 \usepackage[margin=1in]{geometry}
+\usepackage{etex,etoolbox}
 
+\input{environment}
 \input{macros}
 
 \begin{document}
@@ -20,7 +22,8 @@
 \subsection{Persistence Modules}
   \input{src/0-background/1-modules}
 
-  \subsubsection{Image Modules}
+  % \subsubsection{Image Modules}
+  \paragraph{Image Modules}
     \input{src/0-background/2-images}
 
 
@@ -57,8 +60,9 @@
 \input{src/appendix/duality}
 
 \section{Omitted Proofs}
-\input{src/appendix/surrounding}
-\input{src/appendix/interleaving}
+\printproofs
+% \input{src/appendix/surrounding}
+% \input{src/appendix/interleaving}
 
 \section{Helpful Stuff}
 \input{src/appendix/diagrams}

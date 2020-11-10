@@ -39,7 +39,14 @@
   \end{itemize}
 \end{lemma}
 
-\subsection{Helpful Diagram}
+\begin{theorem}[\textbf{Universal Coefficient Theorem} (Munkres p. 323, Corollary 53.2)]\label{thm:univ_coef}
+  Let $(A,B)$ be a topological pair.
+  Then for all $k$ and any abelian group $G$ there is a natural exact sequence
+  \[ 0\to\mathrm{Ext}(\hom_{k-1}(A, B), G)\to \hom^k(A, B; G)\xrightarrow{\nu} \Hom(\hom_k(A, B), G)\to 0.\]
+  This sequence splits, but not naturally.
+\end{theorem}
+
+\subsection{A Helpful Diagram}
 
 % \begin{landscape}
 % \begin{scriptsize}

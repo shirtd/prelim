@@ -45,11 +45,14 @@ but the converse does not hold in general.\footnote{\textbf{TODO} counterexample
 
 In the following the existence of an image module homomorphism $\Phi(F, G)\in\Hom^\delta(\im~\Gamma, \im~\Lambda)$ where $\Gamma\in\Hom(\U,\V)$ and $\Lambda\in\Hom(\S,\T)$  will imply that $(F,G)\in\Hom^\delta(\U,\S)\times \Hom^\delta(\V,\T)$.
 
+The proof of the following theorem may be found in the appendix.
+
 \begin{lemma}\label{lem:image_composition}
   Suppose $\Gamma\in\Hom(\U,\V)$, $\Lambda\in\Hom(\S,\T)$, and $\Lambda'\in\Hom(\S',\T')$.
   If $\Phi(F, G)\in\Hom^\delta(\im~\Gamma, \im~\Lambda)$ and $\Phi'(F', G')\in\Hom^{\delta'}(\im~\Lambda, \im~\Lambda')$ then $\Phi''(F'\circ F, G'\circ G) := \Phi'\circ\Phi\in\Hom^{\delta+\delta'}(\im~\Gamma,\im~\Lambda')$.
 \end{lemma}
-\begin{proof}
+% \begin{proof}
+\proofatend
   Because $\Phi(F, G)$ is an image module homomorphism of degree $\delta$ we have $g_{\beta-\delta}\circ\gamma_{\alpha-\delta}[\beta-\alpha] = \lambda_\alpha[\beta-\alpha]\circ f_{\alpha-\delta}$.
   Similarly, $g_{\beta}'\circ\lambda_{\alpha}[\beta-\alpha] = \lambda_{\alpha +\delta'}'[\beta-\alpha]\circ f_{\alpha}'$.
   So $\Phi''(F'\circ F, G'\circ G)\in\Hom^{\delta+\delta'}(\im~\Gamma,\im~\Lambda')$ as
@@ -59,12 +62,13 @@ In the following the existence of an image module homomorphism $\Phi(F, G)\in\Ho
   % for all $\alpha$.
   % Because $\Psi(M, N)$ is an image module homomorphism of degree $\delta'$
   % \[n_\beta\circ (_\alpha^\beta\circ \gamma_\alpha) = (t_{\alpha+\delta}^{\beta+\delta}\circ\lambda_{\alpha+\delta})\circ f_\alpha\]
-
-\end{proof}
+\endproofatend
+% \end{proof}
 
 Here, the notation $\Phi'\circ \Phi$ denotes the composition of pairs $(F'\circ F, G'\circ G)$.
 
-\subsubsection{Partial Interleavings of Image Modules}
+% \subsubsection{Partial Interleavings of Image Modules}
+\paragraph{Partial Interleavings of Image Modules}
 
 Image module homomorphisms introduce a direction to the traditional notion of interleaving.
 That is, given $\Gamma\in\Hom(\U,\V)$ and $\Lambda\in\Hom(\S,\T)$ and $\Phi(F, G)\in\Hom^\delta(\im~\Gamma, \im~\Lambda)$ we consider the case in which there is only a map $\S\to\V$ that commutes.

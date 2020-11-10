@@ -5,9 +5,9 @@ For $w\leq z$ and $\e\leq\eta < \varrho_D$ let
 \[\Sigma_w^\e := \I_w^\e\circ (\E\N_w^\e)^{-1}\in \Hom(\PP{w}{\e},\RPP{w}{2\e})\ \text{ and }\ \Upsilon_w^\e := \E\N_w^{2\e}\circ \J_w^{\e}\in \Hom(\RPP{w}{\e},\RPP{w}{2\e})\]
 and let
 \[ \Lambda\in\Hom(\ext{\PP{w}{\e}}, \ext{\PP{w}{2\e}}),\ \rips\Lambda\in\Hom(\RPP{w}{\e},\CPP{w}{2\e}),\text{ and } \Lambda'\in\Hom(\ext{\PP{w}{2\e}},\ext{\PP{z}{2\eta}})\]
-be induced by inclusion. The proofs that
-\[ \tilde{\Phi}(\Sigma_w^\e,\Sigma_z^\eta)\in\Hom(\im~\Lambda,\im~\rips\Lambda)\ \text{ and }\ \tilde{\Psi}(\Upsilon_w^{2\e},\Upsilon_z^{2\eta})\in\Hom(\im~\rips\Lambda,\im~\Lambda')\]
-are image module homomorphisms are straightforward, and can be found in the appendix.
+be induced by inclusion. %The proofs that
+% \[ \tilde{\Phi}(\Sigma_w^\e,\Sigma_z^\eta)\in\Hom(\im~\Lambda,\im~\rips\Lambda)\ \text{ and }\ \tilde{\Psi}(\Upsilon_w^{2\e},\Upsilon_z^{2\eta})\in\Hom(\im~\rips\Lambda,\im~\Lambda')\]
+% are image module homomorphisms are straightforward, and can be found in the appendix.
 
 % \begin{lemma}\label{lem:rips_homomorphism_left}
 %   For any $w\leq z$, $\e\leq\eta < \varrho_D$ let $\Lambda\in\Hom(\ext{\PP{w}{\e}}, \ext{\PP{w}{2\e}})$ and $\rips\Lambda\in\Hom(\RPP{w}{\e},\CPP{w}{2\e})$ be induced by inclusions.
@@ -44,6 +44,26 @@ are image module homomorphisms are straightforward, and can be found in the appe
   Because $\I_w^\e$ and $\J_w^{2\e}$ are induced by inclusions $\Lambda = \E\N_w^{2\e}\circ (\J_w^{2\e})\circ \I_w^\e)\circ \E\N_w^\e)^{-1}$ by Lemma~\ref{cor:excisive_nerve}.
   Therefore, by the definitions of $\Sigma_w^\e$ and $\Upsilon_w^{2\e}$, the pair $(\Sigma_w^\e, \Upsilon_w^{2\e})$ factors $\Lambda$ through $\RPP{w}{2\e}$.
 \end{proof}
+
+Proof of the following lemma can be found in the appendix.
+
+\begin{lemma}\label{lem:rips_homomorphism_left}
+  $\tilde{\Phi}(\Sigma_w^\e,\Sigma_z^\eta)\in\Hom(\im~\Lambda,\im~\rips\Lambda)$ and $\tilde{\Psi}(\Upsilon_w^{2\e},\Upsilon_z^{2\eta})\in\Hom(\im~\rips\Lambda,\im~\Lambda')$ are image module homomorphisms.
+\end{lemma}
+% \begin{proof}
+\proofatend
+  By Lemma~\ref{cor:excisive_nerve} we have $\cech\Lambda\circ (\E\N_w^\e)^{-1} = (\E\N_z^\eta)^{-1}\circ \Lambda$ for $\cech\Lambda\in\Hom(\CPP{w}{\e},\CPP{z}{\eta})$ induced by inclusions.
+  As $\rips\Lambda\circ\I_w^\e = \I_z^\eta\circ\cech\Lambda$
+  \[ \rips\Lambda\circ \I_w^\e\circ(\E\N_w^\e)^{-1} = \I_z^\eta\circ\cech\Lambda\circ (\E\N_w^\e)^{-1} = \I_z^\eta\circ (\E\N_z^\eta)^{-1}\circ\Lambda.\]
+  It follows that $\rips\Lambda\circ\Sigma_w^\e = \Sigma_z^\eta\circ\Lambda$ by the definition of $\Sigma$.
+  So Diagram~\ref{dgm:image_homomorphism} commutes and we may therefore conclude that $\tilde{\Phi}(\Sigma_w^\e,\Sigma_z^\eta)$ is an image module homomorphism.
+
+  By Lemma~\ref{cor:excisive_nerve} we have $\E\N_z^{2\eta} \circ\cech\Lambda'  = \cech \Lambda\circ \E\N_w^{2\e}$ for $\cech\Lambda'\in\Hom(\CPP{w}{2\e},\CPP{z}{2\eta})$ induced by inclusions.
+  As $\J_z^\eta\circ \rips\Lambda = \cech\Lambda'\circ\J_w^\e$
+  \[ \E\N_z^{2\eta}\circ \J_z^\eta\circ \rips\Lambda = \E\N_z^{2\eta}\circ\cech\Lambda'\circ\J_w^\e = \cech \Lambda\circ \E\N_w^{2\e}\circ\J_w^\e.\]
+  Once again, Diagram~\ref{dgm:image_homomorphism} commutes by the definition of $\Upsilon$, so $\tilde{\Psi}(\Upsilon_w^{2\e},\Upsilon_z^{2\eta})$ is an image module homomorphism.
+\endproofatend
+% \end{proof}
 
 % \begin{lemma}\label{lem:weak_rips_left}
 %   Let $\Lambda\in\Hom(\ext{\PP{w}{\e}}, \ext{\PP{w}{2\e}})$ be induced by inclusions.
@@ -104,50 +124,3 @@ are image module homomorphisms are straightforward, and can be found in the appe
 %   \end{align*}
 %   so Diagram~\ref{dgm:image_homomorphism} commutes, and we may therefore conclude that $\tilde{\Psi}(\Upsilon_w^{2\e},\Upsilon_z^{2\eta})$ is an image module homomorphism.
 % \end{proof}
-
-% \subsubsection{Rips-Function Interleaving}
-
-For $w\in\R$ and $k\in\Z$ let
-\[ \DD{w}^k := \left(\left\{\D{w}{\alpha}^k := \hom_k(D\subi{w}{\alpha},B_w)\right\}_{\alpha\in\R},\left\{d\subi{w}{\alpha,\beta}^k : \D{w}{\alpha}\to\D{w}{\beta}\right\}_{\alpha\leq\beta}\right)\]
-denote the $k$th persistent homology module of the sub-levelset filtration modulo $B_w$, $\{(D\subi{w}{\alpha},B_w)\}$.
-Once again, we will omit the dimension $k$ and write $\DD{w}$ if a statement holds for all dimensions.
-
-The proof of the following lemma can be found in the appendix.
-
-\begin{lemma}\label{lem:p_interleave}
- If $Q_w^\e$ surrounds $P^\e$ in $D$ and $D\setminus B_{w + \e}\subseteq P^\e$ then we have the following sequence of homomorphisms of degree $c\e$ induced by inclusions
- \[\DD{w-c\e}\xrightarrow{F}\E\PP{w}{\e}\xrightarrow{M}\DD{w+c\e}.\]
- % $F\in\Hom^{c\e}(\DD{w-c\e}, \E\PP{w}{\e})$ and $M\in\Hom^{c\e}(\E\PP{w}{\e}, \DD{w+c\e})$ indced by inclusions.
- % \[ D\subi{w-c\e}{a-c\e} \subseteq \ext{P\subi{w}{a}^\e}\subseteq D\subi{w+c\e}{a+c\e}.\]
-\end{lemma}
-% \begin{proof}
-%   Suppose $x\in (P^\e\cap B\subi{w-c\e}{a-c\e})\setminus B_{w+\e}$.
-%   Because $B_{w-\e}\subset B_{w+\e}$ we know $x\notin B_{w-\e}$ so $w+c\e < f(x)\leq a-c\e$ and there exists some $p\in P$ such that $\dist(x, p) < \e$.
-%   Because $f$ is $c$-Lipschitz it follows
-%   \[ f(p)\leq f(x) + c\dist(x, p) < a - c\e + c\e = a\]
-%   and
-%   \[ f(p)\geq f(x) - c\dist(x, p) > w+c\e-c\e = w.\]
-%   So $x\in P\subi{w}{a}^\e$.
-%
-%   Now, suppose $x\in P\subi{w}{a}^\e\setminus B_{w+c\e}$.
-%   So $w+c\e < f(x)$ and there exists some $p\in P\subi{w}{a}$ such that $\dist(x,p) < \e$.
-%   Because $f$ is $c$-Lipschitz it follows
-%   \[ f(x) \leq f(p) + c\dist(x,p) < a + c\e.\]
-%   So $x\in B\subi{w+c\e}{a+c\e}\setminus B_{w+c\e}$.
-%
-%   Because $D\setminus B_{w+c\e}\subseteq P^\e$ we know that $D\setminus P^\e \subseteq B_{w+c\e}$, so
-%   \[D\subi{w-c\e}{a-c\e}\setminus B_{w+c\e} \subseteq P\subi{w}{a}^\e\setminus B_{w+c\e}\subseteq D\subi{w+c\e}{a+c\e}\setminus B_{w+c\e}\]
-%   implies
-%   \[ D\subi{w-c\e}{a-c\e}\subseteq P\subi{w}{a}^\e\cup (D\setminus P^\e) = \ext{P\subi{w}{a}^\e} \subseteq D\subi{w+c\e}{a+c\e} \]
-%   as desired.
-% \end{proof}
-
-% Let $\zeta\geq 2\delta$ and suppose $Q_{\omega-c\zeta}$ surrounds $P^\delta$ in $D$ and $D\setminus B_\omega\subseteq P^\delta$.
-% Then, because $f$ is $c$-Lipschitz, $B_{\omega-c(\delta+\zeta)}\cap P^\delta\subseteq Q_{\omega-c\zeta}^\delta$ and $B_\omega\cap P^\delta\subseteq Q_{\omega+c\delta}^\zeta$.
-% Similarly, $Q_{\omega-c\zeta}^{2\delta}\subseteq B_\omega$ and $Q_{\omega+c\delta}^{2\zeta}\subseteq B_{\omega+c{\delta+2\zeta}}$.
-% Therefore, by Lemma~\ref{lem:surround_and_cover}
-% \[ B_{\omega-c(\delta+\zeta)}\subseteq \E Q_{\omega-c\zeta}^\delta\subseteq\E Q_{\omega-c\zeta}^{2\delta}\subseteq B_\omega
-%   \subseteq \E Q_{\omega+c\delta}^\zeta\subseteq \E Q_{\omega+c\delta}^{2\zeta}\subseteq B_{\omega+c{\delta+2\zeta}}.\]
-
-% and
-% \[ B_\omega\subseteq \E Q_{\omega+c\delta}^\zeta\subseteq \E Q_{\omega+c\delta}^{2\zeta}\subseteq B_{\omega+c{\delta+2\zeta}}.\]
