@@ -13,38 +13,55 @@
 \input{src/abstract}
 \input{src/introduction}
 
-% \section{Some Useful Theorems}
-% \input{src/0-lemmas}
+\section{Background}
+\subsection{Separation}
+  \input{src/0-background/0-separate}
 
-\section{Separation}
-\input{src/2-separate}
+\subsection{Persistence Modules}
+  \input{src/0-background/1-modules}
+
+  \subsubsection{Image Modules}
+    \input{src/0-background/2-images}
+
 
 \clearpage
-\section{The Topological Coverage Criterion}
-\input{src/3-sensors}
+\section{The Topological Coverage Criterion (TCC)}
+\input{src/1-tcc/0-geometric}
+
+\subsection{Computing the TCC}
+  \input{src/1-tcc/1-algorithmic}
+
 
 \clearpage
-
-\section{Persistence Modules}
-\input{src/1-modules}
-
 \section{From Coverage Testing to the Analysis of Scalar Fields}
-\input{src/4-scalar}
+\input{src/2-interleaving/0-scalar}
 
-\subsection{Rips Interleaving}
-\input{src/5-rips}
+\subsection{Interleaving}
+  \input{src/2-interleaving/1-setup}
+
+  \subsubsection{Proof of the Interleaving}
+    \input{src/2-interleaving/2-proof}
+
 
 \clearpage
-\section{Putting it all Together}
-\input{src/6-all}
-
-\clearpage
-\appendix
-\section{Some Useful Theorems}
-\input{src/0-lemmas}
-\input{src/appendix}
+\section{Discussion}
+  \input{src/3-discussion/0-intervals}
 
 \bibliographystyle{unsrt}
 \bibliography{bibliography}
+
+\clearpage
+\appendix
+\section{Misc}
+\input{src/appendix/nerves}
+\input{src/appendix/duality}
+
+\section{Omitted Proofs}
+\input{src/appendix/surrounding}
+\input{src/appendix/interleaving}
+
+\section{Helpful Stuff}
+\input{src/appendix/diagrams}
+
 
 \end{document}

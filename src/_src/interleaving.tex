@@ -1,0 +1,61 @@
+% !TeX root = ../main.tex
+
+Our re-statement of the TCC in terms of a surrounding sub-levelset $B_\omega$ of a $c$-Lipschitz function $f : D\to \R$ sets us up with (most of) the machinery we need to approximate the persistent homology of the function $f$.
+In this section we will shift our focus from confirming coverage to approximating the persistent homology of $f$ by a sample that satisfies the TCC.
+
+As we would like to analyze the persistent homology of $f$ in a way that extends the TCC we will not approximate the persistent homology of $f$ as in previous work~\cite{chazal09analysis}.
+Assuming we have a sample that satisfies the TCC we do not know that we cover the entire domain, but only the \emph{super-levelset} $D\setminus B_\omega$.
+Indeed, we could compute the persistent homology of the sub-levelset filtration restricted to this super-levelset, or that of the super-levelset filtration down to $\omega$.
+Instead, we approximate the persistent homology of the sub-levelset filtration \emph{modulo} the sub-levelset $B_\omega$.
+In the next section we explore the meaning of the resulting diagram in the context of the full diagram and compare it with those of the restricted sub and super-levelset filtrations.
+
+As in the previous section let $\X$ be an oriented $d$-manifold and let $D$ be a compact subset.
+Let $f: D\to\R$ be a $c$-lipschitz function and $B_w := f^{-1}((-\infty,a])$ denote a sub-levelset of $f$ at scale $w\in\R$.
+Let $P$ be a finite collection of points in $D$ and $Q_w := P\cap B_w$.
+
+Note that $\{B_\alpha\}_{\alpha\in\R}$ is precisely the sub-levelset filtration of $f$.
+Because we will not assume coverage below some $\omega\in\R$ the persistent homology of $\{Q_\alpha^\delta\}_{\alpha\in\R}$ or even $\{Q_\alpha^\delta\setminus B_\omega\}_{\alpha\in\R}$ cannot be trusted as a reliable approximation.
+In fact, because of the nature of homology as a global property we cannot assume either of these filtrations capture anything meaningful even for $\alpha >> \omega$.
+
+We introduce the following notation to distinguish $B_w$ and $Q_w$ as static sub-levelsets with which we will compute take persistent homology with respect to.
+
+\subsection{Setup and Notation}
+
+For $w,\alpha\in\R$ let
+\[ D\subi{w}{\alpha} := B_w\cup B_\alpha\ \text{ and }\ \ P\subi{w}{\alpha} := P\cap D\subi{w}{\alpha}.\]
+% Now, the pairs $(D\subi{w}{\alpha}, B_w)$ and $(P\subi{w}{\alpha}, Q_w)$ are well defined for all $\alpha\in\R$.
+Let
+\[\PP{w}{\e,k} := \left(\left\{\P{w}{\e,k}{\alpha} := \hom_k(P\subi{w}{\alpha}^\e,Q_w^\e)\right\}_{\alpha\in\R}, \left\{p\subi{w}{\alpha,\beta}^{\e,k} : \P{w}{\e}{\alpha}\to\P{w}{\e}{\beta}\right\}_{\alpha\leq\beta}\right)\]
+denote the $k$th persistent homology module of $\{(P\subi{w}{\alpha}^\e,Q_w^\e)\}$.
+We will omit the dimension $k$ and write $\PP{w}{\e}$ if a statement holds for all dimensions.
+
+If $Q_w^\e$ surrounds $P^\e$ in $D$ we can define a filtration of extensions $\{(\ext{P\subi{w}{\alpha}^\e},\ext{Q_w^\e})\}$ and let $\ext{\PP{w}{\e}}$ denote its $k$th persistent homology module.
+
+\begin{lemma}\label{lem:extension_apply}
+  If $Q_w^\e$ surrounds $P^\e$ in $D$ then for $w\in\R$ and $\ext{P\subi{w}{a}^\e} = P\subi{w}{a}^\e \cup (D\setminus P^\e)$ then there is an isomorphism $\E\subi{w}{\cdot}^\e \in \Hom(\PP{w}{\e},\ext{\PP{w}{\e}})$.
+  % \[\hom_k(P\subi{w}{a}^\e, Q_w^\e)\cong \hom_k(\ext{P\subi{w}{a}^\e}, \ext{Q^\e_a}).\]
+\end{lemma}
+\begin{proof}
+  Because $P\subi{w}{a} := P\cap D\subi{w}{a}$ and $B_w\subseteq D\subi{w}{a}$ we know $Q_w = P\cap B_w \subseteq P\subi{w}{a}$ for all $a\in\R$.
+  So
+  \[\ext{Q^\e_a} = Q^\e_a\cup (D\setminus P^\e) \subseteq P\subi{w}{a}^\e \cup (D\setminus P^\e) = \ext{P\subi{w}{a}^\e}.\]
+  As $(P^\e, Q_w^\e)$ is a surrounding pair in $D$, $P^\e$ is open in $D$ and $\ext{P\subi{w}{a}^\e}\subseteq D$ is such that $\ext{Q^\e_a}\subseteq \ext{P\subi{w}{a}^\e}$ it follows that
+  \[\hom_k(P\subi{w}{a}^\e, Q^\e_a) = \hom_k(P^\e\cap \ext{P\subi{w}{a}^\e}, Q^\e_a) \cong\hom_k(\ext{P\subi{w}{a}^\e}, \ext{Q^\e_a})\]
+  by Lemma~\ref{lem:excision}.
+
+  Because these isomorphisms commute with inclusions we have an isomorphism $\E\subi{w}{\cdot}^\e \in \Hom(\PP{w}{\e},\ext{\PP{w}{\e}})$ defined to be the family $\{\E\subi{w}{\alpha}^\e : \P{w}{\e}{a}\to \E\P{w}{\e}{a}\}$.
+\end{proof}
+
+Let
+\[\CPP{w}{\e} := \left(\left\{\CP{w}{\e}{\alpha} := \hom_k(\cech^\e(P\subi{w}{\alpha}, Q_w))\right\}_{\alpha\in\R}, \left\{\cech p\subi{w}{\alpha,\beta}^\e : \CP{w}{\e}{\alpha}\to\CP{w}{\e}{\beta}\right\}_{\alpha\leq\beta}\right),\]
+denote the $k$th persistent homology module of the \Cech filtration $\{\cech^\e(P\subi{\omega,\alpha}, Q_w)\}$.
+For $\varrho_D > \e$ the isomorphisms $\N_w^\e\in\Hom(\CPP{w}{\e}, \PP{w}{\e})$ provided by Lemma~\ref{lem:rel_pers_nerve} commute with maps induced by inclusion.
+
+\begin{lemma}\label{cor:excisive_nerve}
+  For any $w\leq z$, $\e\leq \eta < \varrho_D$ let $\Lambda\in\Hom(\E\PP{w}{\e},\E\PP{z}{\eta})$ and $\cech\Lambda\in\Hom(\CPP{w}{\e},\CPP{z}{\eta})$ be induced by inclusions.
+  Then $\E\N_w^\e$ and $\E\N_z^\eta$ are isomorphisms such that $\Lambda = \E\N_{z}^{\eta}\circ \cech\Lambda\circ (\E\N_w^\e)^{-1}$ and $\cech\Lambda = (\E\N_{z}^{\eta})^{-1}\circ \Lambda\circ \E\N_w^\e.$
+\end{lemma}
+
+For any $w\in\R$ and $\e\geq 0$ let the $k$th persistent homology module of the Rips filtration $\{\rips^\e(P\subi{w}{\alpha}, Q_w)\}$ be denoted
+\[\RPP{w}{\e} := \left(\left\{\RP{w}{\e}{\alpha} := \hom_k(\rips^\e(P\subi{w}{\alpha}, Q_w))\right\}_{\alpha\in\R}, \left\{\rips p\subi{w}{\alpha,\beta}^\e : \RP{w}{\e}{\alpha}\to\RP{w}{\e}{\beta}\right\}_{\alpha\leq\beta}\right).\]
+Let $\I_w^\e\in\Hom(\CPP{w}{\e}, \RPP{w}{2\e})$ and $\J_w^\e\in\Hom(\RPP{w}{\e},\CPP{w}{\e})$ be induced by inclusions.

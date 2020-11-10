@@ -1,135 +1,10 @@
 % !TeX root = ../main.tex
 
-\begin{definition}[Persistence Module]
-  A \textbf{persistence module} $\S$ over $\R$ is an indexed family of vector spaces $\{S_\alpha\}$ and linear maps $\{s_\alpha^\beta : S_\alpha\to S_\beta\}$ such that $s^\gamma_\beta\circ s_\alpha^\beta = s_\alpha^\gamma$ whenever $\alpha\leq\beta\leq\gamma$ and $s_\alpha^\alpha$ is the identity on $S_\alpha$.
-\end{definition}
+% In the TCC a nested pair of spaces was used in order to filter out noise introduced by the sample.
+% This same technique is used in the analysis of scalar fields~\cite{chazal09analysis} to interleave the persistent homology of a sequence of subspaces to that of a function.
+% These subspaces are simply the images of homomorphisms between homology groups induced by inclusion, and we refer to the resulting persistence module as an image persistence module.
 
-For a persistence module $\S$ we will also use $S[\alpha]$ to denote the vector space $S_\alpha$ and $s[\alpha,\beta]$ to denote the linear maps $s_\alpha^\beta$ when additional notation is required.
-
-\begin{definition}[Persistence Module Homomorphism]
-  A \textbf{homomorphism} $\Lambda$ between two $\R$-persistence modules $\S, \T$ is a collection of linear maps $\{\lambda_\alpha : S_\alpha\to T_\alpha\}$ such that the following diagram commutes for all $\alpha\leq\beta$.
-  \begin{equation}\label{dgm:homomorphism}
-    \begin{tikzcd}
-      S_\alpha\arrow{r}{s_\alpha^\beta}\arrow{d}{\lambda_\alpha} &
-      S_\beta\arrow{d}{\lambda_\beta}\\
-      %
-      T_\alpha\arrow{r}{t_\alpha^\beta} &
-      T_\beta
-  \end{tikzcd}\end{equation}
-  The space of homomorphisms from $\S$ to $\T$ will be denoted $\Hom(\S, \T)$.
-\end{definition}
-
-\begin{definition}[Shifted Homomorphism]
-  A \textbf{homomorphism of degree $\delta$} is a collection $F$ of linear maps $f_\alpha : U_\alpha\to S_{\alpha+\delta}$ such that the following diagram commutes for all $\alpha\leq\beta$.
-
-  \begin{equation}\label{dgm:shifted_homomorphism}
-    \begin{tikzcd}
-      U_\alpha\arrow{r}{u_\alpha^\beta}\arrow{d}{f_\alpha} &
-      U_\beta\arrow{d}{f_\beta}\\
-      %
-      S_{\alpha+\delta}\arrow{r}{s_{\alpha+\delta}^{\beta+\delta}} &
-      S_{\beta +\delta}
-  \end{tikzcd}\end{equation}
-  The space of homomorphisms of degree $\delta$ from $\U$ to $\S$ will be denoted $\Hom^\delta(\U, \S)$.
-\end{definition}
-
-Noting that $\Hom^\delta(\U,\V)\subseteq\Hom^{\delta'}(\U,\V)$ for all $0\leq\delta\leq\delta'$ we will define particular shifted homomorphisms with the assumption that $\Hom^\delta(\U,\V) = \Hom(\U,\V)$ for $\delta = 0$.
-For $\Gamma\in\Hom(\U,\V)$ let $\Gamma[\delta]\in\Hom^\delta(\U,\V)$ denote the homomorphism of degree $\delta$ defined as the family of linear maps
-\[\{\gamma_\alpha[\delta] := v_\alpha^{\alpha+\delta}\circ \gamma_\alpha : U_\alpha\to V_{\alpha+\delta}\}.\]
-
-Using our alternative notation we will write
-\[\gamma[\alpha;\delta] := v[\alpha,\alpha+\delta]\circ\gamma[\alpha] : U[\alpha]\to V[\alpha+\delta]\]
-to denote a map $\gamma_\alpha[\delta]$ of $\Gamma[\delta]$.
-
-% \begin{lemma}\label{lem:trans_shift}
-%   If $F\in \Hom^\delta(\U,\S)$ and $F'\in\Hom^{\delta'}(\S,\S')$ then $F'\circ F\in\Hom^{\delta+\delta'}(\U,\S')$.
-% \end{lemma}
-% \begin{proof}
-%   Because $F'\in \Hom^{\delta'}(\S,\S')$ we have $f_{\beta}'\circ s_\alpha^\beta = {s_{\alpha+\delta'}^{\beta+\delta'}}'\circ f_{\alpha+\delta'}'$ for all $\alpha\leq\beta$.
-%   Because $F\in\Hom^\delta(\U,\S)$ we have $f_{\beta-\delta}\circ u_{\alpha-\delta}^{\beta-\delta} = s_\alpha^\beta\circ f_{\alpha-\delta}$ for all $\alpha\leq\beta$.
-%   So
-%   \begin{align*}
-%     f_{\beta}'\circ (f_{\beta-\delta}\circ u_{\alpha-\delta}^{\beta-\delta})
-%       &= (f_{\beta}'\circ s_\alpha^\beta)\circ f_{\alpha-\delta}\\
-%       &= {s_{\alpha+\delta'}^{\beta+\delta'}}'\circ f_{\alpha+\delta'}'\circ f_{\alpha-\delta}
-%   \end{align*}
-%   so $F'\circ F\in\Hom^{\delta+\delta'}(\U,\S')$.
-% \end{proof}
-
-\begin{definition}[Interleaving]
-  Two persistence modules $\U$ and $\S$ are \textbf{$\delta$-interleaved} if there exist homomorphisms $F\in\Hom^\delta(\U, \S)$ and $G \in\Hom^\delta(\S,\U)$ such that the following diagrams commute for all $\alpha$.
-
-  \begin{minipage}{0.45\textwidth}
-  \begin{equation}\label{dgm:interleaving1}
-    \begin{tikzcd}
-      U_{\alpha-\delta}\arrow{rr}{u_{\alpha-\delta}^{\alpha+\delta}}\arrow{dr}{f_{\alpha-\delta}} & &
-      U_{\alpha+\delta}\\
-      %
-      & S_{\alpha}\arrow{ur}{g_\alpha} &
-  \end{tikzcd}\end{equation}
-  \end{minipage}
-  \begin{minipage}{0.45\textwidth}
-  \begin{equation}\label{dgm:interleaving2}
-    \begin{tikzcd}
-      & U_{\alpha}\arrow{dr}{f_\alpha} &\\
-      %
-      S_{\alpha-\delta}\arrow{rr}{s_{\alpha-\delta}^{\alpha+\delta}}\arrow{ur}{g_{\alpha-\delta}} & &
-      S_{\alpha+\delta}
-  \end{tikzcd}\end{equation}
-  \end{minipage}
-\end{definition}
-
-\subsection{Interval Modules}
-
-For an interval $I = [s,t)\subseteq \R$ let $I_+ := [t,\infty)$ and $I_- := (-\infty, s]$.
-For $\alpha\leq\beta\in\R$ let
-\[ F_\alpha^I := \begin{cases} \FF&\text{ if } \alpha\in I\\ 0 &\text{otherwise,}\end{cases}\ \text{ and }\ \ f_{\alpha,\beta}^I := \begin{cases} \id_\FF&\text{ if } \alpha,\beta\in I\\ 0&\text{otherwise.}\end{cases}.\]
-An \textbf{interval module} is a persistence module $\FF^I$ defined to be the family of vector spaces $\{F_\alpha^I\}_{\alpha\in\R}$ along with linear maps $\{f_{\alpha,\beta}^I : F_\alpha^I\to F_\beta^I\}_{\alpha\leq\beta}$.
-
-A \textbf{interval decomposition} of a persistence module $\S$ a collection $\I$ of interval $I\subseteq\R$ such that
-\[ \S = \bigoplus_{I\in \I} \FF^I. \]
-If such a decomposition exists $\S$ is said to be \textbf{decomposable}.
-
-% \subsection{}
-%
-% \begin{definition}[Weak Interleaving]
-%   For $I\in\Hom^{2\delta}(\U,\V)$ a pair $(F, M)\in \Hom^\delta(\U,\S)\times\Hom^\delta(\S,\V)$ is a \textbf{weak $\delta$-interleaving} of $I$ with $\S$ if $I = M\circ F$.
-%   If $J\in\Hom^{\delta'}(\S,\T)$ and $(F,N)\in\Hom^\delta(\U,\S)\times\Hom^\delta(\T,\V)$ is a weak $\delta$-interleaving of $I$ with $J$ if $I = N\circ J\circ F$.
-% \end{definition}
-%
-% \begin{lemma}\label{lem:left}
-%   Let $I\in\Hom^{4\delta}(\U,\V)$, $J\in\Hom^{2\delta}(\S,\T)$ and suppose $(F, N)\in\Hom^{\delta}(\U,\S)\times\Hom^\delta(\T,\V)$ is a weak $\delta$-interleaving of $I$ with $J$.
-%
-%   If $(F', M')\in\Hom^\delta(\S,\S')\times\Hom^\delta(\S',\T)$ is a weak $\delta$-interleaving of $J$ with $\S'$ then
-%   \[(F'\circ F, N\circ M')\in\Hom^{2\delta}(\U,\S')\times \Hom^{2\delta}(\S',\V)\]
-%   is a weak $2\delta$-interleaving of $I$ with $\S'$.
-% \end{lemma}
-% \begin{proof}
-%   By Lemma~\ref{lem:trans_shift} we have $F'\circ F\in\Hom^{2\delta}(\U,\S')$ and $N\circ M'\in \Hom^{2\delta}(\S',\V)$.
-%   If $(F', M')$ is a weak $\delta$-interleaving of $J$ with $\S'$ then $J = M'\circ F'$.
-%   By our hypothesis that $(F, N)$ is a weak $\delta$-interleaving of $I$ with $J$
-%   \[ I = N\circ J\circ F = (N\circ M')\circ (F'\circ F).\]
-%   We may therefore conclude that $(F'\circ F, N\circ M')\in\Hom^{2\delta}(\U,\S')\times \Hom^{2\delta}(\S',\V)$ is a weak $2\delta$-interleaving of $I$ with $\S'$.
-% \end{proof}
-%
-% \begin{lemma}\label{lem:right}
-%   Let $I\in\Hom^{2\delta}(\U,\V)$, $I'\in\Hom^{4\delta}(\U',\V')$ and suppose $(F, M)\in\Hom^\delta(\U,\S)\times\Hom^\delta(\S,\V)$ is a weak $\delta$-interleaving of $I$ with $\S$.
-%
-%   If $(F',N')\in\Hom^\delta(\U',\U)\times\Hom^\delta(\V,\V')$ is a weak $\delta$-interleaving of $I'$ with $I$ then
-%   \[(F\circ F', N'\circ M)\in\Hom^{2\delta}(\U',\S)\times\Hom^{2\delta}(\S,\V')\]
-%   is a weak $2\delta$-interleaving of $I'$ with $\S$.
-% \end{lemma}
-% \begin{proof}
-%   By Lemma~\ref{lem:trans_shift} we have $F\circ F'\in \Hom^{2\delta}(\U',\S)$ and $N'\circ M\in \Hom^{2\delta}(\S,\V')$.
-%   By our hypothesis that $(F, M)$ is a weak $\delta$-interleaving of $I$ with $\S$ we know $I = M\circ F$.
-%   If $(F',N')$ is a weak $\delta$-interleaving of $I'$ with $I$ then $I' = N'\circ I\circ F'$.
-%   \[ I' = N'\circ I\circ F' = (N'\circ M)\circ (F\circ F').\]
-%   We may therefore conclude that $(F\circ F', N'\circ M)\in\Hom^{2\delta}(\U',\S)\times\Hom^{2\delta}(\S,\V')$ is a weak $2\delta$-interleaving of $I'$ with $\S$.
-% \end{proof}
-%
-\subsection{Image Persistence Modules}
-
-In the TCC a nested pair of spaces was used in order to filter out noise introduced by the sample.
+In the TCC a nested pair of spaces is used in order to filter out noise introduced by the sample.
 This same technique is used in the analysis of scalar fields~\cite{chazal09analysis} to interleave the persistent homology of a sequence of subspaces to that of a function.
 These subspaces are simply the images of homomorphisms between homology groups induced by inclusion, and we refer to the resulting persistence module as an image persistence module.
 
@@ -189,7 +64,7 @@ In the following the existence of an image module homomorphism $\Phi(F, G)\in\Ho
 
 Here, the notation $\Phi'\circ \Phi$ denotes the composition of pairs $(F'\circ F, G'\circ G)$.
 
-\subsection{Partial Interleavings of Image Modules}
+\subsubsection{Partial Interleavings of Image Modules}
 
 Image module homomorphisms introduce a direction to the traditional notion of interleaving.
 That is, given $\Gamma\in\Hom(\U,\V)$ and $\Lambda\in\Hom(\S,\T)$ and $\Phi(F, G)\in\Hom^\delta(\im~\Gamma, \im~\Lambda)$ we consider the case in which there is only a map $\S\to\V$ that commutes.
@@ -197,7 +72,8 @@ As we will see, our interleaving via Lemma~\ref{thm:interleaving_main} involves 
 
 \begin{definition}[Partial Interleaving of Image Modules]
   Let $\Gamma\in\Hom(\U,\V)$ and $\Lambda\in\Hom(\S,\T)$.
-  $\Phi(F, G)\in\Hom^\delta(\im~\Gamma,\im~\Lambda)$ is a \textbf{left $\delta$-interleaving of image modules} if there exists some $M\in\Hom^\delta(\S,\V)$ such that $\Gamma[2\delta] = M\circ F$.% $(F, M)$ factors of $\Gamma[2\delta]$ through $\S$ with degree $\delta$.
+  $\Phi(F, G)\in\Hom^\delta(\im~\Gamma,\im~\Lambda)$ is a \textbf{left $\delta$-interleaving of image modules} if there exists some $M\in\Hom^\delta(\S,\V)$ such that $\Gamma[2\delta] = M\circ F$.
+  % $(F, M)$ factors of $\Gamma[2\delta]$ through $\S$ with degree $\delta$.
   If $\Lambda[2\delta] = G\circ M$ then $\Phi(F, G)$ is a \textbf{right $\delta$-interleaving of image modules}.
 
   An image module homomorphism $\Phi(F, G)$ is a \textbf{partial $\delta$-interleaving of image modules}, and denoted $\Phi_M(F, G)$, if it is both a left and right $\delta$-interleaving of image modules.

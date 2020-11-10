@@ -1,4 +1,4 @@
-% !TeX root = ../main.tex
+% !TeX root = ../../main.tex
 
 In this section we consider the meaning of the $k$th persistent (relative) homology of a function $f : D\to \R$ modulo a fixed sub-levelset $B_\omega := f^{-1}((-\infty,\omega])$.
 Unlike previous work~\cite{extendedpersistence} we do not consider the persistent relative homology of $D$ modulo the sub-levelset filtration $\{B_\alpha\}_{\alpha\in\R}$.
@@ -71,7 +71,8 @@ Letting $\AA_\omega^k := \displaystyle\bigoplus_{I\in\I^k} \FF_\omega^I$ and $\B
 \begin{theorem}%[Algorithmic TCC]\label{thm:algo_tcc}
   Let $\X$ be an orientable $d$-manifold and let $D$ be a compact subset of $\X$ with strong convexity radius $\varrho_D > \delta$.
   Let $f : D\to\R$ be $c$-Lipschitz function and let $\omega\in\R$ and $2\delta\leq\zeta < \varrho_D/2$ be constants such that $B_{\omega - c(\zeta +\delta)}$ surrounds $D$ in $\X$.
-  Let $P$ be a finite subset of $D$ such that $P^\delta\subset \intr_\X(D)$ and $D\setminus S^\delta$ is locally path connected for all $S\subseteq P$.
+  % Let $P$ be a finite subset of $D$ such that $P^\delta\subset \intr_\X(D)$ and $D\setminus S^\delta$ is locally path connected for all $S\subseteq P$.
+  Let $P\subset \intr_\X(D)$ and suppose $P^\delta$, $Q_{\omega-c\zeta}^\delta$, and $Q_{\omega+c\delta}^\delta$ satisfy the assumptions of Lemma~\ref{lem:duality_apply}.
   Suppose $\hom_k(B_{\omega-c(\delta+\zeta)}\hookrightarrow B_\omega)$ and $\hom_k(B_\omega)\cong\hom_k(B_{\omega+c(\delta+2\zeta)})$ for all $k$.
 
   If

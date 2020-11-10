@@ -1,0 +1,58 @@
+% !TeX root = ../main.tex
+
+\begin{lemma}\label{lem:pt_interleaving}
+  If $\hom_k(\b\to\B)$ is surjective and $\hom_k(\B)\cong \hom_k(B_{\omega+c(\delta+\zeta)})$ for all $k$ then for all $k$ and $\alpha\leq\beta$
+  \[\hom_k\left((D\subi{\omega-c(\delta+\zeta)}{\alpha},B_{\omega-c(\delta+\zeta)})\hookrightarrow (D\subi{\omega}{\beta},B_{\omega})\right)\]
+  is surjective and
+  \[ \hom_k\left( (D\subi{\omega}{\alpha},B_\omega)\hookrightarrow (D\subi{\omega+c(\delta+\zeta)}{\beta},B_{\omega+c(\delta+\zeta)}) \right)\]
+  is an isomorphism.
+\end{lemma}
+\begin{proof}
+  By applying Lemma~\ref{lem:five} to the long exact sequences of the pairs $(D\subi{\omega-c(\delta+\zeta)}{\alpha},\b)$ and $(D\subi{\omega}{\alpha},\B)$ our assumption that $\hom_k(\b\to\B)$ is surjective for all $k$ implies $\hom_k((D\subi{\omega-c(\delta+\zeta)}{\alpha},\b)\hookrightarrow (D\subi{\omega}{\alpha},\B))$ is surjective for all $\alpha\in\R$.
+  Similarly, the assumption that $\hom_k(\B)\cong \hom_k(B_{\omega+c(\delta+\zeta)})$ implies $\hom_k((D\subi{\omega}{\alpha},\B)\hookrightarrow (D\subi{\omega+c(\delta+\zeta)}{\alpha},B_{\omega+c(\delta+\zeta)}))$ is an isomorphism by applying Lemma~\ref{lem:five} to the long exact sequences of the pairs $(D\subi{\omega}{\alpha},\B)$ and $(D\subi{\omega+c(\delta+\zeta)}{\alpha},B_{\omega+c(\delta+\zeta)})$.
+\end{proof}
+
+% \begin{lemma}\label{lem:extension_apply}
+%   If $Q_w^\e$ surrounds $P^\e$ in $D$ then for all $w,a\in\R$ and $\ext{P\subi{w}{a}^\e} = P\subi{w}{a}^\e \cup (D\setminus P^\e)$
+%   \[\hom_k(P\subi{w}{a}^\e, Q_w^\e)\cong \hom_k(\ext{P\subi{w}{a}^\e}, \ext{Q^\e_a}).\]
+% \end{lemma}
+% \begin{proof}
+%   Because $P\subi{w}{a} := P\cap D\subi{w}{a}$ and $B_w\subseteq D\subi{w}{a}$ we know $Q_w = P\cap B_w \subseteq P\subi{w}{a}$ for all $w,a\in\R$.
+%   So
+%   \[\ext{Q^\e_a} = Q^\e_a\cup (D\setminus P^\e) \subseteq P\subi{w}{a}^\e \cup (D\setminus P^\e) = \ext{P\subi{w}{a}^\e}.\]
+%   As $(P^\e, Q_w^\e)$ is a surrounding pair in $D$, $P^\e$ is open in $D$ and $\ext{P\subi{w}{a}^\e}\subseteq D$ is such that $\ext{Q^\e_a}\subseteq \ext{P\subi{w}{a}^\e}$ it follows that
+%   \[\hom_k(P\subi{w}{a}^\e, Q^\e_a) = \hom_k(P^\e\cap \ext{P\subi{w}{a}^\e}, Q^\e_a) \cong\hom_k(\ext{P\subi{w}{a}^\e}, \ext{Q^\e_a})\]
+%   by Lemma~\ref{lem:excision}
+% \end{proof}
+%
+% So we define the extensions
+% \[\ext{P^\e\subi{\omega-c\zeta}{\alpha}} := P^\e\subi{\omega-c\delta}{\alpha}\cup (D\setminus P^\of)\]
+% and
+% \[\ext{P^\e\subi{\omega+c\delta}{\alpha}} := P^\e\subi{\omega+c\delta}{\alpha}\cup (D\setminus P^\of)\]
+% of $P^\e_\alpha$ for all $\alpha\in\R$ and $\delta\leq\e\leq\zeta$.
+%
+% \begin{lemma}\label{lem:p_interleave}
+%  If $Q_w^\e$ surrounds $P^\e$ in $D$ and $D\setminus B_{w + \e}\subseteq P^\e$ then
+%  \[ D\subi{w-c\e}{a-c\e} \subseteq \ext{P\subi{w}{a}^\e}\subseteq D\subi{w+c\e}{a+c\e}.\]
+% \end{lemma}
+% \begin{proof}
+%   Suppose $x\in (P^\e\cap B\subi{w-c\e}{a-c\e})\setminus B_{w+\e}$.
+%   Because $B_{w-\e}\subset B_{w+\e}$ we know $x\notin B_{w-\e}$ so $w+c\e < f(x)\leq a-c\e$ and there exists some $p\in P$ such that $\dist(x, p) < \e$.
+%   Because $f$ is $c$-Lipschitz it follows
+%   \[ f(p)\leq f(x) + c\dist(x, p) < a - c\e + c\e = a\]
+%   and
+%   \[ f(p)\geq f(x) - c\dist(x, p) > w+c\e-c\e = w.\]
+%   So $x\in P\subi{w}{a}^\e$.
+%
+%   Now, suppose $x\in P\subi{w}{a}^\e\setminus B_{w+c\e}$.
+%   So $w+c\e < f(x)$ and there exists some $p\in P\subi{w}{a}$ such that $\dist(x,p) < \e$.
+%   Because $f$ is $c$-Lipschitz it follows
+%   \[ f(x) \leq f(p) + c\dist(x,p) < a + c\e.\]
+%   So $x\in B\subi{w+c\e}{a+c\e}\setminus B_{w+c\e}$.
+%
+%   Because $D\setminus B_{w+c\e}\subseteq P^\e$ we know that $D\setminus P^\e \subseteq B_{w+c\e}$, so
+%   \[D\subi{w-c\e}{a-c\e}\setminus B_{w+c\e} \subseteq P\subi{w}{a}^\e\setminus B_{w+c\e}\subseteq D\subi{w+c\e}{a+c\e}\setminus B_{w+c\e}\]
+%   implies
+%   \[ D\subi{w-c\e}{a-c\e}\subseteq P\subi{w}{a}^\e\cup (D\setminus P^\e) = \ext{P\subi{w}{a}^\e} \subseteq D\subi{w+c\e}{a+c\e} \]
+%   as desired.
+% \end{proof}

@@ -118,7 +118,8 @@
 \newcommand{\fen}{\ome - c\zeta}
 \newcommand{\fenn}{\ome + c\of}
 
-\newcommand{\Q}{Q_{\fen}}
+% \newcommand{\Q}{Q_{\fen}}
+\newcommand{\Q}{\mathcal{Q}}
 \newcommand{\QQ}{Q_{\fenn}}
 
 % \renewcommand{\P}{P^{\of}}
@@ -146,18 +147,31 @@
 \renewcommand{\V}{\mathbb{V}}
 \renewcommand{\W}{\mathbb{W}}
 
-\renewcommand{\D}[2]{\mathcal{D}_{#1}[#2]}
-\newcommand{\DD}[1]{\mathbb{D}_{#1}}
-
-
 \newcommand{\E}{\mathcal{E}}
-\renewcommand{\P}[3]{\mathcal{P}_{#1}^{#2}[#3]}
-\newcommand{\CP}[3]{\cech\mathcal{P}_{#1}^{#2}[#3]}
-\newcommand{\RP}[3]{\rips\mathcal{P}_{#1}^{#2}[#3]}
+%
+% \renewcommand{\D}[2]{\mathcal{D}_{#1}[#2]}
+% \newcommand{\DD}[1]{\mathbb{D}_{#1}}
 
-\newcommand{\PP}[2]{\mathbb{P}_{#1}^{#2}}
-\newcommand{\CPP}[2]{\cech\mathbb{P}_{#1}^{#2}}
-\newcommand{\RPP}[2]{\rips\mathbb{P}_{#1}^{#2}}
+
+% \renewcommand{\P}[3]{\mathcal{P}_{#1}^{#2}[#3]}
+% \newcommand{\CP}[3]{\cech\mathcal{P}_{#1}^{#2}[#3]}
+% \newcommand{\RP}[3]{\rips\mathcal{P}_{#1}^{#2}[#3]}
+%
+% \newcommand{\PP}[2]{\mathbb{P}_{#1}^{#2}}
+% \newcommand{\CPP}[2]{\cech\mathbb{P}_{#1}^{#2}}
+% \newcommand{\RPP}[2]{\rips\mathbb{P}_{#1}^{#2}}
+
+
+\renewcommand{\D}[2]{\mathcal{D}\subi{#1}{#2}}
+\newcommand{\DD}[1]{\mathbb{D}\subi{#1}{\cdot}}
+
+\renewcommand{\P}[3]{\mathcal{P}\subi{#1}{#3}^{#2}}
+\newcommand{\CP}[3]{\cech\P{#1}{#2}{#3}}
+\newcommand{\RP}[3]{\rips\P{#1}{#2}{#3}}
+
+\newcommand{\PP}[2]{\mathbb{P}\subi{#1}{\cdot}^{#2}}
+\newcommand{\CPP}[2]{\cech\PP{#1}{#2}}
+\newcommand{\RPP}[2]{\rips\PP{#1}{#2}}
 
 \renewcommand{\AA}{\mathbb{A}}
 \newcommand{\BB}{\mathbb{B}}

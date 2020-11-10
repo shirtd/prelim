@@ -1,0 +1,215 @@
+% !TeX root = ../main.tex
+
+\begin{lemma}\label{lem:excision}
+  If $(L, S)$ is a surrounding pair in a subspace $D$ of $X$ and $L$ is open in $D$ then
+  \[ \hom_k(L\cap A, S) \cong \hom_k(A, \ext{S}) \]
+  for all $k$ and any $A\subseteq D$ such that $\ext{S}\subset A$.
+\end{lemma}
+\begin{proof}
+  Because $S$ surrounds $L$ in $D$, $(L\setminus S, D\setminus L)$ is a separation of $D\setminus S$, a subspace of $D$.
+  So $\cl_D(L\setminus S)\setminus L = \cl_D(L\setminus S) \cap (D\setminus L) = \emptyset$ which implies $\cl_D(L\setminus S)\subseteq L = \intr_D(L)$ as $L$ is open in $D$.
+  Therefore,
+  \begin{align*}
+    \cl_D(D\setminus L) &= D\setminus \intr_D(L)\\
+                        &\subseteq D\setminus \cl_D(L\setminus S)\\
+                        &= \intr_D(D\setminus (L\setminus S))\\
+                        &= \intr_D(\ext{S}).
+  \end{align*}
+  so,
+  \begin{align*}
+    \hom_k(L\cap A, S) &= \hom_k(A\setminus (D\setminus L), \ext{S}\setminus (D\setminus L))\\
+      &\cong \hom_k(A, \ext{S})
+  \end{align*}
+  for all $k$ and any $A\subseteq D$ such that $\ext{S}\subset A$ by Excision.
+\end{proof}
+
+% \begin{lemma}\label{lem:excision_commute}
+%   Suppose $(L, S)$ is a surrounding pair in a subspace $D$ of $X$ and $L$ is open in $D$.
+%
+%   For all $A\subseteq A'\subseteq D$ such that $\ext{S}\subset A$ the isomorphisms induced by inclusions $(L\cap A, S)\hookrightarrow (A, \ext{S})$ and $(L\cap A', S)\hookrightarrow (A', \ext{S})$ commute with the inclusions $(L\cap A, S)\hookrightarrow (L\cap A', S)$ and $(A, \ext{S})\hookrightarrow (A', \ext{S})$ on the level of homology.
+% \end{lemma}
+
+\begin{lemma}\label{lem:surround_and_cover}
+  Suppose $S$ surrounds $L$ in $D$ and $B\subseteq B'\subset D$.
+
+  If $D\setminus B'\subseteq L$ and $L\cap B\subseteq S\subseteq B'$ then $B\subseteq \ext{S}\subseteq B'$.
+\end{lemma}
+\begin{proof}
+  Note that $B\setminus (D\setminus L) = B\cap L\subseteq S$ implies $B\subseteq S\sqcup(D\setminus L) = \ext{S}$.
+  Moreover, because $S\subseteq B'$ and $D\setminus B'\subseteq L$ implies $D\setminus L \subset D\setminus (D\setminus B') = B'$, we have
+  \[ \ext{S} = S\sqcup (D\setminus L) \subseteq B'\cup (D\setminus L) = B'. \]
+  So $B \subseteq \ext{S}\subseteq B'$ as desired.
+\end{proof}
+
+In the following let $X$ be a topological space and $\overline{A} := X\setminus U$ denote the complement of a subset $U$ of $X$.
+
+\begin{lemma}\label{lem:coverage}
+  Let $(D, B)$ be a surrounding pair in $X$ and $L\subseteq D$, $S\subseteq L\cap B$ be subsets so that $\ell: \hom_0(\overline{B}, \overline{D})\to \hom_0(\overline{S}, \overline{L})$ is induced by inclusion.
+
+  If $\ell$ is injective then $D\setminus B\subseteq L$.
+\end{lemma}
+\begin{proof}
+    Suppose, for the sake of contradiction, that $p$ is injective and there exists a point $x\in (D\setminus B)\setminus L$.
+    Because $B$ surrounds $D$ in $X$ the pair $(D\setminus B, \overline{D})$ forms a separation of $\overline{B}$.
+    Therefore, $\hom_0(\overline{B})\cong \hom_0(D\setminus B)\oplus \hom_0(\overline{D})$ so
+    \[ \hom_0(\overline{B}, \overline{D})\cong \hom_0(D\setminus B). \]
+    So $[x]$ is non-trivial in $\hom_0(\overline{B},\overline{D})\cong \hom_0(D\setminus B)$ as $x$ is in some connected component of $D\setminus B$.
+    So we have the following sequence of maps induced by inclusions
+    \[ \hom_0(\overline{B},\overline{D})\xrightarrow{f} \hom_0(\overline{B},\overline{D}\cup\{x\})\xrightarrow{g} \hom_0(\overline{S},\overline{L}).\]
+    As $f[x]$ is trivial in $\hom_0(\overline{B},\overline{D}\cup\{x\})$ we have that $\ell[x] = (g\circ f)[x]$ is trivial, contradicting our hypothesis that $\ell$ is injective.
+\end{proof}
+
+\begin{lemma}\label{lem:cov_surrounds}
+  Let $(D, B)$ be a surrounding pair in $X$ and $L\subseteq D$, $S\subseteq L\cap B$ be subsets so that $\ell: \hom_0(\overline{B}, \overline{D})\to \hom_0(\overline{S}, \overline{L})$ is induced by inclusion.
+
+  If $\ell$ injective then $S$ surrounds $L$ in $D$.
+\end{lemma}
+\begin{proof}
+  Suppose, for the sake of contradiction, that $S$ does not surround $L$ in $D$.
+  Then there exists a path $\gamma : [0,1]\to\overline{S}$ with $\gamma(0)\in L\setminus S$ and $\gamma(1)\in D\setminus L$.
+  By Lemma~\ref{lem:coverage} we know that $D\setminus B\subseteq L$, so $D\setminus B\subseteq L\setminus S$.
+
+  Choose $x\in D\setminus B$ and $z\in \overline{D}$ such that there exist paths $\xi : [0,1]\to L\setminus S$ with $\xi(0) = x$, $\xi(1) = \gamma(0)$ and $\zeta : [0,1]\to \overline{D}\cup (D\setminus L)$ with $\zeta(0) = z$, $\zeta(1) = \gamma(1)$.
+  $\xi, \gamma$ and $\zeta$ all generate chains in $C_1(\overline{S}, \overline{L})$ and $\xi + \gamma + \zeta = \gamma^*\in C_1(\overline{S}, \overline{L})$ with $\partial\gamma^* = x + z$.
+  Moreover, $z$ generates a chain in $C_0(\overline{L})$ as $\overline{D}\subseteq\overline{L}$.
+  So $x = \partial\gamma^* + z$ is a relative boundary in $C_0(\overline{S}, \overline{L})$, thus $\ell[x] = \ell[z]$ in $\hom_0(\overline{S}, \overline{L})$.
+  However, because $B$ surrounds $D$, $[x]\neq [y]$ in $\hom_0(\overline{B}, \overline{D})$ contradicting our assumption that $\ell$ is injective.
+\end{proof}
+
+\begin{lemma}%\label{thm:interleaving_main}
+  Suppose $\Gamma\in\Hom(\U,\V)$, $\Pi\in\Hom(\V,\W)$, and $\Lambda\in\Hom(\S, \T)$.
+
+  If $\Phi_M(F, G)\in\Hom^\delta(\im~\Gamma, \im~\Lambda)$ and $\Psi_G(M, N)\in\Hom^\delta(\im~\Lambda, \im~\Pi)$ are partial $\delta$-interleavings of image modules such that $\Gamma$ is a epimorphism and $\Pi$ is a monomorphism then $\im~\Lambda$ is $\delta$-interleaved with $\V$.
+\end{lemma}
+\begin{proof}
+  For ease of notation let $\Phi$ denote $\Phi_M(F, G)$ and $\Psi$ denote $\Psi_G(M, N)$.
+
+  If $\Gamma$ is an epimorphism $\gamma_\alpha$ is surjective so $\Gamma_\alpha = V_\alpha$ and $\phi_{\alpha} = g_{\alpha}\rest_{\Gamma_\alpha} = g_\alpha$ for all $\alpha$.
+  So $\im~\Gamma = \V$ and $\Phi\in\Hom^\delta(\V,\im~\Lambda)$.
+
+  If $\Pi$ is a monomorphism then $\pi_\alpha$ is injective so we can define a natural isomorphism $\pi_\alpha^{-1} : \Pi_\alpha\to V_\alpha$ for all $\alpha$.
+  Let $\Psi^*$ be defined as the family of linear maps $\{\psi_\alpha^* := \pi^{-1}_\alpha \circ \psi_\alpha : \Lambda_\alpha\to V_{\alpha+\delta}\}$.
+  Because $\Psi$ is a partial $\delta$-interleaving of image modules, $n_\alpha\circ\lambda_\alpha = \pi_{\alpha+\delta}\circ m_\alpha$.
+  So, because $\psi_\alpha = n_\alpha\rest_{\Lambda_\alpha}$ for all $\alpha$,
+  \begin{align*}
+    \im~\psi_\alpha^* &= \im~\pi^{-1}_{\alpha+\delta}\circ\psi_\alpha\\
+                      &= \im~\pi^{-1}\circ (n_\alpha\circ\lambda_\alpha)\\
+                      &= \im~\pi^{-1}\circ (\pi_{\alpha+\delta}\circ m_\alpha)\\
+                      &= \im~ m_\alpha.
+  \end{align*}
+  It follows that $\im~v_{\alpha+\delta}^{\beta+\delta}\circ\psi_\alpha^* = \im~v_{\alpha+\delta}^{\beta+\delta}\circ m_\alpha$
+
+  Similarly, because $\Psi$ is a $\delta$-interleaving of image modules $n_\beta\circ t_\alpha^\beta\circ \lambda_\alpha = w_{\alpha+\delta}^{\beta+\delta}\circ\pi_{\alpha+\delta}\circ m_\alpha$.
+  Moreover, because $\Pi$ is a homomorphism of persistence modules, $w_{\alpha+\delta}^{\beta+\delta}\circ\pi_{\alpha+\delta} = \pi_{\beta+\delta}\circ v_{\alpha+\delta}^{\beta+\delta}$, so
+  \[ n_\beta\circ t_\alpha^\beta\circ \lambda_\alpha = \pi_{\beta+\delta}\circ v_{\alpha+\delta}^{\beta+\delta}\circ m_\alpha.\]
+  As $\psi_\beta\circ\lambda_\alpha^\beta = n_\beta\circ\lambda_\alpha^\beta = n_\beta\circ t_\alpha^\beta\rest_{\Lambda_\alpha}$ it follows
+  \begin{align*}
+    \im~\psi_\beta^*\circ\lambda_\alpha^\beta &= \im~\pi^{-1}_{\beta+\delta}\circ (n_\beta\circ t_\alpha^\beta\circ\lambda_\alpha)\\
+      &= \im~\pi^{-1}_{\beta+\delta}\circ (\pi_{\beta+\delta}\circ v_{\alpha+\delta}^{\beta+\delta})\circ m_\alpha\\
+      &= \im~v_{\alpha+\delta}^{\beta+\delta}\circ m_\alpha\\
+      &= \im~v_{\alpha+\delta}^{\beta+\delta}\circ\psi_\alpha^*.
+  \end{align*}
+  So we may conclude that $\Psi^*\in\Hom^\delta(\im~\Lambda,\V)$.
+
+  So $\Phi\in\Hom^\delta(\V,\im~\Lambda)$ and $\Psi_G^*\in\Hom^\delta(\im~\Lambda,\V)$.
+  As we have shown, $\im~\psi_{\alpha-\delta}^* = \im~m_{\alpha-\delta}$ so $\im~\phi_\alpha\circ\psi_{\alpha-\delta}^* = \im~\phi_\alpha\circ m_{\alpha-\delta}$.
+  Moreover, because $\gamma_\alpha$ is surjective $\phi_\alpha = g_\alpha$ and, because $\Phi$ is a partial $\delta$-interleaving of image modules, $g_\alpha\circ m_{\alpha-\delta} = t_{\alpha-\delta}^{\alpha+\delta}\circ \lambda_{\alpha-\delta}$.
+  As $\lambda_{\alpha-\delta}^{\alpha+\delta} = t_{\alpha-\delta}^{\alpha+\delta}\rest_{\im~\lambda_{\alpha-\delta}}$ it follows that $\im~\phi_\alpha\circ\psi_{\alpha-\delta}^* = \im~\lambda_{\alpha-\delta}^{\alpha+\delta}$.
+
+  Finally, $\psi_\alpha^*\circ\phi_\alpha = \pi_{\alpha+\delta}^{-1}\circ n_\alpha\circ g_{\alpha-\delta}$ where, because $\Psi$ is a partial $\delta$-interleaving of image modules, $n_\alpha\circ g_{\alpha-\delta} = w_{\alpha-\delta}^{\alpha+\delta}\circ\pi_{\alpha-\delta}$.
+  Because $\Pi$ is a homomorphism of persistence modules $w_{\alpha-\delta}^{\alpha+\delta}\circ \pi_{\alpha-\delta} = \pi_{\alpha+\delta}\circ v_{\alpha-\delta}^{\alpha+\delta}$.
+  Therefore,
+  \begin{align*}
+    \psi_\alpha^*\circ\phi_\alpha &= \pi_{\alpha+\delta}^{-1}\circ n_\alpha\circ g_{\alpha-\delta}\\
+      &= \pi_{\alpha+\delta}^{-1}\circ (\pi_{\alpha+\delta}\circ v_{\alpha-\delta}^{\alpha+\delta})\\
+      &= v_{\alpha-\delta}^{\alpha+\delta}
+  \end{align*}
+  which, along with $\phi_\alpha\circ\im~\psi_{\alpha-\delta}^* = \lambda_{\alpha-\delta}^{\alpha+\delta}$ implies Diagrams~\ref{dgm:interleaving1} and~\ref{dgm:interleaving2} commute with $\Phi\in\Hom^\delta(\V,\im~\Lambda)$ and $\Psi^*\in\Hom^\delta(\im~\Lambda, \V)$.
+  We may therefore conclude that $\im~\Lambda$ and $\V$ are $\delta$-interleaved.
+\end{proof}
+
+\begin{lemma}\label{lem:rips_homomorphism_left}
+  For any $w\leq z$, $\e\leq\eta < \varrho_D$ let $\Lambda\in\Hom(\ext{\PP{w}{\e}}, \ext{\PP{w}{2\e}})$ and $\rips\Lambda\in\Hom(\RPP{w}{\e},\CPP{w}{2\e})$ be induced by inclusions.
+  Then $\tilde{\Phi}(\Sigma_w^\e,\Sigma_z^\eta)$ is an image module homomorphism.
+\end{lemma}
+\begin{proof}
+  By Lemma~\ref{cor:excisive_nerve} we have $\cech\Lambda\circ (\E\N_w^\e)^{-1} = (\E\N_z^\eta)^{-1}\circ \Lambda$ for $\cech\Lambda\in\Hom(\CPP{w}{\e},\CPP{z}{\eta})$ induced by inclusions.
+  As $\rips\Lambda\circ\I_w^\e = \I_z^\eta\circ\cech\Lambda$
+  \[ \rips\Lambda\circ \I_w^\e\circ(\E\N_w^\e)^{-1} = \I_z^\eta\circ\cech\Lambda\circ (\E\N_w^\e)^{-1} = \I_z^\eta\circ (\E\N_z^\eta)^{-1}\circ\Lambda.\]
+  It follows that $\rips\Lambda\circ\Sigma_w^\e = \Sigma_z^\eta\circ\Lambda$ by the definition of $\Sigma$.
+  So Diagram~\ref{dgm:image_homomorphism} commutes and we may therefore conclude that $\tilde{\Phi}(\Sigma_w^\e,\Sigma_z^\eta)$ is an image module homomorphism.
+\end{proof}
+
+\begin{lemma}\label{lem:rips_homomorphism_right}
+  For any $w\leq z$, $\e\leq\eta$ let $\rips\Lambda\in\Hom(\RPP{w}{\e},\RPP{w}{\eta})$ and $\Lambda'\in\Hom(\ext{\PP{w}{2\e}},\ext{\PP{z}{2\eta}})$ be induced by inclusions.
+  Then $\tilde{\Psi}(\Upsilon_w^{2\e},\Upsilon_z^{2\eta})$ is an image module homomorphism.
+\end{lemma}
+\begin{proof}
+  The proof is similar to Lemma~\ref{lem:rips_homomorphism_left}.
+  By Lemma~\ref{cor:excisive_nerve} we have $\E\N_z^{2\eta} \circ\cech\Lambda'  = \cech \Lambda\circ \E\N_w^{2\e}$ for $\cech\Lambda'\in\Hom(\CPP{w}{2\e},\CPP{z}{2\eta})$ induced by inclusions.
+  As $\J_z^\eta\circ \rips\Lambda = \cech\Lambda'\circ\J_w^\e$
+  \[ \E\N_z^{2\eta}\circ \J_z^\eta\circ \rips\Lambda = \E\N_z^{2\eta}\circ\cech\Lambda'\circ\J_w^\e = \cech \Lambda\circ \E\N_w^{2\e}\circ\J_w^\e.\]
+  Once again, Diagram~\ref{dgm:image_homomorphism} commutes by the definition of $\Upsilon$, so $\tilde{\Psi}(\Upsilon_w^{2\e},\Upsilon_z^{2\eta})$ is an image module homomorphism.
+\end{proof}
+
+\begin{lemma}\label{lem:weak_rips_left}
+  Let $\Lambda\in\Hom(\ext{\PP{w}{\e}}, \ext{\PP{w}{2\e}})$ be induced by inclusions.
+  Then $(\Sigma_w^\e, \Upsilon_w^{2\e})$ factors $\Lambda$ through $\RPP{w}{2\e}$.
+\end{lemma}
+\begin{proof}
+  Let $\cech\Lambda\in\Hom(\CPP{w}{\e},\CPP{w}{2\e})$ be induced by inclusion.
+  Because $\I_w^\e$ and $\J_w^{2\e}$ are induced by inclusions $\cech\Lambda = \J_w^{2\e}\circ \I_w^\e$.
+  Let
+  % \[ \Sigma_w^\e := \I_w^\e\circ (\E\N_w^\e)^{-1}\text{and}\ \Upsilon_w^{2\e} := \E\N_w^{2\e}\circ \J_w^{2\e}.\]
+  Because $\I_w^\e$ and $\J_w^{2\e}$ are induced by inclusions $\Lambda = \E\N_w^{2\e}\circ (\J_w^{2\e})\circ \I_w^\e)\circ \E\N_w^\e)^{-1}$ by Lemma~\ref{cor:excisive_nerve}.
+  Therefore, by the definitions of $\Sigma_w^\e$ and $\Upsilon_w^{2\e}$, the pair $(\Sigma_w^\e, \Upsilon_w^{2\e})$ factors $\Lambda$ through $\RPP{w}{2\e}$.
+\end{proof}
+
+\section{TODO}
+
+\begin{lemma}\label{lem:p_interleave}
+ If $Q_w^\e$ surrounds $P^\e$ in $D$ and $D\setminus B_{w + \e}\subseteq P^\e$ then we have the following sequence of homomorphisms of degree $c\e$ induced by inclusions
+ \[\DD{w-c\e}\xrightarrow{F}\E\PP{w}{\e}\xrightarrow{M}\DD{w+c\e}.\]
+ % $F\in\Hom^{c\e}(\DD{w-c\e}, \E\PP{w}{\e})$ and $M\in\Hom^{c\e}(\E\PP{w}{\e}, \DD{w+c\e})$ indced by inclusions.
+ % \[ D\subi{w-c\e}{a-c\e} \subseteq \ext{P\subi{w}{a}^\e}\subseteq D\subi{w+c\e}{a+c\e}.\]
+\end{lemma}
+\begin{proof}
+  Suppose $x\in (P^\e\cap B\subi{w-c\e}{a-c\e})\setminus B_{w+\e}$.
+  Because $B_{w-\e}\subset B_{w+\e}$ we know $x\notin B_{w-\e}$ so $w+c\e < f(x)\leq a-c\e$ and there exists some $p\in P$ such that $\dist(x, p) < \e$.
+  Because $f$ is $c$-Lipschitz it follows
+  \[ f(p)\leq f(x) + c\dist(x, p) < a - c\e + c\e = a\]
+  and
+  \[ f(p)\geq f(x) - c\dist(x, p) > w+c\e-c\e = w.\]
+  So $x\in P\subi{w}{a}^\e$.
+
+  Now, suppose $x\in P\subi{w}{a}^\e\setminus B_{w+c\e}$.
+  So $w+c\e < f(x)$ and there exists some $p\in P\subi{w}{a}$ such that $\dist(x,p) < \e$.
+  Because $f$ is $c$-Lipschitz it follows
+  \[ f(x) \leq f(p) + c\dist(x,p) < a + c\e.\]
+  So $x\in B\subi{w+c\e}{a+c\e}\setminus B_{w+c\e}$.
+
+  Because $D\setminus B_{w+c\e}\subseteq P^\e$ we know that $D\setminus P^\e \subseteq B_{w+c\e}$, so
+  \[D\subi{w-c\e}{a-c\e}\setminus B_{w+c\e} \subseteq P\subi{w}{a}^\e\setminus B_{w+c\e}\subseteq D\subi{w+c\e}{a+c\e}\setminus B_{w+c\e}\]
+  implies
+  \[ D\subi{w-c\e}{a-c\e}\subseteq P\subi{w}{a}^\e\cup (D\setminus P^\e) = \ext{P\subi{w}{a}^\e} \subseteq D\subi{w+c\e}{a+c\e} \]
+  as desired.
+\end{proof}
+
+Let $\zeta\geq 2\delta$ and suppose $Q_{\omega-c\zeta}$ surrounds $P^\delta$ in $D$ and $D\setminus B_\omega\subseteq P^\delta$.
+Then, because $f$ is $c$-Lipschitz, $B_{\omega-c(\delta+\zeta)}\cap P^\delta\subseteq Q_{\omega-c\zeta}^\delta$ and $B_\omega\cap P^\delta\subseteq Q_{\omega+c\delta}^\zeta$.
+Similarly, $Q_{\omega-c\zeta}^{2\delta}\subseteq B_\omega$ and $Q_{\omega+c\delta}^{2\zeta}\subseteq B_{\omega+c{\delta+2\zeta}}$.
+Therefore, by Lemma~\ref{lem:surround_and_cover}
+\[ B_{\omega-c(\delta+\zeta)}\subseteq \E Q_{\omega-c\zeta}^\delta\subseteq\E Q_{\omega-c\zeta}^{2\delta}\subseteq B_\omega
+  \subseteq \E Q_{\omega+c\delta}^\zeta\subseteq \E Q_{\omega+c\delta}^{2\zeta}\subseteq B_{\omega+c{\delta+2\zeta}}.\]
+
+\begin{lemma}\label{lem:pt_interleaving}
+  If $\hom_k(\b\to\B)$ is surjective and $\hom_k(\B)\cong \hom_k(B_{\omega+c(\delta+\zeta)})$ for all $k$ then for all $k$ and $\alpha\leq\beta$
+  \[\hom_k\left((D\subi{\omega-c(\delta+\zeta)}{\alpha},B_{\omega-c(\delta+\zeta)})\hookrightarrow (D\subi{\omega}{\beta},B_{\omega})\right)\]
+  is surjective and
+  \[ \hom_k\left( (D\subi{\omega}{\alpha},B_\omega)\hookrightarrow (D\subi{\omega+c(\delta+\zeta)}{\beta},B_{\omega+c(\delta+\zeta)}) \right)\]
+  is an isomorphism.
+\end{lemma}
+\begin{proof}
+  By applying Lemma~\ref{lem:five} to the long exact sequences of the pairs $(D\subi{\omega-c(\delta+\zeta)}{\alpha},\b)$ and $(D\subi{\omega}{\alpha},\B)$ our assumption that $\hom_k(\b\to\B)$ is surjective for all $k$ implies $\hom_k((D\subi{\omega-c(\delta+\zeta)}{\alpha},\b)\hookrightarrow (D\subi{\omega}{\alpha},\B))$ is surjective for all $\alpha\in\R$.
+  Similarly, the assumption that $\hom_k(\B)\cong \hom_k(B_{\omega+c(\delta+\zeta)})$ implies $\hom_k((D\subi{\omega}{\alpha},\B)\hookrightarrow (D\subi{\omega+c(\delta+\zeta)}{\alpha},B_{\omega+c(\delta+\zeta)}))$ is an isomorphism by applying Lemma~\ref{lem:five} to the long exact sequences of the pairs $(D\subi{\omega}{\alpha},\B)$ and $(D\subi{\omega+c(\delta+\zeta)}{\alpha},B_{\omega+c(\delta+\zeta)})$.
+\end{proof}
