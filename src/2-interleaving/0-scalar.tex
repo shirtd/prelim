@@ -19,23 +19,34 @@ In fact, because of the nature of homology as a global property we cannot assume
 
 We introduce the following notation to distinguish $B_w$ and $Q_w$ as static sub-levelsets with which we will compute take persistent homology with respect to.
 
-\subsection{Setup and Notation}
+\paragraph{Notation}
 
-For $w,\alpha\in\R$ let
-\[ D\subi{w}{\alpha} := B_w\cup B_\alpha\ \text{ and }\ \ P\subi{w}{\alpha} := P\cap D\subi{w}{\alpha}.\]
+For $w,\alpha\in\R$ let $D\subi{w}{\alpha} := B_w\cup B_\alpha$ and $P\subi{w}{\alpha} := P\cap D\subi{w}{\alpha}$.
+% \[ D\subi{w}{\alpha} := B_w\cup B_\alpha\ \text{ and }\ \ P\subi{w}{\alpha} := P\cap D\subi{w}{\alpha}.\]
 % Now, the pairs $(D\subi{w}{\alpha}, B_w)$ and $(P\subi{w}{\alpha}, Q_w)$ are well defined for all $\alpha\in\R$.
+%
 Let
+% $\DD{w}^k$
+
+\[ \DD{w}^k := \left(\left\{\D{w}{\alpha}^k := \hom_k(D\subi{w}{\alpha},B_w)\right\}_{\alpha\in\R},\left\{d\subi{w}{\alpha,\beta}^k : \D{w}{\alpha}^k\to\D{w}{\beta}^k\right\}_{\alpha\leq\beta}\right)\]
+denote the $k$th persistent homology module of the (relative) sub-levelset filtration $\{(D\subi{w}{\alpha},B_w)\}$ modulo $B_w$, and let
+%$\PP{w}{\e,k}$
+
 \[\PP{w}{\e,k} := \left(\left\{\P{w}{\e,k}{\alpha} := \hom_k(P\subi{w}{\alpha}^\e,Q_w^\e)\right\}_{\alpha\in\R}, \left\{p\subi{w}{\alpha,\beta}^{\e,k} : \P{w}{\e}{\alpha}\to\P{w}{\e}{\beta}\right\}_{\alpha\leq\beta}\right)\]
 denote the $k$th persistent homology module of $\{(P\subi{w}{\alpha}^\e,Q_w^\e)\}$.
+Similarly, let $\CPP{w}{\e,k}$ and $\RPP{w}{\e,k}$ denote the corresponding \Cech and Vietoris-Rips filtrations, respectively.
 We will omit the dimension $k$ and write $\PP{w}{\e}$ if a statement holds for all dimensions.
+
+\paragraph{Extensions}
 
 If $Q_w^\e$ surrounds $P^\e$ in $D$ we can define a filtration of extensions $\{(\ext{P\subi{w}{\alpha}^\e},\ext{Q_w^\e})\}$ and let $\ext{\PP{w}{\e}}$ denote its $k$th persistent homology module.
 
 \begin{lemma}\label{lem:extension_apply}
   If $Q_w^\e$ surrounds $P^\e$ in $D$ then for $w\in\R$ and $\ext{P\subi{w}{a}^\e} = P\subi{w}{a}^\e \cup (D\setminus P^\e)$ then there is an isomorphism $\E\subi{w}{\cdot}^\e \in \Hom(\PP{w}{\e},\ext{\PP{w}{\e}})$.
-  % \[\hom_k(P\subi{w}{a}^\e, Q_w^\e)\cong \hom_k(\ext{P\subi{w}{a}^\e}, \ext{Q^\e_a}).\]
-\end{lemma}
-\begin{proof}
+\end{lemma}\begin{proof}
+  (See Appendix~\ref{apx:omit})
+\end{proof}
+\proofatend
   Because $P\subi{w}{a} := P\cap D\subi{w}{a}$ and $B_w\subseteq D\subi{w}{a}$ we know $Q_w = P\cap B_w \subseteq P\subi{w}{a}$ for all $a\in\R$.
   So
   \[\ext{Q^\e_a} = Q^\e_a\cup (D\setminus P^\e) \subseteq P\subi{w}{a}^\e \cup (D\setminus P^\e) = \ext{P\subi{w}{a}^\e}.\]
@@ -44,18 +55,58 @@ If $Q_w^\e$ surrounds $P^\e$ in $D$ we can define a filtration of extensions $\{
   by Lemma~\ref{lem:excision}.
 
   Because these isomorphisms commute with inclusions we have an isomorphism $\E\subi{w}{\cdot}^\e \in \Hom(\PP{w}{\e},\ext{\PP{w}{\e}})$ defined to be the family $\{\E\subi{w}{\alpha}^\e : \P{w}{\e}{a}\to \E\P{w}{\e}{a}\}$.
-\end{proof}
+\endproofatend
 
-Let
-\[\CPP{w}{\e} := \left(\left\{\CP{w}{\e}{\alpha} := \hom_k(\cech^\e(P\subi{w}{\alpha}, Q_w))\right\}_{\alpha\in\R}, \left\{\cech p\subi{w}{\alpha,\beta}^\e : \CP{w}{\e}{\alpha}\to\CP{w}{\e}{\beta}\right\}_{\alpha\leq\beta}\right),\]
-denote the $k$th persistent homology module of the \Cech filtration $\{\cech^\e(P\subi{\omega,\alpha}, Q_w)\}$.
+\begin{lemma}\label{lem:p_interleave}
+ If $Q_w^\e$ surrounds $P^\e$ in $D$ and $D\setminus B_{w + \e}\subseteq P^\e$ then we have the following sequence of homomorphisms of degree $c\e$ induced by inclusions
+ \[\DD{w-c\e}\xrightarrow{F}\E\PP{w}{\e}\xrightarrow{M}\DD{w+c\e}.\]
+\end{lemma}
+\begin{proof}
+  (See Appendix~\ref{apx:omit})
+\end{proof}
+\proofatend
+  Suppose $x\in (P^\e\cap B\subi{w-c\e}{\alpha-c\e})\setminus B_{w+\e}$.
+  Because $B_{w-\e}\subset B_{w+\e}$ we know $x\notin B_{w-\e}$ so $w+c\e < f(x)\leq \alpha-c\e$ and there exists some $p\in P$ such that $\dist(x, p) < \e$.
+  Because $f$ is $c$-Lipschitz it follows
+  \[ f(p)\leq f(x) + c\dist(x, p) < \alpha - c\e + c\e = \alpha\]
+  and
+  \[ f(p)\geq f(x) - c\dist(x, p) > w+c\e-c\e = w.\]
+  So $x\in P\subi{w}{\alpha}^\e$.
+
+  Now, suppose $x\in P\subi{w}{\alpha}^\e\setminus B_{w+c\e}$.
+  So $w+c\e < f(x)$ and there exists some $p\in P\subi{w}{\alpha}$ such that $\dist(x,p) < \e$.
+  Because $f$ is $c$-Lipschitz it follows
+  \[ f(x) \leq f(p) + c\dist(x,p) < a + c\e.\]
+  So $x\in B\subi{w+c\e}{\alpha+c\e}\setminus B_{w+c\e}$.
+
+  Because $D\setminus B_{w+c\e}\subseteq P^\e$ we know that $D\setminus P^\e \subseteq B_{w+c\e}$, so
+  \[D\subi{w-c\e}{\alpha-c\e}\setminus B_{w+c\e} \subseteq P\subi{w}{\alpha}^\e\setminus B_{w+c\e}\subseteq D\subi{w+c\e}{\alpha+c\e}\setminus B_{w+c\e}\]
+  implies
+  \[ D\subi{w-c\e}{\alpha-c\e}\subseteq P\subi{w}{\alpha}^\e\cup (D\setminus P^\e) = \ext{P\subi{w}{\alpha}^\e} \subseteq D\subi{w+c\e}{\alpha+c\e} \]
+  as desired.
+
+  Because $f$ is $c$-Lipschitz, $B_{w-c\e}\cap P^\delta\subseteq Q_{w}^\e$ so $B_{w-c\e} \subseteq \E Q_w^\e\subseteq B_{w+c\e}$ by Lemma~\ref{lem:surround_and_cover}.
+  It follows that we have homomorphisms $F\in \Hom^{c\e}(\DD{w-c\e}, \E\PP{w}{\e})$ and $M\in\Hom^{c\e}(\E\PP{w}{\e}, \DD{w+c\e})$ induced by inclusions.
+\endproofatend
+
+\paragraph{Rips-\Cech Interleaving}
+
+% For any $w\in\R$ and $\e\geq 0$ let the $k$th persistent homology module of the Rips filtration $\{\rips^\e(P\subi{w}{\alpha}, Q_w)\}$ be denoted
+% \[\RPP{w}{\e} := \left(\left\{\RP{w}{\e}{\alpha} := \hom_k(\rips^\e(P\subi{w}{\alpha}, Q_w))\right\}_{\alpha\in\R}, \left\{\rips p\subi{w}{\alpha,\beta}^\e : \RP{w}{\e}{\alpha}\to\RP{w}{\e}{\beta}\right\}_{\alpha\leq\beta}\right).\]
+Let $\I_w^\e\in\Hom(\CPP{w}{\e}, \RPP{w}{2\e})$ and $\J_w^\e\in\Hom(\RPP{w}{\e},\CPP{w}{\e})$ be induced by inclusions
+\[ \cech^\e(P_\alpha, Q_w)\subseteq \rips^{2\e}(P_\alpha,Q_w)\subseteq \cech^{2\e}(P_\alpha, Q_w).\]
+
+\paragraph{Excisive Nerves}
+
 For $\varrho_D > \e$ the isomorphisms $\N_w^\e\in\Hom(\CPP{w}{\e}, \PP{w}{\e})$ provided by Lemma~\ref{lem:rel_pers_nerve} commute with maps induced by inclusion.
 
 \begin{lemma}\label{cor:excisive_nerve}
   For any $w\leq z$, $\e\leq \eta < \varrho_D$ let $\Lambda\in\Hom(\E\PP{w}{\e},\E\PP{z}{\eta})$ and $\cech\Lambda\in\Hom(\CPP{w}{\e},\CPP{z}{\eta})$ be induced by inclusions.
   Then $\E\N_w^\e$ and $\E\N_z^\eta$ are isomorphisms such that $\Lambda = \E\N_{z}^{\eta}\circ \cech\Lambda\circ (\E\N_w^\e)^{-1}$ and $\cech\Lambda = (\E\N_{z}^{\eta})^{-1}\circ \Lambda\circ \E\N_w^\e.$
 \end{lemma}
-
-For any $w\in\R$ and $\e\geq 0$ let the $k$th persistent homology module of the Rips filtration $\{\rips^\e(P\subi{w}{\alpha}, Q_w)\}$ be denoted
-\[\RPP{w}{\e} := \left(\left\{\RP{w}{\e}{\alpha} := \hom_k(\rips^\e(P\subi{w}{\alpha}, Q_w))\right\}_{\alpha\in\R}, \left\{\rips p\subi{w}{\alpha,\beta}^\e : \RP{w}{\e}{\alpha}\to\RP{w}{\e}{\beta}\right\}_{\alpha\leq\beta}\right).\]
-Let $\I_w^\e\in\Hom(\CPP{w}{\e}, \RPP{w}{2\e})$ and $\J_w^\e\in\Hom(\RPP{w}{\e},\CPP{w}{\e})$ be induced by inclusions.
+\begin{proof}\textbf{TODO}
+  (See Appendix~\ref{apx:omit})
+\end{proof}
+\proofatend
+  \textbf{TODO}
+\endproofatend

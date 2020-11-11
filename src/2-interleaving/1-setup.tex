@@ -1,56 +1,25 @@
 % !TeX root = ../../main.tex
 
-% In the following let $\Lambda\in\Hom(\ext{\PP{w}{\e}}, \ext{\PP{w}{2\e}})$, $\cech\Lambda\in\Hom(\CPP{w}{\e},\CPP{w}{2\e})$, and $\rips\Lambda\in\Hom(\RPP{w}{\e},\CPP{w}{2\e})$ be induced by inclusions for all $w\in\R$, $\e > 0$.
 For $w\leq z$ and $\e\leq\eta < \varrho_D$ let
 \[\Sigma_w^\e := \I_w^\e\circ (\E\N_w^\e)^{-1}\in \Hom(\PP{w}{\e},\RPP{w}{2\e})\ \text{ and }\ \Upsilon_w^\e := \E\N_w^{2\e}\circ \J_w^{\e}\in \Hom(\RPP{w}{\e},\RPP{w}{2\e})\]
 and let
 \[ \Lambda\in\Hom(\ext{\PP{w}{\e}}, \ext{\PP{w}{2\e}}),\ \rips\Lambda\in\Hom(\RPP{w}{\e},\CPP{w}{2\e}),\text{ and } \Lambda'\in\Hom(\ext{\PP{w}{2\e}},\ext{\PP{z}{2\eta}})\]
-be induced by inclusion. %The proofs that
-% \[ \tilde{\Phi}(\Sigma_w^\e,\Sigma_z^\eta)\in\Hom(\im~\Lambda,\im~\rips\Lambda)\ \text{ and }\ \tilde{\Psi}(\Upsilon_w^{2\e},\Upsilon_z^{2\eta})\in\Hom(\im~\rips\Lambda,\im~\Lambda')\]
-% are image module homomorphisms are straightforward, and can be found in the appendix.
+be induced by inclusion.
 
-% \begin{lemma}\label{lem:rips_homomorphism_left}
-%   For any $w\leq z$, $\e\leq\eta < \varrho_D$ let $\Lambda\in\Hom(\ext{\PP{w}{\e}}, \ext{\PP{w}{2\e}})$ and $\rips\Lambda\in\Hom(\RPP{w}{\e},\CPP{w}{2\e})$ be induced by inclusions.
-%   Then $\tilde{\Phi}(\Sigma_w^\e,\Sigma_z^\eta)$ is an image module homomorphism.
-% \end{lemma}
-% \begin{proof}
-%   By Lemma~\ref{cor:excisive_nerve} we have $\cech\Lambda\circ (\E\N_w^\e)^{-1} = (\E\N_z^\eta)^{-1}\circ \Lambda$ for $\cech\Lambda\in\Hom(\CPP{w}{\e},\CPP{z}{\eta})$ induced by inclusions.
-%   As $\rips\Lambda\circ\I_w^\e = \I_z^\eta\circ\cech\Lambda$
-%   \[ \rips\Lambda\circ \I_w^\e\circ(\E\N_w^\e)^{-1} = \I_z^\eta\circ\cech\Lambda\circ (\E\N_w^\e)^{-1} = \I_z^\eta\circ (\E\N_z^\eta)^{-1}\circ\Lambda.\]
-%   It follows that $\rips\Lambda\circ\Sigma_w^\e = \Sigma_z^\eta\circ\Lambda$ by the definition of $\Sigma$.
-%   So Diagram~\ref{dgm:image_homomorphism} commutes and we may therefore conclude that $\tilde{\Phi}(\Sigma_w^\e,\Sigma_z^\eta)$ is an image module homomorphism.
-% \end{proof}
-%
-% \begin{lemma}\label{lem:rips_homomorphism_right}
-%   For any $w\leq z$, $\e\leq\eta$ let $\rips\Lambda\in\Hom(\RPP{w}{\e},\RPP{w}{\eta})$ and $\Lambda'\in\Hom(\ext{\PP{w}{2\e}},\ext{\PP{z}{2\eta}})$ be induced by inclusions.
-%   Then $\tilde{\Psi}(\Upsilon_w^{2\e},\Upsilon_z^{2\eta})$ is an image module homomorphism.
-% \end{lemma}
-% \begin{proof}
-%   The proof is similar to Lemma~\ref{lem:rips_homomorphism_left}.
-%   By Lemma~\ref{cor:excisive_nerve} we have $\E\N_z^{2\eta} \circ\cech\Lambda'  = \cech \Lambda\circ \E\N_w^{2\e}$ for $\cech\Lambda'\in\Hom(\CPP{w}{2\e},\CPP{z}{2\eta})$ induced by inclusions.
-%   As $\J_z^\eta\circ \rips\Lambda = \cech\Lambda'\circ\J_w^\e$
-%   \[ \E\N_z^{2\eta}\circ \J_z^\eta\circ \rips\Lambda = \E\N_z^{2\eta}\circ\cech\Lambda'\circ\J_w^\e = \cech \Lambda\circ \E\N_w^{2\e}\circ\J_w^\e.\]
-%   Once again, Diagram~\ref{dgm:image_homomorphism} commutes by the definition of $\Upsilon$, so $\tilde{\Psi}(\Upsilon_w^{2\e},\Upsilon_z^{2\eta})$ is an image module homomorphism.
-% \end{proof}
-%
 \begin{lemma}\label{lem:weak_rips_left}
   $(\Sigma_w^\e, \Upsilon_w^{2\e})$ factors $\Lambda$ through $\RPP{w}{2\e}$.
 \end{lemma}
 \begin{proof}
-  % Let $\cech\Lambda\in\Hom(\CPP{w}{\e},\CPP{w}{2\e})$ be induced by inclusion.
-  % Because $\I_w^\e$ and $\J_w^{2\e}$ are induced by inclusions $\cech\Lambda = \J_w^{2\e}\circ \I_w^\e$.
-  % Let
-  % \[ \Sigma_w^\e := \I_w^\e\circ (\E\N_w^\e)^{-1}\text{and}\ \Upsilon_w^{2\e} := \E\N_w^{2\e}\circ \J_w^{2\e}.\]
   Because $\I_w^\e$ and $\J_w^{2\e}$ are induced by inclusions $\Lambda = \E\N_w^{2\e}\circ (\J_w^{2\e})\circ \I_w^\e)\circ \E\N_w^\e)^{-1}$ by Lemma~\ref{cor:excisive_nerve}.
   Therefore, by the definitions of $\Sigma_w^\e$ and $\Upsilon_w^{2\e}$, the pair $(\Sigma_w^\e, \Upsilon_w^{2\e})$ factors $\Lambda$ through $\RPP{w}{2\e}$.
 \end{proof}
 
-Proof of the following lemma can be found in the appendix.
-
 \begin{lemma}\label{lem:rips_homomorphism_left}
   $\tilde{\Phi}(\Sigma_w^\e,\Sigma_z^\eta)\in\Hom(\im~\Lambda,\im~\rips\Lambda)$ and $\tilde{\Psi}(\Upsilon_w^{2\e},\Upsilon_z^{2\eta})\in\Hom(\im~\rips\Lambda,\im~\Lambda')$ are image module homomorphisms.
 \end{lemma}
-% \begin{proof}
+\begin{proof}
+  (See Appendix~\ref{apx:omit})
+\end{proof}
 \proofatend
   By Lemma~\ref{cor:excisive_nerve} we have $\cech\Lambda\circ (\E\N_w^\e)^{-1} = (\E\N_z^\eta)^{-1}\circ \Lambda$ for $\cech\Lambda\in\Hom(\CPP{w}{\e},\CPP{z}{\eta})$ induced by inclusions.
   As $\rips\Lambda\circ\I_w^\e = \I_z^\eta\circ\cech\Lambda$
@@ -63,64 +32,3 @@ Proof of the following lemma can be found in the appendix.
   \[ \E\N_z^{2\eta}\circ \J_z^\eta\circ \rips\Lambda = \E\N_z^{2\eta}\circ\cech\Lambda'\circ\J_w^\e = \cech \Lambda\circ \E\N_w^{2\e}\circ\J_w^\e.\]
   Once again, Diagram~\ref{dgm:image_homomorphism} commutes by the definition of $\Upsilon$, so $\tilde{\Psi}(\Upsilon_w^{2\e},\Upsilon_z^{2\eta})$ is an image module homomorphism.
 \endproofatend
-% \end{proof}
-
-% \begin{lemma}\label{lem:weak_rips_left}
-%   Let $\Lambda\in\Hom(\ext{\PP{w}{\e}}, \ext{\PP{w}{2\e}})$ be induced by inclusions.
-%   Then there exists a weak interleaving
-%   \[ (\Sigma_w^\e, \Upsilon_w^{2\e})\in \Hom(\ext{\PP{w}{\e}}, \RPP{w}{2\e})\times \Hom(\RPP{w}{2\e},\ext{\PP{w}{2\e}})\]
-%   of $\Lambda$ with $\RPP{w}{2\e}$.
-% \end{lemma}
-% \begin{proof}
-%   Let $\cech\Lambda\in\Hom(\CPP{w}{\e},\CPP{w}{2\e})$ be induced by inclusion.
-%   Because $\I_w^\e$ and $\J_w^{2\e}$ are induced by inclusions $\cech\Lambda = \J_w^{2\e}\circ \I_w^\e$.
-%   Let
-%   \[ \Sigma_w^\e := \I_w^\e\circ (\E\N_w^\e)^{-1}\text{and}\ \Upsilon_w^{2\e} := \E\N_w^{2\e}\circ \J_w^{2\e}.\]
-%   By Corollary~\ref{cor:excisive_nerve} we have
-%   \begin{align*}
-%     \Lambda &= \E\N_w^{2\e}\circ \cech\Lambda\circ (\E\N_w^\e)^{-1}\\
-%       &= (\E\N_w^{2\e}\circ \J_w^{2\e})\circ (\I_w^\e\circ (\E\N_w^\e)^{-1})\\
-%       &= \Upsilon_w^{2\e}\circ \Sigma_w^\e
-%   \end{align*}
-%   so $(\Sigma_w^\e, \Upsilon_w^{2\e})$ is a weak interleaving of $\Lambda$ with $\RPP{w}{2\e}$.
-% \end{proof}
-
-% In the following let $(\Sigma_w^\e, \Upsilon_w^{2\e}) := (\E\N_w^\e)^{-1}, \E\N_w^{2\e}\circ \J_w^{2\e})$ denote the pair provided by Lemma~\ref{lem:weak_rips_left} for any $w\in\R$, $\e\geq 0$.
-
-% \begin{lemma}\label{lem:rips_homomorphisms}
-%   For any $w\leq z$ and $\e\leq\eta$ let $\Lambda\in\Hom(\ext{\PP{w}{\e}}, \ext{\PP{z}{\eta}})$, $\Lambda'\in\Hom(\ext{\PP{w}{2\e}},\ext{\PP{z}{2\eta}})$, and $\rips\Lambda\in\Hom(\RPP{w}{\e},\RPP{w}{\eta})$ be induced by inclusions.
-%   Then
-%   \[ \tilde{\Phi}(\Sigma_w^\e,\Sigma_z^\eta)\in\Hom(\im~\Lambda,\im~\rips\Lambda)\]
-%   and
-%   \[ \tilde{\Psi}(\Upsilon_w^{2\e},\Upsilon_z^{2\eta})\in\Hom(\im~\rips\Lambda,\im~\Lambda')\]
-%   are image module homomorphisms.
-% \end{lemma}
-% \begin{proof}
-%   Because $\I_w^\e$, $\I_z^\eta$, and $\rips\Lambda$ are induced by inclusions, and letting $\cech\Lambda\in\Hom(\CPP{w}{\e},\CPP{z}{\eta})$ be induced by inclusion,
-%   \[ \rips\Lambda\circ\I_w^\e = \I_z^\eta\circ\cech\Lambda.\]
-%   Moreover, because $\cech\Lambda$ is induced by inclusions
-%   \[\cech\Lambda\circ(\E\N_w^\e)^{-1} = (\E\N_z^\eta)^{-1}\circ\Lambda\]
-%   by Lemma~\ref{lem:excisive_nerve}.
-%   We therefore have the following for all $\alpha\leq\beta$ by the definition of $\Sigma_w^\e$.
-%   \begin{align*}
-%     \rips\lambda[\alpha;\beta-\alpha]\circ\sigma_w^\e[\alpha] &= (\rips\lambda[\alpha;\beta-\alpha]\circ\I_w^\e[\alpha])\circ (\E\N_w^\e)^{-1}[\alpha]\\
-%       &= \I_z^\eta[\beta]\circ(\cech\lambda[\alpha;\beta-\alpha]\circ (\E\N_w^\e)^{-1}[\alpha])\\
-%       &= \I_z^\eta[\beta]\circ (\E\N_z^\eta)^{-1}[\beta]\circ\lambda[\alpha;\beta-\alpha]\\
-%       &= \sigma_z^\eta[\beta]\circ\lambda[\alpha;\beta-\alpha]
-%   \end{align*}
-%   so Diagram~\ref{dgm:image_homomorphism} commutes, and we may therefore conclude that $\tilde{\Phi}(\Sigma_w^\e,\Sigma_z^\eta)$ is an image module homomorphism.
-%
-%   Because $\Lambda'$ is induced by inclusions and letting $\cech\Lambda'\in\Hom(\CPP{w}{2\e},\CPP{w}{2\eta})$ be induced by inclusions
-%   \[\Lambda'\circ\E\N_w^{2\e} = \E\N_z^{2\eta}\circ \cech\Lambda'\]
-%   by Lemma~\ref{lem:excisive_nerve}.
-%   Because $\rips\Lambda$, $\J_w^\e$ and $\J_z^\eta$ are induced by inclusions
-%   \[ \cech\Lambda'\circ \J_w^{2\e} = \J_z^{2\eta}\circ\rips\Lambda.\]
-%   We therefore have the following for all $\alpha\leq\beta$ by the definition of $\Upsilon_w^\e$.
-%   \begin{align*}
-%     \lambda'[\alpha;\beta-\alpha]\circ \upsilon_w^{2\e}[\alpha] &= (\lambda'[\alpha;\beta-\alpha]\circ \E\N_w^{2\e}[\alpha])\circ \J_w^{2\e}[\alpha]\\
-%       &=\E\N_z^{2\eta}[\beta]\circ(\cech\lambda'[\alpha;\beta-\alpha]\circ\J_w^{2\e}[\alpha])\\
-%       &=(\E\N_z^{2\eta}[\beta]\circ\J_z^{2\e}[\beta])\circ\rips\lambda[\alpha;\beta-\alpha]\\
-%       &=\upsilon_z^{2\eta}[\beta]\circ\rips\lambda[\alpha;\beta-\alpha]
-%   \end{align*}
-%   so Diagram~\ref{dgm:image_homomorphism} commutes, and we may therefore conclude that $\tilde{\Psi}(\Upsilon_w^{2\e},\Upsilon_z^{2\eta})$ is an image module homomorphism.
-% \end{proof}
