@@ -1,22 +1,19 @@
 % !TeX root = ../../main.tex
 
-Let $D$ be a compact subset of $\X$.
-Let $\dist(x, y) = \|x - y\|$ denote the distance between points $x,y\in D$ as a subspace of $\X$.
-For $A\subset D$ and $x\in D$ let
-\[\dist_A(x) = \min_{a\in A}\dist(x, a)\]
-denote the distance from $x$ to the set $A$.
-We will use open metric balls restricted to $D$ with the subspace topology
-\[\ball_\e(x) = \{y\in D\mid \dist(x, y) < \e\}\]
-and offsets
-\[A^\e = \{x\in D\mid \dist_A(x) < \e\}.\]
+% Let $D$ be a compact subset of $\X$.
+% Let $\dist(x, y) = \|x - y\|$ denote the distance between points $x,y\in D$ as a subspace of $\X$.
+% For $A\subset D$ and $x\in D$ let
+% \[\dist_A(x) = \min_{a\in A}\dist(x, a)\]
+% denote the distance from $x$ to the set $A$.
+% We will use open metric balls restricted to $D$ with the subspace topology
+% \[\ball_\e(x) = \{y\in D\mid \dist(x, y) < \e\}\]
+% and offsets
+% \[A^\e = \{x\in D\mid \dist_A(x) < \e\}.\]
 
-Let $f : D\to \R$ be a $c$-Lipschitz function on $D$.
-Let $B_a = f^{-1}(-\infty, a]$ denote the $a$-sublevel set of $f$.
-For a subset $A$ of $D$ let $A_a := A\cap B_a$ denote the $a$-sublevelset of $f$ restricted to $A$.
-Let $\overline{U} = \X\setminus U$ denote the complement of any subset $U\subset \X$ in $\X$.
-
-Let $P$ be a finite subset of $D$ and $Q_a := P\cap B_a$ for $a\in\R$.
-Let $\zeta\geq\of > 0 $ and $\omega\in \R$ be constants such that $P^\of\subseteq D$.
+Let $(\X,\dist)$ be a metric space and $D\subseteq \X$ be a compact subspace.
+Let $f : D\to \R$ be a $c$-Lipschitz function on $D$ and $B_\alpha = f^{-1}((-\infty, a])$ denote the $\alpha$-sublevel set of $f$ for $\alpha\in\R$.
+Let $P$ be a finite subset of $D$ and $Q_\alpha := P\cap B_\alpha$ for $\alpha\in\R$.
+Let $\zeta\geq\delta > 0 $ and $\omega\in \R$ be constants such that $P^\delta\subseteq D$.
 
 \begin{lemma}\label{lem:psurj}
   Let $i : \hom_0(\cmp{\QQ^\of}, \cmp{P^\of})\to \hom_0(\cmp{\Q^\of}, \cmp{P})$.

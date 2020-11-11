@@ -16,19 +16,30 @@
 \input{src/introduction}
 
 \section{Background}
-\subsection{Separation}
-  \input{src/0-background/0-separate}
+
+\subsection{Geometry and Topology}
+  \input{src/0-background/geometry}
+
+\subsection{Simplicial Complexes}\label{sec:complexes}
+  \input{src/0-background/complexes}
+
+
+\subsection{Homology}\label{sec:homology}
+%   \input{src/0-background/homology}
 
 \subsection{Persistence Modules}
   \input{src/0-background/1-modules}
 
-  % \subsubsection{Image Modules}
-  \paragraph{Image Modules}
-    \input{src/0-background/2-images}
+\subsection{Persistent Homology}
+%   \input{src/0-background/pershom}
 
 
 \clearpage
 \section{The Topological Coverage Criterion (TCC)}
+\input{src/1-tcc/surrounding}
+
+
+\subsection{The Geometric TCC}
 \input{src/1-tcc/0-geometric}
 
 \subsection{Computing the TCC}
@@ -36,14 +47,25 @@
 
 
 \clearpage
+\section{Extensions and Image Modules}
+%
+\input{src/middle/plan}
+
+\subsection{Extensions}
+  \input{src/middle/extensions}
+
+\subsection{Image Modules}
+\input{src/middle/images}
+
+\clearpage
 \section{From Coverage Testing to the Analysis of Scalar Fields}
+
 \input{src/2-interleaving/0-scalar}
 
-\subsection{Interleaving}
-  \input{src/2-interleaving/1-setup}
+\input{src/2-interleaving/1-setup}
 
-  \subsubsection{Proof of the Interleaving}
-    \input{src/2-interleaving/2-proof}
+\subsection{Proof of the Interleaving}
+  \input{src/2-interleaving/2-proof}
 
 
 \clearpage
@@ -61,8 +83,6 @@
 
 \section{Omitted Proofs}\label{apx:omit}
 \printproofs
-% \input{src/appendix/surrounding}
-% \input{src/appendix/interleaving}
 
 \section{Helpful Stuff}
 \input{src/appendix/diagrams}

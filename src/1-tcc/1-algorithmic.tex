@@ -1,28 +1,8 @@
 % !TeX root = ../../main.tex
 
-\paragraph{Rips and \Cech complexes}
-
-A ball $\ball_D^\e(x)$ is said to be \textbf{strongly convex} if for each pair of points $y,z$ in the closure of $\ball_D^\e(x)$ there exists a unique shortest path in $D$ between $y$ and $z$, and the interior of this path is included in $\ball_D^\e(x)$.
-Let $\varrho_D(x)$ be the supremum of the radii such that $\ball_D^\e(x)$ is strongly convex.
-The \textbf{strong convexity radius} of $D$ is defined
-\[ \varrho_D := \inf_{x\in D} \varrho_D(x).\]
-Note that this value is positive for compact $D$.
-
-\textbf{TODO strong convex $\implies$ good covers.}
-
-For a finite point set $P\subset D$ the \Cech complex $\cech^\e(P)$ is defined to be the Nerve of the open cover $\{\ball_D^\e(p)\}_{p\in P}$.
+For a finite point set $P\subset D$ recall that the \Cech complex $\cech^\e(P)$ is defined to be the Nerve of the open cover $\{\ball_D^\e(p)\}_{p\in P}$.
 When $\varrho_D > \e$ this cover is good, and the Nerve Theorem states that $\cech^\e(P)$ is homotopy equivalent to $P^\e$.
-For any $w\in\R$, $\e > 0$, and $k\in\mathbb{N}$ let $\cech^\e(P,Q_w) = (\cech^\e(P), \cech^\e(Q_w))$ denote a pair of \Cech complexes and $\N_w^{\e, k} : \hom_k(\cech^\e(P,Q_w))\to \hom_k(P^\e, Q_w^\e)$ denote the isomorphism on homology groups induced by this homotopy equivalence.
-
-We would like to compute the TCC using pairs of Vietoris-Rips complexes using the fact that
-\[ \rips^\e(P)\subseteq \cech^\e(P)\subseteq \rips^{2\e}(P)\]
-for any $P$, $\e >0$.
-Letting $\rips^\e(P,Q_w) = (\rips^\e(P),\rips^\e(Q_w))$ denote a pair of rips complexes we have following sequence of homomorphisms induced by inclusions
-\[ \hom_k(\rips^\e(P, Q_w))\xrightarrow{J_w^\e}\hom_k(\cech^\e(P, Q_w))\xrightarrow{I_w^\e}\hom_k(\rips^\e(P, Q_w)).\]
-That is, for any $w\leq z$ and $\e\leq\eta < \varrho_D$ and $q_{\rips} : \hom_k(\rips^\e(P, Q_w))\to \hom_k(\rips^{2\eta}(P, Q_z))$ and $q_{\cech} : \hom_k(\cech^\e(P, Q_w))\to \hom_k(\cech^{\eta}(P, Q_z))$ induced by inclusions, $q_{\rips}$ factors through $q_{\cech}$ as $q_{\rips} = I_z^\eta\circ q_{\cech}\circ J_w^\e$.
-
-Lemma~\ref{lem:pers_nerve_filt} in the appendix adapts the persistent nerve lemma of Chazal et. al.~\cite{chazal08towards} (see Lemma~\ref{lem:pers_nerve}) to the relative case.
-So the isomorphisms $\N_w^\e$ and $\N_z^\eta$ commute with maps $q_{\cech}$ and $q : \hom_k(P^\e, Q_w^\e)\to\hom_k(P^\eta, Q_z^\eta)$ and $q_{\cech}$ induced by inclusion, thus $\rk~q = \rk~q_{cech} \geq \rk~q_{rips}$.
+That is, we have an isomorphism $\N_w^{\e, k} : \hom_k(\cech^\e(P,Q_w))\to \hom_k(P^\e, Q_w^\e)$ on homology groups that is induced by this homotopy equivalence.
 
 \paragraph{Duality}
 
@@ -44,10 +24,26 @@ This is then combined with isomorphisms provided by the Nerve Theorem in order t
   As we have assumed these complements are locally path connected by assumption we have a natural isomorphism $\xi : \hom_d(P^\e, S^\e)\to \hom_0(D\setminus S^\e, D\setminus P^\e)$
   by Lemma~\ref{cor:alexander_iso}.
 
-  Because $\e > \varrho_D$ the covers by metric balls associated with $P^\e$ and $S^\e$ are good, so we have isomorphisms $\N_S : \hom_d(\cech^\e(P, S))\to \hom_d(P^\e, Q^\e)$ for all $S\subseteq P$ by the Nerve Theorem.
+  Because $\e > \varrho_D$ the covers by metric balls associated with $P^\e$ and $S^\e$ are good, so we have isomorphisms $\N : \hom_d(\cech^\e(P, S))\to \hom_d(P^\e, Q^\e)$ for all $S\subseteq P$ by the Nerve Theorem.
   So the composition $\xi\N := \xi\circ\N$ is an isomorphism.
   Moreover, because $\xi$ is natural and $\N$ commutes with maps induced by inclusions by the persistent nerve lemma the composition $\xi\N$ does as well.
 \end{proof}
+
+The requirement that our complements are locally path connected is necessary in order to satisfy the conditions of the general duality theorem.
+A rigorous investigation of the minimal assumptions that can be made on $\X$ and $D$ is beyond the scope of this paper.
+We note that, in practice, it likely suffices to assume that there exists a triangulation of $P^\e$ that is a subcomplex of some refinement of a triangulation of $\X$ (see~\cite{cavanna2017when},~\cite{julian83alexander}).
+
+\paragraph{Rips Approximation}
+
+We would now like to compute the TCC by factoring an inclusion of Rips complexes through that of the \Cech.
+This will give us a lower bound on the rank of the map induced on $d$-dimensional homology which can then be used to confirm coverage via Lemma~\ref{lem:duality_apply}.
+
+We have following sequence of homomorphisms induced by inclusions
+\[ \hom_k(\rips^\e(P, Q_w))\xrightarrow{J_w^\e}\hom_k(\cech^\e(P, Q_w))\xrightarrow{I_w^\e}\hom_k(\rips^\e(P, Q_w))\]
+so that, for any $w\leq z$, $\e\leq\eta < \varrho_D$ and $q_{\rips} : \hom_k(\rips^\e(P, Q_w))\to \hom_k(\rips^{2\eta}(P, Q_z))$, $q_{\cech} : \hom_k(\cech^\e(P, Q_w))\to \hom_k(\cech^{\eta}(P, Q_z))$ induced by inclusions, $q_{\rips}$ factors through $q_{\cech}$ as $q_{\rips} = I_z^\eta\circ q_{\cech}\circ J_w^\e$.
+
+Lemma~\ref{lem:pers_nerve_filt} in the appendix adapts the persistent nerve lemma of Chazal et. al.~\cite{chazal08towards} (see Lemma~\ref{lem:pers_nerve}) to the relative case.
+So the isomorphisms $\N_w^\e$ and $\N_z^\eta$ commute with maps $q_{\cech}$ and $q : \hom_k(P^\e, Q_w^\e)\to\hom_k(P^\eta, Q_z^\eta)$  induced by inclusion, thus $\rk~q = \rk~q_{\cech} \geq \rk~q_{\rips}$.
 
 \begin{theorem}[Algorithmic TCC]\label{thm:algo_tcc}
   Let $\X$ be an orientable $d$-manifold and let $D$ be a compact subset of $\X$.
@@ -85,17 +81,12 @@ This is then combined with isomorphisms provided by the Nerve Theorem in order t
 
   Let $q_{\rips} : \hom_d(\rips^{\delta}(P, Q_{\omega+c\delta}))\to\hom_d(\rips^{2\delta}(P, Q_{\omega+c\delta}))$ be induced by inclusion.
   Then $\rk~q_{\cech} \geq\rk~q_{\rips}$ as $q_{\rips}$ factors through $q_{\cech}$.
-  As we have shown $\dim~\hom_0(\rips^\delta(P\setminus Q_{omega-c\zeta}))\geq \dim~\hom_0(D\setminus B_\omega)$ it follows that, whenever $\rk~q_{\rips} \geq \dim~\hom_0(\rips^\delta(P\setminus Q_{omega-c\zeta}))$ we have
+  As we have shown $\dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-c\zeta}))\geq \dim~\hom_0(D\setminus B_\omega)$ it follows that, whenever $\rk~q_{\rips} \geq \dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-c\zeta}))$ we have
   \begin{align*}
-    \rk~i &= \rk~q_{\cech}\\
-      &\geq \rk~q_{\rips}\\
+    \rk~i &= \rk~q_{\cech} \geq \rk~q_{\rips}\\
       &\geq \dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-c\zeta}))\\
       &\geq \dim~\hom_0(D\setminus B_\omega).
   \end{align*}
 
   As $j : \hom_0(D\setminus B_{\omega+c(\delta+\zeta)})\to \hom_0(D\setminus B_\omega)$ is surjective by assumption $\rk~j = \dim~\hom_0(D\setminus B_\omega)$, so $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ in $D$ by Theorem~\ref{thm:geo_tcc} as desired.
 \end{proof}
-
-The requirement that our complements are locally path connected is necessary in order to satisfy the conditions of the general duality theorem.
-A rigorous investigation of the minimal assumptions that can be made on $\X$ and $D$ is beyond the scope of this paper.
-We note that, in practice, it likely suffices to assume that there exists a triangulation of $P^\e$ that is a subcomplex of some refinement of a triangulation of $\X$ (see~\cite{cavanna2017when},~\cite{julian83alexander}).

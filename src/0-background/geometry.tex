@@ -1,0 +1,53 @@
+% !TeX root = ../../main.tex
+
+% \subsection{Topology and Geometry}
+
+\paragraph{Separation}
+
+Let $X$ be a topological space. A \textbf{separation} of $\X$ is a pair $U, V$ of disjoint, nonempty, open subsets of $\X$ whose union is $\X$.
+The space $X$ is said to be \textbf{connected} if there does not exist a separation of $X$ (Munkres~\cite{munkres00topology}).
+
+Note that the sets $U, V$ that form a separation of $X$ are both open and closed in $X$.
+For a subspace $Y$ of $X$ we will denote the interior and closure of a set $U$ in $Y$ with $\intr_Y(U)$ and $\cl_Y(X)$.
+
+\begin{lemma}[23.1 (Munkres~\cite{munkres00topology})]
+  If $Y$ is a subspace of $X$, a separation of $Y$ is a pair of disjoint, nonempty sets $A, B$ whose union is $Y$, neither of which contains a limit point of the other.
+  The space $Y$ is connected if there exists no separation of $Y$.
+\end{lemma}
+
+If $A, B$ is a separation of a subspace $Y$ of $X$ then $A, B$ are both open and closed in $Y$, but not necessarily $X$.
+The condition that neither $A$ nor $B$ contains a limit point of the other requires that $\cl_X(A)\cap B = \emptyset$ and $A\cap \cl_X(B) =\emptyset$ where $\cl_Y(A) = A$ and $\cl_Y(B) = B$.
+
+% \begin{definition}[Components (Munkres~\cite{munkres00topology})]
+%   Given $X$, define an equivalence relation on $X$ by setting $x\sim y$ if there is a connected subspace of $X$ containing both $x$ and $y$.
+%   The equivalence class are called the \textbf{components} (or ``connected components'') of $X$.
+% \end{definition}
+
+For a disconnected topological space $X$ let $X_1, X_2, \ldots$ denote it's path-connected components.
+For $A\subseteq X$ let $A_i = A\cap X_i$ denote the component of $A$ in $X_i$.
+
+\begin{definition}[Separating Set]
+  Let $X$ be a (possibly disconnected) topological space and $S\subset X$.
+  $S$ \textbf{separates $X$ with a pair $(U, V)$} if $(U_i, V_i)$ is a separation of $X_i\setminus S_i$ for all $i$.
+\end{definition}
+
+If $S$ separates $X$ with a pair $(U, V)$ then $X = U\sqcup S\sqcup V$.
+Note that while $U$ and $V$ are both open and closed in $X\setminus S$, each component $X_i = U_i\sqcup S_i\sqcup V_i$ is connected.
+Therefore, if $S$ separates $X$ with a pair $(U, V)$, we require that $\cl_X(U)\cap V = \emptyset$ and $U\cap \cl_X(V) = \emptyset$.
+If $S$ is an open set in $X$ then $U$ and $V$ are closed in $X$, therefore $\cl_X(U)\cap V = \emptyset$ and $U\cap \cl_X(V) = \emptyset$.
+Otherwise, if $S$ is closed in $X$, then $U$ and $V$ are open in $X$.
+
+For $U\subseteq X$ let $\overline{U} := X\setminus U$ denote the complement of $U$ in $X$.
+
+\paragraph{Metric Spaces}
+
+Let $(X,\dist)$ be a metric space where $\dist(x, y)$ denotes the distance between points $x,y\in X$.
+For $A\subset X$ and $x\in X$ let $\dist_A(x) = \displaystyle\min_{a\in A}\dist(x, a)$ denote the distance from $x$ to the set $A$.
+We will use open metric balls $\ball^\e(x) = \{y\in D\mid \dist(x, y) < \e\}$ and offsets $A^\e = \{x\in D\mid \dist_A(x) < \e\}.$
+
+Given a subspace $D\subseteq X$ let $\ball_D^\e(x)$ denote the open ball $\ball_X^\e(x)\cap D$ in the subspace topology.
+$\ball_D^\e(x)$ is said to be \textbf{strongly convex} if for each pair of points $y,z$ in the closure of $\ball_D^\e(x)$ there exists a unique shortest path in $D$ between $y$ and $z$, and the interior of this path is included in $\ball_D^\e(x)$.
+Let $\varrho_D(x)$ be the supremum of the radii such that $\ball_D^\e(x)$ is strongly convex.
+The \textbf{strong convexity radius} of $D$ is defined
+\[ \varrho_D := \inf_{x\in D} \varrho_D(x).\]
+Note that this value is positive for compact $D$.
