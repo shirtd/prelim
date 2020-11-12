@@ -6,30 +6,30 @@ That is, we have an isomorphism $\N_w^{\e, k} : \hom_k(\cech^\e(P,Q_w))\to \hom_
 
 \paragraph{Duality}
 
-Note that the statement of Theorem~\ref{thm:geo_tcc} is in terms of a map $i$ between $0$-dimensional homology groups of complements, which we can not readily compute.
-The following lemma applies a version of duality in (co)homology (see Lemma~\ref{cor:alexander_iso} in the appendix) which equates the $0$-dimensional homology of a pair of complements with the $d$-dimensional homology of the initial open sets.
+The statement of Theorem~\ref{thm:geo_tcc} is in terms of the $0$-dimensional homology of complement spaces makes it difficult, if not impossible, to compute directly.
+The following lemma applies a version of duality in (co)homology (see Lemma~\ref{cor:alexander_iso} in the appendix) which equates the $0$-dimensional homology of complements with the $d$-dimensional homology of cover.
 This is then combined with isomorphisms provided by the Nerve Theorem in order to give us a computable alternative to the hypothesis of Theorem~\ref{thm:geo_tcc}.
 
 \begin{lemma}\label{lem:duality_apply}
   Let $\X$ be an orientable $d$-manifold let $D$ be a compact subset of $\X$ with strong convexity radius $\varrho_D > \e$.
-  Let $P$ be a finite subset of $D$ such that $P^\e\subset \intr_\X(D)$ and $S\subseteq P$.
+  Let $P$ be a finite subset of $D$ such that $P^\e\subset \intr_\X(D)$ and $Q\subseteq P$.
 
-  If $D\setminus S^\e$ and $D\setminus P^\e$ are locally path connected then there is an isomorphism
-  \[ \xi\N : \hom_d(\cech^\e(P,S))\to \hom_0(D\setminus S^\e, D\setminus P^\e)\]
+  If $D\setminus Q^\e$ and $D\setminus P^\e$ are locally path connected then there is an isomorphism
+  \[ \xi\N : \hom_d(\cech^\e(P,Q))\to \hom_0(D\setminus Q^\e, D\setminus P^\e)\]
   that commutes with maps induced by inclusions.
 \end{lemma}
 \begin{proof}
-  Because $S^\e$ and $P^\e$ are open in $D$ and $D$ is compact in $\X$ the complement $D\setminus S^\e$ is closed in $D$, and therefore compact in $\X$.
-  Moreover, because $P^\e\subset \intr_\X(D)$, $\hom_d(\X\setminus(D\setminus P^\e), \X\setminus(D\setminus S^\e)) = \hom_d(P^\e, S^\e)$.
-  As we have assumed these complements are locally path connected by assumption we have a natural isomorphism $\xi : \hom_d(P^\e, S^\e)\to \hom_0(D\setminus S^\e, D\setminus P^\e)$
+  Because $Q^\e$ and $P^\e$ are open in $D$ and $D$ is compact in $\X$ the complement $D\setminus Q^\e$ is closed in $D$, and therefore compact in $\X$.
+  Moreover, because $P^\e\subset \intr_\X(D)$, $\hom_d(\X\setminus(D\setminus P^\e), \X\setminus(D\setminus Q^\e)) = \hom_d(P^\e, Q^\e)$.
+  As we have assumed these complements are locally path connected by assumption we have a natural isomorphism $\xi : \hom_d(P^\e, Q^\e)\to \hom_0(D\setminus Q^\e, D\setminus P^\e)$
   by Lemma~\ref{cor:alexander_iso}.
 
-  Because $\e > \varrho_D$ the covers by metric balls associated with $P^\e$ and $S^\e$ are good, so we have isomorphisms $\N : \hom_d(\cech^\e(P, S))\to \hom_d(P^\e, Q^\e)$ for all $S\subseteq P$ by the Nerve Theorem.
+  Because $\e > \varrho_D$ the covers by metric balls associated with $P^\e$ and $Q^\e$ are good, so we have isomorphisms $\N : \hom_d(\cech^\e(P, Q))\to \hom_d(P^\e, Q^\e)$ for all $Q\subseteq P$ by the Nerve Theorem.
   So the composition $\xi\N := \xi\circ\N$ is an isomorphism.
   Moreover, because $\xi$ is natural and $\N$ commutes with maps induced by inclusions by the persistent nerve lemma the composition $\xi\N$ does as well.
 \end{proof}
 
-The requirement that our complements are locally path connected is necessary in order to satisfy the conditions of the general duality theorem.
+The requirement that our complements are locally path connected is necessary in order to satisfy the general statement of the duality theorem.
 A rigorous investigation of the minimal assumptions that can be made on $\X$ and $D$ is beyond the scope of this paper.
 We note that, in practice, it likely suffices to assume that there exists a triangulation of $P^\e$ that is a subcomplex of some refinement of a triangulation of $\X$ (see~\cite{cavanna2017when},~\cite{julian83alexander}).
 
@@ -42,8 +42,8 @@ We have following sequence of homomorphisms induced by inclusions
 \[ \hom_k(\rips^\e(P, Q_w))\xrightarrow{J_w^\e}\hom_k(\cech^\e(P, Q_w))\xrightarrow{I_w^\e}\hom_k(\rips^\e(P, Q_w))\]
 so that, for any $w\leq z$, $\e\leq\eta < \varrho_D$ and $q_{\rips} : \hom_k(\rips^\e(P, Q_w))\to \hom_k(\rips^{2\eta}(P, Q_z))$, $q_{\cech} : \hom_k(\cech^\e(P, Q_w))\to \hom_k(\cech^{\eta}(P, Q_z))$ induced by inclusions, $q_{\rips}$ factors through $q_{\cech}$ as $q_{\rips} = I_z^\eta\circ q_{\cech}\circ J_w^\e$.
 
-Lemma~\ref{lem:pers_nerve_filt} in the appendix adapts the persistent nerve lemma of Chazal et. al.~\cite{chazal08towards} (see Lemma~\ref{lem:pers_nerve}) to the relative case.
-So the isomorphisms $\N_w^\e$ and $\N_z^\eta$ commute with maps $q_{\cech}$ and $q : \hom_k(P^\e, Q_w^\e)\to\hom_k(P^\eta, Q_z^\eta)$  induced by inclusion, thus $\rk~q = \rk~q_{\cech} \geq \rk~q_{\rips}$.
+Lemma~\ref{lem:pers_nerve_filt} (see Appendix~\ref{apx:nerves}) adapts the persistent nerve lemma of Chazal et. al.~\cite{chazal08towards} (see Appendix~\ref{apx:nerves}, Lemma~\ref{lem:pers_nerve}) to the relative case.
+That is, to show the isomorphisms $\N_w^\e$ and $\N_z^\eta$ commute with maps $q_{\cech}$ and $q : \hom_k(P^\e, Q_w^\e)\to\hom_k(P^\eta, Q_z^\eta)$  induced by inclusion.%, thus $\rk~q = \rk~q_{\cech} \geq \rk~q_{\rips}$.
 
 \begin{theorem}[Algorithmic TCC]\label{thm:algo_tcc}
   Let $\X$ be an orientable $d$-manifold and let $D$ be a compact subset of $\X$.
@@ -66,7 +66,7 @@ So the isomorphisms $\N_w^\e$ and $\N_z^\eta$ commute with maps $q_{\cech}$ and 
   so there is a path from $p$ to $q$ in $D\setminus B_{\omega-c(\delta+\zeta)}$, thus $[p] = [q]$ in $\hom_0(D\setminus B_{\omega-c(\delta+\zeta)})$.
 
   But we have assumed that $[p]\neq[q]$ in $\hom_0(D\setminus B_\omega)$, contradicting our assumption that $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega-c(\delta+\zeta)})$ is injective, so any $p,q$ connected in $\rips^\delta(P\setminus Q_{\omega-c\zeta})$ are connected in $D\setminus B_\omega$.
-  That is, $\dim~\hom_0(\rips^\delta(P\setminus Q_{omega-c\zeta}))\geq \dim~\hom_0(D\setminus B_\omega)$.
+  That is, $\dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-c\zeta}))\geq \dim~\hom_0(D\setminus B_\omega)$.
 
   We have the following commutative diagram
   \[\begin{tikzcd}

@@ -58,30 +58,35 @@ and
   As Lemma~\ref{lem:rips_factor_mid} implies $\rips \Phi$ (with $\rips M$) is a right $c\zeta$-interleaving of image modules it follows that $\rips \Phi_{\rips M}$ is a partial $c\zeta$-interleaving of image modules.
 \end{proof}
 
+The proof of Corollary~\ref{cor:rips_inter_right} is identical to that of Corollary~\ref{cor:rips_inter_left}.
+
 \begin{corollary}\label{cor:rips_inter_right}
   $\rips \Psi_{\rips G} := \Psi\circ\tilde{\Psi}\in\Hom^{2c\zeta}(\im~\rips\Lambda, \im~\Pi)$ is a partial $2c\zeta$-interleaving of image modules.
-\end{corollary}
-\begin{proof}
-  This proof is identical to that of Corollary~\ref{cor:rips_inter_left}.
+\end{corollary}\begin{proof}
+  (See Appendix~\ref{apx:omit})
+\end{proof}
+\proofatend
+  % This proof is identical to that of Corollary~\ref{cor:rips_inter_left}.
   Because $G,N$ are induced by inclusions and $\Upsilon_{\omega+c\delta}^{2\zeta}\circ \Sigma_{\omega+c\delta}^{\zeta}$ commutes with inclusion
   \[\Pi[3c\zeta] = N\circ (\Upsilon_{\omega+c\delta}^{2\zeta}\circ \Sigma_{\omega+c\delta}^{\zeta})\circ G = \rips N\circ \rips G.\]
   So $\rips\Psi$ with $\rips G$ is a right $2c\zeta$-interleaving of image modules.
   As Lemma~\ref{lem:rips_factor_mid} implies $\rips \Psi$ (with $\rips G$) is a left $c\zeta$-interleaving of image modules it follows that $\rips \Psi_{\rips G}$ is a partial $2c\zeta$-interleaving of image modules.
-\end{proof}
+\endproofatend
 
 \begin{theorem}
   Let $D\subset\X$ and $f : D\to\R$ be a $c$-Lipschitz function.
   Let $\omega\in\R$, $2\delta\leq\zeta\leq\varrho_D/2$ be constants such that $B_{\omega-c(\delta+\zeta)}$ surrounds $D$ in $\X$.
   Let $P\subset D$ be a finite subset and $Q_w := P\cap B_w$.
   Suppose $\hom_k(B_{\omega-c(\delta+\zeta)}\hookrightarrow B_\omega)$ is surjective and $\hom_k(B_\omega)\cong\hom_k(B_{\omega+c(\delta+2\zeta)})$ for all $k$.
+  Let $\Lambda\in\Hom(\RPP{\omega-c\zeta}{2\delta}, \RPP{\omega+c\delta}{2\zeta})$ be induced by inclusion.
 
-  If $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ in $D$ then the image module $\im~(\RPP{\omega-c\zeta}{2\delta}\to \RPP{\omega+c\delta}{2\zeta})$ is $2c\zeta$-interleaved with $\DD{\omega}$.
+  If $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ in $D$ then $\im~\Lambda$ is $2c\zeta$-interleaved with $\DD{\omega}$.
 \end{theorem}
 \begin{proof}
   Because $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ in $D$ Diagrams~\ref{TODO} and~\ref{TODO} commute as all maps are induced by inclusions.
   Moreover, because $\zeta < \varrho_D/2$ the isomorphisms provided by the Nerve Theorem commute with inclusions by Lemma~\ref{cor:excisive_nerve}.
 
-  Let $\rips\Lambda \in\Hom(\RPP{\omega-c\zeta}{2c\delta}, \RPP{\omega+c\delta}{2c\zeta})$ be induced by inclusions.
+  % Let $\rips\Lambda \in\Hom(\RPP{\omega-c\zeta}{2c\delta}, \RPP{\omega+c\delta}{2c\zeta})$ be induced by inclusions.
   By Corollary~\ref{cor:rips_inter_left} $\rips \Phi_{\rips M}(\rips F, \rips G)\in\Hom^{2c\delta}(\im~\Gamma,\im~\rips\Lambda)$ is a partial $c\zeta$-interleaving of image modules.
   Similarly, by Corollary~\ref{cor:rips_inter_right} $\rips \Psi_{\rips G} (\rips M,\rips N)\in\Hom^{2c\zeta}(\im~\rips\Lambda, \im~\Pi)$ is a partial $2c\zeta$-interleaving of image modules.
 

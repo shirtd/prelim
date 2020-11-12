@@ -2,15 +2,18 @@
 
 Our re-statement of the TCC in terms of a surrounding sub-levelset $B_\omega$ of a $c$-Lipschitz function $f : D\to \R$ sets us up with (most of) the machinery we need to approximate the persistent homology of the function $f$.
 In this section we will shift our focus from confirming coverage to approximating the persistent homology of $f$ by a sample that satisfies the TCC.
-In particular, we would like to extend the TCC to a condition which verifies when a sample can approximate the persistent homology of a function modulo a static sub-levelset.
+In particular, we would like to extend the TCC to a condition which verifies when a sample can approximate the persistent homology of a function modulo a \emph{static} sub-levelset.
 
 While persistent relative homology~\cite{todo} has been studied, interleaving relative modules requires interleaving pairs by pairs of shifted homomorphisms which, ideally, are induced by inclusions.
-However, taking the persistent homology relative to a \emph{static} sub-levelset $B_\omega$ without asserting that our static sample is homotopy equivalent.
+However, taking the persistent homology relative to a \emph{static} sub-levelset $B_\omega$ without asserting that the corresponding approximation is homotopy equivalent.
 Moreover, the TCC only confirms coverage of a subset $D\setminus B_\omega$ so we cannot even assume we have coverage of some subset of $B_\omega$.
 
 We will first introduce the notion of an extension which will provide us with maps on relative homology induced by inclusion via excision.
-However, even then, a map that factors through our pair $(D, B_\omega)$ is not enough to prove their persistence modules are interleaved by inclusion directly.
-To address this we impose conditions on sub-levelsets near $B_\omega$ which generalize the assumptions made in the TCC on the inclusions
-\[ D\setminus B_{\omega+c(\delta+\zeta)}\hookrightarrow D\setminus B_\omega\hookrightarrow D\setminus B_{\omega-c(\delta+\zeta)}.\]
+However, even then, a map that factors through our pair $(D, B_\omega)$ is not enough to prove an interleaving of persistence modules by inclusion directly.
+To address this we impose conditions on sub-levelsets near $B_\omega$ which generalize the assumptions made in the TCC on maps induced by the inclusions
+\[ D\setminus B_{\omega+c(\delta+\zeta)}\hookrightarrow D\setminus B_\omega\hookrightarrow D\setminus B_{\omega-c(\delta+\zeta)}\]
+on $0$-dimensional homology, to assumptions on maps induced by the corresponding inclusions
+\[ B_{\omega-c(\delta+\zeta)}\hookrightarrow B_\omega\hookrightarrow B_{\omega+c(\delta+\zeta)}\]
+on homology in all dimensions $k$.
 We will then introduce image modules and partial interleavings before proving the interleaving in general.
-Finally, in the next section we set up notation and prove the interleaving in the context of the TCC.
+Finally, in the next section we set up notation and prove the interleaving in the geometric context introduced in section~\ref{sec:geometric}.

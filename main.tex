@@ -25,21 +25,39 @@
 
 
 \subsection{Homology}\label{sec:homology}
-%   \input{src/0-background/homology}
+  \textbf{TODO}
+  \begin{itemize}
+    \item High dimensional holes blahblahblah + some pictures,
+    \item why it's good for coverage and why we would be interested in the (persistent) homology of a function,
+    \item \textbf{Simplicial or singular},
+    \item relative homology,
+    \item excision,
+    \item long exact sequences?
+  \end{itemize}
+  % \input{src/0-background/homology}
 
 \subsection{Persistence Modules}
   \input{src/0-background/1-modules}
 
 \subsection{Persistent Homology}
-%   \input{src/0-background/pershom}
+  \textbf{TODO}
+  \begin{itemize}
+    \item Filtrations,
+    \item sub-levelset filtration,
+    \item $k$th persistent homology module of a filtration,
+    \item interleaving $\sim$ bottleneck?
+  \end{itemize}
+  % \input{src/0-background/pershom}
 
 
 \clearpage
 \section{The Topological Coverage Criterion (TCC)}
+\input{src/1-tcc/intro}
+
+\subsection{Surrounding Sets}
 \input{src/1-tcc/surrounding}
 
-
-\subsection{The Geometric TCC}
+\subsection{The Geometric TCC}\label{sec:geometric}
 \input{src/1-tcc/0-geometric}
 
 \subsection{Computing the TCC}
@@ -58,7 +76,7 @@
 \input{src/middle/images}
 
 \clearpage
-\section{From Coverage Testing to the Analysis of Scalar Fields}
+\section{From Coverage Testing to the Analysis of Scalar Fields}\label{sec:interleaving}
 
 \input{src/2-interleaving/0-scalar}
 
@@ -77,8 +95,11 @@
 
 \clearpage
 \appendix
-\section{Misc}
+\section{Misc}\label{apx:misc}
+\subsection{Relative Persistent Nerves}\label{apx:nerves}
 \input{src/appendix/nerves}
+
+\subsection{Duality}\label{apx:duality}
 \input{src/appendix/duality}
 
 \section{Omitted Proofs}\label{apx:omit}

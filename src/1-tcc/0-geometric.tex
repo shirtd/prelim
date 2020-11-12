@@ -10,13 +10,23 @@
 % and offsets
 % \[A^\e = \{x\in D\mid \dist_A(x) < \e\}.\]
 
+We now combine these results on the homology of surrounding pairs with information about both $\X$ as a metric space as well as a function of interest.
+In the following section we will apply these results to a computable variation which requires only pair-wise connectivity information via the Vietoris-Rips complex.
+
 Let $(\X,\dist)$ be a metric space and $D\subseteq \X$ be a compact subspace.
 Let $f : D\to \R$ be a $c$-Lipschitz function on $D$ and $B_\alpha = f^{-1}((-\infty, a])$ denote the $\alpha$-sublevel set of $f$ for $\alpha\in\R$.
+We introduce a constant $\omega$ as a threshold that defines our ``boundary'' as a sub-levelset of the function $f$.
+The following sections will explore both the challenges of computing as well as the meaning of the persistent homology of a function modulo a sub-levelset.
+
 Let $P$ be a finite subset of $D$ and $Q_\alpha := P\cap B_\alpha$ for $\alpha\in\R$.
 Let $\zeta\geq\delta > 0 $ and $\omega\in \R$ be constants such that $P^\delta\subseteq D$.
+Here, $\delta$ will serve as our communication radius where $\zeta$ is reserved as a constant for use in Section~\ref{sec:interleaving}.
+Unlike previous variations of the TCC we do not require a change of scale in the geometric case.
+Instead, we will enforce regularity close to the sub-levelset $B_\omega$ in terms of sub-levelsets $B_{\omega-c(\delta+\zeta)}$ and $B_{\omega+c(\delta+\zeta)}$.
+Not only is this a more natural assumption, but it also allows us to replace the requirement that sensors detect the physical presence of a boundary with a threshold on the function values they observe.
 
 \begin{lemma}\label{lem:psurj}
-  Let $i : \hom_0(\cmp{\QQ^\of}, \cmp{P^\of})\to \hom_0(\cmp{\Q^\of}, \cmp{P})$.
+  Let $i : \hom_0(\cmp{\QQ^\of}, \cmp{P^\of})\to \hom_0(\cmp{\Q^\of}, \cmp{P^\delta})$.
 
   If $\B$ surrounds $D$ in $\X$ then $\dim~\hom_0(\cmp{\B}, \cmp{D})\geq \rk~i$.
 \end{lemma}

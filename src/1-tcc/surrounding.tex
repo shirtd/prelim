@@ -1,86 +1,49 @@
-% !TeX root = ../../main.tex
+UUU% !TeX root = ../../main.tex
 
-A collection of sensors can be verified as covering a domain if
-\begin{enumerate}
-    \item[a.] the boundary of the domain is adequately covered,
-    \item[b.] the balloon has not been ``punctured.''
-\end{enumerate}
-Condition (b) relies on condition (a) in order to provide a topological condition that is necessary but not sufficient.
-Given (a) we can confirm coverage by checking if the balloon has been punctured simply by checking the dimension of the top-dimensional relative homology of the sample.
-Adequate coverage of the boundary can be broken into two parts.
-First, we require that the sampled boundary is in some sense simple in order to ensure our condition cannot produce false positives.
-This is achieved by using what we refer to as \emph{short-filtrations}: applying one step of persistence in order to de-noise the data.
-By testing our network at two scales we can ensure no spurious features are present in the boundary which may contribute to false positives.
-We also note that these short-filtrations are employed in the analysis of scalar fields as well.
-
-Secondly, we require that the so-called ``sampled boundary'' surrounds the interior of the domain.
-Otherwise, we may cover the domain but see what looks like a punctured ball as the ball when in fact the ball was never formed.
-In the TCC this situation is not handled explicitly.
-Instead it is stated as a condition for coverage that is necessary but not sufficient.
-That is, it can verify \emph{coverage} without false positives but may produce false negatives.
-In fact, the TCC tests a more specific problem: whether we have a reliable representation of the boundary \emph{and} a reliable representation of the interior.
-
-
-
-Given this observation we considered how best two use \emph{all} the information given by the TCC in a way that re-uses the machinery used to compute it.
-We therefore consider the relative persistent homology of a domain modulo a sublevel-set.
-In this section we re-cast the TCC for a domain defined as a domain surrounded by sub-level set of a function on that domain in order to ensure that a given sample can adequately approximate the relative homology of the domain modulo a sub-level set.
-First, we will provide some definitions and preliminary lemmas which will formalize the notion of a surrounding sub-levelset and its properties.
-% We will then modify the analysis of scalar fields in order to give an approximation of the \emph{relative} persistent homology of a sample.
-% Finally, we consider classes of functions which satisfy the assumptions made.
-% Namely, we consider functions with multiple sub-level sets which may serve as a boundary for this procedure and show how they can be integrated to give a more robust signature for the function.
-
-\subsection{Surrounding Sets}
-
-Given $B\subset D \subset X$ the set $B$ \textbf{surrounds $D$ in $X$} if $B$ separates $X$ with the pair $(D\setminus B, X\setminus D)$.
+Let $X$ be a topological space and $(D,B)$ a pair in $X$.
+The set $B$ \textbf{surrounds $D$ in $X$} if $B$ separates $X$ with the pair $(D\setminus B, X\setminus D)$.
 We will refer to such a pair as a \textbf{surrounding pair in $X$}.
 
-While this definition is equivalent to that of a separating set which simply breaks a space into disjoint subsets.
-By defining the subset $B$ as a subset relative to a $D$ we make the distinction between interior and exterior explicit.
-That is, the set $D\setminus B$ corresponds to the interior of $D$ and $X\setminus D$ corresponds to the complement of $D$ in $X$ with $B$ serving as a sort of boundary.
+Unlike the definition of a separating set, which simply breaks a space into disjoint subsets, we make the distinction between interior and exterior explicit by defining the subset $B$ relative $D$.
+That is, the set $D\setminus B$ corresponds to the interior of $D$ and $X\setminus D$ corresponds to the complement of $D$ in $X$.
+$B$ then serves as a boundary in the sense that there is no path from the ``interior'' to the ``complement,'' which is sufficient for a homological coverage criterion.
 
+Let $(D, B)$ be a surrounding pair in $X$ and $U\subseteq D$, $V\subseteq U\cap B$ be subsets.
+Let $\ell: \hom_0(X\setminus B, X\setminus D)\to \hom_0(X\setminus V, X\setminus U)$ be induced by inclusion.
 The following lemmas are generalize the proof of the TCC as properties of surrounding sets.
 
 \begin{lemma}\label{lem:coverage}
-  Let $(D, B)$ be a surrounding pair in $X$ and $L\subseteq D$, $S\subseteq L\cap B$ be subsets so that $\ell: \hom_0(X\setminus B, X\setminus D)\to \hom_0(X\setminus S, X\setminus L)$ is induced by inclusion.
-
-  If $\ell$ is injective then $D\setminus B\subseteq L$.
+  If $\ell$ is injective then $D\setminus B\subseteq U$.
 \end{lemma}
 \begin{proof}
   (See Appendix~\ref{apx:omit})
 \end{proof}
 \proofatend
-    Let $\overline{U} := X\setminus U$ denote the complement of a subset $U$ of $X$.
-
-    Suppose, for the sake of contradiction, that $p$ is injective and there exists a point $x\in (D\setminus B)\setminus L$.
+    Suppose, for the sake of contradiction, that $p$ is injective and there exists a point $x\in (D\setminus B)\setminus U$.
     Because $B$ surrounds $D$ in $X$ the pair $(D\setminus B, \overline{D})$ forms a separation of $\overline{B}$.
     Therefore, $\hom_0(\overline{B})\cong \hom_0(D\setminus B)\oplus \hom_0(\overline{D})$ so
     \[ \hom_0(\overline{B}, \overline{D})\cong \hom_0(D\setminus B). \]
     So $[x]$ is non-trivial in $\hom_0(\overline{B},\overline{D})\cong \hom_0(D\setminus B)$ as $x$ is in some connected component of $D\setminus B$.
     So we have the following sequence of maps induced by inclusions
-    \[ \hom_0(\overline{B},\overline{D})\xrightarrow{f} \hom_0(\overline{B},\overline{D}\cup\{x\})\xrightarrow{g} \hom_0(\overline{S},\overline{L}).\]
+    \[ \hom_0(\overline{B},\overline{D})\xrightarrow{f} \hom_0(\overline{B},\overline{D}\cup\{x\})\xrightarrow{g} \hom_0(\overline{V},\overline{U}).\]
     As $f[x]$ is trivial in $\hom_0(\overline{B},\overline{D}\cup\{x\})$ we have that $\ell[x] = (g\circ f)[x]$ is trivial, contradicting our hypothesis that $\ell$ is injective.
 \endproofatend
 
 \begin{lemma}\label{lem:cov_surrounds}
-  Let $(D, B)$ be a surrounding pair in $X$ and $L\subseteq D$, $S\subseteq L\cap B$ be subsets so that $\ell: \hom_0(X\setminus B, X\setminus D)\to \hom_0(X\setminus S, X\setminus L)$ is induced by inclusion.
-
-  If $\ell$ injective then $S$ surrounds $L$ in $D$.
+  If $\ell$ injective then $V$ surrounds $U$ in $D$.
 \end{lemma}
 \begin{proof}
   (See Appendix~\ref{apx:omit})
 \end{proof}
 \proofatend
-  Let $\overline{U} := X\setminus U$ denote the complement of a subset $U$ of $X$.
+  Suppose, for the sake of contradiction, that $V$ does not surround $U$ in $D$.
+  Then there exists a path $\gamma : [0,1]\to\overline{V}$ with $\gamma(0)\in U\setminus V$ and $\gamma(1)\in D\setminus U$.
+  By Lemma~\ref{lem:coverage} we know that $D\setminus B\subseteq U$, so $D\setminus B\subseteq U\setminus V$.
 
-  Suppose, for the sake of contradiction, that $S$ does not surround $L$ in $D$.
-  Then there exists a path $\gamma : [0,1]\to\overline{S}$ with $\gamma(0)\in L\setminus S$ and $\gamma(1)\in D\setminus L$.
-  By Lemma~\ref{lem:coverage} we know that $D\setminus B\subseteq L$, so $D\setminus B\subseteq L\setminus S$.
-
-  Choose $x\in D\setminus B$ and $z\in \overline{D}$ such that there exist paths $\xi : [0,1]\to L\setminus S$ with $\xi(0) = x$, $\xi(1) = \gamma(0)$ and $\zeta : [0,1]\to \overline{D}\cup (D\setminus L)$ with $\zeta(0) = z$, $\zeta(1) = \gamma(1)$.
-  $\xi, \gamma$ and $\zeta$ all generate chains in $C_1(\overline{S}, \overline{L})$ and $\xi + \gamma + \zeta = \gamma^*\in C_1(\overline{S}, \overline{L})$ with $\partial\gamma^* = x + z$.
-  Moreover, $z$ generates a chain in $C_0(\overline{L})$ as $\overline{D}\subseteq\overline{L}$.
-  So $x = \partial\gamma^* + z$ is a relative boundary in $C_0(\overline{S}, \overline{L})$, thus $\ell[x] = \ell[z]$ in $\hom_0(\overline{S}, \overline{L})$.
+  Choose $x\in D\setminus B$ and $z\in \overline{D}$ such that there exist paths $\xi : [0,1]\to U\setminus V$ with $\xi(0) = x$, $\xi(1) = \gamma(0)$ and $\zeta : [0,1]\to \overline{D}\cup (D\setminus U)$ with $\zeta(0) = z$, $\zeta(1) = \gamma(1)$.
+  $\xi, \gamma$ and $\zeta$ all generate chains in $C_1(\overline{V}, \overline{U})$ and $\xi + \gamma + \zeta = \gamma^*\in C_1(\overline{V}, \overline{U})$ with $\partial\gamma^* = x + z$.
+  Moreover, $z$ generates a chain in $C_0(\overline{U})$ as $\overline{D}\subseteq\overline{U}$.
+  So $x = \partial\gamma^* + z$ is a relative boundary in $C_0(\overline{V}, \overline{U})$, thus $\ell[x] = \ell[z]$ in $\hom_0(\overline{V}, \overline{L})$.
   However, because $B$ surrounds $D$, $[x]\neq [y]$ in $\hom_0(\overline{B}, \overline{D})$ contradicting our assumption that $\ell$ is injective.
 \endproofatend
 
