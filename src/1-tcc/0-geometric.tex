@@ -67,6 +67,15 @@ We therefore must introduce a larger space $B_{\omega+c(\delta+\zeta)}$ that con
   \hom_0(\cmp{\Q^\of}, \cmp{P^\of}).
 \end{tikzcd}\end{equation}
 
+\paragraph{Assumption 1}
+
+This is where we introduce our first assumption on the region surrounding $B_\omega$.
+We will require the map $\hom_0(D\setminus B_{\omega+c(\delta+\zeta)}\hookrightarrow D\setminus B_\omega)$ to be \emph{surjective}---as we approach $\omega$ from \emph{above} no components \emph{appear}.
+That is, in terms of $\omega$ as a sub-levelset monotonically increasing, no components \emph{disappear} right \emph{after} $\omega$.
+
+As a result, the rank of the map $j$ is equal to the dimension of $\dim~\hom_0(\cmp{B_\omega}, \cmp{D})$ and our map $\ell$ induced by inclusion depends only on $\hom_0(\cmp{B_\omega}, \cmp{D})$ and $\im~i$.
+The second assumption, which requires that nothing appears right \emph{before} $\omega$, will be used in Theorem~\ref{thm:algo_tcc} to provide a computable upper bound on $\rk~j$.
+
 \begin{theorem}[Geometric TCC]\label{thm:geo_tcc}
   Let $D$ be a compact subset of $\X$ and $f : D\to\R$ be $c$-Lipschitz function.
   Let $\omega\in\R$, $\of > 0$ be constants such that $\B$ surrounds $D$ in $\X$.
