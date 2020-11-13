@@ -1,28 +1,28 @@
 % !TeX root = ../../main.tex
 
-A collection of sensors can be verified as covering a domain if
-\begin{enumerate}
-    \item[a.] the boundary of the domain is adequately covered,
-    \item[b.] the balloon has not been ``punctured.''
-\end{enumerate}
-Condition (b) relies on condition (a) in order to provide a topological condition that is necessary but not sufficient.
-Given (a) we can confirm coverage by checking if the balloon has been punctured simply by checking the dimension of the top-dimensional relative homology of the sample.
+% A collection of sensors can be verified as covering a domain if
+% \begin{enumerate}
+%     \item[a.] the boundary of the domain is adequately covered,
+%     \item[b.] the interior of the
+% \end{enumerate}
+% Condition (b) relies on condition (a) in order to provide a topological condition that is necessary but not sufficient.
+% Given (a) we can confirm coverage by checking if the balloon has been punctured simply by checking the dimension of the top-dimensional relative homology of the sample.
+%
+% Adequate coverage of the boundary can be broken into two parts.
+% First, we require that the sampled boundary is sufficiently simple in order to ensure our condition cannot produce false positives.
+% This is achieved by using what we refer to as \emph{short-filtrations}: applying one step of persistence in order to de-noise the data.
+% By testing our network at two scales we can ensure no spurious features are present in the boundary which may contribute to false positives.
+% % We also note that these short-filtrations are employed in the analysis of scalar fields as well.
+%
+% Secondly, we require that the so-called ``sampled boundary'' surrounds the interior of the domain.
+% Otherwise, we may cover the domain but see what looks like a punctured ball as the ball when in fact the ball was never formed.
+% In the TCC this situation is not handled explicitly.
+% Instead it is stated as a condition for coverage that is necessary but not sufficient.
+% That is, it can verify \emph{coverage} without false positives but may produce false negatives.
+% In fact, the TCC tests a more specific problem: whether we have a reliable representation of the boundary \emph{and} a reliable representation of the interior.
+% \footnote{\textbf{TODO} discuss how this is still not a sufficient condition.}
 
-Adequate coverage of the boundary can be broken into two parts.
-First, we require that the sampled boundary is sufficiently simple in order to ensure our condition cannot produce false positives.
-This is achieved by using what we refer to as \emph{short-filtrations}: applying one step of persistence in order to de-noise the data.
-By testing our network at two scales we can ensure no spurious features are present in the boundary which may contribute to false positives.
-% We also note that these short-filtrations are employed in the analysis of scalar fields as well.
-
-Secondly, we require that the so-called ``sampled boundary'' surrounds the interior of the domain.
-Otherwise, we may cover the domain but see what looks like a punctured ball as the ball when in fact the ball was never formed.
-In the TCC this situation is not handled explicitly.
-Instead it is stated as a condition for coverage that is necessary but not sufficient.
-That is, it can verify \emph{coverage} without false positives but may produce false negatives.
-In fact, the TCC tests a more specific problem: whether we have a reliable representation of the boundary \emph{and} a reliable representation of the interior.
-\footnote{\textbf{TODO} discuss how this is still not a sufficient condition.}
-
-Given this observation we considered how best to use \emph{all} the information given by the TCC in a way that re-uses the machinery used to compute it.
+% Given this observation we considered how best to use \emph{all} the information given by the TCC in a way that re-uses the machinery used to compute it.
 In the following sections we consider the relative persistent homology of a function modulo a sublevel-set as an extension of the TCC.
 In this section we re-cast the TCC for a domain surrounded by sub-levelset in order to ensure that a given sample can provide an adequate approximation.
 First, we will provide some definitions and preliminary lemmas which will formalize the notion of a surrounding sub-levelset and its properties.
