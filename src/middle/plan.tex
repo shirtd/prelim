@@ -1,14 +1,15 @@
 % !TeX root = ../../main.tex
 
 Our re-statement of the TCC in terms of a surrounding sub-levelset of a function $f$ sets us up with most of the machinery we need to approximate its persistent homology.
-However, assuming we have a sample that satisfies the TCC we do not know that we cover the entire domain, but only the \emph{super-levelset} $D\setminus B_\omega$.
+However, as the TCC only confirms coverage of the \emph{super}-levelset $D\setminus B_\omega$, we cannot guarantee that we cover the entire domain.
+% However, assuming we have a sample that satisfies the TCC we do not know that we cover the entire domain, but only the \emph{super-levelset} $D\setminus B_\omega$.
 % As we would like to analyze the persistent homology of $f$ in a way that extends the TCC we will not approximate the persistence of this \emph{restriction} of $f$ using techniques from previous work~\cite{chazal09analysis}.
-
 Indeed, we could compute the persistent homology of the \emph{restriction} of $f$ to this super-levelset, or that of the super-levelset filtration down to $\omega$ using previous work~\cite{chazal09analysis}.
-As we would like to analyze the persistent homology of $f$ in a way that extends the TCC we approximate the persistent homology of the sub-levelset filtration \emph{relative to} the sub-levelset $B_\omega$.
+As we would like to analyze the persistent homology of $f$ in a way that extends the TCC we will instead approximate the persistent homology of the sub-levelset filtration \emph{relative to} the sub-levelset $B_\omega$.
 That is, we will compute the relative persistent homology of $f$ with respect to a \emph{static} sub-levelset $B_\omega$.
+
 After providing an interleaving with an approximation by Vietoris-Rips complexes, as in the previous section, we will discuss how the resulting diagram is related to the \emph{truncated} diagram of $f$---the diagram of $f$ after $\omega$.
-We will then compare this with the diagram of the function \emph{restricted} to the covered region, and show how approximations of the truncated diagram are better suited to integrating missing data.
+We will then
 
 % While persistent relative homology~\cite{todo} has been studied, interleaving relative modules requires interleaving pairs by pairs of shifted homomorphisms which, ideally, are induced by inclusions.
 % However, taking the persistent homology relative to a \emph{static} sub-levelset $B_\omega$ without asserting that the corresponding approximation is homotopy equivalent.
@@ -21,5 +22,8 @@ To address this we impose conditions on sub-levelsets near $B_\omega$ which gene
 on $0$-dimensional homology, to assumptions on maps induced by the corresponding inclusions
 \[ B_{\omega-c(\delta+\zeta)}\hookrightarrow B_\omega\hookrightarrow B_{\omega+c(\delta+\zeta)}\]
 on homology in all dimensions $k$.
-We will then introduce image modules and partial interleavings before proving the interleaving in general.
-Finally, in Section~\ref{sec:interleaving} we set up notation and prove the interleaving in the geometric context introduced in section~\ref{sec:geometric}.
+We therefore introduce image modules and partial interleaving as a way to use these assumptions to prove an interleaving.
+
+Section~\ref{sec:interleaving} will set up notation and prove the interleaving in the geometric context introduced in section~\ref{sec:geometric}.
+We will then discuss how the resulting diagram is related to the \emph{truncated} diagram of $f$---the diagram of $f$ after $\omega$.
+Finally, we will compare this with the diagram of the function \emph{restricted} to the covered region, and show how approximations of the truncated diagram are better suited in certain cases.

@@ -1,7 +1,7 @@
 % !TeX root = ../../main.tex
 
 In the TCC a nested pair of spaces is used in order to filter out noise introduced by the sample.
-This same technique is used in the analysis of scalar fields~\cite{chazal09analysis} to interleave the persistent homology of a sequence of subspaces to that of a function.
+This same technique is used in the analysis of scalar fields~\cite{chazal09analysis} to interleave the persistent homology of a sequence of subspaces with that of a function.
 These subspaces are simply the images of homomorphisms between homology groups induced by inclusion, and we refer to the resulting persistence module as an image persistence module.
 
 \begin{definition}[Image Persistence Module]
@@ -77,6 +77,9 @@ Similarly, if $J\in\Hom^{\delta'}(\S,\T)$ a pair $(F,N)\in\Hom^\delta(\U,\S)\tim
 We will often omit the degree when it is clear from context.
 
 % Proof of the following lemma can be found in the appendix.
+The following Lemma can be seen as the primary tool for the proof of our interleaving.
+It uses partial interleavings surrounding a module $\V$ to prove an interleaving of an image module with $\V$.
+When applied, the hypothesis of this Lemma will be satisfied by assumptions on our sub-levelset similar to those made in the TCC.
 
 \begin{lemma}\label{thm:interleaving_main}
   Suppose $\Gamma\in\Hom(\U,\V)$, $\Pi\in\Hom(\V,\W)$, and $\Lambda\in\Hom(\S, \T)$.

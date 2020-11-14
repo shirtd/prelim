@@ -1,8 +1,12 @@
 % !TeX root = ../../main.tex
 
-Let $X$ be a topological space and $(D,B)$ a pair in $X$.
-The set $B$ \textbf{surrounds $D$ in $X$} if $B$ separates $X$ with the pair $(D\setminus B, X\setminus D)$.
-We will refer to such a pair as a \textbf{surrounding pair in $X$}.
+
+
+\begin{definition}[Surrounding Pair]
+  Let $X$ be a topological space and $(D,B)$ a pair in $X$.
+  The set $B$ \textbf{surrounds $D$ in $X$} if $B$ separates $X$ with the pair $(D\setminus B, X\setminus D)$.
+  We will refer to such a pair as a \textbf{surrounding pair in $X$}.
+\end{definition}
 
 Unlike the definition of a separating set, which simply breaks a space into disjoint subsets, we make the distinction between interior and exterior explicit by defining the subset $B$ relative $D$.
 That is, the set $D\setminus B$ corresponds to the interior of $D$ and $X\setminus D$ corresponds to the complement of $D$ in $X$.
@@ -10,7 +14,7 @@ $B$ then serves as a boundary in the sense that there is no path from the ``inte
 
 Let $(D, B)$ be a surrounding pair in $X$ and $U\subseteq D$, $V\subseteq U\cap B$ be subsets.
 Let $\ell: \hom_0(X\setminus B, X\setminus D)\to \hom_0(X\setminus V, X\setminus U)$ be induced by inclusion.
-The following lemmas are generalize the proof of the TCC as properties of surrounding sets.
+The following lemmas generalize the proof of the TCC as properties of surrounding sets.
 
 \begin{lemma}\label{lem:coverage}
   If $\ell$ is injective then $D\setminus B\subseteq U$.

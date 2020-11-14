@@ -10,13 +10,13 @@
 % and offsets
 % \[A^\e = \{x\in D\mid \dist_A(x) < \e\}.\]
 
-We now combine these results on the homology of surrounding pairs with information about both $\X$ as a metric space as well as a function of interest.
-In the following section we will apply these results to a computable variation which requires only pair-wise connectivity information via the Vietoris-Rips complex.
+We now combine these results on the homology of surrounding pairs with information about both $\X$ as a metric space and our function.
+In the following section we will apply these results to a computable variation using Vietoris-Rips complexes that requires only pair-wise connectivity information.
 
 Let $(\X,\dist)$ be a metric space and $D\subseteq \X$ be a compact subspace.
-Let $f : D\to \R$ be a $c$-Lipschitz function on $D$ and $B_\alpha = f^{-1}((-\infty, a])$ denote the $\alpha$-sublevel set of $f$ for $\alpha\in\R$.
+Let $f : D\to \R$ be a $c$-Lipschitz function and $B_\alpha = f^{-1}((-\infty, a])$ denote the $\alpha$-sublevel set of $f$ for $\alpha\in\R$.
 We introduce a constant $\omega$ as a threshold that defines our ``boundary'' as a sub-levelset of the function $f$.
-The following sections will explore both the challenges of computing as well as the meaning of the persistent homology of a function modulo a sub-levelset.
+In the next section we will explore both the challenges of computing, as well as the meaning, of the persistent homology of a function modulo the sub-levelset $B_\omega$.
 
 Let $P$ be a finite subset of $D$ and $Q_\alpha := P\cap B_\alpha$ for $\alpha\in\R$.
 Let $\zeta\geq\delta > 0 $ and $\omega\in \R$ be constants such that $P^\delta\subseteq D$.
@@ -43,7 +43,7 @@ Not only is this a more natural assumption, but it also allows us to replace the
 \end{proof}
 
 Note that, while there is a surjective map from $\hom_0(\cmp{\B}, \cmp{D})$ to $\im~i$ this map is not necessarily induced by inclusion, as $\QQ^\of\not\subseteq \B$.
-We therefore must introduce a larger space $B_{\omega+c(\delta+\zeta)}$ that contains $\QQ^\of$ in order to provide a computable criteria for the injectivity of $\ell : \hom_0(\cmp{\B}, \cmp{D})\to\hom_0(\cmp{\Q^\of}, \cmp{P^\of})$.
+We therefore must introduce a larger space $B_{\omega+c(\delta+\zeta)}$ that contains $\QQ^\of$ in order to provide a criteria for the injectivity of $\ell : \hom_0(\cmp{\B}, \cmp{D})\to\hom_0(\cmp{\Q^\of}, \cmp{P^\of})$ in terms of $\rk~i$.
 
 \[ \begin{tikzcd}
   (P^\of, \Q^\of) \arrow[hookrightarrow]{r}\arrow[hookrightarrow]{d} &
