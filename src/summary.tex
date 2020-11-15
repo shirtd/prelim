@@ -17,6 +17,12 @@ As a necessary but not sufficient condition there is room to question what can g
 We identify this situation in which the ``boundary'' is not sufficiently sampled as one such instance.
 This leads us to believe the condition checks for something more specific than coverage alone.
 
+\begin{wrapfigure}{r}{0.4\textwidth}
+  \centering
+  \includegraphics[trim=50 150 0 200, clip, scale=0.2]{scripts/figures/scalar.png}
+  \includegraphics[trim=100 25 100 0, clip, angle=270, scale=0.3]{scripts/figures/scalar_contour.png}
+\end{wrapfigure}
+
 We will re-cast the TCC as a way to verify that a collection of sample points can adequately approximate an unknown function in an unknown space.
 Consider the application to sensor networks as an example, where we take our sample points as sensors dropped in an unknown environment.
 We now endow our sensors with the ability to measure some unknown quantity that is related to metric of the space in a specific way (Lipschitz).
@@ -31,6 +37,7 @@ We consider the case in which we have incomplete data for a particular sub-level
 Returning to our sensor network analogy, suppose our sensors measure heat, or some other volatile quantity, and cannot approach a region without failing.
 By properly isolating the region, taken as a sub-levelset of the function, we can confirm that the sample we have is topologically representative of the region near, and above this sub-levelset.
 We can then re-use the same machinery that was used to verify coverage to analyze a \emph{part} of the function in a very specific way.
+
 
 In a superficial sense, the assumptions and machinery required to approximate a function's persistent homology are precisely those confirmed and constructed in the TCC. %\footnote{\textbf{TODON} worst sentence ever, but exactly what I want to say. Also I stole ``superficial'' from your intro because it's perfect. Maybe some of your intro can fill this in.}.
 While this approximation is well studied in general~\ref{chazal08towards}, the presence of incomplete data can severely impact the quality of the approximation.
