@@ -17,12 +17,6 @@ As a necessary but not sufficient condition there is room to question what can g
 We identify this situation in which the ``boundary'' is not sufficiently sampled as one such instance.
 This leads us to believe the condition checks for something more specific than coverage alone.
 
-\begin{wrapfigure}{r}{0.4\textwidth}
-  \centering
-  \includegraphics[trim=50 150 0 200, clip, scale=0.2]{scripts/figures/scalar.png}
-  \includegraphics[trim=100 25 100 0, clip, angle=270, scale=0.3]{scripts/figures/scalar_contour.png}
-\end{wrapfigure}
-
 We will re-cast the TCC as a way to verify that a collection of sample points can adequately approximate an unknown function in an unknown space.
 Consider the application to sensor networks as an example, where we take our sample points as sensors dropped in an unknown environment.
 We now endow our sensors with the ability to measure some unknown quantity that is related to metric of the space in a specific way (Lipschitz).
@@ -38,13 +32,20 @@ Returning to our sensor network analogy, suppose our sensors measure heat, or so
 By properly isolating the region, taken as a sub-levelset of the function, we can confirm that the sample we have is topologically representative of the region near, and above this sub-levelset.
 We can then re-use the same machinery that was used to verify coverage to analyze a \emph{part} of the function in a very specific way.
 
-
 In a superficial sense, the assumptions and machinery required to approximate a function's persistent homology are precisely those confirmed and constructed in the TCC. %\footnote{\textbf{TODON} worst sentence ever, but exactly what I want to say. Also I stole ``superficial'' from your intro because it's perfect. Maybe some of your intro can fill this in.}.
 While this approximation is well studied in general~\ref{chazal08towards}, the presence of incomplete data can severely impact the quality of the approximation.
 This is primarily due to the nature of homology as a measure of \emph{global} structure.
 While the obvious solution is to simply remove the un-verified data, the question of what precisely this would approximate is important to consider.
 By simply restricting the function to the verified \emph{super}-levelset we accept that there may be global structure to the function itself that we are missing.
 If we are then provided with the missing data it may prove more difficult to reconstruct the full diagram in this case.
+
+% \begin{wrapfigure}{r}{0.5\textwidth}
+%   \centering
+%   \includegraphics[trim=50 190 0 200, clip, scale=0.2]{scripts/figures/scalar.png}
+%   \includegraphics[trim=100 25 75 0, clip, angle=280, scale=0.28]{scripts/figures/scalar_contour.png}
+%   % \includegraphics[scale=0.55]{scripts/figures/scalar_barcode_super_0.png}
+%   % \includegraphics[scale=0.55]{scripts/figures/scalar_barcode_sub_1.png}
+% \end{wrapfigure}
 
 We consider the persistent homology relative to a sub-levelset as a \emph{truncation} of the full diagram.
 That is, beyond a certain point the full diagram remains unchanged, allowing for possible reconstruction.
@@ -56,3 +57,27 @@ We will first provide some background on important topological, geometric, and a
 We then introduce the notion of a \emph{surrounding set}, or pair, which will be central in or re-formulation of the TCC.
 Section~\ref{sec:middle} establishes the algebraic tools that will be used to approximate the truncated diagram, and discuss how they fit in the context of the TCC.
 After providing the proof of the interleaving in Section~\ref{sec:interleaving} we discuss the meaning and significance of truncated diagrams, and compare them to the diagrams of restricted functions.
+
+
+\begin{figure}[htbp]
+  \centering
+  % \includegraphics[trim=50 190 0 200, clip, scale=0.2]{scripts/figures/scalar.png}
+  % \includegraphics[trim=100 25 75 0, clip, angle=280, scale=0.25]{scripts/figures/scalar_contour.png}
+  \includegraphics[trim=50 130 0 200, clip, scale=0.25]{scripts/figures/scalar.png}
+  \includegraphics[trim=70 350 0 370, clip, scale=0.25]{scripts/figures/scalar_levels.png}
+  \includegraphics[scale=0.8]{scripts/figures/scalar_barcode_true.png}
+  % \includegraphics[trim=0 310 270 0, clip, scale=0.8]{scripts/figures/scalar_restricted.png}
+  % \includegraphics[scale=0.55]{scripts/figures/scalar_barcode_super_0.png}
+  % \includegraphics[scale=0.55]{scripts/figures/scalar_barcode_sub_1.png}
+\end{figure}
+
+% \begin{figure}\label{fig:restricted}
+%   \centering
+%   \includegraphics[scale=0.6]{scripts/figures/scalar_restricted.png}
+%   \caption{Persistence barcodes in dimension 0, 1, and 2 (horizonal axis) of the function depicted in Figure~\ref{fig:scalar} (top row) as well as the function \emph{restricted} to the region above the green, blue, and purple sub-levelsets (rows 2-4 respectively).}
+% \end{figure}
+% \begin{figure}\label{fig:truncated}
+%   \centering
+%   \includegraphics[trim=0 0 0 125, clip, scale=0.6]{scripts/figures/scalar_truncated.png}
+%     \caption{The persistent homology taken relative to the green, blue, and purple sub-levelsets, respectively.}
+% \end{figure}

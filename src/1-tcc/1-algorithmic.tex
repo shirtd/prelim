@@ -36,7 +36,24 @@ We note that, in practice, it likely suffices to assume that there exists a tria
 \paragraph{Assumption 2}
 
 In order obtain an upper bound on $\rk~j$ we introduce our second assumption: that $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega-c(\delta+\zeta)})$ is \emph{injective}---as we move away from $\omega$ moving \emph{down} no components \emph{disappear}.
-Once again, in terms of $\omega$ as a sub-levelset monotonically increasing, no components \emph{appear} right \emph{before} $\omega$.
+Once again, in terms of $\omega$ as a super-levelset monotonically decreasing, no components \emph{disappear} right \emph{after} $\omega$.
+We note that, for a function in two dimensions, this translates to features in dimension 1 appearing before $\omega$ is the sub-levelset filtration, as shown in Figure~\ref{fig:assumption_2}.
+% Once again, in terms of $\omega$ as a sub-levelset monotonically increasing, no components \emph{appear} right \emph{before} $\omega$.
+
+\begin{figure}[htbp]\label{fig:assumption_2}
+  \centering
+  % \includegraphics[trim=50 190 0 200, clip, scale=0.2]{scripts/figures/scalar.png}
+  % \includegraphics[trim=100 25 75 0, clip, angle=280, scale=0.25]{scripts/figures/scalar_contour.png}
+  \includegraphics[trim=200 325 150 300, clip, scale=0.3]{scripts/figures/scalar_a2_B.png}
+  \includegraphics[trim=0 350 0 370, clip, scale=0.2]{scripts/figures/scalar_a2_B_top.png}
+  \includegraphics[trim=200 325 150 300, clip, scale=0.3]{scripts/figures/scalar_a2_A.png}
+  \includegraphics[trim=0 350 0 370, clip, scale=0.2]{scripts/figures/scalar_a2_A_top.png}
+  \includegraphics[scale=0.7]{scripts/figures/scalar_barcode_H1.png}
+  % \includegraphics[scale=0.55]{scripts/figures/scalar_barcode_super_0.png}
+  % \includegraphics[scale=0.55]{scripts/figures/scalar_barcode_sub_1.png}
+  \caption{\textbf{(Assumption 2)} The blue levelset does not satisfy Assumption 2 as the smaller component is not in the inclusion from blue to green.
+          This can be seen in the second feature of the barcode shown as a feature which is born in the blue region.}
+\end{figure}
 
 \begin{lemma}\label{lem:assumption2}
   If $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega+c(\delta+\zeta)})$ is injective and each component of $D\setminus B_\omega$ contains a point in $P$ then $\dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-c\zeta})) \geq \dim~\hom_0(D\setminus B_\omega)$.

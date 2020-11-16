@@ -15,7 +15,7 @@ print(seed)
 cuts = {'A' : (0.05, 0.3),
         'B' : (0.3, 0.55),
         'C' : (0.55, 0.8),
-        'D' : (0.8, 1.298088)}
+        'D' : (0.8, 1.3)}
 
 COLOR = {'A' : (0, 205/255, 108/255),
         'B' : (0, 154/255, 222/255),
@@ -44,85 +44,88 @@ Gs.append(0.7*gaussian(X, Y, [1.25, 0.3], [0.25, 0.25]))
 
 G = sum(Gs)
 
-# # def make_relative_sub_barcode():
-# mx = 1.297 # G.max()
-# lim = mx #max(max(p.death if p.death < np.inf else p.birth for p in d) for d in dgms if len(d))
-#
-# def plot_barcode(axis, dgm):
-#     for i, (birth, death) in enumerate(dgm):
-#         i = 1 - i / len(dgm)
-#         for name, (a,b) in cuts.items():
-#             if a < birth and death <= b:
-#                 axis.plot([birth, death], [i, i], c=COLOR[name], lw=5)
-#             elif birth < a and death > a and death <= b:
-#                 axis.plot([a, death], [i, i], c=COLOR[name], lw=5)
-#             elif birth > a and birth < b and death > b:
-#                 axis.plot([birth, b], [i, i], c=COLOR[name], lw=5)
-#             elif birth <= a and b < death:
-#                 axis.plot([b, a], [i, i], c=COLOR[name], lw=5)
-#         if death == np.inf:
-#             axis.plot([1.32, 1.39], [i, i], c='black', linestyle='dotted')
-#         # ax.set_ylim(-1, 4)
-#         axis.get_yaxis().set_visible(False)
-#
-# def plot_barcodes(axs, dgms):
+# def make_relative_sub_barcode():
+mx = 1.297 # G.max()
+lim = mx #max(max(p.death if p.death < np.inf else p.birth for p in d) for d in dgms if len(d))
+
+def plot_barcode_super(axis, dgm):
+    for i, (birth, death) in enumerate(dgm):
+        i = 1 - i / len(dgm)
+        death = -np.inf if death == np.inf else death
+        for name, (a,b) in cuts.items():
+            if a < death and birth <= b:
+                axis.plot([birth, death], [i, i], c=COLOR[name], lw=5)
+            elif death < a and birth > a and birth <= b:
+                axis.plot([a, birth], [i, i], c=COLOR[name], lw=5)
+            elif death > a and death < b and birth > b:
+                axis.plot([death, b], [i, i], c=COLOR[name], lw=5)
+            elif death <= a and b < birth:
+                axis.plot([b, a], [i, i], c=COLOR[name], lw=5)
+        if death == -np.inf:
+            axis.plot([-0.05, 0.03], [i, i], c='black', linestyle='dotted')
+
+def get_rel_dgm_super(name):
+    filt = dio.fill_freudenthal(G, reverse=True)
+    vmap = {v : filt[filt.index(dio.Simplex([v],0))].data for v in range(G.size)}
+    rel = dio.Filtration([s for s in filt if all(vmap[v] < cuts[name][0] for v in s)])
+    # rel = dio.Filtration([s for s in filt if all(vmap[v] > cuts[name][1] for v in s)])
+    if name == 'A':
+    # if name == 'D':
+        hom = dio.homology_persistence(filt)
+    else:
+        hom = dio.homology_persistence(filt, relative=rel)
+    dgms = dio.init_diagrams(hom, filt)
+    return [np.array([[p.birth, p.death] for p in d]) if len(d) else np.ndarray((0,2)) for d in dgms]
+
+def get_res_dgm_super(name):
+    filt = dio.fill_freudenthal(G, reverse=True)
+    if name == 'A':
+    # if name == 'D':
+        res = filt
+    else:
+        vmap = {v : filt[filt.index(dio.Simplex([v],0))].data for v in range(G.size)}
+        res = dio.Filtration([s for s in filt if all(vmap[v] >= cuts[name][0] for v in s)])
+        # res = dio.Filtration([s for s in filt if all(vmap[v] <= cuts[name][1] for v in s)])
+    hom = dio.homology_persistence(res)
+    dgms = dio.init_diagrams(hom, res)
+    return [np.array([[p.birth, p.death] for p in d]) if len(d) else np.ndarray((0,2)) for d in dgms]
+
+def plot_barcodes(axs, dgms):
+    for dim, dgm in enumerate(dgms):
+        plot_barcode_super(axs[dim], dgm)
+
+plt.ion()
+fig, ax = plt.subplots(4, 3, figsize=(11, 6))
+
+for a in ax:
+    for aa in a:
+        aa.set_xlim(0,1.39)
+        aa.set_ylim(-0.2, 1.2)
+        aa.get_yaxis().set_visible(False)
+        aa.get_xaxis().set_visible(False)
+
+# fig = plt.figure(1, figsize=(5,1.5))
+# ax = plt.subplot(111)
+
+ax[0,0].set_title(r"$\mathrm{H}_0$")
+ax[0,1].set_title(r"$\mathrm{H}_1$")
+ax[0,2].set_title(r"$\mathrm{H}_2$")
+plt.tight_layout()
+
+dgms = {name : get_res_dgm_super(name) for name in cuts.keys()}
+# dgms = {name : get_rel_dgm_super(name) for name in cuts.keys()}
+
+plot_barcodes(ax[0], dgms['A'])
+plot_barcodes(ax[1], dgms['B'])
+plot_barcodes(ax[2], dgms['C'])
+plot_barcodes(ax[3], dgms['D'])
+
+# for i, name in enumerate(['B','C','D']):
+#     dgms = get_rel_dgm(name)
 #     for dim, dgm in enumerate(dgms):
-#         plot_barcode(axs[dim], dgm)
+#         plot_barcode(ax[i+1,dim], dgm)
 #
-# def get_rel_dgm(name):
-#     filt = dio.fill_freudenthal(G)
-#     vmap = {v : filt[filt.index(dio.Simplex([v],0))].data for v in range(G.size)}
-#     rel = dio.Filtration([s for s in filt if all(vmap[v] < cuts[name][0] for v in s)])
-#     if name == 'A':
-#         hom = dio.homology_persistence(filt)
-#     else:
-#         hom = dio.homology_persistence(filt, relative=rel)
-#     dgms = dio.init_diagrams(hom, filt)
-#     return [np.array([[p.birth, p.death] for p in d]) if len(d) else np.ndarray((0,2)) for d in dgms]
-#
-# def get_res_dgm(name):
-#     filt = dio.fill_freudenthal(G)
-#     if name == 'A':
-#         res = filt
-#     else:
-#         vmap = {v : filt[filt.index(dio.Simplex([v],0))].data for v in range(G.size)}
-#         res = dio.Filtration([s for s in filt if all(vmap[v] >= cuts[name][0] for v in s)])
-#     hom = dio.homology_persistence(res)
-#     dgms = dio.init_diagrams(hom, res)
-#     return [np.array([[p.birth, p.death] for p in d]) if len(d) else np.ndarray((0,2)) for d in dgms]
-#
-# plt.ion()
-# fig, ax = plt.subplots(4, 3, figsize=(11, 6))
-#
-# for a in ax:
-#     for aa in a:
-#         aa.set_xlim(0,1.39)
-#         aa.set_ylim(-0.2, 1.2)
-#         aa.get_yaxis().set_visible(False)
-#         aa.get_xaxis().set_visible(False)
-#
-# # fig = plt.figure(1, figsize=(5,1.5))
-# # ax = plt.subplot(111)
-#
-# ax[0,0].set_title(r"$\mathrm{H}_0$")
-# ax[0,1].set_title(r"$\mathrm{H}_1$")
-# ax[0,2].set_title(r"$\mathrm{H}_2$")
-# plt.tight_layout()
-#
-# # dgms = {name : get_res_dgm(name) for name in cuts.keys()}
-# dgms = {name : get_rel_dgm(name) for name in cuts.keys()}
-#
-# plot_barcodes(ax[0], dgms['A'])
-# plot_barcodes(ax[1], dgms['B'])
-# plot_barcodes(ax[2], dgms['C'])
-# plot_barcodes(ax[3], dgms['D'])
-#
-# # for i, name in enumerate(['B','C','D']):
-# #     dgms = get_rel_dgm(name)
-# #     for dim, dgm in enumerate(dgms):
-# #         plot_barcode(ax[i+1,dim], dgm)
-# #
-#
+
 
 def make_sub_barcode():
     mx = 1.297 # G.max()
@@ -259,6 +262,7 @@ def make_surf():
 
     S['A'].actor.property.backface_culling = True
 
+
     scene.parallel_projection = True
     scene.background = (1,1,1)
 
@@ -273,6 +277,6 @@ def make_surf():
     # ax2.set_xlim(-2,2); ax2.set_ylim(-2,2)
     # ax2.plot_surface(X, Y, G, rcount=64, ccount=2*64, cmap='viridis')
 
-if __name__ == "__main__":
-    # make_super_barcode()
-    make_surf()
+# if __name__ == "__main__":
+#     # make_super_barcode()
+#     # make_surf()
