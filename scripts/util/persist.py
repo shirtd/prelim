@@ -15,38 +15,38 @@ CMAP = {'A' : COLOR['green'],
         'C' : COLOR['purple'],
         'D' : COLOR['orange']}
 
-def plot_barcode_sub(axis, dgm):
+def plot_barcode_sub(axis, dgm, lw=5):
     for i, (birth, death) in enumerate(dgm):
         i = 1 - i / len(dgm)
         for name, (a,b) in CUT_MAP.items():
             if a < birth and death <= b:
-                axis.plot([birth, death], [i, i], c=CMAP[name], lw=5)
+                axis.plot([birth, death], [i, i], c=CMAP[name], lw=lw)
             elif birth < a and death > a and death <= b:
-                axis.plot([a, death], [i, i], c=CMAP[name], lw=5)
+                axis.plot([a, death], [i, i], c=CMAP[name], lw=lw)
             elif birth > a and birth < b and death > b:
-                axis.plot([birth, b], [i, i], c=CMAP[name], lw=5)
+                axis.plot([birth, b], [i, i], c=CMAP[name], lw=lw)
             elif birth <= a and b < death:
-                axis.plot([b, a], [i, i], c=CMAP[name], lw=5)
+                axis.plot([b, a], [i, i], c=CMAP[name], lw=lw)
         if death == np.inf:
-            axis.plot([1.32, 1.39], [i, i], c='black', linestyle='dotted')
+            axis.plot([1.32, 1.39], [i, i], c='black', linestyle='dotted',  lw=lw/2)
         # ax.set_ylim(-1, 4)
         axis.get_yaxis().set_visible(False)
 
-def plot_barcode_super(axis, dgm):
+def plot_barcode_super(axis, dgm, lw=5):
     for i, (birth, death) in enumerate(dgm):
         i = 1 - i / len(dgm)
         death = -np.inf if death == np.inf else death
         for name, (a,b) in CUT_MAP.items():
             if a < death and birth <= b:
-                axis.plot([birth, death], [i, i], c=CMAP[name], lw=5)
+                axis.plot([birth, death], [i, i], c=CMAP[name], lw=lw)
             elif death < a and birth > a and birth <= b:
-                axis.plot([a, birth], [i, i], c=CMAP[name], lw=5)
+                axis.plot([a, birth], [i, i], c=CMAP[name], lw=lw)
             elif death > a and death < b and birth > b:
-                axis.plot([death, b], [i, i], c=CMAP[name], lw=5)
+                axis.plot([death, b], [i, i], c=CMAP[name], lw=lw)
             elif death <= a and b < birth:
-                axis.plot([b, a], [i, i], c=CMAP[name], lw=5)
+                axis.plot([b, a], [i, i], c=CMAP[name], lw=lw)
         if death == -np.inf:
-            axis.plot([-0.05, 0.03], [i, i], c='black', linestyle='dotted')
+            axis.plot([-0.05, 0.03], [i, i], c='black', linestyle='dotted', lw=lw/2)
 
 def get_rel_dgm_sub(G, name):
     filt = dio.fill_freudenthal(G)

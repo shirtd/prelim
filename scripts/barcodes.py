@@ -20,18 +20,30 @@ ax[0,1].set_title(r"$\mathrm{H}_1$")
 ax[0,2].set_title(r"$\mathrm{H}_2$")
 plt.tight_layout()
 
-def plot_barcodes(axs, dgms, filt_t='sub'):
+def plot_barcodes(axs, dgms, filt_t='sub', lw=5):
     for dim, dgm in enumerate(dgms):
         if filt_t == 'sub':
-            plot_barcode_sub(axs[dim], dgm)
+            plot_barcode_sub(axs[dim], dgm, lw)
         elif filt_t == 'super':
-            plot_barcode_super(axs[dim], dgm)
+            plot_barcode_super(axs[dim], dgm, lw)
+
+def do_plot(axs, typ, flt, G, cut_map):
+    if typ == 'sub':
+        if flt == 'res':
+            dgms = {name : get_res_dgm_sub(G, name) for name in cut_map.keys()}
+        elif flt == 'rel':
+            dgms = {name : get_rel_dgm_sub(G, name) for name in cut_map.keys()}
+    elif typ == 'super':
+        if flt == 'res':
+            dgms = {name : get_res_dgm_super(G, name) for name in cut_map.keys()}
+        elif flt == 'rel':
+            dgms = {name : get_rel_dgm_super(G, name) for name in cut_map.keys()}
 
 if __name__ == "__main__":
     G = mk_gauss(X, Y, GAUSS_ARGS)
 
     TYPE = 'sub' # 'super'
-    FILT = 'res' # 'rel' # 
+    FILT = 'res' # 'rel' #
 
     if TYPE == 'sub':
         if FILT == 'res':
