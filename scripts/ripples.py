@@ -11,7 +11,7 @@ from util.data import *
 from load_surf import VIEW, tup_d, edges_to_path
 
 class FeaturePlot:
-    def __init__(self, pt, dat, X, Y, G, chain_color=COLOR['red'], rad=0.005):
+    def __init__(self, pt, dat, X, Y, G, chain_color=COLOR['red'], rad=0.007):
         c_idx = [c.index for  c in dat.hom[dat.pair(pt)]]
         C = [[grid_coord(v, len(X)) for v in dat.filt[c]] for c in c_idx]
         paths = edges_to_path(C)

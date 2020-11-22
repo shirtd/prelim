@@ -85,7 +85,7 @@ def get_color(pt, cmap):
     if isinstance(pt, dio.DiagramPoint):
         pt = [pt.birth, pt.death]
     for color, (a,b) in cmap:
-        if a <= pt[0] and pt[0] < b:
+        if a <= pt[0] and pt[0] <= b:
             return color
     return (0,0,0)
 
