@@ -84,63 +84,63 @@ if __name__ == "__main__":
     G.dtype = float
     dio_filt = dio.fill_freudenthal(G)
 
-    # for j, cut in enumerate(self.cuts):
-    #
-    #     surf['cut'][LABELS[j]]['opacity'] = 0.1
-    #
-    #     Fres = DioFilt(dio_filt, self.field, cut, False, True, False)
-    #     dgm_res = phcol(Fres)
-    #
-    #     Frel = DioFilt(dio_filt, self.field, cut, True, False, False)
-    #     dgm_rel = phcol(Frel)
-    #
-    #
-    #     ax[1].cla()
-    #     plot_diagram(ax[1], dgm_res.as_list(1), CMAP, THRESH, alpha=0.75, size=4, zorder=1)
-    #
-    #     ax[2].cla()
-    #     plot_diagram(ax[2], dgm_rel.as_list(2), CMAP, THRESH, alpha=0.75, size=4, zorder=1)
-    #
-    #
-    #     ax[1].set_title(r"$\mathrm{H}_1$ restricted (to $B_{%0.1f}$)" % cut)
-    #     ax[2].set_title(r"$\mathrm{H}_2$ relative (to $B_{%0.1f}$)" % cut)
-    #
-    #     plt.savefig(os.path.join(dir, 'full-dgm-%d.png' % j), dpi=300)
-    #
-    #     f_plt, p_plt = [], []
-    #
-    #     i = 0
-    #     for p,q in zip(reversed(dgm_res.get_inf(1)), dgm_rel.get_inf(2)):
-    #         if q.birth - p.birth >= THRESH:
-    #             p_plt.append(ax[0].scatter(p.birth, q.birth, s=15, marker='D', color=get_color([p.birth, q.birth], CMAP), zorder=3))
-    #             p_plt.append(ax[0].text(p.birth-0.07, q.birth-0.07, r"$(%0.2f,%0.2f)$" % (p.birth, q.birth), fontsize=7))
-    #
-    #             p_plt.append(ax[1].scatter(p.birth, 1.2, s=15, marker='D', color=get_color([p.birth, p.death], CMAP), zorder=3))
-    #             p_plt.append(ax[1].text(p.birth-0.07, 1.2-0.07, r"$(%0.2f,\infty)$" % p.birth, fontsize=7))
-    #
-    #             p_plt.append(ax[2].scatter(q.birth, 1.2, s=15, marker='D', color=get_color([q.birth, q.death], CMAP), zorder=3))
-    #             p_plt.append(ax[2].text(q.birth-0.07, 1.2-0.07, r"$(%0.2f,\infty)$" % q.birth, fontsize=7))
-    #
-    #             csrel = dgm_rel.get_chain(q)
-    #             dcrel = chain_boundary(csrel)
-    #             f_plt.append(FeaturePlot(dcrel, X, Y, G, COLOR['red']))
-    #
-    #             csres = dgm_res.get_chain(p)
-    #             f_plt.append(FeaturePlot(csres, X, Y, G, (0,0,0)))
-    #
-    #             surf.reset_view('top')
-    #             surf.save(os.path.join(dir, 'surf_top-%d_%d.png' % (j,i)), (3000, 3000))
-    #             vw = view()
-    #             view(vw[0], 80, vw[2], vw[3])
-    #             surf.save(os.path.join(dir, 'surf_side-%d_%d.png' % (j,i)), (3000, 3000))
-    #             surf.reset_view('top')
-    #
-    #             plt.pause(0.1)
-    #             plt.savefig(os.path.join(dir, 'dgm-%d_%d.png' % (j,i)), dpi=300)
-    #
-    #             while len(f_plt):
-    #                 f_plt.pop().remove()
-    #             while len(p_plt):
-    #                 p_plt.pop().remove()
-    #
-    #             i += 1
+    for j, cut in enumerate(self.cuts):
+
+        surf['cut'][LABELS[j]]['opacity'] = 0.1
+
+        Fres = DioFilt(dio_filt, self.field, cut, False, True, False)
+        dgm_res = phcol(Fres)
+
+        Frel = DioFilt(dio_filt, self.field, cut, True, False, False)
+        dgm_rel = phcol(Frel)
+
+
+        ax[1].cla()
+        plot_diagram(ax[1], dgm_res.as_list(1), CMAP, THRESH, alpha=0.75, size=4, zorder=1)
+
+        ax[2].cla()
+        plot_diagram(ax[2], dgm_rel.as_list(2), CMAP, THRESH, alpha=0.75, size=4, zorder=1)
+
+
+        ax[1].set_title(r"$\mathrm{H}_1$ restricted (to $B_{%0.1f}$)" % cut)
+        ax[2].set_title(r"$\mathrm{H}_2$ relative (to $B_{%0.1f}$)" % cut)
+
+        plt.savefig(os.path.join(dir, 'full-dgm-%d.png' % j), dpi=300)
+
+        f_plt, p_plt = [], []
+
+        i = 0
+        for p,q in zip(reversed(dgm_res.get_inf(1)), dgm_rel.get_inf(2)):
+            if q.birth - p.birth >= THRESH:
+                p_plt.append(ax[0].scatter(p.birth, q.birth, s=15, marker='D', color=get_color([p.birth, q.birth], CMAP), zorder=3))
+                p_plt.append(ax[0].text(p.birth-0.07, q.birth-0.07, r"$(%0.2f,%0.2f)$" % (p.birth, q.birth), fontsize=7))
+
+                p_plt.append(ax[1].scatter(p.birth, 1.2, s=15, marker='D', color=get_color([p.birth, p.death], CMAP), zorder=3))
+                p_plt.append(ax[1].text(p.birth-0.07, 1.2-0.07, r"$(%0.2f,\infty)$" % p.birth, fontsize=7))
+
+                p_plt.append(ax[2].scatter(q.birth, 1.2, s=15, marker='D', color=get_color([q.birth, q.death], CMAP), zorder=3))
+                p_plt.append(ax[2].text(q.birth-0.07, 1.2-0.07, r"$(%0.2f,\infty)$" % q.birth, fontsize=7))
+
+                csrel = dgm_rel.get_chain(q)
+                dcrel = chain_boundary(csrel)
+                f_plt.append(FeaturePlot(dcrel, X, Y, G, COLOR['red']))
+
+                csres = dgm_res.get_chain(p)
+                f_plt.append(FeaturePlot(csres, X, Y, G, (0,0,0)))
+
+                surf.reset_view('top')
+                surf.save(os.path.join(dir, 'surf_top-%d_%d.png' % (j,i)), (3000, 3000))
+                vw = view()
+                view(vw[0], 80, vw[2], vw[3])
+                surf.save(os.path.join(dir, 'surf_side-%d_%d.png' % (j,i)), (3000, 3000))
+                surf.reset_view('top')
+
+                plt.pause(0.1)
+                plt.savefig(os.path.join(dir, 'dgm-%d_%d.png' % (j,i)), dpi=300)
+
+                while len(f_plt):
+                    f_plt.pop().remove()
+                while len(p_plt):
+                    p_plt.pop().remove()
+
+                i += 1
