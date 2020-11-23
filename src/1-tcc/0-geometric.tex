@@ -73,10 +73,11 @@ We therefore must introduce a larger space $B_{\omega+c(\delta+\zeta)}$ that con
 This is where we introduce our first assumption on the region surrounding $B_\omega$.
 We will require the map $\hom_0(D\setminus B_{\omega+c(\delta+\zeta)}\hookrightarrow D\setminus B_\omega)$ to be \emph{surjective}---as we approach $\omega$ from \emph{above} no components \emph{appear}.
 That is, in terms of $\omega$ as a super-levelset monotonically decreasing, no components \emph{apear} right \emph{before} $\omega$.
-We note that, for a function in two dimensions, this translates to features in dimension 1 disappearing right after $\omega$ is the sub-levelset filtration, as shown in Figure~\ref{fig:assumption_1}.
+We note that, for a function in two dimensions, this translates to features in dimension 1 disappearing right after $\omega$ is the sub-levelset filtration, as shown in Figure~\ref{fig:assumption1}.
+The reason for this dimension shift involves Alexander duality, and is discussed in more detail in Appendix~\ref{apx:duality}.
 % That is, in terms of $\omega$ as a sub-levelset monotonically increasing, no components \emph{disappear} right \emph{after} $\omega$.
 
-\begin{figure}[htbp]
+\begin{figure}[htbp]\label{fig:assumption1}
   \centering
   % \includegraphics[trim=50 190 0 200, clip, scale=0.2]{scripts/figures/scalar.png}
   % \includegraphics[trim=100 25 75 0, clip, angle=280, scale=0.25]{scripts/figures/scalar_contour.png}
@@ -89,7 +90,7 @@ We note that, for a function in two dimensions, this translates to features in d
             This can be seen in the barcode shown as a feature that dies in the purple region.}
 \end{figure}
 
-As a result, the rank of the map $j$ is equal to the dimension of $\dim~\hom_0(\cmp{B_\omega}, \cmp{D})$ and our map $\ell$ induced by inclusion depends only on $\hom_0(\cmp{B_\omega}, \cmp{D})$ and $\im~i$.
+Now, the rank of the map $j$ is equal to the dimension of $\dim~\hom_0(\cmp{B_\omega}, \cmp{D})$ and our map $\ell$ induced by inclusion depends only on $\hom_0(\cmp{B_\omega}, \cmp{D})$ and $\im~i$.
 The second assumption, which requires that nothing appears right \emph{before} $\omega$, will be used in Theorem~\ref{thm:algo_tcc} to provide a computable upper bound on $\rk~j$.
 
 \begin{theorem}[Geometric TCC]\label{thm:geo_tcc}

@@ -31,28 +31,11 @@
 %
 \subsection{Homology}\label{sec:homology}
   \input{src/0-background/homology}
-%   \textbf{TODO}
-%   \begin{itemize}
-%     \item High dimensional holes blahblahblah + some pictures,
-%     \item why it's good for coverage and why we would be interested in the (persistent) homology of a function,
-%     \item \textbf{Simplicial or singular},
-%     \item relative homology,
-%     \item excision,
-%     \item long exact sequences?
-%   \end{itemize}
-%   % \input{src/0-background/homology}
 %
 \subsection{Persistence Modules}
   \input{src/0-background/1-modules}
 %
 \subsection{Persistent Homology}
-%   \textbf{TODO}
-%   \begin{itemize}
-%     \item Filtrations,
-%     \item sub-levelset filtration,
-%     \item $k$th persistent homology module of a filtration,
-%     \item interleaving $\sim$ bottleneck?
-%   \end{itemize}
   \input{src/0-background/pershom}
 
 
@@ -65,7 +48,7 @@
 % \subsection{Surrounding Sets}
 \input{src/1-tcc/surrounding}
 
-\subsection{The Geometric TCC}\label{sec:geometric}
+\subsection{The Geometric TCC}\label{sec:geo_tcc}
 \input{src/1-tcc/0-geometric}
 
 \subsection{Computing the TCC}
@@ -95,13 +78,13 @@
 
 
 \clearpage
-\section{Approximation of the Truncated Diagram}
+\section{Approximation of the Truncated Diagram}\label{sec:truncations}
   \input{src/3-discussion/0-intervals}
 
   \subsection{Experiments}
     \input{src/3-discussion/1-experiments}
 
-
+\clearpage
 \bibliographystyle{unsrt}
 \bibliography{bibliography}
 
@@ -117,31 +100,10 @@
 \section{Omitted Proofs}\label{apx:omit}
 \printproofs
 
-% \section{Additional Figures}\label{apx:extra}
-% \input{src/appendix/experiments}
-%
+\section{Additional Figures}\label{apx:extra}
+\input{src/appendix/experiments}
+
 % \section{Helpful Stuff}
 % \input{src/appendix/diagrams}
-
-% \begin{figure}
-%   \centering
-%   \includegraphics[scale=0.6]{scripts/figures/barcodes/sub_res.png}
-%   \caption{sub-levelset restricted}
-% \end{figure}
-% \begin{figure}
-%   \centering
-%   \includegraphics[scale=0.6]{scripts/figures/barcodes/sub_rel.png}
-%   \caption{sub-levelset relative}
-% \end{figure}
-% \begin{figure}
-%   \centering
-%   \includegraphics[scale=0.6]{scripts/figures/barcodes/super_res.png}
-%   \caption{super-levelset restricted}
-% \end{figure}
-% \begin{figure}
-%   \centering
-%   \includegraphics[scale=0.6]{scripts/figures/barcodes/super_rel.png}
-%   \caption{super-levelset relative}
-% \end{figure}
 
 \end{document}
