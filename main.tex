@@ -19,17 +19,18 @@
 \subsection{Summary}
 \input{src/summary}
 
-% \clearpage
-% \section{Background}
+\clearpage
+\section{Background}
+
+\subsection{Geometry and Topology}
+  \input{src/0-background/geometry}
+
+\subsection{Simplicial Complexes}\label{sec:complexes}
+  \input{src/0-background/complexes}
 %
-% \subsection{Geometry and Topology}
-%   \input{src/0-background/geometry}
 %
-% \subsection{Simplicial Complexes}\label{sec:complexes}
-%   \input{src/0-background/complexes}
-%
-%
-% \subsection{Homology}\label{sec:homology}
+\subsection{Homology}\label{sec:homology}
+  \input{src/0-background/homology}
 %   \textbf{TODO}
 %   \begin{itemize}
 %     \item High dimensional holes blahblahblah + some pictures,
@@ -41,10 +42,10 @@
 %   \end{itemize}
 %   % \input{src/0-background/homology}
 %
-% \subsection{Persistence Modules}
-%   \input{src/0-background/1-modules}
+\subsection{Persistence Modules}
+  \input{src/0-background/1-modules}
 %
-% \subsection{Persistent Homology}
+\subsection{Persistent Homology}
 %   \textbf{TODO}
 %   \begin{itemize}
 %     \item Filtrations,
@@ -52,7 +53,7 @@
 %     \item $k$th persistent homology module of a filtration,
 %     \item interleaving $\sim$ bottleneck?
 %   \end{itemize}
-%   % \input{src/0-background/pershom}
+  \input{src/0-background/pershom}
 
 
 \clearpage
@@ -104,21 +105,21 @@
 \bibliographystyle{unsrt}
 \bibliography{bibliography}
 
-% \clearpage
-% \appendix
+\clearpage
+\appendix
 % \section{Misc}\label{apx:misc}
 % \subsection{Relative Persistent Nerves}\label{apx:nerves}
 % \input{src/appendix/nerves}
-%
-% \subsection{Duality}\label{apx:duality}
-% \input{src/appendix/duality}
-%
-% \section{Omitted Proofs}\label{apx:omit}
-% \printproofs
-%
+
+\section{Duality}\label{apx:duality}
+\input{src/appendix/duality}
+
+\section{Omitted Proofs}\label{apx:omit}
+\printproofs
+
 % \section{Additional Figures}\label{apx:extra}
 % \input{src/appendix/experiments}
-
+%
 % \section{Helpful Stuff}
 % \input{src/appendix/diagrams}
 

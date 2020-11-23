@@ -23,65 +23,53 @@ It is natural to think of a $k$-dimensional simplicial complex as the generaliza
 % Just as we have defined a hole in our graph $G$ as a cycle that cannot be filled with triangles, we define a $k$-dimensinal hole in a simplicial complex as a $k$-cycle that cannot be filled with $(k+1)$-simplices.
 % In the next section we will formally define $k$-cycles and introduce simplicial homology as a tool for identifying when and which cycles cannot be filled.
 
-\paragraph{Coordinate-free Communication}
-% In a coordinate-free sensor network each sensor, represented by a point in $P$, is capable of detecting nodes which are sufficiently ``close.''
-% That is, there is some radius of communication $\delta > 0$ such that two nodes $p, q\in P$ such that $\dist(p, q) \leq\delta$ are capable of communication.
-% Note that, although sensors can communicate within this distance they are not able to measure the distance itself.
+\paragraph{Nerves}
 
-Let $P$ be a finite collection of points in a subspace $D$ of some (unknown) metric space $X$.
-In a coordinate-free setting we are only provided with limited information about the connectivity of points in $P$.
-We do not know the precise locations of the points, nor the distances between them.
-For example, in coordinate-free sensor networks each sensor is represented by a point in $P$ and there is some distance $\e > 0$ that sensors can communicate within, but not able measure.
+Let $X$ be a topological space.
+For some index set $I$ and $U_i\subseteq X$ a collection $\cU = \{U_i\}_{i\in I}$ is called a \textbf{cover} of $X$ if $\bigcup_{i\in I} U_i = X$.
+The cover is said to be open if all of the sets $U_i$ are open in $X$.
+A finite open cover $\cU$ is a \textbf{good open cover} if every nonempty intersection of sets in $\cU$ is contractible.
 
-With this limited capability we can construct an undirected graph $G=(V, E)$ with vertices $V=P$ and edges $E = \{\{p, q\}\subset P\mid \dist(p,q)\leq\delta\}$.
-Let $K$ be a simplicial complex with 0-simplices $\{v\}$ for all $p\in P$, 1-simpices $\{u, v\}\subset P$ for each edge in $E$, and 2-simplices $\{u,v,w\}\subset P$ whenever $\{\{\{u,v\},\{v,w\},\{u,w\}\}\subset E$.
-This particular simplicial complex is known as the Vietoris-Rips complex.
-It is also an example of a clique complex, where the simplices are the complete subgraphs (or cliques) in a given graph.
+There is a simplicial complex associated with any cover $\cU$ known as its \textbf{Nerve}, denoted $\N(\cU)$, that is defined to be the abstract simplicial complex with vertex set $I$ and simplices $\sigma\subseteq I$ whenever $\bigcap_{i\in\sigma} U_i\neq \emptyset$.
+The \textbf{Nerve Theorem} states that whenever $\cU$ is a good open cover of a paracompact space $X$ then its nerve $\N(\cU)$ is homotopy equivalent to $X = \bigcup_{i\in I} U_i$.
+The following is an important result by Chazal et. al.~\cite{chazal08towards}.
 
-Formally, the \textbf{(Vietoris-)Rips complex} is defined for a finite set $P$ at scale $\e > 0$ as
+\begin{lemma}[\textbf{Persistent Nerve Lemma} (Chazal et. al.~\cite{chazal08towards}, Lemma 3.4)]\label{lem:pers_nerve}
+  Let $X\subseteq X'$ be two paracompact spaces, and let $\cU = \{U_i\}_{i\in I}$ and $\mathcal{U}' = \{U_i'\}_{i\in I}$ be good open covers of $X$ and $X'$, respectively, based on some finite parameter set $I$, such that $U_i\subseteq U_i'$ for all $i\in I$.
+  Then there exist homotopy equivalences of pairs $\N\cU\to X$ and $\N\cU'\to X'$ that commute with the canonical inclusions $X \hookrightarrow X'$ and $\N\cU\hookrightarrow \N\cU'$ at the homology and homotopy levels.
+\end{lemma}
+
+We say $\cV = \{V_i\}_{i\in I}$ is a good open subcover of a cover $\cU = \{U_i\}_{i\in I}$ if $V_i\subseteq U_i$ for all $i\in I$.
+Let $\cU$ is a good open cover of $X$ and let $\cV$ be a good open subcover of $\cU$ that covers $Y\subset X$.
+It can be shown that there are inclusions between the nerves $\N(\cV)\subseteq \N(\cV)$ as well as the homotopy colimits of the diagrams of spaces associated with $\cU$ and $\cV$ (see Koslov~\ref{todo}).
+As both the projection maps commute with inclusions the homotopy equivalences $\N(\cU)\hookrightarrow X$ and $\N(\cV)\hookrightarrow Y$ give homotopy equivalences of pairs $(\N(\cU), \N(\cV))\hookrightarrow (X, Y)$.
+The persistent nerve lemma also holds for pairs of spaces $(X, Y)\subseteq (X', Y')$ and covers $(\cU, \cV)\subseteq (\cU', \cV')$ in the same way.
+While a more rigorous treatment is needed a formal proof of this fact is beyond the scope of this paper.
+
+\paragraph{The \v Cech Complex}
+
+If $(X,\dist)$ is a metric space and $P\subset X$ is a finite collection we say that $P$ covers $X$ at scale $\e$ if the collection $\cU = \{\ball^\e(p)\}_{p\in P}$ is a cover of $X$.
+The Nerve of this cover is known as the \textbf{\v Cech complex} at scale $\e$, denoted $\cech^\e(P)$, and is defined formally as
+\[ \cech^\e(P) = \left\{\sigma \subseteq P\mid \bigcap_{p\in \sigma}\ball_\e(p)\neq \emptyset \right\}. \]
+For pairs $(P, Q)$ we will write $\cech^\e(P,Q) := (\rips^\e(P), \rips^\e(Q))$ to denote the corresponding pair of \v Cech complexes.
+
+Recalling the definition of the strong convexity radius $\varrho$ of a metric space $X$ we note that $\cU$ is a good open cover whenever $\varrho_X > \e$.
+That is, by the Nerve Theorem, the inclusion $\cech^\e(P)\hookrightarrow P^\e$ is a homotopy equivalence whenever $\varrho_X > \e$.
+% The \v Cech complex provides us with a computable structure that the homotopy type of the region covered by a set of points at any scale $\varrho_X > \e$.
+% Unfortunately, the \v Cech complex is difficult to compute in practice
+
+\paragraph{The Vietoris-Rips Complex}
+
+Given an undirected graph $G = (V, E)$ we can construct a simplicial complex $K$ with vertex set $V$ and simplices $\sigma\subseteq V$ whenever $\{u,v\}\in E$ for all distinct $u, v\in\sigma$.
+This is known as the \emph{clique complex} of the graph $G$.
+
+Just as the \v Cech complex is the Nerve of metric cover sets there is a closely related simplicial complex that is the clique complex of a neighborhood graph.
+That is, a graph $G$ with vertices $V$ corresponding to points in a metric space $(X,\dist)$ and $\{u,v\}\in E$ whenever $\dist(u,v)\leq \e$ for some $\e > 0$.
+This is known as the \textbf{(Vietoris-)Rips complex}, and is formally defined for a finite set $P$ at scale $\e > 0$ as
 \[ \rips^\e(P) = \left\{\sigma \subseteq P\mid \forall p,q\in\sigma,\ \dist(p, q)\leq \e\right\}. \]
 For a pair $(P, Q)$ we will write $\rips^\e(P,Q) := (\rips^\e(P), \rips^\e(Q))$ to denote the corresponding pair of rips complexes.
 
-\paragraph{Coverage}
-% In order to determine coverage we must at least assert that the coverage domain spanned by the points in $P$ does not contain any holes.
-% Assuming the coverage radius of our sensors is equal to their communication radius $\delta$ we may define a hole in coverage as a cycle that cannot be ``filled'' with triangles (see Fig.~\ref{fig:holes}).
-
-% \figblock{%
-% \begin{figure}[htbp]
-% \centering
-%     \includegraphics[scale=0.33]{figures/boundary_graph.pdf}
-%     \includegraphics[scale=0.33]{figures/boundary_complex.pdf}
-%     \includegraphics[scale=0.33]{figures/boundary_complex_domain_fence.pdf}
-%     % \includegraphics[scale=0.24]{figures/boundary_domain.pdf}
-%      \caption{(Left) The neighborhood graph of a sensor network with a large ``hole''.
-%             (Middle) A 2-dimensional simplicial complex with no gaps in coverage, but an unfilled cycle.
-%             (Right) By allowing nodes to identify the boundary (in red) we can confirm coverage of complex domains.}
-%      \label{fig:boundary1}
-%  \end{figure}}
-
-If $D\subseteq P^\e$ then we say that the collection of points $P$ covers $D$ at scale $\e$.
-In this case, the topology of the domain is reflected in $\rips^\e(P)$.
-However, as we will see, this may not give a tight bound on the minimum radius for coverage.
-In fact, if the coverage region of of a sensor network at scale $\e$ has no gaps, then the minimum coverage radius required is a constant factor smaller than $\e$.
-We will therefore use a sequence of rips complexes in order to approximate a simplicial complex which captures the homotopy type of the cover.
-% This point is made clear by an interleaving of the Rips with another simplicial complex known as the \v Cech complex.
-
-The \textbf{\v Cech complex} of a finite collection of points $P$ at scale $\e > 0$ is defined
-\[ \cech^\e(P) = \left\{\sigma \subseteq P\mid \bigcap_{p\in \sigma}\ball_\e(p)\neq \emptyset \right\}. \]
-The \v Cech and Rips complexes of a finite metric space are closely related by a result that follows from Jung's Theorem~\cite{jung01uber} relating the diameter of a point set $P$ and the radius of the minimum enclosing ball:
-\[\cech^{\e/\jungd}(P)\subseteq\rips^\e(P)\subseteq\cech^\e(P)\subseteq\rips^{\jungd\e}(P),\]
-where the constant $\jungd = \sqrt{\frac{2d}{d+1}}$ (see~\cite{buchet15efficient}).
-Throughout we will take the lower bound $\jungd = 2$ for more general spaces.
-
-The \v Cech complex is a special case of a more general construction known as the \textbf{nerve} $\N(\cU)$ of a collection of sets $\cU = \{U_i\}_{i\in I}$, where $I$ is any indexing set.
-The nerve of $\cU$ is defined as the simplicial complex with vertex set $I$ such that $\sigma\subseteq I$ is a simplex if and only if
-\[
-  \bigcap_{i\in \sigma} U_i\neq \emptyset.
-\]
-The collection $\cU$ is a \textbf{good cover} if for each $\sigma\subset I$ the set $\bigcap_{i\in\sigma} U_i$ is contractible or empty.
-The \textbf{Nerve Theorem} states that if $\cU$ is a good cover then its nerve $\N(\cU)$ is homotopy equivalent to $\bigcup_{i\in I} U_i$.
-
-That is, for a set of points $P\subset D$ such that $\cU = \{\ball^\e(p)\mid p\in P\}$ is a good cover the nerve $\N(\cU)$ is homotopy equivalent to $P^\e = \bigcup_{p\in P} \ball^\e(p)$.
-Noting that the open balls $\ball^\e_D(p)$ are either empty or contractible when $\varrho_D > \e$ then $\cU$ is a good cover in this case, and the inclusion $\cech^\e(P)\hookrightarrow P^\e$ is a homotopy equivalence.
-There is still a question of whether this homotopy equivalence induces a homotopy equivalence on pairs $\cech^\e(P,Q)$ and $(P^\e, Q^\e)$ in general, which would require the restriction of the homotopy to $\cech^\e(Q)$ to fall within $Q^\e$, and the restriction of its inverse to $Q^\e$ to fall within $\cech^\e(Q)$.
-Proof of this equivalence is beyond the scope of this paper, however we do discuss the persistent case in Appendix~\ref{apx:nerves}.
+By the Nerve Theorem we can use the \v Cech complex to compute the homotopy type of metric space $(X, \dist)$ covered by a finite set $P$ at any scale $\e < \varrho_X$.
+Unfortunately, checking intersections of cover sets is not feasible in practice.
+We will therefore use pairs of Rips complex to capture to homotopy type of the \v Cech complex by making use of the following inclusion:
+\[ \rips^\e(P) \subseteq \cech^\e(P)\subseteq \rips^{2\e}(P).\]
