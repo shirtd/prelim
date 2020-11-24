@@ -7,15 +7,10 @@
 % The Topological Coverage Criterion (TCC) is one example of this technique in which homology can be used in order to verify that a collection of subsets provided by a sample covers the space.
 % Specifically, by assuming the top dimensional relative homology is known one can check that of the sample is what we expect in order to certify coverage by relating the top dimensional relative to the boundary of a space to the zero dimensional homology of the complement.
 
-The assumptions made about the boundary are central to the TCC.
-While it certainly demonstrates an interesting application of homology to coordinate-free sensor networks these assumptions are unrealistic in practice.
-Specifically, it requires that sensors are capable of detecting the physical presence of a boundary.
-In a coordinate-free setting, where sensors are unable to measure distance nor communicate their coordinates, this requirement seems unnatural.
-
-Moreover, the efficacy of the condition relies on having enough sensors close enough to approximate the boundary in homology.
-As a necessary but not sufficient condition there is room to question what can go wrong in the case of false positives.
-We identify this situation in which the ``boundary'' is not sufficiently sampled as one such instance.
-This leads us to believe the condition checks for something more specific than coverage alone.
+% The assumptions made about the boundary are central to the TCC.
+% While it certainly demonstrates an interesting application of homology to coordinate-free sensor networks these assumptions are unrealistic in practice.
+% Specifically, it requires that sensors are capable of detecting the physical presence of a boundary.
+% In a coordinate-free setting, where sensors are unable to measure distance nor communicate their coordinates, this requirement seems unnatural.
 
 We will re-cast the TCC as a way to verify that a collection of sample points can adequately approximate an unknown function in an unknown space.
 Consider the application to sensor networks as an example, where we take our sample points as sensors dropped in an unknown environment.
@@ -32,8 +27,9 @@ Returning to our sensor network analogy, suppose our sensors measure heat, or so
 By properly isolating the region, taken as a sub-levelset of the function, we can confirm that the sample we have is topologically representative of the region near, and above this sub-levelset.
 We can then re-use the same machinery that was used to verify coverage to analyze a \emph{part} of the function in a very specific way.
 
-In a superficial sense, the assumptions and machinery required to approximate a function's persistent homology are precisely those confirmed and constructed in the TCC. %\footnote{\textbf{TODON} worst sentence ever, but exactly what I want to say. Also I stole ``superficial'' from your intro because it's perfect. Maybe some of your intro can fill this in.}.
-While this approximation is well studied in general~\cite{chazal08towards}, the presence of incomplete data can severely impact the quality of the approximation.
+% In a superficial sense, the assumptions and machinery required to approximate a function's persistent homology are precisely those confirmed and constructed in the TCC. %\footnote{\textbf{TODON} worst sentence ever, but exactly what I want to say. Also I stole ``superficial'' from your intro because it's perfect. Maybe some of your intro can fill this in.}.
+
+While the approximation of a function's persistent homology is well studied in general~\cite{chazal08towards}, the presence of incomplete data can severely impact the quality of the approximation.
 This is primarily due to the nature of homology as a measure of \emph{global} structure.
 While the obvious solution is to simply remove the un-verified data, the question of what precisely this would approximate is important to consider.
 By simply restricting the function to the verified \emph{super}-levelset we accept that there may be global structure to the function itself that we are missing.

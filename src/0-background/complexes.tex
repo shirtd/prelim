@@ -50,10 +50,10 @@ While a more rigorous treatment is needed a formal proof of this fact is beyond 
 
 If $(X,\dist)$ is a metric space and $P\subset X$ is a finite collection we say that $P$ covers $X$ at scale $\e$ if the collection $\cU = \{\ball^\e(p)\}_{p\in P}$ is a cover of $X$.
 The Nerve of this cover is known as the \textbf{\v Cech complex} at scale $\e$, denoted $\cech^\e(P)$, and is defined formally as
-\[ \cech^\e(P) = \left\{\sigma \subseteq P\mid \bigcap_{p\in \sigma}\ball_\e(p)\neq \emptyset \right\}. \]
-For pairs $(P, Q)$ we will write $\cech^\e(P,Q) := (\rips^\e(P), \rips^\e(Q))$ to denote the corresponding pair of \v Cech complexes.
+\[ \cech^\e(P) := \left\{\sigma \subseteq P\mid \bigcap_{p\in \sigma}\ball_\e(p)\neq \emptyset \right\}. \]
+For pairs $(P, Q)$ we will write $\cech^\e(P,Q) := (\cech^\e(P), \cech^\e(Q))$ to denote the corresponding pair of \v Cech complexes.
 
-Recalling the definition of the strong convexity radius $\varrho$ of a metric space $X$ we note that $\cU$ is a good open cover whenever $\varrho_X > \e$.
+Recalling the definition of the strong convexity radius $\varrho_X$ of a metric space $X$ we note that $\cU$ is a good open cover whenever $\varrho_X > \e$.
 That is, by the Nerve Theorem, the inclusion $\cech^\e(P)\hookrightarrow P^\e$ is a homotopy equivalence whenever $\varrho_X > \e$.
 % The \v Cech complex provides us with a computable structure that the homotopy type of the region covered by a set of points at any scale $\varrho_X > \e$.
 % Unfortunately, the \v Cech complex is difficult to compute in practice
@@ -70,6 +70,6 @@ This is known as the \textbf{(Vietoris-)Rips complex}, and is formally defined f
 For a pair $(P, Q)$ we will write $\rips^\e(P,Q) := (\rips^\e(P), \rips^\e(Q))$ to denote the corresponding pair of rips complexes.
 
 By the Nerve Theorem we can use the \v Cech complex to compute the homotopy type of metric space $(X, \dist)$ covered by a finite set $P$ at any scale $\e < \varrho_X$.
-Unfortunately, checking intersections of cover sets is not feasible in practice.
+Unfortunately, constructing the \v Cech complex is not feasible in practice.
 We will therefore use pairs of Rips complex to capture to homotopy type of the \v Cech complex by making use of the following inclusion:
 \[ \rips^\e(P) \subseteq \cech^\e(P)\subseteq \rips^{2\e}(P).\]
