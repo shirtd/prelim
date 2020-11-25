@@ -9,21 +9,32 @@ Therefore, by Lemma~\ref{lem:surround_and_cover}
 \[ B_{\omega-c(\delta+\zeta)}\subseteq \E Q_{\omega-c\zeta}^\delta\subseteq\E Q_{\omega-c\zeta}^{2\delta}\subseteq B_\omega
   \subseteq \E Q_{\omega+c\delta}^\zeta\subseteq \E Q_{\omega+c\delta}^{2\zeta}\subseteq B_{\omega+c{\delta+2\zeta}}.\]
 %
-Now, by Lemma~\ref{lem:p_interleave} we have the following commutative diagrams of persistence modules where all maps are induced by inclusions.
-\[\begin{tikzcd}
-    \DD{\omega-c(\delta+\zeta)} \arrow{r}{\Gamma}\arrow{d}{F} &
-    \DD{\omega} \arrow{d}{G}\\
-    %
-    \E\PP{\omega-c\zeta}{\delta}\arrow{r}{\Lambda} &
-    \E\PP{\omega+c\delta}{\zeta}
-  \end{tikzcd}\hspace{10ex}
-  \begin{tikzcd}
-    \E\PP{\omega-c\zeta}{2\delta} \arrow{r}{\Lambda'}\arrow{d}{M} &
-    \E\PP{\omega+c\delta}{2\zeta}\arrow{d}{N}\\
-    %
-    \DD{\omega} \arrow{r}{\Pi} &
-    \DD{\omega+c(\delta+2\zeta)}.
-  \end{tikzcd}\]
+Now, by Lemma~\ref{lem:p_interleave} we have the following commutative diagrams of persistence modules where all maps are induced by inclusions.\\
+
+\begin{subequations}
+  \begin{minipage}{0.45\linewidth}
+    \begin{equation}\label{eq:partial_left}
+      \begin{tikzcd}
+        \DD{\omega-c(\delta+\zeta)} \arrow{r}{\Gamma}\arrow{d}{F} &
+        \DD{\omega} \arrow{d}{G}\\
+        %
+        \E\PP{\omega-c\zeta}{\delta}\arrow{r}{\Lambda} &
+        \E\PP{\omega+c\delta}{\zeta}
+      \end{tikzcd}
+    \end{equation}
+  \end{minipage}
+  \begin{minipage}{0.45\linewidth}
+    \begin{equation}\label{eq:partial_right}
+      \begin{tikzcd}
+        \E\PP{\omega-c\zeta}{2\delta} \arrow{r}{\Lambda'}\arrow{d}{M} &
+        \E\PP{\omega+c\delta}{2\zeta}\arrow{d}{N}\\
+        %
+        \DD{\omega} \arrow{r}{\Pi} &
+        \DD{\omega+c(\delta+2\zeta)}
+      \end{tikzcd}
+    \end{equation}
+  \end{minipage}
+\end{subequations}\vspace{2ex}
 
 In the following let $\rips\Lambda\in\Hom(\RPP{\omega-c\zeta}{2\delta},\RPP{\omega+c\delta}{2\zeta})$ be induced by inclusion.
 Clearly, $\Phi(F, G)$ is an image module homomorphism of degree $c\zeta$ and $\Psi(M, N)$ is an image module homomorphism of degree $2c\zeta$.
@@ -39,7 +50,7 @@ and
 \end{lemma}
 \begin{proof}
   Let $\Theta\in\Hom(\ext{\PP{\omega-c\zeta}{2\delta}},\ext{\PP{\omega+c\delta}{\zeta}})$ and $\cech\Theta\in\Hom(\CPP{\omega-c\zeta}{2\delta}, \CPP{\omega+c\delta}{\zeta})$ be induced by inclusions so that $\Theta[2c\delta+c\zeta] = G\circ M$ and $\rips\Lambda = \I_{\omega+c\delta}^\zeta\circ\cech\Theta\circ\J_{\omega-c\zeta}^{2\delta}$.
-  So $\cech\Theta$ factors through $\Theta$ with the pair $(\E\N_{\omega-c\zeta}^{2\delta}, (\E\N_{\omega+c\delta}^\zeta)^{-1})$ by Lemma~\ref{cor:excisive_nerve}.
+  So $\cech\Theta$ factors through $\Theta$ with the pair $(\E\N_{\omega-c\zeta}^{2\delta}, (\E\N_{\omega+c\delta}^\zeta)^{-1})$ by Lemma~\ref{lem:pers_nerve}.
   That is,
   \begin{align*}
     \rips\Lambda &= \I_{\omega+c\delta}^\zeta\circ\cech\Theta\circ\J_{\omega-c\zeta}^{2\delta}\\
@@ -75,7 +86,7 @@ The proof of Corollary~\ref{cor:rips_inter_right} is identical to that of Coroll
   As Lemma~\ref{lem:rips_factor_mid} implies $\rips \Psi$ (with $\rips G$) is a left $c\zeta$-interleaving of image modules it follows that $\rips \Psi_{\rips G}$ is a partial $2c\zeta$-interleaving of image modules.
 \endproofatend
 
-\begin{theorem}
+\begin{theorem}\label{thm:interleaving_main_2}
   Let $D\subset\X$ and $f : D\to\R$ be a $c$-Lipschitz function.
   Let $\omega\in\R$, $2\delta\leq\zeta\leq\varrho_D/2$ be constants such that $B_{\omega-c(\delta+\zeta)}$ surrounds $D$ in $\X$.
   Let $P\subset D$ be a finite subset and $Q_w := P\cap B_w$.
@@ -85,8 +96,8 @@ The proof of Corollary~\ref{cor:rips_inter_right} is identical to that of Coroll
   If $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ in $D$ then $\im~\Lambda$ is $2c\zeta$-interleaved with $\DD{\omega}$.
 \end{theorem}
 \begin{proof}
-  Because $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ in $D$ Diagrams~\ref{TODO} and~\ref{TODO} commute as all maps are induced by inclusions.
-  Moreover, because $\zeta < \varrho_D/2$ the isomorphisms provided by the Nerve Theorem commute with inclusions by Lemma~\ref{cor:excisive_nerve}.
+  Because $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ in $D$ Diagrams~\ref{eq:partial_left} and~\ref{eq:partial_right} commute as all maps are induced by inclusions.
+  Moreover, because $\zeta < \varrho_D/2$ the isomorphisms provided by the Nerve Theorem commute with inclusions by Lemma~\ref{lem:pers_nerve}.
 
   % Let $\rips\Lambda \in\Hom(\RPP{\omega-c\zeta}{2c\delta}, \RPP{\omega+c\delta}{2c\zeta})$ be induced by inclusions.
   By Corollary~\ref{cor:rips_inter_left} $\rips \Phi_{\rips M}(\rips F, \rips G)\in\Hom^{2c\delta}(\im~\Gamma,\im~\rips\Lambda)$ is a partial $c\zeta$-interleaving of image modules.

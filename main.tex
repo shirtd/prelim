@@ -14,49 +14,36 @@
 \title{From Coverage Testing to Topological Scalar Field Analysis}
 \maketitle
 \input{src/abstract}
-\input{src/introduction}
+
+
+\section{Introduction}\label{sec:introduction}
+  \input{src/introduction}
 
 \subsection{Summary}
-\input{src/summary}
+  \input{src/summary}
 
-% \clearpage
-% \section{Background}
+\clearpage
+\section{Background}
+
+\subsection{Geometry and Topology}
+  \input{src/0-background/geometry}
+
+\subsection{Simplicial Complexes}\label{sec:complexes}
+  \input{src/0-background/complexes}
 %
-% \subsection{Geometry and Topology}
-%   \input{src/0-background/geometry}
 %
-% \subsection{Simplicial Complexes}\label{sec:complexes}
-%   \input{src/0-background/complexes}
+\subsection{Homology}\label{sec:homology}
+  \input{src/0-background/homology}
 %
+\subsection{Persistence Modules}
+  \input{src/0-background/1-modules}
 %
-% \subsection{Homology}\label{sec:homology}
-%   \textbf{TODO}
-%   \begin{itemize}
-%     \item High dimensional holes blahblahblah + some pictures,
-%     \item why it's good for coverage and why we would be interested in the (persistent) homology of a function,
-%     \item \textbf{Simplicial or singular},
-%     \item relative homology,
-%     \item excision,
-%     \item long exact sequences?
-%   \end{itemize}
-%   % \input{src/0-background/homology}
-%
-% \subsection{Persistence Modules}
-%   \input{src/0-background/1-modules}
-%
-% \subsection{Persistent Homology}
-%   \textbf{TODO}
-%   \begin{itemize}
-%     \item Filtrations,
-%     \item sub-levelset filtration,
-%     \item $k$th persistent homology module of a filtration,
-%     \item interleaving $\sim$ bottleneck?
-%   \end{itemize}
-%   % \input{src/0-background/pershom}
+\subsection{Persistent Homology}
+  \input{src/0-background/pershom}
 
 
 \clearpage
-\section{The Topological Coverage Criterion (TCC)}
+\section{The Topological Coverage Criterion (TCC)}\label{sec:tcc}
 \input{src/1-tcc/intro}
 
 \clearpage
@@ -64,7 +51,7 @@
 % \subsection{Surrounding Sets}
 \input{src/1-tcc/surrounding}
 
-\subsection{The Geometric TCC}\label{sec:geometric}
+\subsection{The Geometric TCC}\label{sec:geo_tcc}
 \input{src/1-tcc/0-geometric}
 
 \subsection{Computing the TCC}
@@ -94,46 +81,32 @@
 
 
 \clearpage
-\section{Approximation of the Truncated Diagram}
+\section{Approximation of the Truncated Diagram}\label{sec:truncations}
   \input{src/3-discussion/0-intervals}
 
+  \subsection{Experiments}
+    \input{src/3-discussion/1-experiments}
+
+\clearpage
 \bibliographystyle{unsrt}
 \bibliography{bibliography}
 
-% \clearpage
-% \appendix
+\clearpage
+\appendix
 % \section{Misc}\label{apx:misc}
 % \subsection{Relative Persistent Nerves}\label{apx:nerves}
 % \input{src/appendix/nerves}
-%
-% \subsection{Duality}\label{apx:duality}
-% \input{src/appendix/duality}
-%
-% \section{Omitted Proofs}\label{apx:omit}
-% \printproofs
-%
+
+\section{Duality}\label{apx:duality}
+\input{src/appendix/duality}
+
+\section{Omitted Proofs}\label{apx:omit}
+\printproofs
+
+\section{Additional Figures}\label{apx:extra}
+\input{src/appendix/experiments}
+
 % \section{Helpful Stuff}
 % \input{src/appendix/diagrams}
-
-\begin{figure}
-  \centering
-  \includegraphics[scale=0.6]{scripts/figures/barcodes/sub_res.png}
-  \caption{sub-levelset restricted}
-\end{figure}
-\begin{figure}
-  \centering
-  \includegraphics[scale=0.6]{scripts/figures/barcodes/sub_rel.png}
-  \caption{sub-levelset relative}
-\end{figure}
-\begin{figure}
-  \centering
-  \includegraphics[scale=0.6]{scripts/figures/barcodes/super_res.png}
-  \caption{super-levelset restricted}
-\end{figure}
-\begin{figure}
-  \centering
-  \includegraphics[scale=0.6]{scripts/figures/barcodes/super_rel.png}
-  \caption{super-levelset relative}
-\end{figure}
 
 \end{document}

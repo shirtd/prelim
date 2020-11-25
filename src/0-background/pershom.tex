@@ -1,33 +1,18 @@
 % !TeX root = ../../main.tex
 
-\paragraph*{\textbf{Functions and Filtrations}}
+We are interested in a particular persistence module that can be obtained by applying homology as a functor from the category of topological spaces to the category of abelian groups.
+Given a topological space $X$ a \textbf{filtration} of $X$ is a sequence of subspaces $\emptyset = X_0\subseteq X_1\subseteq\ldots\subseteq X_n = X$.
+The \textbf{$k$th persistent homology module} of a filtration $\{X_i\}_{i\in I}$ over some indexing set $I$ is the persistence module consisting of vector spaces $\hom_k(X_i)$ and linear maps $\hom_k(X_i)\to \hom_k(X_j)$ induced by inclusion for $i\leq j$.
+Similarly, given a pair $(X,Y)$ and filtrations $\{X_i\}_{i\in I}$ and $\{Y_i\}_{i\in I}$ such that $Y_i\subseteq X_i$ for all $i\in I$ the $k$th persistent relative homology module is the persistence module of vector spaces $\hom_k(X_i, Y_i)$ and linear maps $\hom_k(X_i, Y_i)\to\hom_k(X_j, Y_j)$ induced by inclusions for all $i\leq j$.
 
-% \figblock{%
-% \begin{figure}[htbp]
-% \centering
-%     \includegraphics[scale=0.45]{figures/fgrid.pdf}
-%     % \includegraphics[scale=0.45]{figures/fsample.pdf}
-%     \includegraphics[scale=0.55]{figures/fcomplex.pdf}
-%     \caption{(Left) Continuous function on the plane.
-%             % (Middle) Function values on random sample.
-%             (Right) Function values on a random sample extended to a continuous piecewise linear approximation on a 2-dimension simplicial as the $z$-axis.}
-%     \label{fig:function}
-% \end{figure}}
+Given a function $f: X\to \R$ we can define a filtration known as \textbf{sub-levelset filtration} as a sequence of sub-levelsets $\{f^{-1}((-\infty, \alpha])\}_{\alpha\in\R}$ where $f^{-1}((-\infty, \alpha]) := \{x\in X\mid f(x)\leq\alpha\}$.
+The super-levelset filtration of $f$ is similarly defined $\{f^{-1}([\alpha,\infty))\}_{\alpha\in\R}$.
+% The persistent homology of the sub(or super)-levelset filtration is typically referred to as the persistent homology of $f$.
 
-Suppose we have some real valued function $f:\D\to\R$ and endow our sensors with the ability to measure this function at their points $P$.
-If we know our network covers the domain we may construct a simplicial complex which captures its topology in a discrete structure.
-We may therefore integrate the sparse measurements provided by the sensors throughout the simplicial complex to capture the topology of the function itself.
-Not only do we now have a discrete approximation of the function but an ordering on the simplices of the complex which may be used to explore the evolution of the topological structure of the function.
+The persistent homology of a filtration encodes the changes in the topology of a space as it changes monotonically in some way.
+In the case of the sub-levelset filtration, the homological structure of subspaces of $X$ that map to intervals $(-\infty,\alpha]$ as $\alpha$ increases.
+These changes are usually referred to either the birth and death of a \emph{feature} in some dimension---homology classes that \emph{persist} over an interval $[b, d)\subset\R$.
+This information can be summarized by a \textbf{persistence diagram} or \textbf{barcode} which visualizes these features either as pairs of points $(b, d)\in\R^2$, or as intervals $[b, d)\subset\R$.
 
-This leads to a more general notion defined for a sequence of topological spaces, which we may take as sublevel sets of the function on the domain.
-\begin{definition}
-    Let $f:D\to\R$ be a function on a topological domain $D$ and let $I_0, I_1,\ldots$ be a sequence of intervals $I_i = [a_i, b_i)$ that covers the image of $f$ on $D$.
-    Let and $X_i = \{x\in D\mid a_i\leq f(x) < b_i\}$ be topological subspaces connected by inclusion maps $X_i\to X_{i+1}$.
-    A \textbf{filtration} is the resulting sequence of topological spaces
-    \[X_0\to X_1\to\ldots X_i\to X_{i+1}\to\ldots .\]
-\end{definition}
-A filtration $\{K_i\}_{i=1,\ldots,n}$ may also be interpreted as a sequence of simplicial maps, each an inclusion $K_i\to K_{i+1}$.
-This induces an algebraic sequence of homomorphisms on homology by functoriality, for all $k$:
-\[ H_k(X_0)\to H_k(X_1)\to\ldots\to H_k(X_i)\to H_k(X_{i+1})\to\ldots . \]
-This sequence encodes the local topological changes that occur at each step of the filtration.
-Global information is encoded in terms of the \textbf{birth} and \textbf{death} of homology classes, represented as a \textbf{persistence diagram} or \textbf{barcode}.
+There is a metric on the space of persistence diagrams known as the \textbf{bottleneck distance}.
+In most cases we are concerned with the bottleneck distance is equal to the interleaving distance---that is, if two persistent homology modules are $\delta$-interleaved then the bottleneck distance between their associated diagrams is $\delta$.

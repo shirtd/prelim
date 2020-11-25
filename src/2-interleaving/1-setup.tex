@@ -2,19 +2,19 @@
 
 \paragraph{Rips-Cover Interleaving}
 
-For $\varrho_D > \e$ the isomorphisms $\N_w^\e\in\Hom(\CPP{w}{\e}, \PP{w}{\e})$ provided by Lemma~\ref{lem:rel_pers_nerve} commute with maps induced by inclusion.
-As the isomorphisms of $\E_w^\e$ are given by excision they are induced by inclusions, so the composition $\E\N_w^\e := \E_w^\e\circ \N_w^\e$ commutes with maps induced by incluson as well.
+By the persistent nerve lemma the isomorphisms $\N_w^\e\in\Hom(\CPP{w}{\e}, \PP{w}{\e})$ provided by the Nerve Theorem commute with maps induced by inclusion whenever $\varrho_D > \e$.
+As the isomorphisms of $\E_w^\e$ are given by excision they are induced by inclusions, so the composition $\E\N_w^\e := \E_w^\e\circ \N_w^\e$ commutes with maps induced by inclusion as well.
 
-\begin{lemma}\label{cor:excisive_nerve}
-  For any $w\leq z$, $\e\leq \eta < \varrho_D$ let $\Lambda\in\Hom(\E\PP{w}{\e},\E\PP{z}{\eta})$ and $\cech\Lambda\in\Hom(\CPP{w}{\e},\CPP{z}{\eta})$ be induced by inclusions.
-  Then $\E\N_w^\e$ and $\E\N_z^\eta$ are isomorphisms such that $\Lambda = \E\N_{z}^{\eta}\circ \cech\Lambda\circ (\E\N_w^\e)^{-1}$ and $\cech\Lambda = (\E\N_{z}^{\eta})^{-1}\circ \Lambda\circ \E\N_w^\e.$
-\end{lemma}
-\begin{proof}\textbf{TODO}
-  (See Appendix~\ref{apx:omit})
-\end{proof}
-\proofatend
-  \textbf{TODO}
-\endproofatend
+% \begin{lemma}\label{cor:excisive_nerve}
+%   For any $w\leq z$, $\e\leq \eta < \varrho_D$ let $\Lambda\in\Hom(\E\PP{w}{\e},\E\PP{z}{\eta})$ and $\cech\Lambda\in\Hom(\CPP{w}{\e},\CPP{z}{\eta})$ be induced by inclusions.
+%   Then $\E\N_w^\e$ and $\E\N_z^\eta$ are isomorphisms such that $\Lambda = \E\N_{z}^{\eta}\circ \cech\Lambda\circ (\E\N_w^\e)^{-1}$ and $\cech\Lambda = (\E\N_{z}^{\eta})^{-1}\circ \Lambda\circ \E\N_w^\e.$
+% \end{lemma}
+% \begin{proof}\textbf{TODO}
+%   (See Appendix~\ref{apx:omit})
+% \end{proof}
+% \proofatend
+%   \textbf{TODO}
+% \endproofatend
 
 % For any $w\in\R$ and $\e\geq 0$ let the $k$th persistent homology module of the Rips filtration $\{\rips^\e(P\subi{w}{\alpha}, Q_w)\}$ be denoted
 % \[\RPP{w}{\e} := \left(\left\{\RP{w}{\e}{\alpha} := \hom_k(\rips^\e(P\subi{w}{\alpha}, Q_w))\right\}_{\alpha\in\R}, \left\{\rips p\subi{w}{\alpha,\beta}^\e : \RP{w}{\e}{\alpha}\to\RP{w}{\e}{\beta}\right\}_{\alpha\leq\beta}\right).\]
@@ -23,7 +23,7 @@ For all $w\in\R$ and $\e < \varrho_D$ let $\I_w^\e\in\Hom(\CPP{w}{\e}, \RPP{w}{2
 and define the composite maps
 \[\Sigma_w^\e := \I_w^\e\circ (\E\N_w^\e)^{-1}\in \Hom(\PP{w}{\e},\RPP{w}{2\e})\ \text{ and }\ \Upsilon_w^\e := \E\N_w^{\e}\circ \J_w^{\e}\in \Hom(\RPP{w}{\e},\PP{w}{\e}).\]
 For $w \leq z$ and $2\e\leq \eta < \varrho_D$ let
-\[ \Lambda\in\Hom(\ext{\PP{w}{\e}}, \ext{\PP{w}{2\e}}),\ \rips\Lambda\in\Hom(\RPP{w}{2\e},\RPP{w}{2\eta}),\text{ and } \Lambda'\in\Hom(\ext{\PP{w}{\eta}},\ext{\PP{z}{2\eta}})\]
+\[ \Lambda\in\Hom(\ext{\PP{w}{\e}}, \ext{\PP{w}{2\e}}),\ \rips\Lambda\in\Hom(\RPP{w}{2\e},\RPP{z}{2\eta}),\text{ and } \Lambda'\in\Hom(\ext{\PP{w}{\eta}},\ext{\PP{z}{2\eta}})\]
 be induced by inclusion.
 The following lemma establishes image module homomorphisms that allow us to pass from our rips modules to our cover modules by factoring through our \Cech module.
 
@@ -34,13 +34,13 @@ The following lemma establishes image module homomorphisms that allow us to pass
   (See Appendix~\ref{apx:omit})
 \end{proof}
 \proofatend
-  By Lemma~\ref{cor:excisive_nerve} we have $\cech\Lambda\circ (\E\N_w^\e)^{-1} = (\E\N_z^\eta)^{-1}\circ \Lambda$ for $\cech\Lambda\in\Hom(\CPP{w}{\e},\CPP{z}{\eta})$ induced by inclusions.
+  By the persistentwe have $\cech\Lambda\circ (\E\N_w^\e)^{-1} = (\E\N_z^\eta)^{-1}\circ \Lambda$ for $\cech\Lambda\in\Hom(\CPP{w}{\e},\CPP{z}{\eta})$ induced by inclusions.
   As $\rips\Lambda\circ\I_w^\e = \I_z^\eta\circ\cech\Lambda$
   \[ \rips\Lambda\circ \I_w^\e\circ(\E\N_w^\e)^{-1} = \I_z^\eta\circ\cech\Lambda\circ (\E\N_w^\e)^{-1} = \I_z^\eta\circ (\E\N_z^\eta)^{-1}\circ\Lambda.\]
   It follows that $\rips\Lambda\circ\Sigma_w^\e = \Sigma_z^\eta\circ\Lambda$ by the definition of $\Sigma$.
   So Diagram~\ref{dgm:image_homomorphism} commutes and we may therefore conclude that $\tilde{\Phi}(\Sigma_w^\e,\Sigma_z^\eta)$ is an image module homomorphism.
 
-  By Lemma~\ref{cor:excisive_nerve} we have $\E\N_z^{2\eta} \circ\cech\Lambda'  = \cech \Lambda\circ \E\N_w^{2\e}$ for $\cech\Lambda'\in\Hom(\CPP{w}{2\e},\CPP{z}{2\eta})$ induced by inclusions.
+  By Lemma~\ref{lem:pers_nerve} we have $\E\N_z^{2\eta} \circ\cech\Lambda'  = \cech \Lambda\circ \E\N_w^{2\e}$ for $\cech\Lambda'\in\Hom(\CPP{w}{2\e},\CPP{z}{2\eta})$ induced by inclusions.
   As $\J_z^\eta\circ \rips\Lambda = \cech\Lambda'\circ\J_w^\e$
   \[ \E\N_z^{2\eta}\circ \J_z^\eta\circ \rips\Lambda = \E\N_z^{2\eta}\circ\cech\Lambda'\circ\J_w^\e = \cech \Lambda\circ \E\N_w^{2\e}\circ\J_w^\e.\]
   Once again, Diagram~\ref{dgm:image_homomorphism} commutes by the definition of $\Upsilon$, so $\tilde{\Psi}(\Upsilon_w^{2\e},\Upsilon_z^{2\eta})$ is an image module homomorphism.
@@ -51,9 +51,9 @@ The following lemma establishes image module homomorphisms that allow us to pass
   Then $(\Sigma_w^\e, \Upsilon_w^{2\e})$ factors $\Lambda$ through $\RPP{w}{2\e}$.
 \end{lemma}
 \begin{proof}
-  Because $\I_w^\e$ and $\J_w^{2\e}$ are induced by inclusions $\Lambda = \E\N_w^{2\e}\circ (\J_w^{2\e})\circ \I_w^\e)\circ \E\N_w^\e)^{-1}$ by Lemma~\ref{cor:excisive_nerve}.
+  Because $\I_w^\e$ and $\J_w^{2\e}$ are induced by inclusions $\Lambda = \E\N_w^{2\e}\circ (\J_w^{2\e})\circ \I_w^\e)\circ \E\N_w^\e)^{-1}$ by Lemma~\ref{lem:pers_nerve}.
   Therefore, by the definitions of $\Sigma_w^\e$ and $\Upsilon_w^{2\e}$, the pair $(\Sigma_w^\e, \Upsilon_w^{2\e})$ factors $\Lambda$ through $\RPP{w}{2\e}$.
 \end{proof}
 
 Note that Lemma~\ref{lem:weak_rips_left} implies that $\tilde{\Phi}$ is a left interleaving via $\Upsilon_w^{2\e}$, and that $\tilde{\Psi}$ is a right interleaving via $\Sigma_w^\e$.
-A commutative diagram of these maps can be found in Appendix~\ref{apx:diagrams} \textbf{TODO}.
+% A commutative diagram of these maps can be found in Appendix~\ref{apx:diagrams} \textbf{TODO}.
