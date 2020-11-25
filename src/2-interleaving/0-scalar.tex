@@ -17,24 +17,22 @@ For $w,\alpha\in\R$ let $D\subi{w}{\alpha} := B_w\cup B_\alpha$ denote the \text
 % \[ D\subi{w}{\alpha} := B_w\cup B_\alpha\ \text{ and }\ \ P\subi{w}{\alpha} := P\cap D\subi{w}{\alpha}.\]
 % Now, the pairs $(D\subi{w}{\alpha}, B_w)$ and $(P\subi{w}{\alpha}, Q_w)$ are well defined for all $\alpha\in\R$.
 %
-Let % $\DD{w}^k$
-
-\[ \DD{w}^k := \left(\left\{\D{w}{\alpha}^k := \hom_k(D\subi{w}{\alpha},B_w)\right\}_{\alpha\in\R},\left\{d\subi{w}{\alpha,\beta}^k : \D{w}{\alpha}^k\to\D{w}{\beta}^k\right\}_{\alpha\leq\beta}\right)\]
-denote the $k$th persistent (relative) homology module of the filtration $\{(D\subi{w}{\alpha},B_w)\}_{\alpha\in\R}$ with respect to $B_w$, and let
-%$\PP{w}{\e,k}$
-
-\[\PP{w}{\e,k} := \left(\left\{\P{w}{\e,k}{\alpha} := \hom_k(P\subi{w}{\alpha}^\e,Q_w^\e)\right\}_{\alpha\in\R}, \left\{p\subi{w}{\alpha,\beta}^{\e,k} : \P{w}{\e}{\alpha}\to\P{w}{\e}{\beta}\right\}_{\alpha\leq\beta}\right)\]
+% Let
+% \[ \DD{w}^k := \left(\left\{\D{w}{\alpha}^k := \hom_k(D\subi{w}{\alpha},B_w)\right\}_{\alpha\in\R},\left\{d\subi{w}{\alpha,\beta}^k : \D{w}{\alpha}^k\to\D{w}{\beta}^k\right\}_{\alpha\leq\beta}\right)\]
+Let $\DD{w}^k$ denote the $k$th persistent (relative) homology module of the filtration $\{(D\subi{w}{\alpha},B_w)\}_{\alpha\in\R}$ with respect to $B_w$, and let $\PP{w}{\e,k}$
+% \[\PP{w}{\e,k} := \left(\left\{\P{w}{\e,k}{\alpha} := \hom_k(P\subi{w}{\alpha}^\e,Q_w^\e)\right\}_{\alpha\in\R}, \left\{p\subi{w}{\alpha,\beta}^{\e,k} : \P{w}{\e}{\alpha}\to\P{w}{\e}{\beta}\right\}_{\alpha\leq\beta}\right)\]
 denote the $k$th persistent (relative) homology module of $\{(P\subi{w}{\alpha}^\e,Q_w^\e)\}_{\alpha\in\R}$.
 Similarly, let $\CPP{w}{\e,k}$ and $\RPP{w}{\e,k}$ denote the corresponding \Cech and Vietoris-Rips filtrations, respectively.
 We will omit the dimension $k$ and write $\DD{w}$ (resp. $\PP{w}{\e}$) if a statement holds for all dimensions.
 
 \paragraph{Extensions}
 
-If $Q_w^\e$ surrounds $P^\e$ in $D$ we can define a filtration of extensions $\{(\ext{P\subi{w}{\alpha}^\e},\ext{Q_w^\e})\}$ and let $\ext{\PP{w}{\e}}$ denote its $k$th persistent homology module.
-The following lemmas apply Lemmas~\ref{lem:surround_and_cover} and ~\ref{lem:excision} to construct homomorphisms between persistence modules that are induced by inclusions.
+Suppose $Q_w^\e$ surrounds $P^\e$ in $D$.
+Let $\ext{\PP{w}{\e}}$ denote the $k$th persistent homology module of the filtration of extensions $\{(\ext{P\subi{w}{\alpha}^\e},\ext{Q_w^\e})\}$, where $\ext{P\subi{w}{a}^\e} = P\subi{w}{a}^\e \cup (D\setminus P^\e)$.
+The following lemmas apply Lemmas~\ref{lem:surround_and_cover} and~\ref{lem:excision} to construct homomorphisms between persistence modules that are induced by inclusions.
 
 \begin{lemma}\label{lem:extension_apply}
-  If $Q_w^\e$ surrounds $P^\e$ in $D$ then for $w\in\R$ and $\ext{P\subi{w}{a}^\e} = P\subi{w}{a}^\e \cup (D\setminus P^\e)$ then there is an isomorphism $\E\subi{w}{\cdot}^\e \in \Hom(\PP{w}{\e},\ext{\PP{w}{\e}})$.
+  If $Q_w^\e$ surrounds $P^\e$ in $D$ then then there is an isomorphism $\E_w^\e \in \Hom(\PP{w}{\e},\ext{\PP{w}{\e}})$.
 \end{lemma}\begin{proof}
   (See Appendix~\ref{apx:omit})
 \end{proof}

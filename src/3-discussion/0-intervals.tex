@@ -13,61 +13,116 @@ Our hypothesis is that, given the persistent homology of the function up to $\om
 \paragraph{Restricted Interval Modules}
 
 For an interval $I = [s,t)\subseteq \R$ let $I_+ := [t,\infty)$ and $I_- := (-\infty, s]$.
-For a collection $\I$ of intervals let $\I_+ = \{ I_+ \}_{I\in\I}$ and $\I_- = \{ I_- \}_{I\in\I}$.
+For $\omega\in\R$ let $\FF_{\omega}^I$ denote the interval module consisting of vector spaces $\{F\subi{\omega}{\alpha}^I\}_{\alpha\in\R}$ and linear maps $\{f\subi{\omega}{\alpha,\beta}^I : F\subi{\omega}{\alpha}^I\to F\subi{\omega}{\beta}^I\}_{\alpha\leq\beta}$ where
+\[ F\subi{\omega}{\alpha}^I := \begin{cases} F_\alpha^I&\text{ if } \omega\in I_-\\ 0&\text{ otherwise,}\end{cases}\ \text{ and }\ \ f\subi{\omega}{\alpha,\beta}^I := \begin{cases} f_{\alpha,\beta}^I&\text{ if } \omega\in I_-\\ 0&\text{ otherwise.}\end{cases}\]
+For a collection $\I$ of intervals let $\I_\omega := \{I\in\I\mid \omega\in I\}$.
 
-For $\omega\in\R$ let $\FF\subi{\cdot}{\omega}^I$ denote the interval module consisting of vector spaces $\{F\subi{\omega}{\alpha}^I\}_{\alpha\in\R}$ and linear maps $\{f_{\alpha,\beta\mid \omega}^I : F\subi{\omega}{\alpha}^I\to F_{\beta\mid\omega}^I\}_{\alpha\leq\beta}$ where
-\[ F\subi{\omega}{\alpha}^I := \begin{cases} F_\alpha^I&\text{ if } \omega\in I_-\\ 0&\text{ otherwise,}\end{cases}\ \text{ and }\ \ f_{\alpha,\beta\mid\omega}^I := \begin{cases} f_{\alpha,\beta}^I&\text{ if } \omega\in I_-\\ 0&\text{ otherwise.}\end{cases}\]
 
-\subsection{The Persistent Homology of a Function Modulo a Sub-levelset}
+% \subsection{Decomposing the Persistent Relative Homology Module of Function Modulo a Sub-levelset}
+% \paragraph{
+\subsection{Interval Decomposition of the Relative Module}
 
-In the following we will assume that, for fixed $\omega\in\R$ and taking homology in a field $\FF$, the homology groups $\hom_k(B_\alpha)$ and $\hom_k(D\subi{\omega}{\alpha}, B_\omega)$ are finite dimensional vector spaces for all $k$ and $\alpha\in\R$.
+In the following we will assume that, for $\omega\in\R$ and taking homology in a field $\FF$, the homology groups $\hom_k(B_\alpha)$ and $\hom_k(D\subi{\omega}{\alpha}, B_\omega)$ are finite dimensional vector spaces for all $k$ and $\alpha\in\R$.
 Let $\LL^k$ denote the $k$th persistent homology module of the sub-levelset filtration $\{B_\alpha\}_{\alpha\in\R}$ of $f$.
+Because all homology groups are finite dimensional we can decompose $\LL^k$ into a direct sum of interval modules
+\[ \LL^k = \bigoplus_{I\in\I^k} \FF^I.\] %\ \text{ and }\ \DD{\omega}^k = \bigoplus_{J\in\J^k} \FF^J\]
+for some collection $\I^k$ of intervals $I\subseteq \R$ for all $k$.
 As in the previous section, let $\DD{\omega}^k$ denote the $k$th persistent (relative) homology module of $\{(D\subi{\omega}{\alpha},B_\omega)\}_{\alpha\in\R}$, the sub-levelset filtration of $f$ modulo $B_\omega$.
-Here, we are taking homology with coefficients in a field $\FF$.
-
-Because all homology groups are finite dimensional we can decompose the modules $\LL^k$ and $\DD{\omega}^k$ into direct sums of interval modules
-\[ \LL^k = \bigoplus_{I\in\I^k} \FF^I\ \text{ and }\ \DD{\omega}^k = \bigoplus_{J\in\J^k} \FF^J\]
-for collections $\I^k$ and $\J^k$ of intervals $I,J\subseteq \R$ for all $k$.
-Moreover, for all $\alpha\in\R$ we have
-\[ \hom_k(B_\alpha) = \bigoplus_{I\in \I^k}F_\alpha^I\ \text{ and }\ \hom_k(D\subi{\omega}{\alpha}, B_\omega) = \bigoplus_{J\in\J^k} F_\alpha^J.\]
+% Moreover, for all $\alpha\in\R$ we have
+% \[ \hom_k(B_\alpha) = \bigoplus_{I\in \I^k}F_\alpha^I.\]%s\ \text{ and }\ \hom_k(D\subi{\omega}{\alpha}, B_\omega) = \bigoplus_{J\in\J^k} F_\alpha^J.\]
+% the sub-levelset filtration $\{B_\alpha\}_{\alpha\in\R}$.
+% The following lemma decomposes the relative module $\DD{\omega}^k$ into the direct sum of the truncated module and a submodule consisting of infinite $k$-dimensional features that correspond to finite $(k-1)$-dimensional features of $\LL^k$ that are born before $\omega$ and die after $\omega$.
 
 \begin{lemma}
-  \[\DD{\omega}^k = \bigoplus_{I\in\I^k \cup \I^{k-1}_+} \FF\subi{\omega}{\cdot}^I = \LL\subi{\omega}{\cdot}^k \oplus \bigoplus_{I\in \I^{k-1}} \FF\subi{\omega}{\cdot}^{I_+}.\]
+  If $\I^k, \I^{k-1}$ decompose $\LL^k$ and $\LL^{k-1}$ then
+  % \[\DD{\omega}^k = \bigoplus_{I\in\I^k \cup \I^{k-1}_+} \FF_{\omega}^I = \LL_{\omega}^k \oplus \bigoplus_{I\in \I^{k-1}} \FF_{\omega}^{I_+}.\]
+  \[\DD{\omega}^k = \bigoplus_{I\in\I^k} \FF_\omega^I \oplus \bigoplus_{I\in \I_\omega^{k-1}} \FF^{I_+}.\]
 \end{lemma}
 
 \begin{proof}
-  Consider the long exact sequence of the pair $\hom_k(D\subi{\omega}{\alpha}, B_\omega)$
-  \[ \ldots\to \hom_k(B_\omega)\xrightarrow{p_\alpha^k} \hom_k(B_\alpha)\xrightarrow{q_\alpha^k}\hom_k(D\subi{\omega}{\alpha}, B_\omega)\xrightarrow{r_\alpha^k} \hom_{k-1}(B_\omega)\xrightarrow{p_\alpha^{k-1}}\hom_{k-1}\hom_{k-1}(B_\alpha)\to\ldots\]
-  where $p_\alpha^k = \displaystyle\bigoplus_{I\in\I^k} f_{\omega,\alpha}^I$.
-  By exactness
-  \[\ker~p_\alpha^k = \im~p_\alpha^k = \bigoplus_{I\in\I^k}\im~f_{\omega,\alpha}^I = \bigoplus_{I\in\I^k \mid \omega\in I} F_\alpha^I.\]
-  Thus,
-  \begin{align*}
-    \ker~r_\alpha^k \cong \hom_k(B_\alpha) / \ker~q_\alpha^k = \bigoplus_{I\in \I^k\mid \omega\notin I} F_\alpha^I = \bigoplus_{I\in\I^k} F\subi{\omega}{\alpha}^I.
-  \end{align*}
-  Similarly,
-  \begin{align*} \im~r_\alpha^k = \ker~p_\alpha^{k-1} = \bigoplus_{I\in\I^{k-1}\mid \alpha\notin I} F_\omega^I = \bigoplus_{I\in\I^{k-1}} F\subi{\omega}{\alpha}^{I_+}.
-  \end{align*}
+  Suppose $\alpha\leq\omega$.
+  So $\hom_k(D\subi{\omega}{\alpha}, B_\omega) = 0$ as $D\subi{\omega}{\alpha} = B_\omega\cup B_\alpha$ and $\T^k_\omega = 0$ as $F_\alpha^I = 0$ for any $I\in \I^k$ such that $\omega\in I_-$.
+  Moreover, $\omega\in I$ for all $I\in \I_\omega^{k-1}$, thus $F_\alpha^{I_+} = 0$ for all $\alpha\leq\omega$.
+  So it suffices to assume $\omega < \alpha$.
 
-  Note that we have the following split exact sequence associated with the connecting homomorphism $r_\alpha^k$
-  \[ 0\to \ker~r_\alpha^k\xrightarrow{\phi_\alpha^k}\bigoplus_{J\in\J^k} F_\alpha^J\xrightarrow{\psi_\alpha^k}\im~r_\alpha^k\to 0.\]
-  So for all $\alpha\in\R$
-  \[ \bigoplus_{J\in\J^k} F_\alpha^J \cong \ker~r_\alpha^k\oplus \im~r_\alpha^k
-    \cong\left(\bigoplus_{I\in\I^k} F\subi{\omega}{\alpha}^I\right)\oplus\left(\bigoplus_{I\in\I^{k-1}} F\subi{\omega}{\alpha}^{I_+}\right).\]
-  \end{proof}
+  Consider the long exact sequence of the pair $\hom_k(D\subi{\omega}{\alpha}, B_\omega) = \hom_k(B_\alpha, B_\omega)$
+  \[ \ldots\to \hom_k(B_\omega)\xrightarrow{p_\alpha^k} \hom_k(B_\alpha)\xrightarrow{q_\alpha^k}\hom_k(D\subi{\omega}{\alpha}, B_\omega)\xrightarrow{r_\alpha^k} \hom_{k-1}(B_\omega)\xrightarrow{p_\alpha^{k-1}}\hom_{k-1}(B_\alpha)\to\ldots\]
+  where $\hom_k(B_\alpha) = \bigoplus_{I\in \I^k}F_\alpha^I$, $\hom_k(B_\omega) = \bigoplus_{I\in \I^k}F_\omega^I$, and $p_\alpha^k = \displaystyle\bigoplus_{I\in\I^k} f_{\omega,\alpha}^I$.
+
+  % By exactness $\ker~p_\alpha^k = \im~p_\alpha^k = \bigoplus_{I\in\I^k}\im~f_{\omega,\alpha}^I = \bigoplus_{I\in\I^k \mid \omega\in I} F_\alpha^I.$
+  % By exactness $\ker~r_\alpha^k = \im~q_\alpha^k \cong \hom_k(B_\alpha) / \ker~q_\alpha^k$ $ where the image of
+  % We first note that $\im~p_\alpha^k$ is equal to the direct sum of images $\im~f_{\omega,\alpha}^I$.
+  % By the definition of $F_\alpha^I$ we know $\im~f_{\omega,\alpha}^I$ is $F_\alpha^I$ if $\omega\in I$, 0 otherwise.
+  Noting that $\im~q_\alpha^k \cong \hom_k(B_\alpha) / \ker~q_\alpha^k$ where $\ker~q_\alpha^k = \im~p_\alpha^k$ by exactness we have $\ker~r_\alpha^k \cong \hom_k(B_\alpha) / \im~p_\alpha^k$.
+  By the definition of $F_\alpha^I$ and $f_{\omega,\alpha}^I$ we know $\im~f_{\omega,\alpha}^I$ is $F_\alpha^I$ if $\omega\in I$ and 0 otherwise.
+  As $\im~p_\alpha^k$ is equal to the direct sum of images $\im~f_{\omega,\alpha}^I$ over $I\in\I^k$ it follows that $\im~p_\alpha^k$ is the direct sum of those $F_\alpha^I$ over those $I\in\I^k$ such that $\omega\in I$.
+  Now, because $\hom_k(B_\alpha) = \bigoplus_{I\in \I^k}F_\alpha^I$ and each $F_\alpha^I$ is either 0 or $\FF$ the quotient $\hom_k(B_\alpha) / \im~p_\alpha^k$ is the direct sum of those $F_\alpha^I$ such that $\omega\notin I$.
+  Therefore, by the definition of $F\subi{\omega}{\alpha}^I$ we have
+  \[ \ker~r_\alpha^k = \bigoplus_{I\in\I_\omega^k} F\subi{\omega}{\alpha}^I.\]
+  % Thus, \[\ker~r_\alpha^k \cong \hom_k(B_\alpha) / \ker~q_\alpha^k = \bigoplus_{I\in \I^k\mid \omega\notin I} F_\alpha^I = \bigoplus_{I\in\I^k} F\subi{\omega}{\alpha}^I.\]
+
+  Similarly, $\im~r_\alpha^k = \ker~p_\alpha^{k-1}$ by exactness where $\ker~p_\alpha^{k-1}$ is the direct sum of kernels $\ker~f_{\omega,\alpha}^I$ over $I\in\I^{k-1}$.
+  By the definition of $F_\alpha^I$ and $f_{\omega,\alpha}^I$ we know that $\ker~f_{\omega,\alpha}^I$ is $F_\alpha^I$ if $\omega\notin I$ and $0$ otherwise.
+  % If $\ker~f_{\omega,\alpha}^I = 0$ then either $\alpha\in I$ and $\omega\notin I$, $\alpha\notin I$ and $\omega \in I$, or $\alpha\notin I$ and $\omega\notin I$.
+  % So it suffices to consider $I\in \I_\omega^{k-1}$ as $\ker~f_{\omega,\alpha}^I = 0$ for any $I\in \I^{k-1}$ such that $\omega\notin I$.
+  Noting that $\ker~f_{\omega,\alpha}^I = 0$ for any $I\in \I^{k-1}$ such that $\omega\notin I$ it suffices to consider only those $I\in \I_\omega^{k-1}$.
+  % Recalling that $I_+ = [t,\infty)$ for $I = [s,t)$
+  It follows that $\ker~f_{\omega,\alpha}^I = F_\alpha^{I_+}$ for any $I$ containing $\omega$ as $\omega < \alpha$.
+  Therefore,
+  \[\im~r_\alpha^k = \bigoplus_{I\in\I^{k-1}} F_\alpha^{I_+}.\]
+
+  We have the following split exact sequence associated with $r_\alpha^k$
+  % \[ 0\to \ker~r_\alpha^k\xrightarrow{\phi_\alpha^k}\bigoplus_{J\in\J^k} F_\alpha^J\xrightarrow{\psi_\alpha^k}\im~r_\alpha^k\to 0.\]
+  \[ 0\to \ker~r_\alpha^k\to \hom_k(D\subi{\omega}{\alpha}, B_\omega)\to\im~r_\alpha^k\to 0.\]
+  The desired result follows from the fact that for all $\alpha\in\R$
+  % \[ \bigoplus_{J\in\J^k} F_\alpha^J \cong \ker~r_\alpha^k\oplus \im~r_\alpha^k
+  %   \cong\left(\bigoplus_{I\in\I^k} F\subi{\omega}{\alpha}^I\right)\oplus\left(\bigoplus_{I\in\I^{k-1}} F\subi{\omega}{\alpha}^{I_+}\right).\]
+  \begin{align*}
+    \hom_k(D\subi{\omega}{\alpha}, B_\omega) &\cong \ker~r_\alpha^k\oplus \im~r_\alpha^k\\
+      &=\bigoplus_{I\in\I^k} F\subi{\omega}{\alpha}^I\oplus \bigoplus_{I\in\I_\omega^{k-1}} F_\alpha^{I_+}.
+      % &\cong\left(\bigoplus_{I\in\I^k} F\subi{\omega}{\alpha}^I\right)\oplus\left(\bigoplus_{I\in\I_\omega^{k-1}} F_\alpha^{I_+}\right).
+  \end{align*}
+    % thus $\DD{\omega}^k = \T^k_\omega \oplus \bigoplus_{I\in \I_\omega^{k-1}} \FF^{I_+}
+\end{proof}
 % Letting $\AA_\omega^k := \displaystyle\bigoplus_{I\in\I^k} \FF_\omega^I$ and $\BB_\omega^k := \displaystyle\bigoplus_{I\in\I^k} \FF_\omega^{I_+}$ for all $k$ we have
 % \[ \DD{\omega}^k \cong \AA_\omega^k\oplus \BB_\omega^{k-1}.\]
 
-\begin{theorem}
-  Let $\X$ be an orientable $d$-manifold and let $D$ be a compact subset of $\X$ with strong convexity radius $\varrho_D > \delta$.
-  Let $f : D\to\R$ be $c$-Lipschitz function and let $\omega\in\R$ and $2\delta\leq\zeta < \varrho_D/2$ be constants such that $B_{\omega - c(\zeta +\delta)}$ surrounds $D$ in $\X$.
-  Let $P\subset \intr_\X(D)$ and suppose $P^\delta$, $Q_{\omega-c\zeta}^\delta$, and $Q_{\omega+c\delta}^\delta$ satisfy the assumptions of Lemma~\ref{lem:duality_apply}.
-  Suppose $\hom_k(B_{\omega-c(\delta+\zeta)}\hookrightarrow B_\omega)$ and $\hom_k(B_\omega)\cong\hom_k(B_{\omega+c(\delta+2\zeta)})$ for all $k$.
+% \begin{theorem}
+%   Let $\X$ be an orientable $d$-manifold and let $D$ be a compact subset of $\X$ with strong convexity radius $\varrho_D > \delta$.
+%   Let $f : D\to\R$ be $c$-Lipschitz function and let $\omega\in\R$ and $2\delta\leq\zeta < \varrho_D/2$ be constants such that $B_{\omega - c(\zeta +\delta)}$ surrounds $D$ in $\X$.
+%   Let $P\subset \intr_\X(D)$ and suppose $P^\delta$, $Q_{\omega-c\zeta}^\delta$, and $Q_{\omega+c\delta}^\delta$ satisfy the assumptions of Lemma~\ref{lem:duality_apply}.
+%   Suppose $\hom_k(B_{\omega-c(\delta+\zeta)}\hookrightarrow B_\omega)$ and $\hom_k(B_\omega)\cong\hom_k(B_{\omega+c(\delta+2\zeta)})$ for all $k$.
+%
+%   If
+%   \[\rk~\hom_d(\rips^\delta(P, Q_{\omega -c\zeta})\hookrightarrow \rips^{2\delta}(P, Q_{\omega+c\delta})) \geq \dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-c\zeta}))\]
+%   then the image module
+%   \[ \im~(\RPP{\omega-c\zeta}{2\delta, k}\to \RPP{\omega+c\delta}{2\zeta, k})\]
+%   is $2c\zeta$-interleaved with
+%   \[ \LL_{\omega}^k \oplus \bigoplus_{I\in \I^{k-1}} \FF_{\omega}^{I_+}.\]
+% \end{theorem}
+
+\subsection{Main Theorem}
+
+Let $\LL^k$ denote the $k$th persistent homology module of the sub-levelset filtration $\{B_\alpha\}_{\alpha\in\R}$ of $f$ and let $\I^k$ denote the decomposing intervals of $\LL^k$ for all $k$.
+For a fixed $\omega\in\R$ let $\DD{\omega}^k$ denote the $k$th persistent (relative) homology module of $\{(D\subi{\omega}{\alpha},B_\omega)\}_{\alpha\in\R}$.
+Let
+\[\T_\omega^k := \bigoplus_{I\in\I^k} \FF_\omega^I\]
+denote the \textbf{$\omega$-truncated $k$th persistent homology module} of $\LL^k$ and
+\[ \W_\omega^k := \bigoplus_{I\in \I_\omega^{k-1}} \FF^{I_+}.\]
+denote the submodule of $\DD{\omega}^k$ consisting of infinite $k$-dimensional features that correspond to finite $(k-1)$-dimensional features of $\LL^k$ that are born before $\omega$ and die after $\omega$.
+
+Our main theorem combines our coverage and interleaving results (Theorems~\ref{thm:algo_tcc} and~\ref{thm:interleaving_main_2}) as a method for certified approximation of the truncated persistence diagram.\textbf{TODO: GROSS}
+
+\begin{theorem}\label{thm:main}
+  Let $\X$ be an orientable $d$-manifold and let $D$ be a compact subset of $\X$.
+  Let $f : D\to\R$ be a $c$-Lipschitz function and $\omega\in\R$, $\delta < \varrho_D/4$ be constants such that $B_{\omega-3c\delta}$ surrounds $D$ in $\X$.
+  Let $P\subset \intr_\X(D)$ and suppose $D\setminus P^\delta$, $D\setminus Q_{\omega-2c\delta}^\delta$, and $D\setminus Q_{\omega+c\delta}^\delta$ are locally path connected.
+  Suppose $\hom_k(B_{\omega-3c\delta}\hookrightarrow B_\omega)$ is surjective and $\hom_k(B_\omega)\cong\hom_k(B_{\omega+5c\delta})$ for all $k$.
 
   If
-  \[\rk~\hom_d(\rips^\delta(P, Q_{\omega -c\zeta})\hookrightarrow \rips^{2\delta}(P, Q_{\omega+c\delta})) \geq \dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-c\zeta}))\]
-  then the image module
-  \[ \im~(\RPP{\omega-c\zeta}{2\delta, k}\to \RPP{\omega+c\delta}{2\zeta, k})\]
-  is $2c\zeta$-interleaved with
-  \[ \LL\subi{\omega}{\cdot}^k \oplus \bigoplus_{I\in \I^{k-1}} \FF\subi{\omega}{\cdot}^{I_+}.\]
+    \[\rk~\hom_d(\rips^\delta(P, Q_{\omega - 2c\delta})\hookrightarrow \rips^{2\delta}(P, Q_{\omega+c\delta})) \geq \dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-2c\delta}))\]
+  then the $k$th (relative) homology module of
+  \[\{\rips^{2\delta}(P\subi{\omega-2c\delta}{\alpha}, Q_{\omega-2c\delta})\hookrightarrow \rips^{4\delta}(P\subi{\omega+c\delta}{\alpha}, Q_{\omega+c\delta})\}_{\alpha\in\R}\]
+  is $4c\delta$-interleaved with $\T_{\omega}^k \oplus \W_\omega^k$.
+   % that of $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$.
 \end{theorem}

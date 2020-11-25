@@ -1,9 +1,13 @@
 % !TeX root = ../../main.tex
 
-\paragraph{Rips-Cover Interleaving}
+\paragraph{Excisive Nerves}
 
-By the persistent nerve lemma the isomorphisms $\N_w^\e\in\Hom(\CPP{w}{\e}, \PP{w}{\e})$ provided by the Nerve Theorem commute with maps induced by inclusion whenever $\varrho_D > \e$.
-As the isomorphisms of $\E_w^\e$ are given by excision they are induced by inclusions, so the composition $\E\N_w^\e := \E_w^\e\circ \N_w^\e$ commutes with maps induced by inclusion as well.
+Let $\e < \varrho_D$ and $w\in\R$.
+For any $\alpha\in\R$ the inclusion $\cech^\e(P\subi{w}{\alpha}, Q_w)\hookrightarrow (P\subi{w}{\alpha}^\e, Q_w^\e)$ is a homotopy equivalence by the Nerve Theorem.
+So we have isomorphisms $\hom_k(\cech^\e(P\subi{w}{\alpha}, Q_w))\to \hom_k(P\subi{w}{\alpha}^\e, Q_w^\e)$ for all $\alpha$ that commute with inclusions by the Persistent Nerve Lemma.
+% Therefore, for any $\alpha\leq\beta$ these isomorphisms commute with the module homomorphisms $\hom_k(\cech^\e(P\subi{w}{\alpha}, Q_w))\to \hom_k(\cech^\e(P\subi{w}{\beta}, Q_w))$ and $\hom_k(P\subi{w}{\alpha}^\e, Q_w^\e)\to \hom_k(P\subi{w}{\beta}^\e, Q_w^\e)$ induced by inclusions.
+As the module homomorphisms of $\CPP{w}{\e}$ and $\PP{w}{\e}$ are induced by inclusion we have an isomorphism $\N_w^\e\in\Hom(\CPP{w}{\e}, \PP{w}{\e})$ of persistence modules that commutes with maps induced by inclusions.
+As the isomorphisms of $\E_w^\e$ are given by excision they are induced by inclusions, so the composition $\E\N_w^\e := \E_w^\e\circ \N_w^\e$ is an isomorphism that commutes with maps induced by inclusion as well.
 
 % \begin{lemma}\label{cor:excisive_nerve}
 %   For any $w\leq z$, $\e\leq \eta < \varrho_D$ let $\Lambda\in\Hom(\E\PP{w}{\e},\E\PP{z}{\eta})$ and $\cech\Lambda\in\Hom(\CPP{w}{\e},\CPP{z}{\eta})$ be induced by inclusions.
@@ -18,14 +22,29 @@ As the isomorphisms of $\E_w^\e$ are given by excision they are induced by inclu
 
 % For any $w\in\R$ and $\e\geq 0$ let the $k$th persistent homology module of the Rips filtration $\{\rips^\e(P\subi{w}{\alpha}, Q_w)\}$ be denoted
 % \[\RPP{w}{\e} := \left(\left\{\RP{w}{\e}{\alpha} := \hom_k(\rips^\e(P\subi{w}{\alpha}, Q_w))\right\}_{\alpha\in\R}, \left\{\rips p\subi{w}{\alpha,\beta}^\e : \RP{w}{\e}{\alpha}\to\RP{w}{\e}{\beta}\right\}_{\alpha\leq\beta}\right).\]
+\paragraph{Rips-Cover Interleaving}
+
 For all $w\in\R$ and $\e < \varrho_D$ let $\I_w^\e\in\Hom(\CPP{w}{\e}, \RPP{w}{2\e})$ and $\J_w^\e\in\Hom(\RPP{w}{\e},\CPP{w}{\e})$ be induced by the inclusions
-\[ \cech^\e(P_\alpha, Q_w)\subseteq \rips^{2\e}(P_\alpha,Q_w)\subseteq \cech^{2\e}(P_\alpha, Q_w)\]
+\[ \cech^\e(P\subi{w}{\alpha}, Q_w)\subseteq \rips^{2\e}(P\subi{w}{\alpha},Q_w)\subseteq \cech^{2\e}(P\subi{w}{\alpha}, Q_w)\]
 and define the composite maps
 \[\Sigma_w^\e := \I_w^\e\circ (\E\N_w^\e)^{-1}\in \Hom(\PP{w}{\e},\RPP{w}{2\e})\ \text{ and }\ \Upsilon_w^\e := \E\N_w^{\e}\circ \J_w^{\e}\in \Hom(\RPP{w}{\e},\PP{w}{\e}).\]
-For $w \leq z$ and $2\e\leq \eta < \varrho_D$ let
-\[ \Lambda\in\Hom(\ext{\PP{w}{\e}}, \ext{\PP{w}{2\e}}),\ \rips\Lambda\in\Hom(\RPP{w}{2\e},\RPP{z}{2\eta}),\text{ and } \Lambda'\in\Hom(\ext{\PP{w}{\eta}},\ext{\PP{z}{2\eta}})\]
-be induced by inclusion.
-The following lemma establishes image module homomorphisms that allow us to pass from our rips modules to our cover modules by factoring through our \Cech module.
+% For $w \leq z$ and $2\e\leq \eta < \varrho_D$ let
+% \[ \Lambda\in\Hom(\ext{\PP{w}{\e}}, \ext{\PP{w}{2\e}}),\ \rips\Lambda\in\Hom(\RPP{w}{2\e},\RPP{z}{2\eta}),\text{ and } \Lambda'\in\Hom(\ext{\PP{w}{\eta}},\ext{\PP{z}{2\eta}})\]
+% be induced by inclusion.
+
+% \begin{lemma}\label{lem:weak_rips_left}
+%   For $w\in\R$ and $\e < \varrho_D$ let $\mathcal{S}\in\Hom(\ext{\PP{w}{\e}}, \ext{\PP{w}{2\e}})$ be induced by inclusion.
+%   Then $(\Sigma_w^\e, \Upsilon_w^{2\e})$ factors $\mathcal{S}$ through $\RPP{w}{2\e}$.
+% \end{lemma}
+% \begin{proof}
+%   Because $\I_w^\e$ and $\J_w^{2\e}$ are induced by inclusions $\mathcal{S} = \E\N_w^{2\e}\circ (\J_w^{2\e})\circ \I_w^\e)\circ \E\N_w^\e)^{-1}$ by Lemma~\ref{lem:pers_nerve}.
+%   Therefore, by the definitions of $\Sigma_w^\e$ and $\Upsilon_w^{2\e}$, the pair $(\Sigma_w^\e, \Upsilon_w^{2\e})$ factors $\Lambda$ through $\RPP{w}{2\e}$.
+% \end{proof}
+
+For $w\leq z$ and $2\e \leq \eta < \varrho_D / 2$ let
+\[ \Lambda\in\Hom(\ext{\PP{w}{\e}}, \ext{\PP{z}{\eta}}),\ \rips\Lambda\in\Hom(\RPP{w}{2\e},\RPP{z}{2\eta}),\ \text{ and }\ \Lambda'\in\Hom(\ext{\PP{w}{2\e}},\ext{\PP{z}{2\eta}})\]
+be induced by inclusions.
+The following lemma establishes image module homomorphisms that allow us to pass from our Rips modules to our cover modules by factoring through our \Cech module.
 
 \begin{lemma}\label{lem:rips_homomorphism_left}
   $\tilde{\Phi}(\Sigma_w^\e,\Sigma_z^\eta)\in\Hom(\im~\Lambda,\im~\rips\Lambda)$ and $\tilde{\Psi}(\Upsilon_w^{2\e},\Upsilon_z^{2\eta})\in\Hom(\im~\rips\Lambda,\im~\Lambda')$ are image module homomorphisms.
@@ -34,7 +53,7 @@ The following lemma establishes image module homomorphisms that allow us to pass
   (See Appendix~\ref{apx:omit})
 \end{proof}
 \proofatend
-  By the persistentwe have $\cech\Lambda\circ (\E\N_w^\e)^{-1} = (\E\N_z^\eta)^{-1}\circ \Lambda$ for $\cech\Lambda\in\Hom(\CPP{w}{\e},\CPP{z}{\eta})$ induced by inclusions.
+  By Lemma~\ref{lem:pers_nerve} we have $\cech\Lambda\circ (\E\N_w^\e)^{-1} = (\E\N_z^\eta)^{-1}\circ \Lambda$ for $\cech\Lambda\in\Hom(\CPP{w}{\e},\CPP{z}{\eta})$ induced by inclusions.
   As $\rips\Lambda\circ\I_w^\e = \I_z^\eta\circ\cech\Lambda$
   \[ \rips\Lambda\circ \I_w^\e\circ(\E\N_w^\e)^{-1} = \I_z^\eta\circ\cech\Lambda\circ (\E\N_w^\e)^{-1} = \I_z^\eta\circ (\E\N_z^\eta)^{-1}\circ\Lambda.\]
   It follows that $\rips\Lambda\circ\Sigma_w^\e = \Sigma_z^\eta\circ\Lambda$ by the definition of $\Sigma$.
@@ -46,14 +65,21 @@ The following lemma establishes image module homomorphisms that allow us to pass
   Once again, Diagram~\ref{dgm:image_homomorphism} commutes by the definition of $\Upsilon$, so $\tilde{\Psi}(\Upsilon_w^{2\e},\Upsilon_z^{2\eta})$ is an image module homomorphism.
 \endproofatend
 
-\begin{lemma}\label{lem:weak_rips_left}
-  For $w\in\R$ and $\e < \varrho_D$ let $\Lambda\in\Hom(\ext{\PP{w}{\e}}, \ext{\PP{w}{2\e}})$ be induced by inclusion.
-  Then $(\Sigma_w^\e, \Upsilon_w^{2\e})$ factors $\Lambda$ through $\RPP{w}{2\e}$.
-\end{lemma}
-\begin{proof}
-  Because $\I_w^\e$ and $\J_w^{2\e}$ are induced by inclusions $\Lambda = \E\N_w^{2\e}\circ (\J_w^{2\e})\circ \I_w^\e)\circ \E\N_w^\e)^{-1}$ by Lemma~\ref{lem:pers_nerve}.
-  Therefore, by the definitions of $\Sigma_w^\e$ and $\Upsilon_w^{2\e}$, the pair $(\Sigma_w^\e, \Upsilon_w^{2\e})$ factors $\Lambda$ through $\RPP{w}{2\e}$.
-\end{proof}
+% Let $\mathcal{S} \in
+% Corollary~\ref{cor:left_right} follows from the fact that the pair $(\Sigma_w^\e, \Upsilon_w^{2\e})$ factors the map $\ext{\PP{w}{\e}}\to\ext{\PP{w}{2\e}}$ induced by inclusions through $\RPP{w}{2\e}$ for any $w\in\R$ and $\e < \varrho_D$.
 
-Note that Lemma~\ref{lem:weak_rips_left} implies that $\tilde{\Phi}$ is a left interleaving via $\Upsilon_w^{2\e}$, and that $\tilde{\Psi}$ is a right interleaving via $\Sigma_w^\e$.
-% A commutative diagram of these maps can be found in Appendix~\ref{apx:diagrams} \textbf{TODO}.
+\begin{corollary}\label{cor:left_right}
+  If $w\leq z$ and $2\e \leq \eta < \varrho_D / 2$ then $\tilde{\Phi}(\Sigma_w^\e,\Sigma_z^\eta)$ is a left interleaving of image modules and $\tilde{\Psi}(\Upsilon_w^{2\e},\Upsilon_z^{2\eta})$ is a right interleaving of image modules.
+\end{corollary}\begin{proof}
+  (See Appendix~\ref{apx:omit})
+\end{proof}
+\proofatend
+  Because $\eta\geq 2\e$ and $w\leq z$ the pair $(\Sigma_w^\e, \Upsilon_z^\eta)$ factors $\Lambda$ through the map $\RPP{w}{2\e}\to \RPP{z}{\eta}$ induced by inclusions.
+  It follows that $\tilde{\Phi}$ is a left interleaving of image modules via the composition of this map with $\Upsilon_z^\eta$.
+  Similarly, $(\Upsilon_w^{2\e}, \Sigma_z^{\eta})$ factors $\rips\Lambda$ through the map $\E\PP{w}{2\e}\to \E\PP{z}{\eta}$ induced by inclusions.
+  It follows that $\tilde{\Psi}$ is a right interleaving of image modules via the composition of this map with $\Sigma_z^{\eta}$.
+  As all maps are induced by inclusions
+\endproofatend
+
+% Note that Lemma~\ref{lem:weak_rips_left} implies that $\tilde{\Phi}$ is a left interleaving via $\Upsilon_w^{2\e}$, and that $\tilde{\Psi}$ is a right interleaving via $\Sigma_w^\e$.
+A commutative diagram of these maps can be found in Appendix~\ref{apx:diagrams} \textbf{TODO}.

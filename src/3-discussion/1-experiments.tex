@@ -8,13 +8,13 @@ We therefore chose a function with prominent persistent homology in dimension on
 \paragraph{Experimental setup.}
 
 Throughout, the inter-levelsets shown in green, blue, purple, and yellow correspond to the ranges $[0, 0.3)$, $[0.3, 0.5)$, $[0.5, 0.7)$, and $[0.7, 1)$, respectively.
-Our persistent homology computations were done primarily with Dionysus augmented with custom software for computing representative cycles of infinite features
-\footnote{3D figures were made with MayAvi, all other figures were made with Matplotlib.}.
+Our persistent homology computations were done primarily with Dionysus augmented with custom software for computing representative cycles of infinite features.
+\footnote{3D figures were made with MayAvi, all other figures were made with Matplotlib.}
 The persistent homology of our function was computed with the lower-star filtration of the Freudenthal triangulation on an $N\times N$ grid over $[-1,1]\times[-1,1]\subset\R^2$.
 We take this filtration as $\{\rips^{2\delta}(P_\alpha)\}$ where $P$ is the set of grid points and $\delta = \sqrt{2} / N$.
 
 We note that the purpose of these experiments is not to demonstrate the effectiveness of our approximation by Rips complexes, but to demonstrate the relationships between restricted, relative, and truncated diagrams.
-Therefore, for simplicity, we will omit the inclusion $\rips^{2\delta}(P_\alpha)\hookrightarrow\rips^{2\zeta}(P_\alpha)$ and take the persistent homology of $\{\rips^{2\delta}(P_\alpha)\}$ with sufficiently small $\delta$ as our ground-truth.
+Therefore, for simplicity, we will omit the inclusion $\rips^{2\delta}(P_\alpha)\hookrightarrow\rips^{4\delta}(P_\alpha)$ and take the persistent homology of $\{\rips^{2\delta}(P_\alpha)\}$ with sufficiently small $\delta$ as our ground-truth.
 However, in order to keep our diagrams clean we show only those features a distance at least $4\delta$ from the diagonal.
 Note that these features are \emph{not} removed from the diagram, and considered in all computations.
 
