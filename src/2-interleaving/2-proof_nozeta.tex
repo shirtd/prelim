@@ -1,0 +1,110 @@
+% !TeX root = ../../main.tex
+
+We will now prove our interleaving in terms of the constants introduced in Section~\ref{sec:geo_tcc}.
+
+Suppose $Q_{\omega-2c\delta}^\delta$ surrounds $P^\delta$ in $D$ and $D\setminus B_\omega\subseteq P^\delta$.% for $\zeta\geq 2\delta$.
+Then, because $f$ is $c$-Lipschitz, $B_{\omega-3c\delta}\cap P^\delta\subseteq Q_{\omega-2c\delta}^\delta$ and $B_\omega\cap P^\delta\subseteq Q_{\omega+c\delta}^{2\delta}$.
+Similarly, $Q_{\omega-2c\delta}^{2\delta}\subseteq B_\omega$ and $Q_{\omega+c\delta}^{4\delta}\subseteq B_{\omega+5c\delta}$.
+Therefore, by Lemma~\ref{lem:surround_and_cover}
+\[ B_{\omega-3c\delta}\subseteq \E Q_{\omega-2c\delta}^\delta\subseteq\E Q_{\omega-2c\delta}^{2\delta}\subseteq B_\omega
+  \subseteq \E Q_{\omega+c\delta}^{2\delta}\subseteq \E Q_{\omega+c\delta}^{4\delta}\subseteq B_{\omega+5c\delta}.\]
+%
+Now, by Lemma~\ref{lem:p_interleave} we have the following commutative diagrams of persistence modules where all maps are induced by inclusions.\\
+
+\begin{subequations}
+  \begin{minipage}{0.45\linewidth}
+    \begin{equation}\label{eq:partial_left}
+      \begin{tikzcd}
+        \DD{\omega-3c\delta} \arrow{r}{\Gamma}\arrow{d}{F} &
+        \DD{\omega} \arrow{d}{G}\\
+        %
+        \E\PP{\omega-2c\delta}{\delta}\arrow{r}{\Lambda} &
+        \E\PP{\omega+c\delta}{2\delta}
+      \end{tikzcd}
+    \end{equation}
+  \end{minipage}
+  \begin{minipage}{0.45\linewidth}
+    \begin{equation}\label{eq:partial_right}
+      \begin{tikzcd}
+        \E\PP{\omega-2c\delta}{2\delta} \arrow{r}{\Lambda'}\arrow{d}{M} &
+        \E\PP{\omega+c\delta}{4\delta}\arrow{d}{N}\\
+        %
+        \DD{\omega} \arrow{r}{\Pi} &
+        \DD{\omega+5c\delta}
+      \end{tikzcd}
+    \end{equation}
+  \end{minipage}
+\end{subequations}\vspace{2ex}
+
+In the following let $\rips\Lambda\in\Hom(\RPP{\omega-2c\delta}{2\delta},\RPP{\omega+c\delta}{2\delta})$ be induced by inclusion.
+Clearly, $\Phi(F, G)$ is an image module homomorphism of degree $2c\delta$ and $\Psi(M, N)$ is an image module homomorphism of degree $4c\delta$.
+By Lemma~\ref{lem:rips_homomorphism_left} we have image module homomorphisms $\tilde{\Phi}(\Sigma_{\omega-2c\delta}^\delta, \Sigma_{\omega+c\delta}^{2\delta})$ and $\tilde{\Psi}(\Upsilon_{\omega-2c\delta}^{2\delta}, \Upsilon_{\omega+c\delta}^{4\delta})$.
+Therefore, by Lemma~\ref{lem:image_composition} we have image module homomorphisms
+\[ \rips\Phi := \tilde{\Phi}\circ\Phi\in\Hom^{2c\delta}(\im~\Gamma,\im~\rips\Lambda)\ \text{ and }\ \rips\Psi :=\Psi\circ\tilde{\Psi}\in\Hom^{4c\delta}(\im~\rips\Lambda, \im~\Pi)\] given by the compositions
+\[ \rips\Phi(\rips F, \rips G) := (\Sigma_{\omega-2c\delta}^\delta\circ F, \Sigma_{\omega+c\delta}^{2\delta}\circ G)\]
+and
+\[ \rips\Psi(\rips M, \rips N) := (M\circ \Upsilon_{\omega-2c\delta}^{2\delta}, N\circ\Upsilon_{\omega+c\delta}^{4\delta}).\]
+
+\begin{lemma}\label{lem:rips_factor_mid}
+  The pair $(\rips M, \rips G)$ factors $\rips\Lambda[4c\delta]$ through $\DD{\omega}$.
+\end{lemma}
+\begin{proof}
+  Let $\Theta\in\Hom(\ext{\PP{\omega-2c\delta}{2\delta}},\ext{\PP{\omega+c\delta}{2\delta}})$ and $\cech\Theta\in\Hom(\CPP{\omega-2c\delta}{2\delta}, \CPP{\omega+c\delta}{2\delta})$ be induced by inclusions so that $\Theta[4c\delta] = G\circ M$ and $\rips\Lambda = \I_{\omega+c\delta}^{2\delta}\circ\cech\Theta\circ\J_{\omega-2c\delta}^{2\delta}$.
+  So $\cech\Theta$ factors through $\Theta$ with the pair $(\E\N_{\omega-2c\delta}^{2\delta}, (\E\N_{\omega+c\delta}^{2\delta})^{-1})$ by Lemma~\ref{lem:pers_nerve}.
+  That is,
+  \begin{align*}
+    \rips\Lambda &= \I_{\omega+c\delta}^{2\delta}\circ\cech\Theta\circ\J_{\omega-2c\delta}^{2\delta}\\
+      &= (\I_{\omega+c\delta}^{2\delta}\circ (\E\N_{\omega+c\delta}^{2\delta})^{-1})\circ \Theta\circ (\E\N_{\omega-2c\delta}^{2\delta}\circ \J_{\omega-2c\delta}^{2\delta})\\
+      &= \Sigma_{\omega+c\delta}^{2\delta}\circ \Theta\circ \Upsilon_{\omega-2c\delta}^{2\delta}\\
+  \end{align*}
+  As $\Theta[4c\delta] = G\circ M$ the result follows from the definition
+  \[ \rips\Lambda[4c\delta] = (\Sigma_{\omega+c\delta}^{2\delta}\circ G)\circ (M\circ \Upsilon_{\omega-2c\delta}^{2\delta}) = \rips G\circ \rips M.\]
+\end{proof}
+
+\begin{corollary}\label{cor:rips_inter_left}
+  $\rips \Phi_{\rips M} := \tilde{\Phi}\circ \Phi\in\Hom^{2c\delta}(\im~\Gamma,\im~\rips\Lambda)$ is a partial $2c\delta$-interleaving of image modules.
+\end{corollary}
+\begin{proof}
+  Because $F,M$ are induced by inclusions and $\Upsilon_{\omega-2c\delta}^{2\delta}\circ \Sigma_{\omega-2c\delta}^{\delta}$ commutes with inclusion it follows that
+  \[\Gamma[3c\delta] = M\circ (\Upsilon_{\omega-2c\delta}^{2\delta}\circ \Sigma_{\omega-2c\delta}^{\delta})\circ F = \rips M\circ \rips F.\]
+  So $\rips\Phi$ with $\rips M$ is a left $2c\delta$-interleaving of image modules.
+  As Lemma~\ref{lem:rips_factor_mid} implies $\rips \Phi$ (with $\rips M$) is a right $2c\delta$-interleaving of image modules it follows that $\rips \Phi_{\rips M}$ is a partial $2c\delta$-interleaving of image modules.
+\end{proof}
+
+The proof of Corollary~\ref{cor:rips_inter_right} is identical to that of Corollary~\ref{cor:rips_inter_left}.
+
+\begin{corollary}\label{cor:rips_inter_right}
+  $\rips \Psi_{\rips G} := \Psi\circ\tilde{\Psi}\in\Hom^{4c\delta}(\im~\rips\Lambda, \im~\Pi)$ is a partial $4c\delta$-interleaving of image modules.
+\end{corollary}\begin{proof}
+  (See Appendix~\ref{apx:omit})
+\end{proof}
+\proofatend
+  % This proof is identical to that of Corollary~\ref{cor:rips_inter_left}.
+  Because $G,N$ are induced by inclusions and $\Upsilon_{\omega+c\delta}^{4\delta}\circ \Sigma_{\omega+c\delta}^{2\delta}$ commutes with inclusion
+  \[\Pi[6c\delta] = N\circ (\Upsilon_{\omega+c\delta}^{4\delta}\circ \Sigma_{\omega+c\delta}^{2\delta})\circ G = \rips N\circ \rips G.\]
+  So $\rips\Psi$ with $\rips G$ is a right $4c\delta$-interleaving of image modules.
+  As Lemma~\ref{lem:rips_factor_mid} implies $\rips \Psi$ (with $\rips G$) is a left $2c\delta$-interleaving of image modules it follows that $\rips \Psi_{\rips G}$ is a partial $4c\delta$-interleaving of image modules.
+\endproofatend
+
+\begin{theorem}\label{thm:interleaving_main_2}
+  Let $D\subset\X$ and $f : D\to\R$ be a $c$-Lipschitz function.
+  Let $\omega\in\R$, $\delta < \varrho_D/4$ be constants such that $B_{\omega-3c\delta}$ surrounds $D$ in $\X$.
+  Let $P\subset D$ be a finite subset and $Q_w := P\cap B_w$.
+  Suppose $\hom_k(B_{\omega-3c\delta}\hookrightarrow B_\omega)$ is surjective and $\hom_k(B_\omega)\cong\hom_k(B_{\omega+5c\delta})$ for all $k$.
+
+  If $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-2c\delta}^\delta$ surrounds $P^\delta$ in $D$ then the $k$th (relative) homology module of
+  \[\{\rips^{2\delta}(P\subi{\omega-2c\delta}{\alpha}, Q_{\omega-2c\delta})\hookrightarrow \rips^{4\delta}(P\subi{\omega+c\delta}{\alpha}, Q_{\omega+c\delta})\}_{\alpha\in\R}\]
+  $4c\delta$-interleaved with that of $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$.
+\end{theorem}
+\begin{proof}
+  Let $\Lambda\in\Hom(\RPP{\omega-2c\delta}{2\delta}, \RPP{\omega+c\delta}{4\delta})$ be induced by inclusions.
+  Because $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-2c\delta}^\delta$ surrounds $P^\delta$ in $D$ Diagrams~\ref{eq:partial_left} and~\ref{eq:partial_right} commute as all maps are induced by inclusions.
+  Moreover, because $\delta < \varrho_D/4$ the isomorphisms provided by the Nerve Theorem commute with inclusions by Lemma~\ref{lem:pers_nerve}.
+
+  % Let $\rips\Lambda \in\Hom(\RPP{\omega-2c\delta}{2c\delta}, \RPP{\omega+c\delta}{4c\delta})$ be induced by inclusions.
+  By Corollary~\ref{cor:rips_inter_left} $\rips \Phi_{\rips M}(\rips F, \rips G)\in\Hom^{2c\delta}(\im~\Gamma,\im~\rips\Lambda)$ is a partial $2c\delta$-interleaving of image modules.
+  Similarly, by Corollary~\ref{cor:rips_inter_right} $\rips \Psi_{\rips G} (\rips M,\rips N)\in\Hom^{4c\delta}(\im~\rips\Lambda, \im~\Pi)$ is a partial $4c\delta$-interleaving of image modules.
+
+  As we have assumed that $\hom_k(B_{\omega-3c\delta}\hookrightarrow B_\omega)$ is surjective and $\hom_k(B_\omega)\cong\hom_k(B_{\omega+5c\delta})$ the five-lemma implies $\gamma_\alpha$ is surjective and $\pi_\alpha$ is an isomorphism (and therefore injective) for all $\alpha$.
+  So $\Gamma$ is an epimorphism and $\Pi$ is a monomorphism, thus $\im~\rips\Lambda$ is $4c\delta$-interleaved with $\DD{\omega}$ by Lemma~\ref{thm:interleaving_main} as desired.
+\end{proof}
