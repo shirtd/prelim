@@ -4,15 +4,14 @@ In the topological analysis of scalar fields (SFA), one computes a topological s
 That is, we have points with distances and a real number assigned to each point.
 More generally, it usually suffices to have a neighborhood graph on the points identifying the pairs of points that close.
 The topological computation often takes the form of persistent homology and integrates the local information from the function into global information about the behavior of the function on the entire space.
-In prior work, Chazal et al.~\cite{XXX} showed that for sufficiently dense samples on sufficiently smooth spaces, the persistence diagram can be computed with some guarantees.
-In followup work, Buchet et al.~\cite{XXX} extended this result to show how to work with noisy inputs.
+In prior work, Chazal et al.~\cite{chazal09analysis} showed that for sufficiently dense samples on sufficiently smooth spaces, the persistence diagram can be computed with some guarantees.
+In followup work, Buchet et al.~\cite{buchet15topological} extended this result to show how to work with noisy inputs.
 A fundamental assumption required to have strong guarantees on the output of these methods is that the underlying space be sufficiently well-sampled.
 In this paper, we show how to combine scalar fields analysis with the theory of topological coverage testing to simultaneously compute the persistence diagram and also to test that the underlying space is sufficiently well-sampled.
 
-Initiated by De Silva and Ghrist~\cite{XXX,XXX,XXX}, the theory of homological sensor networks addresses the problem of testing coverage of a bounded domain by a collection of sensors without localization.
-The main result is the topological coverage criterion, which, in its most general form, states that under reasonable geometric assumptions, the $d$-dimensional homology of a pair of simplicial complex built on the neighborhood graph will be nontrivial if and only if there is sufficient coverage (see Section~\ref{sec:tcc} for the precise statements).
+Initiated by De Silva and Ghrist~\cite{desilva06coordinate,desilva07coverage,desilva07homological}, the theory of homological sensor networks addresses the problem of testing coverage of a bounded domain by a collection of sensors without coordinates.
+The main result is the topological coverage criterion, which, in its most general form, states that under reasonable geometric assumptions, the $d$-dimensional homology of a pair of simplicial complexes built on the neighborhood graph will be nontrivial if and only if there is sufficient coverage (see Section~\ref{sec:tcc} for the precise statements).
 This relative persistent homology test is called the Topological Coverage Criterion (TCC).
-Cavanna et al.~\ref{cavanna2017when} generalized the TCC to allow for more general spaces and robust coverage guarantees.
 
 Superficially, the methods of SFA and TCC are very similar.
 Both construct similar complexes and compute the persistent homology of the homological image of a complex on one scale into that of a larger scale.
@@ -21,8 +20,11 @@ However, they differ in some fundamental way that makes it difficult to combine 
 The main difference is that the TCC requires a clearly defined boundary.
 Not only must the underlying space be a bounded subset of $\R^d$, the data must also be labeled to indicate which input points are close to the boundary.
 This requirement is perhaps the main reason why the TCC can so rarely be applied in practice.
+Cavanna et al.~\ref{cavanna2017when} generalized the TCC to allow for more general spaces and robust coverage guarantees.
+That work gave a different approach to proving the correctness of the TCC which allows much more freedom in how the boundary is defined.
 
-Moreover, as a necessary but not sufficient condition for coverage there is room to question what can go wrong in the case of false positives.
-In fact, the efficacy of the condition relies on having enough sensors close enough to approximate the boundary in homology.
-This leads us to believe the condition checks for something more specific than coverage alone.
-Specifically, that we have a sample as well as a subsample that reflect the topology of the space and its boundary as a pair.
+
+% Moreover, as a necessary but not sufficient condition for coverage there is room to question what can go wrong in the case of false positives.
+% In fact, the efficacy of the condition relies on having enough sensors close enough to approximate the boundary in homology.
+% This leads us to believe the condition checks for something more specific than coverage alone.
+% Specifically, that we have a sample as well as a subsample that reflect the topology of the space and its boundary as a pair.
