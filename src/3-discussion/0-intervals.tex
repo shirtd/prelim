@@ -1,14 +1,25 @@
 % !TeX root = ../../main.tex
 
-In this section we consider the meaning of the $k$th persistent (relative) homology of a function $f : D\to \R$ modulo a fixed sub-levelset $B_\omega := f^{-1}((-\infty,\omega])$.
-Unlike previous work~\cite{cohen09extending} we do not consider the persistent relative homology of $D$ modulo the sub-levelset filtration $\{B_\alpha\}_{\alpha\in\R}$.
-Instead, we are interested in the role of a specific sub-levelset $B_\omega$ in the context of the long exact sequences of $f$ modulo $B_\omega$ throughout the sub-levelset filtration.
+% In this section we consider the meaning of the $k$th persistent (relative) homology of a function $f : D\to \R$ modulo a fixed sublevel set $B_\omega := f^{-1}((-\infty,\omega])$.
+% Unlike previous work~\cite{cohen09extending} we do not consider the persistent relative homology of $D$ modulo the sublevel set filtration $\{B_\alpha\}_{\alpha\in\R}$.
+% Instead, we are interested in the role of a specific sublevel set $B_\omega$ in the context of the long exact sequences of $f$ modulo $B_\omega$ throughout the sublevel set filtration.
 
-We find that the $k$th persistent (relative) homology of a function relative to a fixed sub-levelset $B_\omega$ is equal to the submodule of features born after $\omega$ with additional infinite $k$-dimensional features which are paired with $(k-1)$-dimensonal features that are born before $\omega$ and die after $\omega$ in the full diagram.
-Unlike the persistent homology of the restriction $f\rest_{D\setminus B_\omega}$ this approach leaves features of the full diagram that are born after $\omega$ unchanged.
+In this section we will relate the relative persistence diagram that we have approximated in the previous section to a truncation of the full diagram.
+% Recall that for fixed $\omega\in\R$ the \textbf{relative diagram} refers to the persistence diagram associated with the filtration $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$.
+% The \emph{full} diagram refers to that of the sublevel set filtration $\{B_\alpha\}_{\alpha\in\R}$ and the \textbf{truncated diagram (module)} refers to the subdiagram consisting of features born \emph{after} $\omega$.
+% Naturally, the relative and truncated persistence modules refer to the persistence modules of associated with these diagrams.
+Let $\LL^k$ denote the $k$th persistent homology module of the sublevel set filtration $\{B_\alpha\}_{\alpha\in\R}$.
+As in the previous section, let $\DD{\omega}^k$ denote the $k$th persistent (relative) homology module of $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$.
+Throughout we will assume that we are taking homology in a field $\FF$ and that the homology groups $\hom_k(B_\alpha)$ and $\hom_k(D\subi{\omega}{\alpha}, B_\omega)$ are finite dimensional vector spaces for all $k$ and $\alpha\in\R$.
+We will use the interval decomposition of $\LL^k$ to give a decomposition of the relative module $\DD{\omega}^k$ in terms of a \emph{truncation} of $\LL^k$.
+Recall, the \emph{truncated diagram} is defined to be that of $\LL^k$ consisting only of those features born after $\omega$.
+For fixed $\omega\in\R$ we will define the truncation $\T^k_\omega$ of $\LL^k$ in terms of the intervals decomposing $\LL^k$ that are in $[\omega, \infty)$.
 
-For lack of a better analogy, this has the effect of ``quarantining'' the persistent homology of the function below $\omega$.
-Our hypothesis is that, given the persistent homology of the function up to $\omega$, one can recover the full diagram by pairing specific infinite $(k-1)$-dimensional features of $f\rest_{B_\omega}$ with specific infinite $k$-dimensional features of $f\rest_{D\setminus B_\omega}$ modulo $B_\omega$ via the long exact sequence(s) of pairs $(D\subi{\omega}{\alpha}, B_\omega)$.
+% We find that the $k$th persistent (relative) homology of a function relative to a fixed sublevel set $B_\omega$ is equal to the submodule of features born after $\omega$ with additional infinite $k$-dimensional features which are paired with $(k-1)$-dimensonal features that are born before $\omega$ and die after $\omega$ in the full diagram.
+% Unlike the persistent homology of the restriction $f\rest_{D\setminus B_\omega}$ this approach leaves features of the full diagram that are born after $\omega$ unchanged.
+%
+% For lack of a better analogy, this has the effect of ``quarantining'' the persistent homology of the function below $\omega$.
+% Our hypothesis is that, given the persistent homology of the function up to $\omega$, one can recover the full diagram by pairing specific infinite $(k-1)$-dimensional features of $f\rest_{B_\omega}$ with specific infinite $k$-dimensional features of $f\rest_{D\setminus B_\omega}$ modulo $B_\omega$ via the long exact sequence(s) of pairs $(D\subi{\omega}{\alpha}, B_\omega)$.
 
 \paragraph{Restricted Interval Modules}
 
@@ -23,21 +34,21 @@ For a collection $\I$ of intervals let $\I_\omega := \{I\in\I\mid \omega\in I\}$
 % \subsection{Interval Decomposition of the Relative Module}
 %
 % In the following we will assume that, for $\omega\in\R$ and taking homology in a field $\FF$, the homology groups $\hom_k(B_\alpha)$ and $\hom_k(D\subi{\omega}{\alpha}, B_\omega)$ are finite dimensional vector spaces for all $k$ and $\alpha\in\R$.
-% Let $\LL^k$ denote the $k$th persistent homology module of the sub-levelset filtration $\{B_\alpha\}_{\alpha\in\R}$ of $f$.
+% Let $\LL^k$ denote the $k$th persistent homology module of the sublevel set filtration $\{B_\alpha\}_{\alpha\in\R}$ of $f$.
 % Because all homology groups are finite dimensional we can decompose $\LL^k$ into a direct sum of interval modules
 % \[ \LL^k = \bigoplus_{I\in\I^k} \FF^I.\] %\ \text{ and }\ \DD{\omega}^k = \bigoplus_{J\in\J^k} \FF^J\]
 % for some collection $\I^k$ of intervals $I\subseteq \R$ for all $k$.
-% As in the previous section, let $\DD{\omega}^k$ denote the $k$th persistent (relative) homology module of $\{(D\subi{\omega}{\alpha},B_\omega)\}_{\alpha\in\R}$, the sub-levelset filtration of $f$ modulo $B_\omega$.
+% As in the previous section, let $\DD{\omega}^k$ denote the $k$th persistent (relative) homology module of $\{(D\subi{\omega}{\alpha},B_\omega)\}_{\alpha\in\R}$, the sublevel set filtration of $f$ modulo $B_\omega$.
 % % Moreover, for all $\alpha\in\R$ we have
 % % \[ \hom_k(B_\alpha) = \bigoplus_{I\in \I^k}F_\alpha^I.\]%s\ \text{ and }\ \hom_k(D\subi{\omega}{\alpha}, B_\omega) = \bigoplus_{J\in\J^k} F_\alpha^J.\]
-% % the sub-levelset filtration $\{B_\alpha\}_{\alpha\in\R}$.
+% % the sublevel set filtration $\{B_\alpha\}_{\alpha\in\R}$.
 % % The following lemma decomposes the relative module $\DD{\omega}^k$ into the direct sum of the truncated module and a submodule consisting of infinite $k$-dimensional features that correspond to finite $(k-1)$-dimensional features of $\LL^k$ that are born before $\omega$ and die after $\omega$.
 
-\begin{lemma}
+\begin{lemma}\label{lem:decomposition}
   % If $\I^k, \I^{k-1}$ decompose $\LL^k$ and $\LL^{k-1}$ then
   % \[\DD{\omega}^k = \bigoplus_{I\in\I^k \cup \I^{k-1}_+} \FF_{\omega}^I = \LL_{\omega}^k \oplus \bigoplus_{I\in \I^{k-1}} \FF_{\omega}^{I_+}.\]
-  Let $f : D\to \R$ be a function and let $B_\alpha := f^{-1}((-\infty,\alpha])$ for all $\alpha\in\R$.
-  Suppose $\I^k$ is a collection of intervals that decompose the $k$th persistent homology module of the sublevel set filtration $\{B_\alpha\}_{\alpha\in\R}$ of $f$ for all $k$.
+  % Let $f : D\to \R$ be a function and let $B_\alpha := f^{-1}((-\infty,\alpha])$ for all $\alpha\in\R$.
+  Suppose $\I^k$ and $\I^{k-1}$ are collections of intervals that decompose $\LL^k$ and $\LL^{k-1}$, respectively.
   Then the $k$th persistent homology module of $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$ is equal to
   \[\bigoplus_{I\in\I^k} \FF_\omega^I \oplus \bigoplus_{I\in \I_\omega^{k-1}} \FF^{I_+}\]
   for all $k$.
@@ -107,15 +118,18 @@ For a collection $\I$ of intervals let $\I_\omega := \{I\in\I\mid \omega\in I\}$
 
 \subsection{Main Theorem}
 
-Let $\LL^k$ denote the $k$th persistent homology module of the sub-levelset filtration $\{B_\alpha\}_{\alpha\in\R}$ of $f$ and let $\I^k$ denote the decomposing intervals of $\LL^k$ for all $k$.
+Let $\LL^k$ denote the $k$th persistent homology module of the sublevel set filtration $\{B_\alpha\}_{\alpha\in\R}$ of $f$ and let $\I^k$ denote the decomposing intervals of $\LL^k$ for all $k$.
 For a fixed $\omega\in\R$ let $\DD{\omega}^k$ denote the $k$th persistent (relative) homology module of $\{(D\subi{\omega}{\alpha},B_\omega)\}_{\alpha\in\R}$.
 Let
 \[\T_\omega^k := \bigoplus_{I\in\I^k} \FF_\omega^I\]
-denote the \textbf{$\omega$-truncated $k$th persistent homology module} of $\LL^k$ and
-\[ \W_\omega^k := \bigoplus_{I\in \I_\omega^{k-1}} \FF^{I_+}.\]
-denote the submodule of $\DD{\omega}^k$ consisting of infinite $k$-dimensional features that correspond to finite $(k-1)$-dimensional features of $\LL^k$ that are born before $\omega$ and die after $\omega$.
-
-Our main theorem combines our coverage and interleaving results (Theorems~\ref{thm:algo_tcc} and~\ref{thm:interleaving_main_2}) as a method for certified approximation of the truncated persistence diagram.\textbf{TODO: GROSS}
+denote the \textbf{$\omega$-truncated $k$th persistent homology module} of $\LL^k$.
+Let
+\[ \LL_\omega^{k-1} := \bigoplus_{I\in \I_\omega^{k-1}} \FF^{I_+}.\]
+denote the submodule of $\DD{\omega}^k$ consisting of intervals $[\beta,\infty)$ corresponding to features $[\alpha,\beta)$ in $\LL^{k-1}$ such that $\alpha\leq\omega <\beta$.
+% denote the submodule of $\DD{\omega}^k$ consisting of infinite $k$-dimensional features that correspond to finite $(k-1)$-dimensional features of $\LL^k$ that are born before $\omega$ and die after $\omega$.
+Now, by Lemma~\ref{lem:decomposition} the $k$th persistent (relative) homology module of $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$ is
+\[ \DD{\omega}^k = \T_\omega^k\oplus \LL_\omega^{k-1}.\]
+Our main theorem combines this decomposition with our coverage and interleaving results of Theorems~\ref{thm:algo_tcc} and~\ref{thm:interleaving_main_2}.% as a method for certified approximation of the truncated persistence diagram.\textbf{TODO: GROSS}
 
 \begin{theorem}\label{thm:main}
   Let $\X$ be an orientable $d$-manifold and let $D$ be a compact subset of $\X$.
@@ -127,6 +141,6 @@ Our main theorem combines our coverage and interleaving results (Theorems~\ref{t
     \[\rk~\hom_d(\rips^\delta(P, Q_{\omega - 2c\delta})\hookrightarrow \rips^{2\delta}(P, Q_{\omega+c\delta})) \geq \dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-2c\delta}))\]
   then the $k$th (relative) homology module of
   \[\{\rips^{2\delta}(P\subi{\omega-2c\delta}{\alpha}, Q_{\omega-2c\delta})\hookrightarrow \rips^{4\delta}(P\subi{\omega+c\delta}{\alpha}, Q_{\omega+c\delta})\}_{\alpha\in\R}\]
-  is $4c\delta$-interleaved with $\T_{\omega}^k \oplus \W_\omega^k$.
+  is $4c\delta$-interleaved with $\T_{\omega}^k \oplus \LL_\omega^{k-1}$: the $k$th persistent homology module of $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$.
    % that of $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$.
 \end{theorem}
