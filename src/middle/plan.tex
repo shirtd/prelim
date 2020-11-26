@@ -1,12 +1,13 @@
 % !TeX root = ../../main.tex
 
 Our re-statement of the TCC in terms of a surrounding sub-levelset of a function $f$ sets us up with most of the machinery we need to approximate its persistent homology.
-However, as the TCC only confirms coverage of the \emph{super}-levelset $D\setminus B_\omega$, we cannot guarantee that we cover the entire domain.
+However, because the TCC only confirms coverage of a \emph{superlevel} set $D\setminus B_\omega$, we cannot guarantee coverage of the entire domain.
 % However, assuming we have a sample that satisfies the TCC we do not know that we cover the entire domain, but only the \emph{super-levelset} $D\setminus B_\omega$.
 % As we would like to analyze the persistent homology of $f$ in a way that extends the TCC we will not approximate the persistence of this \emph{restriction} of $f$ using techniques from previous work~\cite{chazal09analysis}.
-Indeed, we could compute the persistent homology of the \emph{restriction} of $f$ to this super-levelset, or that of the super-levelset filtration down to $\omega$ using previous work~\cite{chazal09analysis}.
-As we would like to analyze the persistent homology of $f$ in a way that extends the TCC we will instead approximate the persistent homology of the sub-levelset filtration \emph{relative to} the sub-levelset $B_\omega$.
-That is, we will compute the relative persistent homology of $f$ with respect to a \emph{static} sub-levelset $B_\omega$.
+Indeed, we could compute the persistent homology of the \emph{restriction} of $f$ to the superlevel set we cover in the standard way~\cite{chazal09analysis}.% , or that of the super-levelset filtration down to $\omega$ using previous work~\cite{chazal09analysis}.
+As we would like to analyze the persistent homology of $f$ in a way that extends the TCC
+Instead, we will approximate the persistent homology of the sublevel set filtration \emph{relative to} the sublevel set $B_\omega$.
+That is, we will compute the relative persistent homology of $f$ with respect to a \emph{static} sublevel set $B_\omega$.
 
 \begin{figure}[htbp]
   \centering
@@ -32,13 +33,15 @@ That is, we will compute the relative persistent homology of $f$ with respect to
 
 We will first introduce the notion of an extension which will provide us with maps on relative homology induced by inclusion via excision.
 However, even then, a map that factors through our pair $(D, B_\omega)$ is not enough to prove an interleaving of persistence modules by inclusion directly.
-To address this we impose conditions on sub-levelsets near $B_\omega$ which generalize the assumptions made in the TCC on maps induced by the inclusions
+To address this we impose conditions on sublevel sets near $B_\omega$ which generalize the assumptions made in the TCC on maps induced by the inclusions
 \[ D\setminus B_{\omega+c(\delta+\zeta)}\hookrightarrow D\setminus B_\omega\hookrightarrow D\setminus B_{\omega-c(\delta+\zeta)}\]
 on $0$-dimensional homology, to assumptions on maps induced by the corresponding inclusions
 \[ B_{\omega-c(\delta+\zeta)}\hookrightarrow B_\omega\hookrightarrow B_{\omega+c(\delta+\zeta)}\]
 on homology in all dimensions $k$.
-We therefore introduce image modules and partial interleaving as a way to use these assumptions to prove an interleaving.
+To ease exposition we will introduce partial interleavings of image modules as a way to use these assumptions in our proof. % in the interleaving proof.
+Section~\ref{sec:interleaving} will then set up notation and prove the interleaving in the geometric context introduced in section~\ref{sec:geo_tcc}.
+% We therefore introduce image modules and partial interleaving as a way to use these assumptions to prove an interleaving.
 
-Section~\ref{sec:interleaving} will set up notation and prove the interleaving in the geometric context introduced in section~\ref{sec:geo_tcc}.
-We will then discuss how the resulting diagram is related to the \emph{truncated} diagram of $f$---the subdiagram of $f$ after $\omega$.
-Finally, we will compare this with the diagram of the function \emph{restricted} to the covered region, and show how approximations of the truncated diagram are better suited in certain cases.
+% Section~\ref{sec:interleaving} will set up notation and prove the interleaving in the geometric context introduced in section~\ref{sec:geo_tcc}.
+% We will then discuss how the resulting diagram is related to the \emph{truncated} diagram of $f$---the subdiagram of $f$ after $\omega$.
+% Finally, we will compare this with the diagram of the function \emph{restricted} to the covered region, and show how approximations of the truncated diagram are better suited in certain cases.
