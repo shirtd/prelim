@@ -18,25 +18,29 @@ For $\omega\in\R$ let $\FF_{\omega}^I$ denote the interval module consisting of 
 For a collection $\I$ of intervals let $\I_\omega := \{I\in\I\mid \omega\in I\}$.
 
 
-% \subsection{Decomposing the Persistent Relative Homology Module of Function Modulo a Sub-levelset}
-% \paragraph{
-\subsection{Interval Decomposition of the Relative Module}
-
-In the following we will assume that, for $\omega\in\R$ and taking homology in a field $\FF$, the homology groups $\hom_k(B_\alpha)$ and $\hom_k(D\subi{\omega}{\alpha}, B_\omega)$ are finite dimensional vector spaces for all $k$ and $\alpha\in\R$.
-Let $\LL^k$ denote the $k$th persistent homology module of the sub-levelset filtration $\{B_\alpha\}_{\alpha\in\R}$ of $f$.
-Because all homology groups are finite dimensional we can decompose $\LL^k$ into a direct sum of interval modules
-\[ \LL^k = \bigoplus_{I\in\I^k} \FF^I.\] %\ \text{ and }\ \DD{\omega}^k = \bigoplus_{J\in\J^k} \FF^J\]
-for some collection $\I^k$ of intervals $I\subseteq \R$ for all $k$.
-As in the previous section, let $\DD{\omega}^k$ denote the $k$th persistent (relative) homology module of $\{(D\subi{\omega}{\alpha},B_\omega)\}_{\alpha\in\R}$, the sub-levelset filtration of $f$ modulo $B_\omega$.
-% Moreover, for all $\alpha\in\R$ we have
-% \[ \hom_k(B_\alpha) = \bigoplus_{I\in \I^k}F_\alpha^I.\]%s\ \text{ and }\ \hom_k(D\subi{\omega}{\alpha}, B_\omega) = \bigoplus_{J\in\J^k} F_\alpha^J.\]
-% the sub-levelset filtration $\{B_\alpha\}_{\alpha\in\R}$.
-% The following lemma decomposes the relative module $\DD{\omega}^k$ into the direct sum of the truncated module and a submodule consisting of infinite $k$-dimensional features that correspond to finite $(k-1)$-dimensional features of $\LL^k$ that are born before $\omega$ and die after $\omega$.
+% % \subsection{Decomposing the Persistent Relative Homology Module of Function Modulo a Sub-levelset}
+% % \paragraph{
+% \subsection{Interval Decomposition of the Relative Module}
+%
+% In the following we will assume that, for $\omega\in\R$ and taking homology in a field $\FF$, the homology groups $\hom_k(B_\alpha)$ and $\hom_k(D\subi{\omega}{\alpha}, B_\omega)$ are finite dimensional vector spaces for all $k$ and $\alpha\in\R$.
+% Let $\LL^k$ denote the $k$th persistent homology module of the sub-levelset filtration $\{B_\alpha\}_{\alpha\in\R}$ of $f$.
+% Because all homology groups are finite dimensional we can decompose $\LL^k$ into a direct sum of interval modules
+% \[ \LL^k = \bigoplus_{I\in\I^k} \FF^I.\] %\ \text{ and }\ \DD{\omega}^k = \bigoplus_{J\in\J^k} \FF^J\]
+% for some collection $\I^k$ of intervals $I\subseteq \R$ for all $k$.
+% As in the previous section, let $\DD{\omega}^k$ denote the $k$th persistent (relative) homology module of $\{(D\subi{\omega}{\alpha},B_\omega)\}_{\alpha\in\R}$, the sub-levelset filtration of $f$ modulo $B_\omega$.
+% % Moreover, for all $\alpha\in\R$ we have
+% % \[ \hom_k(B_\alpha) = \bigoplus_{I\in \I^k}F_\alpha^I.\]%s\ \text{ and }\ \hom_k(D\subi{\omega}{\alpha}, B_\omega) = \bigoplus_{J\in\J^k} F_\alpha^J.\]
+% % the sub-levelset filtration $\{B_\alpha\}_{\alpha\in\R}$.
+% % The following lemma decomposes the relative module $\DD{\omega}^k$ into the direct sum of the truncated module and a submodule consisting of infinite $k$-dimensional features that correspond to finite $(k-1)$-dimensional features of $\LL^k$ that are born before $\omega$ and die after $\omega$.
 
 \begin{lemma}
-  If $\I^k, \I^{k-1}$ decompose $\LL^k$ and $\LL^{k-1}$ then
+  % If $\I^k, \I^{k-1}$ decompose $\LL^k$ and $\LL^{k-1}$ then
   % \[\DD{\omega}^k = \bigoplus_{I\in\I^k \cup \I^{k-1}_+} \FF_{\omega}^I = \LL_{\omega}^k \oplus \bigoplus_{I\in \I^{k-1}} \FF_{\omega}^{I_+}.\]
-  \[\DD{\omega}^k = \bigoplus_{I\in\I^k} \FF_\omega^I \oplus \bigoplus_{I\in \I_\omega^{k-1}} \FF^{I_+}.\]
+  Let $f : D\to \R$ be a function and let $B_\alpha := f^{-1}((-\infty,\alpha])$ for all $\alpha\in\R$.
+  Suppose $\I^k$ is a collection of intervals that decompose the $k$th persistent homology module of the sublevel set filtration $\{B_\alpha\}_{\alpha\in\R}$ of $f$ for all $k$.
+  Then the $k$th persistent homology module of $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$ is equal to
+  \[\bigoplus_{I\in\I^k} \FF_\omega^I \oplus \bigoplus_{I\in \I_\omega^{k-1}} \FF^{I_+}\]
+  for all $k$.
 \end{lemma}
 
 \begin{proof}

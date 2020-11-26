@@ -1,60 +1,71 @@
 % !TeX root = ../main.tex
 
-% Homology provides a collection of invariants that represent global properties of a space.
-% Under specific assumptions the presence of a property can be assumed when the space itself is largely unknown.
-% Then, given a sample of an unknown space satisfying these assumptions, once can use the homology of the sample in order to confirm it is representative of the space with respect to that property.
+Throughout, let $\X$ denote an orientable $d$-manifold and $D\subset\X$ a compact subspace.
+For a $c$-Lipschitz functon $f : D\to \R$ let $B_\alpha := f^{-1}((-\infty,\alpha])$ denote the $\alpha$-sublevel set of $f$ for all $\alpha\in\R$.
+We will select a sublevel set $B_\omega$ to serve as our boundary.
+Specifically, we require that $B_\omega$ \emph{surrounds} $D$, where the notion of a surrounding set is defined formally in Section~\ref{sec:tcc}.
+This distinction allows us to generalize the standard proof of the TCC to properties of surrounding pairs.
+
+Our sample will be denoted $P$, and the subset of points sampling $B_\alpha$ will be denoted $Q_\alpha := P\cap B_\alpha$.
+As a minimal assumption we require that every component of $D\setminus B_\omega$ contains a point in $P$.
+We also make additional technical assumptions on $P$ with respect to the pair $(D, B_\omega)$ (see Lemma~\ref{lem:duality_apply}, Appendix~\ref{apx:duality}).
+% We make the following assumptions on our sample $P$ with respect to the pair $(D,B_\omega)$ for a constant $\delta < \varrho_D/4$:
+% \begin{itemize}
+%   \item Each component of $D\setminus B_\omega$ contains a point in $P$,
+%   \item $P^\delta\subset \intr_\X(D)$,
+%   \item $D\setminus Q_{\omega-2c\delta}^\delta$, $D\setminus Q_{\omega+c\delta}^\delta$, and $D\setminus P^\delta$ are locally path connected.
+% \end{itemize}
+% This last assumption is a technicality that is required to apply Alexander Duality (see Lemma~\ref{lem:duality_apply}, Appendix~\ref{apx:duality}).
 %
-% The Topological Coverage Criterion (TCC) is one example of this technique in which homology can be used in order to verify that a collection of subsets provided by a sample covers the space.
-% Specifically, by assuming the top dimensional relative homology is known one can check that of the sample is what we expect in order to certify coverage by relating the top dimensional relative to the boundary of a space to the zero dimensional homology of the complement.
+Theorem~\ref{thm:algo_tcc} states that for any sublevel set $B_\omega$ that surrounds $D$ such that
+\begin{enumerate}
+  \item $\hom_0(D\setminus B_{\omega+5c\delta}\hookrightarrow D\setminus B_\omega)$ is \emph{surjective},
+  \item $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega-3c\delta})$ is \emph{injective}.
+\end{enumerate}
+the condition
+\[ \rk~\hom_d(\rips^\delta(P, Q_{\omega - 2c\delta})\hookrightarrow \rips^{2\delta}(P, Q_{\omega+c\delta}))\geq \hom_0(\rips^\delta(P\setminus Q_{\omega-2c\delta})) \]
+implies not only that $D\setminus B_\omega\subseteq P^\delta$, but also that $Q_{\omega-2c\delta}^\delta$ surrounds $P^\delta$ in $D$.
+\footnote{We state this result using constants that will be used to prove the interleaving.
+  The statement of Theorem~\ref{thm:algo_tcc} parameterizes the region around $\omega$ in terms of $\zeta\geq\delta$ as $[\omega-c(\delta+\zeta),\omega+c(\delta+\zeta)]$.}
 
-% The assumptions made about the boundary are central to the TCC.
-% While it certainly demonstrates an interesting application of homology to coordinate-free sensor networks these assumptions are unrealistic in practice.
-% Specifically, it requires that sensors are capable of detecting the physical presence of a boundary.
-% In a coordinate-free setting, where sensors are unable to measure distance nor communicate their coordinates, this requirement seems unnatural.
+In other words, this formulation of the TCC states that our approximation by a nested pairs of Rips complexes captures the homology of the pair $(D,B_\omega)$ in a specific way.
+% We can use this fact to construct an interleaving between an approximation of the function $f$ by Rips complexes and filtration $\{(D_\alpha\cup B_\omega, B_\omega)\}_{\alpha\in\R}$.
+% The resulting (relative) persistent homology modules capture the persistent homology of the sublevel set filtration relative to a specific sublevel set $B_\omega$.
+% This sublevel set, along with its approximation by the inclusion $Q_{\omega - 2c\delta}^\delta\hookrightarrow Q_{\omega+c\delta}^\delta$, are \emph{static} throughout the filtration.
+% To deal with the challenges of interleaving static elements we generalize the regularity assumptions on the zero dimensional homology of the superlevel sets $D\setminus B_{\omega+5c\delta}$ and $D\setminus B_{\omega-3c\delta}$ to assumptions about the corresponding \emph{sublevel} sets $B_{\omega+5c\delta}$ and $B_{\omega-3c\delta}$.
+We can use this fact to prove an interleaving with the filtration $\{(D_\alpha\cup B_\omega, B_\omega)\}_{\alpha\in\R}$.
+This is done by generalizing our regularity assumptions near $D\setminus B_\omega$ in a way that allows us to interleave persistence modules relative to a static submodule.
+Specifically, given a sample $P$ and constants $\omega\in\R$, $\delta < \varrho/4$ that satisfy the TCC, Theorem~\ref{thm:interleaving_main_2} states that whenever
+\begin{enumerate}
+  \item $\hom_k(B_{\omega-3c\delta}\hookrightarrow B_\omega)$ is \emph{surjective} and
+  \item $\hom_k(B_\omega\hookrightarrow B_{\omega+5c\delta})$ is an \emph{isomorphism}
+\end{enumerate}
+for all $k$ the persistent homology modules of
+\[ \{\rips^{2\delta}(P_\alpha\cup Q_{\omega-2c\delta}, Q_{\omega-2c\delta})\hookrightarrow \rips^{4\delta}(P_\alpha\cup Q_{\omega+c\delta}, Q_{\omega+c\delta})\}_{\alpha\in\R}\]
+and $\{(D_\alpha\cup B_\omega, B_\omega)\}_{\alpha\in\R}$ are $4c\delta$ interleaved.
 
-We will re-cast the TCC as a way to verify that a collection of sample points can adequately approximate an unknown function in an unknown space.
-Consider the application to sensor networks as an example, where we take our sample points as sensors dropped in an unknown environment.
-We now endow our sensors with the ability to measure some unknown quantity that is related to metric of the space in a specific way (Lipschitz).
-In this way we can replace the requirement that sensors can detect the presence of the true topological boundary with assumptions about the function itself.
-Indeed, these assumptions could relate the behavior of the function to the topological boundary of the space.
-However, the condition holds for any subset which ``surrounds'' the space in a specific sense~\cite{cavanna2017when}.
+The main challenges we face come from the fact that the sublevel set $B_\omega$ and our approximation by the inclusion $\rips^{2\delta}(Q_{\omega-2c\delta})\hookrightarrow \rips^{4\delta}(Q_{\omega+c\delta})$ remain \emph{static} throughout.
+Using the fact that $Q_{\omega-2c\delta}^\delta$ surrounds $P^\delta$ in $D$ we define an \emph{extension} $(D,\E Q_{\omega-2c\delta}^\delta)$ of the pair $(P^\delta, Q_{\omega-2c\delta}^\delta)$ that has isomorphic relative homology by excision.
+These extensions give us the following sequence of inclusion maps
+\[ B_{\omega-3c\delta}\hookrightarrow \E Q_{\omega-2c\delta}^{2\delta}\hookrightarrow B_\omega\hookrightarrow \E Q_{\omega+c\delta}^{4\delta}\hookrightarrow B_{\omega+5c\delta}\]
+that can be used along with our regularity assumptions in terms to prove the interleaving using so-called \emph{partial interleavings} of image persistence modules.
 
-The TCC uses these assumptions to make the \emph{relative} homology known.
-Specifically, we can confirm coverage of the ``interior'' of the space by effectively quarantining the surrounding space we take homology with respect to.
-We take this property of relative homology, which can be understood in terms of excision, to its logical extreme.
-We consider the case in which we have incomplete data for a particular sub-levelset of the function.
-Returning to our sensor network analogy, suppose our sensors measure heat, or some other volatile quantity, and cannot approach a region without failing.
-By properly isolating the region, taken as a sub-levelset of the function, we can confirm that the sample we have is topologically representative of the region near, and above this sub-levelset.
-We can then re-use the same machinery that was used to verify coverage to analyze a \emph{part} of the function in a very specific way.
+\paragraph{Outline of Sections~\ref{sec:tcc} and~\ref{sec:middle}}
 
-% In a superficial sense, the assumptions and machinery required to approximate a function's persistent homology are precisely those confirmed and constructed in the TCC. %\footnote{\textbf{TODON} worst sentence ever, but exactly what I want to say. Also I stole ``superficial'' from your intro because it's perfect. Maybe some of your intro can fill this in.}.
+We will begin with our reformulation of the TCC in Section~\ref{sec:tcc}.
+This requires introducing the notion of a surrounding set before proving the Geometric TCC, and the computable Algorithmic TCC in Theorem~\ref{thm:algo_tcc}.
+Section~\ref{sec:middle} formally introduces extensions, image persistence modules, and partial interleavings which will be used in the proof of the interleaving in Theorem~\ref{thm:interleaving_main_2}.
+% In Section~\ref{sec:truncations} we address the meaning of the persistent homology relative to a sublevel set and relate it to the sublevel set filtration as a \emph{truncation}.
+% Finally, Section~\ref{sec:experiments} investigates the relationships between the relative, truncated, and restricted persistence diagrams through a number of experiments.
 
-While the approximation of a function's persistent homology is well studied in general~\cite{chazal08towards}, the presence of incomplete data can severely impact the quality of the approximation.
-This is primarily due to the nature of homology as a measure of \emph{global} structure.
-While the obvious solution is to simply remove the un-verified data, the question of what precisely this would approximate is important to consider.
-By simply restricting the function to the verified \emph{super}-levelset we accept that there may be global structure to the function itself that we are missing.
-If we are then provided with the missing data it may prove more difficult to reconstruct the full diagram in this case.
-
-We consider the persistent homology relative to a sub-levelset as a \emph{truncation} of the full diagram.
-That is, beyond a certain point the full diagram remains unchanged, allowing for possible reconstruction.
-This is in comparison to the persistent homology of the \emph{restricted} function, which fills in missing global structure with potentially spurious features.
-Indeed, it can be shown that the truncated diagram is captured by the restriction in a specific way~\cite{cohen09extending, desilva11duality}.
-We hypothesize that the approximation of the restricted function directly provides a worse interleaving with the corresponding subset of the \emph{full} diagram
-
-We will first provide some background on important topological, geometric, and algebraic structures required for our re-formulation of the TCC, and the approximation of the truncated diagram.
-We then introduce the notion of a \emph{surrounding set}, or pair, which will be central in or re-formulation of the TCC.
-Section~\ref{sec:middle} establishes the algebraic tools that will be used to approximate the truncated diagram, and discuss how they fit in the context of the TCC.
-After providing the proof of the interleaving in Section~\ref{sec:interleaving} we discuss the meaning and significance of truncated diagrams, and compare them to the diagrams of restricted functions.
-
-
-\begin{figure}[htbp]
-  \centering
-  % \includegraphics[trim=50 190 0 200, clip, scale=0.2]{scripts/figures/scalar.png}
-  % \includegraphics[trim=100 25 75 0, clip, angle=280, scale=0.25]{scripts/figures/scalar_contour.png}
-  \includegraphics[trim=200 200 200 200, clip, width=0.5\textwidth]{scripts/figures/surf/side.png}
-  \includegraphics[trim=200 0 200 200, clip, width=0.3\textwidth]{scripts/figures/surf/top.png}
-  \includegraphics[scale=0.75]{scripts/figures/scalar_barcode_true.png}
-  % \includegraphics[trim=0 310 270 0, clip, scale=0.8]{scripts/figures/scalar_restricted.png}
-  % \includegraphics[scale=0.55]{scripts/figures/scalar_barcode_super_0.png}
-  % \includegraphics[scale=0.55]{scripts/figures/scalar_barcode_sub_1.png}
-\end{figure}
+% Specifically, we will select constants $\delta\leq\zeta < \varrho_D/2$ such that, granted the assumptions detailed~\textbf{TODO}, coverage of  can be confirmed by verifying
+%
+% Theorem~\ref{thm:algo_tcc} uses this condition, along with the established properties of surrounding pairs, to confirm that $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ in $D$ in addition to coverage.
+% This allows us to apply excision to \emph{extend} the pair $(P^\delta, Q_{\omega-c\zeta}^\delta)$ to the pair $(D, \E Q_{\omega-c\zeta}^\delta)$ surrounding $D$ in $\X$.
+% The resulting inclusion maps facilitate our interleaving of the persistent (relative) homology of $f$ on the pair $(D, B_\omega)$ to that of our sample.
+%
+% Section~\ref{sec:middle} formally establishes the notion of an extension of a surrounding pair before introducing image modules, and \emph{partial interleavings}.
+% These partial interleavings are required due to the static natto relate our approximated boundary \textbf{fuck}%$Q_{\omega-}
+%
+% At this point we have a set of points $P$ that covers a subset (a \emph{superlevel}-set of $f$) $D\setminus B_\omega$ at scale $\delta$ and a subcover provided by a set of points $Q_{\omega-c\zeta}$ that \emph{surrounds} $P^\delta$ in $D$ at scale $\delta$.
+% We can show that the fact that $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ implies that we can apply excision in a way that provides inclusion maps $(D,B_{\omega-c(\delta-\zeta)})\hookrightarrow (D, \E Q_{\omega-c\zeta})\hookrightarrow (D, B_\omega)$ such that the homology of $(D, \E Q_{\omega-c\zeta})$ is isomorphic to that of $(P^\delta, Q_{\omega-c\zeta}^\delta)$\textbf{fuck}
