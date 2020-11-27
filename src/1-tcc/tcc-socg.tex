@@ -1,5 +1,16 @@
 % !TeX root = ../../main_socg.tex
 
+The TCC uses the top-dimensional relative homology of a space $D$ with respect to its boundary $B$ to provide a computable condition for coverage.
+Under certain conditions Alexander Duality can be used to relate this to the number of connected components of its complement in some larger space $\X$.
+% Under certain conditions it can be shown that the rank of this group is equal to the number of connected components of its complement in some larger space $\X$ by Alexander Duality.
+One can then check if a collection of subsets covers the space by comparing the number of connected components of its complement to that of the space---holes in the cover will appear as additional components in the complement space.
+As we cannot compute the number components of the complement space from a sample directly, the TCC uses duality to recover it from the top dimensional relative homology.
+However, this requires that we have a subset $Q$ of our cover to serve as the boundary.
+That is, a positive result indicates that we not only have coverage, but also that we have a pair of spaces that reflects the pair $(D, B)$ topologically.
+We call such a pair a \emph{surrounding pair} defined in terms of separating sets.
+It has been shown that the TCC can be stated in terms of these surrounding pairs~\cite{cavanna2017when}, which allows us enough flexibility to define our surrounding set as a sublevel set of a $c$-Lipschitz function $f$.
+Moreover, this work made assumptions directly in terms of the \emph{zero dimensional} persistent homology of the domain close to the boundary.
+
 \begin{definition}[Surrounding Pair]
   Let $X$ be a topological space and $(D,B)$ a pair in $X$.
   The set $B$ \textbf{surrounds $D$ in $X$} if $B$ separates $X$ with the pair $(D\setminus B, X\setminus D)$.
@@ -86,39 +97,40 @@ We therefore must introduce a larger space $B_{\omega+c(\delta+\zeta)}$ that con
   \hom_0(\cmp{\Q^\of}, \cmp{P^\of}).
 \end{tikzcd}\end{equation}
 
-\paragraph{Assumptions}
+\paragraph*{Assumptions}
 
 We will first require the map $\hom_0(D\setminus B_{\omega+c(\delta+\zeta)}\hookrightarrow D\setminus B_\omega)$ to be \emph{surjective}---as we approach $\omega$ from \emph{above} no components \emph{appear}.
 This ensures that the rank of the map $j$ is equal to the dimension of $\dim~\hom_0(\cmp{B_\omega}, \cmp{D})$ so our map $\ell$ induced by inclusion depends only on $\hom_0(\cmp{B_\omega}, \cmp{D})$ and $\im~i$.
 % That is, in terms of $\omega$ as a super-levelset monotonically decreasing, no components \emph{apear} right \emph{before} $\omega$.
 % We note that, for a function in two dimensions, this translates to $1$-dimensional features disappearing right after $\omega$ in the sub-levelset filtration, as shown in Figure~\ref{fig:assumption1}.
 
-\begin{figure}[htbp]\label{fig:assumption1}
-  \centering
-  \includegraphics[trim=200 300 200 200, clip, width=0.5\textwidth]{scripts/figures/surf/ass1_C_side.png}
-  \includegraphics[trim=300 150 200 200, clip, width=0.3\textwidth]{scripts/figures/surf/ass1_C_top.png}
-  \includegraphics[trim=200 300 200 200, clip, width=0.5\textwidth]{scripts/figures/surf/ass1_D_side.png}
-  \includegraphics[trim=300 150 200 200, clip, width=0.3\textwidth]{scripts/figures/surf/ass1_D_top.png}
-  \includegraphics[scale=0.7]{scripts/figures/scalar_barcode_H1-masked.png}
-  \caption{\textbf{(Assumption 1)} The blue levelset does not satisfy Assumption 1 as the smaller component is ``pinched out'' in the orange region.}
-            % This can be seen in the barcode shown as a feature that dies in the purple region.}
-\end{figure}
-
 We also assume that $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega-c(\delta+\zeta)})$ is \emph{injective}---as we move away from $\omega$ moving \emph{down} no components \emph{disappear}.
 Lemma~\ref{lem:assumption2} uses Assumption 2 to provide a computable upper bound on $\rk~j$, its proof can be found in the full version of this paper.
 % Once again, in terms of $\omega$ as a superlevel set monotonically decreasing, no components \emph{disappear} right \emph{after} $\omega$.
 % Once again, for a function in two dimensions, this translates to features in dimension 1 appearing before $\omega$ is the sublevel set filtration, as shown in Figure~\ref{fig:assumption2}.
 
-\begin{figure}[htbp]\label{fig:assumption2}
+\begin{figure}[htbp]\label{fig:assumption1}
   \centering
-  \includegraphics[trim=200 300 200 200, clip, width=0.5\textwidth]{scripts/figures/surf/ass2_C_side.png}
-  \includegraphics[trim=300 200 200 200, clip, width=0.3\textwidth]{scripts/figures/surf/ass2_C_top.png}
-  \includegraphics[trim=200 300 200 200, clip, width=0.5\textwidth]{scripts/figures/surf/ass2_B_side.png}
-  \includegraphics[trim=300 200 200 200, clip, width=0.3\textwidth]{scripts/figures/surf/ass2_B_top.png}
-  \includegraphics[scale=0.7]{scripts/figures/scalar_barcode_H1-masked.png}
-  \caption{\textbf{(Assumption 2)} The blue levelset does not satisfy Assumption 2 as the smaller component is not in the inclusion from blue to green.}
-          % This can be seen in the second feature of the barcode shown as a feature which is born in the blue region.}
+  \includegraphics[trim=200 300 200 200, clip, width=0.3\textwidth]{scripts/figures/surf/ass2_B_side.png}
+  \includegraphics[trim=200 300 200 200, clip, width=0.3\textwidth]{scripts/figures/surf/ass1_C_side.png}
+  \includegraphics[trim=200 300 200 200, clip, width=0.3\textwidth]{scripts/figures/surf/ass1_D_side.png}
+  \includegraphics[trim=300 100 200 200, clip, width=0.3\textwidth]{scripts/figures/surf/ass2_B_top.png}
+  \includegraphics[trim=300 150 300 200, clip, width=0.3\textwidth]{scripts/figures/surf/ass1_C_top.png}
+  \includegraphics[trim=300 150 300 200, clip, width=0.3\textwidth]{scripts/figures/surf/ass1_D_top.png}
+  \includegraphics[width=0.5\textwidth]{scripts/figures/scalar_barcode_H1-masked.png}
+  \caption{The blue level set does not satisfy either assumption as the smaller component is not in the inclusion from blue to green and it ``pinched out'' in the yellow region. This can be seen in the barcode shown as a feature that is born in the blue region and dies in the purple region.}
 \end{figure}
+
+% \begin{figure}[htbp]\label{fig:assumption2}
+%   \centering
+%   \includegraphics[trim=200 300 200 200, clip, width=0.5\textwidth]{scripts/figures/surf/ass2_C_side.png}
+%   \includegraphics[trim=300 200 200 200, clip, width=0.3\textwidth]{scripts/figures/surf/ass2_C_top.png}
+%   \includegraphics[trim=200 300 200 200, clip, width=0.5\textwidth]{scripts/figures/surf/ass2_B_side.png}
+%   \includegraphics[trim=300 200 200 200, clip, width=0.3\textwidth]{scripts/figures/surf/ass2_B_top.png}
+%   \includegraphics[scale=0.7]{scripts/figures/scalar_barcode_H1-masked.png}
+%   \caption{\textbf{(Assumption 2)} The blue levelset does not satisfy Assumption 2 as the smaller component is not in the inclusion from blue to green.}
+%           % This can be seen in the second feature of the barcode shown as a feature which is born in the blue region.}
+% \end{figure}
 
 \begin{lemma}\label{lem:assumption2}
   If $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega+c(\delta+\zeta)})$ is injective and each component of $D\setminus B_\omega$ contains a point in $P$ then $\dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-c\zeta})) \geq \dim~\hom_0(D\setminus B_\omega)$.
@@ -149,9 +161,7 @@ We therefore provide the following definition for ease of exposition
   Let $\X$ be an orientable $d$-manifold and let $D$ be a compact subset of $\X$.
   Let $f : D\to\R$ be $c$-Lipschitz function and $\omega\in\R$ and $\delta\leq\zeta < \varrho_D$ be constants such that $P\subset D$ is a $(\delta,\zeta,\omega)$-sublevel sample of $f$ and $B_{\omega - c(\zeta +\delta)}$ surrounds $D$ in $\X$.
 
-  If $\hom_0(D\setminus B_{\omega+c(\delta+\zeta)}\hookrightarrow D\setminus B_\omega)$ is surjective, $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega+c(\delta+\zeta)})$ is injective, and
-  \[\rk~\hom_d(\rips^\delta(P, Q_{\omega -c\zeta})\hookrightarrow \rips^{2\delta}(P, Q_{\omega+c\delta})) \geq \dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-c\zeta}))\]
-  then $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ in $D$.
+  If $\hom_0(D\setminus B_{\omega+c(\delta+\zeta)}\hookrightarrow D\setminus B_\omega)$ is surjective, $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega+c(\delta+\zeta)})$ is injective, and $\rk~\hom_d(\rips^\delta(P, Q_{\omega -c\zeta})\hookrightarrow \rips^{2\delta}(P, Q_{\omega+c\delta})) \geq \dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-c\zeta}))$ then $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ in $D$.
 \end{theorem}
 \begin{proof}
   % We have the following commutative diagram

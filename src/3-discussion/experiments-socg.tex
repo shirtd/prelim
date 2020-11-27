@@ -5,7 +5,7 @@ We will focus on the persistent homology of functions on a square 2d grid.%---th
 % While these experiments can be conducted in dimension zero or one we will focus on $\hom_1$.
 We chose as our function a radially symmetric damped sinusoid with random noise, depicted in Figure~\ref{fig:ripple1}, as it has prominent persistent homology in dimension one.
 
-\paragraph{Experimental setup.}
+\paragraph*{Experimental setup.}
 
 Throughout, the four interlevel sets shown correspond to the ranges $[0, 0.3)$, $[0.3, 0.5)$, $[0.5, 0.7)$, and $[0.7, 1)$, respectively.
 Our persistent homology computations were done primarily with Dionysus augmented with custom software for computing representative cycles of infinite features.
@@ -34,7 +34,7 @@ Therefore, for $\omega = 0.3, 0.5, 0.7$ the \emph{truncated diagram} is obtained
 Recall the \emph{restricted diagram} is that of the function restricted to the $\omega$ \emph{super}-levelset filtration, and computed with $\{\rips^{2\delta}(P_\alpha\setminus Q_\omega)\}$.
 We will compare this restricted diagram with the \emph{relative diagram}, computed as the relative persistent homology of the filtration of pairs $\{\rips^{2\delta}(P_\alpha, Q_\omega)\}$.
 
-\paragraph{The issue with restricted diagrams.}
+\paragraph*{The issue with restricted diagrams.}
 
 % In order to get an initial sense of the difference between relative and restricted diagrams we first compare the bottleneck distance of each to the truncated diagram.
 % As we have shown the relative diagram is equal to the truncated diagram with additional infinite features we will remove all infinite features from the bottleneck computation.
@@ -83,7 +83,7 @@ For illustrative purposes we also show the representative cycles associated with
 % However, as we have shown, the restricted diagram may contain artifacts of features born before $\omega$ which will skew our measurement.
 % Instead, as $\omega$ is known, we can compare the \emph{relative} diagram the collection of \emph{truncated} diagrams of known functions to get a better classification.
 
-\paragraph{Relative diagrams and reconstruction.}
+\paragraph*{Relative diagrams and reconstruction.}
 
 \begin{figure}[htbp
   \centering
