@@ -13,24 +13,12 @@ If $\e < \varrho_D$ then we for any $\alpha\in\R$ the inclusion $\cech^\e(P\subi
 As the module homomorphisms of $\CPP{w}{\e}$ and $\PP{w}{\e}$ are induced by inclusion we have an isomorphism $\N_w^\e\in\Hom(\CPP{w}{\e}, \PP{w}{\e})$ of persistence modules that commutes with maps induced by inclusions by the Persistent Nerve Lemma
 As the isomorphisms of $\E_w^\e$ are given by excision they are induced by inclusions, so the composition $\E\N_w^\e := \E_w^\e\circ \N_w^\e$ is an isomorphism that commutes with maps induced by inclusion as well.
 The following lemma uses these isomorphisms along with inclusions $\I_w^\e\in\Hom(\CPP{w}{\e}, \RPP{w}{2\e})$ and $\J_w^\e\in\Hom(\RPP{w}{\e},\CPP{w}{\e})$ to establish image module homomorphisms by maps $\Sigma_w^\e\in\Hom(\PP{w}{\e},\RPP{w}{2\e})$ and $\Upsilon_w^\e\in \Hom(\RPP{w}{\e},\PP{w}{\e})$.
-Proof of this lemma, along with the existence of the maps $\E\N_w^\e$ can be found in the full version of this paper.
+Proof of this lemma, along with the existence of the maps $\E\N_w^\e$ can be found in the \fullversion.
 
 \begin{lemma}\label{lem:rips_homomorphism_left}
-  For $w\in\R$ and $\e \leq\varrho_D / 4$ let $\Lambda^\e\in\Hom(\ext{\PP{w}{\e}}, \ext{\PP{z}{\eta}})$ and $\rips\Lambda\in\Hom(\RPP{w}{2\e},\RPP{z}{4\e})$.
+  For $w\in\R$ and $\e \leq\varrho_D / 4$ let $\Lambda^\e\in\Hom(\ext{\PP{w}{\e}}, \ext{\PP{z}{2\e}})$ and $\rips\Lambda\in\Hom(\RPP{w}{2\e},\RPP{z}{4\e})$.
   Then $\tilde{\Phi}(\Sigma_w^\e,\Sigma_z^{2\e})\in\Hom(\im~\Lambda^\e,\im~\rips\Lambda)$ and $\tilde{\Psi}(\Upsilon_w^{2\e},\Upsilon_z^{4\e})\in\Hom(\im~\rips\Lambda,\im~\Lambda^{2\e})$ are image module homomorphisms.
 \end{lemma}
-\proofatend
-  By Lemma~\ref{lem:pers_nerve} we have $\cech\Lambda\circ (\E\N_w^\e)^{-1} = (\E\N_z^\eta)^{-1}\circ \Lambda$ for $\cech\Lambda\in\Hom(\CPP{w}{\e},\CPP{z}{\eta})$ induced by inclusions.
-  As $\rips\Lambda\circ\I_w^\e = \I_z^\eta\circ\cech\Lambda$
-  \[ \rips\Lambda\circ \I_w^\e\circ(\E\N_w^\e)^{-1} = \I_z^\eta\circ\cech\Lambda\circ (\E\N_w^\e)^{-1} = \I_z^\eta\circ (\E\N_z^\eta)^{-1}\circ\Lambda.\]
-  It follows that $\rips\Lambda\circ\Sigma_w^\e = \Sigma_z^\eta\circ\Lambda$ by the definition of $\Sigma$.
-  So Diagram~\ref{dgm:image_homomorphism} commutes and we may therefore conclude that $\tilde{\Phi}(\Sigma_w^\e,\Sigma_z^\eta)$ is an image module homomorphism.
-
-  By Lemma~\ref{lem:pers_nerve} we have $\E\N_z^{2\eta} \circ\cech\Lambda'  = \cech \Lambda\circ \E\N_w^{2\e}$ for $\cech\Lambda'\in\Hom(\CPP{w}{2\e},\CPP{z}{2\eta})$ induced by inclusions.
-  As $\J_z^\eta\circ \rips\Lambda = \cech\Lambda'\circ\J_w^\e$
-  \[ \E\N_z^{2\eta}\circ \J_z^\eta\circ \rips\Lambda = \E\N_z^{2\eta}\circ\cech\Lambda'\circ\J_w^\e = \cech \Lambda\circ \E\N_w^{2\e}\circ\J_w^\e.\]
-  Once again, Diagram~\ref{dgm:image_homomorphism} commutes by the definition of $\Upsilon$, so $\tilde{\Psi}(\Upsilon_w^{2\e},\Upsilon_z^{2\eta})$ is an image module homomorphism.
-\endproofatend
 
 % Suppose $Q_w^\e$ surrounds $P^\e$ in $D$ for any $w\in\R$ and $\e > 0$.
 % Lemma~\ref{lem:surround_and_cover} can be extended to give homomorphisms $\DD{w-c\e}\xrightarrow{F}\E\PP{w}{\e}\xrightarrow{M}\DD{w+c\e}$ of degree $c\e$ induced by inclusions.
@@ -40,8 +28,8 @@ Similarly, $Q_{\omega-2c\delta}^{2\delta}\subseteq B_\omega$ and $Q_{\omega+c\de
 Therefore, by Lemma~\ref{lem:surround_and_cover}
 \[ B_{\omega-3c\delta}\subseteq \E Q_{\omega-2c\delta}^\delta\subseteq\E Q_{\omega-2c\delta}^{2\delta}\subseteq B_\omega
   \subseteq \E Q_{\omega+c\delta}^{2\delta}\subseteq \E Q_{\omega+c\delta}^{4\delta}\subseteq B_{\omega+5c\delta}.\]
-We have the following commutative diagrams of persistence modules where all maps are induced by inclusions.\\
-% Proof that inclusions given by Lemma~\ref{lem:surround_and_cover} extend to maps $(F, G)$ and $(M, N)$ of persistence modules can be found in the full version of this paper.\\
+We have the following commutative diagrams of persistence modules where all maps are induced by inclusions.
+Proof that inclusions given by Lemma~\ref{lem:surround_and_cover} extend to maps $(F, G)$ and $(M, N)$ of persistence modules can be found in the \fullversion.\\
 
 \begin{subequations}
   \begin{minipage}{0.4\linewidth}
@@ -68,7 +56,7 @@ We have the following commutative diagrams of persistence modules where all maps
   \end{minipage}
 \end{subequations}\vspace{2ex}
 
-In the following let $\rips\Lambda\in\Hom(\RPP{\omega-2c\delta}{2\delta},\RPP{\omega+c\delta}{2\delta})$ be induced by inclusion.
+In the following let $\rips\Lambda\in\Hom(\RPP{\omega-2c\delta}{2\delta},\RPP{\omega+c\delta}{4\delta})$ be induced by inclusion.
 Clearly, $\Phi(F, G)$ is an image module homomorphism of degree $2c\delta$ and $\Psi(M, N)$ is an image module homomorphism of degree $4c\delta$.
 By Lemma~\ref{lem:rips_homomorphism_left} we have image module homomorphisms $\tilde{\Phi}(\Sigma_{\omega-2c\delta}^\delta, \Sigma_{\omega+c\delta}^{2\delta})$ and $\tilde{\Psi}(\Upsilon_{\omega-2c\delta}^{2\delta}, \Upsilon_{\omega+c\delta}^{4\delta})$.
 Therefore, as the composition of image module homomorphisms are image module homomorphisms we have
@@ -76,8 +64,8 @@ Therefore, as the composition of image module homomorphisms are image module hom
 \[ \rips\Phi(\rips F, \rips G) := (\Sigma_{\omega-2c\delta}^\delta\circ F, \Sigma_{\omega+c\delta}^{2\delta}\circ G)\ \text{ and }\ \rips\Psi(\rips M, \rips N) := (M\circ \Upsilon_{\omega-2c\delta}^{2\delta}, N\circ\Upsilon_{\omega+c\delta}^{4\delta}).\]
 
 Because all maps are induced by inclusions, or commute with maps induced by inclusions it can be shown that $\rips \Phi_{\rips M}$ is a partial $2c\delta$-interleaving of image modules and $\rips \Psi_{\rips G}$ is a partial $4c\delta$-interleaving of image modules by a straightforward diagram chasing argument.
-Proof of these facts can be found in the full version of this paper.
-These maps, along with assumptions that imply $\im(\DD{\omega-3c\delta}\to \DD{\omega+5c\delta})\cong \DD{\omega}$ provide the proof of Theorem~\ref{thm:interleaving_main_2} by Lemma~\ref{lem:interleaving_main}.
+Proof of these facts can be found in the \fullversion.
+These maps, along with assumptions that imply $\im(\DD{\omega-3c\delta}\to \DD{\omega+5c\delta})\cong \DD{\omega}$ provide the proof of Theorem~\ref{thm:interleaving_main_2} by Lemma~\ref{thm:interleaving_main}.
 
 \begin{theorem}\label{thm:interleaving_main_2}
   Let $\X$ be a $d$-manifold, $D\subset\X$ and $f : D\to\R$ be a $c$-Lipschitz function.
@@ -86,12 +74,3 @@ These maps, along with assumptions that imply $\im(\DD{\omega-3c\delta}\to \DD{\
 
   If $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-2c\delta}^\delta$ surrounds $P^\delta$ in $D$ then the $k$th persistent homology module of $\{\rips^{2\delta}(P\subi{\omega-2c\delta}{\alpha}, Q_{\omega-2c\delta})\hookrightarrow \rips^{4\delta}(P\subi{\omega+c\delta}{\alpha}, Q_{\omega+c\delta})\}_{\alpha\in\R}$ is $4c\delta$-interleaved with that of $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$.
 \end{theorem}
-\proofatend
-  Let $\Lambda\in\Hom(\RPP{\omega-2c\delta}{2\delta}, \RPP{\omega+c\delta}{4\delta})$ be induced by inclusions.
-  Because $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-2c\delta}^\delta$ surrounds $P^\delta$ in $D$ Diagrams~\ref{eq:partial_left} and~\ref{eq:partial_right} commute as all maps are induced by inclusions.
-  Moreover, because $\delta < \varrho_D/4$ the isomorphisms provided by the Nerve Theorem commute with inclusions by Lemma~\ref{lem:pers_nerve}.
-
-  As we have assumed that $\hom_k(B_{\omega-3c\delta}\hookrightarrow B_\omega)$ is surjective and $\hom_k(B_\omega)\cong\hom_k(B_{\omega+5c\delta})$ the five-lemma implies $\gamma_\alpha$ is surjective and $\pi_\alpha$ is an isomorphism (and therefore injective) for all $\alpha$.
-  So $\Gamma$ is an epimorphism and $\Pi$ is a monomorphism.
-  Because $\rips \Phi_{\rips M}(\rips F, \rips G)\in\Hom^{2c\delta}(\im~\Gamma,\im~\rips\Lambda)$ is a partial $2c\delta$-interleaving of image modules and $\rips \Psi_{\rips G} (\rips M,\rips N)\in\Hom^{4c\delta}(\im~\rips\Lambda, \im~\Pi)$ is a partial $4c\delta$-interleaving of image modules it follows that $\im~\rips\Lambda$ is $4c\delta$-interleaved with $\DD{\omega}$ by Lemma~\ref{thm:interleaving_main}.
-\endproofatend

@@ -18,6 +18,8 @@
 \input{environment}
 \input{macros}
 
+\newcommand{\fullversion}{Appendix} %{full version of this paper}
+
 %\graphicspath{{./graphics/}}%helpful if your graphic files are in another directory
 
 \bibliographystyle{plainurl}% the mandatory bibstyle
@@ -109,22 +111,12 @@
 
 \bibliography{bibliography}
 
-% \appendix
+\appendix
 
-% % \section{Misc}\label{apx:misc}
-% % \subsection{Relative Persistent Nerves}\label{apx:nerves}
-% % \input{src/appendix/nerves}
-%
-% \section{Duality}\label{apx:duality}
-% \input{src/appendix/duality}
-%
-% \section{Omitted Proofs}\label{apx:omit}
-% \printproofs
-%
-% \section{Additional Figures}\label{apx:extra}
-% \input{src/appendix/experiments}
-%
-% % \section{Helpful Stuff}
-% % \input{src/appendix/diagrams}
+\section{Omitted Proofs}\label{apx:omit}
+\input{src/appendix/appendix-socg}
+
+\section{Duality}\label{apx:duality}
+\input{src/appendix/duality}
 
 \end{document}
