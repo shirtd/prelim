@@ -11,17 +11,18 @@
 % \[A^\e = \{x\in D\mid \dist_A(x) < \e\}.\]
 
 We now combine these results on the homology of surrounding pairs with information about both $\X$ as a metric space and our function.
-In the following section we will apply these results to a computable variation using Vietoris-Rips complexes that requires only pair-wise connectivity information.
+We will then apply these results as a computable variation using Vietoris-Rips complexes that requires only pair-wise connectivity information.
 
 Let $(\X,\dist)$ be a metric space and $D\subseteq \X$ be a compact subspace.
 Let $f : D\to \R$ be a $c$-Lipschitz function and $B_\alpha = f^{-1}((-\infty, a])$ denote the $\alpha$-sublevel set of $f$ for $\alpha\in\R$.
 We introduce a constant $\omega$ as a threshold that defines our ``boundary'' as a sub-levelset of the function $f$.
-In the next section we will explore both the challenges of computing, as well as the meaning, of the persistent homology of a function modulo the sub-levelset $B_\omega$.
+% In the next section we will explore both the challenges of computing, as well as the meaning, of the persistent homology of a function modulo the sub-levelset $B_\omega$.
 
 Let $P$ be a finite subset of $D$ and $Q_\alpha := P\cap B_\alpha$ for $\alpha\in\R$.
 Let $\zeta\geq\delta > 0 $ and $\omega\in \R$ be constants such that $P^\delta\subseteq D$.
-Here, $\delta$ will serve as our communication radius where $\zeta$ is reserved as a constant for use in Section~\ref{sec:interleaving}.
-Unlike previous variations of the TCC we do not require a change of scale in the geometric case.
+Here, $\delta$ will serve as our communication radius where $\zeta$ is reserved for use in Section~\ref{sec:middle}.
+  \footnote{We will set $\zeta = 2\delta$ in the proof of our interleaving with Rips complexes but the TCC holds for all $\zeta\geq\delta$.}
+Unlike previous variations of the TCC~\ref{cavanna2017when} we do not require a change of scale in the geometric case.
 Instead, we will enforce regularity close to the sub-levelset $B_\omega$ in terms of sub-levelsets $B_{\omega-c(\delta+\zeta)}$ and $B_{\omega+c(\delta+\zeta)}$.
 Not only is this a more natural assumption, but it also allows us to replace the requirement that sensors detect the physical presence of a boundary with a threshold on the function values they observe.
 
@@ -70,11 +71,11 @@ We therefore must introduce a larger space $B_{\omega+c(\delta+\zeta)}$ that con
 
 \paragraph{Assumption 1}
 
-This is where we introduce our first assumption on the region surrounding $B_\omega$.
+% This is where we introduce our first assumption on the region surrounding $B_\omega$.
 We will require the map $\hom_0(D\setminus B_{\omega+c(\delta+\zeta)}\hookrightarrow D\setminus B_\omega)$ to be \emph{surjective}---as we approach $\omega$ from \emph{above} no components \emph{appear}.
 That is, in terms of $\omega$ as a super-levelset monotonically decreasing, no components \emph{apear} right \emph{before} $\omega$.
 We note that, for a function in two dimensions, this translates to $1$-dimensional features disappearing right after $\omega$ in the sub-levelset filtration, as shown in Figure~\ref{fig:assumption1}.
-The reason for this dimension shift involves Alexander duality, and is discussed in more detail in Appendix~\ref{apx:duality} (see also~\cite{edelsbrunner12alexander}).
+% The reason for this dimension shift involves Alexander duality, and is discussed in more detail in Appendix~\ref{apx:duality} (see also~\cite{edelsbrunner12alexander}).
 % That is, in terms of $\omega$ as a sub-levelset monotonically increasing, no components \emph{disappear} right \emph{after} $\omega$.
 
 \begin{figure}[htbp]\label{fig:assumption1}
@@ -95,7 +96,7 @@ The second assumption, which requires that nothing appears right \emph{before} $
 
 \begin{theorem}[Geometric TCC]\label{thm:geo_tcc}
   Let $D$ be a compact subset of $\X$ and $f : D\to\R$ be $c$-Lipschitz function.
-  Let $\omega\in\R$, $\of > 0$ be constants such that $\B$ surrounds $D$ in $\X$.
+  Let $\omega\in\R$, $\zeta\geq\of > 0$ be constants such that $\B$ surrounds $D$ in $\X$.
   Let $P\subset D$ be a finite collection of points and $Q_\alpha := P\cap B_\alpha$ for $\alpha\in\R$.
   Let $j : \hom_0(\cmp{B_{\omega+c(\delta+\zeta)}},\cmp{D})\to \hom_0(\cmp{\B},\cmp{D})$ and $i : \hom_0(\cmp{\QQ^\of}, \cmp{P^\of})\to \hom_0(\cmp{\Q^\of}, \cmp{P^\of})$ be induced by inclusion.
 
@@ -107,5 +108,5 @@ The second assumption, which requires that nothing appears right \emph{before} $
   Because $P$ is a finite point set we know that $\im~i$ is finite-dimensional and, because $\rk~i = \rk~j$, $\im~j=\hom_0(\cmp{\B}, \cmp{D})$ is finite dimensional as well.
 
   So $\im~j$ is isomorphic to $\im~i$ as a subspace of $\hom_0(\cmp{\Q^\of}, \cmp{P^\of})$ which, because $j$ is surjective, requires the map $\ell$ induced by inclusion to be injective.
-  Therefore, $D\setminus\bb\subseteq P^\of$ by Lemma~\ref{lem:coverage}, and $\Q^\of$ surrounds $P^\of$ in $D$ by Lemma~\ref{lem:cov_surrounds}.
+  Therefore, $D\setminus\bb\subseteq P^\of$ and $\Q^\of$ surrounds $P^\of$ in $D$ by Lemma~\ref{lem:coverage}. %, Lemma~\ref{lem:cov_surrounds}.
 \end{proof}

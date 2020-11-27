@@ -1,25 +1,29 @@
 % !TeX root = ../main.tex
 
-Throughout, let $\X$ denote an orientable $d$-manifold and $D\subset\X$ a compact subspace.
-For a $c$-Lipschitz functon $f : D\to \R$ let $B_\alpha := f^{-1}((-\infty,\alpha])$ denote the $\alpha$-sublevel set of $f$ for all $\alpha\in\R$.
+Let $\X$ denote an orientable $d$-manifold and $D\subset\X$ a compact subspace.
+For a $c$-Lipschitz functon $f : D\to \R$ and $\alpha\in\R$ let $B_\alpha := f^{-1}((-\infty,\alpha])$ denote the $\alpha$-sublevel set of $f$.
+Our sample will be denoted $P$, and the subset of points sampling $B_\alpha$ will be denoted $Q_\alpha := P\cap B_\alpha$.
+For ease of exposition let
+\[ D\subi{w}{\alpha} := B_\alpha\cup B_w \]
+to be the \emph{truncated} $\alpha$ sublevel set and  % of the restricted function $f\rest_{D\setminus B_w}$ for all $\alpha,w\in\R$.
+\[ P\subi{w}{\alpha} := Q_\alpha\cup Q_w\]
+denote is sampled counterpart for all $\alpha,w\in\R$.
+
 We will select a sublevel set $B_\omega$ to serve as our boundary.
 Specifically, we require that $B_\omega$ \emph{surrounds} $D$, where the notion of a surrounding set is defined formally in Section~\ref{sec:tcc}.
 This distinction allows us to generalize the standard proof of the TCC to properties of surrounding pairs.
-We also define
-\[ D\subi{w}{\alpha} := B_\alpha\cup B_w \]
-to be the $\alpha$ sublevel set of the restricted function $f\rest_{D\setminus B_w}$ for all $\alpha,w\in\R$.
-
-Our sample will be denoted $P$, and the subset of points sampling $B_\alpha$ will be denoted $Q_\alpha := P\cap B_\alpha$.
-For ease of exposition let
-\[ P\subi{w}{\alpha} := Q_\alpha\cup Q_w\]
-for all $\alpha,w\in\R$.
 
 \paragraph{Relative, Truncated, and Restricted Persistence Diagrams}
 
 For fixed $\omega\in\R$ we will refer to the persistence diagram associated with the filtration $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$  as the \textbf{relative diagram} of $f$.
 In Section~\ref{sec:truncations} we relate the relative diagram to the \emph{full} diagram of the sublevel set filtration $\{B_\alpha\}_{\alpha\in\R}$.
 Specifically, we define the \textbf{truncated diagram} to be the subdiagram consisting of features born \emph{after} $\omega$ in the full diagram.
-In Section~\ref{sec:experiments} we compare the relative and truncated diagrams to the \textbf{restricted diagram}, defined to be that of $\{D\subi{\omega}{\alpha}\}_{\alpha\in\R}$: the sublevel set filtration of $f\rest_{D\setminus B_\omega}$.
+In Section~\ref{sec:experiments} we compare the relative and truncated diagrams to the \textbf{restricted diagram}, defined to be that of the sublevel set filtration of $f\rest_{D\setminus B_\omega}$.% $\{f\rest_{D\setminus B_\omega}^{-1}((-\infty,\alpha])\}_{\alpha\in\R}$ of $f\rest_{D\setminus B_\omega}$.
+
+Note that the truncated sublevel sets $D\subi{\omega}{\alpha}$ are equal to the union of $B_\omega$ and the restricted sublevel sets.
+It is in this sense that $B_\omega$ is \emph{static} throughout---it is contained in every sublevel set of the relative filtration.
+As we will not have verified coverage in $B_\omega$ we cannot analyze the function in this region directly.
+We therefore have two alternatives: \emph{restrict} the domain of the function to $D\setminus B_\omega$, or use relative homology to analyze the function \emph{relative} to this region using excision.
 
 % We make the following assumptions on our sample $P$ with respect to the pair $(D,B_\omega)$ for a constant $\delta < \varrho_D/4$:
 % \begin{itemize}
@@ -33,34 +37,35 @@ In Section~\ref{sec:experiments} we compare the relative and truncated diagrams 
 
 Suppose $B_\omega$ surrounds $D$ in $\X$ and $\delta < \varrho / 4$.
 As a minimal assumption we require that every component of $D\setminus B_\omega$ contains a point in $P$.
-We also make additional technical assumptions on $P$ and $\delta$ with respect to the pair $(D, B_\omega)$ (see Lemma~\ref{lem:duality_apply}, Appendix~\ref{apx:duality}).
+We also make additional technical assumptions on $P$ and $\delta$ with respect to the pair $(D, B_\omega)$ (see Section~\ref{sec:geo_tcc} and Lemma~\ref{lem:duality_apply} of Appendix~\ref{apx:duality}).
+% We also make additional technical assumptions that $P$ is a \emph{$(\delta,2\delta,\omega)$-sublevel sample} of $D$ (see Lemma~\ref{lem:duality_apply}, Appendix~\ref{apx:duality}).
 
 \begin{description}
   \item[Theorem~\ref{thm:algo_tcc}] If
-    \begin{enumerate}
-      \item $\hom_0(D\setminus B_{\omega+5c\delta}\hookrightarrow D\setminus B_\omega)$ is \emph{surjective} and
-      \item $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega-3c\delta})$ is \emph{injective}
+    \begin{enumerate}[label=\Roman*.]
+      \item $\hom_0(D\setminus B_{\omega+5c\delta}\hookrightarrow D\setminus B_\omega)$ is \emph{surjective},
+      \item $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega-3c\delta})$ is \emph{injective},
     \end{enumerate}
-    then
+    and
     \[ \rk~\hom_d(\rips^\delta(P, Q_{\omega - 2c\delta})\hookrightarrow \rips^{2\delta}(P, Q_{\omega+c\delta}))\geq \hom_0(\rips^\delta(P\setminus Q_{\omega-2c\delta})) \]
-    implies not only that $D\setminus B_\omega\subseteq P^\delta$, but also that $Q_{\omega-2c\delta}^\delta$ surrounds $P^\delta$ in $D$.
+    then $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-2c\delta}^\delta$ surrounds $P^\delta$ in $D$.
     \footnote{We state this result using constants that will be used to prove the interleaving.
       The statement of Theorem~\ref{thm:algo_tcc} parameterizes the region around $\omega$ in terms of $\zeta\geq\delta$ as $[\omega-c(\delta+\zeta),\omega+c(\delta+\zeta)]$.}
 \end{description}
 
-In other words, this formulation of the TCC states that our approximation by a nested pair of Rips complexes captures the homology of the pair $(D,B_\omega)$ in a specific way.
+This formulation of the TCC states that our approximation by a nested pair of Rips complexes not only covers, but captures the homology of the pair $(D,B_\omega)$ in a specific way.
 % We can use this fact to construct an interleaving between an approximation of the function $f$ by Rips complexes and filtration $\{(D_\alpha\cup B_\omega, B_\omega)\}_{\alpha\in\R}$.
 % The resulting (relative) persistent homology modules capture the persistent homology of the sublevel set filtration relative to a specific sublevel set $B_\omega$.
 % This sublevel set, along with its approximation by the inclusion $Q_{\omega - 2c\delta}^\delta\hookrightarrow Q_{\omega+c\delta}^\delta$, are \emph{static} throughout the filtration.
 % To deal with the challenges of interleaving static elements we generalize the regularity assumptions on the zero dimensional homology of the superlevel sets $D\setminus B_{\omega+5c\delta}$ and $D\setminus B_{\omega-3c\delta}$ to assumptions about the corresponding \emph{sublevel} sets $B_{\omega+5c\delta}$ and $B_{\omega-3c\delta}$.
-We can use this fact to prove an interleaving with the filtration $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$.
-This is done by generalizing our regularity assumptions near $D\setminus B_\omega$ in a way that allows us to interleave persistence modules relative to a static submodule.
-Suppose $P$ satisfies the the TCC.
-So $D\setminus B_\omega\subseteq P^\delta$ and  $Q_{\omega-2c\delta}^\delta$ surrounds $P^\delta$ in $D$.
+We use this fact to interleave our sample with the relative diagram of the filtration $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$.
+This is done by generalizing our regularity assumptions near $D\setminus B_\omega$ in a way that allows us to interleave persistence modules with static components.% relative to a static submodule.
+
 
 \begin{description}
-  \item[Theorem~\ref{thm:interleaving_main_2}] If
-    \begin{enumerate}
+  \item[Theorem~\ref{thm:interleaving_main_2}] Suppose $P$ satisfies the the TCC: $D\setminus B_\omega\subseteq P^\delta$ and  $Q_{\omega-2c\delta}^\delta$ surrounds $P^\delta$ in $D$.
+    If
+    \begin{enumerate}[label=\Roman*.]
       \item $\hom_k(B_{\omega-3c\delta}\hookrightarrow B_\omega)$ is \emph{surjective} and
       \item $\hom_k(B_\omega\hookrightarrow B_{\omega+5c\delta})$ is an \emph{isomorphism}
     \end{enumerate}
@@ -74,16 +79,15 @@ So $D\setminus B_\omega\subseteq P^\delta$ and  $Q_{\omega-2c\delta}^\delta$ sur
 
 The main challenges we face come from the fact that the sublevel set $B_\omega$ and our approximation by the inclusion $\rips^{2\delta}(Q_{\omega-2c\delta})\hookrightarrow \rips^{4\delta}(Q_{\omega+c\delta})$ remain \emph{static} throughout.
 Using the fact that $Q_{\omega-2c\delta}^\delta$ surrounds $P^\delta$ in $D$ we define an \emph{extension} $(D,\E Q_{\omega-2c\delta}^\delta)$ of the pair $(P^\delta, Q_{\omega-2c\delta}^\delta)$ that has isomorphic relative homology by excision.
-These extensions give us the following sequence of inclusion maps
+These extensions give us a sequence of inclusion maps
 \[ B_{\omega-3c\delta}\hookrightarrow \E Q_{\omega-2c\delta}^{2\delta}\hookrightarrow B_\omega\hookrightarrow \E Q_{\omega+c\delta}^{4\delta}\hookrightarrow B_{\omega+5c\delta}\]
-that can be used along with our regularity assumptions in terms to prove the interleaving using so-called \emph{partial interleavings} of image persistence modules.
-
+that can be used along with our regularity assumptions to prove the interleaving. % using so-called \emph{partial interleavings} of image persistence modules.
 
 \paragraph{Outline of Sections~\ref{sec:tcc} and~\ref{sec:middle}}
 
 We will begin with our reformulation of the TCC in Section~\ref{sec:tcc}.
-This requires introducing the notion of a surrounding set before proving the Geometric TCC, and the computable Algorithmic TCC in Theorem~\ref{thm:algo_tcc}.
-Section~\ref{sec:middle} formally introduces extensions, image persistence modules, and partial interleavings which will be used in the proof of the interleaving in Theorem~\ref{thm:interleaving_main_2}.
+This requires the introduction of a surrounding set before proving the Geometric TCC (Theorem~\ref{thm:geo_tcc}), followed by the computable Algorithmic TCC  (Theorem~\ref{thm:algo_tcc}).
+Section~\ref{sec:middle} formally introduces extensions and partial interleavings of image modules which will be used in the proof of Theorem~\ref{thm:interleaving_main_2}.
 % In Section~\ref{sec:truncations} we address the meaning of the persistent homology relative to a sublevel set and relate it to the sublevel set filtration as a \emph{truncation}.
 % Finally, Section~\ref{sec:experiments} investigates the relationships between the relative, truncated, and restricted persistence diagrams through a number of experiments.
 

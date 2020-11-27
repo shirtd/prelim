@@ -1,14 +1,15 @@
 % !TeX root = ../../main.tex
 
-The TCC uses the top-dimensional relative homology group of a space $D$ with respect to its boundary $B$ to provide a computable condition for coverage.
-Under certain conditions it can be shown that the rank of this group is equal to the number of connected components of its complement in some larger space $\X$ by Alexander Duality.
-One can therefore check if a given a collection of subsets covers the space by comparing the number of connected components of its complement to that of the space---holes in the cover will appear as additional components in the complement space.
-
+The TCC uses the top-dimensional relative homology of a space $D$ with respect to its boundary $B$ to provide a computable condition for coverage.
+Under certain conditions Alexander Duality can be used to relate this to the number of connected components of its complement in some larger space $\X$.
+% Under certain conditions it can be shown that the rank of this group is equal to the number of connected components of its complement in some larger space $\X$ by Alexander Duality.
+One can then check if a collection of subsets covers the space by comparing the number of connected components of its complement to that of the space---holes in the cover will appear as additional components in the complement space.
 As we cannot compute the number components of the complement space from a sample directly, the TCC uses duality to recover it from the top dimensional relative homology.
 However, this requires that we have a subset $Q$ of our cover to serve as the boundary.
 That is, a positive result indicates that we not only have coverage, but also that we have a pair of spaces that reflects the pair $(D, B)$ topologically.
 We call such a pair a \emph{surrounding pair} defined in terms of separating sets.
-It has been shown that the TCC can be stated in terms of these surrounding pairs~\cite{cavanna2017when}, which allows us enough flexibility to define our surrounding set as a sub-levelset of a $c$-Lipschitz function $f$.
+
+It has been shown that the TCC can be stated in terms of these surrounding pairs~\cite{cavanna2017when}, which allows us enough flexibility to define our surrounding set as a sublevel set of a $c$-Lipschitz function $f$.
 Moreover, this work made assumptions directly in terms of the \emph{zero dimensional} persistent homology of the domain close to the boundary.
 This is in comparison to the original statement of the TCC which required the boundary to be smooth~\cite{desilva07coverage}.
 Now, we can state these assumptions in terms of the persistent homology of the function itself.
@@ -28,7 +29,7 @@ Now, we can state these assumptions in terms of the persistent homology of the f
 % This replaces the convoluted assumptions made in terms various ``restricted domains'' with statements about the persistent homology of a monotonically increasing filtration with respect to a constant $\omega$.
 
 This opens the door to a wide array of applications in which we have either a small portion or a very rough approximation of the persistence diagram of a function.
-We can use then either identify or verify a threshold $\omega$ for our sub-levelset that satisfies our assumptions.
+We can then either identify or verify a threshold $\omega$ for our sublevel set that satisfies our assumptions.
 As we will see these same assumptions will appear as statements about persistent homology in \emph{all dimensions} in our proof of the interleaving.
 It is in this sense that the approximation of a truncated diagram can be seen as a generalization of the TCC to the topological analysis of scalar fields with guarantees.
 
