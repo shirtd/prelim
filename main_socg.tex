@@ -1,0 +1,155 @@
+\documentclass[a4paper,UKenglish,cleveref, autoref, thm-restate]{lipics/socg-lipics-v2019}
+%This is a template for producing LIPIcs articles.
+%See lipics-manual.pdf for further information.
+%for A4 paper format use option "a4paper", for US-letter use option "letterpaper"
+%for british hyphenation rules use option "UKenglish", for american hyphenation rules use option "USenglish"
+%for section-numbered lemmas etc., use "numberwithinsect"
+%for enabling cleveref support, use "cleveref"
+%for enabling autoref support, use "autoref"
+%for anonymousing the authors (e.g. for double-blind review), add "anonymous"
+%for enabling thm-restate support, use "thm-restate"
+
+\usepackage{amsmath,amssymb,amsthm,xspace,enumitem,xcolor}
+\usepackage{tikz-cd,xspace,graphicx,wrapfig,algorithm,lscape}
+\usepackage{etoolbox}
+\usepackage{wrapfig}
+
+
+\input{environment}
+\input{macros}
+
+%\graphicspath{{./graphics/}}%helpful if your graphic files are in another directory
+
+\bibliographystyle{plainurl}% the mandatory bibstyle
+
+\title{From Coverage Testing to Topological Scalar Field Analysis} %TODO Please add
+
+% \titlerunning{Dummy short title} %TODO optional, please use if title is longer than one line
+
+\author{Kirk P. Gardner}{North Carolina State University, United States}{kpgardn2@ncsu.edu}{[orcid]}{[funding]}%TODO mandatory, please use full name; only 1 author per \author macro; first two parameters are mandatory, other parameters can be empty. Please provide at least the name of the affiliation and the country. The full address is optional
+
+\author{Donald R. Sheehy}{North Carolina State University, United States}{don.r.sheehy@gmail.com}{[orcid]}{[funding]}
+
+\authorrunning{K.\,P. Gardner and D.\,R. Sheehy} %TODO mandatory. First: Use abbreviated first/middle names. Second (only in severe cases): Use first author plus 'et al.'
+
+\Copyright{Kirk P. Gardner and Donald R. Sheehy} %TODO mandatory, please use full first names. LIPIcs license is "CC-BY";  http://creativecommons.org/licenses/by/3.0/
+
+\ccsdesc[100]{\textcolor{red}{Replace ccsdesc macro with valid one}} %TODO mandatory: Please choose ACM 2012 classifications from https://dl.acm.org/ccs/ccs_flat.cfm
+
+\keywords{Dummy keyword} %TODO mandatory; please add comma-separated list of keywords
+
+\category{} %optional, e.g. invited paper
+
+\relatedversion{} %optional, e.g. full version hosted on arXiv, HAL, or other respository/website
+%\relatedversion{A full version of the paper is available at \url{...}.}
+
+\supplement{}%optional, e.g. related research data, source code, ... hosted on a repository like zenodo, figshare, GitHub, ...
+
+%\funding{(Optional) general funding statement \dots}%optional, to capture a funding statement, which applies to all authors. Please enter author specific funding statements as fifth argument of the \author macro.
+
+% \acknowledgements{I want to thank \dots}%optional
+
+%\nolinenumbers %uncomment to disable line numbering
+
+%\hideLIPIcs  %uncomment to remove references to LIPIcs series (logo, DOI, ...), e.g. when preparing a pre-final version to be uploaded to arXiv or another public repository
+
+%Editor-only macros:: begin (do not touch as author)%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\EventEditors{John Q. Open and Joan R. Access}
+\EventNoEds{2}
+\EventLongTitle{42nd Conference on Very Important Topics (CVIT 2016)}
+\EventShortTitle{CVIT 2016}
+\EventAcronym{CVIT}
+\EventYear{2016}
+\EventDate{December 24--27, 2016}
+\EventLocation{Little Whinging, United Kingdom}
+\EventLogo{}
+\SeriesVolume{42}
+\ArticleNo{23}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\maketitle
+
+\input{src/abstract}
+
+\section{Introduction}\label{sec:introduction}
+  \input{src/introduction}
+  \input{src/contribution}
+
+% \clearpage
+% \section{Background}
+%   \subsection{Geometry and Topology}
+%     \input{src/0-background/geometry}
+%   \subsection{Simplicial Complexes}\label{sec:complexes}
+%     \input{src/0-background/complexes}
+%   \subsection{Homology}\label{sec:homology}
+%     \input{src/0-background/homology}
+%   \subsection{Persistence Modules}
+%     \input{src/0-background/1-modules}
+%   \subsection{Persistent Homology}
+%     \input{src/0-background/pershom}
+
+\section{Summary}\label{sec:summary}
+\input{src/summary}
+
+\section{The Topological Coverage Criterion (TCC)}\label{sec:tcc}
+\input{src/1-tcc/intro}
+\input{src/1-tcc/surrounding} % 14
+
+\input{src/1-tcc/tcc-socg}
+% \subsection{The Geometric TCC}\label{sec:geo_tcc}
+%   \input{src/1-tcc/0-geometric} % 57
+%
+% \subsection{Computing the TCC}
+%   \input{src/1-tcc/1-algorithmic} % 76
+
+\section{From Coverage Testing to the Analysis of Scalar Fields}\label{sec:middle}
+% \input{src/middle/plan}
+\input{src/middle/middle-socg}
+% \subsection{Extensions}
+%   \input{src/middle/extensions} % 20
+%
+% \subsection{Image Modules}
+%   \input{src/middle/images} % 59
+
+% \subsection{Truncations and Interleaving}\label{sec:interleaving}
+  \input{src/2-interleaving/interleaving-socg}
+  % \input{src/2-interleaving/0-scalar}
+  % \input{src/2-interleaving/1-setup} % 38
+  % \input{src/2-interleaving/2-proof_nozeta} % 60
+
+
+\section{Approximation of the Truncated Diagram}\label{sec:truncations}
+\input{src/3-discussion/0-intervals} % 43
+
+\section{Experiments}
+  \input{src/3-discussion/1-experiments} % 96
+%
+%%
+%% Bibliography
+%%
+
+%% Please use bibtex,
+
+\bibliography{bibliography}
+
+% \appendix
+
+% % \section{Misc}\label{apx:misc}
+% % \subsection{Relative Persistent Nerves}\label{apx:nerves}
+% % \input{src/appendix/nerves}
+%
+% \section{Duality}\label{apx:duality}
+% \input{src/appendix/duality}
+%
+% \section{Omitted Proofs}\label{apx:omit}
+% \printproofs
+%
+% \section{Additional Figures}\label{apx:extra}
+% \input{src/appendix/experiments}
+%
+% % \section{Helpful Stuff}
+% % \input{src/appendix/diagrams}
+
+\end{document}
