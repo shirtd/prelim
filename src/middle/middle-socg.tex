@@ -3,6 +3,7 @@
 Because the TCC only confirms coverage of a \emph{superlevel} set $D\setminus B_\omega$, we cannot guarantee coverage of the entire domain.
 Indeed, we could compute the persistent homology of the \emph{restriction} of $f$ to the superlevel set we cover in the standard way~\cite{chazal09analysis}.
 Instead, we will approximate the persistent homology of the sublevel set filtration \emph{relative to} the sublevel set $B_\omega$.
+In the next section we will discuss an interpretation of the relative diagram that is motivated by examples in Section~\ref{sec:experiments}.
 
 \begin{figure}[htbp]
   \centering
@@ -21,11 +22,12 @@ Instead, we will approximate the persistent homology of the sublevel set filtrat
 
 We will first introduce the notion of an extension which will provide us with maps on relative homology induced by inclusion via excision.
 However, even then, a map that factors through our pair $(D, B_\omega)$ is not enough to prove an interleaving of persistence modules by inclusion directly.
-To address this we impose conditions on sublevel sets near $B_\omega$ which generalize the assumptions made in the TCC on maps induced by the inclusions
-\[ D\setminus B_{\omega+c(\delta+\zeta)}\hookrightarrow D\setminus B_\omega\hookrightarrow D\setminus B_{\omega-c(\delta+\zeta)}\]
-on $0$-dimensional homology, to assumptions on maps induced by the corresponding inclusions
-\[ B_{\omega-c(\delta+\zeta)}\hookrightarrow B_\omega\hookrightarrow B_{\omega+c(\delta+\zeta)}\]
-on homology in all dimensions $k$.
+To address this we impose conditions on sublevel sets near $B_\omega$ which generalize the assumptions made in the TCC.
+%  on maps induced by the inclusions
+% \[ D\setminus B_{\omega+c(\delta+\zeta)}\hookrightarrow D\setminus B_\omega\hookrightarrow D\setminus B_{\omega-c(\delta+\zeta)}\]
+% on $0$-dimensional homology, to assumptions on maps induced by the corresponding inclusions
+% \[ B_{\omega-c(\delta+\zeta)}\hookrightarrow B_\omega\hookrightarrow B_{\omega+c(\delta+\zeta)}\]
+% on homology in all dimensions $k$.
 
 \subsection{Extensions and Image Persistence Modules}
 
@@ -53,9 +55,9 @@ Lemma~\ref{excision} we can apply excision to the relative homology groups in or
   Then $\hom_k((U\cap A, V)\hookrightarrow (A, \ext{V}))$ is an isomorphism for all $k$ and $A\subseteq D$ with $\ext{V}\subset A$.
 \end{lemma}
 
-In the TCC a nested pair of spaces is used in order to filter out noise introduced by the sample.
-This same technique is used in the analysis of scalar fields~\cite{chazal09analysis} to interleave the persistent homology of a sequence of subspaces with that of a function.
-These subspaces are simply the images of homomorphisms between homology groups induced by inclusion, and we refer to the resulting persistence module as an image persistence module.
+The TCC uses a nested pair of spaces in order to filter out noise introduced by the sample.
+This same technique is used to approximate the persistent homology of a scalar fields~\cite{chazal09analysis}.
+As modules, these nested pairs are the images of homomorphisms between homology groups induced by inclusion, which we refer to as image persistence modules.
 
 % \paragraph{Image Persistence Modules}
 \begin{definition}[Image Persistence Module]

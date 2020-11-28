@@ -133,17 +133,23 @@ Lemma~\ref{lem:assumption2} uses Assumption 2 to provide a computable upper boun
   If $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega+c(\delta+\zeta)})$ is injective and each component of $D\setminus B_\omega$ contains a point in $P$ then $\dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-c\zeta})) \geq \dim~\hom_0(D\setminus B_\omega)$.
 \end{lemma}
 
-% The statement of Theorem~\ref{thm:geo_tcc} is in terms of the $0$-dimensional homology of complement spaces makes it difficult, if not impossible, to compute directly.
-% The following lemma
-The \fullversion details how to construct the following isomorphism using the Nerve Theorem along with Alexander Duality and the Universal Coefficient Theorem.
-\[ \xi\N_w^{\e,k} : \hom_d(\cech^\e(P,Q_w))\to \hom_0(D\setminus Q_w^\e, D\setminus P^\e).\]
+\paragraph*{Nerves and Duality}
+
+Recall that the Nerve Theorem states that for a good open cover$\cU$ of a space $X$ the inclusion map from the \emph{Nerve} of the cover to the space $\N(\cU)\hookrightarrow X$ is a homotopy equivalence.\footnote{In a good open cover every nonempty intersection of sets in the cover is contractible.}
+The Persistent Nerve Lemma~\cite{chazal08towards} states that this homotopy equivalence commutes with inclusion on the level of homology.
+We note that the standard proof of the Nerve Theorem~\cite{kozlov07combinatorial}, and therefore the Persistent Nerve Lemma~\cite{chazal08towards}, extends directly to pairs of good open covers $(\cU, \cV)$ of pairs $(X, Y)$ such that $\cV$ is a subcover of $\cU$.\footnote{$\{V_i\}_{i\in I}$ is a subcover of $\{U_i\}_{i\in I}$ if $V_i\subseteq U_i$ for all $i\in I$.}
+
+Recalling the definition of the strong convexity radius $\varrho_D$ (see Chazal et al.~\cite{chazal09analysis}) $\cU$ is a good open cover whenever $\varrho_D > \e$.
+As the \v Cech complex is the Nerve of a cover by a union of balls we will let $\N_w^\e : \hom_k(\cech^\e(P,Q_w))\to \hom_k(P^\e, Q_w^\e)$ denote the isomorphism on homology provided by the Nerve Theorem for all $k$, $w\in\R$ and $\e < \varrho_D$.
+
+Under certain conditions Alexander Duality provides an isomorphism between the $k$ relative cohomology of a compact pair in an orientable $d$-manifold $\X$ with the $d - k$ dimensional homology of their complements in $\X$ (see Spanier~\cite{spanier1989algebraic}).
+For finitely generated (co)homology over a field the Universal Coefficient Theorem can be used with Alexander Duality to give a natural isomorphism $\xi_w^\e : \hom_d(P^\e,Q_w^\e)\to \hom_0(D\setminus Q_w^\e, D\setminus P^\e)$.\footnote{For the construction of this isomorphism see the \fullversion.}
 This isomorphism holds in the specific case when $P^\e\subseteq \intr_\X(D)$ and $D\setminus P^\e$, $D\setminus Q_w^\e$ are locally contractible.
-We therefore provide the following definition for ease of exposition
+We therefore provide the following definition for ease of exposition.
 \begin{definition}[$(\delta,\zeta,\omega)$-Sublevel Sample]
   For $\zeta\geq \delta > 0$, $\omega\in\R$, and a $c$-Lipschitz function $f: D\to \R$ a finite point set $P\subset D$ is said to be a \textbf{$(\delta, \zeta, \omega)$-sublevel sample} of $f$ if every component of $D\setminus B_\omega$ contains a point in $P$, $P^\delta\subset\intr_\X(D)$, and $D\setminus P^\delta$, $D\setminus Q_{\omega-c\zeta}^\delta$, and $D\setminus Q_{\omega+c\delta}^\delta$ are locally path connected in $\X$.
 \end{definition}
-
-We note that the standard proof of the Nerve Theorem~\cite{kozlov07combinatorial}, and therefore the Persistent Nerve Lemma~\cite{chazal08towards}, extends directly to pairs of good open covers $(\cU, \cV)$ of pairs $(X, Y)$ such that $\cV$ is a subcover of $\cU$.
+Because this isomorphism is natural and the isomorphism provided by the Nerve Theorem commutes with maps induced by inclusion the composition $\xi\N_w^\e := \xi_w^\e\circ\N_w^\e$ gives an isomorphism that commutes with maps induced by inclusion for all $w\in\R$ and $\e < \varrho_D$.
 
 \begin{theorem}[Algorithmic TCC]\label{thm:algo_tcc}
   Let $\X$ be an orientable $d$-manifold and let $D$ be a compact subset of $\X$.
@@ -162,7 +168,7 @@ We note that the standard proof of the Nerve Theorem~\cite{kozlov07combinatorial
   % \end{tikzcd}\]
   % where vertical maps are isomorphisms provided by the Nerve Theorem and horizontal maps are induced by inclusions.
 
-  Because $P$ is a $(\delta, \zeta, \omega)$-sublevel sample we have isomorphisms $\xi\N_{\omega-c\zeta}^\delta$ and $\xi\N_{\omega+c\delta}^\delta$ that commute with $q_{\cech}$ and $i : \hom_0(D\setminus Q_{\omega+c\delta}^\delta, D\setminus P^\delta)\to \hom_0(D\setminus Q_{\omega-c\zeta}^\delta, D\setminus P^\delta)$.
+  Because $P$ is a $(\delta, \zeta, \omega)$-sublevel sample we have isomorphisms $\xi\N_{\omega-c\zeta}^\delta$ and $\xi\N_{\omega+c\delta}^\delta$ that commute with $q_{\cech} : \hom_d(\cech^{\delta}(P, Q_{\omega-c\zeta}))\to\hom_d(\cech^{2\delta}(P, Q_{\omega+c\delta}))$ and $i : \hom_0(D\setminus Q_{\omega+c\delta}^\delta, D\setminus P^\delta)\to \hom_0(D\setminus Q_{\omega-c\zeta}^\delta, D\setminus P^\delta)$.
   Let $q_{\rips} : \hom_d(\rips^{\delta}(P, Q_{\omega-c\zeta}))\to\hom_d(\rips^{2\delta}(P, Q_{\omega+c\delta}))$ be induced by inclusion.
   Then $\rk~q_{\cech} \geq\rk~q_{\rips}$ as $q_{\rips}$ factors through $q_{\cech}$.
   As we have assumed $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega-c(\delta+\zeta)})$ Lemma~\ref{lem:assumption2} implies $\dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-c\zeta}))\geq \dim~\hom_0(D\setminus B_\omega)$.
