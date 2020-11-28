@@ -1,15 +1,17 @@
 % !TeX root = ../../main_socg.tex
 
-The TCC uses the top-dimensional relative homology of a space $D$ with respect to its boundary $B$ to provide a computable condition for coverage.
-Under certain conditions Alexander Duality can be used to relate this to the number of connected components of its complement in some larger space $\X$.
-% Under certain conditions it can be shown that the rank of this group is equal to the number of connected components of its complement in some larger space $\X$ by Alexander Duality.
-One can then check if a collection of subsets covers the space by comparing the number of connected components of its complement to that of the space---holes in the cover will appear as additional components in the complement space.
-As we cannot compute the number components of the complement space from a sample directly, the TCC uses duality to recover it from the top dimensional relative homology.
-However, this requires that we have a subset $Q$ of our cover to serve as the boundary.
-That is, a positive result indicates that we not only have coverage, but also that we have a pair of spaces that reflects the pair $(D, B)$ topologically.
+% The TCC uses the top-dimensional relative homology of a space $D$ with respect to its boundary $B$ to provide a computable condition for coverage.
+% Under certain conditions Alexander Duality can be used to relate this to the number of connected components of its complement in some larger space $\X$.
+% % Under certain conditions it can be shown that the rank of this group is equal to the number of connected components of its complement in some larger space $\X$ by Alexander Duality.
+% One can then check if a collection of subsets covers the space by comparing the number of connected components of its complement to that of the space---holes in the cover will appear as additional components in the complement space.
+% As we cannot compute the number components of the complement space from a sample directly, the TCC uses duality to recover it from the top dimensional relative homology.
+
+A positive result from the TCC requires that we have a subset of our cover to serve as the boundary.
+That is, the the condition not only checks that we have coverage, but also that we have a pair of spaces that reflects the pair $(D, B)$ topologically.
 We call such a pair a \emph{surrounding pair} defined in terms of separating sets.
-It has been shown that the TCC can be stated in terms of these surrounding pairs~\cite{cavanna2017when}, which allows us enough flexibility to define our surrounding set as a sublevel set of a $c$-Lipschitz function $f$.
+It has been shown that the TCC can be stated in terms of these surrounding pairs~\cite{cavanna2017when}.
 Moreover, this work made assumptions directly in terms of the \emph{zero dimensional} persistent homology of the domain close to the boundary.
+This allows allows us enough flexibility to define our surrounding set as a sublevel of a $c$-Lipschitz function $f$ and state our assumptions in terms of its persistent homology.
 
 \begin{definition}[Surrounding Pair]
   Let $X$ be a topological space and $(D,B)$ a pair in $X$.
@@ -17,20 +19,19 @@ Moreover, this work made assumptions directly in terms of the \emph{zero dimensi
   We will refer to such a pair as a \textbf{surrounding pair in $X$}.
 \end{definition}
 
-Let $(D, B)$ be a surrounding pair in $X$ and $U\subseteq D$, $V\subseteq U\cap B$ be subsets.
-Let $\ell: \hom_0(X\setminus B, X\setminus D)\to \hom_0(X\setminus V, X\setminus U)$ be induced by inclusion.
-The following lemma generalize the proof of the TCC as properties of surrounding sets, its proof can be found in the \fullversion.
+The following lemma generalizes the proof of the TCC as a property of surrounding sets.%TODO, its proof can be found in the \fullversion.
 
 \begin{lemma}\label{lem:coverage}
+  Let $(D, B)$ be a surrounding pair in $X$ and $U\subseteq D$, $V\subseteq U\cap B$ be subsets.
+  Let $\ell: \hom_0(X\setminus B, X\setminus D)\to \hom_0(X\setminus V, X\setminus U)$ be induced by inclusion.
+
   If $\ell$ is injective then $D\setminus B\subseteq U$ and $V$ surrounds $U$ in $D$.
 \end{lemma}
 
 We now combine these results on the homology of surrounding pairs with information about both $\X$ as a metric space and our function.
 Let $(\X,\dist)$ be a metric space and $D\subseteq \X$ be a compact subspace.
-Let $f : D\to \R$ be a $c$-Lipschitz function and $B_\alpha = f^{-1}((-\infty, a])$ denote the $\alpha$-sublevel set of $f$ for $\alpha\in\R$.
-We introduce a constant $\omega$ as a threshold that defines our ``boundary'' as a sub-levelset of the function $f$.
-Let $P$ be a finite subset of $D$ and $Q_\alpha := P\cap B_\alpha$ for $\alpha\in\R$.
-Let $\zeta\geq\delta > 0 $ and $\omega\in \R$ be constants such that $P^\delta\subseteq D$.
+For a $c$-Lipschitz function $f : D\to \R$ we introduce a constant $\omega$ as a threshold that defines our ``boundary'' as a sublevel set $B_\omega$ of the function $f$.
+Let $P$ be a finite subset of $D$ and $\zeta\geq\delta > 0 $ and be constants such that $P^\delta\subseteq \intr_\X(D)$.
 Here, $\delta$ will serve as our communication radius where $\zeta$ is reserved for use in Section~\ref{sec:middle}.
   \footnote{We will set $\zeta = 2\delta$ in the proof of our interleaving with Rips complexes but the TCC holds for all $\zeta\geq\delta$.}
 
@@ -51,24 +52,41 @@ Here, $\delta$ will serve as our communication radius where $\zeta$ is reserved 
   That is, every element of $\im~i$ has a preimage in $\hom_0(\cmp{\B}, \cmp{D})$, so we may conclude that $\dim~\hom_0(\cmp{\B}, \cmp{D})\geq \rk~i$.
 \end{proof}
 
-Note that, while there is a surjective map from $\hom_0(\cmp{\B}, \cmp{D})$ to $\im~i$ this map is not necessarily induced by inclusion, as $\QQ^\of\not\subseteq \B$.
+Note that, while there is a surjective map from $\hom_0(\cmp{\B}, \cmp{D})$ to $\im~i$ this map is not necessarily induced by inclusion.
 We therefore must introduce a larger space $B_{\omega+c(\delta+\zeta)}$ that contains $\QQ^\of$ in order to provide a criteria for the injectivity of $\ell : \hom_0(\cmp{\B}, \cmp{D})\to\hom_0(\cmp{\Q^\of}, \cmp{P^\of})$ in terms of $\rk~i$.
+We have the following commutative diagrams of inclusion maps the induced maps between complements in $\X$.
 
-\[ \begin{tikzcd}
+% \[ \begin{tikzcd}
+%   (P^\of, \Q^\of) \arrow[hookrightarrow]{r}\arrow[hookrightarrow]{d} &
+%   (P^\of, \QQ^\of) \arrow[hookrightarrow]{d} \\
+%   %
+%   (D, \bb) \arrow[hookrightarrow]{r} &
+%   (D, B_{\omega+c(\delta+\zeta)}),
+% \end{tikzcd}\begin{tikzcd}
+%   (\cmp{B_{\omega+c(\delta+\zeta)}},\cmp{D})\arrow[hookrightarrow]{d}\arrow[hookrightarrow]{r} &
+%   (\cmp{\bb}, \cmp{D}) \arrow[hookrightarrow]{d}\\
+%   %
+%   (\cmp{\QQ^\of}, \cmp{P^\of}) \arrow[hookrightarrow]{r} &
+%   (\cmp{\Q^\of}, \cmp{P^\of}).
+% \end{tikzcd}\]
+
+% \begin{equation}\label{dgm:1}\begin{tikzcd}
+%   \hom_0(\cmp{B_{\omega+c(\delta+\zeta)}},\cmp{D})\arrow{d}{m} \arrow{r}{j} &
+%   \hom_0(\cmp{\bb}, \cmp{D}) \arrow{d}{\ell} \\
+%   %
+%   \hom_0(\cmp{\QQ^\of}, \cmp{P^\of}) \arrow{r}{i} &
+%   \hom_0(\cmp{\Q^\of}, \cmp{P^\of}).
+% \end{tikzcd}\end{equation}
+
+\begin{equation}\label{dgm:1}
+\begin{tikzcd}
   (P^\of, \Q^\of) \arrow[hookrightarrow]{r}\arrow[hookrightarrow]{d} &
   (P^\of, \QQ^\of) \arrow[hookrightarrow]{d} \\
   %
   (D, \bb) \arrow[hookrightarrow]{r} &
   (D, B_{\omega+c(\delta+\zeta)}),
-\end{tikzcd}\begin{tikzcd}
-  (\cmp{B_{\omega+c(\delta+\zeta)}},\cmp{D})\arrow[hookrightarrow]{d}\arrow[hookrightarrow]{r} &
-  (\cmp{\bb}, \cmp{D}) \arrow[hookrightarrow]{d}\\
-  %
-  (\cmp{\QQ^\of}, \cmp{P^\of}) \arrow[hookrightarrow]{r} &
-  (\cmp{\Q^\of}, \cmp{P^\of}).
-\end{tikzcd}\]
-
-\begin{equation}\label{dgm:1}\begin{tikzcd}
+\end{tikzcd}
+\begin{tikzcd}
   \hom_0(\cmp{B_{\omega+c(\delta+\zeta)}},\cmp{D})\arrow{d}{m} \arrow{r}{j} &
   \hom_0(\cmp{\bb}, \cmp{D}) \arrow{d}{\ell} \\
   %
@@ -84,7 +102,7 @@ This ensures that the rank of the map $j$ is equal to the dimension of $\dim~\ho
 % We note that, for a function in two dimensions, this translates to $1$-dimensional features disappearing right after $\omega$ in the sub-levelset filtration, as shown in Figure~\ref{fig:assumption1}.
 
 We also assume that $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega-c(\delta+\zeta)})$ is \emph{injective}---as we move away from $\omega$ moving \emph{down} no components \emph{disappear}.
-Lemma~\ref{lem:assumption2} uses Assumption 2 to provide a computable upper bound on $\rk~j$, its proof can be found in the \fullversion.
+Lemma~\ref{lem:assumption2} uses Assumption 2 to provide a computable upper bound on $\rk~j$.%TODO, its proof can be found in the \fullversion.
 % Once again, in terms of $\omega$ as a superlevel set monotonically decreasing, no components \emph{disappear} right \emph{after} $\omega$.
 % Once again, for a function in two dimensions, this translates to features in dimension 1 appearing before $\omega$ is the sublevel set filtration, as shown in Figure~\ref{fig:assumption2}.
 
@@ -150,9 +168,9 @@ We therefore provide the following definition for ease of exposition
   \[ \rk~i = \rk~q_{\cech} \geq \rk~q_{\rips} \geq \dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-c\zeta})) \geq \dim~\hom_0(D\setminus B_\omega).\]
 
   Because $j$ is surjective by hypothesis $\rk~j = \dim~\hom_0(\cmp{\B},\cmp{D}) = \dim~\hom_0(D\setminus B_\omega)$ so $\rk~j\geq \rk~i$ by Lemma~\ref{lem:psurj}.
-  Therefore, $\rk~j = \rk~i$ as we have shown $\rk~i\geq \dim~\hom_0(D\setminus B_\omega)$.
+  As we have shown $\rk~i\geq \dim~\hom_0(D\setminus B_\omega)$ it follows that $\rk~j = \rk~i$.
   Because $P$ is a finite point set we know that $\im~i$ is finite-dimensional and, because $\rk~i = \rk~j$, $\im~j=\hom_0(\cmp{\B}, \cmp{D})$ is finite dimensional as well.
-  So $\im~j$ is isomorphic to $\im~i$ as a subspace of $\hom_0(\cmp{\Q^\of}, \cmp{P^\of})$ which, because $j$ is surjective, requires the map $\ell$ induced by inclusion to be injective.
+  So $\im~j$ is isomorphic to $\im~i$ as a subspace of $\hom_0(\cmp{\Q^\of}, \cmp{P^\of})$ which, because $j$ is surjective, requires the map $\ell$ to be injective.
   Therefore $D\setminus\bb\subseteq P^\of$ and $\Q^\of$ surrounds $P^\of$ in $D$ by Lemma~\ref{lem:coverage}.
   %, Lemma~\ref{lem:cov_surrounds}.
   % As $j : \hom_0(D\setminus B_{\omega+c(\delta+\zeta)})\to \hom_0(D\setminus B_\omega)$ is surjective by assumption $\rk~j = \dim~\hom_0(D\setminus B_\omega)$, so $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ in $D$ by Theorem~\ref{thm:geo_tcc} as desired.
