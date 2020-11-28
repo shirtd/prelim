@@ -13,7 +13,7 @@
       As $f[x]$ is trivial in $\hom_0(\overline{B},\overline{D}\cup\{x\})$ we have that $\ell[x] = (g\circ f)[x]$ is trivial, contradicting our hypothesis that $\ell$ is injective.
     \item[$\ell$ injective $\implies$ $V$ surrounds $U$ in $D$.] Suppose, for the sake of contradiction, that $V$ does not surround $U$ in $D$.
       Then there exists a path $\gamma : [0,1]\to\overline{V}$ with $\gamma(0)\in U\setminus V$ and $\gamma(1)\in D\setminus U$.
-      By Lemma~\ref{lem:coverage} we know that $D\setminus B\subseteq U$, so $D\setminus B\subseteq U\setminus V$.
+      As we have shown, $D\setminus B\subseteq U$, so $D\setminus B\subseteq U\setminus V$.
 
       Choose $x\in D\setminus B$ and $z\in \overline{D}$ such that there exist paths $\xi : [0,1]\to U\setminus V$ with $\xi(0) = x$, $\xi(1) = \gamma(0)$ and $\zeta : [0,1]\to \overline{D}\cup (D\setminus U)$ with $\zeta(0) = z$, $\zeta(1) = \gamma(1)$.
       $\xi, \gamma$ and $\zeta$ all generate chains in $C_1(\overline{V}, \overline{U})$ and $\xi + \gamma + \zeta = \gamma^*\in C_1(\overline{V}, \overline{U})$ with $\partial\gamma^* = x + z$.
@@ -174,21 +174,37 @@ and define the composite maps
 \[\Sigma_w^\e := \I_w^\e\circ (\E\N_w^\e)^{-1}\in \Hom(\PP{w}{\e},\RPP{w}{2\e})\ \text{ and }\ \Upsilon_w^\e := \E\N_w^{\e}\circ \J_w^{\e}\in \Hom(\RPP{w}{\e},\PP{w}{\e}).\]
 
 \begin{proof}[Proof of Lemma~\ref{lem:rips_homomorphism_left}]
-  By the Persistent Nerve Lemma we have $\cech\Lambda\circ (\E\N_w^\e)^{-1} = (\E\N_z^\eta)^{-1}\circ \Lambda$ for $\cech\Lambda\in\Hom(\CPP{w}{\e},\CPP{z}{\eta})$ induced by inclusions.
-  As $\rips\Lambda\circ\I_w^\e = \I_z^\eta\circ\cech\Lambda$
-  \[ \rips\Lambda\circ \I_w^\e\circ(\E\N_w^\e)^{-1} = \I_z^\eta\circ\cech\Lambda\circ (\E\N_w^\e)^{-1} = \I_z^\eta\circ (\E\N_z^\eta)^{-1}\circ\Lambda.\]
-  It follows that $\rips\Lambda\circ\Sigma_w^\e = \Sigma_z^\eta\circ\Lambda$ by the definition of $\Sigma$.
-  So Diagram~\ref{dgm:image_homomorphism} commutes and we may therefore conclude that $\tilde{\Phi}(\Sigma_w^\e,\Sigma_z^\eta)$ is an image module homomorphism.
+  By the Persistent Nerve Lemma we have $\cech\Lambda\circ (\E\N_w^\e)^{-1} = (\E\N_z^{2\e})^{-1}\circ \Lambda$ for $\cech\Lambda\in\Hom(\CPP{w}{\e},\CPP{z}{2\e})$ induced by inclusions.
+  As $\rips\Lambda\circ\I_w^\e = \I_z^{2\e}\circ\cech\Lambda$
+  \[ \rips\Lambda\circ \I_w^\e\circ(\E\N_w^\e)^{-1} = \I_z^{2\e}\circ\cech\Lambda\circ (\E\N_w^\e)^{-1} = \I_z^{2\e}\circ (\E\N_z^{2\e})^{-1}\circ\Lambda.\]
+  It follows that $\rips\Lambda\circ\Sigma_w^\e = \Sigma_z^{2\e}\circ\Lambda$ by the definition of $\Sigma$.
+  So Diagram~\ref{dgm:image_homomorphism} commutes and we may therefore conclude that $\tilde{\Phi}(\Sigma_w^\e,\Sigma_z^{2\e})$ is an image module homomorphism.
 
-  By the Persistent Nerve Lemma we have $\E\N_z^{2\eta} \circ\cech\Lambda'  = \cech \Lambda\circ \E\N_w^{2\e}$ for $\cech\Lambda'\in\Hom(\CPP{w}{2\e},\CPP{z}{2\eta})$ induced by inclusions.
-  As $\J_z^\eta\circ \rips\Lambda = \cech\Lambda'\circ\J_w^\e$
-  \[ \E\N_z^{2\eta}\circ \J_z^\eta\circ \rips\Lambda = \E\N_z^{2\eta}\circ\cech\Lambda'\circ\J_w^\e = \cech \Lambda\circ \E\N_w^{2\e}\circ\J_w^\e.\]
-  Once again, Diagram~\ref{dgm:image_homomorphism} commutes by the definition of $\Upsilon$, so $\tilde{\Psi}(\Upsilon_w^{2\e},\Upsilon_z^{2\eta})$ is an image module homomorphism.
+  By the Persistent Nerve Lemma we have $\E\N_z^{4\e} \circ\cech\Lambda'  = \cech \Lambda\circ \E\N_w^{2\e}$ for $\cech\Lambda'\in\Hom(\CPP{w}{2\e},\CPP{z}{4\e})$ induced by inclusions.
+  As $\J_z^{2\e}\circ \rips\Lambda = \cech\Lambda'\circ\J_w^\e$
+  \[ \E\N_z^{4\e}\circ \J_z^{2\e}\circ \rips\Lambda = \E\N_z^{4\e}\circ\cech\Lambda'\circ\J_w^\e = \cech \Lambda\circ \E\N_w^{2\e}\circ\J_w^\e.\]
+  Once again, Diagram~\ref{dgm:image_homomorphism} commutes by the definition of $\Upsilon$, so $\tilde{\Psi}(\Upsilon_w^{2\e},\Upsilon_z^{4\e})$ is an image module homomorphism.
 \end{proof}
 
+\begin{corollary}\label{cor:left_right}
+  If $w\leq z$ and $\e < \varrho_D / 4$ then $\tilde{\Phi}(\Sigma_w^\e,\Sigma_z^{2\e})$ is a left interleaving of image modules and $\tilde{\Psi}(\Upsilon_w^{2\e},\Upsilon_z^{4\e})$ is a right interleaving of image modules.
+\end{corollary}
+\begin{proof}
+  Because $2\e\geq 2\e$ and $w\leq z$ the pair $(\Sigma_w^\e, \Upsilon_z^{2\e})$ factors $\Lambda$ through the map $\RPP{w}{2\e}\to \RPP{z}{2\e}$ induced by inclusions.
+  It follows that $\tilde{\Phi}$ is a left interleaving of image modules via the composition of this map with $\Upsilon_z^{2\e}$.
+  Similarly, $(\Upsilon_w^{2\e}, \Sigma_z^{2\e})$ factors $\rips\Lambda$ through the map $\E\PP{w}{2\e}\to \E\PP{z}{2\e}$ induced by inclusions.
+  It follows that $\tilde{\Psi}$ is a right interleaving of image modules via the composition of this map with $\Sigma_z^{2\e}$.
+  As all maps are induced by inclusions
+\end{proof}
+
+We will now show that the image module homomorphisms
+\[ \rips\Phi := \tilde{\Phi}\circ\Phi\in\Hom^{2c\delta}(\im~\Gamma,\im~\rips\Lambda)\ \text{ and }\ \rips\Psi :=\Psi\circ\tilde{\Psi}\in\Hom^{4c\delta}(\im~\rips\Lambda, \im~\Pi).\]
+given by the compositions
+\[ \rips\Phi(\rips F, \rips G) := (\Sigma_{\omega-2c\delta}^\delta\circ F, \Sigma_{\omega+c\delta}^{2\delta}\circ G)\ \text{ and }\ \rips\Psi(\rips M, \rips N) := (M\circ \Upsilon_{\omega-2c\delta}^{2\delta}, N\circ\Upsilon_{\omega+c\delta}^{4\delta})\]
+are partial interleavings.
 
 \begin{lemma}\label{lem:rips_factor_mid}
-  The pair $(\rips M, \rips G)$ factors $\rips\Lambda[4c\delta]$ through $\DD{\omega}$.
+  $\rips\Lambda[3c\delta] = \rips G\circ\rips M$ through $\DD{\omega}$.
 \end{lemma}
 \begin{proof}
   Let $\Theta\in\Hom(\ext{\PP{\omega-2c\delta}{2\delta}},\ext{\PP{\omega+c\delta}{2\delta}})$ and $\cech\Theta\in\Hom(\CPP{\omega-2c\delta}{2\delta}, \CPP{\omega+c\delta}{2\delta})$ be induced by inclusions so that $\Theta[4c\delta] = G\circ M$ and $\rips\Lambda = \I_{\omega+c\delta}^{2\delta}\circ\cech\Theta\circ\J_{\omega-2c\delta}^{2\delta}$.

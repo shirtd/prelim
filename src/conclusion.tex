@@ -1,0 +1,21 @@
+% !TeX root = ../main_socg.tex
+
+We have extended the Topological Coverage Criterion to the setting of Topological Scalar Field Analysis.
+By defining the boundary in terms of a sublevel set of a scalar field we provide an interpretation of the TCC that applies more naturally to data coverage.
+We then showed how the assumptions and machinery of the TCC can be used to approximate the persistent homology of the scalar field relative to a static sublevel set.
+This relative persistent homology is shown to be related to a truncation of that of the scalar field as whole, and therefore provides a way to approximate a part of its persistence diagram in the presence of un-verified data.
+
+There are a number of unanswered questions and directions for future work.
+From the theoretical perspective, our understanding of duality limited us in providing a more elegant extension of the TCC.
+A better understanding of when and how duality can be applied would allow us to give a more rigorous statement of our assumptions.
+Moreover, as duality plays a central role in the TCC it is natural to investigate its role in the analysis of scalar fields.
+This would not only allow us to apply duality to persistent homology~\cite{desilva11duality}, but also allow us to provide a rigorous comparison between the relative approach and the persistent homology of the superlevel set filtration and explore connections with Extended Persistence~\cite{cohen09extending}.
+
+From a computational perspective, we interested in exploring how to recover the full diagram as discussed in Section~\ref{sec:experiments}.
+Our statements in terms of sublevel sets can be generalized to disjoint unions of sub and superlevel sets, where coverage is confirmed in an \emph{interlevel} set.
+This, along with a better understanding of the relationship between sub and superlevel sets could lead to an iterative approach in which the persistent homology of a scalar field is constructed as data becomes available.
+We are also interested in finding efficient ways to compute the image persistent (relative) homology that vary in both scalar and scale.
+
+The problem of relaxing our assumptions on the boundary can be approached from both a theoretical and computational perspective.
+Ways to avoid the isomorphism we require could be investigated in theory, and the interaction of relative persistent homology and the Persistent Nerve Lemma may be used tighten our assumptions.
+We would also like to conduct a more rigorous investigation on the effect of these assumptions in practice.
