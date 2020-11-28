@@ -38,6 +38,8 @@ if __name__ == "__main__":
     Y_RNG = np.linspace(-1,1,self.N)
     X, Y = np.meshgrid(X_RNG, Y_RNG)
 
+    PLOT_SURF = False
+
 
     # CMAP = [(COLOR['orange'], (0, self.cuts[0])),
     #         (COLOR['green'], (self.cuts[0], self.cuts[1]))
@@ -64,9 +66,9 @@ if __name__ == "__main__":
     #                 'C_c' : {'scalar' : [self.cuts[2]], 'color' : COLOR['purple']},
     #                 'D_c' : {'scalar' : [self.cuts[3]], 'color' : COLOR['orange']}}
 
-
-    surf = SurfacePlot(X, Y, G, SURF_ARGS, CONT_ARGS, VIEW)
-    surf.reset_view('top')
+    if PLOT_SURF:
+        surf = SurfacePlot(X, Y, G, SURF_ARGS, CONT_ARGS, VIEW)
+        surf.reset_view('top')
 
     THRESH = 4 * np.sqrt(2 * (2 / self.N) ** 2)
 
@@ -83,10 +85,10 @@ if __name__ == "__main__":
     ax[3].set_title(r"$\mathrm{H}_1$ restricted ($\omega = %0.1f$)" % self.cuts[2])
 
     plt.tight_layout()
-    plot_diagram(ax[0], self.full_barcode[1], CMAP, THRESH, alpha=0.75, size=4, zorder=1)
-    plot_diagram(ax[1], barcode.dgms_res[0][1], CMAP, THRESH, alpha=0.75, size=4, zorder=1)
-    plot_diagram(ax[2], barcode.dgms_res[1][1], CMAP, THRESH, alpha=0.75, size=4, zorder=1)
-    plot_diagram(ax[3], barcode.dgms_res[2][1], CMAP, THRESH, alpha=0.75, size=4, zorder=1)
+    plot_diagram(ax[0], self.full_barcode[1], CMAP, THRESH, alpha=0.75, size=10, zorder=1)
+    plot_diagram(ax[1], barcode.dgms_res[0][1], CMAP, THRESH, alpha=0.75, size=10, zorder=1)
+    plot_diagram(ax[2], barcode.dgms_res[1][1], CMAP, THRESH, alpha=0.75, size=10, zorder=1)
+    plot_diagram(ax[3], barcode.dgms_res[2][1], CMAP, THRESH, alpha=0.75, size=10, zorder=1)
 
     dio_dat = barcode.get_dio_dat()
     dat = {'full' : [DioWrap(dio_dat['full'], dim, THRESH) for dim in range(3)],
@@ -105,14 +107,16 @@ if __name__ == "__main__":
     dir = os.path.join(dir, '%s-%d' % (name, di))
     print('creating directory %s' % dir)
     os.makedirs(dir)
+    
+    plt.savefig(os.path.join(dir, 'full-dgm.pdf'), dpi=300)
 
-    plt.savefig(os.path.join(dir, 'full-dgm.png'), dpi=300)
-    surf.save(os.path.join(dir, 'full-surf_top.png'), (2000, 2000))
+    if PLOT_SURF:
+        surf.save(os.path.join(dir, 'full-surf_top.png'), (2000, 2000))
 
-    vw = view()
-    view(vw[0], 80, vw[2], vw[3])
-    surf.save(os.path.join(dir, 'full-surf_side.png'), (2000, 2000))
-    surf.reset_view('top')
+        vw = view()
+        view(vw[0], 80, vw[2], vw[3])
+        surf.save(os.path.join(dir, 'full-surf_side.png'), (2000, 2000))
+        surf.reset_view('top')
 
     ps = {p for matches in matchings for (p,_,_), _ in matches}
     e_plt, f_plt = [], []
@@ -123,20 +127,22 @@ if __name__ == "__main__":
         e_plt.append(ax[0].scatter(_p.birth, _p.death, s=10, color=get_color(_p, CMAP), marker='D', zorder=3))
         f_plt.append(_ft)
 
-        surf.reset_view('top')
-        surf.save(os.path.join(dir, 'surf_top-%d.png' % j), (3000, 3000))
-        vw = view()
-        view(vw[0], 80, vw[2], vw[3])
-        surf.save(os.path.join(dir, 'surf_side-%d.png' % j), (3000, 3000))
-        surf.reset_view('top')
+        if PLOT_SURF:
+            surf.reset_view('top')
+            surf.save(os.path.join(dir, 'surf_top-%d.png' % j), (3000, 3000))
+            vw = view()
+            view(vw[0], 80, vw[2], vw[3])
+            surf.save(os.path.join(dir, 'surf_side-%d.png' % j), (3000, 3000))
+            surf.reset_view('top')
 
         for i, (axis, matches) in enumerate(zip(ax[1:], matchings)):
-            surf['cut'][LABELS[i]]['opacity'] = 0.1
+            if PLOT_SURF:
+                surf['cut'][LABELS[i]]['opacity'] = 0.1
             for (p,_,_), (q,_,_) in matches:
                 if p == _p:
                     # surf['cont']['%s_c' % LABELS[i]]['visible'] = True
-                    e_plt.append(axis.scatter(p.birth, p.death, s=10, color=get_color(p, CMAP), alpha=0.25, marker='D', zorder=3))
-                    e_plt.append(axis.scatter(q.birth, q.death, s=10, color=get_color(q, CMAP), zorder=3))
+                    e_plt.append(axis.scatter(p.birth, p.death, s=15, color=get_color(p, CMAP), alpha=0.25, marker='D', zorder=3))
+                    e_plt.append(axis.scatter(q.birth, q.death, s=15, color=get_color(q, CMAP), zorder=3))
                     # e_plt.append(axis.scatter(p.birth, p.death, s=10, color=(0,0,0), alpha=0.5, marker='D', zorder=3))
                     # e_plt.append(axis.scatter(q.birth, q.death, s=10, color=COLOR['red'], zorder=3))
                     prev, cut = p.birth+0.025, get_cut_index(p, self.cuts)
@@ -149,19 +155,20 @@ if __name__ == "__main__":
 
                     f_plt.append(FeaturePlot(q, dat['res'][i][DIM], X, Y, barcode.G, COLOR['red']))
 
-                    surf.reset_view('top')
-                    surf.save(os.path.join(dir, 'surf_top-%d_%d.png' % (j, i)), (3000, 3000))
-                    vw = view()
-                    view(vw[0], 80, vw[2], vw[3])
-                    surf.save(os.path.join(dir, 'surf_side-%d_%d.png' % (j, i)), (3000, 3000))
-                    surf.reset_view('top')
-                    f_plt.pop().remove()
+                    if PLOT_SURF:
+                        surf.reset_view('top')
+                        surf.save(os.path.join(dir, 'surf_top-%d_%d.png' % (j, i)), (3000, 3000))
+                        vw = view()
+                        view(vw[0], 80, vw[2], vw[3])
+                        surf.save(os.path.join(dir, 'surf_side-%d_%d.png' % (j, i)), (3000, 3000))
+                        surf.reset_view('top')
+                        f_plt.pop().remove()
 
                     # surf['cont']['%s_c' % LABELS[i]]['visible'] = False
 
 
         plt.pause(0.1)
-        plt.savefig(os.path.join(dir, 'dgm-%d.png' % j), dpi=300)
+        plt.savefig(os.path.join(dir, 'dgm-%d.pdf' % j), dpi=300)
 
         while len(f_plt):
             f_plt.pop().remove()
@@ -169,5 +176,6 @@ if __name__ == "__main__":
         while len(e_plt):
             e_plt.pop().remove()
 
-        for l in LABELS:
-            surf['cut'][l]['opacity'] = 0.5
+        if PLOT_SURF:
+            for l in LABELS:
+                surf['cut'][l]['opacity'] = 0.5

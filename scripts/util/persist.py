@@ -13,11 +13,12 @@ CUT_MAP = {'A' : (CUTS[0], CUTS[1]),
 CMAP = {'A' : COLOR['green'],
         'B' : COLOR['blue'],
         'C' : COLOR['purple'],
-        'D' : COLOR['orange']}
+        'D' : COLOR['yellow']}
 
-def plot_barcode_sub(axis, dgm, lw=5):
+def plot_barcode_sub(axis, dgm, lw=5, N=None, offset=0):
+    N = len(dgm) if N is None else N
     for i, (birth, death) in enumerate(dgm):
-        i = 1 - i / len(dgm)
+        i = 1 - (i + offset) / (N - 1)
         for name, (a,b) in CUT_MAP.items():
             if a < birth and death <= b:
                 axis.plot([birth, death], [i, i], c=CMAP[name], lw=lw)
@@ -28,7 +29,7 @@ def plot_barcode_sub(axis, dgm, lw=5):
             elif birth <= a and b < death:
                 axis.plot([b, a], [i, i], c=CMAP[name], lw=lw)
         if death == np.inf:
-            axis.plot([1.32, 1.39], [i, i], c='black', linestyle='dotted',  lw=lw/2)
+            axis.plot([1.32, 1.39], [i, i], c='black', linestyle='dotted',  lw=lw/4)
         # ax.set_ylim(-1, 4)
         axis.get_yaxis().set_visible(False)
 
