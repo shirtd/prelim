@@ -44,35 +44,6 @@
   So $B' \subseteq \ext{V}\subseteq B$ as desired.
 \end{proof}
 
-\begin{lemma}\label{lem:p_interleave}
- If $Q_w^\e$ surrounds $P^\e$ in $D$ and $D\setminus B_{w + \e}\subseteq P^\e$ then we have the following sequence of homomorphisms of degree $c\e$ induced by inclusions
- \[\DD{w-c\e}\xrightarrow{F}\E\PP{w}{\e}\xrightarrow{M}\DD{w+c\e}.\]
-\end{lemma}
-\begin{proof}
-  Suppose $x\in (P^\e\cap B\subi{w-c\e}{\alpha-c\e})\setminus B_{w+\e}$.
-  Because $B_{w-\e}\subset B_{w+\e}$ we know $x\notin B_{w-\e}$ so $w+c\e < f(x)\leq \alpha-c\e$ and there exists some $p\in P$ such that $\dist(x, p) < \e$.
-  Because $f$ is $c$-Lipschitz it follows
-  \[ f(p)\leq f(x) + c\dist(x, p) < \alpha - c\e + c\e = \alpha\]
-  and
-  \[ f(p)\geq f(x) - c\dist(x, p) > w+c\e-c\e = w.\]
-  So $x\in P\subi{w}{\alpha}^\e$.
-
-  Now, suppose $x\in P\subi{w}{\alpha}^\e\setminus B_{w+c\e}$.
-  So $w+c\e < f(x)$ and there exists some $p\in P\subi{w}{\alpha}$ such that $\dist(x,p) < \e$.
-  Because $f$ is $c$-Lipschitz it follows
-  \[ f(x) \leq f(p) + c\dist(x,p) < a + c\e.\]
-  So $x\in B\subi{w+c\e}{\alpha+c\e}\setminus B_{w+c\e}$.
-
-  Because $D\setminus B_{w+c\e}\subseteq P^\e$ we know that $D\setminus P^\e \subseteq B_{w+c\e}$, so
-  \[D\subi{w-c\e}{\alpha-c\e}\setminus B_{w+c\e} \subseteq P\subi{w}{\alpha}^\e\setminus B_{w+c\e}\subseteq D\subi{w+c\e}{\alpha+c\e}\setminus B_{w+c\e}\]
-  implies
-  \[ D\subi{w-c\e}{\alpha-c\e}\subseteq P\subi{w}{\alpha}^\e\cup (D\setminus P^\e) = \ext{P\subi{w}{\alpha}^\e} \subseteq D\subi{w+c\e}{\alpha+c\e} \]
-  as desired.
-
-  Because $f$ is $c$-Lipschitz, $B_{w-c\e}\cap P^\delta\subseteq Q_{w}^\e$ so $B_{w-c\e} \subseteq \E Q_w^\e\subseteq B_{w+c\e}$ by Lemma~\ref{lem:surround_and_cover}.
-  It follows that we have homomorphisms $F\in \Hom^{c\e}(\DD{w-c\e}, \E\PP{w}{\e})$ and $M\in\Hom^{c\e}(\E\PP{w}{\e}, \DD{w+c\e})$ induced by inclusions.
-\end{proof}
-
 \begin{proof}[Proof of Lemma~\ref{lem:excision}]
   Because $V$ surrounds $U$ in $D$, $(U\setminus V, D\setminus U)$ is a separation of $D\setminus V$, a subspace of $D$.
   So $\cl_D(U\setminus V)\setminus U = \cl_D(U\setminus V) \cap (D\setminus U) = \emptyset$ which implies $\cl_D(U\setminus V)\subseteq U = \intr_D(U)$ as $U$ is open in $D$.
@@ -89,20 +60,6 @@
       &\cong \hom_k(A, \ext{V})
   \end{align*}
   for all $k$ and any $A\subseteq D$ such that $\ext{V}\subset A$ by Excision.
-\end{proof}
-
-\begin{lemma}\label{lem:extension_apply}
-  If $Q_w^\e$ surrounds $P^\e$ in $D$ then then there is an isomorphism $\E_w^\e \in \Hom(\PP{w}{\e},\ext{\PP{w}{\e}})$.
-\end{lemma}
-\begin{proof}
-  Because $P\subi{w}{a} := P\cap D\subi{w}{a}$ and $B_w\subseteq D\subi{w}{a}$ we know $Q_w = P\cap B_w \subseteq P\subi{w}{a}$ for all $a\in\R$.
-  So
-  \[\ext{Q^\e_a} = Q^\e_a\cup (D\setminus P^\e) \subseteq P\subi{w}{a}^\e \cup (D\setminus P^\e) = \ext{P\subi{w}{a}^\e}.\]
-  As $(P^\e, Q_w^\e)$ is a surrounding pair in $D$, $P^\e$ is open in $D$ and $\ext{P\subi{w}{a}^\e}\subseteq D$ is such that $\ext{Q^\e_a}\subseteq \ext{P\subi{w}{a}^\e}$ it follows that
-  \[\hom_k(P\subi{w}{a}^\e, Q^\e_a) = \hom_k(P^\e\cap \ext{P\subi{w}{a}^\e}, Q^\e_a) \cong\hom_k(\ext{P\subi{w}{a}^\e}, \ext{Q^\e_a})\]
-  by Lemma~\ref{lem:excision}.
-
-  Because these isomorphisms commute with inclusions we have an isomorphism $\E\subi{w}{\cdot}^\e \in \Hom(\PP{w}{\e},\ext{\PP{w}{\e}})$ defined to be the family $\{\E\subi{w}{\alpha}^\e : \P{w}{\e}{a}\to \E\P{w}{\e}{a}\}$.
 \end{proof}
 
 \subsection{Image Modules}
@@ -168,41 +125,67 @@
 
 \subsection{Partial Interleavings}
 
-\begin{proof}[Proof of Lemma~\ref{lem:extension_apply}]
-  Because $P\subi{w}{a} := P\cap D\subi{w}{a}$ and $B_w\subseteq D\subi{w}{a}$ we know $Q_w = P\cap B_w \subseteq P\subi{w}{a}$ for all $a\in\R$.
-  So
-  \[\ext{Q^\e_a} = Q^\e_a\cup (D\setminus P^\e) \subseteq P\subi{w}{a}^\e \cup (D\setminus P^\e) = \ext{P\subi{w}{a}^\e}.\]
-  As $(P^\e, Q_w^\e)$ is a surrounding pair in $D$, $P^\e$ is open in $D$ and $\ext{P\subi{w}{a}^\e}\subseteq D$ is such that $\ext{Q^\e_a}\subseteq \ext{P\subi{w}{a}^\e}$ it follows that
-  \[\hom_k(P\subi{w}{a}^\e, Q^\e_a) = \hom_k(P^\e\cap \ext{P\subi{w}{a}^\e}, Q^\e_a) \cong\hom_k(\ext{P\subi{w}{a}^\e}, \ext{Q^\e_a})\]
-  by Lemma~\ref{lem:excision}.
+% \begin{proof}[Proof of Lemma~\ref{lem:extension_apply}]
+%   Because $P\subi{w}{a} := P\cap D\subi{w}{a}$ and $B_w\subseteq D\subi{w}{a}$ we know $Q_w = P\cap B_w \subseteq P\subi{w}{a}$ for all $a\in\R$.
+%   So
+%   \[\ext{Q^\e_a} = Q^\e_a\cup (D\setminus P^\e) \subseteq P\subi{w}{a}^\e \cup (D\setminus P^\e) = \ext{P\subi{w}{a}^\e}.\]
+%   As $(P^\e, Q_w^\e)$ is a surrounding pair in $D$, $P^\e$ is open in $D$ and $\ext{P\subi{w}{a}^\e}\subseteq D$ is such that $\ext{Q^\e_a}\subseteq \ext{P\subi{w}{a}^\e}$ it follows that
+%   \[\hom_k(P\subi{w}{a}^\e, Q^\e_a) = \hom_k(P^\e\cap \ext{P\subi{w}{a}^\e}, Q^\e_a) \cong\hom_k(\ext{P\subi{w}{a}^\e}, \ext{Q^\e_a})\]
+%   by Lemma~\ref{lem:excision}.
+%
+%   Because these isomorphisms commute with inclusions we have an isomorphism $\E\subi{w}{\cdot}^\e \in \Hom(\PP{w}{\e},\ext{\PP{w}{\e}})$ defined to be the family $\{\E\subi{w}{\alpha}^\e : \P{w}{\e}{a}\to \E\P{w}{\e}{a}\}$.
+% \end{proof}
 
-  Because these isomorphisms commute with inclusions we have an isomorphism $\E\subi{w}{\cdot}^\e \in \Hom(\PP{w}{\e},\ext{\PP{w}{\e}})$ defined to be the family $\{\E\subi{w}{\alpha}^\e : \P{w}{\e}{a}\to \E\P{w}{\e}{a}\}$.
+\begin{proof}[Proof of Lemma~\ref{lem:inclusions}]
+  Suppose $x\in P^\delta\cap D\subi{t-c\e}{\alpha-c\e}$.
+  Because $x$ in $P^\delta$ there exists some $p\in P$ such that $\dist(x,p) < \delta$.
+  Because $f$ is $c$-Lipschitz $f(p)\leq f(x) + c\dist(x,p) < f(x) + c\delta$.
+  If $\alpha\leq t$ then $x\in B_{t-c\e}$ implies $f(p) < t-c\e + c\delta \leq t$ so $x\in Q_t^\e$ as $\delta\leq\e$
+  If $\alpha\geq t$ then $x\in B_{\alpha-c\e}$ which implies $f(p) \leq \alpha$ $x\in Q_\alpha^\e$.
+  So $P^\delta\cap D\subi{t-c\e}{\alpha-c\e}\subseteq P\subi{t}{\alpha}^\e$ as $P\subi{t}{\alpha} = Q_t^\e\cup Q_\alpha^\e$.
+
+  Now, suppose $x\in P\subi{t}{\alpha}^\e$.
+  If $\alpha\leq t$ then $x\in Q_t^\e\subseteq B_{t+c\e}$ because $f$ is $c$-Lipschitz.
+  Similarly, $\alpha > t$ implies $x\in Q_\alpha^\e\subseteq B_{\alpha+c\e}$, so $P\subi{t}{\alpha}^\e\subseteq D\subi{t+c\e}{\alpha+c\e}$ as $D\subi{t+c\e}{\alpha+c\e} = B_{t+c\e}\cup B_{\alpha+c\e}$.
 \end{proof}
 
-\begin{proof}[Proof of Lemma~\ref{lem:p_interleave}]
-  Suppose $x\in (P^\e\cap B\subi{w-c\e}{\alpha-c\e})\setminus B_{w+\e}$.
-  Because $B_{w-\e}\subset B_{w+\e}$ we know $x\notin B_{w-\e}$ so $w+c\e < f(x)\leq \alpha-c\e$ and there exists some $p\in P$ such that $\dist(x, p) < \e$.
-  Because $f$ is $c$-Lipschitz it follows
-  \[ f(p)\leq f(x) + c\dist(x, p) < \alpha - c\e + c\e = \alpha\]
-  and
-  \[ f(p)\geq f(x) - c\dist(x, p) > w+c\e-c\e = w.\]
-  So $x\in P\subi{w}{\alpha}^\e$.
+\begin{proof}[Proof of Lemma~\ref{lem:inclusion_hom}]
+  Because $Q_t^\delta$ surrounds $P^\delta$ in $D$ and $\delta\leq\e$, $t < v$ we know $Q_t^\e$ and $Q_v^\e$ surround $P^\delta$ in $D$.
+  As $P^\delta\cap B_s\subseteq Q_t^\e$ and $P^\delta\cap B_u\subseteq Q_v^{2\e}$ for all $\e\in[\delta,2\delta]$ Lemma~\ref{lem:surround_and_cover} implies that we have a sequence of inclusions $B_s\subseteq \E Q_t^\e\subseteq B_u\subseteq \E Q_v^{2\e}\subseteq B_w$.
 
-  Now, suppose $x\in P\subi{w}{\alpha}^\e\setminus B_{w+c\e}$.
-  So $w+c\e < f(x)$ and there exists some $p\in P\subi{w}{\alpha}$ such that $\dist(x,p) < \e$.
-  Because $f$ is $c$-Lipschitz it follows
-  \[ f(x) \leq f(p) + c\dist(x,p) < a + c\e.\]
-  So $x\in B\subi{w+c\e}{\alpha+c\e}\setminus B_{w+c\e}$.
+  For any $\alpha\in\R$ we know that $D\setminus P^\delta \subseteq \ext{P\subi{t}{\alpha}^\e}$ by the definition of $\ext{P\subi{t}{\alpha}^\e}$.
+  Moreover, $D\setminus P^\delta\subseteq D\subi{u}{\alpha}$ because $D\setminus B_u\subseteq P^\delta$.
+  Lemma~\ref{lem:inclusions} therefore implies $D\subi{s}{\alpha-c\delta}\subseteq \E P\subi{t}{\alpha}^\e\subseteq D\subi{u}{\alpha+c\e}$ as $s + c\delta\leq t \leq u - c\e$.
+  So the inclusions $(D\subi{s}{\alpha-c\delta}, B_s)\subseteq (\E P\subi{t}{\alpha}^\e, \E Q_t^\e)$ induce $F\in\Hom^{c\delta}(\DD{s},\E\PP{t}{\e})$ and $(\E P\subi{t}{\alpha}^\e, \E Q_t^\e)\subseteq (D\subi{u}{\alpha+c\e}, B_u)$ induce $M\in \Hom^{c\e}(\E\PP{t}{\e}, \DD{u})$.
 
-  Because $D\setminus B_{w+c\e}\subseteq P^\e$ we know that $D\setminus P^\e \subseteq B_{w+c\e}$, so
-  \[D\subi{w-c\e}{\alpha-c\e}\setminus B_{w+c\e} \subseteq P\subi{w}{\alpha}^\e\setminus B_{w+c\e}\subseteq D\subi{w+c\e}{\alpha+c\e}\setminus B_{w+c\e}\]
-  implies
-  \[ D\subi{w-c\e}{\alpha-c\e}\subseteq P\subi{w}{\alpha}^\e\cup (D\setminus P^\e) = \ext{P\subi{w}{\alpha}^\e} \subseteq D\subi{w+c\e}{\alpha+c\e} \]
-  as desired.
-
-  Because $f$ is $c$-Lipschitz, $B_{w-c\e}\cap P^\delta\subseteq Q_{w}^\e$ so $B_{w-c\e} \subseteq \E Q_w^\e\subseteq B_{w+c\e}$ by Lemma~\ref{lem:surround_and_cover}.
-  It follows that we have homomorphisms $F\in \Hom^{c\e}(\DD{w-c\e}, \E\PP{w}{\e})$ and $M\in\Hom^{c\e}(\E\PP{w}{\e}, \DD{w+c\e})$ induced by inclusions.
+  By an identical argument Lemma~\ref{lem:inclusions} implies $D\subi{u}{\alpha-2c\delta}\subseteq \E P\subi{v}{\alpha}^\e\subseteq D\subi{w}{\alpha+2c\e}$ as $u+c\delta\leq v\leq w-4c\delta$.
+  So $(D\subi{u}{\alpha-2c\delta},B_u)\subseteq (\E P\subi{v}{\alpha}^\e, \E Q_v^{2\e})$ induce $G\in\Hom^{2c\delta}(\DD{u},\E\PP{v}{2\e})$ and $(\E P\subi{v}{\alpha}^\e, \E Q_v^{2\e})\subseteq (D\subi{w}{\alpha+2c\e},B_w)$ induce $N\in\Hom^{2c\e}(\E\PP{v}{2\e},\DD{u})$.
 \end{proof}
+
+% \begin{proof}[Proof of Lemma~\ref{lem:p_interleave}]
+%   Suppose $x\in (P^\e\cap B\subi{w-c\e}{\alpha-c\e})\setminus B_{w+\e}$.
+%   Because $B_{w-\e}\subset B_{w+\e}$ we know $x\notin B_{w-\e}$ so $w+c\e < f(x)\leq \alpha-c\e$ and there exists some $p\in P$ such that $\dist(x, p) < \e$.
+%   Because $f$ is $c$-Lipschitz it follows
+%   \[ f(p)\leq f(x) + c\dist(x, p) < \alpha - c\e + c\e = \alpha\]
+%   and
+%   \[ f(p)\geq f(x) - c\dist(x, p) > w+c\e-c\e = w.\]
+%   So $x\in P\subi{w}{\alpha}^\e$.
+%
+%   Now, suppose $x\in P\subi{w}{\alpha}^\e\setminus B_{w+c\e}$.
+%   So $w+c\e < f(x)$ and there exists some $p\in P\subi{w}{\alpha}$ such that $\dist(x,p) < \e$.
+%   Because $f$ is $c$-Lipschitz it follows
+%   \[ f(x) \leq f(p) + c\dist(x,p) < a + c\e.\]
+%   So $x\in B\subi{w+c\e}{\alpha+c\e}\setminus B_{w+c\e}$.
+%
+%   Because $D\setminus B_{w+c\e}\subseteq P^\e$ we know that $D\setminus P^\e \subseteq B_{w+c\e}$, so
+%   \[D\subi{w-c\e}{\alpha-c\e}\setminus B_{w+c\e} \subseteq P\subi{w}{\alpha}^\e\setminus B_{w+c\e}\subseteq D\subi{w+c\e}{\alpha+c\e}\setminus B_{w+c\e}\]
+%   implies
+%   \[ D\subi{w-c\e}{\alpha-c\e}\subseteq P\subi{w}{\alpha}^\e\cup (D\setminus P^\e) = \ext{P\subi{w}{\alpha}^\e} \subseteq D\subi{w+c\e}{\alpha+c\e} \]
+%   as desired.
+%
+%   Because $f$ is $c$-Lipschitz, $B_{w-c\e}\cap P^\delta\subseteq Q_{w}^\e$ so $B_{w-c\e} \subseteq \E Q_w^\e\subseteq B_{w+c\e}$ by Lemma~\ref{lem:surround_and_cover}.
+%   It follows that we have homomorphisms $F\in \Hom^{c\e}(\DD{w-c\e}, \E\PP{w}{\e})$ and $M\in\Hom^{c\e}(\E\PP{w}{\e}, \DD{w+c\e})$ induced by inclusions.
+% \end{proof}
 %
 % For all $w\in\R$ and $\e < \varrho_D$ let $\I_w^\e\in\Hom(\CPP{w}{\e}, \RPP{w}{2\e})$ and $\J_w^\e\in\Hom(\RPP{w}{\e},\CPP{w}{\e})$ be induced by the inclusions
 % \[ \cech^\e(P\subi{w}{\alpha}, Q_w)\subseteq \rips^{2\e}(P\subi{w}{\alpha},Q_w)\subseteq \cech^{2\e}(P\subi{w}{\alpha}, Q_w)\]

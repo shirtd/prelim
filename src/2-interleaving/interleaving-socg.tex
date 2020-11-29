@@ -8,16 +8,26 @@ For $w,\alpha\in\R$ let $\DD{w}^k$ denote the $k$th persistent (relative) homolo
 Similarly, let $\CPP{w}{\e,k}$ and $\RPP{w}{\e,k}$ denote the corresponding \Cech and Vietoris-Rips filtrations, respectively.
 We will omit the dimension $k$ and write $\DD{w}$ (resp. $\PP{w}{\e}$) if a statement holds for all dimensions.
 
-If $Q_w^\e$ surrounds $P^\e$ in $D$ let $\ext{\PP{w}{\e}}$ denote the $k$th persistent homology module of the filtration of extensions $\{(\ext{P\subi{w}{\alpha}^\e},\ext{Q_w^\e})\}$, where $\ext{P\subi{w}{a}^\e} = P\subi{w}{a}^\e \cup (D\setminus P^\e)$.
-The following lemmas extend Lemmas~\ref{lem:excision} and~\ref{lem:surround_and_cover} to persistence modules.
-Lemma~\ref{lem:partial_interleaving} applies these results to obtain partial interleavings required for our proof.
+If $Q_w^\delta$ surrounds $P^\delta$ in $D$ let $\ext{\PP{w}{\e}}$ denote the $k$th persistent homology module of the filtration of extensions $\{(\ext{P\subi{w}{\alpha}^\e},\ext{Q_w^\e})\}$ for any $\e\geq\delta$, where $\ext{P\subi{w}{\alpha}^\e} = P\subi{w}{\alpha}^\e \cup (D\setminus P^\delta)$.
 
-\begin{lemma}\label{lem:extension_apply}
-  If $Q_w^\e$ surrounds $P^\e$ in $D$ then then there is an isomorphism $\E_w^\e \in \Hom(\PP{w}{\e},\ext{\PP{w}{\e}})$.
+
+% \begin{lemma}\label{lem:extension_apply}
+%   If $Q_w^\e$ surrounds $P^\e$ in $D$ then then there is an isomorphism $\E_w^\e \in \Hom(\PP{w}{\e},\ext{\PP{w}{\e}})$.
+% \end{lemma}
+% and will be used
+
+Lemma~\ref{lem:inclusions} follows directly from the definition of truncated sublevel sets.
+This is used to extend Lemma~\ref{lem:surround_and_cover} to persistence modules in Lemma~\ref{lem:inclusion_hom} to provide a sequence of shifted homomorphisms $\DD{\omega-3c\delta}\xrightarrow{F}\E\PP{\omega-2c\delta}{\e}\xrightarrow{M}\DD{\omega}\xrightarrow{G}\E\PP{\omega+c\delta}{2\e}\xrightarrow{N}\DD{\omega+5c\delta}$ of varying degree for $\e\in[\delta,2\delta]$.
+These homomorphisms can then be combined with homomorphisms given by the Nerve theorem and the Rips-\v Cech interleaving in Lemma~\ref{lem:partial_interleaving} to obtain the partial interleavings required for our proof of Theorem~\ref{thm:interleaving_main_2}.
+
+\begin{lemma}\label{lem:inclusions}
+  If $\delta\leq\e$ and $t,\alpha\in\R$ then $P^\delta\cap D\subi{t-c\e}{\alpha-c\e}\subseteq P\subi{t}{\alpha}^\e\subseteq D\subi{t+c\e}{\alpha+c\e}$.
 \end{lemma}
 
-\begin{lemma}\label{lem:p_interleave}
- If $Q_w^\e$ surrounds $P^\e$ in $D$ and $D\setminus B_{w + c\e}\subseteq P^\e$ then we have a sequence $\DD{w-c\e}\xrightarrow{F}\E\PP{w}{\e}\xrightarrow{M}\DD{w+c\e}$ of homomorphisms of degree $c\e$ induced by inclusions.
+\begin{lemma}\label{lem:inclusion_hom}
+  Let $s + 3c\delta\leq t + 2c\delta\leq u\leq v-c\delta\leq w-5c\delta$ and $\e\in [\delta,2\delta]$.
+  If $Q_{t}^\delta$ surrounds $P^\delta$ in $D$ and $D\setminus B_u\subseteq P^\delta$ then there exist shifted homomorphisms induced by inclusions:
+  \[(F, G)\in \Hom^{c\delta}(\DD{s}, \E\PP{t}{\e})\times \Hom^{2c\delta}(\DD{u}, \E\PP{v}{2\e}),\ (M, N)\in \Hom^{c\e}(\E\PP{t}{\e},\DD{u})\times\Hom^{2c\e}(\E\PP{v}{2\e}, \DD{w}).\]
 \end{lemma}
 
 \begin{lemma}\label{lem:partial_interleaving}
@@ -27,12 +37,13 @@ Lemma~\ref{lem:partial_interleaving} applies these results to obtain partial int
   If $Q_{t}^\delta$ surrounds $P^\delta$ in $D$ and $D\setminus B_u\subseteq P^\delta$ then there is a partial $2c\delta$ interleaving $\Phi^*\in\Hom^{2c\delta}(\im~\Gamma, \im~\Lambda)$ and a partial $4c\delta$ interleaving $\Psi^*\in\Hom^{4c\delta}(\im~\Lambda, \im~\Pi)$.
 \end{lemma}
 \begin{proof}
-  Let $\E\PP{t}{\delta}\xrightarrow{A}\E\PP{t}{2\delta}\xrightarrow{C}\E\PP{v}{2\delta}\xrightarrow{E}\E\PP{v}{4\delta}$ be maps induced by inclusion.
-  Because $f$ is $c$-Lipschitz, $B_{s}\cap P^\delta\subseteq Q_{t}^\delta$ and $B_u\cap P^\delta\subseteq Q_{v}^{2\delta}$.
-  Similarly, $Q_{t}^{2\delta}\subseteq B_u$ and $Q_{v}^{4\delta}\subseteq B_{w}$.
-  Therefore, by Lemma~\ref{lem:surround_and_cover} $B_{s}\subseteq \E Q_{t}^\delta\subseteq\E Q_{t}^{2\delta}\subseteq B_u\subseteq \E Q_{v}^{2\delta}\subseteq \E Q_{v}^{4\delta}\subseteq B_{w}.$
-  It follows that the following diagrams commute for all $\alpha\leq\beta$ by Lemma~\ref{lem:p_interleave}.
-  % So the following diagrams commute for all $\alpha\leq\beta$ where all maps are induced by inclusions.
+  % Let $\E\PP{t}{\delta}\xrightarrow{A}\E\PP{t}{2\delta}\xrightarrow{C}\E\PP{v}{2\delta}\xrightarrow{E}\E\PP{v}{4\delta}$ be maps induced by inclusion.
+  % Because $f$ is $c$-Lipschitz, $B_{s}\cap P^\delta\subseteq Q_{t}^\delta$ and $B_u\cap P^\delta\subseteq Q_{v}^{2\delta}$.
+  % Similarly, $Q_{t}^{2\delta}\subseteq B_u$ and $Q_{v}^{4\delta}\subseteq B_{w}$.
+  % Therefore, by Lemma~\ref{lem:surround_and_cover} $B_{s}\subseteq \E Q_{t}^\delta\subseteq\E Q_{t}^{2\delta}\subseteq B_u\subseteq \E Q_{v}^{2\delta}\subseteq \E Q_{v}^{4\delta}\subseteq B_{w}.$
+  % It follows that the following diagrams commute for all $\alpha\leq\beta$ by Lemma~\ref{lem:p_interleave}.
+  % % So the following diagrams commute for all $\alpha\leq\beta$ where all maps are induced by inclusions.
+  Because the shifted homomorphisms provided by Lemma~\ref{lem:inclusion_hom} are all induced by inclusions the following diagram commutes for all $\alpha\leq\beta$.
   %
   \begin{equation}
     \begin{tikzcd}
@@ -50,12 +61,12 @@ Lemma~\ref{lem:partial_interleaving} applies these results to obtain partial int
       \hom_k(D\subi{w}{\beta+4c\delta}, B_w)
     \end{tikzcd}
   \end{equation}
-  %
-  So we have we have image module homomorphisms $\Phi(F, G)\in\Hom^{2c\delta}(\im~\Gamma, \im~C\circ A)$ and $\Psi(M, N)\in\Hom^{4c\delta}(\im~E\circ C, \im~\Pi)$.
+  So we have image module homomorphisms $\Phi(F, G)\in\Hom^{2c\delta}(\im~\Gamma, \im~C\circ A)$ and $\Psi(M, N)\in\Hom^{4c\delta}(\im~E\circ C, \im~\Pi)$.
 
-  For any $\e < \varrho_D$, $z\in\R$ we have isomorphisms $\N_z^\e\in\Hom(\CPP{z}{\e}, \PP{z}{\e})$ that commutes with maps induced by inclusions by the Persistent Nerve Lemma.
-  As the isomorphisms of $\E_z^\e$ are given by excision they are induced by inclusions, so the composition $\E_z^\e\circ \N_z^\e$ is an isomorphism that commutes with maps induced by inclusion as well.
-  Using these compositions and the Rips-\v Cech interleaving let $\E\PP{t}{\delta}\xrightarrow{F'}\RPP{t}{2\delta}\xrightarrow{M'} \E\PP{t}{2\delta}$ and $\E\PP{v}{2\delta}\xrightarrow{G'}\RPP{v}{4\delta}\xrightarrow{N'} \E\PP{v}{4\delta}$ be maps that commute with maps induced by inclusions.
+  Because the isomorphisms provided by Lemma~\ref{lem:excision} are given by excision they are induced by inclusion, and therefore give isomorphisms $\E_z^\e \in \Hom(\PP{z}{\e},\ext{\PP{z}{\e}})$ of persistence modules for any $Q_z^\e$ surrounding $P^\delta$ in $D$.
+  Moreover, for any $\e < \varrho_D$, $z\in\R$ we have isomorphisms $\N_z^\e\in\Hom(\CPP{z}{\e}, \PP{z}{\e})$ that commute with maps induced by inclusions by the Persistent Nerve Lemma.
+  Therefore, the composition $\E_z^\e\circ \N_z^\e$ is an isomorphism that commutes with maps induced by inclusion as well.
+  These compositions and the Rips-\v Cech interleaving provide maps $\E\PP{t}{\delta}\xrightarrow{F'}\RPP{t}{2\delta}\xrightarrow{M'} \E\PP{t}{2\delta}$ and $\E\PP{v}{2\delta}\xrightarrow{G'}\RPP{v}{4\delta}\xrightarrow{N'} \E\PP{v}{4\delta}$ that commute with maps induced by inclusions.
   As all maps are induced by inclusions or commute with maps induced by inclusions we have the following commutative diagram.
   %
   \begin{equation}
@@ -78,6 +89,7 @@ Lemma~\ref{lem:partial_interleaving} applies these results to obtain partial int
   Let $F^*:= F'\circ F$, $G^*:= G'\circ G$, $M^*:=M'\circ M$, and $N^*:=N'\circ N$.
   So $\Phi^*_{M^*}$ is a partial $2c\delta$ interleaving as $\Gamma[3c\delta] = M^*\circ F^*$ and $\Lambda[3c\delta] = G^*\circ M^*$, and $\Psi^*_{G^*}$ is a partial $4c\delta$ interleaving as $\Lambda[3c\delta] = G^*\circ M^*$ and $\Pi[5c\delta] = N^*\circ G^*$.
 \end{proof}
+
 % If $\e < \varrho_D$ then we for any $\alpha\in\R$ the inclusion $\cech^\e(P\subi{w}{\alpha}, Q_w)\hookrightarrow (P\subi{w}{\alpha}^\e, Q_w^\e)$ is a homotopy equivalence by the Nerve Theorem.
 % As the module homomorphisms of $\CPP{w}{\e}$ and $\PP{w}{\e}$ are induced by inclusion we have an isomorphism $\N_w^\e\in\Hom(\CPP{w}{\e}, \PP{w}{\e})$ of persistence modules that commutes with maps induced by inclusions by the Persistent Nerve Lemma
 % As the isomorphisms of $\E_w^\e$ are given by excision they are induced by inclusions, so the composition $\E\N_w^\e := \E_w^\e\circ \N_w^\e$ is an isomorphism that commutes with maps induced by inclusion as well.

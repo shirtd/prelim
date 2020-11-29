@@ -1,5 +1,21 @@
 % !TeX root = ../../main_socg.tex
 
+
+% \begin{lemma}
+%   $\B\subseteq \ext{\QQ^\of}$.
+% \end{lemma}
+% \begin{proof}
+%   Once again, we assume that $D\setminus \B\subseteq P^\delta$ and $\Q^\of$ surrounds $P^\delta$ in $D$ as in Theorem~\ref{thm:geo_tcc}.
+%   Because $\Q^\of \subset \QQ^\of$ it follows that $\QQ^\of$ surrounds $P^\delta$ in $D$ as well.
+%   So we can extend $\QQ^\of$ to surround $D$ in $\X$ as $\ext{\QQ^\of} = \QQ^\of\sqcup (D\setminus P^\delta)$.
+%
+%   For any $x\in \B$ such that $x\notin D\setminus P^\delta$ we have $x\in \B\setminus (D\setminus P^\delta) = \B\cap P^\delta$.
+%   So there exists some $p\in P$ such that $\dist(x, p) < \delta$.
+%   Because $f$ is $c$-Lipschitz it follows that
+%   \[ f(p)\leq f(x) + c\dist(x, p) < \omega + c\delta. \]
+%   So $p\in \QQ$, therefore $x\in \QQ^\delta$ so we may conclude that for all $B\subseteq \ext{\QQ^\delta}$.
+% \end{proof}
+
 Because the TCC only confirms coverage of a \emph{superlevel} set $D\setminus B_\omega$, we cannot guarantee coverage of the entire domain.
 Indeed, we could compute the persistent homology of the \emph{restriction} of $f$ to the superlevel set we cover in the standard way~\cite{chazal09analysis}.
 Instead, we will approximate the persistent homology of the sublevel set filtration \emph{relative to} the sublevel set $B_\omega$.
@@ -40,7 +56,7 @@ We define the extension of a surrounding pair in $D$ to a surrounding pair in $X
 \end{definition}
 
 Lemma~\ref{lem:surround_and_cover} states that we can use these extensions to interleave a pair $(U, V)$ with a sequence of subsets of $(D, B)$.
-Lemma~\ref{excision} we can apply excision to the relative homology groups in order to get equivalent maps on homology that are induced by inclusions.
+Lemma~\ref{lem:excision} states that we can apply excision to the relative homology groups in order to get equivalent maps on homology that are induced by inclusions.
 %TODO Proof of these facts, and their extensions to homomorphisms of persistence modules in the next section, can be found in the \fullversion.
 
 \begin{lemma}\label{lem:surround_and_cover}
