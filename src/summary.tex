@@ -82,6 +82,21 @@ It is in this sense that $B_\omega$ is \emph{static} throughout---it is containe
 As we will not have verified coverage in $B_\omega$ we cannot analyze the function in this region directly.
 We therefore have two alternatives: \emph{restrict} the domain of the function to $D\setminus B_\omega$, or use relative homology to analyze the function \emph{relative} to this region using excision.
 
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}[b]{0.27\textwidth}
+    \includegraphics[trim=200 200 200 100, clip, width=\textwidth]{scripts/figures/surf/ass2_C_side.png}\\
+    \includegraphics[trim=200 100 200 200, clip, width=\textwidth]{scripts/figures/surf/ass2_C_top.png}
+  \end{minipage}
+  \begin{minipage}[b]{0.7\textwidth}
+    \includegraphics[width=\textwidth]{scripts/figures/barcodes/res_rel.png}
+  \end{minipage}
+  \caption{Full, restricted, and relative barcodes of the function (left).}% on a $512\times 512$ grid.
+    % The restricted barcode is of the function restricted to the region above the blue line.
+    % The relative barcode is of the function relative to the blue sub-levelset below the blue line.}
+    % We note that the additional features in restricted $\hom_0$ are artifacts of the restriction caused by the approximation.}
+\end{figure}
+
 \paragraph*{Outline of Sections~\ref{sec:tcc} and~\ref{sec:middle}}
 
 We will begin with our statement of the TCC in Section~\ref{sec:tcc}.
