@@ -14,12 +14,13 @@ Moreover, this work made assumptions directly in terms of the \emph{zero dimensi
 This allows allows us enough flexibility to define our surrounding set as a sublevel of a $c$-Lipschitz function $f$ and state our assumptions in terms of its persistent homology.
 
 \begin{definition}[Surrounding Pair]
-  Let $X$ be a topological space and $(D,B)$ a pair in $X$.
+  Let $X$ be a topological space and $(D,B)$ a pair in a topological space $X$.
   The set $B$ \textbf{surrounds $D$ in $X$} if $B$ separates $X$ with the pair $(D\setminus B, X\setminus D)$.
   We will refer to such a pair as a \textbf{surrounding pair in $X$}.
 \end{definition}
 
 The following lemma generalizes the proof of the TCC as a property of surrounding sets.%TODO, its proof can be found in the \fullversion.
+We will then combine these results on the homology of surrounding pairs with information about both $\X$ as a metric space and our function.
 
 \begin{lemma}\label{lem:coverage}
   Let $(D, B)$ be a surrounding pair in $X$ and $U\subseteq D$, $V\subseteq U\cap B$ be subsets.
@@ -28,7 +29,6 @@ The following lemma generalizes the proof of the TCC as a property of surroundin
   If $\ell$ is injective then $D\setminus B\subseteq U$ and $V$ surrounds $U$ in $D$.
 \end{lemma}
 
-We now combine these results on the homology of surrounding pairs with information about both $\X$ as a metric space and our function.
 Let $(\X,\dist)$ be a metric space and $D\subseteq \X$ be a compact subspace.
 For a $c$-Lipschitz function $f : D\to \R$ we introduce a constant $\omega$ as a threshold that defines our ``boundary'' as a sublevel set $B_\omega$ of the function $f$.
 Let $P$ be a finite subset of $D$ and $\zeta\geq\delta > 0 $ and be constants such that $P^\delta\subseteq \intr_\X(D)$.
@@ -97,7 +97,7 @@ We have the following commutative diagrams of inclusion maps the induced maps be
 \paragraph*{Assumptions}
 
 We will first require the map $\hom_0(D\setminus B_{\omega+c(\delta+\zeta)}\hookrightarrow D\setminus B_\omega)$ to be \emph{surjective}---as we approach $\omega$ from \emph{above} no components \emph{appear}.
-This ensures that the rank of the map $j$ is equal to the dimension of $\dim~\hom_0(\cmp{B_\omega}, \cmp{D})$ so our map $\ell$ induced by inclusion depends only on $\hom_0(\cmp{B_\omega}, \cmp{D})$ and $\im~i$.
+This ensures that the rank of the map $j$ is equal to the dimension of $\dim~\hom_0(\cmp{B_\omega}, \cmp{D})$ so $\ell$ depends only on $\hom_0(\cmp{B_\omega}, \cmp{D})$ and $\im~i$.
 % That is, in terms of $\omega$ as a super-levelset monotonically decreasing, no components \emph{apear} right \emph{before} $\omega$.
 % We note that, for a function in two dimensions, this translates to $1$-dimensional features disappearing right after $\omega$ in the sub-levelset filtration, as shown in Figure~\ref{fig:assumption1}.
 

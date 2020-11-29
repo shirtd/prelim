@@ -11,7 +11,7 @@ denote its sampled counterpart for all $\alpha,w\in\R$.
 
 We will select a sublevel set $B_\omega$ to serve as our boundary.
 Specifically, we require that $B_\omega$ \emph{surrounds} $D$, where the notion of a surrounding set is defined formally in Section~\ref{sec:tcc}.
-This distinction allows us to generalize the standard proof of the TCC to properties of surrounding pairs.
+This distinction allows us to generalize the standard proof of the geometric TCC as properties of surrounding pairs.
 
 % We make the following assumptions on our sample $P$ with respect to the pair $(D,B_\omega)$ for a constant $\delta < \varrho_D/4$:
 % \begin{itemize}
@@ -23,7 +23,7 @@ This distinction allows us to generalize the standard proof of the TCC to proper
 
 \paragraph*{Results}
 
-Suppose $B_\omega$ surrounds $D$ in $\X$ and $\delta < \varrho / 4$.
+Suppose $B_\omega$ surrounds $D$ in $\X$ and $\delta < \varrho_D / 4$, where $\varrho_D$ denotes the \emph{strong convexity radius} of $D$ (see Chazal et al.~\cite{chazal09analysis}).
 As a minimal assumption we require that every component of $D\setminus B_\omega$ contains a point in $P$.
 We also make additional technical assumptions on $P$ and $\delta$ with respect to the pair $(D, B_\omega)$ (see Section~\ref{sec:tcc} and Lemma~\ref{lem:duality_apply} of the \fullversion).
 % We also make additional technical assumptions that $P$ is a \emph{$(\delta,2\delta,\omega)$-sublevel sample} of $D$ (see Lemma~\ref{lem:duality_apply}, Appendix~\ref{apx:duality}).
@@ -84,9 +84,9 @@ We therefore have two alternatives: \emph{restrict} the domain of the function t
 
 \paragraph*{Outline of Sections~\ref{sec:tcc} and~\ref{sec:middle}}
 
-We will begin with our reformulation of the TCC in Section~\ref{sec:tcc}.
-This requires the introduction of a surrounding set before proving the TCC (Theorem~\ref{thm:algo_tcc}).
-Section~\ref{sec:middle} formally introduces extensions and partial interleavings of image modules which will be used in the proof of Theorem~\ref{thm:interleaving_main_2}.
+We will begin with our statement of the TCC in Section~\ref{sec:tcc}.
+This requires the introduction of surrounding pairs before proving our reformulation of the TCC (Theorem~\ref{thm:algo_tcc}).
+Section~\ref{sec:middle} formally introduces extensions and partial interleavings of image modules which will be used to interleave our approximation with the relative diagram (Theorem~\ref{thm:interleaving_main_2}).
 
 % In Section~\ref{sec:truncations} we address the meaning of the persistent homology relative to a sublevel set and relate it to the sublevel set filtration as a \emph{truncation}.
 % Finally, Section~\ref{sec:experiments} investigates the relationships between the relative, truncated, and restricted persistence diagrams through a number of experiments.
