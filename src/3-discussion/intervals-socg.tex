@@ -143,19 +143,12 @@ Our main theorem combines this decomposition with our coverage and interleaving 
    % that of $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$.
 \end{theorem}
 \begin{proof}
-  \[ :( \]
-%   Suppose $i : \hom_0(D\setminus B_{\omega})\to\hom_0(D\setminus B_{\omega-3c\delta})$ is \emph{not} injective.
-%   So there are $x,x'\in D\setminus B_\omega$ such that $[x]\neq [x']$ but $i[x] = i[x']$ in $\hom_0(D\setminus B_{\omega-3c\delta})$.
-%   That is, for every path $\gamma :[0,1]\to D\setminus B_{\omega-3c\delta}$ such that $\gamma(0) = x$ and $\gamma(1) = x'$ there must exist some $t\in [0,1]$ such that $\gamma(t)\in B_\omega$.
-%   More
-%   % $y\in C_1(D\setminus B_{\omega-3c\delta})$ such that $x = x' + \partial y$
-%
-%   % The assumptions that $\hom_k(B_{\omega-3c\delta}\hookrightarrow B_\omega)$ is surjective and $\hom_k(B_\omega\hookrightarrow B_{\omega+5c\delta})$ is an isomorphism imply that $\hom_k((D,B_{\omega-3c\delta})\hookrightarrow (D, B_\omega))$ is surjective and $\hom_k((D, B_\omega)\hookrightarrow (D, B_{\omega+5c\delta}))$ is an isomorphism
-%   %
-%   % $\hom_k(B_{\omega-3c\delta}\hookrightarrow B_\omega)$ is surjective and $\hom_k(B_\omega\hookrightarrow B_{\omega+5c\delta})$
-%   % Because $B_{\omega-3c\delta}$ surrounds $D$ in $\X$ we know $D\setminus B_{\omega-3c\delta}$ and $\X\setminus D$ are disjoint, so
-%   %
-%   % Because $\delta < \varrho_D$ and $P\subset D$ is a $(\delta,2\delta,\omega)$-sublevel sample of $f$, $B_{\omega - 3c\delta}$ surrounds $D$ in $\X$.
-%   %
-%   % If $\hom_0(D\setminus B_{\omega+c(\delta+\zeta)}\hookrightarrow D\setminus B_\omega)$ is surjective, $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega+c(\delta+\zeta)})$ is injective, and $\rk~\hom_d(\rips^\delta(P, Q_{\omega -c\zeta})\hookrightarrow \rips^{2\delta}(P, Q_{\omega+c\delta})) \geq \dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-c\zeta}))$ then $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ in $D$.
+  If $\hom_k(B_{\omega-3c\delta}\hookrightarrow B_\omega)$ is surjective for all $k$ then, in particular, $\hom_{d-1}(B_{\omega-3c\delta}\hookrightarrow B_\omega)$ is surjective, so $\hom_d((D, B_{\omega-3c\delta})\hookrightarrow (D, B_\omega))$ is surjective.
+  Taking homology with coefficients in a field and assuming $\hom_d(D, B_{\omega-3c\delta})$ and $\hom_d(D, B_\omega)$ are finitely generated we can dualize via with the Universal Coefficient Theorem to obtain an \emph{injective} map $\hom^d(D,B_\omega)\to \hom^d(D,B_{\omega-3c\delta})$.
+  Now, because $B_{\omega-3c\delta}, B_\omega$ are closed in $D$ compact we can apply Alexander Duality to obtain an injective map $\hom_0(\overline{B_\omega}, \overline{D})\to\hom_0(\overline{B_{\omega-3c\delta}}, \overline{D})$.
+  Because $B_\omega,B_{\omega-3c\delta}$ it follows that $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega-3c\delta})$ is injective.
+  It can be shown that $\hom_0(D\setminus B_{\omega-5c\delta}\hookrightarrow D\setminus B_\omega)$ is surjective by a similar argument.
+
+  Because $\rk~\hom_d(\rips^\delta(P, Q_{\omega - 2c\delta})\hookrightarrow \rips^{2\delta}(P, Q_{\omega+c\delta})) \geq \dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-2c\delta}))$ and $P\subset D$ is a $(\delta, 2\delta,\omega)$-sublevel sample of $f$ we have $D\setminus B_\omega\subseteq P^\delta$ and $Q_{2c\delta}^\delta$ surrounds $P^\delta$ in $D$ by Theorem~\ref{thm:algo_tcc}.
+  So the persistent homology modules of $\{\rips^{2\delta}(P\subi{\omega-2c\delta}{\alpha}, Q_{\omega-2c\delta})\hookrightarrow \rips^{4\delta}(P\subi{\omega+c\delta}{\alpha}, Q_{\omega+c\delta})\}_{\alpha\in\R}$ are $4c\delta$ interleaved with those of $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$ by Theorem~\ref{thm:interleaving_main_2} and therefore $\T_{\omega}^k \oplus \LL_\omega^{k-1}$ by Lemma~\ref{lem:decomposition}.
 \end{proof}
