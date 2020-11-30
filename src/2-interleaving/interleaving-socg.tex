@@ -43,30 +43,28 @@ These homomorphisms are then combined with those given by the Nerve theorem and 
   % It follows that the following diagrams commute for all $\alpha\leq\beta$ by Lemma~\ref{lem:p_interleave}.
   % % So the following diagrams commute for all $\alpha\leq\beta$ where all maps are induced by inclusions.
   Because the shifted homomorphisms provided by Lemma~\ref{lem:inclusion_hom} are all induced by inclusions the following diagram commutes for all $\alpha\leq\beta$.
-  %
-  \begin{equation}
-    \begin{tikzcd}
+  So we have image module homomorphisms $\Phi(F, G)\in\Hom^{2c\delta}(\im~\Gamma, \im~C\circ A)$ and $\Psi(M, N)\in\Hom^{4c\delta}(\im~E\circ C, \im~\Pi)$.
+  \[\begin{tikzcd}
       \hom_k(D\subi{s}{\alpha-2c\delta}, B_s) \arrow{r}{f_{\alpha-2c\delta}}\arrow{d}{\gamma_{\alpha-2c\delta}[\beta-\alpha]} &
-      \hom_k(\E P\subi{t}{\alpha}^\delta, B_t)\arrow{d}{c_\alpha[\beta-\alpha]\circ a_\alpha}\\
+      \hom_k(\E P\subi{t}{\alpha}^\delta, \E Q_t^\delta)\arrow{d}{c_\alpha[\beta-\alpha]\circ a_\alpha}\\
       %
       \hom_k(D\subi{u}{\beta-2c\delta}, B_u)\arrow{r}{g_{\beta-2c\delta}} &
-      \hom_k(\E P\subi{v}{\beta}^{2\delta}, B_v)
+      \hom_k(\E P\subi{v}{\beta}^{2\delta}, \E Q_v^{2\delta})
     \end{tikzcd}
     \begin{tikzcd}
-      \hom_k(\E P\subi{t}{\alpha}^{2\delta}, B_t)\arrow{d}{e_\beta\circ c_\alpha[\beta-\alpha]}\arrow{r}{m_{\alpha}} &
+      \hom_k(\E P\subi{t}{\alpha}^{2\delta}, \E Q_t^{2\delta})\arrow{d}{e_\beta\circ c_\alpha[\beta-\alpha]}\arrow{r}{m_{\alpha}} &
       \hom_k(D\subi{u}{\alpha+4c\delta}, B_u)\arrow{d}{\gamma_{\alpha+4c\delta}[\beta-\alpha]}\\
       %
-      \hom_k(\E P\subi{v}{\beta}^{4\delta}, B_v)\arrow{r}{n_\beta} &
+      \hom_k(\E P\subi{v}{\beta}^{4\delta}, \E Q_v^{4\delta})\arrow{r}{n_\beta} &
       \hom_k(D\subi{w}{\beta+4c\delta}, B_w)
-    \end{tikzcd}
-  \end{equation}
-  So we have image module homomorphisms $\Phi(F, G)\in\Hom^{2c\delta}(\im~\Gamma, \im~C\circ A)$ and $\Psi(M, N)\in\Hom^{4c\delta}(\im~E\circ C, \im~\Pi)$.
+    \end{tikzcd}\]
 
-  Because the isomorphisms provided by Lemma~\ref{lem:excision} are given by excision they are induced by inclusion, and therefore give isomorphisms $\E_z^\e \in \Hom(\PP{z}{\e},\ext{\PP{z}{\e}})$ of persistence modules for any $Q_z^\e$ surrounding $P^\delta$ in $D$.
-  Moreover, for any $\e < \varrho_D$, $z\in\R$ we have isomorphisms $\N_z^\e\in\Hom(\CPP{z}{\e}, \PP{z}{\e})$ that commute with maps induced by inclusions by the Persistent Nerve Lemma.
-  Therefore, the composition $\E_z^\e\circ \N_z^\e$ is an isomorphism that commutes with maps induced by inclusion as well.
+  Because the isomorphisms provided by Lemma~\ref{lem:excision} are given by excision they are induced by inclusion, and therefore give isomorphisms $\E_z^\e \in \Hom(\PP{z}{\e},\ext{\PP{z}{\e}})$ for any $z\in\R$ such that $Q_z^\e$ surrounds $P^\delta$ in $D$.
+  For any $\e < \varrho_D$ we have isomorphisms $\N_z^\e\in\Hom(\CPP{z}{\e}, \PP{z}{\e})$ that commute with maps induced by inclusions by the Persistent Nerve Lemma.
+  So the compositions $\E_z^\e\circ \N_z^\e$ isomorphisms that commute with maps induced by inclusion as well.
   These compositions, along with the Rips-\v Cech interleaving, provide maps $\E\PP{t}{\delta}\xrightarrow{F'}\RPP{t}{2\delta}\xrightarrow{M'} \E\PP{t}{2\delta}$ and $\E\PP{v}{2\delta}\xrightarrow{G'}\RPP{v}{4\delta}\xrightarrow{N'} \E\PP{v}{4\delta}$ that commute with maps induced by inclusions.
-  As all maps are induced by inclusions or commute with maps induced by inclusions we have the following commutative diagram.
+  So we have the following commutative diagram:
+  % As all maps are induced by inclusions or commute with maps induced by inclusions we have the following commutative diagram.
   %
   \begin{equation}
     \begin{tikzcd}
