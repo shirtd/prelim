@@ -33,12 +33,12 @@ Our approximation will be by a nested pair of (Vietoris-)Rips complexes, denoted
 Under mild regularity assumptions it can be shown that
 \[ \rk~\hom_d(\rips^\delta(P, Q_{\omega - 2c\delta})\hookrightarrow \rips^{2\delta}(P, Q_{\omega+c\delta}))\geq \dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-2c\delta}))\]
 implies $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-2c\delta}^\delta$ surrounds $P^\delta$ in $D$.
-Proof of this fact involves the generalization of the TCC to boundaries defined in terms of a function $f$, eliminating unnatural assumptions made in previous work.
-Not only are our subsamples $Q_{\omega-2c\delta}$ and $Q_{\omega+c\delta}$ defined in terms of their function values, but our regularity assumptions can now be stated directly in terms of the persistent homology of $f$.
+Proof of this fact generalizing the proof of the TCC to boundaries defined in terms of a function $f$, eliminating unnatural assumptions made in previous work.
+Not only are our subsamples $Q_{\omega-2c\delta}$ and $Q_{\omega+c\delta}$ defined in terms of their function values, but our regularity assumptions can be stated directly in terms of the persistent homology of $f$.
 
 % Given a sample $P$ such that $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-2c\delta}^\delta$ surrounds $P^\delta$ in $D$ we can approximate the persistent homology of $f$ in a specific way.
-Given a sample $P$ that satisfies the TCC we now can approximate the persistent homology of $f$ in a specific way.
-The nested pair of Rips complexes can be extended to a filtration
+Given a sample $P$ that satisfies the TCC we can approximate the persistent homology of $f$ in a specific way.
+The nested pair of Rips complexes used to confirm coverage can be extended to a filtration
 \[ \{\rips^{2\delta}(P\subi{\omega-2c\delta}{\alpha}, Q_{\omega-2c\delta})\hookrightarrow \rips^{4\delta}(P\subi{\omega+c\delta}{\alpha}, Q_{\omega+c\delta})\}_{\alpha\in\R}\]
 that can be used to approximate the persistent homology of $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$.
 Indeed, we could use existing methods to approximate the persistent homology of $f$ \emph{restricted} to the subspace $D\setminus B_\omega$ that we cover.
@@ -69,7 +69,7 @@ This is not only to eliminate noise introduced by the restriction, but also to \
 \paragraph*{Outline}
 
 We will begin with our statement of the TCC in Section~\ref{sec:tcc}.
-This requires a generalization of the Geometric TCC~\cite{cavanna2017when} in terms of \emph{surrounding pairs}, simplifying our reformulation of the TCC in Theorem~\ref{thm:algo_tcc}.
+Part of the proof of the TCC will be generalized to properties of \emph{surrounding pairs}, simplifying our reformulation of the TCC in Theorem~\ref{thm:algo_tcc}.
 % This requires the introduction of surrounding pairs before proving our reformulation of the TCC (Theorem~\ref{thm:algo_tcc}).
 Section~\ref{sec:middle} introduces extensions of surrounding pairs, as well as partial interleavings of image modules.
 This is to show that a positive result from the TCC verifies that a surrounding pair of samples can be used to approximate the persistence of a function relative to a sublevel set in Theorem~\ref{thm:interleaving_main_2}.

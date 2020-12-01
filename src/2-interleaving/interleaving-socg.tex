@@ -1,14 +1,11 @@
 % !TeX root = ../../main_socg.tex
 
-
-
 \subsection{Proof of the Interleaving}
 
-For $w,\alpha\in\R$ let $\DD{w}^k$ denote the $k$th persistent (relative) homology module of the filtration $\{(D\subi{w}{\alpha},B_w)\}_{\alpha\in\R}$ with respect to $B_w$, and let $\PP{w}{\e,k}$ denote the $k$th persistent (relative) homology module of $\{(P\subi{w}{\alpha}^\e,Q_w^\e)\}_{\alpha\in\R}$.
-Similarly, let $\CPP{w}{\e,k}$ and $\RPP{w}{\e,k}$ denote the corresponding \Cech and Vietoris-Rips filtrations, respectively.
-We will omit the dimension $k$ and write $\DD{w}$ (resp. $\PP{w}{\e}$) if a statement holds for all dimensions.
-If $Q_w^\delta$ surrounds $P^\delta$ in $D$ let $\ext{\PP{w}{\e}}$ denote the $k$th persistent homology module of the filtration of extensions $\{(\ext{P\subi{w}{\alpha}^\e},\ext{Q_w^\e})\}$ for any $\e\geq\delta$, where $\ext{P\subi{w}{\alpha}^\e} = P\subi{w}{\alpha}^\e \cup (D\setminus P^\delta)$.
-
+For $z,\alpha\in\R$ let $\DD{z}^k$ denote the $k$th persistent (relative) homology module of the filtration $\{(D\subi{z}{\alpha},B_z)\}_{\alpha\in\R}$ with respect to $B_z$, and let $\PP{z}{\e,k}$ denote the $k$th persistent (relative) homology module of $\{(P\subi{z}{\alpha}^\e,Q_z^\e)\}_{\alpha\in\R}$.
+Similarly, let $\CPP{z}{\e,k}$ and $\RPP{z}{\e,k}$ denote the corresponding \Cech and Vietoris-Rips filtrations, respectively.
+We will omit the dimension $k$ and write $\DD{z}$ (resp. $\PP{z}{\e}$) if a statement holds for all dimensions.
+If $Q_z^\delta$ surrounds $P^\delta$ in $D$ let $\ext{\PP{z}{\e}}$ denote the $k$th persistent homology module of the filtration of extensions $\{(\ext{P\subi{z}{\alpha}^\e},\ext{Q_z^\e})\}$ for any $\e\geq\delta$, where $\ext{P\subi{z}{\alpha}^\e} = P\subi{z}{\alpha}^\e \cup (D\setminus P^\delta)$.
 
 % \begin{lemma}\label{lem:extension_apply}
 %   If $Q_w^\e$ surrounds $P^\e$ in $D$ then then there is an isomorphism $\E_w^\e \in \Hom(\PP{w}{\e},\ext{\PP{w}{\e}})$.
@@ -61,7 +58,7 @@ These homomorphisms are then combined with those given by the Nerve theorem and 
 
   Because the isomorphisms provided by Lemma~\ref{lem:excision} are given by excision they are induced by inclusion, and therefore give isomorphisms $\E_z^\e \in \Hom(\PP{z}{\e},\ext{\PP{z}{\e}})$ for any $z\in\R$ such that $Q_z^\e$ surrounds $P^\delta$ in $D$.
   For any $\e < \varrho_D$ we have isomorphisms $\N_z^\e\in\Hom(\CPP{z}{\e}, \PP{z}{\e})$ that commute with maps induced by inclusions by the Persistent Nerve Lemma.
-  So the compositions $\E_z^\e\circ \N_z^\e$ isomorphisms that commute with maps induced by inclusion as well.
+  So the compositions $\E_z^\e\circ \N_z^\e$ are isomorphisms that commute with maps induced by inclusion as well.
   These compositions, along with the Rips-\v Cech interleaving, provide maps $\E\PP{t}{\delta}\xrightarrow{F'}\RPP{t}{2\delta}\xrightarrow{M'} \E\PP{t}{2\delta}$ and $\E\PP{v}{2\delta}\xrightarrow{G'}\RPP{v}{4\delta}\xrightarrow{N'} \E\PP{v}{4\delta}$ that commute with maps induced by inclusions.
   So we have the following commutative diagram:
   % As all maps are induced by inclusions or commute with maps induced by inclusions we have the following commutative diagram.
