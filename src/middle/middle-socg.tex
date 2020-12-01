@@ -1,21 +1,5 @@
 % !TeX root = ../../main_socg.tex
 
-
-% \begin{lemma}
-%   $\B\subseteq \ext{\QQ^\of}$.
-% \end{lemma}
-% \begin{proof}
-%   Once again, we assume that $D\setminus \B\subseteq P^\delta$ and $\Q^\of$ surrounds $P^\delta$ in $D$ as in Theorem~\ref{thm:geo_tcc}.
-%   Because $\Q^\of \subset \QQ^\of$ it follows that $\QQ^\of$ surrounds $P^\delta$ in $D$ as well.
-%   So we can extend $\QQ^\of$ to surround $D$ in $\X$ as $\ext{\QQ^\of} = \QQ^\of\sqcup (D\setminus P^\delta)$.
-%
-%   For any $x\in \B$ such that $x\notin D\setminus P^\delta$ we have $x\in \B\setminus (D\setminus P^\delta) = \B\cap P^\delta$.
-%   So there exists some $p\in P$ such that $\dist(x, p) < \delta$.
-%   Because $f$ is $c$-Lipschitz it follows that
-%   \[ f(p)\leq f(x) + c\dist(x, p) < \omega + c\delta. \]
-%   So $p\in \QQ$, therefore $x\in \QQ^\delta$ so we may conclude that for all $B\subseteq \ext{\QQ^\delta}$.
-% \end{proof}
-
 Because the TCC only confirms coverage of a \emph{superlevel} set $D\setminus B_\omega$, we cannot guarantee coverage of the entire domain.
 Indeed, we could compute the persistent homology of the \emph{restriction} of $f$ to the superlevel set we cover in the standard way~\cite{chazal09analysis}.
 Instead, we will approximate the persistent homology of the sublevel set filtration \emph{relative to} the sublevel set $B_\omega$.
@@ -24,11 +8,6 @@ In the next section we will discuss an interpretation of the relative diagram th
 We will first introduce the notion of an extension which will provide us with maps on relative homology induced by inclusion via excision.
 However, even then, a map that factors through our pair $(D, B_\omega)$ is not enough to prove an interleaving of persistence modules by inclusion directly.
 To address this we impose conditions on sublevel sets near $B_\omega$ which generalize the assumptions made in the TCC.
-%  on maps induced by the inclusions
-% \[ D\setminus B_{\omega+c(\delta+\zeta)}\hookrightarrow D\setminus B_\omega\hookrightarrow D\setminus B_{\omega-c(\delta+\zeta)}\]
-% on $0$-dimensional homology, to assumptions on maps induced by the corresponding inclusions
-% \[ B_{\omega-c(\delta+\zeta)}\hookrightarrow B_\omega\hookrightarrow B_{\omega+c(\delta+\zeta)}\]
-% on homology in all dimensions $k$.
 
 \subsection{Extensions and Image Persistence Modules}
 
@@ -42,7 +21,6 @@ We define the extension of a surrounding pair in $D$ to a surrounding pair in $X
 
 Lemma~\ref{lem:surround_and_cover} states that we can use these extensions to interleave a pair $(U, V)$ with a sequence of subsets of $(D, B)$.
 Lemma~\ref{lem:excision} states that we can apply excision to the relative homology groups in order to get equivalent maps on homology that are induced by inclusions.
-%TODO Proof of these facts, and their extensions to homomorphisms of persistence modules in the next section, can be found in the \fullversion.
 
 \begin{lemma}\label{lem:surround_and_cover}
   Suppose $V$ surrounds $U$ in $D$ and $B'\subseteq B\subset D$.
@@ -61,7 +39,6 @@ This same technique is used to approximate the persistent homology of a scalar f
 As modules, these nested pairs are the images of homomorphisms between homology groups induced by inclusion, which we refer to as image persistence modules.
 For a full background on persistence modules, shifted homomorphisms, and interleavings of persistence modules see Chazal et al.~\cite{chazal13structure}.
 
-% \paragraph{Image Persistence Modules}
 \begin{definition}[Image Persistence Module]
   The \textbf{image persistence module} of a homomorphism $\Gamma\in\Hom(\U,\V)$ is the family of subspaces $\{\Gamma_\alpha :=\im~\gamma_\alpha\}$ in $\V$ along with linear maps $\{\gamma_\alpha^\beta := v_\alpha^\beta\rest_{\im~\gamma_\alpha} : \Gamma_\alpha\to\Gamma_\beta\}$ and will be denoted by $\im~\Gamma$.
 \end{definition}
@@ -83,36 +60,21 @@ Instead, we require that homomorphisms between image modules commute not only wi
   \end{tikzcd}\end{equation}
   The space of image module homomorphisms of degree $\delta$ between $\im~\Gamma$ and $\im~\Lambda$ will be denoted $\Hom^\delta(\im~\Gamma,\im~\Lambda)$.
 \end{definition}
-%
-% In the following the existence of an image module homomorphism $\Phi(F, G)\in\Hom^\delta(\im~\Gamma, \im~\Lambda)$ where $\Gamma\in\Hom(\U,\V)$ and $\Lambda\in\Hom(\S,\T)$  will imply that $(F,G)\in\Hom^\delta(\U,\S)\times \Hom^\delta(\V,\T)$.
-%
-%
-The composition of image module homomorphisms are image module homomorphisms.
-% That is, for $\Phi'(F', G')\in\Hom^\delta(\im~\Gamma, \im~\Lambda)$ and $\Phi(F, G)\in\Hom^{\delta'}(\im~\Lambda, \im~\Lambda')$ the composition of pairs $(F'\circ F, G'\circ G)$ is an image module homomorphism, denoted $\Phi'\circ \Phi\in\Hom^{\delta+\delta'}(\im~\Gamma,\im~\Lambda')$.
-Proof of this fact can be found in the \fullversion.
+
+\begin{lemma}\label{lem:image_composition}
+  Suppose $\Gamma\in\Hom(\U,\V)$, $\Lambda\in\Hom(\S,\T)$, and $\Lambda'\in\Hom(\S',\T')$.
+  If $\Phi(F, G)\in\Hom^\delta(\im~\Gamma, \im~\Lambda)$ and $\Phi'(F', G')\in\Hom^{\delta'}(\im~\Lambda, \im~\Lambda')$ then $\Phi''(F'\circ F, G'\circ G) := \Phi'\circ\Phi\in\Hom^{\delta+\delta'}(\im~\Gamma,\im~\Lambda')$.
+\end{lemma}
 
 \paragraph*{Partial Interleavings of Image Modules}
 
 Image module homomorphisms introduce a direction to the traditional notion of interleaving.
-% That is, given $\Gamma\in\Hom(\U,\V)$ and $\Lambda\in\Hom(\S,\T)$ and $\Phi(F, G)\in\Hom^\delta(\im~\Gamma, \im~\Lambda)$ we consider the case in which there is only a map $\S\to\V$ that commutes.
 As we will see, our interleaving via Lemma~\ref{thm:interleaving_main} involves partially interleaving an image module to two other image modules whose composition is isomorphic to our target.
 
 \begin{definition}[Partial Interleaving of Image Modules]
-  % Let $\Gamma\in\Hom(\U,\V)$ and $\Lambda\in\Hom(\S,\T)$.
-  % $\Phi(F, G)\in\Hom^\delta(\im~\Gamma,\im~\Lambda)$ is a \textbf{left $\delta$-interleaving of image modules} if there exists some $M\in\Hom^\delta(\S,\V)$ such that $\Gamma[2\delta] = M\circ F$.
-  % If $\Lambda[2\delta] = G\circ M$ then $\Phi(F, G)$ is a \textbf{right $\delta$-interleaving of image modules}.
   An image module homomorphism $\Phi(F, G)$ is a \textbf{partial $\delta$-interleaving of image modules}, and denoted $\Phi_M(F, G)$, if there exists $M\in\Hom^\delta(\S,\V)$ such that $\Gamma[2\delta] = M\circ F$ and $\Lambda[2\delta] = G\circ M$.
 \end{definition}
 
-% For $I\in\Hom^{2\delta}(\U,\V)$ a pair $(F, M)\in \Hom^\delta(\U,\S)\times\Hom^\delta(\S,\V)$ is a said to factor $I$ through $\S$ with degree $\delta$ if $I = M\circ F$.
-% Similarly, if $J\in\Hom^{\delta'}(\S,\T)$ a pair $(F,N)\in\Hom^\delta(\U,\S)\times\Hom^\delta(\T,\V)$ is said to factor $I$ through $J$ with degree $\delta$ if $I = N\circ J\circ F$.
-% We will often omit the degree when it is clear from context.
-
-% Proof of the following lemma can be found in the appendix.
-% Proof of following lemma is straightforward and can be found in the \fullversion.
-
-% uses partial interleavings surrounding a module $\V$ to prove an interleaving of an image module with $\V$.
-%TODO Its proof is straightforward and can be found in the \fullversion.
 Lemma~\ref{thm:interleaving_main} uses partial interleavings of a map $\Lambda$ with $\U\to\V$ and $\V\to\W$ along with the hypothesis that $\U\to \W$ is isomorphic to $\V$ to interleave $\im~\Lambda$ with $\V$.
 When applied, this hypothesis will be satisfied by assumptions on our sublevel set similar to those made in the TCC.
 

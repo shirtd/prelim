@@ -29,28 +29,9 @@ We can then replace this requirement with assumptions about the function itself.
 Indeed, these assumptions could relate the behavior of the function to the topological boundary of the space.
 However, the generalized approach by Cavanna et al.~\cite{cavanna2017when} allows much more freedom in how the boundary is defined.
 
-% The requirement that ``sensors'' can detect the presence of the boundary is unnatural in more general applications to data analysis.
-% It is more natural assume that our data measures some unknown quantity.
-% By requiring that our function is related to the metric of the space in a specific way (Lipschitz) we can replace this requirement with assumptions about the function itself.
-% Indeed, these assumptions could relate the behavior of the function to the topological boundary of the space.
-% However, the condition holds for any subset which ``surrounds'' the space in a specific sense~\cite{cavanna2017when}.
-
 We consider the case in which we have incomplete data from a particular sublevel set of our function.
 % We consider the case where we can only verify our sample in a part of the  % have incomplete data from a particular sublevel set of our function.
 Our goal is to isolate this data so we can analyze the function in only the verified region.
 %corresponding part persistent homology of the function in the verified region without allowing missing
 From this perspective, the TCC confirms that we not only have coverage, but that the sample we have is topologically representative of the region near, and above this sublevel set.
 We can then re-use the same machinery to analyze a \emph{part} of the function in a specific way.
-
-% By requiring that this sublevel set ``surrounds'' the
-% We can replace the boundary with this sublevel set by requiring that it ``surrounds'' the space, with data points with function values close to serving as samples of our boundary\textbf{FUCK}
-% % From this perspective, the TCC verifies that we not only have coverage, but that the sample we have is topologically representative of the region near, and above this sublevel set.
-%
-% While the approximation of a function's persistent homology is well studied in general~\cite{chazal08towards}, the presence of incomplete data can severely impact the quality of the approximation.
-% This is primarily due to the nature of homology as a measure of \emph{global} structure.
-% While the obvious solution is to simply remove the un-verified data, the question of what precisely this would approximate is important to consider.
-
-% Moreover, as a necessary but not sufficient condition for coverage there is room to question what can go wrong in the case of false positives.
-% In fact, the efficacy of the condition relies on having enough sensors close enough to approximate the boundary in homology.
-% This leads us to believe the condition checks for something more specific than coverage alone.
-% Specifically, that we have a sample as well as a subsample that reflect the topology of the space and its boundary as a pair.
