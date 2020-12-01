@@ -3,6 +3,7 @@ main.fdb_latexmk
 main.fls
 main.log
 main.pdf
+main_socg.pdf
 new.pdf
 *.synctex.gz
 *.log
