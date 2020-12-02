@@ -7,7 +7,7 @@
 % As we have only confirmed coverage of the subspace $D\setminus B$ by $L$ we cannot interleave $(L,S)$ with subsets of $(D,B)$ as coverage in $B$ is unknown.
 % We therefore introduce the following definition in order to provide us with inclusion maps between pairs.
 
-Suppose $D$ is a subspace of $X$.
+Suppose $D$ is a subspace of a topological space $X$.
 We define the extension of a surrounding pair in $D$ to a surrounding pair in $X$ with isomorphic relative homology.
 This is done by excision, and allows us to use the result of the TCC in order to define inclusion maps required for the interleaving.
 
@@ -25,14 +25,11 @@ Now, we can interleave our pair $(U, V)$ with a sequence of subsets of $(D, B)$ 
   If $D\setminus B\subseteq U$ and $U\cap B'\subseteq V\subseteq B'$ then $B'\subseteq \ext{V}\subseteq B$.
 \end{lemma}
 \begin{proof}
-  (See Appendix~\ref{apx:omit})
-\end{proof}
-\proofatend
   Note that $B'\setminus (D\setminus U) = B'\cap U\subseteq V$ implies $B'\subseteq V\sqcup(D\setminus U) = \ext{V}$.
   Moreover, because $V\subseteq B$ and $D\setminus B\subseteq U$ implies $D\setminus U \subset D\setminus (D\setminus B) = B$, we have
   \[ \ext{V} = V\sqcup (D\setminus U) \subseteq B\cup (D\setminus U) = B. \]
   So $B' \subseteq \ext{V}\subseteq B$ as desired.
-\endproofatend
+\end{proof}
 
 If a surrounding pair $(U, V)$ is open in $D$ we can apply excision to the relative homology groups in order to get equivalent maps on homology that are induced by inclusions.
 
@@ -42,9 +39,6 @@ If a surrounding pair $(U, V)$ is open in $D$ we can apply excision to the relat
   for all $k$ and any $A\subseteq D$ such that $\ext{V}\subset A$.
 \end{lemma}
 \begin{proof}
-  (See Appendix~\ref{apx:omit})
-\end{proof}
-\proofatend
   Because $V$ surrounds $U$ in $D$, $(U\setminus V, D\setminus U)$ is a separation of $D\setminus V$, a subspace of $D$.
   So $\cl_D(U\setminus V)\setminus U = \cl_D(U\setminus V) \cap (D\setminus U) = \emptyset$ which implies $\cl_D(U\setminus V)\subseteq U = \intr_D(U)$ as $U$ is open in $D$.
   Therefore,
@@ -60,4 +54,4 @@ If a surrounding pair $(U, V)$ is open in $D$ we can apply excision to the relat
       &\cong \hom_k(A, \ext{V})
   \end{align*}
   for all $k$ and any $A\subseteq D$ such that $\ext{V}\subset A$ by Excision.
-\endproofatend
+\end{proof}

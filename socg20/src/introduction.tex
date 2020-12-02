@@ -20,19 +20,14 @@ However, they differ in some fundamental ways that make them difficult to combin
 The main difference is that the TCC requires a clearly defined boundary.
 Not only must the underlying space be a bounded subset of $\R^d$, the data must also be labeled to indicate which input points are close to the boundary.
 This requirement is perhaps the main reason why the TCC can so rarely be applied in practice.
-% Cavanna et al.~\cite{cavanna2017when} generalized the TCC to allow for more general spaces and robust coverage guarantees.
-% That work gave a different approach to proving the correctness of the TCC which allows much more freedom in how the boundary is defined.
 
 In applications to data analysis it is more natural to assume that the data measures some unknown function.
-% By requiring that our function is related to the metric of the space
 We can then replace this requirement with assumptions about the function itself.
 Indeed, these assumptions could relate the behavior of the function to the topological boundary of the space.
 However, the generalized approach by Cavanna et al.~\cite{cavanna2017when} allows much more freedom in how the boundary is defined.
 
 We consider the case in which we have incomplete data from a particular sublevel set of our function.
-% We consider the case where we can only verify our sample in a part of the  % have incomplete data from a particular sublevel set of our function.
 Our goal is to isolate this data so we can analyze the function in only the verified region.
-%corresponding part persistent homology of the function in the verified region without allowing missing
 From this perspective, the TCC confirms that we not only have coverage, but that the sample we have is topologically representative of the region near, and above this sublevel set.
 We can then re-use the same machinery to analyze a \emph{part} of the function in a specific way.
 
@@ -41,20 +36,10 @@ We can then re-use the same machinery to analyze a \emph{part} of the function i
 We will re-cast the TCC as a way to verify that the persistent homology of a scalar field can be \emph{partially} approximated by a given sample.
 Specifically, we will relate the persistent homology of a function relative to a \emph{static} sublevel set to a \emph{truncation} of the full diagram.
 That is, beyond a certain point the full diagram remains unchanged, allowing for possible reconstruction.
-% While the approximation of a function's persistent homology is well studied in general~\cite{chazal08towards}, the presence of incomplete data can severely impact the quality of the approximation.
-% That is, due to the nature of homology as a measure of global structure, the \emph{restricted} diagram resulting from removing un-verified data fills in missing global structure with potentially spurious features.
 This is in comparison with the \emph{restricted} diagram obtained by simply ignoring part of the domain.
-% Due to the nature of homology as a measure of global structure that the restricted diagram may attempt to fill in, resulting in spurious features.
 We therefore present relative persistent homology as an alternative to restriction in a way that extends the TCC to the analysis of scalar fields.
- % the presence of incomplete data can severely impact the quality of an approximation.
-% This is primarily due to the nature of homology as a measure of global structure.
-% That is, beyond a certain point the full diagram remains unchanged, allowing for possible reconstruction.
-% While the obvious solution is to simply remove the un-verified data, the resulting \emph{restricted} diagram fills in missing global structure with potentially spurious features.
-% Indeed, it can be shown that the truncated diagram is captured by the restriction in a specific way~\cite{cohen09extending, desilva11duality}.
-% We therefore provide experimental evidence that compares the approximation of the restricted function directly provides a worse interleaving with the corresponding subset of the \emph{full} diagram.
-
 Section~\ref{sec:summary} establishes notation and provides an overview of our main results in Sections~\ref{sec:tcc} and~\ref{sec:middle}.
-In Section~\ref{sec:truncations} we introduce an interpretation of the relative diagram as a truncation of the full diagram that is motivated by a number of experiments in Section~\ref{sec:experiments}.% in terms of the sublevel set filtration as a \emph{truncation}.
+In Section~\ref{sec:truncations} we introduce an interpretation of the relative diagram as a truncation of the full diagram that is motivated by a number of experiments in Section~\ref{sec:experiments}.
 
 \begin{figure}[htbp]
   \centering

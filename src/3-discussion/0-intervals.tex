@@ -1,25 +1,34 @@
 % !TeX root = ../../main.tex
 
-% In this section we consider the meaning of the $k$th persistent (relative) homology of a function $f : D\to \R$ modulo a fixed sublevel set $B_\omega := f^{-1}((-\infty,\omega])$.
-% Unlike previous work~\cite{cohen09extending} we do not consider the persistent relative homology of $D$ modulo the sublevel set filtration $\{B_\alpha\}_{\alpha\in\R}$.
-% Instead, we are interested in the role of a specific sublevel set $B_\omega$ in the context of the long exact sequences of $f$ modulo $B_\omega$ throughout the sublevel set filtration.
+% \paragraph*{Relative, Truncated, and Restricted Persistence Diagrams}
 
-In this section we will relate the relative persistence diagram that we have approximated in the previous section to a truncation of the full diagram.
-% Recall that for fixed $\omega\in\R$ the \textbf{relative diagram} refers to the persistence diagram associated with the filtration $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$.
-% The \emph{full} diagram refers to that of the sublevel set filtration $\{B_\alpha\}_{\alpha\in\R}$ and the \textbf{truncated diagram (module)} refers to the subdiagram consisting of features born \emph{after} $\omega$.
-% Naturally, the relative and truncated persistence modules refer to the persistence modules of associated with these diagrams.
+For fixed $\omega\in\R$ we will refer to the persistence diagram associated with the filtration $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$  as the \textbf{relative diagram} of $f$.
+In this section we will relate the relative diagram to the \emph{full} diagram of the sublevel set filtration $\{B_\alpha\}_{\alpha\in\R}$.
+Specifically, we define the \textbf{truncated diagram} to be the subdiagram of the full consisting of features born \emph{after} $\omega$.
+In the following section we will compare the relative and truncated diagrams to the \textbf{restricted diagram}, defined to be that of the sublevel set filtration of $f\rest_{D\setminus B_\omega}$.%
+
+Note that the truncated sublevel sets $D\subi{\omega}{\alpha}$ are equal to the union of $B_\omega$ and the restricted sublevel sets.
+It is in this sense that $B_\omega$ is \emph{static} throughout---it is contained in every sublevel set of the relative filtration.
+As we will not have verified coverage in $B_\omega$ we cannot analyze the function in this region directly.
+We therefore have two alternatives: \emph{restrict} the domain of the function to $D\setminus B_\omega$, or use relative homology to analyze the function \emph{relative} to this region using excision.
+
+\begin{figure}[htbp]
+  \centering
+  \begin{minipage}[b]{0.27\textwidth}
+    \includegraphics[trim=200 200 200 100, clip, width=\textwidth]{scripts/figures/surf/ass2_C_side.png}\\
+    \includegraphics[trim=200 100 200 200, clip, width=\textwidth]{scripts/figures/surf/ass2_C_top.png}
+  \end{minipage}
+  \begin{minipage}[b]{0.7\textwidth}
+    \includegraphics[width=\textwidth]{scripts/figures/barcodes/res_rel.png}
+  \end{minipage}
+  \caption{Full, restricted, and relative barcodes of the function (left).}
+\end{figure}
+
 Let $\LL^k$ denote the $k$th persistent homology module of the sublevel set filtration $\{B_\alpha\}_{\alpha\in\R}$.
 As in the previous section, let $\DD{\omega}^k$ denote the $k$th persistent (relative) homology module of $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$.
 Throughout we will assume that we are taking homology in a field $\FF$ and that the homology groups $\hom_k(B_\alpha)$ and $\hom_k(D\subi{\omega}{\alpha}, B_\omega)$ are finite dimensional vector spaces for all $k$ and $\alpha\in\R$.
 We will use the interval decomposition of $\LL^k$ to give a decomposition of the relative module $\DD{\omega}^k$ in terms of a \emph{truncation} of $\LL^k$.
-Recall, the \emph{truncated diagram} is defined to be that of $\LL^k$ consisting only of those features born after $\omega$.
 For fixed $\omega\in\R$ we will define the truncation $\T^k_\omega$ of $\LL^k$ in terms of the intervals decomposing $\LL^k$ that are in $[\omega, \infty)$.
-
-% We find that the $k$th persistent (relative) homology of a function relative to a fixed sublevel set $B_\omega$ is equal to the submodule of features born after $\omega$ with additional infinite $k$-dimensional features which are paired with $(k-1)$-dimensonal features that are born before $\omega$ and die after $\omega$ in the full diagram.
-% Unlike the persistent homology of the restriction $f\rest_{D\setminus B_\omega}$ this approach leaves features of the full diagram that are born after $\omega$ unchanged.
-%
-% For lack of a better analogy, this has the effect of ``quarantining'' the persistent homology of the function below $\omega$.
-% Our hypothesis is that, given the persistent homology of the function up to $\omega$, one can recover the full diagram by pairing specific infinite $(k-1)$-dimensional features of $f\rest_{B_\omega}$ with specific infinite $k$-dimensional features of $f\rest_{D\setminus B_\omega}$ modulo $B_\omega$ via the long exact sequence(s) of pairs $(D\subi{\omega}{\alpha}, B_\omega)$.
 
 \paragraph*{Truncated Interval Modules}
 
@@ -28,35 +37,12 @@ For $\omega\in\R$ let $\FF_{\omega}^I$ denote the interval module consisting of 
 \[ F\subi{\omega}{\alpha}^I := \begin{cases} F_\alpha^I&\text{ if } \omega\in I_-\\ 0&\text{ otherwise,}\end{cases}\ \text{ and }\ \ f\subi{\omega}{\alpha,\beta}^I := \begin{cases} f_{\alpha,\beta}^I&\text{ if } \omega\in I_-\\ 0&\text{ otherwise.}\end{cases}\]
 For a collection $\I$ of intervals let $\I_\omega := \{I\in\I\mid \omega\in I\}$.
 
-
-% % \subsection{Decomposing the Persistent Relative Homology Module of Function Modulo a Sub-levelset}
-% % \paragraph{
-% \subsection{Interval Decomposition of the Relative Module}
-%
-% In the following we will assume that, for $\omega\in\R$ and taking homology in a field $\FF$, the homology groups $\hom_k(B_\alpha)$ and $\hom_k(D\subi{\omega}{\alpha}, B_\omega)$ are finite dimensional vector spaces for all $k$ and $\alpha\in\R$.
-% Let $\LL^k$ denote the $k$th persistent homology module of the sublevel set filtration $\{B_\alpha\}_{\alpha\in\R}$ of $f$.
-% Because all homology groups are finite dimensional we can decompose $\LL^k$ into a direct sum of interval modules
-% \[ \LL^k = \bigoplus_{I\in\I^k} \FF^I.\] %\ \text{ and }\ \DD{\omega}^k = \bigoplus_{J\in\J^k} \FF^J\]
-% for some collection $\I^k$ of intervals $I\subseteq \R$ for all $k$.
-% As in the previous section, let $\DD{\omega}^k$ denote the $k$th persistent (relative) homology module of $\{(D\subi{\omega}{\alpha},B_\omega)\}_{\alpha\in\R}$, the sublevel set filtration of $f$ modulo $B_\omega$.
-% % Moreover, for all $\alpha\in\R$ we have
-% % \[ \hom_k(B_\alpha) = \bigoplus_{I\in \I^k}F_\alpha^I.\]%s\ \text{ and }\ \hom_k(D\subi{\omega}{\alpha}, B_\omega) = \bigoplus_{J\in\J^k} F_\alpha^J.\]
-% % the sublevel set filtration $\{B_\alpha\}_{\alpha\in\R}$.
-% % The following lemma decomposes the relative module $\DD{\omega}^k$ into the direct sum of the truncated module and a submodule consisting of infinite $k$-dimensional features that correspond to finite $(k-1)$-dimensional features of $\LL^k$ that are born before $\omega$ and die after $\omega$.
-
 \begin{lemma}\label{lem:decomposition}
-  % If $\I^k, \I^{k-1}$ decompose $\LL^k$ and $\LL^{k-1}$ then
-  % \[\DD{\omega}^k = \bigoplus_{I\in\I^k \cup \I^{k-1}_+} \FF_{\omega}^I = \LL_{\omega}^k \oplus \bigoplus_{I\in \I^{k-1}} \FF_{\omega}^{I_+}.\]
-  % Let $f : D\to \R$ be a function and let $B_\alpha := f^{-1}((-\infty,\alpha])$ for all $\alpha\in\R$.
   Suppose $\I^k$ and $\I^{k-1}$ are collections of intervals that decompose $\LL^k$ and $\LL^{k-1}$, respectively.
-  Then the $k$th persistent homology module of $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$ is equal to
-  \[\bigoplus_{I\in\I^k} \FF_\omega^I \oplus \bigoplus_{I\in \I_\omega^{k-1}} \FF^{I_+}\]
-  for all $k$.
+  Then for all $k$ the $k$th persistent homology module of $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$ is isomorphic to
+  \[\bigoplus_{I\in\I^k} \FF_\omega^I \oplus \bigoplus_{I\in \I_\omega^{k-1}} \FF^{I_+}.\]
 \end{lemma}
 \begin{proof}
-  (See Appendix~\ref{apx:omit})
-\end{proof}
-\proofatend
   Suppose $\alpha\leq\omega$.
   So $\hom_k(D\subi{\omega}{\alpha}, B_\omega) = 0$ as $D\subi{\omega}{\alpha} = B_\omega\cup B_\alpha$ and $\T^k_\omega = 0$ as $F_\alpha^I = 0$ for any $I\in \I^k$ such that $\omega\in I_-$.
   Moreover, $\omega\in I$ for all $I\in \I_\omega^{k-1}$, thus $F_\alpha^{I_+} = 0$ for all $\alpha\leq\omega$.
@@ -66,84 +52,74 @@ For a collection $\I$ of intervals let $\I_\omega := \{I\in\I\mid \omega\in I\}$
   \[ \ldots\to \hom_k(B_\omega)\xrightarrow{p_\alpha^k} \hom_k(B_\alpha)\xrightarrow{q_\alpha^k}\hom_k(D\subi{\omega}{\alpha}, B_\omega)\xrightarrow{r_\alpha^k} \hom_{k-1}(B_\omega)\xrightarrow{p_\alpha^{k-1}}\hom_{k-1}(B_\alpha)\to\ldots\]
   where $\hom_k(B_\alpha) = \bigoplus_{I\in \I^k}F_\alpha^I$, $\hom_k(B_\omega) = \bigoplus_{I\in \I^k}F_\omega^I$, and $p_\alpha^k = \displaystyle\bigoplus_{I\in\I^k} f_{\omega,\alpha}^I$.
 
-  % By exactness $\ker~p_\alpha^k = \im~p_\alpha^k = \bigoplus_{I\in\I^k}\im~f_{\omega,\alpha}^I = \bigoplus_{I\in\I^k \mid \omega\in I} F_\alpha^I.$
-  % By exactness $\ker~r_\alpha^k = \im~q_\alpha^k \cong \hom_k(B_\alpha) / \ker~q_\alpha^k$ $ where the image of
-  % We first note that $\im~p_\alpha^k$ is equal to the direct sum of images $\im~f_{\omega,\alpha}^I$.
-  % By the definition of $F_\alpha^I$ we know $\im~f_{\omega,\alpha}^I$ is $F_\alpha^I$ if $\omega\in I$, 0 otherwise.
   Noting that $\im~q_\alpha^k \cong \hom_k(B_\alpha) / \ker~q_\alpha^k$ where $\ker~q_\alpha^k = \im~p_\alpha^k$ by exactness we have $\ker~r_\alpha^k \cong \hom_k(B_\alpha) / \im~p_\alpha^k$.
   By the definition of $F_\alpha^I$ and $f_{\omega,\alpha}^I$ we know $\im~f_{\omega,\alpha}^I$ is $F_\alpha^I$ if $\omega\in I$ and 0 otherwise.
   As $\im~p_\alpha^k$ is equal to the direct sum of images $\im~f_{\omega,\alpha}^I$ over $I\in\I^k$ it follows that $\im~p_\alpha^k$ is the direct sum of those $F_\alpha^I$ over those $I\in\I^k$ such that $\omega\in I$.
   Now, because $\hom_k(B_\alpha) = \bigoplus_{I\in \I^k}F_\alpha^I$ and each $F_\alpha^I$ is either 0 or $\FF$ the quotient $\hom_k(B_\alpha) / \im~p_\alpha^k$ is the direct sum of those $F_\alpha^I$ such that $\omega\notin I$.
   Therefore, by the definition of $F\subi{\omega}{\alpha}^I$ we have
   \[ \ker~r_\alpha^k = \bigoplus_{I\in\I_\omega^k} F\subi{\omega}{\alpha}^I.\]
-  % Thus, \[\ker~r_\alpha^k \cong \hom_k(B_\alpha) / \ker~q_\alpha^k = \bigoplus_{I\in \I^k\mid \omega\notin I} F_\alpha^I = \bigoplus_{I\in\I^k} F\subi{\omega}{\alpha}^I.\]
 
   Similarly, $\im~r_\alpha^k = \ker~p_\alpha^{k-1}$ by exactness where $\ker~p_\alpha^{k-1}$ is the direct sum of kernels $\ker~f_{\omega,\alpha}^I$ over $I\in\I^{k-1}$.
   By the definition of $F_\alpha^I$ and $f_{\omega,\alpha}^I$ we know that $\ker~f_{\omega,\alpha}^I$ is $F_\alpha^I$ if $\omega\notin I$ and $0$ otherwise.
-  % If $\ker~f_{\omega,\alpha}^I = 0$ then either $\alpha\in I$ and $\omega\notin I$, $\alpha\notin I$ and $\omega \in I$, or $\alpha\notin I$ and $\omega\notin I$.
-  % So it suffices to consider $I\in \I_\omega^{k-1}$ as $\ker~f_{\omega,\alpha}^I = 0$ for any $I\in \I^{k-1}$ such that $\omega\notin I$.
   Noting that $\ker~f_{\omega,\alpha}^I = 0$ for any $I\in \I^{k-1}$ such that $\omega\notin I$ it suffices to consider only those $I\in \I_\omega^{k-1}$.
-  % Recalling that $I_+ = [t,\infty)$ for $I = [s,t)$
   It follows that $\ker~f_{\omega,\alpha}^I = F_\alpha^{I_+}$ for any $I$ containing $\omega$ as $\omega < \alpha$.
   Therefore,
   \[\im~r_\alpha^k = \bigoplus_{I\in\I^{k-1}} F_\alpha^{I_+}.\]
 
   We have the following split exact sequence associated with $r_\alpha^k$
-  % \[ 0\to \ker~r_\alpha^k\xrightarrow{\phi_\alpha^k}\bigoplus_{J\in\J^k} F_\alpha^J\xrightarrow{\psi_\alpha^k}\im~r_\alpha^k\to 0.\]
   \[ 0\to \ker~r_\alpha^k\to \hom_k(D\subi{\omega}{\alpha}, B_\omega)\to\im~r_\alpha^k\to 0.\]
   The desired result follows from the fact that for all $\alpha\in\R$
-  % \[ \bigoplus_{J\in\J^k} F_\alpha^J \cong \ker~r_\alpha^k\oplus \im~r_\alpha^k
-  %   \cong\left(\bigoplus_{I\in\I^k} F\subi{\omega}{\alpha}^I\right)\oplus\left(\bigoplus_{I\in\I^{k-1}} F\subi{\omega}{\alpha}^{I_+}\right).\]
   \begin{align*}
-    \hom_k(D\subi{\omega}{\alpha}, B_\omega) &\cong \ker~r_\alpha^k\oplus \im~r_\alpha^k\\
-      &=\bigoplus_{I\in\I^k} F\subi{\omega}{\alpha}^I\oplus \bigoplus_{I\in\I_\omega^{k-1}} F_\alpha^{I_+}.
-      % &\cong\left(\bigoplus_{I\in\I^k} F\subi{\omega}{\alpha}^I\right)\oplus\left(\bigoplus_{I\in\I_\omega^{k-1}} F_\alpha^{I_+}\right).
+    \hom_k(D\subi{\omega}{\alpha}, B_\omega) &\cong \ker~r_\alpha^k\oplus \im~r_\alpha^k =\bigoplus_{I\in\I^k} F\subi{\omega}{\alpha}^I\oplus \bigoplus_{I\in\I_\omega^{k-1}} F_\alpha^{I_+}.
   \end{align*}
-    % thus $\DD{\omega}^k = \T^k_\omega \oplus \bigoplus_{I\in \I_\omega^{k-1}} \FF^{I_+}
-\endproofatend
-% Letting $\AA_\omega^k := \displaystyle\bigoplus_{I\in\I^k} \FF_\omega^I$ and $\BB_\omega^k := \displaystyle\bigoplus_{I\in\I^k} \FF_\omega^{I_+}$ for all $k$ we have
-% \[ \DD{\omega}^k \cong \AA_\omega^k\oplus \BB_\omega^{k-1}.\]
+\end{proof}
 
-% \begin{theorem}
-%   Let $\X$ be an orientable $d$-manifold and let $D$ be a compact subset of $\X$ with strong convexity radius $\varrho_D > \delta$.
-%   Let $f : D\to\R$ be $c$-Lipschitz function and let $\omega\in\R$ and $2\delta\leq\zeta < \varrho_D/2$ be constants such that $B_{\omega - c(\zeta +\delta)}$ surrounds $D$ in $\X$.
-%   Let $P\subset \intr_\X(D)$ and suppose $P^\delta$, $Q_{\omega-c\zeta}^\delta$, and $Q_{\omega+c\delta}^\delta$ satisfy the assumptions of Lemma~\ref{lem:duality_apply}.
-%   Suppose $\hom_k(B_{\omega-c(\delta+\zeta)}\hookrightarrow B_\omega)$ and $\hom_k(B_\omega)\cong\hom_k(B_{\omega+c(\delta+2\zeta)})$ for all $k$.
-%
-%   If
-%   \[\rk~\hom_d(\rips^\delta(P, Q_{\omega -c\zeta})\hookrightarrow \rips^{2\delta}(P, Q_{\omega+c\delta})) \geq \dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-c\zeta}))\]
-%   then the image module
-%   \[ \im~(\RPP{\omega-c\zeta}{2\delta, k}\to \RPP{\omega+c\delta}{2\zeta, k})\]
-%   is $2c\zeta$-interleaved with
-%   \[ \LL_{\omega}^k \oplus \bigoplus_{I\in \I^{k-1}} \FF_{\omega}^{I_+}.\]
-% \end{theorem}
-
-\subsection*{Main Theorem}
-
-Let $\LL^k$ denote the $k$th persistent homology module of the sublevel set filtration $\{B_\alpha\}_{\alpha\in\R}$ of $f$ and let $\I^k$ denote the decomposing intervals of $\LL^k$ for all $k$.
-For a fixed $\omega\in\R$ let $\DD{\omega}^k$ denote the $k$th persistent (relative) homology module of $\{(D\subi{\omega}{\alpha},B_\omega)\}_{\alpha\in\R}$.
-Let
-\[\T_\omega^k := \bigoplus_{I\in\I^k} \FF_\omega^I\]
-denote the \textbf{$\omega$-truncated $k$th persistent homology module} of $\LL^k$.
-Let
-\[ \LL_\omega^{k-1} := \bigoplus_{I\in \I_\omega^{k-1}} \FF^{I_+}.\]
+Letting $\I^k$ denote the decomposing intervals of $\LL^k$ for all $k$ we can define the \textbf{$\omega$-truncated $k$th persistent homology module} of $\LL^k$ as
+\[ \T_\omega^k := \bigoplus_{I\in\I^k} \FF_\omega^I\ \text{ and let }\ \LL_\omega^{k-1} := \bigoplus_{I\in \I_\omega^{k-1}} \FF^{I_+}\]
 denote the submodule of $\DD{\omega}^k$ consisting of intervals $[\beta,\infty)$ corresponding to features $[\alpha,\beta)$ in $\LL^{k-1}$ such that $\alpha\leq\omega <\beta$.
-% denote the submodule of $\DD{\omega}^k$ consisting of infinite $k$-dimensional features that correspond to finite $(k-1)$-dimensional features of $\LL^k$ that are born before $\omega$ and die after $\omega$.
-Now, by Lemma~\ref{lem:decomposition} the $k$th persistent (relative) homology module of $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$ is
-\[ \DD{\omega}^k = \T_\omega^k\oplus \LL_\omega^{k-1}.\]
-Our main theorem combines this decomposition with our coverage and interleaving results of Theorems~\ref{thm:algo_tcc} and~\ref{thm:interleaving_main_2}.% as a method for certified approximation of the truncated persistence diagram.\textbf{TODO: GROSS}
+Now, by Lemma~\ref{lem:decomposition} the $k$th persistent (relative) homology module of $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$ is $\DD{\omega}^k = \T_\omega^k\oplus \LL_\omega^{k-1}.$
+Theorems~\ref{thm:algo_tcc} and~\ref{thm:interleaving_main_2} can then be used to show that
+\[ \{\rips^{2\delta}(P\subi{\omega-2c\delta}{\alpha}, Q_{\omega-2c\delta})\hookrightarrow \rips^{4\delta}(P\subi{\omega+c\delta}{\alpha}, Q_{\omega+c\delta})\}_{\alpha\in\R} \]
+is $4c\delta$ interleaved with $\T_\omega^k\oplus \LL_\omega^{k-1}$ whenever
+\[ \rk~\hom_d(\rips^\delta(P, Q_{\omega - 2c\delta})\hookrightarrow \rips^{2\delta}(P, Q_{\omega+c\delta})) \geq \dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-2c\delta})).\]
 
-\begin{theorem}\label{thm:main}
-  Let $\X$ be an orientable $d$-manifold and let $D$ be a compact subset of $\X$.
-  Let $f : D\to\R$ be a $c$-Lipschitz function and $\omega\in\R$, $\delta < \varrho_D/4$ be constants such that $P\subset D$ is a $(\delta, 2\delta,\omega)$-sublevel sample of $f$ and $B_{\omega-3c\delta}$ surrounds $D$ in $\X$.
-  % Let $P$ be a finite subset of $D$ such that $(P, Q_{\omega-2c\delta})$ and $(P, Q_{\omega+c\delta})$ are $\delta$-good samples of $(D, B_\omega)$.
-  % Let $P\subset \intr_\X(D)$ and suppose $D\setminus P^\delta$, $D\setminus Q_{\omega-2c\delta}^\delta$, and $D\setminus Q_{\omega+c\delta}^\delta$ are locally path connected.
 
-  Suppose $\hom_k(B_{\omega-3c\delta}\hookrightarrow B_\omega)$ is surjective and $\hom_k(B_\omega\hookrightarrow B_{\omega+5c\delta})$ is an isomorphism for all $k$.
-  If
-    \[\rk~\hom_d(\rips^\delta(P, Q_{\omega - 2c\delta})\hookrightarrow \rips^{2\delta}(P, Q_{\omega+c\delta})) \geq \dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-2c\delta}))\]
-  then the $k$th (relative) homology module of
-  \[\{\rips^{2\delta}(P\subi{\omega-2c\delta}{\alpha}, Q_{\omega-2c\delta})\hookrightarrow \rips^{4\delta}(P\subi{\omega+c\delta}{\alpha}, Q_{\omega+c\delta})\}_{\alpha\in\R}\]
-  is $4c\delta$-interleaved with $\T_{\omega}^k \oplus \LL_\omega^{k-1}$: the $k$th persistent homology module of $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$.
-   % that of $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$.
-\end{theorem}
+%   If $\rk~\hom_d(\rips^\delta(P, Q_{\omega - 2c\delta})\hookrightarrow \rips^{2\delta}(P, Q_{\omega+c\delta})) \geq \dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-2c\delta}))$ then the $k$th (relative) homology module of $\{\rips^{2\delta}(P\subi{\omega-2c\delta}{\alpha}, Q_{\omega-2c\delta})\hookrightarrow \rips^{4\delta}(P\subi{\omega+c\delta}{\alpha}, Q_{\omega+c\delta})\}_{\alpha\in\R}$ is $4c\delta$-interleaved with $\T_{\omega}^k \oplus \LL_\omega^{k-1}$: the $k$th persistent homology module of $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$.
+%
+% Our main theorem combines this decomposition with our coverage and interleaving results of Theorems~\ref{thm:algo_tcc} and~\ref{thm:interleaving_main_2}.% as a method for certified approximation of the truncated persistence diagram.\textbf{TODO: GROSS}
+
+% \begin{lemma}\label{lem:dual_ass}
+%   Let $\X$ be an orientable $d$-manifold and suppose $(D, B)$ and $(D, B')$ are compact, locally contractible, surrounding pairs in $\X$ such that $\hom_d(D, B)$ and $\hom_d(D, B')$ are finitely generated.
+%
+%   If $\hom_{d-1}(B\hookrightarrow B')$ is surjective then $\hom_0(D\setminus B'\hookrightarrow D\setminus B)$ is injective.
+%   If $\hom_{d-1}(B\hookrightarrow B')$ is injective then $\hom_0(D\setminus B'\hookrightarrow D\setminus B)$ is surjective.
+% \end{lemma}
+% \begin{proof}
+%   If $\hom_{d-1}(B\hookrightarrow B')$ is surjective for all $k$ then $\hom_d((D, B)\hookrightarrow (D, B'))$ is surjective by the five lemma.
+%   Taking homology with coefficients in a field $\FF$ we can dualize to obtain an \emph{injective} map $\Hom(\hom_d(D,B'), \FF)\to \Hom(\hom_d(D, B), \FF)$.
+%   Therefore, because we are taking coefficients in a field, we have an injective map $\hom^d(D,B')\to \hom^d(D, B)$ by the Universal Coefficient Theorem.
+%
+%   Because $(D, B)$ and $(D,B')$ are compact and locally connected we can apply Alexander Duality to obtain an injective map $\hom_0(\X\setminus B', \X\setminus D)\to\hom_0(\X\setminus B, \X\setminus D)$.
+%   Because $B,B'$ surround $D$ in $\X$ it follows that $\hom_0(D\setminus B'\hookrightarrow D\setminus B)$ is injective.
+%   It can be shown $\hom_{d-1}(B\hookrightarrow B')$ injective implies $\hom_0(D\setminus B'\hookrightarrow D\setminus B)$ surjective by a similar argument.
+% \end{proof}
+%
+% \begin{theorem}\label{thm:main}
+%   Let $\X$ be an orientable $d$-manifold and let $D$ be a compact subset of $\X$.
+%   Let $f : D\to\R$ be a $c$-Lipschitz function and $\omega\in\R$, $\delta < \varrho_D/4$ be constants such that $P\subset D$ is a $(\delta, 2\delta,\omega)$-sublevel sample of $f$ and $B_{\omega-3c\delta}$ surrounds $D$ in $\X$.
+%   % Let $P$ be a finite subset of $D$ such that $(P, Q_{\omega-2c\delta})$ and $(P, Q_{\omega+c\delta})$ are $\delta$-good samples of $(D, B_\omega)$.
+%   % Let $P\subset \intr_\X(D)$ and suppose $D\setminus P^\delta$, $D\setminus Q_{\omega-2c\delta}^\delta$, and $D\setminus Q_{\omega+c\delta}^\delta$ are locally path connected.
+%
+%   Suppose $\hom_k(B_{\omega-3c\delta}\hookrightarrow B_\omega)$ is surjective and $\hom_k(B_\omega\hookrightarrow B_{\omega+5c\delta})$ is an isomorphism for all $k$.
+%   If $\rk~\hom_d(\rips^\delta(P, Q_{\omega - 2c\delta})\hookrightarrow \rips^{2\delta}(P, Q_{\omega+c\delta})) \geq \dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-2c\delta}))$ then the $k$th (relative) homology module of $\{\rips^{2\delta}(P\subi{\omega-2c\delta}{\alpha}, Q_{\omega-2c\delta})\hookrightarrow \rips^{4\delta}(P\subi{\omega+c\delta}{\alpha}, Q_{\omega+c\delta})\}_{\alpha\in\R}$ is $4c\delta$-interleaved with $\T_{\omega}^k \oplus \LL_\omega^{k-1}$: the $k$th persistent homology module of $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$.
+%    % that of $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$.
+% \end{theorem}
+% \begin{proof}
+%   If $\hom_k(B_{\omega-3c\delta}\hookrightarrow B_\omega)$ is surjective for all $k$ then, in particular, $\hom_{d-1}(B_{\omega-3c\delta}\hookrightarrow B_\omega)$ is surjective.
+%   If $\hom_k(B_{\omega-3c\delta}\hookrightarrow B_\omega)$ is surjective for all $k$ then, in particular, $\hom_{d-1}(B_{\omega-3c\delta}\hookrightarrow B_\omega)$ is surjective.
+%   Because $B_{\omega-3c\delta}, B_\omega$ are closed in $D$, and $D$ is compact, $(D, B_{\omega-3c\delta})$ and $(D,B_\omega)$ are compact pairs.
+%   If our pairs are locally contractible then $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega-3c\delta})$ is injective and $\hom_0(D\setminus B_{\omega-5c\delta}\hookrightarrow D\setminus B_\omega)$ is surjective by Lemma~\ref{lem:dual_ass}.
+%
+%   Because $\rk~\hom_d(\rips^\delta(P, Q_{\omega - 2c\delta})\hookrightarrow \rips^{2\delta}(P, Q_{\omega+c\delta})) \geq \dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-2c\delta}))$ and $P\subset D$ is a $(\delta, 2\delta,\omega)$-sublevel sample of $f$ we have $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-2c\delta}^\delta$ surrounds $P^\delta$ in $D$ by Theorem~\ref{thm:algo_tcc}.
+%   So the persistent homology modules of $\{\rips^{2\delta}(P\subi{\omega-2c\delta}{\alpha}, Q_{\omega-2c\delta})\hookrightarrow \rips^{4\delta}(P\subi{\omega+c\delta}{\alpha}, Q_{\omega+c\delta})\}_{\alpha\in\R}$ are $4c\delta$ interleaved with those of $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$ by Theorem~\ref{thm:interleaving_main_2}, and therefore $\T_{\omega}^k \oplus \LL_\omega^{k-1}$ by Lemma~\ref{lem:decomposition}.
+% \end{proof}
