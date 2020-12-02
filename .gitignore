@@ -4,6 +4,7 @@ main.fls
 main.log
 main.pdf
 main_socg.pdf
+.DS_Store
 new.pdf
 *.synctex.gz
 *.log
@@ -11,3 +12,4 @@ new.pdf
 *log
 code
 *.bak*
+scripts
