@@ -1,0 +1,174 @@
+\documentclass[a4paper,UKenglish,cleveref, autoref, thm-restate]{lipics/socg-lipics-v2019}
+%This is a template for producing LIPIcs articles.
+%See lipics-manual.pdf for further information.
+%for A4 paper format use option "a4paper", for US-letter use option "letterpaper"
+%for british hyphenation rules use option "UKenglish", for american hyphenation rules use option "USenglish"
+%for section-numbered lemmas etc., use "numberwithinsect"
+%for enabling cleveref support, use "cleveref"
+%for enabling autoref support, use "autoref"
+%for anonymousing the authors (e.g. for double-blind review), add "anonymous"
+%for enabling thm-restate support, use "thm-restate"
+
+\usepackage{amsmath,amssymb,amsthm,xspace,enumitem,xcolor,tikz-cd,xspace}
+
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\S}{\mathbb{S}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\W}{\mathbb{W}}
+\newcommand{\X}{\mathbb{X}}
+\newcommand{\Y}{\mathbb{Y}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\BB}{\mathbb{B}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\LL}{\mathbb{L}}
+\newcommand{\UU}{\mathbb{U}}
+\newcommand{\VV}{\mathbb{V}}
+
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\I}{{\mathcal{I}}}
+\newcommand{\J}{\mathcal{J}}
+\newcommand{\N}{\mathcal{N}}
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\V}{\mathcal{V}}
+
+\newcommand{\e}{\varepsilon}
+\newcommand{\im}{\mathbf{im}\xspace}
+\renewcommand{\ker}{\mathbf{ker}\xspace}
+\newcommand{\rk}{\mathbf{rk\xspace}}
+\renewcommand{\dim}{\mathbf{dim}\xspace}
+\newcommand{\rest}{\mathord{\mid}}
+
+\newcommand{\cech}{\check{\mathcal{C}}}
+\newcommand{\rips}{\mathcal{R}}
+\newcommand{\ball}{\mathbf{ball}}
+\newcommand{\dist}{\mathbf{d}}
+
+\newcommand{\cl}{\mathbf{cl\xspace}}
+\newcommand{\intr}{\mathbf{int\xspace}}
+
+\newcommand{\Hom}{\mathrm{Hom}}
+\renewcommand{\hom}{\mathrm{H}}
+
+\newcommand{\subi}[2]{_{\scriptscriptstyle #2\mid #1}}
+
+\newcommand{\D}[2]{\mathcal{D}\subi{#1}{#2}}
+\newcommand{\DD}[1]{\mathbb{D}_{#1}}
+
+\renewcommand{\P}[3]{\mathcal{P}\subi{#1}{#3}^{#2}}
+\newcommand{\CP}[3]{\cech\P{#1}{#2}{#3}}
+\newcommand{\RP}[3]{\rips\P{#1}{#2}{#3}}
+
+\newcommand{\PP}[2]{\mathbb{P}_{#1}^{#2}}
+\newcommand{\CPP}[2]{\cech\PP{#1}{#2}}
+\newcommand{\RPP}[2]{\rips\PP{#1}{#2}}
+
+\newcommand{\ext}[1]{\E\xspace #1}
+
+\newcommand{\fullversion}{Appendix} %{full version of this paper}
+
+\bibliographystyle{plainurl}
+
+\title{From Coverage Testing to Topological Scalar Field Analysis}
+
+% Please enter author specific funding statements as fifth argument of the \author macro.
+\author{Kirk P. Gardner}{North Carolina State University, United States}{kpgardn2@ncsu.edu}{https://orcid.org/0000-0001-5306-2174}{}
+\author{Donald R. Sheehy}{North Carolina State University, United States}{don.r.sheehy@gmail.com}{https://orcid.org/0000-0002-9177-2713}{}
+
+\authorrunning{K.\,P. Gardner and D.\,R. Sheehy}
+
+\Copyright{Kirk P. Gardner and Donald R. Sheehy}
+
+\begin{CCSXML}
+  <ccs2012>
+    <concept>
+      <concept_id>10002950.10003741.10003742.10003744</concept_id>
+      <concept_desc>Mathematics of computing~Algebraic topology</concept_desc>
+      <concept_significance>500</concept_significance>
+    </concept>
+    <concept>
+      <concept_id>10003752.10010061.10010063</concept_id>
+      <concept_desc>Theory of computation~Computational geometry</concept_desc>
+      <concept_significance>300</concept_significance>
+    </concept>
+  </ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Mathematics of computing~Algebraic topology}
+\ccsdesc[300]{Theory of computation~Computational geometry}
+
+
+\keywords{topology, homology, coverage, scalar fields, persistent homology, relative homology}
+
+% \category{} %optional, e.g. invited paper
+
+% \relatedversion{} %optional, e.g. full version hosted on arXiv, HAL, or other respository/website
+%\relatedversion{A full version of the paper is available at \url{...}.}
+
+% \supplement{}%optional, e.g. related research data, source code, ... hosted on a repository like zenodo, figshare, GitHub, ...
+
+ %optional, to capture a funding statement, which applies to all authors.
+\funding{This research was supported by the NSF under grants CCF-1525978 and CCF-1652218.}
+
+% \acknowledgements{I want to thank \dots}%optional
+
+%\nolinenumbers %uncomment to disable line numbering
+
+%\hideLIPIcs  %uncomment to remove references to LIPIcs series (logo, DOI, ...), e.g. when preparing a pre-final version to be uploaded to arXiv or another public repository
+
+%Editor-only macros:: begin (do not touch as author)%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\EventEditors{John Q. Open and Joan R. Access}
+\EventNoEds{2}
+\EventLongTitle{42nd Conference on Very Important Topics (CVIT 2016)}
+\EventShortTitle{CVIT 2016}
+\EventAcronym{CVIT}
+\EventYear{2016}
+\EventDate{December 24--27, 2016}
+\EventLocation{Little Whinging, United Kingdom}
+\EventLogo{}
+\SeriesVolume{42}
+\ArticleNo{23}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\maketitle
+
+\input{src/abstract}
+
+\section{Introduction}\label{sec:introduction}
+\input{src/introduction}
+
+\section{Summary}\label{sec:summary}
+\input{src/0-summary}
+
+\section{The Topological Coverage Criterion (TCC)}\label{sec:tcc}
+\input{src/1-tcc}
+
+\section{From Coverage Testing to the Analysis of Scalar Fields}\label{sec:middle}
+\input{src/2-middle}
+\input{src/3-interleaving}
+
+\section{Approximation of the Truncated Diagram}\label{sec:truncations}
+\input{src/4-intervals}
+
+\section{Experiments}\label{sec:experiments}
+\input{src/5-experiments}
+
+\section{Conclusion}
+\input{src/conclusion}
+
+\bibliography{bibliography}
+
+\appendix
+
+\section{Omitted Proofs}\label{apx:omit}
+\input{src/appendix}
+
+\section{Duality}\label{apx:duality}
+\input{src/duality}
+
+\end{document}

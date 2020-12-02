@@ -1,0 +1,204 @@
+% !TeX root = ../main.tex
+
+\begin{proof}[Proof of Lemma~\ref{lem:coverage}]
+  This proof is in two parts.
+  \begin{description}
+    \item[$\ell$ injective $\implies$ $D\setminus B\subseteq U$] Suppose, for the sake of contradiction, that $p$ is injective and there exists a point $x\in (D\setminus B)\setminus U$.
+      So $[x]$ is non-trivial in $\hom_0(\overline{B},\overline{D})\cong \hom_0(D\setminus B)$ as $x$ is in some connected component of $D\setminus B$.
+      So we have the following sequence of maps induced by inclusions
+      \[ \hom_0(\overline{B},\overline{D})\xrightarrow{f} \hom_0(\overline{B},\overline{D}\cup\{x\})\xrightarrow{g} \hom_0(\overline{V},\overline{U}).\]
+      As $f[x]$ is trivial in $\hom_0(\overline{B},\overline{D}\cup\{x\})$ we have that $\ell[x] = (g\circ f)[x]$ is trivial, contradicting our hypothesis that $\ell$ is injective.
+    \item[$\ell$ injective $\implies$ $V$ surrounds $U$ in $D$.] Suppose, for the sake of contradiction, that $V$ does not surround $U$ in $D$.
+      Then there exists a path $\gamma : [0,1]\to\overline{V}$ with $\gamma(0)\in U\setminus V$ and $\gamma(1)\in D\setminus U$.
+      As we have shown, $D\setminus B\subseteq U$, so $D\setminus B\subseteq U\setminus V$.
+
+      Choose $x\in D\setminus B$ and $z\in \overline{D}$ such that there exist paths $\xi : [0,1]\to U\setminus V$ with $\xi(0) = x$, $\xi(1) = \gamma(0)$ and $\zeta : [0,1]\to \overline{D}\cup (D\setminus U)$ with $\zeta(0) = z$, $\zeta(1) = \gamma(1)$.
+      $\xi, \gamma$ and $\zeta$ all generate chains in $C_1(\overline{V}, \overline{U})$ and $\xi + \gamma + \zeta = \gamma^*\in C_1(\overline{V}, \overline{U})$ with $\partial\gamma^* = x + z$.
+      Moreover, $z$ generates a chain in $C_0(\overline{U})$ as $\overline{D}\subseteq\overline{U}$.
+      So $x = \partial\gamma^* + z$ is a relative boundary in $C_0(\overline{V}, \overline{U})$, thus $\ell[x] = \ell[z]$ in $\hom_0(\overline{V}, \overline{L})$.
+      However, because $B$ surrounds $D$, $[x]\neq [y]$ in $\hom_0(\overline{B}, \overline{D})$ contradicting our assumption that $\ell$ is injective.
+    \end{description}
+\end{proof}
+
+\begin{proof}[Proof of Lemma~\ref{lem:assumption2}]
+  Assume there exist $p,q \in P\setminus Q_{\omega-c\zeta}$ such that $p$ and $q$ are connected in $\rips^\delta(P\setminus Q_{\omega-c\zeta})$ but not in $D\setminus B_\omega$.
+  So the shortest path from $p, q$ is a subset of $(P\setminus Q_{\omega-c\zeta})^\delta$.
+  For any $x\in (P\setminus Q_{\omega-c\zeta})^\delta$ there exists some $p\in P$ such that $f(p) > \omega - c\zeta$ and $\dist(p,x) < \delta$.
+  Because $f$ is $c$-Lipschitz
+  \[ f(x)\geq f(p) - c\dist(x,p) > \omega - c(\delta+\zeta)\]
+  so there is a path from $p$ to $q$ in $D\setminus B_{\omega-c(\delta+\zeta)}$, thus $[p] = [q]$ in $\hom_0(D\setminus B_{\omega-c(\delta+\zeta)})$.
+
+  But we have assumed that $[p]\neq[q]$ in $\hom_0(D\setminus B_\omega)$, contradicting our assumption that $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega-c(\delta+\zeta)})$ is injective, so any $p,q$ connected in $\rips^\delta(P\setminus Q_{\omega-c\zeta})$ are connected in $D\setminus B_\omega$.
+  That is, $\dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-c\zeta}))\geq \dim~\hom_0(D\setminus B_\omega)$.
+\end{proof}
+
+\subsection{Extensions}
+
+\begin{proof}[Proof of Lemma~\ref{lem:surround_and_cover}]
+  Note that $B'\setminus (D\setminus U) = B'\cap U\subseteq V$ implies $B'\subseteq V\sqcup(D\setminus U) = \ext{V}$.
+  Moreover, because $V\subseteq B$ and $D\setminus B\subseteq U$ implies $D\setminus U \subset D\setminus (D\setminus B) = B$ we have that
+  $\ext{V} = V\sqcup (D\setminus U) \subseteq B\cup (D\setminus U) = B.$
+  So $B' \subseteq \ext{V}\subseteq B$ as desired.
+\end{proof}
+
+\begin{proof}[Proof of Lemma~\ref{lem:excision}]
+  Because $V$ surrounds $U$ in $D$, $(U\setminus V, D\setminus U)$ is a separation of $D\setminus V$, a subspace of $D$.
+  Recall, $(U\setminus V, D\setminus U)$ is a \emph{separation} of $D\setminus V$ in $D$ if $\cl_D(U\setminus V)\cap (D\setminus U) = \emptyset$ and $(U\setminus V)\cap \cl_D(D\setminus U) = \emptyset$ (see Munkres~\cite{munkres00topology}, Lemma 23.1).
+  So $\cl_D(U\setminus V)\setminus U = \cl_D(U\setminus V) \cap (D\setminus U) = \emptyset$ which implies $\cl_D(U\setminus V)\subseteq U = \intr_D(U)$ as $U$ is open in $D$.
+  Therefore, $\cl_D(D\setminus U) = D\setminus \intr_D(U)\subseteq D\setminus \cl_D(U\setminus V) = \intr_D(\ext{V})$
+  % \begin{align*}
+  %   \cl_D(D\setminus U) = D\setminus \intr_D(U)\subseteq D\setminus \cl_D(U\setminus V) = \intr_D(\ext{V})
+  % \end{align*}
+  % \begin{align*}
+  %   \cl_D(D\setminus U) &= D\setminus \intr_D(U)\\
+  %                       &\subseteq D\setminus \cl_D(U\setminus V)\\
+  %                       &= \intr_D(D\setminus (U\setminus V))\\
+  %                       &= \intr_D(\ext{V}).
+  % \end{align*}
+  so for all $k$ and any $A\subseteq D$ such that $\ext{V}\subset A$ we have $\hom_k(U\cap A, V) = \hom_k(A\setminus (D\setminus U), \ext{V}\setminus (D\setminus U)) \cong \hom_k(A, \ext{V})$
+  % \begin{align*}
+  %   \hom_k(U\cap A, V) &= \hom_k(A\setminus (D\setminus U), \ext{V}\setminus (D\setminus U))\\
+  %     &\cong \hom_k(A, \ext{V})
+  % \end{align*}
+   by excision.
+\end{proof}
+
+\subsection{Image Modules}
+
+\begin{proof}[Proof of Lemma~\ref{lem:image_composition}]
+  Because $\Phi(F, G)$ is an image module homomorphism of degree $\delta$ we have $g_{\beta-\delta}\circ\gamma_{\alpha-\delta}[\beta-\alpha] = \lambda_\alpha[\beta-\alpha]\circ f_{\alpha-\delta}$.
+  Similarly, $g_{\beta}'\circ\lambda_{\alpha}[\beta-\alpha] = \lambda_{\alpha +\delta'}'[\beta-\alpha]\circ f_{\alpha}'$.
+  So $\Phi''(F'\circ F, G'\circ G)\in\Hom^{\delta+\delta'}(\im~\Gamma,\im~\Lambda')$ as
+  \[ g_\beta'\circ (g_{\beta-\delta}\circ \gamma_{\alpha-\delta}[\beta-\alpha]) = (g_\beta'\circ \lambda_\alpha[\beta-\alpha])\circ f_{\alpha-\delta} =\lambda_{\alpha+\delta'}[\beta-\alpha]\circ f_\alpha'\circ f_{\alpha-\delta}\]
+  for all $\alpha\leq\beta$.
+\end{proof}
+
+\begin{proof}[Proof of Lemma~\ref{thm:interleaving_main}]
+  % For ease of notation let $\Phi$ denote $\Phi_M(F, G)$ and $\Psi$ denote $\Psi_G(M, N)$.
+  %
+  If $\Gamma$ is an epimorphism $\gamma_\alpha$ is surjective so $\Gamma_\alpha = V_\alpha$ and $\phi_{\alpha} = g_{\alpha}\rest_{\Gamma_\alpha} = g_\alpha$ for all $\alpha$.
+  So $\im~\Gamma = \VV$ and $\Phi\in\Hom^\delta(\VV,\im~\Lambda)$.
+
+  If $\Pi$ is a monomorphism then $\pi_\alpha$ is injective so we can define an isomorphism $\pi_\alpha^{-1} : \Pi_\alpha\to V_\alpha$ for all $\alpha$.
+  Let $\Psi^*$ be defined as the family of linear maps $\{\psi_\alpha^* := \pi^{-1}_\alpha \circ \psi_\alpha : \Lambda_\alpha\to V_{\alpha+\delta}\}$.
+  Because $\Psi$ is a partial $\delta$-interleaving of image modules, $n_\alpha\circ\lambda_\alpha = \pi_{\alpha+\delta}\circ m_\alpha$.
+  So, because $\psi_\alpha = n_\alpha\rest_{\Lambda_\alpha}$ for all $\alpha$,
+  \begin{align*}
+    \im~\psi_\alpha^* = \im~\pi^{-1}_{\alpha+\delta}\circ\psi_\alpha = \im~\pi^{-1}_{\alpha+\delta}\circ (n_\alpha\circ\lambda_\alpha) = \im~\pi^{-1}_{\alpha+\delta}\circ (\pi_{\alpha+\delta}\circ m_\alpha) = \im~ m_\alpha.
+  \end{align*}
+  It follows that $\im~v_{\alpha+\delta}^{\beta+\delta}\circ\psi_\alpha^* = \im~v_{\alpha+\delta}^{\beta+\delta}\circ m_\alpha$
+
+  Similarly, because $\Psi$ is a $\delta$-interleaving of image modules $n_\beta\circ t_\alpha^\beta\circ \lambda_\alpha = w_{\alpha+\delta}^{\beta+\delta}\circ\pi_{\alpha+\delta}\circ m_\alpha$.
+  Moreover, because $\Pi$ is a homomorphism of persistence modules, $w_{\alpha+\delta}^{\beta+\delta}\circ\pi_{\alpha+\delta} = \pi_{\beta+\delta}\circ v_{\alpha+\delta}^{\beta+\delta}$, so $n_\beta\circ t_\alpha^\beta\circ \lambda_\alpha = \pi_{\beta+\delta}\circ v_{\alpha+\delta}^{\beta+\delta}\circ m_\alpha.$
+  As $\psi_\beta\circ\lambda_\alpha^\beta = n_\beta\circ\lambda_\alpha^\beta = n_\beta\circ t_\alpha^\beta\rest_{\Lambda_\alpha}$ it follows
+  \begin{align*}
+    \im~\psi_\beta^*\circ\lambda_\alpha^\beta &= \im~\pi^{-1}_{\beta+\delta}\circ (n_\beta\circ t_\alpha^\beta\circ\lambda_\alpha)\\
+      &= \im~\pi^{-1}_{\beta+\delta}\circ (\pi_{\beta+\delta}\circ v_{\alpha+\delta}^{\beta+\delta})\circ m_\alpha\\
+      &= \im~v_{\alpha+\delta}^{\beta+\delta}\circ m_\alpha\\
+      &= \im~v_{\alpha+\delta}^{\beta+\delta}\circ\psi_\alpha^*.
+  \end{align*}
+  So we may conclude that $\Psi^*\in\Hom^\delta(\im~\Lambda,\VV)$.
+
+  So $\Phi\in\Hom^\delta(\VV,\im~\Lambda)$ and $\Psi_G^*\in\Hom^\delta(\im~\Lambda,\VV)$.
+  As we have shown, $\im~\psi_{\alpha-\delta}^* = \im~m_{\alpha-\delta}$ so $\im~\phi_\alpha\circ\psi_{\alpha-\delta}^* = \im~\phi_\alpha\circ m_{\alpha-\delta}$.
+  Moreover, because $\gamma_\alpha$ is surjective $\phi_\alpha = g_\alpha$ and, because $\Phi$ is a partial $\delta$-interleaving of image modules, $g_\alpha\circ m_{\alpha-\delta} = t_{\alpha-\delta}^{\alpha+\delta}\circ \lambda_{\alpha-\delta}$.
+  As $\lambda_{\alpha-\delta}^{\alpha+\delta} = t_{\alpha-\delta}^{\alpha+\delta}\rest_{\im~\lambda_{\alpha-\delta}}$ it follows that the following diagram commutes as $\im~\phi_\alpha\circ\psi_{\alpha-\delta}^* = \im~\lambda_{\alpha-\delta}^{\alpha+\delta}$:
+  \begin{equation}\label{dgm:interleaving1}
+    \begin{tikzcd}
+      & V_{\alpha}\arrow{dr}{\phi_\alpha} &\\
+      %
+      \Lambda_{\alpha-\delta}\arrow{rr}{\lambda_{\alpha-\delta}^{\alpha+\delta}}\arrow{ur}{\psi_{\alpha-\delta}^*} & &
+      \Lambda_{\alpha+\delta}.
+  \end{tikzcd}\end{equation}
+
+  Finally, $\psi_\alpha^*\circ\phi_\alpha = \pi_{\alpha+\delta}^{-1}\circ n_\alpha\circ g_{\alpha-\delta}$ where, because $\Psi$ is a partial $\delta$-interleaving of image modules, $n_\alpha\circ g_{\alpha-\delta} = w_{\alpha-\delta}^{\alpha+\delta}\circ\pi_{\alpha-\delta}$.
+  Because $\Pi$ is a homomorphism of persistence modules $w_{\alpha-\delta}^{\alpha+\delta}\circ \pi_{\alpha-\delta} = \pi_{\alpha+\delta}\circ v_{\alpha-\delta}^{\alpha+\delta}$.
+  Therefore,
+  \begin{align*}
+    \psi_\alpha^*\circ\phi_{\alpha-\delta} = \pi_{\alpha+\delta}^{-1}\circ n_\alpha\circ g_{\alpha-\delta} = \pi_{\alpha+\delta}^{-1}\circ (\pi_{\alpha+\delta}\circ v_{\alpha-\delta}^{\alpha+\delta}) = v_{\alpha-\delta}^{\alpha+\delta}
+  \end{align*}
+  so the following diagram commutes
+  \begin{equation}\label{dgm:interleaving2}
+    \begin{tikzcd}
+      V_{\alpha-\delta}\arrow{rr}{v_{\alpha-\delta}^{\alpha+\delta}}\arrow{dr}{\phi_\alpha} & &
+      V_{\alpha+\delta}.\\
+      %
+      & \Lambda_{\alpha}\arrow{ur}{\psi_\alpha^*} &
+  \end{tikzcd}\end{equation}
+
+  Because $\Phi\in\Hom^\delta(\VV,\im~\Lambda)$, $\Psi^*\in\Hom^\delta(\im~\Lambda, \VV)$, and Diagrams~\ref{dgm:interleaving1} and~\ref{dgm:interleaving2} commute we may conclude that $\im~\Lambda$ and $\VV$ are $\delta$-interleaved.
+
+\end{proof}
+
+\subsection{Partial Interleavings}
+
+% \begin{proof}[Proof of Lemma~\ref{lem:extension_apply}]
+%   Because $P\subi{w}{a} := P\cap D\subi{w}{a}$ and $B_w\subseteq D\subi{w}{a}$ we know $Q_w = P\cap B_w \subseteq P\subi{w}{a}$ for all $a\in\R$.
+%   So
+%   \[\ext{Q^\e_a} = Q^\e_a\cup (D\setminus P^\e) \subseteq P\subi{w}{a}^\e \cup (D\setminus P^\e) = \ext{P\subi{w}{a}^\e}.\]
+%   As $(P^\e, Q_w^\e)$ is a surrounding pair in $D$, $P^\e$ is open in $D$ and $\ext{P\subi{w}{a}^\e}\subseteq D$ is such that $\ext{Q^\e_a}\subseteq \ext{P\subi{w}{a}^\e}$ it follows that
+%   \[\hom_k(P\subi{w}{a}^\e, Q^\e_a) = \hom_k(P^\e\cap \ext{P\subi{w}{a}^\e}, Q^\e_a) \cong\hom_k(\ext{P\subi{w}{a}^\e}, \ext{Q^\e_a})\]
+%   by Lemma~\ref{lem:excision}.
+%
+%   Because these isomorphisms commute with inclusions we have an isomorphism $\E\subi{w}{\cdot}^\e \in \Hom(\PP{w}{\e},\ext{\PP{w}{\e}})$ defined to be the family $\{\E\subi{w}{\alpha}^\e : \P{w}{\e}{a}\to \E\P{w}{\e}{a}\}$.
+% \end{proof}
+
+\begin{proof}[Proof of Lemma~\ref{lem:inclusions}]
+  Suppose $x\in P^\delta\cap D\subi{t-c\e}{\alpha-c\e}$.
+  Because $x\in P^\delta$ there exists some $p\in P$ such that $\dist(x,p) < \delta$.
+  Because $f$ is $c$-Lipschitz $f(p)\leq f(x) + c\dist(x,p) < f(x) + c\delta$.
+  If $\alpha\leq t$ then $x\in B_{t-c\e}$ implies $f(p) < t-c\e + c\delta \leq t$ so $x\in Q_t^\e$ as $\delta\leq\e$.
+  If $\alpha\geq t$ then $x\in B_{\alpha-c\e}$ which implies $f(p) \leq \alpha$ so $x\in Q_\alpha^\e$.
+  So $P^\delta\cap D\subi{t-c\e}{\alpha-c\e}\subseteq P\subi{t}{\alpha}^\e$ as $P\subi{t}{\alpha} = Q_t^\e\cup Q_\alpha^\e$.
+
+  Now, suppose $x\in P\subi{t}{\alpha}^\e$.
+  If $\alpha\leq t$ then $x\in Q_t^\e\subseteq B_{t+c\e}$ because $f$ is $c$-Lipschitz.
+  Similarly, $\alpha > t$ implies $x\in Q_\alpha^\e\subseteq B_{\alpha+c\e}$, so $P\subi{t}{\alpha}^\e\subseteq D\subi{t+c\e}{\alpha+c\e}$ as $D\subi{t+c\e}{\alpha+c\e} = B_{t+c\e}\cup B_{\alpha+c\e}$.
+\end{proof}
+
+\begin{proof}[Proof of Lemma~\ref{lem:inclusion_hom}]
+  Because $Q_t^\delta$ surrounds $P^\delta$ in $D$ and $\delta\leq\e$, $t < v$ we know $Q_t^\e$ and $Q_v^\e$ surround $P^\delta$ in $D$.
+  As $P^\delta\cap B_s\subseteq Q_t^\e$ and $P^\delta\cap B_u\subseteq Q_v^{2\e}$ for all $\e\in[\delta,2\delta]$ Lemma~\ref{lem:surround_and_cover} implies that we have a sequence of inclusions $B_s\subseteq \E Q_t^\e\subseteq B_u\subseteq \E Q_v^{2\e}\subseteq B_w$.
+
+  For any $\alpha\in\R$ we know that $D\setminus P^\delta \subseteq \ext{P\subi{t}{\alpha}^\e}$ by the definition of $\ext{P\subi{t}{\alpha}^\e}$.
+  Moreover, $D\setminus P^\delta\subseteq D\subi{u}{\alpha}$ because $D\setminus B_u\subseteq P^\delta$.
+  Lemma~\ref{lem:inclusions} therefore implies $D\subi{s}{\alpha-c\delta}\subseteq \E P\subi{t}{\alpha}^\e\subseteq D\subi{u}{\alpha+c\e}$ as $s + c\delta\leq t \leq u - c\e$.
+  So the inclusions $(D\subi{s}{\alpha-c\delta}, B_s)\subseteq (\E P\subi{t}{\alpha}^\e, \E Q_t^\e)$ induce $F\in\Hom^{c\delta}(\DD{s},\E\PP{t}{\e})$ and $(\E P\subi{t}{\alpha}^\e, \E Q_t^\e)\subseteq (D\subi{u}{\alpha+c\e}, B_u)$ induce $M\in \Hom^{c\e}(\E\PP{t}{\e}, \DD{u})$.
+
+  By an identical argument Lemma~\ref{lem:inclusions} implies $D\subi{u}{\alpha-2c\delta}\subseteq \E P\subi{v}{\alpha}^\e\subseteq D\subi{w}{\alpha+2c\e}$ as $u+c\delta\leq v\leq w-4c\delta$.
+  So $(D\subi{u}{\alpha-2c\delta},B_u)\subseteq (\E P\subi{v}{\alpha}^\e, \E Q_v^{2\e})$ induce $G\in\Hom^{2c\delta}(\DD{u},\E\PP{v}{2\e})$ and $(\E P\subi{v}{\alpha}^\e, \E Q_v^{2\e})\subseteq (D\subi{w}{\alpha+2c\e},B_w)$ induce $N\in\Hom^{2c\e}(\E\PP{v}{2\e},\DD{u})$.
+\end{proof}
+
+% \subsection{Truncated Interval Modules}
+%
+% \begin{proof}[Proof of Lemma~\ref{lem:decomposition}]
+%   Suppose $\alpha\leq\omega$.
+%   So $\hom_k(D\subi{\omega}{\alpha}, B_\omega) = 0$ as $D\subi{\omega}{\alpha} = B_\omega\cup B_\alpha$ and $\T^k_\omega = 0$ as $F_\alpha^I = 0$ for any $I\in \I^k$ such that $\omega\in I_-$.
+%   Moreover, $\omega\in I$ for all $I\in \I_\omega^{k-1}$, thus $F_\alpha^{I_+} = 0$ for all $\alpha\leq\omega$.
+%   So it suffices to assume $\omega < \alpha$.
+%
+%   Consider the long exact sequence of the pair $\hom_k(D\subi{\omega}{\alpha}, B_\omega) = \hom_k(B_\alpha, B_\omega)$
+%   \[ \ldots\to \hom_k(B_\omega)\xrightarrow{p_\alpha^k} \hom_k(B_\alpha)\xrightarrow{q_\alpha^k}\hom_k(D\subi{\omega}{\alpha}, B_\omega)\xrightarrow{r_\alpha^k} \hom_{k-1}(B_\omega)\xrightarrow{p_\alpha^{k-1}}\hom_{k-1}(B_\alpha)\to\ldots\]
+%   where $\hom_k(B_\alpha) = \bigoplus_{I\in \I^k}F_\alpha^I$, $\hom_k(B_\omega) = \bigoplus_{I\in \I^k}F_\omega^I$, and $p_\alpha^k = \displaystyle\bigoplus_{I\in\I^k} f_{\omega,\alpha}^I$.
+%
+%   Noting that $\im~q_\alpha^k \cong \hom_k(B_\alpha) / \ker~q_\alpha^k$ where $\ker~q_\alpha^k = \im~p_\alpha^k$ by exactness we have $\ker~r_\alpha^k \cong \hom_k(B_\alpha) / \im~p_\alpha^k$.
+%   By the definition of $F_\alpha^I$ and $f_{\omega,\alpha}^I$ we know $\im~f_{\omega,\alpha}^I$ is $F_\alpha^I$ if $\omega\in I$ and 0 otherwise.
+%   As $\im~p_\alpha^k$ is equal to the direct sum of images $\im~f_{\omega,\alpha}^I$ over $I\in\I^k$ it follows that $\im~p_\alpha^k$ is the direct sum of those $F_\alpha^I$ over those $I\in\I^k$ such that $\omega\in I$.
+%   Now, because $\hom_k(B_\alpha) = \bigoplus_{I\in \I^k}F_\alpha^I$ and each $F_\alpha^I$ is either 0 or $\FF$ the quotient $\hom_k(B_\alpha) / \im~p_\alpha^k$ is the direct sum of those $F_\alpha^I$ such that $\omega\notin I$.
+%   Therefore, by the definition of $F\subi{\omega}{\alpha}^I$ we have
+%   \[ \ker~r_\alpha^k = \bigoplus_{I\in\I_\omega^k} F\subi{\omega}{\alpha}^I.\]
+%
+%   Similarly, $\im~r_\alpha^k = \ker~p_\alpha^{k-1}$ by exactness where $\ker~p_\alpha^{k-1}$ is the direct sum of kernels $\ker~f_{\omega,\alpha}^I$ over $I\in\I^{k-1}$.
+%   By the definition of $F_\alpha^I$ and $f_{\omega,\alpha}^I$ we know that $\ker~f_{\omega,\alpha}^I$ is $F_\alpha^I$ if $\omega\notin I$ and $0$ otherwise.
+%   Noting that $\ker~f_{\omega,\alpha}^I = 0$ for any $I\in \I^{k-1}$ such that $\omega\notin I$ it suffices to consider only those $I\in \I_\omega^{k-1}$.
+%   It follows that $\ker~f_{\omega,\alpha}^I = F_\alpha^{I_+}$ for any $I$ containing $\omega$ as $\omega < \alpha$.
+%   Therefore,
+%   \[\im~r_\alpha^k = \bigoplus_{I\in\I^{k-1}} F_\alpha^{I_+}.\]
+%
+%   We have the following split exact sequence associated with $r_\alpha^k$
+%   \[ 0\to \ker~r_\alpha^k\to \hom_k(D\subi{\omega}{\alpha}, B_\omega)\to\im~r_\alpha^k\to 0.\]
+%   The desired result follows from the fact that for all $\alpha\in\R$
+%   \begin{align*}
+%     \hom_k(D\subi{\omega}{\alpha}, B_\omega) &\cong \ker~r_\alpha^k\oplus \im~r_\alpha^k =\bigoplus_{I\in\I^k} F\subi{\omega}{\alpha}^I\oplus \bigoplus_{I\in\I_\omega^{k-1}} F_\alpha^{I_+}.
+%   \end{align*}
+% \end{proof}

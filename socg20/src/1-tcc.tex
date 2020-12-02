@@ -1,0 +1,177 @@
+% !TeX root = ../main.tex
+
+A positive result from the TCC requires that we have a subset of our cover to serve as the boundary.
+That is, the the condition not only checks that we have coverage, but also that we have a pair of spaces that reflects the pair $(D, B)$ topologically.
+We call such a pair a \emph{surrounding pair} defined in terms of separating sets.
+It has been shown that the TCC can be stated in terms of these surrounding pairs and that assumptions can be made directly in terms of their persistent homology~\cite{cavanna2017when}.
+This allows allows us enough flexibility to define our surrounding set as a sublevel of a $c$-Lipschitz function $f$ and state our assumptions in terms of its persistent homology.
+
+\begin{definition}[Surrounding Pair]
+  Let $X$ be a topological space and $(D,B)$ a pair in $X$.
+  The set $B$ \textbf{surrounds $D$ in $X$} if $B$ separates $X$ with the pair $(D\setminus B, X\setminus D)$.
+  We will refer to such a pair as a \textbf{surrounding pair in $X$}.
+\end{definition}
+
+For a surrounding pair $(D,B)$ in $X$  the complement $\overline{B} = X\setminus B$ is the union of disconnected sets $X\setminus D$ and $D\setminus B$.
+Therefore, $\hom_k(\overline{B}) \cong \hom_k(\overline{D})\oplus \hom_k(D\setminus B)$ thus $\hom_k(\overline{B},\overline{D})\cong \hom_k(D\setminus B)$ for all $k$.
+The following lemma generalizes the proof of the TCC as a property of surrounding sets.
+We will then combine these results on the homology of surrounding pairs with information about both $X$ as a metric space and our function.
+
+\begin{lemma}\label{lem:coverage}
+  Let $(D, B)$ be a surrounding pair in $X$ and $U\subseteq D$, $V\subseteq U\cap B$ be subsets.
+  Let $\ell: \hom_0(X\setminus B, X\setminus D)\to \hom_0(X\setminus V, X\setminus U)$ be induced by inclusion.
+
+  If $\ell$ is injective then $D\setminus B\subseteq U$ and $V$ surrounds $U$ in $D$.
+\end{lemma}
+
+Let $(\X,\dist)$ be a metric space and $D\subseteq \X$ be a compact subspace.
+For a $c$-Lipschitz function $f : D\to \R$ we introduce a constant $\omega$ as a threshold that defines our ``boundary'' as a sublevel set $B_\omega$ of the function $f$.
+Let $P$ be a finite subset of $D$ and $\zeta\geq\delta > 0 $ be constants such that $P^\delta\subseteq \intr_\X(D)$.
+Here, $\delta$ will serve as our communication radius where $\zeta$ is reserved for use in Section~\ref{sec:middle}.
+  \footnote{We will set $\zeta = 2\delta$ in the proof of our interleaving with Rips complexes but the TCC holds for all $\zeta\geq\delta$.}
+
+\begin{lemma}\label{lem:psurj}
+  Let $i : \hom_0(\overline{Q_{\omega+c\delta}^\delta}, \overline{P^\delta})\to \hom_0(\overline{Q_{\omega-c\zeta}^\delta}, \overline{P^\delta})$.
+
+  If $B_\omega$ surrounds $D$ in $\X$ then $\dim~\hom_0(\overline{B_\omega}, \overline{D})\geq \rk~i$.
+\end{lemma}
+\begin{proof}
+  Choose a basis for $\im~i$ such that each basis element is represented by a point in $P^\delta\setminus Q_{\omega+c\delta}^\delta$.
+  Let $x\in P^\delta\setminus Q_{\omega+c\delta}^\delta$ be such that $i[x]$ is non-trivial.
+  So there exits some $p\in P$ such that $\dist(p, x) < \delta$ and $p\notin Q_{\omega+c\delta}$, otherwise $x\in Q_{\omega+c\delta}^\delta$.
+  Therefore, because $f$ is $c$-Lipschitz,
+  \[ f(x)\geq f(p) - c\dist(x, p) > \omega.\]
+
+  So $x\in\overline{B_\omega}$ and, because $x\in P^\delta\subseteq D$ it follows that $x\in D\setminus B_\omega$.
+  Because $i$ and $\ell : \hom_0(\overline{B_\omega}, \overline{D})\to \hom_0(\overline{Q_{\omega-c\zeta}^\delta}, \overline{P^\delta})$ are induced by inclusion $\ell[x] = i[x]$ is non-trivial in $\hom_0(\overline{Q_{\omega-c\zeta}^\delta}, \overline{P^\delta})$.
+  That is, every element of $\im~i$ has a preimage in $\hom_0(\overline{B_\omega}, \overline{D})$, so we may conclude that $\dim~\hom_0(\overline{B_\omega}, \overline{D})\geq \rk~i$.
+\end{proof}
+
+While there is a surjective map from $\hom_0(\overline{B_\omega}, \overline{D})$ to $\im~i$ this map is not necessarily induced by inclusion.
+We will therefore introduce a larger space $B_{\omega+c(\delta+\zeta)}$ that contains $Q_{\omega+c\delta}^\delta$ in order to provide a criteria for the injectivity of $\ell : \hom_0(\overline{B_\omega}, \overline{D})\to\hom_0(\overline{Q_{\omega-c\zeta}^\delta}, \overline{P^\delta})$ in terms of $\rk~i$.
+We have the following commutative diagrams of inclusion maps and maps induced by inclusion between complements in $\X$.
+
+\begin{equation}\label{dgm:1}
+\begin{tikzcd}
+  (P^\delta, Q_{\omega-c\zeta}^\delta) \arrow[hookrightarrow]{r}\arrow[hookrightarrow]{d} &
+  (P^\delta, Q_{\omega+c\delta}^\delta) \arrow[hookrightarrow]{d} \\
+  %
+  (D, B_\omega) \arrow[hookrightarrow]{r} &
+  (D, B_{\omega+c(\delta+\zeta)}),
+\end{tikzcd}
+\begin{tikzcd}
+  \hom_0(\overline{B_{\omega+c(\delta+\zeta)}},\overline{D})\arrow{d}{m} \arrow{r}{j} &
+  \hom_0(\overline{B_\omega}, \overline{D}) \arrow{d}{\ell} \\
+  %
+  \hom_0(\overline{Q_{\omega+c\delta}^\delta}, \overline{P^\delta}) \arrow{r}{i} &
+  \hom_0(\overline{Q_{\omega-c\zeta}^\delta}, \overline{P^\delta}).
+\end{tikzcd}\end{equation}
+
+\paragraph*{Assumptions}
+
+We will first require the map $\hom_0(D\setminus B_{\omega+c(\delta+\zeta)}\hookrightarrow D\setminus B_\omega)$ to be \emph{surjective}---as we approach $\omega$ from \emph{above} no components \emph{appear}.
+This ensures that the rank of the map $j$ is equal to the dimension of $\dim~\hom_0(\overline{B_\omega}, \overline{D})$ so $\ell$ depends only on $\hom_0(\overline{B_\omega}, \overline{D})$ and $\im~i$.
+
+We also assume that $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega-c(\delta+\zeta)})$ is \emph{injective}---as we move away from $\omega$ moving \emph{down} no components \emph{disappear}.
+Lemma~\ref{lem:assumption2} uses Assumption 2 to provide a computable upper bound on $\rk~j$.%TODO, its proof can be found in the \fullversion.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[trim=200 300 200 200, clip, width=0.3\textwidth]{figures/surf/ass2_B_side.png}
+  \includegraphics[trim=200 300 200 200, clip, width=0.3\textwidth]{figures/surf/ass1_C_side.png}
+  \includegraphics[trim=200 300 200 200, clip, width=0.3\textwidth]{figures/surf/ass1_D_side.png}
+  \includegraphics[trim=300 100 200 200, clip, width=0.3\textwidth]{figures/surf/ass2_B_top.png}
+  \includegraphics[trim=300 150 300 200, clip, width=0.3\textwidth]{figures/surf/ass1_C_top.png}
+  \includegraphics[trim=300 150 300 200, clip, width=0.3\textwidth]{figures/surf/ass1_D_top.png}
+  \includegraphics[width=0.5\textwidth]{figures/scalar_barcode_H1-masked.png}
+  \caption{The blue level set in the middle does not satisfy either assumption.
+    The inclusion from the right is not \emph{surjective} as the smaller component appears in the middle (in the sublevel barcode, a $\hom_{d-1}$ feature dies in the purple region).
+    The inclusion to the left is not \emph{injective} as the smaller component is merged with the larger (in the sublevel barcode, a $\hom_{d-1}$ feature is born in the blue region).}\label{fig:assumption1}
+\end{figure}
+
+\begin{lemma}\label{lem:assumption2}
+  If $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega+c(\delta+\zeta)})$ is injective and each component of $D\setminus B_\omega$ contains a point in $P$ then $\dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-c\zeta})) \geq \dim~\hom_0(D\setminus B_\omega)$.
+\end{lemma}
+
+\paragraph*{Nerves and Duality}
+
+The Nerve Theorem states that for a good open cover $\U$ of a space $X$ the inclusion map from the \emph{Nerve} of the cover to the space $\N(\U)\hookrightarrow X$ is a homotopy equivalence.\footnote{In a good open cover every nonempty intersection of sets in the cover is contractible.}
+The Persistent Nerve Lemma~\cite{chazal08towards} states that this homotopy equivalence commutes with inclusion on the level of homology.
+The standard proof of the Nerve Theorem~\cite{kozlov07combinatorial}, and therefore the Persistent Nerve Lemma, extends directly to pairs of good open covers $(\U, \V)$ of pairs $(X, Y)$ such that $\V$ is a subcover of $\U$.\footnote{$\{V_i\}_{i\in I}$ is a subcover of $\{U_i\}_{i\in I}$ if $V_i\subseteq U_i$ for all $i\in I$.}
+
+Recalling the definition of the strong convexity radius $\varrho_D$ (see Chazal et al.~\cite{chazal09analysis}) $\U$ is a good open cover whenever $\varrho_D > \e$.
+As the \v Cech complex is the Nerve of a cover by metric balls we will let $\N_z^\e : \hom_k(\cech^\e(P,Q_z))\to \hom_k(P^\e, Q_z^\e)$ denote the isomorphism on homology provided by the Nerve Theorem for all $z\in\R$, $\e < \varrho_D$ and $k$.
+
+Under certain conditions Alexander Duality provides an isomorphism between the $k$th relative cohomology of a compact pair in an orientable $d$-manifold $\X$ with the $d - k$ dimensional homology of their complements in $\X$ (see Spanier~\cite{spanier1989algebraic}).
+For finitely generated (co)homology over a field the Universal Coefficient Theorem can be used with Alexander Duality to show $\hom_d(P^\e,Q_z^\e)\cong\hom_0(D\setminus Q_z^\e, D\setminus P^\e)$.
+ % give a natural isomorphism $\xi_z^\e : \hom_d(P^\e,Q_z^\e)\to \hom_0(D\setminus Q_z^\e, D\setminus P^\e)$.\footnote{For the construction of this isomorphism see the \fullversion.}
+This isomorphism holds in the specific case when $P^\e\subseteq \intr_\X(D)$ and $D\setminus P^\e$, $D\setminus Q_z^\e$ are locally contractible.
+We therefore provide the following definition for ease of exposition.
+\begin{definition}[$(\omega, \delta,\zeta)$-Sample]
+  For $\zeta\geq \delta > 0$, $\omega\in\R$, and a $c$-Lipschitz function $f: D\to \R$ a finite point set $P\subset D$ is said to be an \textbf{$(\omega, \delta, \zeta)$-sample} of $f$ if \begin{itemize}
+    \item $P^\delta\subset\intr_\X(D)$ and
+    \item $D\setminus P^\delta$, $D\setminus Q_{\omega-c\zeta}^\delta$, and $D\setminus Q_{\omega+c\delta}^\delta$ are locally path connected in $\X$.
+  \end{itemize}
+\end{definition}
+
+\begin{theorem}[Algorithmic TCC]\label{thm:algo_tcc}
+  Let $\X$ be an orientable $d$-manifold and let $D$ be a compact subset of $\X$.
+  Let $f : D\to\R$ be $c$-Lipschitz function and $\omega\in\R$, $\delta\leq\zeta < \varrho_D$ be constants such that $B_{\omega - c(\zeta +\delta)}$ surrounds $D$ in $\X$.
+  Let $P$ be an $(\omega, \delta,\zeta)$-sample of $f$ such that every component of $D\setminus B_\omega$ contains a point in $P$.
+  Suppose $\hom_0(D\setminus B_{\omega+c(\delta+\zeta)}\hookrightarrow D\setminus B_\omega)$ is surjective and $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega-c(\delta+\zeta)})$ is injective.
+
+   If $\rk~\hom_d(\rips^\delta(P, Q_{\omega -c\zeta})\hookrightarrow \rips^{2\delta}(P, Q_{\omega+c\delta})) \geq \dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-c\zeta}))$ then $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ in $D$.
+\end{theorem}
+\begin{proof}
+  Let $q : \hom_d(P^\delta, Q_{\omega-c\zeta}^\delta)\to \hom_d(P^\delta, Q_{\omega+c\delta}^\delta)$,
+  $q_{\cech} : \hom_d(\cech^{\delta}(P, Q_{\omega-c\zeta}))\to\hom_d(\cech^{\delta}(P, Q_{\omega+c\delta}))$, and
+  $q_{\rips} : \hom_d(\rips^{\delta}(P, Q_{\omega-c\zeta}))\to\hom_d(\rips^{2\delta}(P, Q_{\omega+c\delta}))$ be induced by inclusion.
+  Then $\rk~q_{\cech} \geq\rk~q_{\rips}$ as $q_{\rips}$ factors through $q_{\cech}$ by the Rips-\v Cech interleaving.
+  Moreover, $\rk~q = \rk~q_{\cech}$ by the Persistent Nerve Lemma, so $\rk~q\geq \rk~q_{\rips}$.
+  As we have assumed $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega-c(\delta+\zeta)})$ is injective Lemma~\ref{lem:assumption2} implies $\dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-c\zeta}))\geq \dim~\hom_0(D\setminus B_\omega)$.
+  Because $P$ is an $(\omega, \delta, \zeta)$-sample of $f$ we have $\hom_d(P^\delta, Q_{\omega-c\zeta}^\delta)\cong \hom_0(D\setminus Q_{\omega-c\zeta}^\delta, D\setminus P^\delta)$ and $\hom_d(P^\delta, Q_{\omega+c\delta}^\delta)\cong \hom_0(D\setminus Q_{\omega-2c\delta}^\delta, D\setminus P^\delta)$ so $\rk~i\geq \rk~q$ by Alexander Duality and the Universal Coefficient Theorem.
+  So, by our hypothesis that $\rk~q_{\rips}\geq\dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-c\zeta}))$ we have $\rk~i\geq\dim~\hom_0(D\setminus B_\omega)$.
+
+  Because $j : \hom_0(D\setminus B_{\omega+c(\delta+\zeta)}\hookrightarrow D\setminus B_\omega)$ is surjective by hypothesis $\rk~j = \dim~\hom_0(D\setminus B_\omega)$ so $\rk~j\geq \rk~i$ by Lemma~\ref{lem:psurj}.
+  As we have shown $\rk~i\geq \dim~\hom_0(D\setminus B_\omega)$ it follows that $\rk~j = \rk~i$.
+  Because $P$ is a finite point set we know that $\im~i$ is finite-dimensional and, because $\rk~i = \rk~j$, $\im~j=\hom_0(\overline{B_\omega}, \overline{D})$ is finite dimensional as well.
+  So $\im~j$ is isomorphic to $\im~i$ as a subspace of $\hom_0(\overline{Q_{\omega-c\zeta}^\delta}, \overline{P^\delta})$ which, because $j$ is surjective, requires the map $\ell$ to be injective.
+  Therefore $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ in $D$ by Lemma~\ref{lem:coverage}.
+\end{proof}
+
+% Because this isomorphism is natural with respect to maps induced by inclusion, and isomorphism provided by the Nerve Theorem commutes with maps induced by inclusion the composition $\xi\N_w^\e := \xi_w^\e\circ\N_w^\e$ gives an isomorphism that commutes with maps induced by inclusion for all $w\in\R$ and $\e < \varrho_D$.
+
+% \begin{theorem}[Algorithmic TCC]\label{thm:algo_tcc}
+%   Let $\X$ be an orientable $d$-manifold and let $D$ be a compact subset of $\X$.
+%   Let $f : D\to\R$ be $c$-Lipschitz function and $\omega\in\R$, $\delta\leq\zeta < \varrho_D$ be constants such that $B_{\omega - c(\zeta +\delta)}$ surrounds $D$ in $\X$.
+%   Let $P$ be an $(\omega, \delta,\zeta)$-sample of $f$ such that every component of $D\setminus B_\omega$ contains a point in $P$.
+%   Suppose $\hom_0(D\setminus B_{\omega+c(\delta+\zeta)}\hookrightarrow D\setminus B_\omega)$ is surjective and $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega-c(\delta+\zeta)})$ is injective.
+%
+%    If $\rk~\hom_d(\rips^\delta(P, Q_{\omega -c\zeta})\hookrightarrow \rips^{2\delta}(P, Q_{\omega+c\delta})) \geq \dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-c\zeta}))$ then $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ in $D$.
+% \end{theorem}
+% \begin{proof}
+%   % We have the following commutative diagram
+%   % \[\begin{tikzcd}
+%   %   \hom_d(\cech^\delta(P, Q_{\omega-c\zeta})) \arrow{r}{q_{\cech}}\arrow{d}{\N_{\omega-c\zeta}^{\delta}} &
+%   %   \hom_d(\cech^\delta(P, Q_{\omega+c\delta})) \arrow{d}{\N_{\omega-c\zeta}^\delta}\\
+%   %   %
+%   %   \hom_d(P^\delta, Q_{\omega-c\zeta}^\delta))\arrow{r}{q} &
+%   %   \hom_d(P^\delta, Q_{\omega+c\delta}^\delta).
+%   % \end{tikzcd}\]
+%   % where vertical maps are isomorphisms provided by the Nerve Theorem and horizontal maps are induced by inclusions.
+%
+%   Because $P$ is an $(\omega, \delta, \zeta)$-sublevel sample we have isomorphisms $\xi\N_{\omega-c\zeta}^\delta$ and $\xi\N_{\omega+c\delta}^\delta$ that commute with $q_{\cech} : \hom_d(\cech^{\delta}(P, Q_{\omega-c\zeta}))\to\hom_d(\cech^{2\delta}(P, Q_{\omega+c\delta}))$ and $i : \hom_0(D\setminus Q_{\omega+c\delta}^\delta, D\setminus P^\delta)\to \hom_0(D\setminus Q_{\omega-c\zeta}^\delta, D\setminus P^\delta)$.
+%   Let $q_{\rips} : \hom_d(\rips^{\delta}(P, Q_{\omega-c\zeta}))\to\hom_d(\rips^{2\delta}(P, Q_{\omega+c\delta}))$ be induced by inclusion.
+%   Then $\rk~q_{\cech} \geq\rk~q_{\rips}$ as $q_{\rips}$ factors through $q_{\cech}$.
+%   As we have assumed $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega-c(\delta+\zeta)})$ Lemma~\ref{lem:assumption2} implies $\dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-c\zeta}))\geq \dim~\hom_0(D\setminus B_\omega)$.
+%   It follows that, whenever $\rk~q_{\rips} \geq \dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-c\zeta}))$, we have
+%   \[ \rk~i = \rk~q_{\cech} \geq \rk~q_{\rips} \geq \dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-c\zeta})) \geq \dim~\hom_0(D\setminus B_\omega).\]
+%
+%   Because $j$ is surjective by hypothesis $\rk~j = \dim~\hom_0(\overline{B_\omega},\overline{D}) = \dim~\hom_0(D\setminus B_\omega)$ so $\rk~j\geq \rk~i$ by Lemma~\ref{lem:psurj}.
+%   As we have shown $\rk~i\geq \dim~\hom_0(D\setminus B_\omega)$ it follows that $\rk~j = \rk~i$.
+%   Because $P$ is a finite point set we know that $\im~i$ is finite-dimensional and, because $\rk~i = \rk~j$, $\im~j=\hom_0(\overline{B_\omega}, \overline{D})$ is finite dimensional as well.
+%   So $\im~j$ is isomorphic to $\im~i$ as a subspace of $\hom_0(\overline{Q_{\omega-c\zeta}^\delta}, \overline{P^\delta})$ which, because $j$ is surjective, requires the map $\ell$ to be injective.
+%   Therefore $D\setminusB_\omega\subseteq P^\delta$ and $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ in $D$ by Lemma~\ref{lem:coverage}.
+%   %, Lemma~\ref{lem:cov_surrounds}.
+%   % As $j : \hom_0(D\setminus B_{\omega+c(\delta+\zeta)})\to \hom_0(D\setminus B_\omega)$ is surjective by assumption $\rk~j = \dim~\hom_0(D\setminus B_\omega)$, so $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ in $D$ by Theorem~\ref{thm:geo_tcc} as desired.
+% \end{proof}

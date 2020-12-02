@@ -1,0 +1,92 @@
+% !TeX root = ../main.tex
+
+\subsection{Proof of the Interleaving}
+
+For $z,\alpha\in\R$ let $\DD{z}^k$ denote the $k$th persistent (relative) homology module of the filtration $\{(D\subi{z}{\alpha},B_z)\}_{\alpha\in\R}$ with respect to $B_z$, and let $\PP{z}{\e,k}$ denote the $k$th persistent (relative) homology module of $\{(P\subi{z}{\alpha}^\e,Q_z^\e)\}_{\alpha\in\R}$.
+Similarly, let $\CPP{z}{\e,k}$ and $\RPP{z}{\e,k}$ denote the corresponding \v Cech and Rips filtrations, respectively.
+We will omit the dimension $k$ and write $\DD{z}$ (resp. $\PP{z}{\e}$) if a statement holds for all dimensions.
+If $Q_z^\delta$ surrounds $P^\delta$ in $D$ let $\ext{\PP{z}{\e}}$ denote the $k$th persistent homology module of the filtration of extensions $\{(\ext{P\subi{z}{\alpha}^\e},\ext{Q_z^\e})\}$ for any $\e\geq\delta$, where $\ext{P\subi{z}{\alpha}^\e} = P\subi{z}{\alpha}^\e \cup (D\setminus P^\delta)$.
+
+Lemma~\ref{lem:inclusions} follows directly from the definition of truncated sublevel sets.
+This is used to extend Lemma~\ref{lem:surround_and_cover} to persistence modules in Lemma~\ref{lem:inclusion_hom} in order to provide a sequence of shifted homomorphisms $\DD{\omega-3c\delta}\xrightarrow{F}\E\PP{\omega-2c\delta}{\e}\xrightarrow{M}\DD{\omega}\xrightarrow{G}\E\PP{\omega+c\delta}{2\e}\xrightarrow{N}\DD{\omega+5c\delta}$ of varying degree.
+These homomorphisms are then combined with those given by the Nerve Theorem and the Rips-\v Cech interleaving in Lemma~\ref{lem:partial_interleaving} to obtain partial interleavings required for our proof of Theorem~\ref{thm:interleaving_main_2}.
+
+\begin{lemma}\label{lem:inclusions}
+  If $\delta\leq\e$ and $t,\alpha\in\R$ then $P^\delta\cap D\subi{t-c\e}{\alpha-c\e}\subseteq P\subi{t}{\alpha}^\e\subseteq D\subi{t+c\e}{\alpha+c\e}$.
+\end{lemma}
+
+\begin{lemma}\label{lem:inclusion_hom}
+  Let $s + 3c\delta\leq t + 2c\delta\leq u\leq v-c\delta\leq w-5c\delta$ and $\e\in [\delta,2\delta]$.
+  If $Q_{t}^\delta$ surrounds $P^\delta$ in $D$ and $D\setminus B_u\subseteq P^\delta$ then the following homomorphisms are induced by inclusions:
+  \[(F, G)\in \Hom^{c\delta}(\DD{s}, \E\PP{t}{\e})\times \Hom^{2c\delta}(\DD{u}, \E\PP{v}{2\e}),\ (M, N)\in \Hom^{c\e}(\E\PP{t}{\e},\DD{u})\times\Hom^{2c\e}(\E\PP{v}{2\e}, \DD{w}).\]
+\end{lemma}
+
+\begin{lemma}\label{lem:partial_interleaving}
+  For $\delta < \varrho_D$ and $s + 3c\delta\leq t + 2c\delta\leq u\leq v-c\delta\leq w-5c\delta$ let
+  $\Gamma\in\Hom(\DD{s},\DD{u})$,
+  $\Pi\in\Hom(\DD{u},\DD{w})$, and
+  $\Lambda\in\Hom(\RPP{t}{2\delta}, \RPP{v}{4\delta})$ be induced by inclusions.
+
+  If $Q_{t}^\delta$ surrounds $P^\delta$ in $D$ and $D\setminus B_u\subseteq P^\delta$ then there is a partial $2c\delta$ interleaving $\Phi^*\in\Hom^{2c\delta}(\im~\Gamma, \im~\Lambda)$ and a partial $4c\delta$ interleaving $\Psi^*\in\Hom^{4c\delta}(\im~\Lambda, \im~\Pi)$.
+\end{lemma}
+\begin{proof}
+  Because the shifted homomorphisms provided by Lemma~\ref{lem:inclusion_hom} are all induced by inclusions the following diagram commutes for all $\alpha\leq\beta$.
+  So we have image module homomorphisms $\Phi(F, G)\in\Hom^{2c\delta}(\im~\Gamma, \im~C\circ A)$ and $\Psi(M, N)\in\Hom^{4c\delta}(\im~E\circ C, \im~\Pi)$.
+  \[\begin{tikzcd}
+      \hom_k(D\subi{s}{\alpha-2c\delta}, B_s) \arrow{r}{f_{\alpha-2c\delta}}\arrow{d}{\gamma_{\alpha-2c\delta}[\beta-\alpha]} &
+      \hom_k(\E P\subi{t}{\alpha}^\delta, \E Q_t^\delta)\arrow{d}{c_\alpha[\beta-\alpha]\circ a_\alpha}\\
+      %
+      \hom_k(D\subi{u}{\beta-2c\delta}, B_u)\arrow{r}{g_{\beta-2c\delta}} &
+      \hom_k(\E P\subi{v}{\beta}^{2\delta}, \E Q_v^{2\delta})
+    \end{tikzcd}
+    \begin{tikzcd}
+      \hom_k(\E P\subi{t}{\alpha}^{2\delta}, \E Q_t^{2\delta})\arrow{d}{e_\beta\circ c_\alpha[\beta-\alpha]}\arrow{r}{m_{\alpha}} &
+      \hom_k(D\subi{u}{\alpha+4c\delta}, B_u)\arrow{d}{\gamma_{\alpha+4c\delta}[\beta-\alpha]}\\
+      %
+      \hom_k(\E P\subi{v}{\beta}^{4\delta}, \E Q_v^{4\delta})\arrow{r}{n_\beta} &
+      \hom_k(D\subi{w}{\beta+4c\delta}, B_w)
+    \end{tikzcd}\]
+
+  Because the isomorphisms provided by Lemma~\ref{lem:excision} are given by excision they are induced by inclusion, and therefore give isomorphisms $\E_z^\e \in \Hom(\PP{z}{\e},\ext{\PP{z}{\e}})$ for any $z\in\R$ such that $Q_z^\e$ surrounds $P^\delta$ in $D$.
+  For any $\e < \varrho_D$ we have isomorphisms $\N_z^\e\in\Hom(\CPP{z}{\e}, \PP{z}{\e})$ that commute with maps induced by inclusions by the Persistent Nerve Lemma.
+  So the compositions $\E_z^\e\circ \N_z^\e$ are isomorphisms that commute with maps induced by inclusion as well.
+  These compositions, along with the Rips-\v Cech interleaving, provide maps $\E\PP{t}{\delta}\xrightarrow{F'}\RPP{t}{2\delta}\xrightarrow{M'} \E\PP{t}{2\delta}$ and $\E\PP{v}{2\delta}\xrightarrow{G'}\RPP{v}{4\delta}\xrightarrow{N'} \E\PP{v}{4\delta}$ that commute with maps induced by inclusions.
+  So we have the following commutative diagram:
+  %
+  \begin{equation}
+    \begin{tikzcd}
+      \E\PP{t}{\delta}\arrow{rr}{A}\arrow{dr}{F'} & &
+      \E\PP{t}{2\delta}\arrow{r}{C} &
+      \E\PP{v}{2\delta}\arrow{rr}{E}\arrow{dr}{G'} & &
+      \E\PP{v}{4\delta}\\
+      %
+      & \RPP{t}{2\delta}\arrow{ur}{M'}\arrow[to=RV, "\Lambda"] & &
+      & |[alias=RV]|\RPP{v}{4\delta}\arrow{ur}{N'} &
+    \end{tikzcd}
+  \end{equation}
+  %
+  That is, we have image module homomorphisms $\Phi'(F', G')$ and $\Psi'(M', N')$ such that $A = M'\circ F'$, $E = N'\circ G'$, and $\Lambda = G'\circ C\circ M'$.
+  Because all maps are induced by inclusions or commute with maps induced by inclusions $\Phi^* = \Phi'\circ \Phi\in\Hom^{2c\delta}(\im~\Gamma, \im~\Lambda)$ and $\Psi^* = \Psi\circ\Psi'\in\Hom^{4c\delta}(\im~\Lambda, \im~\Pi)$ by Lemm~\ref{lem:image_composition}.
+
+  Because $G,M,C$ are induced by inclusions $C[3c\delta] = G\circ M$, so $\Lambda[3c\delta] = G'\circ C[3c\delta]\circ M' = G'\circ (G\circ M)\circ M'$ as $G', M'$ commute with maps induced by inclusions.
+  In the same way, $\Gamma[3c\delta] = M\circ (A\circ F) = M\circ (M'\circ F')\circ F$ and $\Pi[5c\delta] = N\circ (E\circ G) = N\circ (N'\circ G')\circ G$.
+
+  Let $F^*:= F'\circ F$, $G^*:= G'\circ G$, $M^*:=M'\circ M$, and $N^*:=N'\circ N$.
+  So $\Phi^*_{M^*}$ is a partial $2c\delta$ interleaving as $\Gamma[3c\delta] = M^*\circ F^*$ and $\Lambda[3c\delta] = G^*\circ M^*$, and $\Psi^*_{G^*}$ is a partial $4c\delta$ interleaving as $\Lambda[3c\delta] = G^*\circ M^*$ and $\Pi[5c\delta] = N^*\circ G^*$.
+\end{proof}
+
+The partial interleavings given by Lemma~\ref{lem:partial_interleaving}, along with assumptions that imply $\im(\DD{\omega-3c\delta}\to \DD{\omega+5c\delta})\cong \DD{\omega}$, provide the proof of Theorem~\ref{thm:interleaving_main_2} by Lemma~\ref{thm:interleaving_main}.
+
+\begin{theorem}\label{thm:interleaving_main_2}
+  Let $\X$ be a $d$-manifold, $D\subset\X$ and $f : D\to\R$ be a $c$-Lipschitz function.
+  Let $\omega\in\R$, $\delta < \varrho_D/4$ be constants such that $B_{\omega-3c\delta}$ surrounds $D$ in $\X$.
+  Let $P\subset D$ be a finite subset and suppose $\hom_k(B_{\omega-3c\delta}\hookrightarrow B_\omega)$ is surjective and $\hom_k(B_\omega\hookrightarrow B_{\omega+5c\delta})$ is an isomorphism for all $k$.
+
+  If $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-2c\delta}^\delta$ surrounds $P^\delta$ in $D$ then the $k$th persistent homology module of $\{\rips^{2\delta}(P\subi{\omega-2c\delta}{\alpha}, Q_{\omega-2c\delta})\hookrightarrow \rips^{4\delta}(P\subi{\omega+c\delta}{\alpha}, Q_{\omega+c\delta})\}_{\alpha\in\R}$ is $4c\delta$-interleaved with that of $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$.
+\end{theorem}
+\begin{proof}
+  Let $\Lambda \in\Hom(\RPP{\omega-2c\delta}{2c\delta}, \RPP{\omega+c\delta}{4c\delta})$, $\Gamma\in\Hom(\DD{\omega-3c\delta}, \DD{\omega})$, and $\Pi\in\Hom(\DD{\omega},\DD{\omega+5c\delta})$ be induced by inclusions.
+  Because $\delta < \varrho_D/4$, $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-2c\delta}^\delta$ surrounds $P^\delta$ in $D$ we have a partial $2c\delta$ interleaving $\Phi^*\in\Hom^{2c\delta}(\im~\Gamma, \im~\Lambda)$ and a partial $4c\delta$ interleaving $\Psi^*\in\Hom^{4c\delta}(\im~\Lambda, \im~\Pi)$ by Lemma~\ref{lem:partial_interleaving}.
+  As we have assumed that $\hom_k(B_{\omega-3c\delta}\hookrightarrow B_\omega)$ is surjective and $\hom_k(B_\omega)\cong\hom_k(B_{\omega+5c\delta})$ the five-lemma implies $\gamma_\alpha$ is surjective and $\pi_\alpha$ is an isomorphism (and therefore injective) for all $\alpha$.
+  So $\Gamma$ is an epimorphism and $\Pi$ is a monomorphism, thus $\im~\Lambda$ is $4c\delta$-interleaved with $\DD{\omega}$ by Lemma~\ref{thm:interleaving_main} as desired.
+\end{proof}
