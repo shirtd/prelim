@@ -1,0 +1,173 @@
+% !TeX root = ../main.tex
+
+For a pair $(A, B)$ in a topological space $X$ and any $R$ module $G$ let $\hom^k(A, B; G)$ denote the \textbf{singular cohomology} of $(A,B)$ (with coefficients in $G$).
+Let $\hom^k_c(A, B; G)$ denote the corresponding \textbf{singular cohomology with compact support}.
+For any compact pair $(A,B)$ there is an isomorphism $\hom^k_c(A, B; G)\to\hom^k(A, B; G)$.
+
+Corollary\ref{cor:univ_coef} follows from the Universal Coefficient Theorem for singular homology (and cohomology) as vector spaces over a field $\FF$, as the dual vector space $\Hom(\hom_k(A, B), \FF)$ is isomorphic to $\hom_k(A, B; \FF)$ for any finitely generated $\hom_k(A, B)$.
+
+\begin{corollary}\label{cor:univ_coef}
+  For a topological pair $(A, B)$ and a field $\FF$ such that $\hom_k(A, B)$ is finitely generated there is a natural isomorphism
+  \[\nu : \hom^k(A, B; \FF)\to \hom_k(A, B; \FF).\]
+\end{corollary}
+
+Let $\overline{\hom}^k(A, B; G)$ be the \textbf{Alexander-Spanier cohomology} of the pair $(A,B)$, defined as the limit of the direct system of neighborhoods $(U,V)$ of the pair $(A, B)$.
+Let $\overline{\hom}^k_c(A, B; G)$ denote the corresponding \textbf{Alexander-Spanier cohomology with compact support} where $\overline{\hom}^k_c(A, B; G)\cong\overline{\hom}^k(A, B; G)$ for any compact pair $(A, B)$.
+
+\begin{theorem}[\textbf{Alexander-Poincar\'e-Lefschetz Duality} (Spanier~\cite{spanier1989algebraic}, Theorem 6.2.17)]\label{thm:alexander}
+  Let $X$ be an orientable $d$-manifold and $(A, B)$ be a compact pair in $X$.
+  Then for all $k$ and $R$ modules $G$ there is a (natural) isomorphism
+  \[\lambda : \hom_k(X\setminus B, X\setminus A; G)\to \overline{\hom}^{d-k}(A, B; G).\]
+\end{theorem}
+
+A space $X$ is said to be \textbf{homologically locally connected in dimension $n$} if for every $x\in X$ and neighborhood $U$ of $x$ there exists a neighborhood $V$ of $x$ in $U$ such that $\tilde{\hom}_n(V)\to\tilde{\hom}_n(U)$ is trivial for $k\leq n$.
+
+\begin{lemma}[Spanier p. 341, Corollary 6.9.6]\label{lem:alexander_iso}
+  Let $A$ be a closed subset, homologically locally connected in dimension $n$, of a Hausdorff space $X$, homologically locally connected in dimension $n$.
+  If $X$ has the property that every open subset is paracompact, $\mu : \overline{\hom}_c^k(X,A; G)\to \hom_c^k(X, A; G)$ is an isomorphism for $k\leq n$ and a monomorphism for $q = n+1$.
+\end{lemma}
+
+In the following we will assume homology (and cohomology) over a field $\FF$.
+
+\begin{lemma}\label{cor:alexander_iso}
+  Let $X$ be an orientable $d$-manifold and $(A,B)$ a compact pair of locally path connected subspaces in $X$.
+  Then
+  \[\xi : \hom_d(X\setminus B, X\setminus  A)\to \hom_0(A, B)\]
+  is a natural isomorphism.
+\end{lemma}
+\begin{proof}
+  Because $X$ is orientable and $(A,B)$ are compact $\lambda : \hom_d(X\setminus B, X\setminus A)\to \overline{\hom}^{0}(A, B)$ is an isomorphism by Theorem~\ref{thm:alexander}.
+  Note that
+  Moreover, because every subset of $X$ is (hereditarily) paracompact every open set in $A$, with the subspace topology, is paracompact.
+  For any neighborhood $U$ of a point $x$ in a locally path connected space there must exist some neighborhood $V\subset U$ of $x$ that is path connected in the subspace topology.
+  As $\tilde{\hom}_0(V) = 0$ for any nonempty, path connected topological space $V$ (see Spanier p. 175, Lemma 4.4.7) it follows that $A$ (resp. $B$) are homologically locally connected in dimension $0$.
+  Because $(A,B)$ is a compact pair the singular and Alexander-spanier cohomology modules of $(A,B)$ with compact support are isomorphic to those without, thus $\mu:\overline{\hom}^{0}(A, B)\to \hom^0(A, B)$ is an isomorphism.
+  By Corollary~\ref{cor:univ_coef} we have a natural isomorphism $\nu : \hom^0(A, B)\to\hom_0(A, B)$ thus the composition $\xi := \nu\circ\mu\circ\lambda : \hom_d(X\setminus B, X\setminus  A)\to \hom_0(A, B)$ is a natural isomorphism.
+\end{proof}
+
+\begin{lemma}\label{lem:duality_apply}
+  Let $\X$ be an orientable $d$-manifold let $D$ be a compact subset of $\X$.
+  Let $P$ be a finite subset of $D$ such that $P^\e\subset \intr_\X(D)$ and $Q\subseteq P$.
+
+  If $D\setminus Q^\e$ and $D\setminus P^\e$ are locally path connected then there is a natural isomorphism
+  \[ \xi : \hom_d(P^\e,Q^\e)\to \hom_0(D\setminus Q^\e, D\setminus P^\e).\]
+\end{lemma}
+\begin{proof}
+  Because $Q^\e$ and $P^\e$ are open in $D$ and $D$ is compact in $\X$ the complement $D\setminus Q^\e$ is closed in $D$, and therefore compact in $\X$.
+  Moreover, because $P^\e\subset \intr_\X(D)$, $\hom_d(\X\setminus(D\setminus P^\e), \X\setminus(D\setminus Q^\e)) = \hom_d(P^\e, Q^\e)$.
+  As we have assumed these complements are locally path connected by assumption we have a natural isomorphism $\xi : \hom_d(P^\e, Q^\e)\to \hom_0(D\setminus Q^\e, D\setminus P^\e)$
+  by Lemma~\ref{cor:alexander_iso}.
+  %
+  % Because $\e > \varrho_D$ the covers by metric balls associated with $P^\e$ and $Q^\e$ are good, so we have isomorphisms $\N : \hom_d(\cech^\e(P, Q))\to \hom_d(P^\e, Q^\e)$ for all $Q\subseteq P$ by the Nerve Theorem.
+  % So the composition $\xi\N := \xi\circ\N$ is an isomorphism.
+  % Moreover, because $\xi$ is natural and $\N$ commutes with maps induced by inclusions by the persistent nerve lemma the composition $\xi\N$ does as well.
+\end{proof}
+
+% \begin{lemma}\label{lem:duality_apply}
+%   Let $\X$ be an orientable $d$-manifold let $D$ be a compact subset of $\X$ with strong convexity radius $\varrho_D > \e$.
+%   Let $P$ be a finite subset of $D$ such that $P^\e\subset \intr_\X(D)$ and $Q\subseteq P$.
+%
+%   If $D\setminus Q^\e$ and $D\setminus P^\e$ are locally path connected then there is an isomorphism
+%   \[ \xi\N : \hom_d(\cech^\e(P,Q))\to \hom_0(D\setminus Q^\e, D\setminus P^\e)\]
+%   that commutes with maps induced by inclusions.
+% \end{lemma}
+% \begin{proof}
+%   Because $Q^\e$ and $P^\e$ are open in $D$ and $D$ is compact in $\X$ the complement $D\setminus Q^\e$ is closed in $D$, and therefore compact in $\X$.
+%   Moreover, because $P^\e\subset \intr_\X(D)$, $\hom_d(\X\setminus(D\setminus P^\e), \X\setminus(D\setminus Q^\e)) = \hom_d(P^\e, Q^\e)$.
+%   As we have assumed these complements are locally path connected by assumption we have a natural isomorphism $\xi : \hom_d(P^\e, Q^\e)\to \hom_0(D\setminus Q^\e, D\setminus P^\e)$
+%   by Lemma~\ref{cor:alexander_iso}.
+%
+%   Because $\e > \varrho_D$ the covers by metric balls associated with $P^\e$ and $Q^\e$ are good, so we have isomorphisms $\N : \hom_d(\cech^\e(P, Q))\to \hom_d(P^\e, Q^\e)$ for all $Q\subseteq P$ by the Nerve Theorem.
+%   So the composition $\xi\N := \xi\circ\N$ is an isomorphism.
+%   Moreover, because $\xi$ is natural and $\N$ commutes with maps induced by inclusions by the persistent nerve lemma the composition $\xi\N$ does as well.
+% \end{proof}
+
+% The requirement that our complements are locally path connected is necessary in order to satisfy the general statement of the duality theorem.
+% A rigorous investigation of the minimal assumptions that can be made on $\X$ and $D$ is beyond the scope of this paper.
+% We note that, in practice, it likely suffices to assume that there exists a triangulation of $P^\e$ that is a subcomplex of some refinement of a triangulation of $\X$ (see~\cite{cavanna2017when},~\cite{julian83alexander}).
+
+
+% % \begin{theorem}[\textbf{Alexander-Poincar\'e Duality} (Julian et. al.~\cite{julian83alexander}, Theorem 5.1)]\label{thm:alexander}
+% %   Let $K$ be an abstract simplicial complex that is a combinatorial oriented $d$-manifold.
+% %   Let $L$ be a subcomplex of some refinement of $K$ and $M$ be a subcomplex of $L$.
+% %   Let $\overline{L}$ and $\overline{M}$ denote the complements of $L$ and $M$ as subcomplexes of $K$ that do not share vertices with the original complexes.
+% %   Then for all $k$ there is a natural isomorphism
+% %   \[ \hom^k(L, M)\to \hom_{d-k}(\overline{M},\overline{L}). \]
+% % \end{theorem}
+%
+% % \begin{corollary}
+% %   Let $X$ be a topological space and $D$ be a compact subspace of $X$.
+% %   Let $(U, V)$ be a topological pair of spaces in $D$ and suppose there exists a triangulation $\Delta X$ of $X$ such that there exists triangulation $\Delta U$ of $U\subset$ that is a subcomplex of some refinement of $\Delta X$ and a triangulation $\Delta V$ of $V$ that is a subcomplex of $\Delta U$.
+% %   Then for all $k$ there is a natural isomorphism
+% %   \[ \hom^k(U, V)\to\hom_{d-k}(D\setminus U, D\setminus V).\]
+% % \end{corollary}
+%
+%
+% \begin{corollary}\label{cor:univ_coef}
+%   Let $(A, B)$ be a topological pair and $\FF$ be a field such that $\hom_k(A, B; \FF)$ is finitely generated.
+%   Then there is a natural isomorphism
+%   \[\hom^k(A, B; \FF)\to \hom_k(A, B; \FF).\]
+% \end{corollary}
+% \begin{proof}
+%   As $\mathrm{Ext}(\Hom(A, B), \FF) = 0$ for any field $\FF$ the map
+%   \[\hom^k(A, B; \FF)\to \Hom(\hom_k(A, B), \FF)\]
+%   in the natural short exact sequence provided by Theorem~\ref{thm:univ_coef} is a natural isomorphism.
+%   The result follows from the fact that $\hom_k(A, B; \FF)$ is finitely generated, and is therefore isomorphic to the dual vector space $\Hom(\hom_k(A, B), \FF)$.
+% \end{proof}
+%
+% % \begin{theorem}[\textbf{Universal Coefficient Theorem} (Munkres p. 337, Corollary 56.4)]\label{thm:univ_coef}
+% %   Let $(A,B)$ be a topological pair such that $\hom_k(A, B)$ is finitely generated for all $k$.
+% %   Then for all $k$ and any abelian group $G$ there is a natural exact sequence
+% %   \[ 0\to\mathrm{Ext}(\hom^{k+1}(A, B), G)\to \hom_k(A, B; G)\to \Hom(\hom^k(A, B), G)\to 0.\]
+% %   This sequence splits, but not naturally.
+% % \end{theorem}
+%
+% \begin{theorem}
+%   Let $X$ be a topological space and $D$ be a compact subspace of $X$.
+%   Suppose there exists a triangulation $\Delta X$ of $X$ that is a combinatorial oriented $d$-manifold.
+%   Let $(U, V)$ be a topological pair of spaces in $D$ and $\FF$ be a field such that $\hom_k(U,V;\FF)$ is finitely generated for all $k$.
+%
+%   If there exists a pair of triangulations $(\Delta U, \Delta V)$ of the pair $(U, V)$ such that $\Delta U$ is a subcomplex of some refinement of $\Delta X$ then there is a natural isomorphism
+%   \[ \hom_d(U, V; \FF)\to \hom_0(X\setminus V, X\setminus U; \FF).\]
+% \end{theorem}
+% \begin{proof}
+%   By Theorem~\ref{thm:alexander} we have a natural isomorphism
+%   \[ \hom^d(\Delta U, \Delta V; \FF)\to \hom_{0}(\overline{\Delta V}, \overline{\Delta U}; \FF) \]
+%   where $\overline{\Delta V}$ and $\overline{\Delta U}$ denote the complements of $\Delta V$ and $\Delta U$ as subcomplexes of $\Delta X$ that do not share vertices with their respective original complexes.
+%   \textbf{TODO}\footnote{$\hom^d(U, V;\FF)\cong \hom^d(\Delta U, \Delta V;\FF),\ \hom_{0}(\overline{\Delta V}, \overline{\Delta U}; \FF) \cong \hom_0(X\setminus V, X\setminus U; \FF).$}
+%
+%   Because $\hom_d(U, V; \FF)$ is finitely generated $\hom_d(U, V;\FF)\cong\hom^d(U, V; \FF)$ by Corollary~\ref{cor:univ_coef}.
+%   It follows that the composition
+%   \[\hom_d(U, V; \FF)\to \hom^d(U,V;\FF)\to\hom_0(X\setminus V, X\setminus U; \FF)\]
+%   is a natural isomorphism as desired.
+% \end{proof}
+% % \begin{proof}
+% %   \begin{itemize}
+% %     \item By Theorem~\ref{thm:univ_coef} we have a short exact sequence
+% %       \[ 0\to\mathrm{Ext}(\hom^{d+1}(\Delta U, \Delta V), G)\to \hom_d(\Delta U, \Delta V; G)\to \Hom(\hom^d(\Delta U, \Delta V), G)\to 0\]
+% %       for any abelian group $G$.
+% %       Because $\Delta U,\Delta V$ are subcomplexes of the combinatorial $d$-manifold $\Delta X$, $\hom^{d+1}(\Delta U, \Delta V) = 0$, so $\hom_d(\Delta U, \Delta V; G)\to \Hom(\hom^d(\Delta U, \Delta V), G)$ is an isomorphism.
+% %     \item By Theorem~\ref{thm:alexander} we have a natural isomorphism $\hom^d(\Delta U, \Delta V)\to \hom_0(\overline{\Delta V},\overline{\Delta U})$.
+% %       Therefore, because we have natural\footnote{\textbf{TODO} natural short exact $\implies$ natural isomorphism.} isomorphisms $\hom_d(\Delta U, \Delta V; G)\to \Hom(\hom^d(\Delta U, \Delta V), G)$ for all abelian groups $G$, we have a natural isomorphism (\textbf{TODO} prove it).
+% %       \[\hom_d(\Delta U, \Delta V)\to \hom_0(\overline{\Delta V},\overline{\Delta U}).\]
+% %     \item Because $\hom_d(U, V)\cong \hom_d(\Delta U, \Delta V)$ and $\hom_0(X\setminus V, X\setminus U)\cong \hom_0(\overline{\Delta V},\overline{\Delta U})$ (\textbf{TODO} prove it\footnote{$(X\setminus V, X\setminus U)$ or $(D\setminus V, D\setminus U)$?}), we have a natural isomorphism
+% %     \[ \hom_d(U, V)\to \hom_0(X\setminus V, X\setminus U). \]
+% %   \end{itemize}
+% % \end{proof}
+%
+%
+% %
+% % \begin{theorem}[\textbf{Alexander Duality} (Spanier p. 296, Theorem 6.2.17)]
+% %   Let $U$ be an orientation over $R$ of an $d$-manifold $X$ and let $(A, B)$ be a compact pair in $X$.
+% %   Then for all $k$ and $R$ modules $G$ there is a natural isomorphism
+% %   \[ \hom_k(X\setminus B, X\setminus A; G)\to\overline{\hom}^{d-k}(A, B; G).\]
+% % \end{theorem}
+% %
+% % \begin{lemma}
+% %   Let $U$ be an orientation over $R$ of an $d$-manifold $X$ and let $(A, B)$ be a compact pair in $X$ such that $\hom_k(A, B)$ is finitely generated for all $k$.
+% %   Then for all $R$ modules $G$ there is a natural isomorphism
+% %   \[ \hom_0(X\setminus B, X\setminus A; G)\to\hom_d(A, B; G). \]
+% % \end{lemma}
+% % \begin{proof}
+% %   \textbf{TODO}
+% % \end{proof}

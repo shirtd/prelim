@@ -1,0 +1,66 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsthm,xspace,enumitem,xcolor}
+\usepackage{tikz-cd,xspace,graphicx,wrapfig,algorithm,lscape}
+\usepackage[noend]{algpseudocode}
+\usepackage[margin=1in]{geometry}
+\usepackage{etex,etoolbox}
+\usepackage{wrapfig}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+
+% \input{environment}
+\input{macros}
+
+% \newcommand{\fullversion}{Appendix} %{full version of this paper}
+
+\title{Coverage Testing for Topological Scalar Field Analysis}
+\author{Kirk P. Gardner}
+
+\begin{document}
+
+\maketitle
+\input{src/abstract}
+
+
+\section{Introduction}\label{sec:introduction}
+\input{src/introduction}
+\input{src/contribution}
+
+
+\section{Background}
+  \subsection{Geometry and Topology}
+  \input{src/0-background/geometry}
+
+  \subsection{Simplicial Complexes}\label{sec:complexes}
+  \input{src/0-background/complexes}
+
+  \subsection{Homology}\label{sec:homology}
+  \input{src/0-background/homology}
+
+\section{The Topological Coverage Criterion (TCC)}\label{sec:tcc}
+\input{src/1-tcc/intro}
+\input{src/1-tcc/surrounding}
+
+  \subsection{The Geometric TCC}\label{sec:geo_tcc}
+  \input{src/1-tcc/geometric}
+
+  \subsection{Computing the TCC}
+  \input{src/1-tcc/algorithmic}
+
+\section{Conclusion}\label{sec:conclusion}
+\input{src/conclusion}
+
+
+\bibliographystyle{unsrt}
+\bibliography{bibliography}
+
+
+\appendix
+
+\section{Duality}\label{apx:duality}
+\input{src/duality}
+
+\end{document}
