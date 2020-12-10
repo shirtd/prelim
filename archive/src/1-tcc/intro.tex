@@ -1,0 +1,45 @@
+% !TeX root = ../../main.tex
+
+A positive result from the TCC requires that we have a subset of our cover to serve as the boundary.
+That is, the the condition not only checks that we have coverage, but also that we have a pair of spaces that reflects the pair $(D, B)$ topologically.
+We call such a pair a \emph{surrounding pair} defined in terms of separating sets.
+It has been shown that the TCC can be stated in terms of these surrounding pairs and that assumptions can be made directly in terms of their persistent homology~\cite{cavanna2017when}.
+This allows allows us enough flexibility to define our surrounding set as a sublevel of a $c$-Lipschitz function $f$ and state our assumptions in terms of its persistent homology.
+
+% The TCC uses the top-dimensional relative homology of a space $D$ with respect to its boundary $B$ to provide a computable condition for coverage.
+% Under certain conditions Alexander Duality can be used to relate this to the number of connected components of its complement in some larger space $\X$.
+% % Under certain conditions it can be shown that the rank of this group is equal to the number of connected components of its complement in some larger space $\X$ by Alexander Duality.
+% One can then check if a collection of subsets covers the space by comparing the number of connected components of its complement to that of the space---holes in the cover will appear as additional components in the complement space.
+% As we cannot compute the number components of the complement space from a sample directly, the TCC uses duality to recover it from the top dimensional relative homology.
+% However, this requires that we have a subset $Q$ of our cover to serve as the boundary.
+% That is, a positive result indicates that we not only have coverage, but also that we have a pair of spaces that reflects the pair $(D, B)$ topologically.
+% We call such a pair a \emph{surrounding pair} defined in terms of separating sets.
+%
+% It has been shown that the TCC can be stated in terms of these surrounding pairs~\cite{cavanna2017when}, which allows us enough flexibility to define our surrounding set as a sublevel set of a $c$-Lipschitz function $f$.
+% Moreover, this work made assumptions directly in terms of the \emph{zero dimensional} persistent homology of the domain close to the boundary.
+% This is in comparison to the original statement of the TCC which required the boundary to be smooth~\cite{desilva07coverage}.
+% Now, we can state these assumptions in terms of the persistent homology of the function itself.
+% % Moreover, while the original TCC made assumptions that relied only on the geometry of the boundary~\cite{desilva07coverage},
+%
+% % Computing the TCC requires factoring the cover through a pair of Vietoris-Rips complexes of varying scale.
+% % To account for the resulting error assumptions must be made in order to ensure the number of connected components of the complement of $D$ does not change close to the boundary.
+% % Specifically, these assumptions ensure that the condition does not produce a false positive, and allows for changes that will not affect the determination.
+% % % That is, if we were to expand or contract the space by an amount dependent on the coverage radius no components would appear or disappear, respectively\footnote{\textbf{double check}}.
+% % % On the other hand, components disappearing with expansion and appearing with contraction are permitted\footnote{\textbf{double check}}.
+% %
+% % The original TCC required the boundary to be sufficiently smooth, and relied only on the geometry of the boundary~\cite{desilva07coverage}.
+% % Later work made these assumptions directly in terms of the \emph{zero dimensional} persistent homology of the domain close to the boundary~\cite{cavanna2017when}.
+% % This perspective is particularly well suited to our situation where we define our ``boundary'' as a sub-levelset of a function.
+% % % That is, we can now state our assumptions in terms of the \emph{zero dimensional} persistent homology of the function itself.
+% % That is, we can now state our assumptions in terms of the \emph{zero dimensional} persistent homology of the function itself.
+% % This replaces the convoluted assumptions made in terms various ``restricted domains'' with statements about the persistent homology of a monotonically increasing filtration with respect to a constant $\omega$.
+%
+% This opens the door to a wide array of applications in which we have either a small portion or a very rough approximation of the persistence diagram of a function.
+% We can then either identify or verify a threshold $\omega$ for our sublevel set that satisfies our assumptions.
+% As we will see these same assumptions will appear as statements about persistent homology in \emph{all dimensions} in our proof of the interleaving.
+% It is in this sense that the approximation of a truncated diagram can be seen as a generalization of the TCC to the topological analysis of scalar fields with guarantees.
+%
+% % Before our proof of the TCC we will introduce the notion of a surrounding pair.
+% % We will require a sublevel set $B_\omega$ to serve as our boundary in terms of a surrounding pair $(D, B_\omega)$.
+% % We also show that the TCC not only checks for coverage, but also checks if our cover near the boundary surrounds our cover.
+% % In the next section we will use the resulting augmented TCC to provide inclusion maps between pairs that will be used in our interleaving.

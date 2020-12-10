@@ -1,0 +1,125 @@
+% !TeX root = ../main.tex
+
+\begin{frame}
+  \frametitle{Homology and Simplicial Complexes}
+
+  \begin{itemize}
+    \item The idea of Homology,
+    \item Simplicial complexes,
+    \item Nerves of Covers and the \v Cech Complex
+    \item Clique Complexes of graphs and the (Vietoris-)Rips complex.
+    \item The Rips-\v Cech Interleaving
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Idea of Homology}
+
+  % \begin{itemize}
+  %   \item $d$-dimensional holes: algebraic tool
+  %   \item $d$-dimension simplices: combinatorial/geometric tool
+  %   \item betti numbers and representative cycles.
+  % \end{itemize}
+
+  \begin{textblock*}{11cm}(1cm,2cm)
+    \only<1>{{\small
+      \begin{itemize}
+        \item $\hom_0$: connected components,
+        \item $\hom_1$: loops,
+        \item $\hom_2$: voids.
+      \end{itemize}}}
+    \only<2>{Betti numbers $\beta_k := \mathbf{dim}~\hom_k$}
+    \only<3,4>{{\small $\hom_k := k\mathrm{-cycles} / k\mathrm{-boundaries}$.\\\vspace{2ex}
+              Elements are equivalence classes of \emph{homologous} cycles.}}
+  \end{textblock*}
+
+  \begin{textblock*}{3cm}(1cm,3cm)
+    \only<2>{{\small \[\beta_0 = 1\]}}
+  \end{textblock*}
+  \begin{textblock*}{3cm}(5.75cm,3cm)
+    \only<2>{{\small $\beta_0 = 1$\\$\beta_1 = 1$}}
+  \end{textblock*}
+  \begin{textblock*}{3cm}(9.5cm,3cm)
+    \only<2>{{\small $\beta_0 = 1$\\$\beta_1 = 0$\\$\beta_2 = 1$}}
+  \end{textblock*}
+
+  \begin{textblock*}{12cm}(1cm,4.5cm)
+    \includegraphics<1,2>[trim=100 100 100 100, clip, width=0.3\textwidth]{figures/component}
+    \includegraphics<1,2>[trim=100 100 100 100, clip, width=0.3\textwidth]{figures/loop}
+    \includegraphics<1,2>[trim=100 100 100 100, clip, width=0.3\textwidth]{figures/void}
+  \end{textblock*}
+  \begin{textblock*}{8cm}(1.5cm,4.25cm)
+    \includegraphics<3>[trim=200 400 200 400, clip, width=0.7\textwidth]{figures/torus1}
+    \includegraphics<4>[trim=200 400 200 400, clip, width=0.7\textwidth]{figures/torus2}
+  \end{textblock*}
+  \begin{textblock*}{4cm}(8.5cm,6cm)
+    \only<3,4>{{\small $\beta_0 = 1$\\$\beta_1 = 2$\\$\beta_2 = 1$}}
+  \end{textblock*}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Simplicial Complexes}
+
+  % \begin{itemize}
+  %   \item definition
+  %   \item simplicial homology?
+  % \end{itemize}
+  \begin{textblock*}{11cm}(1cm,2cm)
+    \only<1,2>{{\small Vertex set $V$.\\ A \emph{$k$-simplex} is a subset $\sigma\subseteq V$ with $|\sigma| = k+1$.\\}}
+    \only<2>{{\small A \emph{simplicial complex} $K$ is a collection of simplices that is closed under taking subsets.}}
+    \only<3,4>{{\small The \emph{boundary} of a $k$-simplex is a $(k-1)$ cycle.\\}}
+    \only<4>{{\small $k$ cycles in $K$ that are not boundaries of $(k+1)$ \emph{chains} belong to non-trivial homology classes in $\hom_k(K)$.}}
+  \end{textblock*}
+
+  \begin{textblock*}{11cm}(1cm,4.5cm)
+    \includegraphics<1,2>[trim=500 500 500 500, clip, width=0.3\textwidth]{figures/component}
+    \includegraphics<1,2>[trim=0 0 -200 0, clip, width=0.3\textwidth]{figures/tri}
+    \includegraphics<1,2>[trim=-200 0 0 0, clip, width=0.3\textwidth]{figures/tet}
+    \includegraphics<3,4>[trim=500 500 500 500, clip, width=0.3\textwidth]{figures/component}
+    \includegraphics<3,4>[trim=0 0 -200 0, clip, width=0.3\textwidth]{figures/tri_loop}
+    \includegraphics<3,4>[trim=-200 0 0 0, clip, width=0.3\textwidth]{figures/tet_void}
+  \end{textblock*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{{\small Nerves of Covers and the \v Cech Complex}}
+
+  % \begin{itemize}
+  %   \item covers
+  %   \item nerves of covers and the nerve theorem
+  %   \item covers by metric balls and the \v Cech complex
+  % \end{itemize}
+
+  \begin{textblock*}{12cm}(1cm,4.5cm)
+    \includegraphics<1>[trim=75 400 75 500, clip, width=0.5\textwidth]{figures/nerves/cover}
+    \includegraphics<2>[trim=75 400 75 500, clip, width=0.5\textwidth]{figures/nerves/cover-points}
+    \includegraphics<3>[trim=75 400 75 500, clip, width=0.5\textwidth]{figures/nerves/two-edges-points}
+    \includegraphics<4>[trim=75 400 75 500, clip, width=0.5\textwidth]{figures/nerves/three-tri}
+    \includegraphics<5>[trim=75 400 75 500, clip, width=0.5\textwidth]{figures/nerves/full}
+    \includegraphics<6>[trim=75 400 75 500, clip, width=0.5\textwidth]{figures/cech/points}
+    \includegraphics<7>[trim=75 400 75 500, clip, width=0.5\textwidth]{figures/cech/cover-points}
+    \includegraphics<8>[trim=75 400 75 500, clip, width=0.5\textwidth]{figures/cech/full}
+  \end{textblock*}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{The (Vietoris-)Rips complex}
+
+  \begin{itemize}
+    \item connectivity only
+    \item 1-skeletons and clique complexes
+    \item metric neighborhood graph and the Rips complex.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{The Rips-\v Cech Interleaving}
+
+  \begin{itemize}
+    \item statement
+    \item in homology
+    \item how to ``approximate'' homology with Rips.
+  \end{itemize}
+\end{frame}
