@@ -2,11 +2,11 @@
 
 For a finite point set $P\subset D$ recall that the \v Cech complex $\cech^\e(P)$ is defined to be the Nerve of the open cover $\{\ball_D^\e(p)\}_{p\in P}$.
 When $\varrho_D > \e$ this cover is good, and the Nerve Theorem states that $\cech^\e(P)$ is homotopy equivalent to $P^\e$.
-That is, we have an isomorphism $\N_w^{\e, k} : \hom_k(\cech^\e(P,Q_w))\to \hom_k(P^\e, Q_w^\e)$ on homology groups that is induced by this homotopy equivalence.% (see Appendix~\ref{apx:nerves}).
+That is, for all $z\in\R$, $\e < \varrho_D$ we have an isomorphism $\N_w^{\e, k} : \hom_k(\cech^\e(P,Q_z))\to \hom_k(P^\e, Q_z^\e)$ on homology groups that is induced by this homotopy equivalence.
 
 \paragraph{Duality}
 
-The statement of Theorem~\ref{thm:geo_tcc} is in terms of the $0$-dimensional homology of complement spaces makes it difficult, if not impossible, to compute directly.
+The statement of Theorem~\ref{thm:geo_tcc} in terms of the $0$-dimensional homology of complement spaces makes it difficult, if not impossible, to compute directly.
 % The following lemma
 % Lemma~\ref{lem:duality_apply} of Appendix~\ref{apx:duality} applies Alexander Duality (see Lemma~\ref{cor:alexander_iso}) and the Universal Coefficient Theorem to equate the $d$-dimensional homology of cover to $0$-dimensional homology of their complements.
 For finitely generated (co)homology over a field the Universal Coefficient Theorem can be used with Alexander Duality to show $\hom_d(P^\e,Q_z^\e)\cong\hom_0(D\setminus Q_z^\e, D\setminus P^\e)$.
@@ -27,8 +27,8 @@ We note that, in practice, it likely suffices to assume that there exists a tria
 \paragraph{Assumption 2}
 
 In order obtain an upper bound on $\rk~j$ we introduce our second assumption: that $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega-c(\delta+\zeta)})$ is \emph{injective}---as we move away from $\omega$ moving \emph{down} no components \emph{disappear}.
-Once again, in terms of $\omega$ as a super-levelset monotonically decreasing, no components \emph{disappear} right \emph{after} $\omega$.
-Once again, for a function in two dimensions, this translates to features in dimension 1 appearing before $\omega$ is the sub-levelset filtration, as shown in Figure~\ref{fig:assumption2}.
+Once again, in terms of $\omega$ as a superlevel set monotonically decreasing, no components \emph{disappear} right \emph{after} $\omega$.
+For a function in two dimensions, this translates to features in dimension 1 appearing before $\omega$ is the sublevel set filtration, as shown in Figure~\ref{fig:assumption2}.
 % Once again, in terms of $\omega$ as a sub-levelset monotonically increasing, no components \emph{appear} right \emph{before} $\omega$.
 
 % \begin{figure}[htbp]\label{fig:assumption_2}
@@ -87,7 +87,7 @@ so that, for any $w\leq z$, $\e\leq\eta < \varrho_D$ and $q_{\rips} : \hom_k(\ri
 
 \begin{theorem}[Algorithmic TCC]\label{thm:algo_tcc}
   Let $\X$ be an orientable $d$-manifold and let $D$ be a compact subset of $\X$.
-  Let $f : D\to\R$ be $c$-Lipschitz function and $\omega\in\R$, $\delta\leq\zeta < \varrho_D$ be constants such that $B_{\omega - c(\zeta +\delta)}$ surrounds $D$ in $\X$.
+  Let $f : D\to\R$ be a $c$-Lipschitz function and $\omega\in\R$, $\delta\leq\zeta < \varrho_D$ be constants such that $B_{\omega - c(\zeta +\delta)}$ surrounds $D$ in $\X$.
   Let $P$ be an $(\omega, \delta,\zeta)$-sample of $f$ such that every component of $D\setminus B_\omega$ contains a point in $P$.
   Suppose $\hom_0(D\setminus B_{\omega+c(\delta+\zeta)}\hookrightarrow D\setminus B_\omega)$ is surjective and $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega-c(\delta+\zeta)})$ is injective.
 

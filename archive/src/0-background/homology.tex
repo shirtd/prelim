@@ -10,7 +10,7 @@ For a full treatment of both singular and simplicial homology see Hatcher~\cite{
 An important property of the boundary maps $\partial_k$ is that the composition of subsequent boundary maps is zero.
 That is, $\partial_k\circ\partial_{k-1} = 0$ for all $k$.
 % As a result the image of $\partial_{k+1}$, denoted $\im~\partial_{k+1} = \{\partial_{k+1}c\mid c\in C_{k+1}(K)\}$ is a subspace of the kernel, $\ker~\partial_k = \{c\in C_k(K)\mid \partial_k c = 0\}$, of $\partial_k$.
-As a result the image of $\partial_{k+1}$, denoted $\im~\partial_{k+1}$ is a subspace of the kernel, $\ker~\partial_k$, of $\partial_k$.
+As a result the image of $\partial_{k+1}$, denoted $\im~\partial_{k+1}$ is a subspace of the kernel of $\partial_k$.
 A \textbf{$k$-cycle} is a $k$-chain with empty boundary---an element of $\ker~\partial_k$.
 Two cycles in $\ker~\partial_k$ are said to be \textbf{homologous} if they differ by an element of $\im~\partial_{k+1}$.
 
@@ -18,7 +18,7 @@ The \textbf{$k$th homology groups} of a topological space $X$ is the quotient gr
 Elements of $\hom_k(X)$ are equivalence classes $[x]$ of homologous $k$ cycles.
 That is, if $[x] = [y]$ for any $x,y\in C_k(K)$ then $x = y +\partial_{k+1}(z)$ for some $z\in C_{k+1}(X)$.
 
-The dimension of a homology group is of particular importance and is known as a \textbf{Betti number} $\beta_k = \dim~\hom_k(X)$.
+The dimensions of the homology groups are of particular importance and are known as the \textbf{Betti numbers} $\beta_k = \dim~\hom_k(X)$.
 The Betti numbers are topological invariants that count equivalence classes of $k$-cycles that are \emph{not} the boundary of $(k+1)$-chains.
 These equivalence classes are more often described as $k$-dimensional ``holes'' in a topological space, where $0$-dimensional holes are connected components, $1$-dimensional holes are loops, $2$-dimensional holes are voids, and so on.
 The homology groups not only count these homological features but also provide a partition of the $k$-cycles into equivalence classes.
