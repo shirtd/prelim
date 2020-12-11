@@ -27,8 +27,18 @@
 
 \end{frame}
 
+
+\begin{frame}
+  \frametitle{Results Summary}
+
+  Quickly state both assumptions and theorems.
+\end{frame}
+
+
 \begin{frame}
   \frametitle{Properties of Surrounding Pairs}
+
+
 
   % \begin{itemize}
   %   \item surrounding pairs
@@ -36,28 +46,36 @@
   %   \item Goal: show $\ell$ injective.
   % \end{itemize}
 
-  \only<1>{\begin{definition}[Surrounding Pair]
+  \only<1>{{\color{red} Handwave as a pseudo-boundary\\ Introduce idea of a sublevel set/points in a sublevelset as a boundary/sampled boundary}\\
+  \begin{definition}[Surrounding Pair]
     Let $X$ be a topological space and $(D,B)$ a pair in $X$.
     The set $B$ \textbf{surrounds $D$ in $X$} if $B$ separates $X$ with the pair $(D\setminus B, X\setminus D)$.
     We will refer to such a pair as a \textbf{surrounding pair in $X$}.
   \end{definition}}
 
-  \only<2>{\begin{lemma}\label{lem:coverage}
+  \only<2>{{\color{red} Picture of this}\\
+  \begin{small}\begin{lemma}\label{lem:coverage}
     Let $(D, B)$ be a surrounding pair in $X$ and $U\subseteq D$, $V\subseteq U\cap B$ be subsets.
     Let $\ell: \hom_0(X\setminus B, X\setminus D)\to \hom_0(X\setminus V, X\setminus U)$ be induced by inclusion.
-
     If $\ell$ is injective then $D\setminus B\subseteq U$ and $V$ surrounds $U$ in $D$.
-  \end{lemma}}
+  \end{lemma}\end{small}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{{\small Setup and Notation}}
+
+  Compact $D\subset\X$, $c$-Lipschitz $f : D\to\R$.\\
+  % $\omega\in\R$ such that $\B := f^{-1}((-\infty, \omega])$ surrounds $D$ in $\X$.\\
+  $\omega\in\R$ such that $B_\omega$ surrounds $D$ in $\X$.\vspace{2ex}
+
+  Finite $P\subset D$, $Q_\alpha := P\cap B_\alpha$ for $\alpha\in\R$.\\
+  Constants $\zeta\geq\delta > 0$.\vspace{2ex}
+
+  {\color{red} some pictures to establish $Q_0, Q_1$}
 \end{frame}
 
 \begin{frame}
   \frametitle{{\small Assumption 1 and the Geometric TCC}}
-  \begin{small}
-    Compact $D\subset\X$, $c$-Lipschitz $f : D\to\R$.\\
-    $\omega\in\R$ such that $\B := f^{-1}((-\infty, \omega])$ surrounds $D$ in $\X$.\\
-    Finite collection of points $P\subset D$, $Q_\alpha := P\cap B_\alpha$ for $\alpha\in\R$.\\
-    Constants $\zeta\geq\delta > 0$.
-  \end{small}
 
   % \begin{itemize}
   %   \item Rank lemma
@@ -65,8 +83,10 @@
   %   \item statement of the Geometric TCC
   % \end{itemize}
 
+  {\color{red} picture of this}
+
   \begin{lemma}\label{lem:psurj}
-    Let $i : \hom_0(\overline{Q_{\omega+c\delta}^\delta}, \overline{P^\delta})\to \hom_0(\overline{Q_{\omega-c\zeta}^\delta}, \overline{P^\delta})$.
+    Let $i : \hom_0(\overline{Q_1^\delta}, \overline{P^\delta})\to \hom_0(\overline{Q_0^\delta}, \overline{P^\delta})$.
 
     If $B_\omega$ surrounds $D$ in $\X$ then $\mathbf{dim}~\hom_0(\overline{B_\omega}, \overline{D})\geq \mathbf{rk}~i$.
   \end{lemma}
@@ -107,7 +127,9 @@
   %   \hom_0(\overline{Q_{\omega-c\zeta}^\delta}, \overline{P^\delta}).
   % \end{tikzcd}\end{equation}
   \begin{textblock*}{11cm}(1cm,2cm)
-    \textbf{Assumption 1}\\ $\hom_0(D\setminus B_{\omega+c(\delta+\zeta)}\hookrightarrow D\setminus B_\omega)$ is \emph{surjective}.
+    {\color{red} establish $B_1$}
+
+    \textbf{Assumption 1}\\ $\hom_0(D\setminus B_{1}\hookrightarrow D\setminus B_\omega)$ is \emph{surjective}.
   \end{textblock*}
 
   \begin{textblock*}{11cm}(1cm,4.5cm)
@@ -135,7 +157,7 @@
   \begin{theorem}[Geometric TCC]
     % Let $j : \hom_0(\cmp{B_{\omega+c(\delta+\zeta)}},\cmp{D})\to \hom_0(\cmp{\B},\cmp{D})$ and $i : \hom_0(\cmp{\QQ^\of}, \cmp{P^\of})\to \hom_0(\cmp{\Q^\of}, \cmp{P^\of})$ be induced by inclusion.
     %
-    If $j$ is surjective and $\mathbf{rk}~i\geq \mathbf{rk}~j$ then $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ in $D$.
+    If $j$ is surjective and $\mathbf{rk}~i\geq \mathbf{rk}~j$ then $D\setminus B_\omega\subseteq P^\delta$ and $Q_{0}^\delta$ surrounds $P^\delta$ in $D$.
   \end{theorem}
 \end{frame}
 
@@ -148,7 +170,7 @@
   %   \item Rips-\v Cech interleaving and the Algorithmic TCC
   % \end{itemize}
 
-  \textbf{Duality:} $\hom_d(P^\e,Q_z^\e)\cong\hom_0(D\setminus Q_z^\e, D\setminus P^\e)$.
+  \textbf{Duality:} $\hom_d(P^\e,Q^\e)\cong\hom_0(D\setminus Q^\e, D\setminus P^\e)$.
 
   % \begin{textblock*}{12cm}(1cm,4.5cm)
   %
@@ -166,7 +188,7 @@
   % \end{itemize}
 
   \only<1>{\begin{textblock*}{11cm}(1cm,2cm)
-    \textbf{Assumption 2:} $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega-c(\delta+\zeta)})$ is \emph{injective}.
+    \textbf{Assumption 2:} $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{0})$ is \emph{injective}.
   \end{textblock*}}
 
   \begin{textblock*}{12cm}(1cm,4.5cm)
@@ -177,7 +199,7 @@
   \end{textblock*}
 
   \only<2>{\begin{lemma}\label{lem:assumption2}
-    If $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega+c(\delta+\zeta)})$ is injective and each component of $D\setminus B_\omega$ contains a point in $P$ then $\mathbf{dim}~\hom_0(\rips^\delta(P\setminus Q_{\omega-c\zeta})) \geq \mathbf{dim}~\hom_0(D\setminus B_\omega)$.
+    If $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{1})$ is injective and each component of $D\setminus B_\omega$ contains a point in $P$ then $\mathbf{dim}~\hom_0(\rips^\delta(P\setminus Q_{0})) \geq \mathbf{dim}~\hom_0(D\setminus B_\omega)$.
   \end{lemma}}
 \end{frame}
 
@@ -190,14 +212,20 @@
   %   \item Rips-\v Cech interleaving and the Algorithmic TCC
   % \end{itemize}
   \begin{small}
-    \[ \hom_k(\rips^\e(P, Q_w))\xrightarrow{J_w^\e}\hom_k(\cech^\e(P, Q_w))\xrightarrow{I_w^\e}\hom_k(\rips^\e(P, Q_w))\]
+    \[ \hom_k(\rips^\e(P, Q))\xrightarrow{J}\hom_k(\cech^\e(P, Q))\xrightarrow{I}\hom_k(\rips^\e(P, Q))\]
     % so
     % \[\mathbf{rk}~\hom_d(\cech^{\delta}(P, Q_{\omega-c\zeta})\hookrightarrow\cech^{\delta}(P, Q_{\omega+c\delta})) \geq\mathbf{rk}~ \hom_d(\rips^{\delta}(P, Q_{\omega-c\zeta})\hookrightarrow\rips^{2\delta}(P, Q_{\omega+c\delta}))\]
 
-    \begin{theorem}[Algorithmic TCC]\label{thm:algo_tcc}
-      Suppose $\hom_0(D\setminus B_{\omega+c(\delta+\zeta)}\hookrightarrow D\setminus B_\omega)$ is surjective and $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega-c(\delta+\zeta)})$ is injective.
+    % \begin{theorem}[Algorithmic TCC]\label{thm:algo_tcc}
+    %   Suppose $\hom_0(D\setminus B_{\omega+c(\delta+\zeta)}\hookrightarrow D\setminus B_\omega)$ is surjective and $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{\omega-c(\delta+\zeta)})$ is injective.
+    %
+    %    If $\mathbf{rk}~\hom_d(\rips^\delta(P, Q_{\omega -c\zeta})\hookrightarrow \rips^{2\delta}(P, Q_{\omega+c\delta})) \geq \mathbf{dim}~\hom_0(\rips^\delta(P\setminus Q_{\omega-c\zeta}))$ then $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ in $D$.
+    % \end{theorem}
 
-       If $\mathbf{rk}~\hom_d(\rips^\delta(P, Q_{\omega -c\zeta})\hookrightarrow \rips^{2\delta}(P, Q_{\omega+c\delta})) \geq \mathbf{dim}~\hom_0(\rips^\delta(P\setminus Q_{\omega-c\zeta}))$ then $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ in $D$.
+    \begin{theorem}[Algorithmic TCC]\label{thm:algo_tcc}
+      Suppose $\hom_0(D\setminus B_{1}\hookrightarrow D\setminus B_\omega)$ is surjective and $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{0})$ is injective.
+
+       If $\mathbf{rk}~\hom_d(\rips^\delta(P, Q_{0})\hookrightarrow \rips^{2\delta}(P, Q_{1})) \geq \mathbf{dim}~\hom_0(\rips^\delta(P\setminus Q_{0}))$ then $D\setminus B_\omega\subseteq P^\delta$ and $Q_{0}^\delta$ surrounds $P^\delta$ in $D$.
     \end{theorem}
   \end{small}
 
