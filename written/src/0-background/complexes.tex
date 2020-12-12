@@ -2,6 +2,15 @@
 
 % \subsection{Simplicial Complexes}\label{sec:complexes}
 
+\begin{figure}[htbp]
+  \centering
+  % \includegraphics[width=0.2\textwidth]{figures/component.png}
+  \includegraphics[width=0.2\textwidth]{figures/edge.png}\hspace{3ex}
+  \includegraphics[width=0.2\textwidth]{figures/tri.png}\hspace{3ex}
+  \includegraphics[width=0.2\textwidth]{figures/tet.png}
+  \caption{Simplices of dimension 1-3.}\label{fig:simplices}
+\end{figure}
+
 A \textbf{simplicial complex} $K$ is a collection of subsets, called \textbf{simplices}, of a vertex set $V$ such that for all $\sigma\in K$ and $\tau\subset\sigma$ it must follow that $\tau\in K$.
 The \textbf{dimension} of a simplex $\sigma\in K$ is defined as $\dim(\sigma) := |\sigma|-1$ where $|\cdot|$ denotes set cardinality.
 The dimension of a simplicial complex $K$ is the maximum dimension of any simplex in $K$.
@@ -24,6 +33,13 @@ It is natural to think of a $k$-dimensional simplicial complex as the generaliza
 % In the next section we will formally define $k$-cycles and introduce simplicial homology as a tool for identifying when and which cycles cannot be filled.
 
 \paragraph{Nerves}
+
+% \begin{figure}[htbp]
+%   \centering
+%   \includegraphics[trim=0 300 0 500, clip, width=0.4\textwidth]{figures/nerves/cover}
+%   \includegraphics[trim=0 300 0 500, clip, width=0.4\textwidth]{figures/nerves/full}
+%   \caption{A cover and its nerve.}\label{fig:nerves}
+% \end{figure}
 
 Let $X$ be a topological space.
 For some index set $I$ and $U_i\subseteq X$ a collection $\U = \{U_i\}_{i\in I}$ is called a \textbf{cover} of $X$ if $\bigcup_{i\in I} U_i = X$.
@@ -51,6 +67,13 @@ The standard proof of the Nerve Theorem, and therefore the Persistent Nerve Lemm
 
 \paragraph{The \v Cech Complex}
 
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[trim=0 300 0 500, clip, width=0.4\textwidth]{figures/cech/cover}
+  \includegraphics[trim=0 300 0 500, clip, width=0.4\textwidth]{figures/cech/full}
+  \caption{A metric cover and its nerve, the \v Cech complex.}\label{fig:nerves}
+\end{figure}
+
 If $(X,\dist)$ is a metric space and $P\subset X$ is a finite collection we say that $P$ covers $X$ at scale $\e$ if the collection $\U = \{\ball^\e(p)\}_{p\in P}$ is a cover of $X$.
 The Nerve of this cover is known as the \textbf{\v Cech complex} at scale $\e$, denoted $\cech^\e(P)$, and is defined formally as
 \[ \cech^\e(P) := \left\{\sigma \subseteq P\mid \bigcap_{p\in \sigma}\ball_\e(p)\neq \emptyset \right\}. \]
@@ -62,6 +85,14 @@ That is, by the Nerve Theorem, the inclusion $\cech^\e(P)\hookrightarrow P^\e$ i
 % Unfortunately, the \v Cech complex is difficult to compute in practice
 
 \paragraph{The Vietoris-Rips Complex}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[trim=0 300 0 500, clip, width=0.3\textwidth]{figures/rips/graph2}
+  \includegraphics[trim=0 300 0 500, clip, width=0.3\textwidth]{figures/rips/rips2}
+  \includegraphics[trim=0 300 0 500, clip, width=0.3\textwidth]{figures/rips/cech}
+  \caption{A neighborhood graph and its Clique complex, the Vietoris-Rips complex, and the \v Cech complex at half radius.}\label{fig:rips}
+\end{figure}
 
 Given an undirected graph $G = (V, E)$ we can construct a simplicial complex $K$ with vertex set $V$ and simplices $\sigma\subseteq V$ whenever $\{u,v\}\in E$ for all distinct $u, v\in\sigma$.
 This is known as the \emph{clique complex} of the graph $G$.
