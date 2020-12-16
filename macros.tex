@@ -5,187 +5,61 @@
 % \newtheorem{corollary}{Corollary}
 % \newtheorem{definition}{Definition}
 
+
 \newcommand{\R}{\mathbb{R}}
-\newcommand{\N}{\mathcal{N}}
-\renewcommand{\O}{\mathcal{O}}
-\newcommand{\e}{\varepsilon}
-\newcommand{\Pers}{\mathcal{P}}
-\newcommand{\dist}{\mathbf{d}}
-\newcommand{\dmax}{\dist_{\mathrm{max}}}
-\newcommand{\Cech}{\v Cech\xspace}
-\newcommand{\cech}{\check{\mathcal{C}}}
-\newcommand{\rips}{\mathcal{R}}
-\newcommand{\T}{\mathcal{T}}
-\newcommand{\ball}{\mathbf{ball}}
-\newcommand{\PPers}{\mathbb{P}}
-\newcommand{\hf}{\hat{f}}
-\renewcommand{\ker}{\mathbf{ker}\xspace}
-\newcommand{\im}{\mathbf{im}\xspace}
-\newcommand{\cok}{\mathbf{cok}\xspace}
-\newcommand{\coim}{\mathbf{coim}\xspace}
-\newcommand{\id}{\mathbf{1}}
-
-
-\renewcommand{\restriction}{\mathord{\mid}}
-\newcommand{\rest}{\mathord{\mid}}
-
-\mathchardef\mhyphen="2D
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\rad}{\mathrm{rad}}
-\newcommand{\birth}{\mathrm{birth}}
-\newcommand{\death}{\mathrm{death}}
-\newcommand{\pers}{\mathrm{Pers}}
-\newcommand{\bary}{\mathrm{Bary}}
-\newcommand{\kbary}{k\mhyphen\mathrm{Bary}}
-\newcommand{\kcover}{k\mhyphen\mathrm{Cover}}
-\newcommand{\cent}{\mathrm{center}}
-\newcommand{\JL}{\textsc{JL}\xspace}
-\newcommand{\conv}{\mathrm{conv}}
-\newcommand{\power}{\mathcal{P}}
-\newcommand{\C}{\mathcal{C}}
-\newcommand{\nrv}{\text{Nerve}}
-\newcommand{\Hom}{\mathrm{Hom}}
-\newcommand{\knrv}{k\mhyphen\mathrm{Nerve}}
-\newcommand{\clique}{\mathrm{Clq}}
-\newcommand{\F}{\mathcal{F}}
-\newcommand{\G}{\mathcal{G}}
-\newcommand{\Rips}{\mathrm{Rips}}
-\newcommand{\projectionOf}[1]{\overline{#1}}
-\newcommand{\Pbar}{\projectionOf{P}}
-\newcommand{\Sbar}{\projectionOf{S}}
-\newcommand{\Tbar}{\projectionOf{T}}
-\DeclareMathOperator*{\argmin}{argmin}
-\newcommand{\wfs}{\mathrm{wfs}}
-\newcommand{\reach}{\mathrm{reach}}
-\newcommand{\hocolim}{\mathrm{hocolim}\;}
-\newcommand{\dgm}{\mathrm{dgm}\xspace}
-
-\renewcommand{\because}[1]{& \left[\text{#1}\right]}
-
-\newcommand{\D}{{\mathcal{D}}}
-% \newcommand{\B}{{\mathcal{B}}}
-\renewcommand{\O}{\mathcal{O}}
-\newcommand{\I}{{\mathcal{I}}}
-\newcommand{\K}{{\mathcal{K}}}
-% \newcommand{\U}{{\mathcal{U}}}
-% \newcommand{\V}{{\mathcal{V}}}
-\newcommand{\start}[1]{\noindent {\bf #1}\hspace{2ex} }
-\newcommand{\mcal}[1]{\mathcal{#1}}
-\newcommand{\mbb}[1]{\mathbb{#1}}
-\newcommand{\ind}{\hspace{3ex}}
-\newcommand{\collar}{(\overline{\mathcal{D}\setminus\mathcal{B}})}
-\renewcommand{\hom}{\mathrm{H}}
-% \renewcommand{\hom}{\mathbf{H}}
-\newcommand{\rco}{\tilde{\hom}}
-\newcommand{\rank}{\mathbf{rk\xspace}}
-\newcommand{\rk}{\mathbf{rk\xspace}}
-\newcommand{\comp}[1]{\overline{#1}}
-\newcommand{\jung}{\vartheta}
-\newcommand{\jungd}{\jung_d}
-\newcommand{\norm}[1]{\|#1\|}
-\newcommand{\cov}{\mathrm{cov}}
-% \newcommand{\U}{\mathbb{U}}
-% \newcommand{\V}{\mathbb{V}}
+\renewcommand{\S}{\mathbb{S}}
+\newcommand{\T}{\mathbb{T}}
 \newcommand{\W}{\mathbb{W}}
-\renewcommand{\H}{\mathbb{H}}
-\newcommand{\cl}{\mathbf{cl\xspace}}
-\newcommand{\intr}{\mathbf{int\xspace}}
-%\newcommand{\bary}{\text{bary}~}
-\renewcommand{\dim}{\mathbf{dim}\xspace}
-
-% \renewcommand{\b}{B_{\omega-c(\gamma - \delta)}}
-% \newcommand{\bb}{\b^{\gamma - \delta}}
-% \newcommand{\B}{B_\omega}
-% \newcommand{\BB}{B_{\omega + c(\gamma + \delta)}}
-%
-% \newcommand{\Q}{Q_{\omega - c\delta}}
-% \newcommand{\QQ}{Q_{\omega + c\gamma}}
-
-
-\newcommand{\of}{{\delta}}
-\newcommand{\off}{{2\delta}} % {{\gamma - \delta}} %
-\newcommand{\offf}{{\gamma}} % {{3\delta}}
-
-\newcommand{\ome}{\omega}
-\renewcommand{\o}{\ome - c(\delta+\zeta)} % {\ome - c(\off)} % {\ome - 2c\of}
-\newcommand{\oo}{\ome + c(\delta+\zeta)} % {\ome + 4c\of}
-
-\renewcommand{\b}{B_{\o}}
-\newcommand{\bb}{B_\omega}%{\b^{\offf - \of}} % {\b^{\off}} %
-\newcommand{\B}{B_{\ome}}
-% \newcommand{\BB}{B_{\oo}}
-
-\newcommand{\fen}{\ome - c\zeta}
-\newcommand{\fenn}{\ome + c\of}
-
-\newcommand{\Q}{Q_{\fen}}
-% \newcommand{\Q}{\mathcal{Q}}
-\newcommand{\QQ}{Q_{\fenn}}
-
-% \renewcommand{\P}{P^{\of}}
-
-\newcommand{\cmp}[1]{\overline{#1}}
-
 \newcommand{\X}{\mathbb{X}}
 \newcommand{\Y}{\mathbb{Y}}
+\newcommand{\Z}{\mathbb{Z}}
 
-\newcommand{\FQ}{\mathcal{Q}}
-\newcommand{\FP}{\mathcal{P}}
-\newcommand{\FB}{\mathcal{B}}
-
-% \newcommand{\subi}[1]{_{{\scriptstyle (#1]}}}
-% \newcommand{\subi}[1]{_{\scalebox{1}{$\scriptscriptstyle (#1]$}}}
-% \newcommand{\subi}[1]{_{\scriptscriptstyle (#1]}}
-\newcommand{\subi}[2]{_{\scriptscriptstyle #2\mid #1}}
-% \newcommand{\subi}[2]{_{#2{\scriptscriptstyle\rest #1}}}
-% \newcommand{\subi}[2]{_{\scriptscriptstyle \lfloor#2\rfloor_{#1}}}
-% \newcommand{\subi}[2]{_{\scriptscriptstyle #2;#1}}
-% \newcommand{\P}[1]{P_{{\scriptstyle (#1]}}}
-
-% \newcommand{\A}{\mathbb{A}}
-% \newcommand{\BE}{\mathbb{B}}
-\renewcommand{\S}{\mathbb{S}}
-\renewcommand{\T}{\mathbb{T}}
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\BB}{\mathbb{B}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\LL}{\mathbb{L}}
 \newcommand{\UU}{\mathbb{U}}
 \newcommand{\VV}{\mathbb{V}}
-\renewcommand{\W}{\mathbb{W}}
 
+\newcommand{\A}{\mathcal{A}}
 \newcommand{\E}{\mathcal{E}}
-%
-% \renewcommand{\D}[2]{\mathcal{D}_{#1}[#2]}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\I}{{\mathcal{I}}}
+\newcommand{\J}{\mathcal{J}}
+\newcommand{\N}{\mathcal{N}}
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\V}{\mathcal{V}}
 
+\newcommand{\e}{\varepsilon}
+\newcommand{\im}{\mathbf{im}\xspace}
+\renewcommand{\ker}{\mathbf{ker}\xspace}
+\newcommand{\rk}{\mathbf{rk\xspace}}
+\renewcommand{\dim}{\mathbf{dim}\xspace}
+\newcommand{\rest}{\mathord{\mid}}
+\newcommand{\id}{\mathbf{1}}
 
-% \renewcommand{\P}[3]{\mathcal{P}_{#1}^{#2}[#3]}
-% \newcommand{\CP}[3]{\cech\mathcal{P}_{#1}^{#2}[#3]}
-% \newcommand{\RP}[3]{\rips\mathcal{P}_{#1}^{#2}[#3]}
+\newcommand{\cech}{\check{\mathcal{C}}}
+\newcommand{\rips}{\mathcal{R}}
+\newcommand{\ball}{\mathbf{ball}}
+\newcommand{\dist}{\mathbf{d}}
 
+\newcommand{\cl}{\mathbf{cl\xspace}}
+\newcommand{\intr}{\mathbf{int\xspace}}
 
-\renewcommand{\D}[2]{\mathcal{D}\subi{#1}{#2}}
-% \newcommand{\DD}[1]{\mathbb{D}\subi{#1}{\cdot}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\renewcommand{\hom}{\mathrm{H}}
+
+\newcommand{\subi}[2]{_{\scriptscriptstyle #2\mid #1}}
+
+\newcommand{\D}[2]{\mathcal{D}\subi{#1}{#2}}
 \newcommand{\DD}[1]{\mathbb{D}_{#1}}
 
 \renewcommand{\P}[3]{\mathcal{P}\subi{#1}{#3}^{#2}}
 \newcommand{\CP}[3]{\cech\P{#1}{#2}{#3}}
 \newcommand{\RP}[3]{\rips\P{#1}{#2}{#3}}
 
-% \newcommand{\PP}[2]{\mathbb{P}\subi{#1}{\cdot}^{#2}}
 \newcommand{\PP}[2]{\mathbb{P}_{#1}^{#2}}
-
 \newcommand{\CPP}[2]{\cech\PP{#1}{#2}}
 \newcommand{\RPP}[2]{\rips\PP{#1}{#2}}
 
-\renewcommand{\AA}{\mathbb{A}}
-\newcommand{\BB}{\mathbb{B}}
-\newcommand{\LL}{\mathbb{L}}
-
-% \newcommand{\ext}[1]{\widehat{#1}}
 \newcommand{\ext}[1]{\E\xspace #1}
-\renewcommand{\I}{\mathcal{I}}
-\newcommand{\J}{\mathcal{J}}
-
-
-\newcommand{\U}{\mathcal{U}}
-\newcommand{\V}{\mathcal{V}}
-% \newcommand{\cF}{\mathcal{V}}
-\newcommand{\A}{\mathcal{A}}
-\newcommand{\FF}{\mathbb{F}}

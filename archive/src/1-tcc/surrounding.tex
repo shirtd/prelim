@@ -14,7 +14,6 @@ For a surrounding pair $(D,B)$ in $X$  the complement $\overline{B} = X\setminus
 Therefore, $\hom_k(\overline{B}) \cong \hom_k(\overline{D})\oplus \hom_k(D\setminus B)$ thus $\hom_k(\overline{B},\overline{D})\cong \hom_k(D\setminus B)$ for all $k$.
 
 The following lemma generalizes the proof of the TCC as a property of surrounding sets.
-% We will then combine these results on the homology of surrounding pairs with information about both $X$ as a metric space and our function.
 
 \begin{lemma}\label{lem:coverage}
   Let $(D, B)$ be a surrounding pair in $X$ and $U\subseteq D$, $V\subseteq U\cap B$ be subsets.
@@ -41,23 +40,3 @@ The following lemma generalizes the proof of the TCC as a property of surroundin
       However, because $B$ surrounds $D$, $[x]\neq [y]$ in $\hom_0(\overline{B}, \overline{D})$ contradicting our assumption that $\ell$ is injective.
   \end{description}
 \end{proof}
-
-% \begin{lemma}\label{lem:cov_surrounds}
-%   If $\ell$ injective then $V$ surrounds $U$ in $D$.
-% \end{lemma}
-% \begin{proof}
-%   (See Appendix~\ref{apx:omit})
-% \end{proof}
-% \proofatend
-%   Suppose, for the sake of contradiction, that $V$ does not surround $U$ in $D$.
-%   Then there exists a path $\gamma : [0,1]\to\overline{V}$ with $\gamma(0)\in U\setminus V$ and $\gamma(1)\in D\setminus U$.
-%   By Lemma~\ref{lem:coverage} we know that $D\setminus B\subseteq U$, so $D\setminus B\subseteq U\setminus V$.
-%
-%   Choose $x\in D\setminus B$ and $z\in \overline{D}$ such that there exist paths $\xi : [0,1]\to U\setminus V$ with $\xi(0) = x$, $\xi(1) = \gamma(0)$ and $\zeta : [0,1]\to \overline{D}\cup (D\setminus U)$ with $\zeta(0) = z$, $\zeta(1) = \gamma(1)$.
-%   $\xi, \gamma$ and $\zeta$ all generate chains in $C_1(\overline{V}, \overline{U})$ and $\xi + \gamma + \zeta = \gamma^*\in C_1(\overline{V}, \overline{U})$ with $\partial\gamma^* = x + z$.
-%   Moreover, $z$ generates a chain in $C_0(\overline{U})$ as $\overline{D}\subseteq\overline{U}$.
-%   So $x = \partial\gamma^* + z$ is a relative boundary in $C_0(\overline{V}, \overline{U})$, thus $\ell[x] = \ell[z]$ in $\hom_0(\overline{V}, \overline{L})$.
-%   However, because $B$ surrounds $D$, $[x]\neq [y]$ in $\hom_0(\overline{B}, \overline{D})$ contradicting our assumption that $\ell$ is injective.
-% \endproofatend
-
-% In the following let $X$ be a topological space and $\overline{A} := X\setminus U$ denote the complement of a subset $U$ of $X$.

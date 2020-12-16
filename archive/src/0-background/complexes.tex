@@ -1,27 +1,11 @@
 % !TeX root = ../../main.tex
 
-% \subsection{Simplicial Complexes}\label{sec:complexes}
-
 A \textbf{simplicial complex} $K$ is a collection of subsets, called \textbf{simplices}, of a vertex set $V$ such that for all $\sigma\in K$ and $\tau\subset\sigma$ it must follow that $\tau\in K$.
 The \textbf{dimension} of a simplex $\sigma\in K$ is defined as $\dim(\sigma) := |\sigma|-1$ where $|\cdot|$ denotes set cardinality.
 The dimension of a simplicial complex $K$ is the maximum dimension of any simplex in $K$.
 That is, a graph is a 1-dimensional simplicial complex in which vertices and edges are 0 and 1-dimensional simplices, respectively.
 
-% \figblock{%
-% \begin{figure}[htbp]
-% \centering
-%     \includegraphics[scale=0.33]{figures/holes_cover.pdf}
-%     \includegraphics[scale=0.33]{figures/holes_edges.pdf}
-%     \includegraphics[scale=0.33]{figures/holes_complex.pdf}
-%      \caption{(Left) The coverage regions of a collection of points $P$ at some scale $\alpha$.
-%             (Middle) The neighborhood graph with edges for each pair of points within pairwise distance $\alpha$.
-%             (Right) If we attempt to fill cycles in the graph with triangles identify a cycle that cannot be filled which reflects a gap in coverage}
-%      \label{fig:holes}
-% \end{figure}}
-
-It is natural to think of a $k$-dimensional simplicial complex as the generalization of an undirected graph consisting of vertices and edges, collections of at most 2 vertices, to collections of sets of at most $k-1$ vertices.
-% Just as we have defined a hole in our graph $G$ as a cycle that cannot be filled with triangles, we define a $k$-dimensinal hole in a simplicial complex as a $k$-cycle that cannot be filled with $(k+1)$-simplices.
-% In the next section we will formally define $k$-cycles and introduce simplicial homology as a tool for identifying when and which cycles cannot be filled.
+It is natural to think of a $k$-dimensional simplicial complex as the generalization of an undirected graph consisting of vertices and edges, collections of at most 2 vertices, to collections of sets of at most $k+1$ vertices.
 
 \paragraph{Nerves}
 
@@ -41,13 +25,6 @@ The following is an important result by Chazal et. al.~\cite{chazal08towards}.
 
 We say $\V = \{V_i\}_{i\in I}$ is a subcover of a cover $\U = \{U_i\}_{i\in I}$ if $V_i\subseteq U_i$ for all $i\in I$.
 The standard proof of the Nerve Theorem, and therefore the Persistent Nerve Lemma, extends directly to pairs of good open covers $(\U, \V)$ of pairs $(X, Y)$ such that $\V$ is a subcover of $\U$.
-% good open covers of spaces $(X, Y)$ covered
-% Let $\U$ be a good open cover of $X$ and let $\V$ be a good open subcover of $\U$ that covers $Y\subset X$.
-
-% It can be shown that there are inclusions between the nerves $\N(\V)\subseteq \N(\V)$ as well as the homotopy colimits of the diagrams of spaces associated with $\U$ and $\V$ (see Koslov~\cite{kozlov07combinatorial}).
-% As both the projection maps commute with inclusions the homotopy equivalences $\N(\U)\hookrightarrow X$ and $\N(\V)\hookrightarrow Y$ give homotopy equivalences of pairs $(\N(\U), \N(\V))\hookrightarrow (X, Y)$.
-% The persistent nerve lemma also holds for pairs of spaces $(X, Y)\subseteq (X', Y')$ and covers $(\U, \V)\subseteq (\U', \V')$ in the same way.
-% While a more rigorous treatment is needed a formal proof of this fact is beyond the scope of this paper.
 
 \paragraph{The \v Cech Complex}
 
@@ -58,8 +35,6 @@ For pairs $(P, Q)$ we will write $\cech^\e(P,Q) := (\cech^\e(P), \cech^\e(Q))$ t
 
 Recalling the definition of the strong convexity radius $\varrho_X$ of a metric space $X$ we note that $\U$ is a good open cover whenever $\varrho_X > \e$.
 That is, by the Nerve Theorem, the inclusion $\cech^\e(P)\hookrightarrow P^\e$ is a homotopy equivalence whenever $\varrho_X > \e$.
-% The \v Cech complex provides us with a computable structure that the homotopy type of the region covered by a set of points at any scale $\varrho_X > \e$.
-% Unfortunately, the \v Cech complex is difficult to compute in practice
 
 \paragraph{The Vietoris-Rips Complex}
 

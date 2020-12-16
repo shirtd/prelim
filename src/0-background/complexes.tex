@@ -19,7 +19,7 @@ That is, a graph is a 1-dimensional simplicial complex in which vertices and edg
 %      \label{fig:holes}
 % \end{figure}}
 
-It is natural to think of a $k$-dimensional simplicial complex as the generalization of an undirected graph consisting of vertices and edges, collections of at most 2 vertices, to collections of sets of at most $k-1$ vertices.
+It is natural to think of a $k$-dimensional simplicial complex as the generalization of an undirected graph consisting of vertices and edges, collections of at most 2 vertices, to collections of sets of at most $k+1$ vertices.
 % Just as we have defined a hole in our graph $G$ as a cycle that cannot be filled with triangles, we define a $k$-dimensinal hole in a simplicial complex as a $k$-cycle that cannot be filled with $(k+1)$-simplices.
 % In the next section we will formally define $k$-cycles and introduce simplicial homology as a tool for identifying when and which cycles cannot be filled.
 
@@ -53,7 +53,7 @@ The standard proof of the Nerve Theorem, and therefore the Persistent Nerve Lemm
 
 If $(X,\dist)$ is a metric space and $P\subset X$ is a finite collection we say that $P$ covers $X$ at scale $\e$ if the collection $\U = \{\ball^\e(p)\}_{p\in P}$ is a cover of $X$.
 The Nerve of this cover is known as the \textbf{\v Cech complex} at scale $\e$, denoted $\cech^\e(P)$, and is defined formally as
-\[ \cech^\e(P) := \left\{\sigma \subseteq P\mid \bigcap_{p\in \sigma}\ball_\e(p)\neq \emptyset \right\}. \]
+\[ \cech^\e(P) := \left\{\sigma \subseteq P\mid \bigcap_{p\in \sigma}\ball^\e(p)\neq \emptyset \right\}. \]
 For pairs $(P, Q)$ we will write $\cech^\e(P,Q) := (\cech^\e(P), \cech^\e(Q))$ to denote the corresponding pair of \v Cech complexes.
 
 Recalling the definition of the strong convexity radius $\varrho_X$ of a metric space $X$ we note that $\U$ is a good open cover whenever $\varrho_X > \e$.
@@ -66,11 +66,11 @@ That is, by the Nerve Theorem, the inclusion $\cech^\e(P)\hookrightarrow P^\e$ i
 Given an undirected graph $G = (V, E)$ we can construct a simplicial complex $K$ with vertex set $V$ and simplices $\sigma\subseteq V$ whenever $\{u,v\}\in E$ for all distinct $u, v\in\sigma$.
 This is known as the \emph{clique complex} of the graph $G$.
 
-Just as the \v Cech complex is the Nerve of metric cover sets there is a closely related simplicial complex that is the clique complex of a neighborhood graph.
+Just as the \v Cech complex is the Nerve of a cover by metric balls there is a closely related simplicial complex that is the clique complex of a neighborhood graph.
 That is, a graph $G$ with vertices $V$ corresponding to points in a metric space $(X,\dist)$ and $\{u,v\}\in E$ whenever $\dist(u,v)\leq \e$ for some $\e > 0$.
 This is known as the \textbf{(Vietoris-)Rips complex}, and is formally defined for a finite set $P$ at scale $\e > 0$ as
 \[ \rips^\e(P) = \left\{\sigma \subseteq P\mid \forall p,q\in\sigma,\ \dist(p, q)\leq \e\right\}. \]
-For a pair $(P, Q)$ we will write $\rips^\e(P,Q) := (\rips^\e(P), \rips^\e(Q))$ to denote the corresponding pair of rips complexes.
+For a pair $(P, Q)$ we will write $\rips^\e(P,Q) := (\rips^\e(P), \rips^\e(Q))$ to denote the corresponding pair of Rips complexes.
 
 By the Nerve Theorem we can use the \v Cech complex to compute the homotopy type of metric space $(X, \dist)$ covered by a finite set $P$ at any scale $\e < \varrho_X$.
 Unfortunately, constructing the \v Cech complex is not feasible in practice.

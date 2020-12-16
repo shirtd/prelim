@@ -42,6 +42,10 @@ For $A\subseteq X$ let $\overline{A} := X\setminus A$ denote the complement of $
 Let $(X,\dist)$ be a metric space where $\dist(x, y)$ denotes the distance between points $x,y\in X$.
 For $P\subset X$ and $x\in X$ let $\dist_P(x) = \displaystyle\min_{p\in P}\dist(p, x)$ denote the distance from $x$ to the set $P$.
 We will use open metric balls $\ball^\e(x) = \{y\in X\mid \dist(x, y) < \e\}$ and offsets $P^\e = \{x\in X\mid \dist_P(x) < \e\}.$
+A real-valued function $f$ on $X$ is $c$-Lipschitz if for all $x,y\in X$ we have
+\[
+  |f(x) - f(y)| \le c \dist(x,y).
+\]
 
 A metric ball is said to be \textbf{strongly convex} if for each pair of points $y,z$ in its closure there exists a unique shortest path in $X$ between $y$ and $z$ whose interior is contained in the metric ball.
 For $x\in X$ let $\varrho_X(x)$ be the supremum of the radii $\e$ such that $\ball^\e(x)$ is strongly convex.
@@ -50,8 +54,3 @@ The \textbf{strong convexity radius} of $X$ is defined as
 Note that this value is positive for compact $X$.
 Importantly, strongly convex sets are contractible, and intersections of stronly convex sets are also strongly convex~\cite{chazal09analysis}.
 Given a subspace $D\subseteq X$ let $\ball_D^\e(x)$ denote the open ball $D\cap \ball_X^\e(x)$ in the subspace topology and $\varrho_D$ denote the strong convexity radius of $D$.
-
-A real-valued function $f$ on $X$ is $c$-Lipschitz if for all $x,y\in X$ we have
-\[
-  |f(x) - f(y)| \le c \dist(x,y).
-\]

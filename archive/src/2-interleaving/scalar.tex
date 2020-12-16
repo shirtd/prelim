@@ -112,29 +112,3 @@ The partial interleavings given by Lemma~\ref{lem:partial_interleaving}, along w
   As we have assumed that $\hom_k(B_{\omega-3c\delta}\hookrightarrow B_\omega)$ is surjective and $\hom_k(B_\omega)\cong\hom_k(B_{\omega+5c\delta})$ the five-lemma implies $\gamma_\alpha$ is surjective and $\pi_\alpha$ is an isomorphism (and therefore injective) for all $\alpha$.
   So $\Gamma$ is an epimorphism and $\Pi$ is a monomorphism, thus $\im~\Lambda$ is $4c\delta$-interleaved with $\DD{\omega}$ by Lemma~\ref{thm:interleaving_main} as desired.
 \end{proof}
-
-
-% Let $\X$ be an oriented $d$-manifold and let $D$ be a compact subset of $\X$.
-% Let $f: D\to\R$ be a $c$-lipschitz function and $B_w := f^{-1}((-\infty,a])$ denote a sub-levelset of $f$ at scale $w\in\R$.
-% Let $P$ be a finite collection of points in $D$ and $Q_w := P\cap B_w$.
-%
-% Note that $\{B_\alpha\}_{\alpha\in\R}$ is precisely the sub-levelset filtration of $f$.
-% Because we will not assume coverage below some $\omega\in\R$ the persistent homology of $\{Q_\alpha^\delta\}_{\alpha\in\R}$ or even $\{Q_\alpha^\delta\setminus B_\omega\}_{\alpha\in\R}$ cannot be trusted as a reliable approximation.
-% In Section~\ref{sec:truncations} we will compare the approximation we provide with approximations of the these filtrations.
-% % In fact, because of the nature of homology as a global property we cannot assume either of these filtrations capture anything meaningful even for $\alpha >> \omega$.
-%
-% We introduce the following notation for \emph{truncated sub-levelsets} to distinguish $B_w$ and $Q_w$ as static sub-levelsets that we will take persistent homology relative to.
-%
-% \paragraph{Truncated Filtrations}
-%
-% For $w,\alpha\in\R$ let $D\subi{w}{\alpha} := B_w\cup B_\alpha$ denote the \textbf{$\omega$-truncated $\alpha$-sub-levelsets} of $f$ and let $P\subi{w}{\alpha} := P\cap D\subi{w}{\alpha}$.
-% % \[ D\subi{w}{\alpha} := B_w\cup B_\alpha\ \text{ and }\ \ P\subi{w}{\alpha} := P\cap D\subi{w}{\alpha}.\]
-% % Now, the pairs $(D\subi{w}{\alpha}, B_w)$ and $(P\subi{w}{\alpha}, Q_w)$ are well defined for all $\alpha\in\R$.
-% %
-% % Let
-% % \[ \DD{w}^k := \left(\left\{\D{w}{\alpha}^k := \hom_k(D\subi{w}{\alpha},B_w)\right\}_{\alpha\in\R},\left\{d\subi{w}{\alpha,\beta}^k : \D{w}{\alpha}^k\to\D{w}{\beta}^k\right\}_{\alpha\leq\beta}\right)\]
-% Let $\DD{w}^k$ denote the $k$th persistent (relative) homology module of the filtration $\{(D\subi{w}{\alpha},B_w)\}_{\alpha\in\R}$ with respect to $B_w$, and let $\PP{w}{\e,k}$
-% % \[\PP{w}{\e,k} := \left(\left\{\P{w}{\e,k}{\alpha} := \hom_k(P\subi{w}{\alpha}^\e,Q_w^\e)\right\}_{\alpha\in\R}, \left\{p\subi{w}{\alpha,\beta}^{\e,k} : \P{w}{\e}{\alpha}\to\P{w}{\e}{\beta}\right\}_{\alpha\leq\beta}\right)\]
-% denote the $k$th persistent (relative) homology module of $\{(P\subi{w}{\alpha}^\e,Q_w^\e)\}_{\alpha\in\R}$.
-% Similarly, let $\CPP{w}{\e,k}$ and $\RPP{w}{\e,k}$ denote the corresponding \Cech and Vietoris-Rips filtrations, respectively.
-% We will omit the dimension $k$ and write $\DD{w}$ (resp. $\PP{w}{\e}$) if a statement holds for all dimensions.

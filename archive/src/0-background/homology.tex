@@ -9,7 +9,6 @@ For a full treatment of both singular and simplicial homology see Hatcher~\cite{
 
 An important property of the boundary maps $\partial_k$ is that the composition of subsequent boundary maps is zero.
 That is, $\partial_k\circ\partial_{k-1} = 0$ for all $k$.
-% As a result the image of $\partial_{k+1}$, denoted $\im~\partial_{k+1} = \{\partial_{k+1}c\mid c\in C_{k+1}(K)\}$ is a subspace of the kernel, $\ker~\partial_k = \{c\in C_k(K)\mid \partial_k c = 0\}$, of $\partial_k$.
 As a result the image of $\partial_{k+1}$, denoted $\im~\partial_{k+1}$ is a subspace of the kernel of $\partial_k$.
 A \textbf{$k$-cycle} is a $k$-chain with empty boundary---an element of $\ker~\partial_k$.
 Two cycles in $\ker~\partial_k$ are said to be \textbf{homologous} if they differ by an element of $\im~\partial_{k+1}$.
@@ -32,16 +31,4 @@ We note that the boundary map $\partial_k$ on $C_k(X)$ induces a boundary map on
 
 The \textbf{$k$th relative homology group} $\hom_k(X, Y)$ consists of homology classes of relative cycles---chains in $C_k(X)$ whose boundaries vanish or lie in $Y$.
 That is, a relative $k$-cycle can either be a cycle in $C_k(X)$ or a chain in $C_k(X)$ with a boundary in $C_{k-1}(Y)$.
-We will make extensive use the \textbf{excision} axiom of homology which states that for any $A\subset Y$ such that $\cl_X(A)\subseteq \intr_X(Y)$ the inclusion of pairs $(X\setminus A, Y\setminus A)\hookrightarrow (X, Y)$ induces isomorphisms on relative homology groups $\hom_k(X\setminus A, Y\setminus A)\cong\hom_k(X, Y)$.
-
-% \paragraph{Exact Sequences}
-%
-% A sequence $A\xrightarrow{i} B\xrightarrow{j} C$ is said to be \textbf{exact} if $\im~i = \ker~j$.
-% An exact sequence $0\to A\to B\to C\to 0$ is said to be \textbf{short exact}.
-% In general, any exact sequence $\ldots\to A\to B\to C\to\ldots$ is referred to as a long exact sequence.
-%
-% For any pair of topological spaces $(X, Y)$ the \textbf{long exact sequence of the pair} is the exact sequence
-% \[ \ldots\to\hom_{k+1}(X, Y)\xrightarrow{\partial_{k+1}} \hom_k(Y)\xrightarrow{i_k} \hom_k(X)\xrightarrow{j_k}\hom_k(X, Y)\xrightarrow{\partial_k}\hom_{k-1}(Y)\to\ldots.\]
-% Here the map $\partial_k$ is the connecting homomorphism which is induced by the boundary map on $C_k(X, Y)$.
-
-% section homology (end)
+We will make extensive use of the \textbf{excision} axiom of homology which states that for any $A\subset Y$ such that $\cl_X(A)\subseteq \intr_X(Y)$ the inclusion of pairs $(X\setminus A, Y\setminus A)\hookrightarrow (X, Y)$ induces isomorphisms on relative homology groups $\hom_k(X\setminus A, Y\setminus A)\cong\hom_k(X, Y)$.

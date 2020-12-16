@@ -5,7 +5,7 @@ This same technique is used in the analysis of scalar fields~\cite{chazal09analy
 These subspaces are simply the images of homomorphisms between homology groups induced by inclusion, and we refer to the resulting persistence module as an image persistence module.
 
 \begin{definition}[Image Persistence Module]
-  The \textbf{image persistence module} of a homomorphism $\Gamma\in\Hom(\UU,\VV)$ is the family of subspaces $\{\Gamma_\alpha :=\im~\gamma_\alpha\}$ in $\VV$ along with linear maps $\{\gamma_\alpha^\beta := v_\alpha^\beta\rest_{\im~\gamma_\alpha} : \Gamma_\alpha\to\Gamma_\beta\}$ and will be denoted by $\im~\Gamma$.
+  The \textbf{image persistence module} $\im~\Gamma$ of a homomorphism $\Gamma\in\Hom(\UU,\VV)$ is the family of subspaces $\{\Gamma_\alpha :=\im~\gamma_\alpha\}$ in $\VV$ along with linear maps $\{\gamma_\alpha^\beta := v_\alpha^\beta\rest_{\im~\gamma_\alpha} : \Gamma_\alpha\to\Gamma_\beta\}$.
 \end{definition}
 
 While we will primarily work with homomorphisms of persistence modules induced by inclusions defining homomorphisms between images simply as subspaces of the codomain is not sufficient in general.
@@ -40,8 +40,6 @@ but the converse does not hold in general.
 %
 In the following the existence of an image module homomorphism $\Phi(F, G)\in\Hom^\delta(\im~\Gamma, \im~\Lambda)$ where $\Gamma\in\Hom(\UU,\VV)$ and $\Lambda\in\Hom(\S,\T)$  will imply that $(F,G)\in\Hom^\delta(\UU,\S)\times \Hom^\delta(\VV,\T)$.
 
-% The proof of the following theorem may be found in the appendix.
-
 \begin{lemma}\label{lem:image_composition}
   Suppose $\Gamma\in\Hom(\UU,\VV)$, $\Lambda\in\Hom(\S,\T)$, and $\Lambda'\in\Hom(\S',\T')$.
   If $\Phi(F, G)\in\Hom^\delta(\im~\Gamma, \im~\Lambda)$ and $\Phi'(F', G')\in\Hom^{\delta'}(\im~\Lambda, \im~\Lambda')$ then $\Phi''(F'\circ F, G'\circ G) := \Phi'\circ\Phi\in\Hom^{\delta+\delta'}(\im~\Gamma,\im~\Lambda')$.
@@ -69,11 +67,6 @@ As we will see, our interleaving via Lemma~\ref{thm:interleaving_main} involves 
   An image module homomorphism $\Phi(F, G)$ is a \textbf{partial $\delta$-interleaving of image modules}, and denoted $\Phi_M(F, G)$, if it is both a left and right $\delta$-interleaving of image modules.
 \end{definition}
 
-For $I\in\Hom^{2\delta}(\UU,\VV)$ a pair $(F, M)\in \Hom^\delta(\UU,\S)\times\Hom^\delta(\S,\VV)$ is a said to factor $I$ through $\S$ with degree $\delta$ if $I = M\circ F$.
-Similarly, if $J\in\Hom^{\delta'}(\S,\T)$ a pair $(F,N)\in\Hom^\delta(\UU,\S)\times\Hom^\delta(\T,\VV)$ is said to factor $I$ through $J$ with degree $\delta$ if $I = N\circ J\circ F$.
-We will often omit the degree when it is clear from context.
-
-% Proof of the following lemma can be found in the appendix.
 The following Lemma can be seen as the primary tool for the proof of our interleaving.
 It uses partial interleavings surrounding a module $\VV$ to prove an interleaving of an image module with $\VV$.
 When applied, the hypothesis of this Lemma will be satisfied by assumptions on our sublevel set similar to those made in the TCC.

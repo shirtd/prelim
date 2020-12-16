@@ -6,7 +6,7 @@ Our sample will be denoted $P$, and the subset of points sampling $B_\alpha$ wil
 For $\e > 0$ let $P^\e$ denote the union of open metric balls centered at points in $P$.
 For ease of exposition let
 \[ D\subi{z}{\alpha} := B_\alpha\cup B_z \]
-denote the \emph{$z$-truncated} sublevel sets of $f$ and % of the restricted function $f\rest_{D\setminus B_w}$ for all $\alpha,w\in\R$.
+denote the \emph{$z$-truncated} sublevel sets of $f$ and
 \[ P\subi{z}{\alpha} := Q_\alpha\cup Q_z\]
 for all $z,\alpha\in\R$.
 
@@ -16,7 +16,6 @@ That is, we would like to verify that a pair $(P^\delta, Q^\delta)$ is represent
 Our goal is to use this fact to approximate the persistence of $f$ relative to $B_\omega$.
 
 Our approximation will be by a nested pair of (Vietoris-)Rips complexes.
-%, denoted $\rips^\e(P, Q) = (\rips^\e(P), \rips^\e(Q))$ for $\e > 0$.
 Under mild regularity assumptions it can be shown that
 \[ \rk~\hom_d(\rips^\delta(P, Q_{\omega - 2c\delta})\hookrightarrow \rips^{2\delta}(P, Q_{\omega+c\delta}))\geq \dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-2c\delta}))\]
 implies $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-2c\delta}^\delta$ surrounds $P^\delta$ in $D$.
@@ -27,10 +26,6 @@ Given a sample $P$ that satisfies the TCC we can approximate the persistent homo
 The nested pair of Rips complexes used to confirm coverage can be extended to a filtration
 \[ \{\rips^{2\delta}(P\subi{\omega-2c\delta}{\alpha}, Q_{\omega-2c\delta})\hookrightarrow \rips^{4\delta}(P\subi{\omega+c\delta}{\alpha}, Q_{\omega+c\delta})\}_{\alpha\in\R}\]
 that can be used to approximate the persistent homology of $\{(D\subi{\omega}{\alpha}, B_\omega)\}_{\alpha\in\R}$.
-% Indeed, we could use existing methods to approximate the persistent homology of $f$ \emph{restricted} to the subspace $D\setminus B_\omega$ that we cover.
-% However, the question of what this would approximate is important to consider.
-% {\color{red} Restricting the domain of the function can not only introduce noise close to the boundary, \textbf{but also perturb global structure in our signature.}\footnote{\color{red} close.}}
-% As an alternative, we approximate the persistence of $f$ \emph{relative} to the sublevel set $B_\omega$.
 The use of images of relative persistence modules is not only to eliminate noise at the boundary, but also to \emph{truncate} the persistence of $f$ in a way that isolates global structure.
 
 \paragraph*{Outline}

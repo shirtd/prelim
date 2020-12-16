@@ -20,18 +20,13 @@ However, they differ in some fundamental ways that make them difficult to combin
 The main difference is that the TCC requires a clearly defined boundary.
 Not only must the underlying space be a bounded subset of $\R^d$, the data must also be labeled to indicate which input points are close to the boundary.
 This requirement is perhaps the main reason why the TCC can so rarely be applied in practice.
-% Cavanna et al.~\cite{cavanna2017when} generalized the TCC to allow for more general spaces and robust coverage guarantees.
-% That work gave a different approach to proving the correctness of the TCC which allows much more freedom in how the boundary is defined.
 
 In applications to data analysis it is more natural to assume that the data measures some unknown function.
-% By requiring that our function is related to the metric of the space
 We can then replace this requirement with assumptions about the function itself.
 Indeed, these assumptions could relate the behavior of the function to the topological boundary of the space.
 However, the generalized approach by Cavanna et al.~\cite{cavanna2017when} allows much more freedom in how the boundary is defined.
 
 We consider the case in which we have incomplete data from a particular sublevel set of our function.
-% We consider the case where we can only verify our sample in a part of the  % have incomplete data from a particular sublevel set of our function.
 Our goal is to isolate this data so we can analyze the function in only the verified region.
-%corresponding part persistent homology of the function in the verified region without allowing missing
 From this perspective, the TCC confirms that we not only have coverage, but that the sample we have is topologically representative of the region near, and above this sublevel set.
 We can then re-use the same machinery to analyze a \emph{part} of the function in a specific way.

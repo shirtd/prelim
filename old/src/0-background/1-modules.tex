@@ -1,0 +1,64 @@
+% !TeX root = ../../main.tex
+
+A \textbf{persistence module} $\S$ over $\R$ is an indexed family of vector spaces $\{S_\alpha\}$ and linear maps $\{s_\alpha^\beta : S_\alpha\to S_\beta\}$ such that $s^\gamma_\beta\circ s_\alpha^\beta = s_\alpha^\gamma$ whenever $\alpha\leq\beta\leq\gamma$ and $s_\alpha^\alpha$ is the identity on $S_\alpha$.
+A \textbf{homomorphism} $\Lambda$ between two $\R$-persistence modules $\S, \T$ is a collection of linear maps $\{\lambda_\alpha : S_\alpha\to T_\alpha\}$ such that the following diagram commutes for all $\alpha\leq\beta$.
+\begin{equation}\label{dgm:homomorphism}
+  \begin{tikzcd}
+    S_\alpha\arrow{r}{s_\alpha^\beta}\arrow{d}{\lambda_\alpha} &
+    S_\beta\arrow{d}{\lambda_\beta}\\
+    %
+    T_\alpha\arrow{r}{t_\alpha^\beta} &
+    T_\beta
+\end{tikzcd}\end{equation}
+The space of homomorphisms from $\S$ to $\T$ will be denoted $\Hom(\S, \T)$.
+
+\paragraph{Shifted Homomorphisms}
+
+A \textbf{homomorphism of degree $\delta$} is a collection $F$ of linear maps $f_\alpha : U_\alpha\to S_{\alpha+\delta}$ such that the following diagram commutes for all $\alpha\leq\beta$.
+
+\begin{equation}\label{dgm:shifted_homomorphism}
+  \begin{tikzcd}
+    U_\alpha\arrow{r}{u_\alpha^\beta}\arrow{d}{f_\alpha} &
+    U_\beta\arrow{d}{f_\beta}\\
+    %
+    S_{\alpha+\delta}\arrow{r}{s_{\alpha+\delta}^{\beta+\delta}} &
+    S_{\beta +\delta}
+\end{tikzcd}\end{equation}
+The space of homomorphisms of degree $\delta$ from $\UU$ to $\S$ will be denoted $\Hom^\delta(\UU, \S)$.
+
+Noting that $\Hom^\delta(\UU,\VV)\subseteq\Hom^{\delta'}(\UU,\VV)$ for all $0\leq\delta\leq\delta'$ we will define particular shifted homomorphisms with the assumption that $\Hom^\delta(\UU,\VV) = \Hom(\UU,\VV)$ for $\delta = 0$.
+For $\Gamma\in\Hom(\UU,\VV)$ let $\Gamma[\delta]\in\Hom^\delta(\UU,\VV)$ denote the homomorphism of degree $\delta$ defined as the family of linear maps
+\[\{\gamma_\alpha[\delta] := v_\alpha^{\alpha+\delta}\circ \gamma_\alpha : U_\alpha\to V_{\alpha+\delta}\}.\]
+
+Two persistence modules $\UU$ and $\S$ are \textbf{$\delta$-interleaved} if there exist homomorphisms $F\in\Hom^\delta(\UU, \S)$ and $G \in\Hom^\delta(\S,\UU)$ such that the following diagrams commute for all $\alpha$.
+
+\begin{minipage}{0.45\textwidth}
+\begin{equation}\label{dgm:interleaving1}
+  \begin{tikzcd}
+    U_{\alpha-\delta}\arrow{rr}{u_{\alpha-\delta}^{\alpha+\delta}}\arrow{dr}{f_{\alpha-\delta}} & &
+    U_{\alpha+\delta}\\
+    %
+    & S_{\alpha}\arrow{ur}{g_\alpha} &
+\end{tikzcd}\end{equation}
+\end{minipage}
+\begin{minipage}{0.45\textwidth}
+\begin{equation}\label{dgm:interleaving2}
+  \begin{tikzcd}
+    & U_{\alpha}\arrow{dr}{f_\alpha} &\\
+    %
+    S_{\alpha-\delta}\arrow{rr}{s_{\alpha-\delta}^{\alpha+\delta}}\arrow{ur}{g_{\alpha-\delta}} & &
+    S_{\alpha+\delta}
+\end{tikzcd}\end{equation}
+\end{minipage}
+
+% \subsubsection{Interval Modules}
+\paragraph{Interval Modules}
+
+Let $\FF$ be a field.
+For an interval $I = [s,t)\subseteq \R$ and $\alpha\leq\beta\in\R$ let
+\[ F_\alpha^I := \begin{cases} \FF&\text{ if } \alpha\in I\\ 0 &\text{otherwise,}\end{cases}\ \text{ and }\ \ f_{\alpha,\beta}^I := \begin{cases} \id_\FF&\text{ if } \alpha,\beta\in I\\ 0&\text{otherwise.}\end{cases}.\]
+An \textbf{interval module} is a persistence module $\FF^I$ defined to be the family of vector spaces $\{F_\alpha^I\}_{\alpha\in\R}$ along with linear maps $\{f_{\alpha,\beta}^I : F_\alpha^I\to F_\beta^I\}_{\alpha\leq\beta}$.
+
+A \textbf{interval decomposition} of a persistence module $\S$ a collection $\I$ of interval $I\subseteq\R$ such that
+\[ \S = \bigoplus_{I\in \I} \FF^I. \]
+If such a decomposition exists $\S$ is said to be \textbf{decomposable}.

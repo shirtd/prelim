@@ -1,0 +1,94 @@
+% !TeX root = ../../main.tex
+
+We now combine these results on the homology of surrounding pairs with information about both $\X$ as a metric space and our function.
+We will then apply these results as a computable variation using Vietoris-Rips complexes that requires only pair-wise connectivity information.
+
+Let $(\X,\dist)$ be a metric space and $D\subseteq \X$ be a compact subspace.
+For a $c$-Lipschitz function $f : D\to \R$ we introduce a constant $\omega$ as a threshold that defines our ``boundary'' as a sublevel set $B_\omega$ of the function $f$.
+Let $P$ be a finite subset of $D$ and $\zeta\geq\delta > 0 $ be constants such that $P^\delta\subseteq \intr_\X(D)$.
+Here, $\delta$ will serve as our communication radius where $\zeta$ is reserved for use in Section~\ref{sec:middle}.
+  \footnote{We will set $\zeta = 2\delta$ in the proof of our interleaving with Rips complexes but the TCC holds for all $\zeta\geq\delta$.}
+
+Unlike previous variations of the TCC~\cite{cavanna2017when} we do not require a change of scale in the geometric case.
+Instead, we will enforce regularity close to the sublevel set $B_\omega$ in terms of sublevel sets $B_{\omega-c(\delta+\zeta)}$ and $B_{\omega+c(\delta+\zeta)}$.
+Not only is this a more natural assumption, but it also allows us to replace the requirement that sensors detect the physical presence of a boundary with a threshold on the function values they observe.
+
+
+\begin{lemma}\label{lem:psurj}
+  Let $i : \hom_0(\overline{Q_{\omega+c\delta}^\delta}, \overline{P^\delta})\to \hom_0(\overline{Q_{\omega-c\zeta}^\delta}, \overline{P^\delta})$.
+
+  If $B_\omega$ surrounds $D$ in $\X$ then $\dim~\hom_0(\overline{B_\omega}, \overline{D})\geq \rk~i$.
+\end{lemma}
+\begin{proof}
+  Choose a basis for $\im~i$ such that each basis element is represented by a point in $P^\delta\setminus Q_{\omega+c\delta}^\delta$.
+  Let $x\in P^\delta\setminus Q_{\omega+c\delta}^\delta$ be such that $i[x]$ is non-trivial.
+  So there exits some $p\in P$ such that $\dist(p, x) < \delta$ and $p\notin Q_{\omega+c\delta}$, otherwise $x\in Q_{\omega+c\delta}^\delta$.
+  Therefore, because $f$ is $c$-Lipschitz,
+  \[ f(x)\geq f(p) - c\dist(x, p) > \omega.\]
+
+  So $x\in\overline{B_\omega}$ and, because $x\in P^\delta\subseteq D$ it follows that $x\in D\setminus B_\omega$.
+  Because $i$ and $\ell : \hom_0(\overline{B_\omega}, \overline{D})\to \hom_0(\overline{Q_{\omega-c\zeta}^\delta}, \overline{P^\delta})$ are induced by inclusion $\ell[x] = i[x]$ is non-trivial in $\hom_0(\overline{Q_{\omega-c\zeta}^\delta}, \overline{P^\delta})$.
+  That is, every element of $\im~i$ has a preimage in $\hom_0(\overline{B_\omega}, \overline{D})$, so we may conclude that $\dim~\hom_0(\overline{B_\omega}, \overline{D})\geq \rk~i$.
+\end{proof}
+
+While there is a surjective map from $\hom_0(\overline{B_\omega}, \overline{D})$ to $\im~i$ this map is not necessarily induced by inclusion.
+We will therefore introduce a larger space $B_{\omega+c(\delta+\zeta)}$ that contains $Q_{\omega+c\delta}^\delta$ in order to provide a criteria for the injectivity of $\ell : \hom_0(\overline{B_\omega}, \overline{D})\to\hom_0(\overline{Q_{\omega-c\zeta}^\delta}, \overline{P^\delta})$ in terms of $\rk~i$.
+We have the following commutative diagrams of inclusion maps and maps induced by inclusion between complements in $\X$.
+
+\begin{equation}\label{dgm:1}
+\begin{tikzcd}
+  (P^\delta, Q_{\omega-c\zeta}^\delta) \arrow[hookrightarrow]{r}\arrow[hookrightarrow]{d} &
+  (P^\delta, Q_{\omega+c\delta}^\delta) \arrow[hookrightarrow]{d} \\
+  %
+  (D, B_\omega) \arrow[hookrightarrow]{r} &
+  (D, B_{\omega+c(\delta+\zeta)}),
+\end{tikzcd}
+\begin{tikzcd}
+  \hom_0(\overline{B_{\omega+c(\delta+\zeta)}},\overline{D})\arrow{d}{m} \arrow{r}{j} &
+  \hom_0(\overline{B_\omega}, \overline{D}) \arrow{d}{\ell} \\
+  %
+  \hom_0(\overline{Q_{\omega+c\delta}^\delta}, \overline{P^\delta}) \arrow{r}{i} &
+  \hom_0(\overline{Q_{\omega-c\zeta}^\delta}, \overline{P^\delta}).
+\end{tikzcd}\end{equation}
+
+\paragraph{Assumption 1}
+
+% This is where we introduce our first assumption on the region surrounding $B_\omega$.
+We will require the map $\hom_0(D\setminus B_{\omega+c(\delta+\zeta)}\hookrightarrow D\setminus B_\omega)$ to be \emph{surjective}---as we approach $\omega$ from \emph{above} no components \emph{appear}.
+That is, in terms of $\omega$ as a super-levelset monotonically decreasing, no components \emph{apear} right \emph{before} $\omega$.
+We note that, for a function in two dimensions, this translates to $1$-dimensional features disappearing right after $\omega$ in the sublevel set filtration, as shown in Figure~\ref{fig:assumption1}.
+% The reason for this dimension shift involves Alexander duality, and is discussed in more detail in Appendix~\ref{apx:duality} (see also~\cite{edelsbrunner12alexander}).
+% That is, in terms of $\omega$ as a sublevel set monotonically increasing, no components \emph{disappear} right \emph{after} $\omega$.
+
+\begin{figure}[htbp]\label{fig:assumption1}
+  \centering
+  % \includegraphics[trim=50 190 0 200, clip, scale=0.2]{scripts/figures/scalar.png}
+  % \includegraphics[trim=100 25 75 0, clip, angle=280, scale=0.25]{scripts/figures/scalar_contour.png}
+  \includegraphics[trim=200 300 200 200, clip, width=0.5\textwidth]{figures/surf-ass1_C_side.png}
+  \includegraphics[trim=300 150 200 200, clip, width=0.3\textwidth]{figures/surf-ass1_C_top.png}
+  \includegraphics[trim=200 300 200 200, clip, width=0.5\textwidth]{figures/surf-ass1_D_side.png}
+  \includegraphics[trim=300 150 200 200, clip, width=0.3\textwidth]{figures/surf-ass1_D_top.png}
+  \includegraphics[scale=0.7]{figures/scalar_barcode_H1-masked.png}
+  \caption{\textbf{(Assumption 1)} The blue levelset does not satisfy Assumption 1 as the smaller component is ``pinched out'' in the orange region.
+            This can be seen in the barcode shown as a feature that dies in the purple region.}
+            % The inclusion from the right is not \emph{surjective} as the smaller component appears in the middle (in the sublevel barcode, a $\hom_{d-1}$ feature dies in the purple region).
+\end{figure}
+
+Now, the rank of the map $j$ is equal to the dimension of $\dim~\hom_0(\overline{B_\omega}, \overline{D})$ and our map $\ell$ induced by inclusion depends only on $\hom_0(\overline{B_\omega}, \overline{D})$ and $\im~i$.
+The second assumption, which requires that nothing appears right \emph{before} $\omega$, will be used in Theorem~\ref{thm:algo_tcc} to provide a computable upper bound on $\rk~j$.
+
+\begin{theorem}[Geometric TCC]\label{thm:geo_tcc}
+  Let $D$ be a compact subset of $\X$ and $f : D\to\R$ be $c$-Lipschitz function.
+  Let $\omega\in\R$, $\zeta\geq\delta > 0$ be constants such that $B_{\omega}$ surrounds $D$ in $\X$ and let $P\subset D$ be a finite collection of points.
+  Let $j : \hom_0(\overline{B_{\omega+c(\delta+\zeta)}},\overline{D})\to \hom_0(\overline{B_{\omega}},\overline{D})$ and $i : \hom_0(\overline{Q_{\omega+c\delta}^\delta}, \overline{P^\delta})\to \hom_0(\overline{Q_{\omega-c\zeta}^\delta}, \overline{P^\delta})$ be induced by inclusion.
+
+  If $j$ is surjective and $\rk~i\geq \rk~j$ then $D\setminus B_{\omega}\subseteq P^\delta$ and $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ in $D$.
+\end{theorem}
+\begin{proof}
+  Because $j$ is surjective by hypothesis $\rk~j = \dim~\hom_0(\overline{B_{\omega}},\overline{D})$ so $\rk~j\geq \rk~i$ by Lemma~\ref{lem:psurj}.
+  So $\rk~j = \rk~i$ with our assumption that $\rk~i\geq \rk~j$.
+  Because $P$ is a finite point set we know that $\im~i$ is finite-dimensional and, because $\rk~i = \rk~j$, $\im~j=\hom_0(\overline{B_{\omega}}, \overline{D})$ is finite dimensional as well.
+
+  So $\im~j$ is isomorphic to $\im~i$ as a subspace of $\hom_0(\overline{Q_{\omega-c\zeta}^\delta}, \overline{P^\delta})$ which, because $j$ is surjective, requires the map $\ell$ induced by inclusion to be injective.
+  Therefore, $D\setminus B_{\omega}\subseteq P^\delta$ and $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ in $D$ by Lemma~\ref{lem:coverage}. %, Lemma~\ref{lem:cov_surrounds}.
+\end{proof}

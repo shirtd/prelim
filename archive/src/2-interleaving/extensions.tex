@@ -1,12 +1,5 @@
 % !TeX root = ../../main.tex
 
-% This allows us to clearly state the extension of a surrounding pair in a subspace of $X$ to a surrounding pair in $X$.
-% As in the previous lemmas let $(D, B)$ be a surrounding pair in $X$.
-% For a pair $(L, S)$ in $D$ we will use the preceding lemmas to confirm that $D\setminus B\subseteq L$ and $S$ surrounds $L$ in $D$.
-% We would then like to re-use this pair to approximate the relative persistent homology of a function $f : D\to \R$.
-% As we have only confirmed coverage of the subspace $D\setminus B$ by $L$ we cannot interleave $(L,S)$ with subsets of $(D,B)$ as coverage in $B$ is unknown.
-% We therefore introduce the following definition in order to provide us with inclusion maps between pairs.
-
 Suppose $D$ is a subspace of a topological space $X$.
 We define the extension of a surrounding pair in $D$ to a surrounding pair in $X$ with isomorphic relative homology.
 This is done by excision, and allows us to use the result of the TCC in order to define inclusion maps required for the interleaving.
@@ -17,7 +10,7 @@ This is done by excision, and allows us to use the result of the TCC in order to
   \[ (D, \ext{V}) = (U\sqcup (D\setminus U), V\sqcup (D\setminus U)).\]
 \end{definition}
 
-Now, we can interleave our pair $(U, V)$ with a sequence of subsets of $(D, B)$ by the following lemma.
+Now, we can interleave our pair $(U, V)$ with $(D, B')\subset (D, B)$ by the following lemma.
 
 \begin{lemma}\label{lem:surround_and_cover}
   Suppose $V$ surrounds $U$ in $D$ and $B'\subseteq B\subset D$.

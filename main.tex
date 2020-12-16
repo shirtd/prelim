@@ -11,12 +11,13 @@
 \newtheorem{corollary}{Corollary}
 \newtheorem{definition}{Definition}
 
-\input{environment}
+% \input{environment}
 \input{macros}
 
-\newcommand{\fullversion}{Appendix} %{full version of this paper}
+% \newcommand{\fullversion}{Appendix} %{full version of this paper}
 
 \title{From Coverage Testing to Topological Scalar Field Analysis}
+\author{Kirk P. Gardner and Donald R. Sheehy}
 
 \begin{document}
 
@@ -25,79 +26,73 @@
 
 
 \section{Introduction}\label{sec:introduction}
-  \input{src/introduction}
-  \input{src/contribution}
+\input{src/introduction}
+\input{src/contribution}
 
-\clearpage
+
 \section{Background}
   \subsection{Geometry and Topology}
-    \input{src/0-background/geometry}
+  \input{src/0-background/geometry}
+
   \subsection{Simplicial Complexes}\label{sec:complexes}
-    \input{src/0-background/complexes}
+  \input{src/0-background/complexes}
+
   \subsection{Homology}\label{sec:homology}
-    \input{src/0-background/homology}
+  \input{src/0-background/homology}
+
   \subsection{Persistence Modules}
-    \input{src/0-background/1-modules}
+  \input{src/0-background/modules}
+
   \subsection{Persistent Homology}
-    \input{src/0-background/pershom}
+  \input{src/0-background/pershom}
 
 
 \section{Summary}\label{sec:summary}
 \input{src/summary}
 
+
 \section{The Topological Coverage Criterion (TCC)}\label{sec:tcc}
 \input{src/1-tcc/intro}
-
 \input{src/1-tcc/surrounding}
 
-\subsection{The Geometric TCC}\label{sec:geo_tcc}
-  \input{src/1-tcc/0-geometric}
+  \subsection{The Geometric TCC}\label{sec:geo_tcc}
+  \input{src/1-tcc/geometric}
 
-\subsection{Computing the TCC}
-  \input{src/1-tcc/1-algorithmic}
+  \subsection{Computing the TCC}
+  \input{src/1-tcc/algorithmic}
+
 
 \section{From Coverage Testing to the Analysis of Scalar Fields}\label{sec:middle}
-\input{src/middle/plan}
+\input{src/2-interleaving/plan}
 
-\subsection{Extensions}
-  \input{src/middle/extensions}
+  \subsection{Extensions}
+  \input{src/2-interleaving/extensions}
 
-\subsection{Image Modules}
-  \input{src/middle/images}
+  \subsection{Image Modules}
+  \input{src/2-interleaving/images}
 
-\subsection{Truncations and Interleaving}\label{sec:interleaving}
-  \input{src/2-interleaving/0-scalar}
-  % \input{src/2-interleaving/1-setup}
-  % \input{src/2-interleaving/2-proof_nozeta}
+  \subsection{Truncations and Interleaving}\label{sec:interleaving}
+  \input{src/2-interleaving/scalar}
 
 
 \section{Approximation of the Truncated Diagram}\label{sec:truncations}
-\input{src/3-discussion/0-intervals}
+\input{src/3-discussion/intervals}
 
-\clearpage
-\section{Experiments}
-  \input{src/3-discussion/1-experiments}
 
-\clearpage
+\section{Experiments}\label{sec:experiments}
+\input{src/3-discussion/experiments}
+
+\section{Conclusion}\label{sec:conclusion}
+\input{src/conclusion}
+
+
 \bibliographystyle{unsrt}
 \bibliography{bibliography}
-%
-% \clearpage
-\appendix
-% % \section{Misc}\label{apx:misc}
-% % \subsection{Relative Persistent Nerves}\label{apx:nerves}
-% % \input{src/appendix/nerves}
-%
-\section{Duality}\label{apx:duality}
-\input{src/appendix/duality}
 
-% \section{Omitted Proofs}\label{apx:omit}
-% \printproofs
-%
-% \section{Additional Figures}\label{apx:extra}
-% \input{src/appendix/experiments}
-%
-% % \section{Helpful Stuff}
-% % \input{src/appendix/diagrams}
+
+\appendix
+
+\section{Duality}\label{apx:duality}
+\input{src/duality}
 
 \end{document}

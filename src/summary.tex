@@ -15,7 +15,8 @@ Given a sample of $f$ at a finite number of points $P$ in $D$ we would like to c
 That is, we would like to verify that a pair $(P^\delta, Q^\delta)$ is representative of the pair $(D,B_\omega)$ in homology.
 Our goal is to use this fact to approximate the persistence of $f$ relative to $B_\omega$.
 
-Our approximation will be by a nested pair of (Vietoris-)Rips complexes, denoted $\rips^\e(P, Q) = (\rips^\e(P), \rips^\e(Q))$ for $\e > 0$.
+Our approximation will be by a nested pair of (Vietoris-)Rips complexes.
+%, denoted $\rips^\e(P, Q) = (\rips^\e(P), \rips^\e(Q))$ for $\e > 0$.
 Under mild regularity assumptions it can be shown that
 \[ \rk~\hom_d(\rips^\delta(P, Q_{\omega - 2c\delta})\hookrightarrow \rips^{2\delta}(P, Q_{\omega+c\delta}))\geq \dim~\hom_0(\rips^\delta(P\setminus Q_{\omega-2c\delta}))\]
 implies $D\setminus B_\omega\subseteq P^\delta$ and $Q_{\omega-2c\delta}^\delta$ surrounds $P^\delta$ in $D$.
@@ -35,7 +36,7 @@ The use of images of relative persistence modules is not only to eliminate noise
 \paragraph*{Outline}
 
 We will begin with our statement of the TCC in Section~\ref{sec:tcc}.
-A Part of the proof of the TCC will be generalized to properties of \emph{surrounding pairs}, simplifying our reformulation of the TCC in Theorem~\ref{thm:algo_tcc}.
+A part of the proof of the TCC will be generalized to properties of \emph{surrounding pairs}, simplifying our reformulation of the TCC in Theorem~\ref{thm:algo_tcc}.
 Section~\ref{sec:middle} introduces extensions of surrounding pairs, as well as partial interleavings of image modules.
 These are the main technical results used to show that a positive result from the TCC verifies that a surrounding pair of samples can be used to approximate the persistence of a function relative to a sublevel set in Theorem~\ref{thm:interleaving_main_2}.
 In Section~\ref{sec:truncations} we provide an interpretation of this relative persistence as a truncation of the full diagram (i.e., the persistence of $f$ on all of $D$) that is motivated by examples from a proof-of-concept implementation in Section~\ref{sec:experiments}.
