@@ -1,0 +1,107 @@
+% !TeX root = ../main.tex
+
+\begin{frame}
+  \frametitle{Relative Homology and Separation}
+
+  \begin{textblock*}{11cm}(1cm,2cm)
+    \begin{small}
+      The \emph{relative homology} of a pair $(X,Y)$ is denoted $\hom_k(X, Y)$.\vspace{2ex}
+
+      \only<2>{We are interested in the homology of \emph{surrounding pairs}.}
+    \end{small}
+  \end{textblock*}
+
+  \begin{textblock*}{10cm}(1cm,4cm)
+    \centering
+    \includegraphics<1,2>[width=\textwidth]{figures/h1_rel}
+    \includegraphics<2>[width=\textwidth]{figures/h2_rel}
+  \end{textblock*}
+
+\end{frame}
+
+\begin{frame}
+  \frametitle{Properties of Surrounding pairs}
+
+  \begin{textblock*}{11cm}(1cm,2cm)
+    \begin{small}
+      Surrounding pair $(D, B)$,%
+      \only<2,3>{complement $(\overline{B}, \overline{D})$.\vspace{1ex}}%
+
+      \only<3>{$D\setminus B$ and $\overline{D}$ disconnected $\implies \hom_k(D\setminus B)\cong\hom_k(\overline{B},\overline{D})$.}
+    \end{small}
+  \end{textblock*}
+
+  \begin{textblock*}{12cm}(0.75cm,5cm)
+    \includegraphics<1,2,3>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/comp/surf}\only<2,3>{\hspace{6ex}}%
+    \includegraphics<2>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/comp/DBcomp}%
+    \includegraphics<3>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/comp/Bint}%
+  \end{textblock*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Properties of Surrounding pairs}
+
+  \begin{textblock*}{11cm}(1cm,2cm)
+    \begin{small}
+      Surrounding pair $(D, B)$.\vspace{1ex}
+
+      \only<2,3>{Pair $(U, V)$ with $U\subseteq D$, $V\subseteq U\cap B$.\vspace{1ex}}
+
+      \only<3>{Let $\ell : \hom_0(\overline{B}, \overline{D})\to \hom_0(\overline{V}, \overline{U})$}
+    \end{small}
+  \end{textblock*}
+
+  \begin{textblock*}{12cm}(0.75cm,5cm)
+    \includegraphics<1,2>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/comp/surf}%
+    \includegraphics<3>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/comp/DBcomp}\hspace{6ex}%
+    \includegraphics<2>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/comp/PQ}%
+    \includegraphics<3>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/comp/PQcomp}
+  \end{textblock*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Properties of Surrounding pairs}
+
+  \begin{textblock*}{11cm}(1cm,2cm)
+    \begin{small}
+      \begin{lemma}\label{lem:coverage}
+        If $\ell$ is injective then $D\setminus B\subseteq U$ and $V$ surrounds $U$ in $D$.
+      \end{lemma}
+    \end{small}
+
+  \end{textblock*}
+
+  \begin{textblock*}{12cm}(0.75cm,5cm)
+    \includegraphics<1>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/comp/DBcomp}\only<1>{\hspace{6ex}}%
+    \includegraphics<1>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/comp/PQcomp}%
+    \includegraphics<2>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/comp/surf}\only<2>{\hspace{6ex}}%
+    \includegraphics<2>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/comp/PQnocov}%
+    \includegraphics<3,4>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/comp/DBcomp}\only<3,4>{\hspace{6ex}}%
+    \includegraphics<3>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/comp/PQnocov_comp}%
+    \includegraphics<4>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/comp/PQnocov_comp-spread}%
+    \includegraphics<5>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/comp/Bint}\only<5>{\hspace{6ex}}%
+    \includegraphics<5>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/comp/Qno_int}
+  \end{textblock*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Properties of Surrounding pairs}
+
+  \begin{textblock*}{11cm}(1cm,2cm)
+    \begin{small}
+      \begin{lemma}\label{lem:coverage}
+        If $\ell$ is injective then $D\setminus B\subseteq U$ and $V$ surrounds $U$ in $D$.
+      \end{lemma}
+    \end{small}
+  \end{textblock*}
+
+  \begin{textblock*}{12cm}(0.75cm,5cm)
+    \includegraphics<1>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/comp/surf}\only<1>{\hspace{6ex}}%
+    \includegraphics<1>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/comp/PQnosur}%
+    \includegraphics<2,3>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/comp/DBcomp}\only<2,3>{\hspace{6ex}}%
+    \includegraphics<2>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/comp/PQnosur_comp}%
+    \includegraphics<3>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/comp/PQnosur_comp-spread}%
+    \includegraphics<4>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/comp/Bint}\only<4>{\hspace{6ex}}%
+    \includegraphics<4>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/comp/Qno_int}%
+  \end{textblock*}
+\end{frame}
