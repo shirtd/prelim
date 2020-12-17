@@ -4,8 +4,9 @@ We now combine these results on the homology of surrounding pairs with informati
 We will then apply these results as a computable variation using Vietoris-Rips complexes that requires only pair-wise connectivity information.
 
 Let $(\X,\dist)$ be a metric space and $D\subseteq \X$ be a compact subspace.
-For a $c$-Lipschitz function $f : D\to \R$ we introduce a constant $\omega$ as a threshold that defines our ``boundary'' as a sublevel set $B_\omega$ of the function $f$.
-Let $P$ be a finite subset of $D$ and $\zeta\geq\delta > 0 $ be constants such that $P^\delta\subseteq \intr_\X(D)$.
+For a $c$-Lipschitz function $f : D\to \R$ let $B_\alpha := f^{-1}((-\infty, \alpha])$ denote the $\alpha$ sublevel set of $f$ for $\alpha\in\R$.
+We introduce a constant $\omega$ as a threshold that defines our ``boundary'' as a sublevel set $B_\omega$ of $f$.
+Let $P$ be a finite subset of $D$ and $\zeta\geq\delta > 0 $ be constants such that $P^\delta\subseteq \intr_\X(D)$ and let $Q_\alpha := P\cap B_\alpha$ for all $\alpha\in\R$.
 % Here, $\delta$ will serve as our communication radius where $\zeta$ is reserved for use in Section~\ref{sec:middle}.
   % \footnote{We will set $\zeta = 2\delta$ in the proof of our interleaving with Rips complexes but the TCC holds for all $\zeta\geq\delta$.}
 
@@ -78,10 +79,9 @@ Now, the rank of the map $j$ is equal to the dimension of $\dim~\hom_0(\overline
 The second assumption, which requires that nothing appears right \emph{before} $\omega$, will be used in Theorem~\ref{thm:algo_tcc} to provide a computable upper bound on $\rk~j$.
 
 \begin{theorem}[Geometric TCC]\label{thm:geo_tcc}
-  Let $D$ be a compact subset of $\X$ and $f : D\to\R$ be $c$-Lipschitz function.
-  Let $\omega\in\R$, $\zeta\geq\delta > 0$ be constants such that $B_{\omega}$ surrounds $D$ in $\X$.
-  Let $P\subset D$ be a finite collection of points and $Q_\alpha := P\cap B_\alpha$ for $\alpha\in\R$.
-  Let $j : \hom_0(\overline{B_{\omega+c(\delta+\zeta)}},\overline{D})\to \hom_0(\overline{B_{\omega}},\overline{D})$ and $i : \hom_0(\overline{Q_{\omega+c\delta}^\delta}, \overline{P^\delta})\to \hom_0(\overline{Q_{\omega-c\zeta}^\delta}, \overline{P^\delta})$ be induced by inclusion.
+  Let $(\X,\dist)$ be a metric space and $D$ be a compact subset of $\X$.
+  Let $f : D\to\R$ be $c$-Lipschitz function and $\omega\in\R$, $\zeta\geq\delta > 0$ be constants such that $B_{\omega}$ surrounds $D$ in $\X$.
+  Let $P\subset D$ be a finite collection of points and $j : \hom_0(\overline{B_{\omega+c(\delta+\zeta)}},\overline{D})\to \hom_0(\overline{B_{\omega}},\overline{D})$, $i : \hom_0(\overline{Q_{\omega+c\delta}^\delta}, \overline{P^\delta})\to \hom_0(\overline{Q_{\omega-c\zeta}^\delta}, \overline{P^\delta})$ be induced by inclusion.
 
   If $j$ is surjective and $\rk~i\geq \rk~j$ then $D\setminus B_{\omega}\subseteq P^\delta$ and $Q_{\omega-c\zeta}^\delta$ surrounds $P^\delta$ in $D$.
 \end{theorem}
