@@ -26,7 +26,7 @@
 
     \only<2,3>{Sample $Q$ such that $Q^\delta\subseteq B_\omega$\vspace{1ex}}
 
-    \only<3>{For $\zeta \geq \delta$ set $Q = P\cap B_{\omega-c\zeta}$}
+    \only<3>{Set $Q = P\cap B_{\omega-c\delta}$}
   \end{textblock*}
 
   \begin{textblock*}{12cm}(0.5cm,5cm)
@@ -64,19 +64,23 @@
   \frametitle{Overview: The Geometric Case}
   \begin{textblock*}{11cm}(1cm,2cm)
   \begin{small}
-    Let $Q_0 = P\cap B_{\omega-c\zeta}$ and $Q_1 = P\cap B_{\omega+c\delta}$\vspace{1ex}
+    Let $Q_0 = P\cap B_{\omega-c\delta}$ and $Q_1 = P\cap B_{\omega+c\delta}$\vspace{1ex}
 
-    Let $i : \hom_0(\overline{Q_1^\delta}, \overline{P^\delta})\to \hom_0(\overline{Q_0^\delta}, \overline{P^\delta})$.
+    \only<2,3>{Let $i : \hom_0(\overline{Q_1^\delta}, \overline{P^\delta})\to \hom_0(\overline{Q_0^\delta}, \overline{P^\delta})$.}
 
-    \only<2>{\begin{lemma}\label{lem:psurj}
+    \only<3>{\begin{lemma}\label{lem:psurj}
         If $B_\omega$ surrounds $D$ in $\X$ then $\mathbf{dim}~\hom_0(D\setminus B_\omega)\geq \mathbf{rk}~i$.
     \end{lemma}}
   \end{small}
   \end{textblock*}
 
   \begin{textblock*}{12cm}(0.75cm,5.5cm)
-    \includegraphics[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/nbhd/PQ0}\hspace{6ex}%
-    \includegraphics[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/nbhd/PQ1}
+    \includegraphics<1>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/nbhd/Q0}%
+    \includegraphics<2>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/nbhd/PQ0only}%
+    \includegraphics<3>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/nbhd/CQ0comp}\hspace{6ex}%
+    \includegraphics<1>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/nbhd/Q1}%
+    \includegraphics<2>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/nbhd/PQ1only}%
+    \includegraphics<3>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/nbhd/CQ1comp}
   \end{textblock*}
 \end{frame}
 
@@ -89,8 +93,13 @@
     Let $B_1 = B_{\omega+2c\delta}$ so $Q_1^\delta\subseteq B_1$.\vspace{1ex}
   \end{textblock*}
 
-  \begin{textblock*}{11cm}(1cm,4.5cm)
-    \only<1>{\[\begin{tikzcd}[ampersand replacement=\&]
+  \begin{textblock*}{12cm}(0.75cm,5.5cm)
+    \includegraphics<1>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/nbhd/CQ0}\hspace{6ex}%
+    \includegraphics<1>[trim=50 250 50 300, clip, width=0.4\textwidth]{figures/nbhd/CQ1}
+  \end{textblock*}
+
+  \begin{textblock*}{11cm}(1cm,5cm)
+    \only<2>{\[\begin{tikzcd}[ampersand replacement=\&]
       (P^\delta, Q_0^\delta) \arrow[hookrightarrow]{r}\arrow[hookrightarrow]{d} \&
       (P^\delta, Q_1^\delta) \arrow[hookrightarrow]{d} \\
       %
@@ -98,7 +107,7 @@
       (D, B_1)
     \end{tikzcd}\]}
 
-    \only<2>{\[\begin{tikzcd}[ampersand replacement=\&]
+    \only<3>{\[\begin{tikzcd}[ampersand replacement=\&]
       \hom_0(\overline{B_1},\overline{D})\arrow{d}{m} \arrow{r}{j} \&
       \hom_0(\overline{B_\omega}, \overline{D}) \arrow{d}{\ell} \\
       %
@@ -144,7 +153,7 @@
     \end{theorem}\end{small}
   \end{textblock*}
 
-  \begin{textblock*}{11cm}(1cm,4.5cm)
+  \begin{textblock*}{11cm}(1cm,5cm)
     \[\begin{tikzcd}[ampersand replacement=\&]
       \hom_0(\overline{B_1},\overline{D})\arrow{d}{m} \arrow{r}{j} \&
       \hom_0(\overline{B_\omega}, \overline{D}) \arrow{d}{\ell} \\

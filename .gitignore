@@ -11,4 +11,6 @@ new.pdf
 .stash
 *log
 code
-*.bak*
+*.bak**
+gardner-qualifying.pdf
+*.fuk
