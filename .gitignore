@@ -14,3 +14,8 @@ code
 *.bak**
 gardner-qualifying.pdf
 *.fuk
+scripts/figures
+scripts/.data
+scripts/batches
+scripts/data
+*__pycache__
