@@ -107,7 +107,7 @@ if __name__ == "__main__":
     dir = os.path.join(dir, '%s-%d' % (name, di))
     print('creating directory %s' % dir)
     os.makedirs(dir)
-    
+
     plt.savefig(os.path.join(dir, 'full-dgm.pdf'), dpi=300)
 
     if PLOT_SURF:

@@ -92,10 +92,11 @@ def get_color(pt, cmap):
 def plot_diagram(axis, dgm, cmap, thresh=-np.inf, plot_diag=True, alpha=0.5, size=5, zorder=1, **kw):
     # lim = max(max(p) for p in dgm) if lim is None else lim
     lim = max(max(c[1]) for c in cmap)
+    mn = min(min(c[1]) for c in cmap)
     dgm = np.array([[b, d if d < np.inf else lim*1.2]for b,d in dgm if d - b > thresh]) if len(dgm) else np.ndarray((0,2))
     if plot_diag:
-        axis.plot([0,lim*1.1], [0,lim*1.1], c='black', alpha=0.5, zorder=0)
-        axis.plot([0,lim*1.1], [lim*1.1,lim*1.1], c='black', alpha=0.5, zorder=0, linestyle='dotted')
+        axis.plot([mn,lim*1.1], [mn,lim*1.1], c='black', alpha=0.5, zorder=0)
+        axis.plot([mn,lim*1.1], [lim*1.1,lim*1.1], c='black', alpha=0.5, zorder=0, linestyle='dotted')
         axis.plot([lim*1.1,lim*1.1], [lim*1.1,1.2*lim], c='black', alpha=0.5, zorder=0, linestyle='dotted')
     color = [get_color(pt, cmap) for pt in dgm]
     axis.scatter(dgm[:,0], dgm[:,1], color=color, s=size, alpha=alpha, zorder=zorder, **kw)
@@ -232,4 +233,4 @@ class SurfacePlot:
                 v['visible'] = True
     def save(self, name, size=(1500, 868)):
         # print('saving %s' % name)
-        mlab.savefig(name, size=size)
+        mlab.savefig(name, size=size, magnification=1)

@@ -32,11 +32,13 @@ COLOR = {'green'    :   (0, 205/255, 108/255),
         'orange'    :   (242/255, 133/255, 34/255),
         'gray'      :   (160/225, 177/225, 186/225),
         'red'       :   (255/255, 31/255, 91/255),
-        'brown'     :   (166/255, 118/255, 29/255)}
+        'brown'     :   (166/255, 118/255, 29/255),
+        'black'     :   (0, 0, 0)}
 
 CUTS = [0.05, 0.3, 0.55, 0.8, 1.298]
 
 N, WIDTH, HEIGHT = 64, 2, 1
+# N, WIDTH, HEIGHT = 512, 2, 1
 X_RNG = np.linspace(-WIDTH,WIDTH,WIDTH*N)
 Y_RNG = np.linspace(-HEIGHT,HEIGHT,HEIGHT*N)
 X, Y = np.meshgrid(X_RNG, Y_RNG)

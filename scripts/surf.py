@@ -13,7 +13,7 @@ SEED = 4869361 # np.random.randint(10000000) #
 print('seed: %d' % SEED)
 np.random.seed(SEED)
 
-SURF_ARGS = {   'A' : {'min' : CUTS[0], 'max' : CUTS[1],    'color' : COLOR['green'],   'opacity' : 0.5,    'backface_culling' : True},
+SURF_ARGS = {   'A' : {'min' : CUTS[0], 'max' : CUTS[1],    'color' : COLOR['green'],   'opacity' : 0.5},#,    'backface_culling' : True},
                 'B' : {'min' : CUTS[1], 'max' : CUTS[2],    'color' : COLOR['blue'],    'opacity' : 0.5},
                 'C' : {'min' : CUTS[2], 'max' : CUTS[3],    'color' : COLOR['purple'],  'opacity' : 0.5},
                 'D' : {'min' : CUTS[3], 'max' : CUTS[4],    'color' : COLOR['yellow'],  'opacity' : 0.5}}
@@ -66,10 +66,22 @@ if __name__ == "__main__":
     G = mk_gauss(X, Y, GAUSS_ARGS)
     surf = SurfacePlot(X, Y, G, SURF_ARGS, CONT_ARGS, VIEW)
 
-    surf.reset_view('side')
-    surf.save(os.path.join(DIR, 'side.png'))
-    surf.reset_view('top')
-    surf.save(os.path.join(DIR, 'top.png'))
+    surf.save(os.path.join(DIR, 'dump.png'))
+    surf.save(os.path.join(DIR, 'dump.png'))
 
-    ass1(surf, DIR)
-    ass2(surf, DIR)
+    surf.reset_view('side')
+    surf.save(os.path.join(DIR, 'side_all.png'))
+    surf.reset_view('top')
+    surf.save(os.path.join(DIR, 'top_all.png'))
+
+    for l, l_c in (('D','C_c'), ('C','B_c'), ('B', 'A_c')):
+        surf['cut'][l]['opacity'] = 0.1
+        surf['cont'][l_c]['visible'] = True
+        surf.reset_view('side')
+        surf.save(os.path.join(DIR, 'side_%s.png' % l))
+        surf.reset_view('top')
+        surf.save(os.path.join(DIR, 'top_%s.png' % l))
+        surf['cont'][l_c]['visible'] = False
+    #
+    # ass1(surf, DIR)
+    # ass2(surf, DIR)
