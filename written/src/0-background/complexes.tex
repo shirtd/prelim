@@ -2,14 +2,14 @@
 
 % \subsection{Simplicial Complexes}\label{sec:complexes}
 
-% \begin{figure}[htbp]
-%   \centering
-%   % \includegraphics[width=0.2\textwidth]{figures/component.png}
-%   \includegraphics[width=0.2\textwidth]{figures/edge.png}\hspace{3ex}
-%   \includegraphics[width=0.2\textwidth]{figures/tri.png}\hspace{3ex}
-%   \includegraphics[width=0.2\textwidth]{figures/tet.png}
-%   \caption{Simplices of dimension 1-3.}\label{fig:simplices}
-% \end{figure}
+\begin{figure}[htbp]
+  \centering
+  % \includegraphics[width=0.2\textwidth]{figures/component.png}
+  \includegraphics[width=0.2\textwidth]{figures/edge-comp.pdf}\hspace{3ex}
+  \includegraphics[width=0.2\textwidth]{figures/tri-comp.pdf}\hspace{3ex}
+  \includegraphics[width=0.2\textwidth]{figures/tet-comp.pdf}
+  \caption{Simplices of dimension 1-3.}\label{fig:simplices}
+\end{figure}
 
 A \textbf{simplicial complex} $K$ is a collection of subsets, called \textbf{simplices}, of a vertex set $V$ such that for all $\sigma\in K$ and $\tau\subset\sigma$ it must follow that $\tau\in K$.
 The \textbf{dimension} of a simplex $\sigma\in K$ is defined as $\dim(\sigma) := |\sigma|-1$ where $|\cdot|$ denotes set cardinality.
@@ -69,8 +69,8 @@ The standard proof of the Nerve Theorem, and therefore the Persistent Nerve Lemm
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[trim=0 300 0 500, clip, width=0.4\textwidth]{figures/cech/cover.pdf}
-  \includegraphics[trim=0 300 0 500, clip, width=0.4\textwidth]{figures/cech/full.pdf}
+  \includegraphics[trim=0 300 0 500, clip, width=0.4\textwidth]{figures/cech/cover-comp.pdf}
+  \includegraphics[trim=0 300 0 500, clip, width=0.4\textwidth]{figures/cech/full-comp.pdf}
   \caption{A metric cover and its nerve, the \v Cech complex.}\label{fig:nerves}
 \end{figure}
 
@@ -88,10 +88,10 @@ That is, by the Nerve Theorem, the inclusion $\cech^\e(P)\hookrightarrow P^\e$ i
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[trim=0 300 0 500, clip, width=0.3\textwidth]{figures/rips/graph2_comp.pdf}
-  \includegraphics[trim=0 300 0 500, clip, width=0.3\textwidth]{figures/rips/rips2_comp.pdf}
-  \includegraphics[trim=0 300 0 500, clip, width=0.3\textwidth]{figures/rips/cech_comp.pdf}
-  \caption{An $\e$-neighborhood graph and its Clique complex, the Vietoris-Rips complex, and the $\e/2$ \v Cech complex.}\label{fig:rips}
+  \includegraphics[trim=0 300 0 500, clip, width=0.3\textwidth]{figures/rips/cech-comp.pdf}
+  \includegraphics[trim=0 300 0 500, clip, width=0.3\textwidth]{figures/rips/graph-comp.pdf}
+  \includegraphics[trim=0 300 0 500, clip, width=0.3\textwidth]{figures/rips/rips-comp.pdf}
+  \caption{The \v Cech complex $\cech^\e(P)$, $2\e$-neighborhood graph and its Clique complex, the Vietoris-Rips complex $\rips^{2\e}(P)$.}\label{fig:rips}
 \end{figure}
 
 Given an undirected graph $G = (V, E)$ we can construct a simplicial complex $K$ with vertex set $V$ and simplices $\sigma\subseteq V$ whenever $\{u,v\}\in E$ for all distinct $u, v\in\sigma$.

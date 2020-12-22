@@ -1,33 +1,48 @@
 % !TeX root = ../main.tex
 
 
-\begin{wrapfigure}{r}{0.4\textwidth}
+\begin{wrapfigure}{r}{0.3\textwidth}
   \centering
-  \includegraphics[trim=300 400 300 400, clip, width=\linewidth]{figures/torus1}
-    \caption{The 2-Torus has one component, two loops (shown), and one void.}
+  \vspace{-3ex}
+  \includegraphics[trim=300 400 300 400, clip, width=\linewidth]{figures/torus1_light-comp.pdf}
+    \caption{The 2-Torus has one component, two loops (representative cycles shown), and one void.}
 \end{wrapfigure}
 
 Topology is the mathematical study of shape.
-Often referred to as ``rubber sheet geometry,'' topology is concerned with the properties of a space that are invariant under continuous deformations.
-Connected components, loops, and voids are examples of topological invariants---holes in dimension 0, 1, and 2, that are captured by the \emph{homology} of a space.
+Often referred to as ``rubber sheet geometry,'' topology is concerned with the properties of a space that are invariant under continuous transformations.
+Connected components, loops, and voids are examples of topological invariants---holes in dimensions 0, 1, and 2---that are captured by the \emph{homology} of a space.
 Homology associates an algebraic structure to a space that can be used to quantify these holes in arbitrary dimension.
-Persistent homology uses this structure to decompose the homology of a space by a nested sequence of subspaces.
-Often, this sequence is defined by a scalar-valued function as subspaces mapping to scalar values within some range.
+Persistent homology uses this structure to decompose the homology of a space through a nested sequence of subspaces~\cite{edelsbrunner02simplification}.
+Often, this sequence is defined by a scalar-valued function, with subspaces consisting of points that map to scalar values within some range.
 The resulting decomposition provides a topological signature that encodes useful geometric and topological information about the function, as well as the space itself.
 
 \begin{figure}[htbp]
-  \centering
-  \includegraphics[trim=200 200 200 200, clip, width=0.45\textwidth]{figures/surf-side.png}
-  \includegraphics[trim=250 0 50 100, clip, width=0.35\textwidth]{figures/surf-top.png}
-  \includegraphics[width=0.75\textwidth]{figures/scalar_barcode_true.png}
-  \caption{A scalar field on a 2D domain and its persistent homology in dimension 0 and 1.}
+  \begin{minipage}{0.35\textwidth}
+    \centering
+    \includegraphics[trim=200 200 200 200, clip, width=0.8\linewidth]{figures/surf-side.png}
+    \includegraphics[trim=200 100 200 150, clip, width=0.75\linewidth]{figures/surf-top.png}
+  \end{minipage}
+  \begin{minipage}{0.5\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/scalar_barcode_H1.png}
+  \end{minipage}
+  \caption{A scalar field on a 2D domain and its persistent homology in dimension 1.}
 \end{figure}
 
-Topological Scalar Field Analysis (SFA) is concerned with approximating the persistent homology of a scalar-valued function, or scalar field, by a finite set of sample points.
+% \begin{figure}[htbp]
+%   \centering
+%   \includegraphics[trim=200 200 200 200, clip, width=0.45\textwidth]{figures/surf-side.png}
+%   \includegraphics[trim=250 0 50 100, clip, width=0.35\textwidth]{figures/surf-top.png}
+%   \includegraphics[width=0.75\textwidth]{figures/scalar_barcode_true.png}
+%   \caption{A scalar field on a 2D domain and its persistent homology in dimension 0 and 1.}
+% \end{figure}
+
+Topological Scalar Field Analysis (SFA) is concerned with approximating the persistent homology of a scalar-valued function, or scalar field, from a finite set of sample points~\cite{chazal09analysis,buchet15topological}.
 A fundamental assumption required to have strong guarantees is that the domain of the function is sufficiently well-sampled.
-The Topological Coverage Criterion (TCC) is a topological condition for coverage that uses much of the same homological and combinatorial tools required for SFA.
-In fact, under mild regularity assumptions, coverage by an arbitrary sample can be confirmed directly from the persistent homology it approximates.
-In this paper, we show how the TCC can be modified so that one can simultaneously compute the persistence diagram while testing that the underlying space is sufficiently well-sampled.
+The Topological Coverage Criterion (TCC) is a topological condition for coverage that can be used to confirm that a given sample is sufficient~\cite{desilva06coordinate,desilva07coverage,desilva07homological,cavanna2017when}.
+Moreover, the TCC uses much of the same homological and combinatorial tools required for SFA.
+In fact, under mild regularity assumptions, coverage can be confirmed directly from the persistent homology a sample approximates.
+In this paper, we show how the TCC can be modified so that one can simultaneously approximate the persistent homology of a scalar-valued function while verifying that the domain of the function is sufficiently well-sampled.
 Not only does this replace unnatural assumptions made in the TCC, but it also extends SFA to the setting of partial coverage.
 
 % We therefore adapt the TCC to the setting of SFA so that coverage by an arbitrary sample can be confirmed directly from the persistent homology it approximates.
@@ -37,26 +52,39 @@ Not only does this replace unnatural assumptions made in the TCC, but it also ex
 % \begin{figure}[htbp]
 \begin{wrapfigure}{r}{0.4\textwidth}
   \centering
-  \includegraphics[trim=100 600 100 800, clip, width=\linewidth]{figures/partial3/cover}
-  \includegraphics[trim=100 600 100 800, clip, width=\linewidth]{figures/partial3/complex}
+  \vspace{-4ex}
+  \includegraphics[trim=100 600 100 700, clip, width=\linewidth]{figures/partial4/cover-comp.pdf}
+  \includegraphics[trim=100 600 100 900, clip, width=\linewidth]{figures/partial4/complex_nosurf.pdf}
   \caption{A cover of a scalar field and a discrete structure used to approximate its persistent homology.}
 % \end{figure}
 \end{wrapfigure}
 
 \paragraph{Related Work}
 
+% neuroscience~\cite{Giusti_2015,sizemore2016classification,sizemore2018cliques,sizemore2019importance,saggar2018towards},
+% structural biology~\cite{xia2014persistent,cang2015topological,dey2018protein,kovacev2016using,gameiro2015topological},
+% medical imaging~\cite{adams2009nonlinear,bendich2010computing,carlsson2008local,robins2011theory,bendich2016persistent},
+% geometry processing~\cite{carlsson2005persistence,dey2010persistent,poulenard2018topological,skraba2010persistence,bruel2020topology},
+% and machine learning~\cite{giansiracusa2017persistent,hofer2017deep,clough2019explicit,chen2019topological,carlsson2020topological,gabrielsson2020topology},
+
 Persistent homology is an important tool in the emerging field of Topological Data Analysis (TDA).
-TDA is concerned with the ``shape of data,'' and has found applications in \ldots
-The appeal of topological methods in data analysis is primarily due to their ability to identify meaningful global structure from local, often high dimensional data.
-SFA therefore has an important role in TDA as many problems in data analysis require reliable inference from a finite sample.
-Initial work by Chazal et al.~\cite{chazal09analysis} showed that for sufficiently dense samples on sufficiently smooth spaces, the persistence diagram can be computed with some guarantees.
+TDA is concerned with the ``shape of data,'' and has found applications in
+neuroscience~\cite{saggar2018towards, sizemore2019importance},
+structural biology~\cite{gameiro2015topological,kovacev2016using,dey2018protein},
+medical imaging~\cite{carlsson2008local,robins2011theory,bendich2016persistent},
+geometry processing~\cite{skraba2010persistence,poulenard2018topological,bruel2020topology},
+and machine learning~\cite{clough2019explicit,chen2019topological,carlsson2020topological,gabrielsson2020topology}, to name a few.
+Topological methods are appealing to data analysis primarily because of their ability to identify meaningful global structure from local, often high dimensional data.
+SFA has an important role in TDA as many problems in data analysis require reliable inference from a finite sample.
+Initial work by Chazal et al.~\cite{chazal09analysis} on SFA showed that for sufficiently dense samples on sufficiently smooth spaces, the persistent homology of a scalar-valued function can be approximated with some guarantees.
+Chazal et al. then applied this work to clustering problems in Riemannian manifolds~\cite{chazal2013persistence}.
 In followup work, Buchet et al.~\cite{buchet15topological} extended this result to show how to work with noisy inputs.
 
 The Topological Coverage Criterion (TCC) was developed by De Silva and Ghrist over a series of papers on homological sensor networks~\cite{desilva06coordinate,desilva07coverage,desilva07homological}.
 The theory of homological sensor networks addresses the problem of testing coverage of a bounded domain by a collection of sensors without coordinates.
-In its most general form the TCC states that, under reasonable geometric assumptions, the $d$-dimensional relative homology of a pair of simplicial complexes built on the neighborhood graph will be nontrivial if and only if there is sufficient coverage (see Section~\ref{sec:tcc} for the precise statements).
+% In its most general form the TCC states that, under reasonable geometric assumptions, the $d$-dimensional relative homology of a pair of simplicial complexes built on the neighborhood graph will be nontrivial if and only if there is sufficient coverage (see Section~\ref{sec:tcc} for the precise statements).
 Cavanna et al.~\cite{cavanna2017when} generalized the TCC to allow for more general spaces and robust coverage guarantees.
-That work gave a different approach to proving the correctness of the TCC which allows much more freedom in how the boundary is defined.
+This gave a different approach to proving the correctness of the TCC which allows much more freedom in how the boundary is defined.
 
 
 % Initiated by De Silva and Ghrist~\cite{desilva06coordinate,desilva07coverage,desilva07homological}, the theory of homological sensor networks addresses the problem of testing coverage of a bounded domain by a collection of sensors without coordinates.
@@ -82,7 +110,7 @@ That work gave a different approach to proving the correctness of the TCC which 
 \paragraph{Contribution}
 
 Superficially, the methods of SFA and TCC are very similar.
-However, they differ in some fundamental ways that make them difficult to combine as a single technique.
+However, they differ in fundamental ways that make them difficult to combine as a single technique.
 The main difference is that the TCC requires a clearly defined boundary.
 Not only must the underlying space be a bounded subset of $\R^d$, the data must also be labeled to indicate which input points are close to the boundary.
 This requirement is perhaps the main reason why the TCC can so rarely be applied in practice.
@@ -98,10 +126,6 @@ Our goal is to isolate this data so we can analyze the function in only the veri
 From this perspective, the TCC confirms that we not only have coverage, but that the sample we have is representative of the region in homology.
 We can then re-use the same machinery to analyze a \emph{part} of the function in a specific way.
 
-We will begin by reviewing relevant background information in geometry and topology.
-We will then introduce the notion of a surrounding pair and prove an important property that generalizes part of the traditional proof of the TCC.
-We will then apply this property to the geometric case before showing how it can be computed.
-
 % We consider the case in which we have incomplete data from a particular sublevel set of our function.
 % % We consider the case where we can only verify our sample in a part of the  % have incomplete data from a particular sublevel set of our function.
 % Our goal is to isolate this data so we can analyze the function in only the verified region.
@@ -112,10 +136,17 @@ We will then apply this property to the geometric case before showing how it can
 
 \begin{figure}[htbp]
   \centering
-  \includegraphics[trim=0 500 0 500, clip, width=0.45\textwidth]{figures/samples/samples_comp.pdf}
-  \includegraphics[trim=0 500 0 500, clip, width=0.45\textwidth]{figures/samples/scalar1_comp.pdf}
+  % \includegraphics[trim=0 500 0 500, clip, width=0.45\textwidth]{figures/samples/samples_comp.pdf}
+  % \includegraphics[trim=0 500 0 500, clip, width=0.45\textwidth]{figures/samples/scalar1_comp.pdf}
+  % \includegraphics[trim=0 500 0 500, clip, width=0.45\textwidth]{figures/partial5/samples}
+  \includegraphics[trim=0 500 0 500, clip, width=0.45\textwidth]{figures/partial5/cover-comp.pdf}
+  \includegraphics[trim=0 500 0 500, clip, width=0.45\textwidth]{figures/partial5/complex_nosurf.pdf}
   \caption{A partially sampled scalar field.}\label{fig:main}
 \end{figure}
+
+We will begin by reviewing relevant background information in geometry and topology.
+We will then introduce the notion of a surrounding pair and prove an important property that generalizes part of the traditional proof of the TCC.
+We will then apply this property to the geometric case before showing how it can be computed.
 
 %
 % Connected components, loops, and voids are examples of topological invariants that correspond to ``holes'' in dimensions 0, 1, and 2.
