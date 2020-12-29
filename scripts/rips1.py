@@ -260,10 +260,20 @@ if __name__ == "__main__":
         pq.visible = True
         p.visible = False
 
+        surf['cut']['D']['opacity'] = 0.1
+        surf['cut']['C']['opacity'] = 0.1
+        surf['cut']['B']['opacity'] = 0.1
+
         surf.save(os.path.join(DIR, 'Qskeleton.png'), (3000,3000))
 
         for e in eqs:
             e.visible = False
+
+        surf.save(os.path.join(DIR, 'Qsample.png'), (3000,3000))
+
+        surf['cut']['D']['opacity'] = 0.5
+        surf['cut']['C']['opacity'] = 0.5
+        surf['cut']['B']['opacity'] = 0.5
 
         # t.parent.visible = False
         # t.visible = True
@@ -281,7 +291,17 @@ if __name__ == "__main__":
         bq.visible = True
         pq.visible = True
         p.visible = False
+
+        surf['cut']['D']['opacity'] = 0.1
+        surf['cut']['C']['opacity'] = 0.1
+        surf['cut']['B']['opacity'] = 0.1
+
         surf.save(os.path.join(DIR, 'Qcover.png'), (3000,3000))
+
+        surf['cut']['D']['opacity'] = 0.5
+        surf['cut']['C']['opacity'] = 0.5
+        surf['cut']['B']['opacity'] = 0.5
+
         bp.visible = True
         pq.visible = False
         p.visible = True

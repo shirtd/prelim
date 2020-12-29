@@ -39,11 +39,18 @@
   \end{textblock*}
 
   \begin{textblock*}{12cm}(0.5cm,4.5cm)
-    \includegraphics<1>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/D}%
-    \includegraphics<2>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/P}%
-    \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/NP0}%
-    \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/NP1}
+    \includegraphics<1>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/rips_dense1/surf}%
+    \includegraphics<2>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/rips_dense1/samples}%
+    \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/rips_dense1/skeleton}%
+    \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/rips_dense2/skeleton}
   \end{textblock*}
+
+  % \begin{textblock*}{12cm}(0.5cm,4.5cm)
+  %   \includegraphics<1>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/D}%
+  %   \includegraphics<2>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/P}%
+  %   \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/NP0}%
+  %   \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/NP1}
+  % \end{textblock*}
 \end{frame}
 
 \begin{frame}
@@ -52,16 +59,26 @@
   \begin{textblock*}{11cm}(1cm,2cm)
     Sublevel set $B_\omega$ that \emph{surrounds} $D$.\vspace{1ex}
 
-    \only<2,3>{Samples $Q_0, Q_1\subset P$ near $B_\omega$\vspace{1ex}}
+    \only<2-4>{Samples $Q_0, Q_1\subset P$ near $B_\omega$\vspace{1ex}}
 
-    \only<3>{Rips tells us about $(P^\delta, Q_0^\delta)\hookrightarrow (P^\delta, Q_1^\delta)$}
+    \only<3-4>{Rips tells us about $(P^\delta, Q_0^\delta)\hookrightarrow (P^\delta, Q_1^\delta)$}
   \end{textblock*}
 
   \begin{textblock*}{12cm}(0.5cm,4.5cm)
     \includegraphics<1>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/B0}%
-    \includegraphics<2>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/NQ0}%
-    \includegraphics<2>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/NQ1}%
-    \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/PQ0}%
-    \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/PQ1}
+    \includegraphics<2>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/rips_dense1/Qskeleton}%
+    \includegraphics<2>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/rips_dense2/Qskeleton}%
+    \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/rips_dense1/PQcover}%
+    \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/rips_dense2/PQcover}%
+    \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/rips_dense1/complex_nosurf}%
+    \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/rips_dense2/complex_nosurf}
   \end{textblock*}
+
+  % \begin{textblock*}{12cm}(0.5cm,4.5cm)
+  %   \includegraphics<1>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/B0}%
+  %   \includegraphics<2>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/NQ0}%
+  %   \includegraphics<2>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/NQ1}%
+  %   \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/PQ0}%
+  %   \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/PQ1}
+  % \end{textblock*}
 \end{frame}

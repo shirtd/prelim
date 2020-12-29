@@ -39,17 +39,17 @@ def grid_coord(v, N):
 
 if __name__ == "__main__":
     # DIR = os.path.join('figures', 'cover')
-    DIR = os.path.join('figures', 'rips2')
+    DIR = os.path.join('figures', 'rips_dense2')
     if not os.path.exists(DIR):
         os.mkdir(DIR)
 
     SAVE = True
 
-    MOD = 4
+    MOD = 2
     AMT = 1
-    OFF = 1.0 * 2
+    OFF = 0.8 * 2
     N, WIDTH, HEIGHT = 32, 2, 1
-    NOISE_AMT = 0.2
+    NOISE_AMT = 0.1
     THRESH = OFF * (np.sqrt(2 * (2 / N) ** 2) / 2 + NOISE_AMT)
 
     # N, WIDTH, HEIGHT = 512, 2, 1
@@ -65,7 +65,7 @@ if __name__ == "__main__":
 
     # P = np.array([[Y[i,j]-1, X[i,j]+1, G[i,j]] for i in range(G.shape[0]) for j in range(G.shape[1]) if G[i,j] > 0.03 and np.random.rand() > 1/AMT]) # *G.max()
     # P = np.array([[Y[i,j]-1, X[i,j]+1, G[i,j]] for i in range(G.shape[0]) for j in range(G.shape[1]) if np.random.rand() < 1/AMT and G[i,j] >= CUTS[0] and i % MOD == 1 and j % MOD == 3]) # *G.max()
-    P = np.array([[Y[i,j]-1, X[i,j]+1, G[i,j]] for i in range(G.shape[0]) for j in range(G.shape[1]) if i % MOD == 2 and j % MOD == 2]) # *G.max()
+    P = np.array([[Y[i,j]-1, X[i,j]+1, G[i,j]] for i in range(G.shape[0]) for j in range(G.shape[1]) if i % MOD == 0 and j % MOD == 0]) # *G.max()
 
     NOISE = np.hstack(((2*np.random.rand(len(P), 2) - 1) * NOISE_AMT/2, np.zeros((len(P),1))))
     # PN = P + NOISE

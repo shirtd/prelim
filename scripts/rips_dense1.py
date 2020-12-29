@@ -19,7 +19,7 @@ SURF_ARGS = {   'A' : {'min' : CUTS[0], 'max' : CUTS[1],    'color' : COLOR['gre
                 'C' : {'min' : CUTS[2], 'max' : CUTS[3],    'color' : COLOR['purple'],  'opacity' : 0.5},
                 'D' : {'min' : CUTS[3], 'max' : CUTS[4],    'color' : COLOR['yellow'],  'opacity' : 0.5}}
 
-OMEGA = CUTS[2]
+OMEGA = CUTS[1]
 CONT_ARGS = {   'A_c' : {'scalar' : [CUTS[0]], 'color' : COLOR['black']},
                 'B_c' : {'scalar' : [CUTS[2]], 'color' : COLOR['blue']},
                 'C_c' : {'scalar' : [CUTS[3]], 'color' : COLOR['purple']}}
@@ -39,17 +39,17 @@ def grid_coord(v, N):
 
 if __name__ == "__main__":
     # DIR = os.path.join('figures', 'cover')
-    DIR = os.path.join('figures', 'rips2')
+    DIR = os.path.join('figures', 'rips_dense1')
     if not os.path.exists(DIR):
         os.mkdir(DIR)
 
     SAVE = True
 
-    MOD = 4
+    MOD = 2
     AMT = 1
-    OFF = 1.0 * 2
+    OFF = 0.8
     N, WIDTH, HEIGHT = 32, 2, 1
-    NOISE_AMT = 0.2
+    NOISE_AMT = 0.1
     THRESH = OFF * (np.sqrt(2 * (2 / N) ** 2) / 2 + NOISE_AMT)
 
     # N, WIDTH, HEIGHT = 512, 2, 1
@@ -65,7 +65,7 @@ if __name__ == "__main__":
 
     # P = np.array([[Y[i,j]-1, X[i,j]+1, G[i,j]] for i in range(G.shape[0]) for j in range(G.shape[1]) if G[i,j] > 0.03 and np.random.rand() > 1/AMT]) # *G.max()
     # P = np.array([[Y[i,j]-1, X[i,j]+1, G[i,j]] for i in range(G.shape[0]) for j in range(G.shape[1]) if np.random.rand() < 1/AMT and G[i,j] >= CUTS[0] and i % MOD == 1 and j % MOD == 3]) # *G.max()
-    P = np.array([[Y[i,j]-1, X[i,j]+1, G[i,j]] for i in range(G.shape[0]) for j in range(G.shape[1]) if i % MOD == 2 and j % MOD == 2]) # *G.max()
+    P = np.array([[Y[i,j]-1, X[i,j]+1, G[i,j]] for i in range(G.shape[0]) for j in range(G.shape[1]) if i % MOD == 0 and j % MOD == 0]) # *G.max()
 
     NOISE = np.hstack(((2*np.random.rand(len(P), 2) - 1) * NOISE_AMT/2, np.zeros((len(P),1))))
     # PN = P + NOISE
@@ -134,7 +134,7 @@ if __name__ == "__main__":
 
     bp.visible = False
 
-    bq = mlab.points3d(PN[Qidx,0], PN[Qidx,1], Z[Qidx], color=COLOR['blue'], scale_factor=2*THRESH, opacity=0.2)
+    bq = mlab.points3d(PN[Qidx,0], PN[Qidx,1], Z[Qidx], color=COLOR['green'], scale_factor=2*THRESH, opacity=0.2)
     bq.actor.property.lighting = False
     bq.actor.property.frontface_culling = True
     bq.glyph.glyph_source.glyph_source.phi_resolution = 32
@@ -262,7 +262,7 @@ if __name__ == "__main__":
 
         surf['cut']['D']['opacity'] = 0.1
         surf['cut']['C']['opacity'] = 0.1
-
+        surf['cut']['B']['opacity'] = 0.1
 
         surf.save(os.path.join(DIR, 'Qskeleton.png'), (3000,3000))
 
@@ -273,6 +273,7 @@ if __name__ == "__main__":
 
         surf['cut']['D']['opacity'] = 0.5
         surf['cut']['C']['opacity'] = 0.5
+        surf['cut']['B']['opacity'] = 0.5
 
         # t.parent.visible = False
         # t.visible = True
@@ -293,11 +294,13 @@ if __name__ == "__main__":
 
         surf['cut']['D']['opacity'] = 0.1
         surf['cut']['C']['opacity'] = 0.1
+        surf['cut']['B']['opacity'] = 0.1
 
         surf.save(os.path.join(DIR, 'Qcover.png'), (3000,3000))
 
         surf['cut']['D']['opacity'] = 0.5
         surf['cut']['C']['opacity'] = 0.5
+        surf['cut']['B']['opacity'] = 0.5
 
         bp.visible = True
         pq.visible = False
