@@ -1,0 +1,67 @@
+% !TeX root = ../main.tex
+
+\begin{frame}
+  \begin{textblock*}{11cm}(0cm,1cm)
+    \begin{small}
+    \begin{description}
+      \item[Goal:] Show $\ell : \hom_0(\overline{B_\omega}, \overline{D})\to \hom_0(\overline{Q^\delta},\overline{P^\delta})$ is injective
+      \item[Method:] Check
+      % \only<1>{Check $\mathbf{dim}~\hom_0(D\setminus B_\omega)\leq \mathbf{dim}~\hom_0(\overline{Q^\delta}, \overline{P^\delta})$.}
+      \[\only<1-2>{ {\color<2>{red} \mathbf{rk}~\hom_0((\overline{Q_1^\delta}, \overline{P^\delta})\hookrightarrow (\overline{Q_0^\delta}, \overline{P^\delta}))}\geq \mathbf{dim}~\hom_0(\rips^\delta(P\setminus Q_{0}))}
+        \only<3-4>{ {\color<4>{red} \mathbf{rk}~\hom_d((P^\delta, Q_0^\delta)\hookrightarrow (P^\delta, Q_1^\delta))} \geq \mathbf{dim}~\hom_0(\rips^\delta(P\setminus Q_{0}))}.\]
+      % \item[Method:] Check $\mathbf{dim}~\hom_0(D\setminus B_\omega)\leq \mathbf{dim}~\hom_0(\overline{Q^\delta}, \overline{P^\delta})$
+      \item[Problems:]
+    \end{description}
+    \end{small}
+  \end{textblock*}
+
+  \begin{textblock*}{12cm}(1cm,4.75cm)
+    \begin{small}
+    \begin{enumerate}[a]
+      \item $\mathbf{dim}~\hom_0(\overline{Q^\delta}, \overline{P^\delta})\geq \mathbf{dim}~\hom_0(D\setminus B_\omega)\nRightarrow \ell$ injective,
+      \item $\mathbf{dim}~\hom_0(D\setminus B_\omega)$ unknown
+      \item Cannot compute homology groups of complements
+      \item Cannot compute homology of offsets
+    \end{enumerate}
+    \end{small}
+  \end{textblock*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Overview: Computing the TCC}
+
+  \begin{textblock*}{11cm}(1cm,2cm)
+    Unknown $c$-Lipschitz function $f : D\to \R$.\vspace{1ex}
+
+    \only<2,3>{Finite sample $P\subset D$ of $f$.\vspace{1ex}}
+
+    \only<3>{Pair of neighborhood graphs on $P$.}
+  \end{textblock*}
+
+  \begin{textblock*}{12cm}(0.5cm,4.5cm)
+    \includegraphics<1>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/D}%
+    \includegraphics<2>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/P}%
+    \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/NP0}%
+    \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/NP1}
+  \end{textblock*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Overview: Computing the TCC}
+
+  \begin{textblock*}{11cm}(1cm,2cm)
+    Sublevel set $B_\omega$ that \emph{surrounds} $D$.\vspace{1ex}
+
+    \only<2,3>{Samples $Q_0, Q_1\subset P$ near $B_\omega$\vspace{1ex}}
+
+    \only<3>{Rips tells us about $(P^\delta, Q_0^\delta)\hookrightarrow (P^\delta, Q_1^\delta)$}
+  \end{textblock*}
+
+  \begin{textblock*}{12cm}(0.5cm,4.5cm)
+    \includegraphics<1>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/B0}%
+    \includegraphics<2>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/NQ0}%
+    \includegraphics<2>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/NQ1}%
+    \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/PQ0}%
+    \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/PQ1}
+  \end{textblock*}
+\end{frame}

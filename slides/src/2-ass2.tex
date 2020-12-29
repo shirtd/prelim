@@ -1,0 +1,72 @@
+% !TeX root = ../main.tex
+
+\begin{frame}
+  \begin{textblock*}{11cm}(0cm,1cm)
+    \begin{small}
+    \begin{description}
+      \item[Goal:] Show $\ell : \hom_0(\overline{B_\omega}, \overline{D})\to \hom_0(\overline{Q^\delta},\overline{P^\delta})$ is injective
+      \item[Method:] Check
+      \[  \only<1-2>{{\color<2>{red}\mathbf{dim}~\hom_0(\overline{Q^\delta}, \overline{P^\delta})}\geq \mathbf{dim}~\hom_0(D\setminus B_\omega)}
+          \only<3-4>{\mathbf{rk}~\hom_0((\overline{Q_1^\delta}, \overline{P^\delta})\hookrightarrow (\overline{Q_0^\delta}, \overline{P^\delta}))\geq {\color<4>{red}\mathbf{dim}~\hom_0(D\setminus B_\omega)}}.\]
+      % \item[Method:] Check $\mathbf{dim}~\hom_0(D\setminus B_\omega)\leq \mathbf{dim}~\hom_0(\overline{Q^\delta}, \overline{P^\delta})$
+      \item[Problems:]
+    \end{description}
+    \end{small}
+  \end{textblock*}
+
+  \begin{textblock*}{11cm}(1cm,4.75cm)
+    \begin{small}
+    \begin{enumerate}[a]
+      \item $\mathbf{dim}~\hom_0(\overline{Q^\delta}, \overline{P^\delta})\geq \mathbf{dim}~\hom_0(D\setminus B_\omega)\nRightarrow \ell$ injective,
+      \item $\mathbf{dim}~\hom_0(D\setminus B_\omega)$ unknown
+      \item Cannot compute homology groups of complements
+      \item Cannot compute homology of offsets
+    \end{enumerate}
+    \end{small}
+  \end{textblock*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{{\small Assumption 2\hspace{1ex} \only<2>{{\color{black} $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{0})$ is \emph{injective}.}}}}
+
+  % \end{tikzcd}\end{equation}
+  \begin{textblock*}{11cm}(1cm,2cm)
+    \begin{small}
+      \only<1,2>{\begin{enumerate}[a]
+        \setcounter{enumi}{1}
+        % \item $\mathbf{dim}~\hom_0(\overline{Q^\delta}, \overline{P^\delta})\geq \mathbf{dim}~\hom_0(D\setminus B_\omega) \nRightarrow \ell$ injective,
+        \item $\mathbf{dim}~\hom_0(D\setminus B_\omega)$ unknown
+        % \item Cannot compute homology groups of complements
+        % \item Cannot compute homology of offsets
+      \end{enumerate}}
+
+      \only<2>{Let $B_0 = B_{\omega-2c\delta}$}
+
+      \only<3>{
+        \begin{lemma}\label{lem:assumption2}
+          If $\hom_0(D\setminus B_\omega\hookrightarrow D\setminus B_{0})$ is injective then
+          \[\mathbf{dim}~\hom_0(\rips^\delta(P\setminus Q_{0})) \geq \mathbf{dim}~\hom_0(D\setminus B_\omega).\]
+        \end{lemma}}
+    \end{small}
+  \end{textblock*}
+
+  \begin{textblock*}{4cm}(1cm,6cm)
+    \centering
+    \includegraphics<2>[trim=0 300 0 400, clip, width=\linewidth]{figures/B0only}
+  \end{textblock*}
+
+  \begin{textblock*}{4cm}(4.4cm,3.5cm)
+    \centering
+    \includegraphics<2>[trim=0 300 0 400, clip, width=\linewidth]{figures/Bwonly}
+  \end{textblock*}
+
+  \begin{textblock*}{4cm}(8cm,6cm)
+    \centering
+    \includegraphics<2>[trim=0 300 0 400, clip, width=\linewidth]{figures/B1only}
+  \end{textblock*}
+
+  \begin{textblock*}{12cm}(1cm,5.5cm)
+    \includegraphics<3>[trim=300 200 200 200, clip, width=0.4\textwidth]{../scripts/figures/surf/ass2_C_top.png}\hspace{6ex}%
+    \includegraphics<3>[trim=300 200 200 200, clip, width=0.4\textwidth]{../scripts/figures/surf/ass2_B_top.png}
+  \end{textblock*}
+\end{frame}

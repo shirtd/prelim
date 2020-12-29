@@ -42,7 +42,7 @@ if __name__ == "__main__":
     if not os.path.exists(DIR):
         os.mkdir(DIR)
 
-    SAVE = True
+    SAVE = False
 
     AMT = 3
     OFF = 1

@@ -1,0 +1,39 @@
+% !TeX root = ../main.tex
+
+\begin{frame}
+  \begin{textblock*}{11cm}(0cm,1cm)
+    \begin{small}
+    \begin{description}
+      \item[Goal:] Show $\ell : \hom_0(\overline{B_\omega}, \overline{D})\to \hom_0(\overline{Q^\delta},\overline{P^\delta})$ is injective
+      \item[Method:] Check
+      % \only<1>{Check $\mathbf{dim}~\hom_0(D\setminus B_\omega)\leq \mathbf{dim}~\hom_0(\overline{Q^\delta}, \overline{P^\delta})$.}
+      \[\only<1-2>{ {\color<2>{red} \mathbf{rk}~\hom_d((P^\delta, Q_0^\delta)\hookrightarrow (P^\delta, Q_1^\delta))}\geq \mathbf{dim}~\hom_0(\rips^\delta(P\setminus Q_{0}))}
+        \only<3>{ \mathbf{rk}~\hom_d(\rips^\delta(P, Q_0)\hookrightarrow \rips^\delta(P, Q_1)) \geq \mathbf{dim}~\hom_0(\rips^\delta(P\setminus Q_{0}))}.\]
+      % \item[Method:] Check $\mathbf{dim}~\hom_0(D\setminus B_\omega)\leq \mathbf{dim}~\hom_0(\overline{Q^\delta}, \overline{P^\delta})$
+      \item[Problems:]
+    \end{description}
+    \end{small}
+  \end{textblock*}
+
+  \begin{textblock*}{12cm}(1cm,4.75cm)
+    \begin{small}
+    \begin{enumerate}[a]
+      \item $\mathbf{dim}~\hom_0(\overline{Q^\delta}, \overline{P^\delta})\geq \mathbf{dim}~\hom_0(D\setminus B_\omega)\nRightarrow \ell$ injective,
+      \item $\mathbf{dim}~\hom_0(D\setminus B_\omega)$ unknown
+      \item Cannot compute homology groups of complements
+      \item Cannot compute homology of offsets
+    \end{enumerate}
+    \end{small}
+  \end{textblock*}
+\end{frame}
+\begin{frame}
+  \frametitle{{\small Assumption 2, Duality, and the Algorithmic TCC}}
+
+  \begin{textblock*}{11cm}(1cm,2cm)
+    \begin{small}\begin{theorem}[Algorithmic TCC]
+        If
+        \[ \mathbf{rk}~\hom_d(\rips^\delta(P,Q_0)\hookrightarrow \rips^{2\delta}(P, Q_1))\geq \mathbf{dim}~\hom_0(\rips^\delta(P\setminus Q_{0}))\]
+        then $D\setminus B_\omega\subseteq P^\delta$ and $Q_0^\delta$ surrounds $P^\delta$ in $D$.
+    \end{theorem}\end{small}
+  \end{textblock*}
+\end{frame}

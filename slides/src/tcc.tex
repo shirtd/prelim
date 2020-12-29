@@ -1,0 +1,37 @@
+% !TeX root = ../main.tex
+
+\begin{frame}
+  \frametitle{Overview: The Geometric Case}
+
+  \begin{textblock*}{11cm}(1cm,2cm)
+    Unknown $c$-Lipschitz function $f : D\to \R$.\vspace{1ex}
+
+    \only<2,3>{Finite sample $P\subset D$ of $f$.\vspace{1ex}}
+
+    \only<3>{Coverage radius $\delta > 0$, covered region $P^\delta$.}
+  \end{textblock*}
+
+  \begin{textblock*}{12cm}(0.5cm,5cm)
+    \includegraphics<1>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/D}%
+    \includegraphics<2>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/P}%
+    \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/CP}
+  \end{textblock*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Overview: The Geometric Case}
+
+  \begin{textblock*}{11cm}(1cm,2cm)
+    Sublevel set $B_\omega$ that surrounds $D$.\vspace{1ex}
+
+    \only<2,3>{Sample $Q$ such that $Q^\delta\subseteq B_\omega$\vspace{1ex}}
+
+    \only<3>{Set $Q = P\cap B_{\omega-c\delta}$}
+  \end{textblock*}
+
+  \begin{textblock*}{12cm}(0.5cm,5cm)
+    \includegraphics<1>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/B0}%
+    \includegraphics<2>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/Q0}%
+    \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/CQ0}
+  \end{textblock*}
+\end{frame}
