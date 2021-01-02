@@ -27,32 +27,34 @@
   \begin{textblock*}{12cm}(1cm,4.5cm)
     \includegraphics<1,2>[trim=100 100 100 100, clip, width=0.3\textwidth]{figures/component}
     \includegraphics<1,2>[trim=100 100 100 100, clip, width=0.3\textwidth]{figures/loop}
-    \includegraphics<1,2>[trim=100 100 100 100, clip, width=0.3\textwidth]{figures/void}
+    \includegraphics<1,2>[trim=500 500 500 500, clip, width=0.3\textwidth]{figures/void_light}
   \end{textblock*}
   \begin{textblock*}{8cm}(1.5cm,4.25cm)
-    \includegraphics<3>[trim=200 400 200 400, clip, width=0.7\textwidth]{figures/torus1}
-    \includegraphics<4>[trim=200 400 200 400, clip, width=0.7\textwidth]{figures/torus2}
+    \includegraphics<3>[trim=200 400 200 400, clip, width=0.7\textwidth]{figures/torus1_light}
+    \includegraphics<4>[trim=200 400 200 400, clip, width=0.7\textwidth]{figures/torus2_light}
   \end{textblock*}
   \begin{textblock*}{4cm}(8.5cm,6cm)
     \only<3,4>{{\small $\beta_0 = 1$\\$\beta_1 = 2$\\$\beta_2 = 1$}}
   \end{textblock*}
 \end{frame}
 
-
 \begin{frame}
-  \frametitle{Homology of Simplicial Complexes}
+  \frametitle{Relative Homology and Separation}
 
   \begin{textblock*}{11cm}(1cm,2cm)
     \begin{small}
-      The \emph{boundary} of a $k$-simplex is a $(k-1)$ cycle.\vspace{1ex}
+      The \emph{relative homology} of a pair $(X,Y)$ is denoted $\hom_k(X, Y)$.\vspace{2ex}
 
-      \only<2>{A $k$-cycle in has non-trivial homology if it is not the boundary of a $(k+1)$-\emph{chain}.}
+      \only<2,3>{We are interested in the homology of \emph{surrounding pairs}.}
     \end{small}
   \end{textblock*}
 
-  \begin{textblock*}{11cm}(1cm,4.5cm)
-    \includegraphics[trim=0 0 -400 0, clip, width=0.3\textwidth]{figures/edge_bdy}
-    \includegraphics[trim=0 0 -200 0, clip, width=0.3\textwidth]{figures/tri_loop}
-    \includegraphics[trim=-200 0 0 0, clip, width=0.3\textwidth]{figures/tet_void}
+  \begin{textblock*}{10cm}(1cm,4cm)
+    \centering
+    \includegraphics<1,2>[width=\textwidth]{figures/h1_rel2}
+    \includegraphics<2>[width=\textwidth]{figures/h2_rel2}
+    \includegraphics<3>[width=\textwidth]{figures/h1_rel}
+    \includegraphics<3>[width=\textwidth]{figures/h2_rel}
   \end{textblock*}
+
 \end{frame}

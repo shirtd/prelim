@@ -4,11 +4,10 @@
   \begin{textblock*}{11cm}(0cm,1cm)
     \begin{small}
     \begin{description}
-      \item[Goal:] Show $\ell : \hom_0(\overline{B_\omega}, \overline{D})\to \hom_0(\overline{Q^\delta},\overline{P^\delta})$ is injective
+      \item[Goal:] Show $\ell : \hom_0(\overline{B_\omega}, \overline{D})\to \hom_0(\overline{Q^\delta},\overline{P^\delta})$ is injective.
       \item[Method:] Check
       % \only<1>{Check $\mathbf{dim}~\hom_0(D\setminus B_\omega)\leq \mathbf{dim}~\hom_0(\overline{Q^\delta}, \overline{P^\delta})$.}
-      \[\only<1-2>{ {\color<2>{red} \mathbf{rk}~\hom_0((\overline{Q_1^\delta}, \overline{P^\delta})\hookrightarrow (\overline{Q_0^\delta}, \overline{P^\delta}))}\geq \mathbf{dim}~\hom_0(\rips^\delta(P\setminus Q_{0}))}
-        \only<3-4>{ {\color<4>{red} \mathbf{rk}~\hom_d((P^\delta, Q_0^\delta)\hookrightarrow (P^\delta, Q_1^\delta))} \geq \mathbf{dim}~\hom_0(\rips^\delta(P\setminus Q_{0}))}.\]
+      \[{\color<2>{red} \mathbf{rk}~\hom_d((P^\delta, Q_0^\delta)\hookrightarrow (P^\delta, Q_1^\delta))} \geq \mathbf{dim}~\hom_0(D\setminus B_\omega)).\]
       % \item[Method:] Check $\mathbf{dim}~\hom_0(D\setminus B_\omega)\leq \mathbf{dim}~\hom_0(\overline{Q^\delta}, \overline{P^\delta})$
       \item[Problems:]
     \end{description}
@@ -19,9 +18,8 @@
     \begin{small}
     \begin{enumerate}[a]
       \item $\mathbf{dim}~\hom_0(\overline{Q^\delta}, \overline{P^\delta})\geq \mathbf{dim}~\hom_0(D\setminus B_\omega)\nRightarrow \ell$ injective,
+      \item Cannot compute homology of offsets,
       \item $\mathbf{dim}~\hom_0(D\setminus B_\omega)$ unknown
-      \item Cannot compute homology groups of complements
-      \item Cannot compute homology of offsets
     \end{enumerate}
     \end{small}
   \end{textblock*}
@@ -33,16 +31,13 @@
   \begin{textblock*}{11cm}(1cm,2cm)
     Unknown $c$-Lipschitz function $f : D\to \R$.\vspace{1ex}
 
-    \only<2,3>{Finite sample $P\subset D$ of $f$.\vspace{1ex}}
-
-    \only<3>{Pair of neighborhood graphs on $P$.}
+    \only<2>{Sublevel sets $B_\omega\subseteq B_1$ that \emph{surround} $D$.}
   \end{textblock*}
 
-  \begin{textblock*}{12cm}(0.5cm,4.5cm)
-    \includegraphics<1>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/rips_dense1/surf}%
-    \includegraphics<2>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/rips_dense1/samples}%
-    \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/rips_dense1/skeleton}%
-    \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/rips_dense2/skeleton}
+  \begin{textblock*}{12cm}(0.5cm,5cm)
+    \includegraphics<1>[trim=100 500 100 700, clip, width=0.4\textwidth]{figures/rips_dense1_2/surf}%
+    \includegraphics<2>[trim=100 500 100 700, clip, width=0.4\textwidth]{figures/rips_dense1_2/Bonly}\hspace{6ex}%
+    \includegraphics<2>[trim=100 500 100 700, clip, width=0.4\textwidth]{figures/rips_dense2_2/Bonly}%
   \end{textblock*}
 
   % \begin{textblock*}{12cm}(0.5cm,4.5cm)
@@ -57,21 +52,43 @@
   \frametitle{Overview: Computing the TCC}
 
   \begin{textblock*}{11cm}(1cm,2cm)
-    Sublevel set $B_\omega$ that \emph{surrounds} $D$.\vspace{1ex}
+    Finite sample $P\subset D$ of $f$.\vspace{1ex}
 
-    \only<2-4>{Samples $Q_0, Q_1\subset P$ near $B_\omega$\vspace{1ex}}
+    \only<2>{Sub-samples $Q_0, Q_1\subset P$ between $B_\omega,B_1$}
 
-    \only<3-4>{Rips tells us about $(P^\delta, Q_0^\delta)\hookrightarrow (P^\delta, Q_1^\delta)$}
   \end{textblock*}
 
-  \begin{textblock*}{12cm}(0.5cm,4.5cm)
-    \includegraphics<1>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/B0}%
-    \includegraphics<2>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/rips_dense1/Qskeleton}%
-    \includegraphics<2>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/rips_dense2/Qskeleton}%
-    \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/rips_dense1/PQcover}%
-    \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/rips_dense2/PQcover}%
-    \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/rips_dense1/complex_nosurf}%
-    \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/rips_dense2/complex_nosurf}
+  \begin{textblock*}{12cm}(0.5cm,5cm)
+    \includegraphics<1>[trim=100 500 100 700, clip, width=0.4\textwidth]{figures/rips_dense1_2/samples}%
+    \includegraphics<2>[trim=100 500 100 700, clip, width=0.4\textwidth]{figures/rips_dense1_2/Qsample}\hspace{6ex}%
+    \includegraphics<2>[trim=100 500 100 700, clip, width=0.4\textwidth]{figures/rips_dense2_2/Qsample}%
+  \end{textblock*}
+
+  % \begin{textblock*}{12cm}(0.5cm,4.5cm)
+  %   \includegraphics<1>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/D}%
+  %   \includegraphics<2>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/P}%
+  %   \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/NP0}%
+  %   \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/NP1}
+  % \end{textblock*}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Overview: Computing the TCC}
+
+  \begin{textblock*}{11cm}(1cm,2cm)
+    \begin{small}
+      Want to compute $\mathbf{rk}~\hom_d((P^\delta, Q_0^\delta)\hookrightarrow (P^\delta, Q_1^\delta))$\vspace{1ex}
+
+      \hspace{2ex} $\to$ equal to $\mathbf{rk}~\hom_d(\cech^\delta(P, Q_0)\hookrightarrow \cech^\delta(P,Q_1))$.
+
+    \end{small}
+
+    % \only<3-4>{Rips tells us about $(P^\delta, Q_0^\delta)\hookrightarrow (P^\delta, Q_1^\delta)$}
+  \end{textblock*}
+
+  \begin{textblock*}{12cm}(0.5cm,5cm)
+    \includegraphics<1>[trim=100 500 100 700, clip, width=0.4\textwidth]{figures/rips_dense1_2/PQcover}\hspace{6ex}%
+    \includegraphics<1>[trim=100 500 100 700, clip, width=0.4\textwidth]{figures/rips_dense3/PQcover}%
   \end{textblock*}
 
   % \begin{textblock*}{12cm}(0.5cm,4.5cm)
@@ -82,3 +99,75 @@
   %   \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/PQ1}
   % \end{textblock*}
 \end{frame}
+
+\begin{frame}
+  \frametitle{Overview: Computing the TCC}
+
+  \begin{textblock*}{11cm}(0cm,2cm)
+    \begin{description}
+      \item[Input] Pair of neighborhood graphs on $P$
+    \end{description}
+  \end{textblock*}
+
+  \begin{textblock*}{11cm}(1cm,3cm)
+  \begin{small}
+    \only<2-4>{Subgraphs on $Q_0, Q_1$.}%
+
+    \only<3>{\[\rips^\delta(P, Q_0)\hookrightarrow \cech^\delta(P, Q_0)\hookrightarrow \cech^\delta(P,Q_1)\hookrightarrow \rips^{2\delta}(P,Q_1)\]}%
+    \only<4>{\vspace{-2ex}\[\mathbf{rk}~\hom_d((P^\delta, Q_0^\delta)\hookrightarrow (P^\delta, Q_1^\delta))\geq\mathbf{rk}~\hom_d(\rips^\delta(P, Q_0)\hookrightarrow \rips^{2\delta}(P,Q_1))\]}
+  \end{small}
+  \end{textblock*}
+
+  \begin{textblock*}{12cm}(0.5cm,5cm)
+    \includegraphics<1>[trim=100 500 100 700, clip, width=0.4\textwidth]{figures/rips_dense1_2/skeleton}%
+    \includegraphics<2>[trim=100 500 100 700, clip, width=0.4\textwidth]{figures/rips_dense1_2/Qskeleton}%
+    \includegraphics<3,4>[trim=100 500 100 700, clip, width=0.4\textwidth]{figures/rips_dense1_Q/complex_nosurf}\hspace{6ex}%
+    \includegraphics<1>[trim=100 500 100 700, clip, width=0.4\textwidth]{figures/rips_dense2_2/skeleton}%
+    \includegraphics<2>[trim=100 500 100 700, clip, width=0.4\textwidth]{figures/rips_dense2_2/Qskeleton}%
+    \includegraphics<3,4>[trim=100 500 100 700, clip, width=0.4\textwidth]{figures/rips_dense2_Q/complex_nosurf}
+    % \includegraphics<2>[trim=100 500 100 700, clip, width=0.45\textwidth]{figures/rips_dense1_2/PQcover}%
+    % \includegraphics<2>[trim=100 500 100 700, clip, width=0.45\textwidth]{figures/rips_dense3/PQcover}%
+    % \includegraphics<3>[trim=100 500 100 700, clip, width=0.45\textwidth]{figures/rips_dense1_2/complex_nosurf}%
+    % \includegraphics<3>[trim=100 500 100 700, clip, width=0.45\textwidth]{figures/rips_dense2_2/complex_nosurf}
+  \end{textblock*}
+
+  % \begin{textblock*}{12cm}(0.5cm,4.5cm)
+  %   \includegraphics<1>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/B0}%
+  %   \includegraphics<2>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/NQ0}%
+  %   \includegraphics<2>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/NQ1}%
+  %   \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/PQ0}%
+  %   \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/PQ1}
+  % \end{textblock*}
+\end{frame}
+
+% \begin{frame}
+%   \frametitle{Overview: Computing the TCC}
+%
+%   \begin{textblock*}{11cm}(1cm,2cm)
+%     \begin{small}
+%       Want to compute $\mathbf{rk}~\hom_d((P^\delta, Q_0^\delta)\hookrightarrow (P^\delta, Q_1^\delta))$\vspace{1ex}
+%
+%       \hspace{2ex} $\to$ equal to $\mathbf{rk}~\hom_d(\cech^\delta(P, Q_0)\hookrightarrow \cech^\delta(P,Q_1))$\vspace{1ex}
+%
+%       \only<2>{\[\rips^\delta(P, Q_0)\hookrightarrow \cech^\delta(P, Q_0)\hookrightarrow \cech^\delta(P,Q_1)\hookrightarrow \rips^{2\delta}(P,Q_1)\]}
+%
+%     \end{small}
+%
+%     % \only<3-4>{Rips tells us about $(P^\delta, Q_0^\delta)\hookrightarrow (P^\delta, Q_1^\delta)$}
+%   \end{textblock*}
+%
+%   \begin{textblock*}{12cm}(0.5cm,4.5cm)
+%     \includegraphics<1>[trim=100 500 100 700, clip, width=0.45\textwidth]{figures/rips_dense1_2/PQcover}%
+%     \includegraphics<1>[trim=100 500 100 700, clip, width=0.45\textwidth]{figures/rips_dense3/PQcover}%
+%     \includegraphics<2>[trim=100 500 100 700, clip, width=0.45\textwidth]{figures/rips_dense1_2/complex_nosurf}%
+%     \includegraphics<2>[trim=100 500 100 700, clip, width=0.45\textwidth]{figures/rips_dense2_2/complex_nosurf}
+%   \end{textblock*}
+%
+%   % \begin{textblock*}{12cm}(0.5cm,4.5cm)
+%   %   \includegraphics<1>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/B0}%
+%   %   \includegraphics<2>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/NQ0}%
+%   %   \includegraphics<2>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/NQ1}%
+%   %   \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/PQ0}%
+%   %   \includegraphics<3>[trim=50 200 50 200, clip, width=0.45\textwidth]{figures/nbhd/PQ1}
+%   % \end{textblock*}
+% \end{frame}
