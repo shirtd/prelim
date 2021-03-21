@@ -1,0 +1,68 @@
+% !TeX root = ../main.tex
+
+TDA is concerned with the ``shape of data,'' and has found applications in
+neuroscience~\cite{saggar2018towards, sizemore2019importance},
+structural biology~\cite{gameiro2015topological,kovacev2016using,dey2018protein},
+medical imaging~\cite{carlsson2008local,robins2011theory,bendich2016persistent},
+geometry processing~\cite{skraba2010persistence,poulenard2018topological,bruel2020topology},
+and machine learning~\cite{clough2019explicit,chen2019topological,carlsson2020topological,gabrielsson2020topology}, to name a few.
+A number of approaches can be considered topological in nature, and \textbf{todo}.
+Among these are \textbf{todo}.
+However, much of the theoretical work over the last decade has been focused on \emph{topological peristence}.
+
+Persistent homology was first introduced by Edelsbrunner, Letscher, and Zomorodian in 2002\cite{edelsbrunner02simplification}.
+This work introduced the standard \emph{reduction algorithm} for computing the persistent homology of simplicial complexes in $\R^3$ with $\Z_2$ coefficients.
+The output is a \emph{persistence diagram} or \emph{barcode} that encodes the ``birth'' and ``death'' of homological features of the complex.
+Later work by Zomorodian and Carlsson provided a more general form of the reduction algortithm for filtered spaces with coefficients in a field\cite{zomorodian05computing}.
+This work also introduced the notion of an \emph{persistence modules} and persistence barcodes as \emph{interval decompositions} of these modules.
+\textbf{First instance of the structure theorem?}
+This set the stage for a series of work that established stability results for general persistence modules.
+
+Initial stability results by Cohen-Steiner, Edelesbrunner, and Harer were proved for the persistent homology of real-valued functions~\cite{cohensteiner07stability}.
+This work was later extended to persistence modules in general by Chazal et al. as the \emph{algebraic stability theorem}~\cite{chazal09proximity}.
+In this work the notion of an \emph{$\delta$-interleaving} of persistence modules is introduced.
+The algebraic stability theorem roughly states that the existence of a $\delta$-interleaving indicates a $\delta$-matching between their persistence barcodes.
+Later work on the \emph{isometry theorem} showed that the converse is also true~\cite{todo}.
+Importantly, the isometry theorem established the relationship between interleavings of persistence and the \emph{bottleneck distance} between their barcodes, providing a computable metric on the space of persistence diagrams that is stable with respect to the Gromov-Hausdorff distance between spaces.
+
+Additional work has been done on persistence modules in general including multidimensional persistence, categorical interpretations, \textbf{todo}.
+For persistent homology, this robust foundation allowed researchers to establish important inference and approximation results in the more general language of persistence modules.
+Among these is relevant work by Chazal et al. that proved stability results for the persistent homology of scalar-valued functions approximated by Vietoris-Rips complexes~\cite{chazal09analysis}.
+This work showed that, given a sample $P$ of a scalar valued function that \emph{covers} the domain of the function at scale $\delta$, the persistent homology of a nested sequence of Rips complexes filtered by function values on its vertices is $\delta$-interleaved with that of the scalar field itself.
+Later work applied this theory to approximate the persistent homology of probability density function~\cite{chazal2013persistence}.
+
+This body of work comprises much of the relevant theoretical foundations for persistent homology for data analysis in general.
+The input is a simplicial complex that represents a discretization of some unknown domain.
+The simplicial complex is then \emph{filtered} by a scalar valued function on its vertices, representing some underlying process on the domain.
+The standard reduction algorithm~\cite{edelsbrunner02simplification,zomorodian05computing} can then be used to compute the persistent homology of this filtered simplicial complex.
+Stability of results state that, provided an interleaving of the persistence module computed in theory, the corresponding persistence barcode is an approximation of that of the function itself~\cite{cohensteiner07stability,chazal09proximity}.
+
+A number of these steps have since been improved, and a number of useful tools from algebraic topology have been leveraged to offer different perspectives on persistent homology in general.
+Importantly, the original reduction algorithm has been improved in a number of ways, including \textbf{todo distibuted, parallel, row/column operations, chunking, twisting, bopping}.
+A key observation in computing persistent homology efficiently is to compute \emph{persistent cohomology}.
+As vector spaces, cohomology is dual to homology.
+In the late 20th century the theory of algebraic topology established the relationship between homology and cohomology for general space~\cite{spanier66algebraic,munkres84elements,bredon93,hatcher01}.
+However, for reasonable spaces it is known that the persistence barcodes produced by persistent homology and cohomology are the same.
+This allows one to compute persistent cohomology instead of persistent homology, and this is often more efficient.
+In fact, the reduction algorithm is shown to be the same for persistent homology an cohomology, simply acting in opposite directions~\cite{desilva11duality}.
+However, while the barcodes produced are the same, the information captured by homology and cohomology is not, and interesting applications specifically require persistent cohomology~\cite{desilva11circular}.
+This work makes use of \emph{representative cocycles} that are produced by the reduction algorithm.
+These representatives, and thei dual representative cycles in homology, are often considered a by-product of the homology computation.
+In fact, many recent modifications to the reduction algorithm explicitly abandon these representatives for efficiency~\cite{todo}.
+However, duality in persistent homology lives in these representatives, and how \textbf{todo}.
+
+Perhaps the first example of duality in persistent homology is the Topological Coverage Criterion~\cite{desilva07coverage}.
+While subtle, this work utilized Alexander Duality in their proof to relate the top-dimensional relative homology of a space modulo its boundary to the zero dimensional homology of the interior.
+This allows their proof to be greatly simplified by reasoning about zero dimensional homology, connectedness, instead of connectedness in arbitrary dimension.
+% Later work attempted to make this approach more explicit, and integrated\textbf{todo}~\cite{cavanna2017when}.
+While this is an interesting example of how duality can be applied as a method of proof, the use of Alexander Duality in this case is lacking.
+In fact, much of the work on duality in persistent homology lacks rigor
+A fascinating subset of algebraic topology in general works towards general duality theorems that establish the relationship between
+
+\begin{itemize}
+  \item Other work on duality in persistent homology
+  \item Other work in homological sensor networks
+  \item Duality, complements of spaces, and relative persistence
+  \item Relationship to scalar fields and level sets
+  \item Extended persistence (and local homology?)
+\end{itemize}

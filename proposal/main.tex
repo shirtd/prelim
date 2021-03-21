@@ -1,0 +1,36 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsthm,enumitem}
+\usepackage{tikz-cd,xspace,graphicx,xcolor}
+\usepackage[margin=1in]{geometry}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{definition}{Definition}
+
+\input{macros}
+
+\title{Working Title}
+\author{Kirk P. Gardner}
+
+\begin{document}
+
+% \maketitle
+\paragraph{Introduction}
+\input{src/introduction2}
+
+\paragraph{Problem Statement}
+\input{src/statement}
+
+\paragraph{Objectives}
+\input{src/objectives}
+
+\paragraph{Related Work}
+\input{src/related}
+
+\bibliographystyle{unsrt}
+\bibliography{bibliography}
+
+% \appendix
+
+\end{document}

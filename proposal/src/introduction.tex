@@ -1,0 +1,185 @@
+% !TeX root = ../main.tex
+
+\paragraph{Introduction/What is TDA}
+
+Topological Data Analysis (TDA) is an emerging field that applies topological methods to data.
+Topology, in general, is concerned with the properties of space that are invariant under continuous deformations.
+From a geometric perspective, these deformations can be understood as bending or stretching a space, but not cutting or gluing.
+% However, a more general perspective views topology as a theory of continuity, with invariants qualifying discontinuities in a space.
+Just as these invariants can be used to classify topological spaces, they can also be used to analyze the ``shape'' of data.
+Taking the perspective of data as a \emph{sample} of some unknown process, or space, it is important to ensure that the shape we observe is representative of the underlying space, and not a product of insufficient sampling. %, or incorrect resolution.
+That is, fundamental requirement in order to conduct meaningful analysis is that our data \emph{covers} the underlying space.
+Naturally, the problem of coverage requires determining a \emph{scale} that establishes the resolution of our data.
+It is not only important that our data covers a domain, but also that the scale at which we cover is sufficient for the analysis we intend to conduct.
+Otherwise, we cannot reliably attribute the observed structure of \emph{local} data to the underlying \emph{global} process that generates it.
+
+This process of inferring global structure from local measurements is seen throughout data analysis.
+Data coverage is therefore a valuable property for all data analysis, and is just one example of how prior information can be used to provide structure to analysis.
+In fact, much of data analysis can be seen as using some prior global information in order to observe meaningful structure in local data.
+One of the simplest, and most common examples of this prior knowledge is in supervised learning.
+Local measurements are provided with \emph{labels} that explicitly associate them with some global classification.
+Statistical techniques can then be used to infer the structure of the data with respect to this global classification.
+% The success of these techniques makes it easy to mistake the resulting structure as that of the underlying process in all cases.
+% In fact, these techniques only reveal the structure of the data with respect to the global information provided.
+% The quality of this analysis therefore depends on the quality of this prior information.
+Indeed, unsupervised techniques have been successful in identifying global structure from local measurements alone.
+However, in order for these techniques to draw meaningful conclusions some prior knowledge is still required.
+
+Consider the problem of learning how the human body moves.
+Given a coarse sample one can use simple unsupervised techniques to ``learn'' a representation of the appropriate configuration space.
+However, coarsely sampled information alone is likely insufficient for reconstructing movement.
+Without some prior knowledge about the underlying skeletal structure the resulting movement may look unnatural.
+Discontinuities would arise from a lack of knowledge about the \emph{boundaries} of movement.
+This is an example of prior knowledge that is \emph{topological} in nature.
+The configuration space of movement contains boundaries that are imposed by skeletal structure and flexibility of joints.
+We would like to know that our sample sees enough of the interior of this space and that it is not too coarse.
+Otherwise, we may cross this boundary.
+Topological approaches to data analysis provide a way to integrate these topological priors into our analysis in a deterministic way.
+That is, unlike statistical techniques that \emph{infer} the behavior of data topological techniques \emph{observe} the underlying structure.
+This information can then be used to augment existing techniques by identifying ``spurious'' features in the data that are not representative of the underlying space.
+These features are often a product of either insufficient sampling, or poor resolution.
+We would therefore like to be able to differentiate from discontinuities that are features of the data from those that are a product of insufficient sampling.
+However, qualifying the sufficiency of a sample requires some expectation of scale that determines the resolution of our sample.
+Given a sufficient sample it is also important that this resolution is high enough for our analysis.
+
+The notion of coverage is captured naturally by the \emph{homology} of a space.
+Homology associates an algebraic structure to a topological space that can be used to qualify the $k$-dimensional connectivity of a space.
+The resulting topological invariants are often understood as ``holes'' such as connected components, loops, and voids---holes in dimension 0, 1, and 2.
+Naturally, homology can be used to check for holes in coverage, and it has been shown that coverage can be confirmed in a coordinate free setting using the Topological Coverage Criterion (TCC).
+Using only
+
+
+
+% We will build a theoretical foundation for how topological methods can be used to \emph{verify} data with respect to prior information about the topology of the underlying space.
+% % This is motivated by the success of TDA an approach that can be used alongside existing techniques, and the need for novel \emph{structural} information in an unsupervised setting.
+% % This information can then be used alongside existing techniques
+% % Topological methods are appealing to data analysis primarily because of their ability to identify meaningful \emph{global} structure from \emph{local}, often high dimensional data.
+
+\paragraph{Motivation}
+
+Much of modern data analysis can be seen as inferring \emph{global} structure from \emph{local} measurements.
+These local measurements can be seen as \emph{samples} of some process, or function, and the goal is to be able to attribute the structure of the data to that of the process.
+Meaningful analysis therefore requires some prior knowledge in order to differentiate properties of the data from properties of the underlying space.
+% While raw data can be analyzed in a number of ways the goal is to attribute this structure to the underlying space, or source of the data.
+% That is, any meaningful analysis requires some prior knowledge about the underlying space
+% In order to attribute this structure to the underlying space some prior information is required.
+One of the simplest, and most common examples of this prior knowledge is in supervised learning.
+Local measurements are provided with \emph{labels} that explicitly associate them with some global classification.
+Statistical techniques can then be used to infer the structure of the data with respect to this global classification.
+The success of these techniques makes it easy to mistake the resulting structure as that of the underlying process in all cases.
+In fact, these techniques only reveal the structure of the data with respect to the global information provided.
+The quality of this analysis therefore depends on the quality of this prior information.
+Indeed, unsupervised techniques have been successful in identifying global structure from local measurements alone.
+However, in order for these techniques to draw meaningful conclusions some prior knowledge is still required.
+% %
+% % While there are a number of ways to analyze raw data any meaningful analysis requires
+% % Otherwise, there is no way to attribute any structure found to the underlying space
+% % Often, some global information is required in order to infer meaningful relationships in the data.
+% % For example, in supervised learning labels associate local measurements with global classifications.
+% % Statistical techniques can then be used to infer how best to infer global properties from local data.
+% % These statistical techniques have become the foundation for modern machine learning.
+% % It is easy to mistake the conclusions drawn from these techniques as fact but, by nature, they are unable to draw any real conclusions.
+% It is important to remember that the global structure they infer is only with respect to the global information provided.
+% Indeed, unsupervised techniques have been successful in identifying global structure from local measurements alone.
+% However, in order for these techniques to draw meaningful conclusions some prior knowledge is still required.
+% Otherwise, statistical approaches may ``see ghosts'' that arise from not looking at the data from the right angle.
+% % This can often be seen as discontinuities in the inferred output that result from...
+
+Consider the problem of learning how the human body moves.
+Given a coarse sample one can use simple unsupervised techniques to ``learn'' a representation of the appropriate configuration space.
+However, coarsely sampled information alone is likely insufficient for reconstructing movement.
+Without some prior knowledge about the underlying skeletal structure the resulting movement may look unnatural.
+Discontinuities would arise from a lack of knowledge about the \emph{boundaries} of movement.
+This is an example of prior knowledge that is \emph{topological} in nature.
+The configuration space of movement contains boundaries that are imposed by skeletal structure and flexibility of joints.
+We would like to know that our sample sees enough of the interior of this space and that it is not too coarse.
+Otherwise, we may cross this boundary.
+Topological approaches to data analysis provide a way to integrate these topological priors into our analysis in a deterministic way.
+That is, unlike statistical techniques that \emph{infer} the behavior of data topological techniques \emph{observe} the underlying structure.
+% This information can then be used to augment existing techniques by providing a skeleton on which to move, so to speak.
+% It is therefore important that this information is \emph{verified}, otherwise we may start seeing ``ghosts'' in spurious features.
+% % This brings us to the general question of \emph{data coverage} and determining the \emph{resolution} of a data set.
+% % That is, given a set of data we would like to determine if the data is sufficient for analysis at a given \emph{scale}.
+%
+% ``Spurious'' features can have a dramatic effect on the quality of a model.
+This information can then be used to augment existing techniques by identifying ``spurious'' features in the data that are not representative of the underlying space.
+% This underlying structure can then be used to augment existing techniques by removing
+These features are often a product of either insufficient sampling, or poor resolution.
+We would therefore like to be able to differentiate from discontinuities that are features of the data from those that are a product of insufficient sampling.
+However, qualifying the sufficiency of a sample requires some expectation of scale that determines the resolution of our sample.
+Given a sufficient sample it is also important that this resolution is high enough for our analysis.
+
+We will refer to this property as \emph{data coverage}.
+Data coverage requires that a sample covers the domain of the function at a suitable scale.
+Identifying such a suitable scale requires some prior knowledge about the topology of the underlying space.
+% We therefore require some prior knowledge about the underlying space that allows us to select a suitable scale.
+Once we have \emph{verified} that we have a sufficiently dense sample that covers the domain we have a way of ensuring that any further analysis tells us something about the underlying domain, and not just properties of the data.
+Moreover, we can provide a topological signature for our function that can be used for further analysis.
+This signature is known as a \emph{persistence diagram} or \emph{persistence barcode}.
+Given a scalar-valued function persistent homology can be used to provide a topological signature for the evolution of \emph{topological invariants} on its domain.
+These invariants qualify the $k$-dimensional connectivity of a space, more commonly understood as ``holes,'' such as the connected components, loops, and voids---holes in dimension 0, 1, and 2.
+These holes can be seen as \emph{discontinuities} in the domain, and are therefore important for learning techniques as they represent features that should be preserved in our model.
+% Persistent homology is an extension of \emph{homology}, which associates algebraic structure to topological spaces, to \emph{filtered spaces} in which the algebraic structure provided by the theory of homology is used to decompose the homology of a space by a nested sequence of subspaces.
+% The theory of persistence exists beyond homology, and has been generalized as a theory of \emph{persistence modules}...
+That is, once we have verified data coverage we can be sure that any discontinuities in our data are not a product of insufficient sampling, within a certain scale, and are in fact topological properties of our objective that should be preserved.
+
+
+% Throughout, we will consider a finite sample of a $c$-Lipschitz function.
+% Given such a sample a fundamental requirement is that the data \emph{covers} the domain of the function.
+% Data coverage requires that we have enough sample points to see every part of the domain, or some expectation about what scale we expect to see.
+% This latter expectation refers to the \emph{resolution} of the data---if the domain is covered by a small number of points we can only expect to see features that are large with respect to our scale.
+% We therefore require some prior knowledge about the underlying space that allows us to select a suitable scale.
+% Once we have a sufficiently dense sample that covers the domain at a suitable scale we have a better sense of how to differentiate ``ghosts'' or noise from meaningful data.
+% Moreover, we can provide a topological signature for our function that can be used for further analysis.
+% This signature is known as a \emph{persistence diagram} or \emph{persistence barcode}.
+% Persistent homology is the primary tool in Topological Data Analysis (TDA).
+% Given a scalar-valued function persistent homology can be used to provide a topological signature for the evolution of \emph{topological invariants} on its domain.
+% These invariants qualify the $k$-dimensional connectivity of a space, more commonly understood as ``holes,'' such as the connected components, loops, and voids---holes in dimension 0, 1, and 2.
+% These holes can be seen as \emph{discontinuities} in the domain, and are therefore important for learning techniques as they represent features that should be preserved in our model.
+% % Persistent homology is an extension of \emph{homology}, which associates algebraic structure to topological spaces, to \emph{filtered spaces} in which the algebraic structure provided by the theory of homology is used to decompose the homology of a space by a nested sequence of subspaces.
+% % The theory of persistence exists beyond homology, and has been generalized as a theory of \emph{persistence modules}...
+% That is, once we have verified data coverage we can be sure that any discontinuities in our data are not a product of insufficient sampling, within a certain scale, and are in fact topological properties of our objective that should be preserved.
+
+Returning to our example, if we take the flexibility of joints as prior knowledge we can identify a \emph{boundary} in the configuration space of movements that can be used to verify that we have seen enough configurations of limbs.
+Here, our scale is the ``step size'' or frame rate of movement---how far we would like to move in each frame of a continuous movement.
+Once we have verified coverage we can reliably analyze different configurations for learning applications, such as classifying different types of movement.
+Moreover, we can identify that our model exhibits movements that are ``unnatural'' by requiring that our model aligns with the topological signature we computed.
+
+\paragraph{Problem Statement}
+
+We will build a theoretical foundation for how topological methods can be used to \emph{verify} data with respect to prior information about the topology of the underlying space.
+Given a set of data sampling an unknown $c$-Lipschitz function we would like to confirm that the sample is \emph{topologically representative} of the domain of the function at a given scale.
+This requires some \emph{prior information} about the topology of the domain.
+We would like to know how these topological priors can be stated in terms of the persistent homology of the function itself, instead of the geometry of the underlying domain.
+Finally, we would like to explore what information can be obtained from a topologically representative sample beyond coverage, and how this information can be used for further topological analysis.
+
+\paragraph{Proposed Approach}
+% But how can we confirm coverage, and what else does it tell us?
+
+This work comes from coverage testing in a coordinate free setting.
+Our data is a collection of function samples and some limited connectivity information.
+That is, we have no coordinates for these sample points, only some notion of proximity between them.
+This proximity can be taken as distance, and the sample as a metric space, but we do not have the distances, we only know if they are within a specific distance.
+The prior knowledge is that the function sampled is $c$-Lipschitz (and a bound on $c$ is known) in addition to some limited assumptions on the topology of its domain.
+Our goal is to provide a verified topological analysis---only say what we know is true, no more.
+The idea is that this information can then serve as a reliable foundation for further analysis using traditional techniques.
+
+\clearpage
+
+\textbf{If a data analysis problem is presented with assumptions/prior information that cannot be used to help existing techniques we would like to use those assumptions to get as much information as possible with guarantees---we don't want to take facts and replace them with lies that will mislead.}
+
+The computation of this criterion provides us with two things
+\begin{enumerate}
+  \item Verification that the domain of the function is \emph{covered} by the sample at a given scale \emph{(without coordinates!)}.
+    More specifically, verification that the sample is \emph{topologically representative} of the domain at a given scale.
+    That is, a handle on the \emph{resolution} of the data---tells us how much we can expect to learn from the data, and if we need additional samples.
+  \item A representation of the domain that can be used to explore topological duality.
+    We will show how this can be used with Lipschitz extensions to compute a signature that can be used to \textbf{TODON}.
+\end{enumerate}
+
+Our assumptions are primarily topological
+\begin{enumerate}
+  \item The function is $c$-Lipschitz,
+  \item Sample points labeled as near the boundary of the domain of the function \textbf{or} knowledge that a certain super or sub levelset of the function contains the boundary of the domain.
+  \item The function is sufficiently regular near the boundary \textbf{or} the provided levelset with respect to the desired scale.
+\end{enumerate}
