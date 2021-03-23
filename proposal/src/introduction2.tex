@@ -1,73 +1,98 @@
 % !TeX root = ../main.tex
 
+In modern data analysis data is often interpreted as a sample of some unknown process, or space.
+A fundamental requirement for any meaningful analysis is that the sample preserves the properties of shape that characterize the underlying space.
+Topology formalizes these properties as \emph{topological invariants}---properties of space that are preserved under continuous transformations such as bending or stretching, but not cutting or gluing.
+Just as these invariants can be used to classify spaces such as surfaces and manifolds \textbf{todo} they can also be used to study the ``shape'' of data.
 Topological Data Analysis (TDA) is an emerging field that applies topological methods to data.
-Topology, in general, is concerned with the properties of space that are invariant under continuous deformations.
-From a geometric perspective, these deformations can be understood as bending or stretching a space, but not cutting or gluing.
-Just as these invariants can be used to classify topological spaces, they can also be used to analyze the ``shape'' of data.
-Taking the perspective of data as a \emph{sample} of some unknown process, or space, it is important to ensure that the shape we observe is representative of the underlying space, and not a product of insufficient sampling.
-That is, fundamental requirement in order to conduct meaningful analysis is that our data \emph{covers} the underlying space.
+While these methods offer novel insight on the underlying structure of data it is important to ensure that this structure is representative of the underlying space, and not a product of insufficient sampling.
+That is, verified analysis requires that our data \emph{covers} the underlying space.
 Naturally, the problem of coverage requires determining a \emph{scale} that establishes the resolution of our data.
 It is not only important that our data covers a domain, but also that the scale at which we cover is sufficient for the analysis we intend to conduct.
 Otherwise, we cannot reliably attribute the observed structure of \emph{local} data to the underlying \emph{global} process that generates it.
 
+% Topological Data Analysis (TDA) is an emerging field that applies topological methods to data.
+% Topology, in general, is concerned with the properties of space that are invariant under continuous deformations.
+% From a geometric perspective, these deformations can be understood as bending or stretching a space, but not cutting or gluing.
+% Just as these invariants can be used to classify topological spaces, they can also be used to analyze the ``shape'' of data.
+% Taking the perspective of data as a \emph{sample} of some unknown process, or space, it is important to ensure that the shape we observe is representative of the underlying space, and not a product of insufficient sampling.
+% That is, fundamental requirement in order to conduct meaningful analysis is that our data \emph{covers} the underlying space.
+% Naturally, the problem of coverage requires determining a \emph{scale} that establishes the resolution of our data.
+% It is not only important that our data covers a domain, but also that the scale at which we cover is sufficient for the analysis we intend to conduct.
+% Otherwise, we cannot reliably attribute the observed structure of \emph{local} data to the underlying \emph{global} process that generates it.
+
 The process of inferring global structure from local measurements is seen throughout data analysis.
-Data coverage is therefore a valuable property for all data analysis, and is just one example of how prior information can be used to provide structure to analysis.
+Data coverage is therefore a valuable property, and is just one example of how prior information can be used to provide structure to analysis.
 In fact, much of data analysis can be seen as using some prior global information in order to observe meaningful structure in local data.
 One of the simplest, and most common examples of this prior knowledge is in supervised learning.
 Local measurements are provided with \emph{labels} that explicitly associate them with some global classification.
 Statistical techniques can then be used to infer the structure of the data with respect to this global classification.
+In this case, meaningful inference requires representative training data.
+Here, coverage requires not only that each classification is sufficiently represented, but also that these global classifications characterize the underlying space.
+Without coverage we cannot expect our model to be able to generalize to unknown data.
 Indeed, unsupervised techniques have been successful in identifying global structure from local measurements alone.
 However, in order for these techniques to draw meaningful conclusions some prior knowledge is still required.
+When this prior knowledge is topological in nature tools from TDA can be used to augment existing state-of-the-art techniques.
 
 Consider the problem of learning how the human body moves.
 Given a coarse sample one can use simple unsupervised techniques to ``learn'' a representation of the appropriate configuration space.
-However, coarsely sampled information alone is likely insufficient for reconstructing movement.
+However, coarsely sampled information alone may be insufficient for reconstructing movement.
 Without some prior knowledge about the underlying skeletal structure the resulting movement may look unnatural.
-Discontinuities would arise from a lack of knowledge about the \emph{boundaries} of movement---the configuration space of movement contains boundaries that are imposed by skeletal structure and flexibility of joints.
-This is an example of prior knowledge that is \emph{topological} in nature.
-Topological approaches to data analysis provide a way to integrate these topological priors into our analysis in a deterministic way.
-Importantly, this information is precisely what is required in order to confirm \emph{coverage}.
-That is, information about the boundary allows us to specify a scale that establishes the resolution of our data.
-Not only can this information be used to ensure that we seen enough samples to reliably reconstruct movement, we can ensure that our sample is \emph{topologically representative} of the underlying space---our model will not infer unnatural movement that crosses the boundary.
+Skeletal structure and the flexibility of joints impose \emph{boundaries} on the configuration space of movement.
+Discontinuities may arise from a lack of knowledge of these boundaries, or by the resolution of the data being too low.
+% The configuration space of movement contains boundaries that are imposed by skeletal structure and flexibility of joints.
+% Discontinuities would arise from a lack of knowledge about the \emph{boundaries} of movement---the configuration space of movement contains boundaries that are imposed by skeletal structure and flexibility of joints.
+This is an example of prior knowledge that can be interpreted as \emph{topological} in nature.
+% Topological approaches to data analysis provide a way to integrate these topological priors into our analysis in a deterministic way.
+In fact, this information is precisely what is required in order to confirm \emph{coverage} using topological techniques.
+% That is, information about the boundary allows us to specify a scale that establishes the resolution of our data.
+Not only can this information be used to ensure that we seen enough samples to reliably reconstruct movement at a given resolution, we can ensure that our sample is \emph{topologically representative} of the underlying space---our model will not infer unnatural movement that crosses the boundary.
 Once we have verified coverage we can reliably analyze different configurations for learning applications, such as classifying different types of movement.
 
-We will refer to this property as \emph{data coverage}.
-The notion of coverage is captured naturally by the \emph{homology} of a space.
+% This property will be referred to as \emph{data coverage}.
+This work will focus on a topological tool known as \emph{homology}.
+% The notion of coverage is captured naturally by the \emph{homology} of a space.
 Homology associates an algebraic structure to a topological space that can be used to qualify the $k$-dimensional connectivity of a space.
 The resulting topological invariants are often understood as ``holes'' such as connected components, loops, and voids---holes in dimension 0, 1, and 2.
-Naturally, homology can be used to check for holes in coverage, and it has been shown that coverage can be confirmed in a coordinate free setting using the Topological Coverage Criterion (TCC).
+Naturally, homology can be used to check for holes in coverage, and it has been shown that coverage can be confirmed in a coordinate free setting using the Topological Coverage Criterion (TCC)~\cite{desilva07coverage}.
 % Data coverage requires that a sample covers the domain of the function at a suitable scale.
 % Identifying such a suitable scale requires some prior knowledge about the topology of the underlying space.
 % % We therefore require some prior knowledge about the underlying space that allows us to select a suitable scale.
 Once we have \emph{verified} that we have a sufficiently dense sample that covers the domain we have a way of ensuring that any further analysis tells us something about the underlying domain.
 Moreover, we can provide a topological signature that can be used for further analysis.
-This signature, known as a \emph{persistence diagram} or \emph{barcode}, captures the \emph{persistent homology} of the space.
-Persistent homology decomposes the homology of a space by a nested sequence of subspaces.
-These subspaces are often defined by a real-valued function or \emph{scalar field}.
-The resulting persistence diagram is signature of the space through the lens of the function.
+This signature, known as a \emph{persistence barcode} or \emph{diagram}, captures the \emph{persistent homology} of the space.
+Persistent homology is a central tool in TDA that has been shown to provide novel information for data analysis~\cite{todo}.
+Importantly, is has been shown that the persistent homology of a scalar-valued function is \emph{stable} with respect to the Gromov-Hausdorff distance~\cite{todo} \textbf{todo}.
+This has led to \textbf{todo}.
+In particular, it has been shown that the persistent homology of a scalar valued function can be efficiently approximated by a finite sample, granted the sample \emph{covers the domain}.
+The relationship between this computation, which will be referred to as Topological Scalar Field Analysis (SFA), and the Topological Coverage Criterion (TCC) is the subject of the proposed research.
 
-Initial work on the persistent homology of scalar fields established stability results that rely on the input points covering the underlying domain.
-Superficially, the methods used in this analysis and those in the TCC are very similar.
-However, they differ in some fundamental ways that make them difficult to combine as a single technique.
-% Moreover, the initial statement of the TCC is in terms of sensor networks, and
-% Both construct similar complexes and compute the persistent homology of the homological image of a complex on one scale into that of a larger scale.
-% They even overlap on some common techniques in their analysis such as the use of the Nerve theorem and the Rips-\v{C}ech interleaving.
+% Persistent homology decomposes the homology of a space by a nested sequence of subspaces.
+% These subspaces are often defined by a real-valued function or \emph{scalar field}.
+% The resulting persistence diagram is signature of the space through the lens of the function.
+%
+% Initial work on the persistent homology of scalar fields established stability results that rely on the input points covering the underlying domain.
+% Superficially, the methods used in this analysis and those in the TCC are very similar.
 % However, they differ in some fundamental ways that make them difficult to combine as a single technique.
-% The main difference is that the TCC requires a clearly defined boundary.
-% Not only must the underlying space be a bounded subset of $\R^d$, the data must also be labeled to indicate which input points are close to the boundary.
-% This requirement is perhaps the main reason why the TCC can so rarely be applied in practice.
-
-\begin{itemize}
-  \item More about persistence,
-  \item TCC and persistence,
-  \item Scalar fields,
-  \item Sub/super level sets, duality, and extended persistence.
-\end{itemize}
-
-% Here, time refer
-% Given a scalar-valued function persistent homology can be used to provide a topological signature for the evolution of \emph{topological invariants} on its domain.
-% These invariants qualify the $k$-dimensional connectivity of a space, more commonly understood as ``holes,'' such as the connected components, loops, and voids---holes in dimension 0, 1, and 2.
-% These holes can be seen as \emph{discontinuities} in the domain, and are therefore important for learning techniques as they represent features that should be preserved in our model.
-% % Persistent homology is an extension of \emph{homology}, which associates algebraic structure to topological spaces, to \emph{filtered spaces} in which the algebraic structure provided by the theory of homology is used to decompose the homology of a space by a nested sequence of subspaces.
-% % The theory of persistence exists beyond homology, and has been generalized as a theory of \emph{persistence modules}...
-% That is, once we have verified data coverage we can be sure that any discontinuities in our data are not a product of insufficient sampling, within a certain scale, and are in fact topological properties of our objective that should be preserved.
+% % Moreover, the initial statement of the TCC is in terms of sensor networks, and
+% % Both construct similar complexes and compute the persistent homology of the homological image of a complex on one scale into that of a larger scale.
+% % They even overlap on some common techniques in their analysis such as the use of the Nerve theorem and the Rips-\v{C}ech interleaving.
+% % However, they differ in some fundamental ways that make them difficult to combine as a single technique.
+% % The main difference is that the TCC requires a clearly defined boundary.
+% % Not only must the underlying space be a bounded subset of $\R^d$, the data must also be labeled to indicate which input points are close to the boundary.
+% % This requirement is perhaps the main reason why the TCC can so rarely be applied in practice.
+%
+% \begin{itemize}
+%   \item More about persistence,
+%   \item TCC and persistence,
+%   \item Scalar fields,
+%   \item Sub/super level sets, duality, and extended persistence.
+% \end{itemize}
+%
+% % Here, time refer
+% % Given a scalar-valued function persistent homology can be used to provide a topological signature for the evolution of \emph{topological invariants} on its domain.
+% % These invariants qualify the $k$-dimensional connectivity of a space, more commonly understood as ``holes,'' such as the connected components, loops, and voids---holes in dimension 0, 1, and 2.
+% % These holes can be seen as \emph{discontinuities} in the domain, and are therefore important for learning techniques as they represent features that should be preserved in our model.
+% % % Persistent homology is an extension of \emph{homology}, which associates algebraic structure to topological spaces, to \emph{filtered spaces} in which the algebraic structure provided by the theory of homology is used to decompose the homology of a space by a nested sequence of subspaces.
+% % % The theory of persistence exists beyond homology, and has been generalized as a theory of \emph{persistence modules}...
+% % That is, once we have verified data coverage we can be sure that any discontinuities in our data are not a product of insufficient sampling, within a certain scale, and are in fact topological properties of our objective that should be preserved.

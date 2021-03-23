@@ -8,20 +8,21 @@ geometry processing~\cite{skraba2010persistence,poulenard2018topological,bruel20
 and machine learning~\cite{clough2019explicit,chen2019topological,carlsson2020topological,gabrielsson2020topology}, to name a few.
 A number of approaches can be considered topological in nature, and \textbf{todo}.
 Among these are \textbf{todo}.
-However, much of the theoretical work over the last decade has been focused on \emph{topological peristence}.
+However, much of the theoretical work over the last decade has been focused on \emph{persistent homology}.
 
-Persistent homology was first introduced by Edelsbrunner, Letscher, and Zomorodian in 2002\cite{edelsbrunner02simplification}.
+Persistent homology was first introduced by Edelsbrunner, Letscher, and Zomorodian in 2002~\cite{edelsbrunner02simplification}.
 This work introduced the standard \emph{reduction algorithm} for computing the persistent homology of simplicial complexes in $\R^3$ with $\Z_2$ coefficients.
 The output is a \emph{persistence diagram} or \emph{barcode} that encodes the ``birth'' and ``death'' of homological features of the complex.
-Later work by Zomorodian and Carlsson provided a more general form of the reduction algortithm for filtered spaces with coefficients in a field\cite{zomorodian05computing}.
+Later work by Zomorodian and Carlsson provided a more general form of the reduction algortithm for filtered spaces with coefficients in a field~\cite{zomorodian05computing}.
 This work also introduced the notion of an \emph{persistence modules} and persistence barcodes as \emph{interval decompositions} of these modules.
 \textbf{First instance of the structure theorem?}
 This set the stage for a series of work that established stability results for general persistence modules.
 
+\paragraph{Theoretical Foundations}
+
 Initial stability results by Cohen-Steiner, Edelesbrunner, and Harer were proved for the persistent homology of real-valued functions~\cite{cohensteiner07stability}.
-This work was later extended to persistence modules in general by Chazal et al. as the \emph{algebraic stability theorem}~\cite{chazal09proximity}.
-In this work the notion of an \emph{$\delta$-interleaving} of persistence modules is introduced.
-The algebraic stability theorem roughly states that the existence of a $\delta$-interleaving indicates a $\delta$-matching between their persistence barcodes.
+This work was later extended to persistence modules in general by Chazal et al. which introduced the notion of a \emph{$\delta$-interleaving} of persistence modules~\cite{chazal09proximity}.
+Their main result was the \emph{algebraic stability theorem}, which roughly states that the existence of a $\delta$-interleaving indicates a $\delta$-matching between their persistence barcodes.
 Later work on the \emph{isometry theorem} showed that the converse is also true~\cite{todo}.
 Importantly, the isometry theorem established the relationship between interleavings of persistence and the \emph{bottleneck distance} between their barcodes, providing a computable metric on the space of persistence diagrams that is stable with respect to the Gromov-Hausdorff distance between spaces.
 
@@ -31,38 +32,117 @@ Among these is relevant work by Chazal et al. that proved stability results for 
 This work showed that, given a sample $P$ of a scalar valued function that \emph{covers} the domain of the function at scale $\delta$, the persistent homology of a nested sequence of Rips complexes filtered by function values on its vertices is $\delta$-interleaved with that of the scalar field itself.
 Later work applied this theory to approximate the persistent homology of probability density function~\cite{chazal2013persistence}.
 
+\paragraph{Stability and TDA}
+
 This body of work comprises much of the relevant theoretical foundations for persistent homology for data analysis in general.
+In particular, we refer to the following process as \emph{topological scalar field analysis (SFA)}.
 The input is a simplicial complex that represents a discretization of some unknown domain.
 The simplicial complex is then \emph{filtered} by a scalar valued function on its vertices, representing some underlying process on the domain.
 The standard reduction algorithm~\cite{edelsbrunner02simplification,zomorodian05computing} can then be used to compute the persistent homology of this filtered simplicial complex.
 Stability of results state that, provided an interleaving of the persistence module computed in theory, the corresponding persistence barcode is an approximation of that of the function itself~\cite{cohensteiner07stability,chazal09proximity}.
 
-A number of these steps have since been improved, and a number of useful tools from algebraic topology have been leveraged to offer different perspectives on persistent homology in general.
+% It is in this way that the general theory of persistence modules provides
+%
+% \textbf{Question:} What algebraic tools can we use to analyze persistent \emph{homology} modules that we cannot use for persistence modules in general?
+% \textbf{Exact sequences, relative homology, duality, etc}.
+% \textbf{Pair groups?}
+%
+% An important step in this process is computing the persistent homology of a homological image.
+% While this computation is straightforward for trivial maps such as those induced by inclusion\textbf{todo}.
+% Cohen-Steiner, Edelsbrunner, Harer, and Morozov provide a theoretical analysis and algorithm for computing images, kernels, and cokernels of maps between persistence diagrams.
+% \textbf{todo...}
+
+
+
+
+\paragraph{Algorithms and Cohomology}
+
+Many of these steps have since been improved, and a number of useful tools from algebraic topology have been leveraged to offer different perspectives on persistent homology in general.
+% Rips complexes can be sparsified~\cite{todo} or replaced with other complexes\textbf{todo}
 Importantly, the original reduction algorithm has been improved in a number of ways, including \textbf{todo distibuted, parallel, row/column operations, chunking, twisting, bopping}.
+
 A key observation in computing persistent homology efficiently is to compute \emph{persistent cohomology}.
-As vector spaces, cohomology is dual to homology.
-In the late 20th century the theory of algebraic topology established the relationship between homology and cohomology for general space~\cite{spanier66algebraic,munkres84elements,bredon93,hatcher01}.
-However, for reasonable spaces it is known that the persistence barcodes produced by persistent homology and cohomology are the same.
+As vector spaces, cohomology is dual to homology, and for reasonable spaces it is known that the persistence barcodes produced by persistent homology and cohomology are the same~\cite{todo}.
 This allows one to compute persistent cohomology instead of persistent homology, and this is often more efficient.
 In fact, the reduction algorithm is shown to be the same for persistent homology an cohomology, simply acting in opposite directions~\cite{desilva11duality}.
-However, while the barcodes produced are the same, the information captured by homology and cohomology is not, and interesting applications specifically require persistent cohomology~\cite{desilva11circular}.
-This work makes use of \emph{representative cocycles} that are produced by the reduction algorithm.
-These representatives, and thei dual representative cycles in homology, are often considered a by-product of the homology computation.
+However, while the barcodes produced are the same, the information captured by homology and cohomology is not.
+While homology operates on \emph{cycles} representing \emph{holes} cohomology operates on \emph{cocycles} representing \emph{obstructions}.
+Each feature of a barcode is associated with a representative (co)cycle that is often considered a by-product of the persistence computation.
 In fact, many recent modifications to the reduction algorithm explicitly abandon these representatives for efficiency~\cite{todo}.
-However, duality in persistent homology lives in these representatives, and how \textbf{todo}.
+However, these representative encode useful information, and some interesting applications specifically require cocycle representatives~\cite{desilva11circular}.
 
-Perhaps the first example of duality in persistent homology is the Topological Coverage Criterion~\cite{desilva07coverage}.
-While subtle, this work utilized Alexander Duality in their proof to relate the top-dimensional relative homology of a space modulo its boundary to the zero dimensional homology of the interior.
-This allows their proof to be greatly simplified by reasoning about zero dimensional homology, connectedness, instead of connectedness in arbitrary dimension.
-% Later work attempted to make this approach more explicit, and integrated\textbf{todo}~\cite{cavanna2017when}.
-While this is an interesting example of how duality can be applied as a method of proof, the use of Alexander Duality in this case is lacking.
-In fact, much of the work on duality in persistent homology lacks rigor
-A fascinating subset of algebraic topology in general works towards general duality theorems that establish the relationship between
+\paragraph{Homological Sensor Networks and Short Filtrations}
 
-\begin{itemize}
-  \item Other work on duality in persistent homology
-  \item Other work in homological sensor networks
-  \item Duality, complements of spaces, and relative persistence
-  \item Relationship to scalar fields and level sets
-  \item Extended persistence (and local homology?)
-\end{itemize}
+The application of homology to coordinate-free sensor networks is a novel application of homology in that it is minimally persistent.
+De Silva and Ghrist first introduced homological sensor networks (HSNs) as a collection of problems that applied homology to the problem of coverage testing without coordinates~~\cite{desilva06coordinate,desilva07homological}.
+The underlying idea requires no persistence, and simply observes that, for a bounded $d$-dimensional space, the $d-1$ dimensional homology of a cover contains the information needed to confirm coverage.
+Provided a sub-cover of the boundary this information is captured in the $d$ dimensional relative homology of the cover modulo the sampled boundary.
+Work on HSNs culminated in the Topological Coverage Criterion~\cite{desilva07coverage} which computes this relative homology using a nested pair of (Vietoris-)Rips complexes.
+The nested pair is factored through the \v Cech complex which is known to be homotopy equivalent to the cover by the Nerve Theorem~\cite{hatcher01}.
+There has been a great deal of additional work on homological sensor networks including mobile networks and evasion paths, \textbf{todo}.
+However, we will focus on this foundation, and how the use of relative homology and the Rips-\v Cech factoring process, which we refer to as an example of a \emph{short filtration}, relates to SFA and the broader theory of persistent homology.
+
+While the use of short filtrations can be considered persistent homology their purpose is generally as a de-noising technique.
+Taken instead as the image of homomorphisms between persistence modules, themselves persistence modules, short filtrations can be used with persistence without the need for multidimensional persistence~\cite{todo}.
+A canonical example that motivates the proposed work is the use of short filtrations in SFA.
+In SFA, the Persistent Nerve Theorem~\cite{chazal08towards} is used with a nested sequences of Rips complexes to prove stability results in a similar way.
+
+As a note, the images, kernels, and cokernels of maps in homology are particularly useful due to their use in \emph{exact sequences}.
+Cohen-Steiner, Edelsbrunner, Harer, and Morozov extend persistent homology to images, as well as kernels and cokernels, of persistence modules, and provide an algorithm for computing them in general~\cite{cohen09persistent}.
+Much of the proposed work is inspired by the use of relative homology in the TCC and how persistence module homomorphisms can be interpreted in terms of the long exact (co)homology sequences of pairs and triples.
+
+% In this sense SFA can be thought of as an extension of the TCC to \emph{persistent} homology, and their inputs and outputs are in some sense dual.
+
+
+% \paragraph{Persistence and Homological Algebra}
+%
+% Duality is just one example of a tool from algebraic topology that can be used not only as a method of proof, but also for creating efficient algorithms.
+% These tools can be exploited using the framework provided by the general theory of persistence modules in the special case of persistent (co)homology.
+% For example, a standard approach in the analysis of point cloud data is to factor a nested pair of Rips complexes through the \v Cech which, by the Persistent Nerve Theorem~\cite{chazal08towards, todo}, captures the persistent homology of the associated cover.
+% Using the fact that the image of a map between persistence modules is a persistence module
+%
+%
+% While implementing this Cohen-Steiner, Edelsbrunner, Harer, and Morozov
+
+\paragraph{Duality and Coverage}
+
+% \begin{itemize}
+%   \item Other work on duality in persistent homology
+%   \item Other work in homological sensor networks
+%   \item Duality, complements of spaces, and relative persistence
+%   \item Relationship to scalar fields and level sets
+%   \item Extended persistence (and local homology?)
+% \end{itemize}
+
+The duality between homology and (co)homology is a powerful tool that has seen limited use in modern persistence.
+Much of the theory of algebraic topology developed in the late 20th century focused on this duality for general spaces~\cite{spanier66algebraic,munkres84elements,bredon93,hatcher01}.
+Poincar\'e duality states that the cap product with fundamental class provides a natural isomorphism between the $k$th cohomology and the $d-k$th homology of a closed, orientable $d$-manifold.
+There are a number of variants to Poincar\'e duality such as Lefschetz duality for manifolds with boundary, and Alexander duality for compact subspaces of the sphere.
+
+Perhaps the first application of duality in TDA was the use of Alexander duality in the TCC.
+Here, Alexander duality relates the top-dimensional relative homology of a space modulo its boundary to the zero dimensional homology of its complement.
+This greatly simplified their analysis by allowing them to reason about zero dimensional homology instead of connectedness in arbitrary dimension.
+Similarly, in SFA, duality can be used to relate the persistent homology and cohomology of sub and super levelset filtrations of a real-valued function.
+This fact is used  in work by Cohen-Steiner, Edelsbrunner, and Harer on Extended Persistence~\cite{cohen09extending} in which Poincar\'e and Lefschetz duality are used explicitly to construct an extended persistence diagram.
+% In extended persistence an extended filtration first ascends with the $k$ dimensional homology of the sub levelset filtration, ending with the $k$ dimensional homology of the manifold.
+% By Poincar\'e duality the $k$ dimensional homology of a $d$-manifold is isomorphic to its the $d-k$ dimensional cohomology.
+% Because cohomology is contravariant, the sequence can then be extended to a \emph{descending} sequence of sub level sets.
+% Taking each sub and super levelset as a submanifold with boundary Lefschetz duality and excision can be used to replace $d-k$ dimensional cohomology with $k$ dimension relative homology of the manifold modulo the corresponding \emph{super} level set.
+% It is in this way that extended persistence provides an excellent example of how duality can be used to unify the persistent homology of sub level sets and the relative persistent homology of super level sets.
+% Later work made this connection explicit, by formally establishing the dualities between both absolute and relative variants of homology and cohomology.
+In both of these cases the existence of an isomorphism provided by duality is sufficient.
+Little work has been done to apply duality in persistent homology as a general tool in TDA.
+% The construction of the isomorphism between homology and cohomology in Poincar\'e duality is provided by the cap product with a \emph{fundamental class}.
+% Similarly, the relative variations of Lefschetz, and complements of spaces in Alexander duality can be stated in terms of relative cap products.
+
+% However, in this and many other cases duality is used only as a method of proof.
+% % This allows their proof to be greatly simplified by reasoning about zero dimensional homology, connectedness, instead of connectedness in arbitrary dimension.
+% % Later work attempted to make this approach more explicit, and integrated\textbf{todo}~\cite{cavanna2017when}.
+% % While this is an interesting example of how duality can be applied as a method of proof, the use of Alexander Duality in this case is lacking.
+% % In fact, much of the work on duality in persistent homology lacks rigor
+% % A fascinating subset of algebraic topology in general works towards general duality theorems that establish the relationship between
+% %
+% % The TCC has been expanded in a number of directions including \textbf{TODO}.
+% % In particular, a great deal of work on the problem of evasion paths, which \textbf{TODO}.
+% % \textbf{TODO how is duality used here}.
+% % \textbf{Zigzag homology, parameterized homology, Alexander duality for parameterized homology.}
