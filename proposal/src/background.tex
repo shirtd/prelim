@@ -1,0 +1,27 @@
+% !TeX root = ../main.tex
+
+For a $d$-dimensional domain $D$ with boundary $B = \partial D$ the TCC uses the fact that the number of generators in the top-dimensional relative homology $\hom_d(D, B)$ of the domain modulo its boundary is equal to the number of connected components.
+Given a finite sample $P\subset D$ and a sub-sample $Q\subseteq P$ of points near the boundary one can check if $P$ covers $D$ at some scale $\delta > 0$ by comparing $\dim~\hom_d(P^\delta, Q^\delta)$ to the number of connected components of $D$.
+A key observation is that this test not only confirms that the sample covers the domain, but also that we have a sub-sample of points $Q^\delta$ that resembles the boundary of the domain.
+We refer to this property as being \emph{topologically representative} of the pair $(D,B)$.
+
+In its original form the TCC is stated as a criteria for coverage by a sensor network in a coordinate free setting---coordinates of sensors are not provided, only some limited connectivity information.
+The input is a pair of neighborhood graphs on $P$ that can be used to construct nested (Vietoris-)Rips complexes $\rips^\delta(P,Q)\hookrightarrow\rips^{\delta'}(P,Q)$ that capture the homology of the cover $(P^\delta, Q^\delta)$.
+As there is no way to determine which points are close to the boundary analytically the TCC requires that the points in $Q$ are labeled manually.
+This requirement is perhaps the main reason why the TCC can so rarely be applied in practice.
+It can be shown that this requirement can be removed by instead requiring that our input points sample some unknown $c$-Lipschitz function $f : D\to \R$.
+This requirement is natural for applications to data analysis, where data represents local measurements of some underlying process.
+Given a threshold $\omega\in\R$ such that the $\omega$-sub levelset $B_\omega = f^{-1}((-\infty,\omega])$ contains the boundary we instead define $Q$ by function value.
+The existence of this threshold, as well as additional \emph{regularity assumptions} can then be phrased in terms of the persistent homology of the function.
+% Moreover, the TCC requires additional \emph{regularity assumptions} that are required in order to establish the minimum resolution of the sample.
+% Traditionally, these assumptions required information about the geometry of the domain, and were made in terms of the \emph{smoothness} of its boundary.
+% Now, these assumptions can be stated directly in terms of the persistent homology of the function itself.
+
+% Now, the TCC requires information about the persistent homology of the function.
+From this perspective, information about the persistent homology of a function is required in order to confirm coverage.
+Conversely, approximating the persistent homology of a function requires coverage.
+In fact, the persistence computation and the TCC overlap in a number of ways.
+The coverage condition can therefore be extracted directly from the approximated diagram persistence diagram, and the quality of the approximation depends on coverage.
+Not only is the criterion encoded in this diagram, but its computation produces a \emph{fundamental class} for the domain that can be used to compute topological duals.
+It is in this way that one can verify that a persistence diagram is representative of the scalar field by leveraging topological priors similar to those required by the TCC.
+Moreover, the use of relative homology and duality in the TCC can be used to extend SFA to the setting of \emph{partial coverage}.
