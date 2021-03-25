@@ -1,0 +1,18 @@
+% !TeX root = ../main.tex
+
+\paragraph{Duality and Coverage}
+
+The duality between homology and (co)homology is a powerful tool that has seen limited use in modern TDA.
+Much of the theory of algebraic topology developed in the late 20th century focused on this duality for general spaces~\cite{spanier66algebraic,munkres84elements,bredon93,hatcher01}.
+Poincar\'e duality states that the cap product with fundamental class provides a natural isomorphism between the $k$th cohomology and the $d-k$th homology of a closed, orientable $d$-manifold.
+There are a number of variants to Poincar\'e duality such as Lefschetz duality for manifolds with boundary, and Alexander duality for compact subspaces of the sphere.
+
+Perhaps the first application of duality in TDA was the use of Alexander duality in the TCC.
+Here, Alexander duality relates the top-dimensional relative homology of a space modulo its boundary to the zero dimensional homology of its complement.
+This greatly simplified their analysis by allowing them to reason about zero dimensional homology instead of connectedness in arbitrary dimension.
+Similarly, in SFA, duality can be used to relate the persistent homology and cohomology of sub and super levelset filtrations of a real-valued function.
+This fact is used  in work by Cohen-Steiner, Edelsbrunner, and Harer on Extended Persistence~\cite{cohen09extending} in which Poincar\'e and Lefschetz duality are used explicitly to construct an extended persistence diagram.
+In both of these cases the existence of an isomorphism provided by duality is sufficient.
+Little work has been done to apply duality in persistent homology as a general tool in TDA.
+\emph{The cap product with the fundamental class provided by the TCC can be used to compute duals of representative cocycles.
+The standard algorithm can then be modified to develop efficient algorithms that can exploit the duality between homology and cohomology within the persistence computation.}

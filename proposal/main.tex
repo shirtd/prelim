@@ -1,6 +1,12 @@
 \documentclass[12pt]{article}
 \usepackage{amsmath,amssymb,amsthm,enumitem}
 \usepackage{tikz-cd,xspace,graphicx,xcolor}
+% \usepackage{amsmath,amssymb,amsthm,xspace,enumitem,xcolor}
+% \usepackage{tikz-cd,xspace,graphicx,wrapfig,algorithm,lscape}
+% \usepackage[noend]{algpseudocode}
+% \usepackage[margin=1in]{geometry}
+% \usepackage{etex,etoolbox}
+\usepackage{wrapfig}
 \usepackage[margin=1in]{geometry}
 
 \newtheorem{theorem}{Theorem}
@@ -19,24 +25,29 @@
 
 \input{src/abstract}
 
-\paragraph{Introduction}
+\section{Introduction}
 \input{src/introduction3}
+
+\section{Background}
+\input{src/background2}
+
+\section{Related Work}
+% \input{src/related}
+\input{src/tda}
+\input{src/tcc}
+\input{src/algorithms}
+\input{src/duality}
 
 % \paragraph{Problem Statement}
 % \input{src/statement}
 
-\paragraph{Background and Problem Statement}
-\input{src/background2}
 
-\paragraph{Objectives}
-\input{src/objectives}
-
-\paragraph{Related Work}
-\input{src/related}
-
-\clearpage
-\paragraph{Methodology}
-% \input{src/method}
+% \paragraph{Objectives}
+% \input{src/objectives}
+%
+%
+\paragraph{Prior Work and Potential Issues}
+\input{src/conclusion}
 
 \bibliographystyle{unsrt}
 \bibliography{bibliography}

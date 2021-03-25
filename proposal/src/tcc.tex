@@ -1,26 +1,24 @@
 % !TeX root = ../main.tex
 
-% While there is extensive literature on homological coverage testing for sensor networks the statement of the criterion as it stands is not conducive to data coverage.
-In essence, the criterion counts the number of generators in the top-dimensional relative homology of a domain modulo its boundary.
-This number is known to be equal to the number of connected components of the domain.
-Coverage can therefore be confirmed by comparing generators in the top-dimensional relative homology of a sample, modulo a \emph{sampled boundary} to the number of connected components of the domain.
-This sampled boundary consists of points that are geometrically close to the boundary of the domain.
-The TCC must therefore require that sample points are labeled to indicate which points are close to the boundary.
-% Specifically, the TCC requires that sample points are labeled to indicate which points are close to the boundary.
-This requirement is perhaps the main reason why the TCC can so rarely be applied in practice.
-% In fact, the criterion only requires that this ``sampled boundary'' resembles
+\paragraph{Homological Sensor Networks and Short Filtrations}
 
-It can be shown that this assumption can be removed by requiring that our input points sample some unknown $c$-Lipschitz function.
-This requirement is natural for applications to data analysis, where data represents local measurements of some underlying process.
-Given a threshold on function values that can be used to define a bounding subset of the domain we can define our sampled boundary by their function values alone.
-Moreover, the TCC requires additional \emph{regularity assumptions} that are required in order to establish the minimum resolution of the sample.
-Traditionally, these assumptions required information about the geometry of the domain, and were made in terms of the \emph{smoothness} of its boundary.
-Now, these assumptions can be stated directly in terms of the persistent homology of the function itself.
+The application of homology to coordinate-free sensor networks is a novel application of homology in that it is minimally persistent.
+De Silva and Ghrist first introduced homological sensor networks (HSNs) as a collection of problems that applied homology to the problem of coverage testing without coordinates~~\cite{desilva06coordinate,desilva07homological}.
+The underlying idea requires no persistence, and simply observes that, for a bounded $d$-dimensional space, the $d-1$ dimensional homology of a cover contains the information needed to confirm coverage.
+Provided a sub-cover of the boundary this information is captured in the $d$ dimensional relative homology of the cover modulo the sampled boundary.
+Work on HSNs culminated in the Topological Coverage Criterion~\cite{desilva07coverage} which computes this relative homology using a short filtration of (Vietoris-)Rips complexes.
+% The short filtration is factored through the \v Cech complex which is known to be homotopy equivalent to the cover by the Nerve Theorem~\cite{hatcher01}.
+There has been a great deal of additional work on homological sensor networks including mobile networks and evasion paths, \textbf{todo}.
+However, we will focus on this foundation, and how the use of relative homology and short filtrations relates to SFA and the broader theory of persistent homology.
+% the Rips-\v Cech factoring process, which we refer to as an example of a \emph{short filtration}, relates to SFA and the broader theory of persistent homology.
 
-From this perspective, computing the TCC and approximating the persistent homology of a scalar field overlap in a number of ways.
-In fact, the coverage condition can be extracted directly from the persistence diagram, and the quality of the approximation depends coverage.
-It is in this way that one can verify that a persistence diagram is representative of the scalar field by leveraging topological priors similar to those required by the TCC.
-Not only is the criterion encoded in this diagram, but its computation produces a \emph{fundamental class} for the domain that can be used to compute topological duals.
+While the use of short filtrations can be considered persistent homology their purpose is generally as a de-noising technique.
+Taken instead as the image of homomorphisms between persistence modules, themselves persistence modules, short filtrations can be used with persistence without the need for multidimensional persistence~\cite{todo}.
+A canonical example that motivates the proposed work is the use of short filtrations in SFA.
+\emph{By modifying the TCC to bounding subspaces defined by a scalar valued function we can use the TCC to verify the quality of an approximation provided by SFA.}
+% In SFA, the Persistent Nerve Theorem~\cite{chazal08towards} is used with a nested sequences of Rips complexes to prove stability results in a similar way.
 
-
-\textbf{Actual problem statement. This is just background.}
+As a note, the images, kernels, and cokernels of maps in homology are particularly useful due to their use in \emph{exact sequences}.
+Cohen-Steiner, Edelsbrunner, Harer, and Morozov extend persistent homology to images, as well as kernels and cokernels, of persistence modules, and provide an algorithm for computing them in general~\cite{cohen09persistent}.
+Much of the proposed work is inspired by the use of relative homology in the TCC and how persistence module homomorphisms can be interpreted in terms of the long exact (co)homology sequences of pairs and triples.
+\emph{Prior work has identified a new formulation of pair groups in terms of the long exact sequences of pairs and triples.}

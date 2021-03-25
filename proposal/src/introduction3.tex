@@ -23,15 +23,29 @@ While data coverage is an important property throughout data analysis, it has an
 These techniques provide novel information about the structure of data, and coverage provides a way to attribute that structure to the underlying space.
 In particular, \emph{persistent homology} decomposes the homology of a space by a sequence of subspaces to produce a robust topological signature known as a persistence \emph{barcode} or \emph{diagram}.
 For a real-valued function this sequence is defined by its sub or super level sets.
-The resulting signature is invariant to continuous transformations, and is therefore a useful signature for use with non-deterministic statistical techniques.
+The resulting signature is invariant to continuous transformations, and is therefore a useful signature for use with non-deterministic statistical techniques in particular.
 Topological Scalar Field Analysis (SFA) approximates the persistent homology of a real-valued function from a finite sample.
 The fundamental assumption made in SFA is that this sample covers the domain at some scale, and the quality of the approximation is proportional to this scale.
+
+\begin{figure}[htbp]
+  \begin{minipage}{0.35\textwidth}
+    \centering
+    \includegraphics[trim=200 200 200 200, clip, width=0.8\linewidth]{figures/surf-side.png}
+    \includegraphics[trim=200 100 200 150, clip, width=0.75\linewidth]{figures/surf-top.png}
+  \end{minipage}
+  \begin{minipage}{0.5\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{figures/scalar_barcode_H1.png}
+  \end{minipage}
+  \caption{A scalar field on a 2D domain and its persistent homology in dimension 1.}
+\end{figure}
 
 Given a finite sample of a real-valued function both the TCC and SFA apply homology in a coordinate-free setting.
 By modifying the statement of the TCC information about the persistent homology of the function can be used as topological priors.
 In fact, it can be shown that the TCC can be extracted from the persistent relative homology of a sample.
 One can then verify the quality of an approximation directly from a variation of the signature computed in SFA.
-In addition, careful observations about the TCC itself indicate that
+
+\paragraph{Objectives}
 
 % Moreover, this variation supports instances of partial coverage
 The proposed work will unify the TCC and SFA as a way to provide verified scalar field analysis.

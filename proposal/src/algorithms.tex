@@ -1,0 +1,19 @@
+% !TeX root = ../main.tex
+
+\paragraph{Algorithms and Cohomology}
+
+From a computational perspective, a great deal of progress has been made to improve the original reduction algorithm in a number of ways.
+While the running time of the reduction is cubic in the number of simplices it has been shown that this can be improved to matrix multiplication time using Zigzag persistence~\cite{milosavljevic2011zigzag}.
+However, a number of simple modifications improve on this worst-case bound~\cite{chen2011persistent,bauer2014clear} and additional work has been done on computing persistence in parallel~\cite{lewis15parallel} and in a distributed setting~\cite{tahbaz10distributed,bauer2014distributed}.
+\emph{The overlap in assumptions made by the TCC and SFA can be used to modify the standard reduction algorithm to efficiently verify coverage during the persistence computation.}
+
+One key observation is that it is often more efficient to compute persistent \emph{cohomology}.
+As vector spaces, cohomology is dual to homology, and for reasonable spaces it is known that the persistence barcodes produced by persistent homology and cohomology are the same~\cite{todo}.
+% This allows one to compute persistent cohomology instead of persistent homology, and this is often more efficient.
+In fact, the reduction algorithm is shown to be the same for persistent homology an cohomology, simply acting in opposite directions~\cite{desilva11duality}.
+However, while the barcodes produced are the same, the information captured by homology and cohomology is not.
+While homology operates on \emph{cycles} representing \emph{holes} cohomology operates on \emph{cocycles} representing \emph{obstructions}.
+Each feature of a barcode is associated with a representative (co)cycle that is often considered a by-product of the persistence computation.
+In fact, many recent modifications to the reduction algorithm explicitly abandon these representatives for efficiency~\cite{todo}.
+However, these representative encode useful information, and some interesting applications specifically require cocycle representatives~\cite{desilva11circular}.
+\emph{Representative (co)cycles can be used to merge the relative persistence diagrams provided by the proposed approach in order to recover the full diagram.}

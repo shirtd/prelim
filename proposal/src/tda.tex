@@ -1,0 +1,48 @@
+% !TeX root = ../main.tex
+
+Topological Data Analysis (TDA) is an emerging field that is concerned with the ``shape of data,'' and has found applications in
+neuroscience~\cite{saggar2018towards, sizemore2019importance},
+structural biology~\cite{gameiro2015topological,kovacev2016using,dey2018protein},
+medical imaging~\cite{carlsson2008local,robins2011theory,bendich2016persistent},
+geometry processing~\cite{skraba2010persistence,poulenard2018topological,bruel2020topology},
+and machine learning~\cite{clough2019explicit,chen2019topological,carlsson2020topological,gabrielsson2020topology}, to name a few.
+A number of approaches can be considered topological in nature, and \textbf{todo}.
+Among these are \textbf{todo morse theory, sheaves, ...}.
+However, much of the theoretical work over the last decade has been focused on \emph{persistent homology}.
+
+Persistent homology was first introduced by Edelsbrunner, Letscher, and Zomorodian in 2002~\cite{edelsbrunner02simplification}.
+This work introduced the standard \emph{reduction algorithm} for computing the persistent homology of simplicial complexes in $\R^3$ with $\Z_2$ coefficients.
+The output is a \emph{persistence diagram} or \emph{barcode} that encodes the ``birth'' and ``death'' of homological features of the complex.
+Later work by Zomorodian and Carlsson provided a more general form of the reduction algortithm for filtered spaces with coefficients in a field~\cite{zomorodian05computing}.
+This work also introduced the notion of an \emph{persistence modules} and persistence barcodes as \emph{interval decompositions} of these modules.
+\textbf{First instance of the structure theorem?}
+This set the stage for a series of work that established stability results for general persistence modules.
+
+\paragraph{Theoretical Foundations}
+
+Initial stability results by Cohen-Steiner, Edelesbrunner, and Harer were proved for the persistent homology of real-valued functions~\cite{cohensteiner07stability}.
+This work was later extended to persistence modules in general by Chazal et al. which introduced the notion of a \emph{$\delta$-interleaving} of persistence modules~\cite{chazal09proximity}.
+Their main result was the \emph{algebraic stability theorem}, which roughly states that the existence of a $\delta$-interleaving indicates a $\delta$-matching between their persistence barcodes.
+Later work on the \emph{isometry theorem} showed that the converse is also true~\cite{todo}.
+Importantly, the isometry theorem established the relationship between interleavings of persistence and the \emph{bottleneck distance} between their barcodes, providing a computable metric on the space of persistence diagrams that is stable with respect to the Gromov-Hausdorff distance between spaces.
+
+Additional work has been done on persistence modules in general including multidimensional persistence~\cite{carlsson2009theory,carlsson2009computing,lesnick2015theory}, categorical interpretations~\cite{todo}, and \textbf{todo}.
+For persistent homology, this robust foundation allowed researchers to establish important inference and approximation results in the more general language of persistence modules.
+Among these is relevant work by Chazal et al. that proved stability results for the persistent homology of scalar-valued functions approximated by Vietoris-Rips complexes~\cite{chazal09analysis}.
+This work presented what we refer to as Topological Scalar Field Analysis (SFA).
+\emph{A fundamental observation that motivates the proposed work is that the TCC can be used not to confirm coverage in SFA, but that the computation in SFA overlaps with that of the TCC in a number of ways.
+However, a new stability proof is required in order to adapt the theory of SFA to the relative setting used in the TCC.}
+% This involves the introduction of partial interleavings of persistence modules that can be used with a generalization of the regularity assumptions made in the TCC.}
+% The goal is to approximate the persistent homology of a real valued function $f : D\to \R$.
+% The input is a sample of the function that covers its domain the domain at some scale $\delta > 0$.
+% A nested pair of simplicial complexes that captures the homology of the cover is then constructed on these points.
+% These complexes are sorted by the function values on its vertices to form a sequence of nested sub complexes known as a \emph{filtration}.
+% The standard reduction algorithm~\cite{edelsbrunner02simplification,zomorodian05computing} is then used to compute its persistent homology.
+% Stability results state that, because the vertices cover the domain at scale $\delta$, the corresponding persistence barcode is a $\delta$-approximation to that of the function itself~\cite{cohensteiner07stability,chazal09proximity}.
+
+% The primary assumption in SFA is that the sample covers the domain at some scale $\delta$.
+% The Peristent Nerve Theorem~\cite{chazal08towards} can then be used to show that the nested pair of simplicial captures the homology of the cover.
+% These nested pairs, which will be viewed as images of a map induced by inclusion, will be referred to as \emph{short filtrations}.
+% \emph{A fundamental observation that motivates this work is that the TCC can be used not to confirm coverage in SFA, but that the computation in SFA overlaps with that of the TCC in a number of ways.}
+% % This work showed that, given a sample $P$ of a scalar valued function that \emph{covers} the domain of the function at scale $\delta$, the persistent homology of a nested sequence of Rips complexes filtered by function values on its vertices is $\delta$-interleaved with that of the scalar field itself.
+% % Later work applied this theory to approximate the persistent homology of probability density function~\cite{chazal2013persistence}.
